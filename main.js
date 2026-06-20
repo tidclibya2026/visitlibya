@@ -1,15 +1,16 @@
-// Data for destinations
+// Data for destinations (updated with provided image paths)
 const DESTS = [
   {name:'طرابلس', img:'imges/tripoliMarcus Arch.jpg', type:'ساحلية', desc:'عاصمة نابضة بالحياة وميناء تاريخي.'},
-  {name:'بنغازي', img:'imges/oldtripoli.jpg', type:'ثقافية', desc:'مزيج من التاريخ والحداثة.'},
-  {name:'مصراتة', img:'imges/tripolinow2.jpg', type:'ساحلية', desc:'شواطئ ومجتمع تجاري قوي.'},
-  {name:'غدامس', img:'imges/Ghadames2.jpg', type:'أثرية', desc:'واحة تاريخية ومناظر تراثية.'},
-  {name:'لبدة الكبرى', img:'imges/Leptis Magna.jpg', type:'أثرية', desc:'موقع روماني قديم ذو أهمية عالمية.'},
-  {name:'صبراتة', img:'imges/Sabratha.jpg', type:'أثرية', desc:'مدرج روماني ساحر وميناء قديم.'},
-  {name:'شحات / قورينا', img:'imges/Cyrene.jpg', type:'أثرية', desc:'مواقع أثرية وتلة تاريخية.'},
-  {name:'أكاكوس', img:'imges/Acacus.jpg', type:'صحراوية', desc:'تكوينات صخرية ورسومات صخرية.'},
-  {name:'غات', img:'imges/landscapes.jpg', type:'صحراوية', desc:'واحات ومناظر رملية.'},
-  {name:'أوباري', img:'imges/Awjila.jpg', type:'صحراوية', desc:'بوابة إلى صحراء الوسط.'}
+  {name:'طرابلس - قديمة', img:'imges/oldtripoli.jpg', type:'ثقافية', desc:'الطرابلس التاريخية وأسواقها.'},
+  {name:'غدامس', img:'imges/Ghadames2.jpg', type:'أثرية', desc:'المدينة الواحة ذات الطابع المعماري الفريد.'},
+  {name:'أكاكوس', img:'imges/Acacus.jpg', type:'صحراوية', desc:'تكوينات حجرية ونقوش شديدة الجمال.'},
+  {name:'لبدة الكبرى', img:'imges/Leptis Magna.jpg', type:'أثرية', desc:'موقع روماني رائع ضمن التراث العالمي.'},
+  {name:'صبراتة', img:'imges/Sabratha.jpg', type:'أثرية', desc:'مسرح روماني وإطلالة بحرية تاريخية.'},
+  {name:'شحات / قورينا', img:'imges/Cyrene.jpg', type:'أثرية', desc:'مواقع أثرية على تلال تاريخية.'},
+  {name:'أوجلة', img:'imges/Awjila.jpg', type:'ثقافية', desc:'واحات وتقاليد بدوية.'},
+  {name:'الشواطئ', img:'imges/beaches.jpg', type:'بحرية', desc:'سواحل طويلة وشواطئ رملية.'},
+  {name:'الصحراء', img:'imges/The Sahara Desert.jpg', type:'صحراوية', desc:'مناظر واسعة وكثبان ذهبية.'},
+  {name:'البحيرات', img:'imges/natural lakes2.jpg', type:'طبيعية', desc:'بحيرات طبيعية ومناظر ساحرة.'}
 ];
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const open = mobileMenu.hidden;
     mobileMenu.hidden = !open;
     menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.classList.toggle('open', open);
   });
 
   // lang toggle (RTL/LTR demo)
@@ -60,6 +62,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     entries.forEach(ent=>{ if(ent.isIntersecting) ent.target.classList.add('revealed'); })
   },{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+  // sticky header: add .scrolled when past threshold
+  const header = document.getElementById('siteHeader');
+  function checkHeader(){ if(window.scrollY>40) header.classList.add('scrolled'); else header.classList.remove('scrolled'); }
+  checkHeader(); window.addEventListener('scroll', checkHeader);
 
   // accordion
   document.querySelectorAll('.acc-btn').forEach(btn=>{
@@ -91,12 +98,11 @@ document.addEventListener('DOMContentLoaded',()=>{
   openAiDemo.addEventListener('click',()=>{ toggleChat(true); chatInput.focus(); });
 
   const RESPONSES = {
-    'طرابلس':'طرابلس: العاصمة التاريخية مع شواطئ ومواقع أثرية وأسواق تقليدية.',
-    'تراث':'مواقع التراث العالمي في ليبيا تشمل لبدة وصبراتة وأكاكوس.',
-    'صحراء':'الصحراء الكبرى تمنحك رحلات رملية، تزلج على الكثبان، وتعرف على الواحات.',
-    'طعام':'المطبخ الليبي غني: كسكسي، بشش، خبز تقليدي، وأطباق بحرية.',
-    'فنادق':'تتوفر خيارات من الضيافة المحلية إلى فنادق في المدن الكبرى. تحقق من تقييمات المنصات.',
-    'رحلات':'تنظيم الرحلات يتم عبر منظمي رحلات محليين مع تراخيص وتجربة صحراوية.'
+    'طرابلس': 'اقتراح برنامج 3 أيام في طرابلس:\nاليوم 1: جولة في المدينة القديمة وأسواقها.\nاليوم 2: زيارة المتاحف والمواقع الساحلية.\nاليوم 3: رحلات يومية للمعالم المحيطة.',
+    'التراث': 'مواقع التراث العالمي في ليبيا:\n- لبدة الكبرى\n- صبراتة\n- شحات / قورينا\n- غدامس القديمة\n- أكاكوس',
+    'الصحراء': 'اقتراحات للصحراء: غدامس، أكاكوس، غات، أوباري — رحلات منظمة مع مرشدين محليين.',
+    'الطعام': 'أطباق تقليدية: الكسكس، البازين، العصبان، والشاي الليبي مع التمر.',
+    'الفنادق': 'سيتم ربط المنصة لاحقًا بمنظومة الإيواء السياحي لتوصيات الفنادق والحجوزات.'
   };
 
   function appendMessage(text,who='bot'){
@@ -105,11 +111,20 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   chatForm.addEventListener('submit',e=>{
     e.preventDefault(); const txt = chatInput.value.trim(); if(!txt) return; appendMessage(txt,'user'); chatInput.value='';
-    // simple keyword reply
     const ltxt = txt.toLowerCase();
     let found = false;
     Object.keys(RESPONSES).forEach(k=>{ if(ltxt.includes(k)){ found=true; setTimeout(()=>appendMessage(RESPONSES[k],'bot'),700); } });
-    if(!found) setTimeout(()=>appendMessage('مرحبًا! يمكنك السؤال عن: طرابلس، التراث العالمي، الصحراء، الطعام، الفنادق، الرحلات.', 'bot'),600);
+    if(!found) setTimeout(()=>appendMessage('مرحبًا! جرب كلمات مفتاحية مثل: طرابلس، التراث، الصحراء، الطعام، الفنادق.', 'bot'),600);
   });
+
+  // gallery: drag to scroll
+  const gallery = document.getElementById('galleryScroll');
+  if(gallery){
+    let isDown = false; let startX; let scrollLeft;
+    gallery.addEventListener('mousedown',(e)=>{ isDown=true; gallery.classList.add('dragging'); startX=e.pageX - gallery.offsetLeft; scrollLeft=gallery.scrollLeft; });
+    gallery.addEventListener('mouseleave',()=>{ isDown=false; gallery.classList.remove('dragging'); });
+    gallery.addEventListener('mouseup',()=>{ isDown=false; gallery.classList.remove('dragging'); });
+    gallery.addEventListener('mousemove',(e)=>{ if(!isDown) return; e.preventDefault(); const x=e.pageX - gallery.offsetLeft; const walk=(x-startX)*2; gallery.scrollLeft = scrollLeft - walk; });
+  }
 
 });
