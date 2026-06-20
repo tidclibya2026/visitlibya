@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Visit Libya | زور ليبيا</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="#hero" class="logo">Visit Libya <span class="arabic">زور ليبيا</span></a>
+      </div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <ul>
+          <li><a href="#hero" data-scroll>الرئيسية</a></li>
+          <li><a href="#about" data-scroll>عن ليبيا</a></li>
+          <li><a href="#destinations" data-scroll>الوجهات</a></li>
+          <li><a href="#heritage" data-scroll>التراث</a></li>
+          <li><a href="#experiences" data-scroll>التجارب</a></li>
+          <li><a href="#plan" data-scroll>خطط رحلتك</a></li>
+          <li><a href="#visitlibyaai" data-scroll>VisitLibyaAI</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <button id="langToggle" class="btn ghost">EN</button>
+        <button id="menuToggle" class="btn icon-btn" aria-expanded="false" aria-label="قائمة">☰</button>
+      </div>
+    </div>
+    <div id="mobileMenu" class="mobile-menu" hidden>
+      <ul>
+        <li><a href="#hero" data-scroll>الرئيسية</a></li>
+        <li><a href="#about" data-scroll>عن ليبيا</a></li>
+        <li><a href="#destinations" data-scroll>الوجهات</a></li>
+        <li><a href="#heritage" data-scroll>التراث</a></li>
+        <li><a href="#experiences" data-scroll>التجارب</a></li>
+        <li><a href="#plan" data-scroll>خطط رحلتك</a></li>
+        <li><a href="#visitlibyaai" data-scroll>VisitLibyaAI</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>زور ليبيا</h1>
+          <p class="lead">ليبيا أرض الحضارات وموطن السحر والجمال</p>
+          <p class="sub">من عبق التاريخ إلى مستقبل سياحي واعد</p>
+          <p class="desc">اكتشف أرضًا جمعت بين شواطئ المتوسط، وعمق الصحراء الكبرى، وروعة المدن القديمة، وكرم الإنسان الليبي.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#destinations" data-scroll>اكتشف الوجهات</a>
+            <a class="btn" href="#plan" data-scroll>خطط رحلتك</a>
+            <button class="btn outline" id="openAiDemo">اسأل دليل ليبيا الذكي</button>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="imges/Leptis Magna3.jpg" alt="لبدة الكبرى - لبدة الكبرى" onerror="this.style.display='none'; this.parentElement.classList.add('no-img')">
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container">
+        <h2>عن ليبيا</h2>
+        <p>ليبيا دولة في شمال أفريقيا، تتمتع بموقع استراتيجي على البحر الأبيض المتوسط، وتجمع بين التاريخ العريق والتنوع الطبيعي والثقافي، من المدن القديمة إلى الواحات والصحراء الكبرى.</p>
+      </div>
+    </section>
+
+    <section id="why" class="section why">
+      <div class="container">
+        <h2>لماذا ليبيا؟</h2>
+        <div class="cards grid">
+          <div class="card">حضارات متعاقبة</div>
+          <div class="card">خمسة مواقع تراث عالمي</div>
+          <div class="card">ساحل متوسطي طويل</div>
+          <div class="card">صحراء كبرى وواحات</div>
+          <div class="card">ثقافة الضيافة والكرم</div>
+          <div class="card">مطبخ ليبي أصيل</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="destinations" class="section destinations">
+      <div class="container">
+        <h2>الوجهات</h2>
+        <div class="grid dest-grid">
+          <!-- Destination cards will be injected by JS -->
+        </div>
+        <div id="destContainer" class="dest-container"></div>
+      </div>
+    </section>
+
+    <section id="heritage" class="section heritage">
+      <div class="container">
+        <h2>التراث العالمي</h2>
+        <div class="cards grid heritage-grid">
+          <div class="card">
+            <img src="imges/Leptis Magna.jpg" alt="لبدة الكبرى" onerror="this.style.display='none'">
+            <div class="card-title">لبدة الكبرى</div>
+          </div>
+          <div class="card">
+            <img src="imges/Sabratha.jpg" alt="صبراتة" onerror="this.style.display='none'">
+            <div class="card-title">صبراتة</div>
+          </div>
+          <div class="card">
+            <img src="imges/Cyrene.jpg" alt="شحات / قورينا" onerror="this.style.display='none'">
+            <div class="card-title">شحات / قورينا</div>
+          </div>
+          <div class="card">
+            <img src="imges/Ghadames1.jpg" alt="غدامس القديمة" onerror="this.style.display='none'">
+            <div class="card-title">غدامس القديمة</div>
+          </div>
+          <div class="card">
+            <img src="imges/Acacus.jpg" alt="أكاكوس" onerror="this.style.display='none'">
+            <div class="card-title">أكاكوس</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experiences" class="section experiences">
+      <div class="container">
+        <h2>التجارب</h2>
+        <div class="cards grid experiences-grid">
+          <div class="card">
+            <img src="imges/Hajj Palace.jpg" alt="السياحة الثقافية - قصر الحاج" onerror="this.style.display='none'">
+            <div class="card-title">السياحة الثقافية</div>
+          </div>
+          <div class="card">
+            <img src="imges/The Sahara Desert.jpg" alt="السياحة الصحراوية - الصحراء الكبرى" onerror="this.style.display='none'">
+            <div class="card-title">السياحة الصحراوية</div>
+          </div>
+          <div class="card">
+            <img src="imges/beaches.jpg" alt="السياحة البحرية - الشواطئ" onerror="this.style.display='none'">
+            <div class="card-title">السياحة البحرية</div>
+          </div>
+          <div class="card">
+            <img src="imges/traditional industries1.jpg" alt="المطبخ الليبي" onerror="this.style.display='none'">
+            <div class="card-title">المطبخ الليبي</div>
+          </div>
+          <div class="card">
+            <img src="imges/traditional industries.jpg" alt="الصناعات التقليدية" onerror="this.style.display='none'">
+            <div class="card-title">الصناعات التقليدية</div>
+          </div>
+          <div class="card">
+            <img src="imges/natural lakes1.jpg" alt="الفعاليات والمهرجانات" onerror="this.style.display='none'">
+            <div class="card-title">الفعاليات والمهرجانات</div>
+          </div>
+          <div class="card">
+            <img src="imges/landscapes.jpg" alt="الرحلات المنظمة" onerror="this.style.display='none'">
+            <div class="card-title">الرحلات المنظمة</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <h2>معرض صور مختصر</h2>
+        <div class="gallery-grid">
+          <img src="imges/Leptis Magna1.jpg" alt="لبدة الكبرى - معرض" onerror="this.style.display='none'">
+          <img src="imges/tripoliMarcus Arch.jpg" alt="طرابلس - معرض" onerror="this.style.display='none'">
+          <img src="imges/Ghadames2.jpg" alt="غدامس - معرض" onerror="this.style.display='none'">
+          <img src="imges/Acacus2.jpg" alt="أكاكوس - معرض" onerror="this.style.display='none'">
+          <img src="imges/Sabratha1.jpg" alt="صبراتة - معرض" onerror="this.style.display='none'">
+          <img src="imges/Cyrene.jpg" alt="شحات - معرض" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </section>
+
+    <section id="plan" class="section plan">
+      <div class="container">
+        <h2>خطط رحلتك</h2>
+        <div class="accordion">
+          <div class="item"><button class="acc-btn">التأشيرات والدخول</button><div class="acc-panel">معلومات عن التأشيرات وأنظمة الدخول.</div></div>
+          <div class="item"><button class="acc-btn">الوصول إلى ليبيا</button><div class="acc-panel">خيارات السفر الجوي والبحري والبرّي.</div></div>
+          <div class="item"><button class="acc-btn">التنقل</button><div class="acc-panel">وسائل النقل المحلية والنصائح.</div></div>
+          <div class="item"><button class="acc-btn">الإقامة</button><div class="acc-panel">خيارات الفنادق والضيافة المحلية.</div></div>
+          <div class="item"><button class="acc-btn">منظمو الرحلات</button><div class="acc-panel">معلومات عن منظمي الرحلات المعتمدين.</div></div>
+          <div class="item"><button class="acc-btn">المرشدون السياحيون</button><div class="acc-panel">كيفية التواصل مع مرشدين محليين محترفين.</div></div>
+          <div class="item"><button class="acc-btn">نصائح السفر</button><div class="acc-panel">نصائح السلامة، الطقس، والاحتياجات الصحية.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="visitlibyaai" class="section ai">
+      <div class="container">
+        <h2>VisitLibyaAI</h2>
+        <p class="lead">دليلك الذكي لاكتشاف ليبيا</p>
+        <div class="ai-demo">
+          <div id="chatWindow" class="chat-window">
+            <div id="chatLog" class="chat-log"></div>
+            <form id="chatForm" class="chat-form">
+              <input id="chatInput" placeholder="اكتب سؤالك... (مثال: طرابلس، التراث العالمي، الصحراء)" />
+              <button type="submit" class="btn">أرسل</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <h3>Visit Libya | زور ليبيا</h3>
+        <p>تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p>
+      </div>
+      <div>
+        <h4>روابط مهمة</h4>
+        <ul>
+          <li><a href="#about" data-scroll>عن ليبيا</a></li>
+          <li><a href="#destinations" data-scroll>الوجهات</a></li>
+          <li><a href="#visitlibyaai" data-scroll>VisitLibyaAI</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>تواصل</h4>
+        <p>info@visitlibya.example</p>
+      </div>
+    </div>
+  </footer>
+
+  <button id="aiFloat" class="ai-float" title="اسأل دليل ليبيا الذكي">💬</button>
+
+  <script src="main.js"></script>
+</body>
+</html>
