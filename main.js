@@ -2,16 +2,24 @@
   const siteHeader = document.getElementById("siteHeader");
   const menuToggle = document.getElementById("menuToggle");
   const mobileNav = document.getElementById("mobileNav");
-  const langToggle = document.getElementById("langToggle");
   const openAiDemo = document.getElementById("openAiDemo");
+  const askGuide = document.getElementById("askGuide");
   const aiFloat = document.getElementById("aiFloat");
-  const chatWindow = document.getElementById("chatWindow");
+  const chatBox = document.getElementById("chatBox");
   const chatLog = document.getElementById("chatLog");
   const chatForm = document.getElementById("chatForm");
   const chatInput = document.getElementById("chatInput");
   const scrollLinks = document.querySelectorAll("[data-scroll]");
   const accordionButtons = document.querySelectorAll(".accordion-button");
   const galleryScroll = document.getElementById("galleryScroll");
+  const heroSection = document.getElementById("home");
+  const heroBackgrounds = [
+    "imges/Leptis Magna3.jpeg",
+    "imges/Acacus.jpg",
+    "imges/beaches.jpg",
+    "imges/Ghadames2.JPG"
+  ];
+  let heroIndex = 0;
 
   function setHeaderState() {
     if (window.scrollY > 30) {
@@ -21,8 +29,14 @@
     }
   }
 
+  function updateHeroBackground() {
+    heroIndex = (heroIndex + 1) % heroBackgrounds.length;
+    heroSection.style.backgroundImage = `linear-gradient(135deg, rgba(4, 54, 77, 0.86), rgba(7, 87, 123, 0.72)), url(${heroBackgrounds[heroIndex]})`;
+  }
+
   setHeaderState();
   window.addEventListener("scroll", setHeaderState);
+  setInterval(updateHeroBackground, 5000);
 
   if (menuToggle && mobileNav) {
     menuToggle.addEventListener("click", () => {
@@ -49,80 +63,74 @@
     });
   });
 
-  if (langToggle) {
-    langToggle.addEventListener("click", () => {
-      const html = document.documentElement;
-      if (html.getAttribute("dir") === "rtl") {
-        html.setAttribute("dir", "ltr");
-        html.setAttribute("lang", "en");
-        langToggle.textContent = "AR";
-      } else {
-        html.setAttribute("dir", "rtl");
-        html.setAttribute("lang", "ar");
-        langToggle.textContent = "EN";
+  if (askGuide) {
+    askGuide.addEventListener("click", () => {
+      const chatSection = document.getElementById("visitlibyaai");
+      if (chatSection) {
+        chatSection.scrollIntoView({ behavior: "smooth", block: "center" });
       }
+    });
+  }
+
+  if (openAiDemo && chatBox) {
+    openAiDemo.addEventListener("click", () => {
+      chatBox.scrollIntoView({ behavior: "smooth", block: "center" });
+      chatInput.focus();
+    });
+  }
+
+  if (aiFloat && chatBox) {
+    aiFloat.addEventListener("click", () => {
+      chatBox.scrollIntoView({ behavior: "smooth", block: "center" });
+      chatInput.focus();
     });
   }
 
   accordionButtons.forEach((button) => {
     const panel = button.nextElementSibling;
     button.addEventListener("click", () => {
-      button.classList.toggle("active");
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
-      } else {
-        panel.style.display = "block";
-      }
+      const isOpen = panel.classList.toggle("open");
+      button.classList.toggle("active", isOpen);
     });
   });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-        }
-      });
-    },
-    { threshold: 0.12 }
-  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  }, { threshold: 0.15 });
 
   document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
+  const RESPONSES = {
+    "طرابلس": "طرابلس تقدم مزيجاً فاخراً بين البحر والأسواق التاريخية والهوية العصرية. يمكنك أن تبدأ زيارتك من المدينة القديمة وسوق القورف.",
+    "التراث": "التراث الليبي يظهر في لبدة الكبرى وصبراتة وغدامس وأكاكوس، حيث تمتزج الحضارات المتوسطية مع الثقافة الصحراوية.",
+    "الصحراء": "الصحراء الكبرى توفر مغامرات الكثبان ورحلات الواحات ونقوش أكاكوس القديمة التي تحكي قصة الإنسان والصحراء.",
+    "الطعام": "المطبخ الليبي غني بالكسكسي والبازين والعصبان والتمور، وهو تجربة ضيافة متكاملة مع كل رحلة.",
+    "الفنادق": "اختَر بين فنادق راقية في طرابلس وإقامات تقليدية في الواحات والمخيمات الصحراوية لتجربة مميزة.",
+    "التأشيرات": "يمكنك التحقق من متطلبات التأشيرة من القنصليات أو من منظمي الرحلات المحليين قبل السفر.",
+    "الفعاليات": "يتضمن الموسم السياحي مهرجانات هون وغات وأوجلة وجرمة وأحداث فروسية وصحراوية تعكس الثقافة الليبية.",
+    "برنامج 7 أيام": "اقترحنا رحلة تبدأ في طرابلس، ثم لبدة، صبراتة، غدامس، الجبل الأخضر، أكاكوس أو أوجلة، وختاماً الأسواق والمطبخ المحلي.",
+    "الوجهات": "طرابلس، غدامس، لبدة الكبرى، صبراتة، شحات، أكاكوس، أوجلة، الشواطئ، البحيرات الطبيعية، والصحراء الكبرى تشكل خارطة جميلة لليبيا.",
+  };
+
   function appendMessage(text, type = "bot") {
     const message = document.createElement("div");
-    message.className = `chat-message ${type}`;
+    message.className = `msg ${type}`;
     message.textContent = text;
     chatLog.appendChild(message);
     chatLog.scrollTop = chatLog.scrollHeight;
   }
 
-  const RESPONSES = {
-    "طرابلس": "طرابلس هي العاصمة البحرية الغنية بالأسواق التقليدية والمواقع التاريخية، ويمكنك تنظيم جولة في المدينة القديمة والميناء القديم.",
-    "التراث": "التراث الليبي يظهر في صبراتة، لبدة الكبرى، شحات / قورينا، غدامس القديمة، وأكاكوس، حيث تتلاقى الحضارات القديمة مع الطبيعة.",
-    "الصحراء": "الصحراء الكبرى في ليبيا تقدم رحلات الكثبان الرملية والواحات الصامتة، مع تجارب قيادة السيارات الرباعية وزيارات نقوش أكاكوس.",
-    "الطعام": "المطبخ الليبي غني بالأطباق التقليدية مثل الكسكسي، البازين، العصبان، والتمور، إلى جانب القهوة والشاي المحلي.",
-    "الفنادق": "يمكنك اختيار فنادق راقية في طرابلس أو بنغازي، أو التجربة البسيطة في واحات الأوجلة وغدامس خلال الرحلات الصحراوية.",
-    "الرحلات": "ابدأ بتقسيم زيارتك بين المدن الساحلية، المواقع التراثية، والرحلات الصحراوية لتستفيد من تنوع ليبيا بالكامل.",
-    "التأشيرات": "يختلف نظام التأشيرة حسب الجنسية، لذا تأكد من الاطلاع على المتطلبات الرسمية قبل السفر عبر مواقع السفارات القريبة.",
-    "الفعاليات": "تابع الفعاليات المحلية مثل مهرجانات هون وغات، أوجلة، جرمة، وتساوة للاستمتاع بالثقافة والترفيه.",
-    "الوجهات": "طرابلس، غدامس، لبدة الكبرى، صبراتة، شحات، أكاكوس، أوجلة، شواطئ ليبيا، البحيرات الطبيعية، والصحراء الكبرى هي أبرز الوجهات.",
-    "التراث العالمي": "مواقع التراث العالمي الخمسة في ليبيا بنيت على تراث متنوع يجمع بين الروماني والإغريقي والصحراوي الأصيل.",
-  };
-
-  if (openAiDemo && chatWindow) {
-    openAiDemo.addEventListener("click", () => {
-      chatWindow.scrollIntoView({ behavior: "smooth", block: "center" });
-      chatInput.focus();
+  const quickButtons = document.querySelectorAll(".quick-prompts button");
+  quickButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      chatInput.value = button.dataset.suggest;
+      chatForm.dispatchEvent(new Event("submit", { cancelable: true, bubbles: true }));
     });
-  }
-
-  if (aiFloat && chatWindow) {
-    aiFloat.addEventListener("click", () => {
-      chatWindow.scrollIntoView({ behavior: "smooth", block: "center" });
-      chatInput.focus();
-    });
-  }
+  });
 
   if (chatForm) {
     chatForm.addEventListener("submit", (event) => {
@@ -137,9 +145,9 @@
         if (key) {
           appendMessage(RESPONSES[key], "bot");
         } else {
-          appendMessage("مرحبًا! جرب كلمات مفتاحية مثل: طرابلس، التراث، الصحراء، الطعام، الفنادق، الرحلات، التأشيرات، الفعاليات.", "bot");
+          appendMessage("مرحبًا! اسأل عن طرابلس، التراث، الصحراء، الطعام، الفنادق، التأشيرات، الفعاليات، أو برنامج 7 أيام.", "bot");
         }
-      }, 600);
+      }, 700);
     });
   }
 
@@ -169,15 +177,8 @@
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - galleryScroll.offsetLeft;
-      const walk = (x - startX) * 2;
+      const walk = (x - startX) * 1.8;
       galleryScroll.scrollLeft = scrollLeft - walk;
     });
   }
-
-  document.body.addEventListener("click", (event) => {
-    if (event.target.matches(".dest-card .btn-card")) {
-      const section = document.getElementById("destinations");
-      if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
 });
