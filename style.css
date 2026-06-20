@@ -23,9 +23,18 @@ html,body{height:100%;margin:0;font-family:Cairo, Inter, system-ui, -apple-syste
 .logo{font-weight:700;color:var(--deep-blue);text-decoration:none;display:flex;align-items:center;gap:0.5rem}
 .logo .logo-mark{background:var(--sand-gold);color:var(--deep-blue);padding:0.25rem 0.45rem;border-radius:6px;font-weight:700}
 .logo .arabic{display:block;font-weight:600;color:var(--sea-blue);font-size:0.95rem}
-.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem}
-.main-nav a{color:var(--text-dark);text-decoration:none;padding:0.5rem 0.35rem;border-radius:6px}
+.main-nav ul{list-style:none;margin:0;padding:0;display:flex;gap:1rem;align-items:center}
+.main-nav a{color:var(--text-dark);text-decoration:none;padding:0.45rem 0.6rem;border-radius:8px;font-weight:600}
 .main-nav a:hover{background:var(--soft-gold);color:var(--deep-blue)}
+
+/* dropdowns */
+.nav-list .has-sub{position:relative}
+.nav-list .sub-toggle{background:transparent;border:0;padding:0.45rem 0.6rem;border-radius:8px;cursor:pointer;font-weight:700;color:var(--text-dark)}
+.nav-list .sub-toggle:focus{outline:2px solid rgba(7,87,123,0.12)}
+.nav-list .sub-menu{position:absolute;right:0;top:calc(100% + 8px);background:var(--white);border:1px solid var(--line);padding:0.5rem;border-radius:10px;min-width:220px;box-shadow:0 10px 30px rgba(3,10,18,0.08);display:none}
+.nav-list .sub-menu li{padding:0}
+.nav-list .sub-menu a{display:block;padding:0.45rem 0.75rem;color:var(--text-dark)}
+.nav-list .has-sub.open .sub-menu{display:block}
 .actions{display:flex;gap:0.5rem;align-items:center}
 .btn{background:var(--white);border:1px solid rgba(3,10,18,0.06);padding:0.5rem 0.75rem;border-radius:8px;cursor:pointer}
 .btn.primary{background:var(--sea-blue);color:var(--white);border-color:rgba(3,10,18,0.06)}
@@ -36,6 +45,10 @@ html,body{height:100%;margin:0;font-family:Cairo, Inter, system-ui, -apple-syste
 .mobile-menu{background:var(--white);border-top:1px solid rgba(3,10,18,0.04);padding:0.75rem}
 .mobile-menu ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0.5rem}
 .mobile-menu a{color:var(--text-dark);text-decoration:none}
+.mobile-menu details{padding:0.25rem 0}
+.mobile-menu summary{font-weight:700;cursor:pointer}
+
+.muted{color:var(--muted)}
 
 .hero{padding:120px 0 2.5rem;min-height:520px;background-size:cover;background-position:center;position:relative}
 .hero .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,54,77,0.45),rgba(4,54,77,0.15));mix-blend-mode:multiply}

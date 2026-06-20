@@ -1,16 +1,16 @@
 // Data for destinations (updated with provided image paths)
 const DESTS = [
   {name:'طرابلس', img:'imges/tripoliMarcus Arch.jpg', type:'ساحلية', desc:'عاصمة نابضة بالحياة وميناء تاريخي.'},
-  {name:'طرابلس - قديمة', img:'imges/oldtripoli.jpg', type:'ثقافية', desc:'الطرابلس التاريخية وأسواقها.'},
+  {name:'بنغازي', img:'imges/tripolinow2.jpg', type:'ثقافية', desc:'مركز حضري وتاريخي على الساحل الشرقي.'},
+  {name:'مصراتة', img:'imges/oldtripoli.jpg', type:'ساحلية', desc:'مدينة تجارية وساحلية بحياة محلية نشطة.'},
   {name:'غدامس', img:'imges/Ghadames2.jpg', type:'أثرية', desc:'المدينة الواحة ذات الطابع المعماري الفريد.'},
-  {name:'أكاكوس', img:'imges/Acacus.jpg', type:'صحراوية', desc:'تكوينات حجرية ونقوش شديدة الجمال.'},
+  {name:'شحات / قورينا', img:'imges/Cyrene.jpg', type:'أثرية', desc:'مواقع أثرية على تلال تاريخية.'},
   {name:'لبدة الكبرى', img:'imges/Leptis Magna.jpg', type:'أثرية', desc:'موقع روماني رائع ضمن التراث العالمي.'},
   {name:'صبراتة', img:'imges/Sabratha.jpg', type:'أثرية', desc:'مسرح روماني وإطلالة بحرية تاريخية.'},
-  {name:'شحات / قورينا', img:'imges/Cyrene.jpg', type:'أثرية', desc:'مواقع أثرية على تلال تاريخية.'},
+  {name:'أكاكوس', img:'imges/Acacus1.jpg', type:'صحراوية', desc:'تكوينات حجرية ونقوش شديدة الجمال.'},
   {name:'أوجلة', img:'imges/Awjila.jpg', type:'ثقافية', desc:'واحات وتقاليد بدوية.'},
-  {name:'الشواطئ', img:'imges/beaches.jpg', type:'بحرية', desc:'سواحل طويلة وشواطئ رملية.'},
-  {name:'الصحراء', img:'imges/The Sahara Desert.jpg', type:'صحراوية', desc:'مناظر واسعة وكثبان ذهبية.'},
-  {name:'البحيرات', img:'imges/natural lakes2.jpg', type:'طبيعية', desc:'بحيرات طبيعية ومناظر ساحرة.'}
+  {name:'غات', img:'imges/landscapes.jpg', type:'صحراوية', desc:'بوابة نحو رحلات صحراوية ومشاهد رملية.'},
+  {name:'أوباري', img:'imges/Acacus2.jpg', type:'صحراوية', desc:'منطقة صحراوية ذات معالم طبيعية.'}
 ];
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -47,6 +47,20 @@ document.addEventListener('DOMContentLoaded',()=>{
     if(html.getAttribute('dir')==='rtl'){
       html.setAttribute('dir','ltr'); html.setAttribute('lang','en'); langToggle.textContent='AR';
     } else { html.setAttribute('dir','rtl'); html.setAttribute('lang','ar'); langToggle.textContent='EN'; }
+  });
+
+  // desktop submenu toggles
+  document.querySelectorAll('.sub-toggle').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const li = btn.parentElement;
+      li.classList.toggle('open');
+    });
+  });
+  // close submenus when clicking outside
+  document.addEventListener('click',(e)=>{
+    document.querySelectorAll('.nav-list .has-sub.open').forEach(openLi=>{
+      if(!openLi.contains(e.target)) openLi.classList.remove('open');
+    });
   });
 
   // smooth scroll
@@ -104,6 +118,17 @@ document.addEventListener('DOMContentLoaded',()=>{
     'الطعام': 'أطباق تقليدية: الكسكس، البازين، العصبان، والشاي الليبي مع التمر.',
     'الفنادق': 'سيتم ربط المنصة لاحقًا بمنظومة الإيواء السياحي لتوصيات الفنادق والحجوزات.'
   };
+  // extend responses
+  RESPONSES['نبذة عن ليبيا'] = 'ليبيا دولة في شمال أفريقيا، تمتاز بتاريخ عريق وسواحل على البحر المتوسط، وصحراء واسعة ومواقع أثرية مهمة.';
+  RESPONSES['التاريخ'] = 'ليبيا احتضنت حضارات متعددة: الفينيقيون، الإغريق، الرومان، والإسلام، مما أثرى التراث المعماري والثقافي.';
+  RESPONSES['العادات'] = 'الضيافة والكرم جزء من الثقافة الليبية، مع عادات تختلف بين المناطق الساحلية والصحراوية.';
+  RESPONSES['المطبخ'] = 'المطبخ الليبي متنوع: كسكسي، بَازين، العصبان، أطباق بحرية، وحلويات محلية.';
+  RESPONSES['التراث العالمي'] = RESPONSES['التراث'];
+  RESPONSES['الوجهات'] = 'تتوفر وجهات متنوعة: طرابلس، بنغازي، مصراتة، غدامس، شحات، لبدة، صبراتة، أكاكوس، أغوالة، غات، أوباري.';
+  RESPONSES['خطط رحلتك'] = 'ابدأ بتحديد مدة الإقامة، الاهتمامات، ثم اختر برنامجًا يغطي المدن الأثرية والشواطئ والصحراء.';
+  RESPONSES['الفعاليات'] = 'تابع جدول الفعاليات المحلية مثل مهرجانات هون وغات ومهرجان أوجلة للاستمتاع بتجارب محلية.';
+  RESPONSES['التأشيرات'] = 'تختلف متطلبات التأشيرة حسب الجنسية؛ يُنصح بالرجوع للسفارات والجهات الرسمية قبل السفر.';
+  RESPONSES['التنقل'] = 'التنقل بين المدن عبر خطوط جوية محلية، حافلات، واستئجار سيارات، مع توفر رحلات منظمة للصحارى.';
 
   function appendMessage(text,who='bot'){
     const el = document.createElement('div'); el.className = 'msg '+(who==='user'?'user':'bot'); el.textContent = text; chatLog.appendChild(el); chatLog.scrollTop = chatLog.scrollHeight;
