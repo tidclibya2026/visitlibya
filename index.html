@@ -1,582 +1,581 @@
 ﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visit Libya | زور ليبيا</title>
-  <meta name="description" content="Visit Libya | زور ليبيا - منصة ترويج سياحي وطنية لليبيا تجمع البحر والصحراء والتراث والثقافة." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Visit Libya is the gateway to heritage, hospitality, coastal journeys, desert routes, and world-class cultural tourism.">
+  <link rel="stylesheet" href="style.css?v=hero-final-02">
 </head>
 <body>
-  <header class="site-header" id="siteHeader">
-    <div class="container header-inner">
-      <a href="#home" class="brand">
-        <img src="visitlibyalogo.png" alt="Visit Libya Logo" class="brand-logo" />
-        <div class="brand-copy">
+  <header class="site-header" id="site-header">
+    <nav class="nav-shell" aria-label="Primary navigation">
+      <a class="brand" href="#home" aria-label="Visit Libya home">
+        <span class="brand-logo">
+          <img src="visitlibyalogo.png" alt="Visit Libya logo" data-logo-fallback>
+        </span>
+        <span class="brand-copy">
           <strong>Visit Libya</strong>
-          <span>زور ليبيا</span>
-        </div>
+          <small>زور ليبيا</small>
+        </span>
       </a>
 
-      <nav class="main-nav" id="mainNav">
-        <a href="#home" data-scroll>الرئيسية</a>
-        <a href="#why" data-scroll>لماذا ليبيا</a>
-        <a href="#experience" data-scroll>التجربة</a>
-        <a href="#destinations" data-scroll>الوجهات</a>
-        <a href="#heritage" data-scroll>التراث</a>
-        <a href="#routes" data-scroll>اختيار المسار</a>
-        <a href="#culture" data-scroll>الثقافة</a>
-        <a href="#plan" data-scroll>خطط رحلتك</a>
-      </nav>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-      <div class="header-actions">
-        <button class="btn btn-ghost" id="askGuide">اسأل دليل ليبيا الذكي</button>
-        <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة">☰</button>
+      <div class="nav-links" id="primary-menu">
+        <a href="#why-libya">Why Libya</a>
+        <a href="#experiences">Experiences</a>
+        <a href="#destinations">Destinations</a>
+        <a href="#heritage">Heritage</a>
+        <a href="#routes">Routes</a>
+        <a href="#ai">VisitLibyaAI</a>
       </div>
-    </div>
 
-    <nav class="mobile-nav" id="mobileNav" hidden>
-      <a href="#home" data-scroll>الرئيسية</a>
-      <a href="#why" data-scroll>لماذا ليبيا</a>
-      <a href="#experience" data-scroll>التجربة</a>
-      <a href="#destinations" data-scroll>الوجهات</a>
-      <a href="#heritage" data-scroll>التراث</a>
-      <a href="#routes" data-scroll>اختيار المسار</a>
-      <a href="#culture" data-scroll>الثقافة</a>
-      <a href="#plan" data-scroll>خطط رحلتك</a>
-      <a href="#visitlibyaai" data-scroll>VisitLibyaAI</a>
+      <a class="nav-cta" href="#plan">ابدأ رحلتك</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="home">
-      <div class="hero-overlay"></div>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-overlay" aria-hidden="true"></div>
+
       <div class="container hero-grid">
-        <div class="hero-copy reveal">
-          <div class="hero-brand">
-            <img src="visitlibyalogo.png" alt="Visit Libya Logo" />
-            <div>
-              <span class="hero-caption">Visit Libya — A Journey Through Time</span>
-            </div>
-          </div>
-          <h1>زور ليبيا</h1>
+        <div class="hero-copy">
+          <a class="hero-brand" href="#why-libya" aria-label="Visit Libya">
+            <img src="visitlibyalogo.png" alt="Visit Libya official logo" data-logo-fallback>
+          </a>
+          <p class="hero-caption">Visit Libya — A Journey Through Time</p>
+          <h1 id="hero-title">زور ليبيا</h1>
           <p class="hero-title">ليبيا أرض الحضارات وموطن السحر والجمال</p>
-          <p class="hero-text">اكتشف أرضًا جمعت بين شواطئ المتوسط، وعمق الصحراء الكبرى، وروعة المدن القديمة، وكرم الإنسان الليبي.</p>
-          <div class="hero-actions">
-            <a href="#destinations" class="btn btn-primary" data-scroll>اكتشف الوجهات</a>
-            <a href="#plan" class="btn btn-secondary" data-scroll>خطط رحلتك</a>
-            <button class="btn btn-outline" id="openAiDemo">اسأل دليل ليبيا الذكي</button>
+          <p class="hero-subtitle">بوابة التراث والضيافة</p>
+          <div class="hero-actions" aria-label="Hero actions">
+            <a class="btn btn-primary" href="#destinations">اكتشف الوجهات</a>
+            <a class="btn btn-secondary" href="#plan">خطط رحلتك</a>
           </div>
-          <div class="hero-stats">
-            <div class="stat-item">
+
+          <div class="hero-stats" aria-label="Libya tourism highlights">
+            <article class="stat-item">
               <strong>5</strong>
               <span>مواقع تراث عالمي</span>
+            </article>
+            <article class="stat-item">
+              <strong>1,770</strong>
+              <span>كم من الساحل المتوسطي</span>
+            </article>
+            <article class="stat-item">
+              <strong>صحراء</strong>
+              <span>وواحات</span>
+            </article>
+            <article class="stat-item">
+              <strong>ثقافة</strong>
+              <span>وضيافة</span>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="why section-block" id="why-libya" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-kicker">Why Libya</div>
+        <div class="section-heading">
+          <h2 id="why-title">أسباب تجعل ليبيا وجهة استثنائية</h2>
+          <p>
+            تجمع ليبيا بين عمق الحضارات المتوسطية، وكرم الضيافة، واتساع الصحراء، وسواحل نقية تمنح الزائر تجربة متوازنة وراقية.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <span class="why-number">01</span>
+            <h3>حضارات متعاقبة</h3>
+            <p>مدن أثرية كبرى، مسارح رومانية، أسواق تاريخية، وشواهد تحكي رحلة ليبيا عبر آلاف السنين.</p>
+          </article>
+          <article class="why-card reveal">
+            <span class="why-number">02</span>
+            <h3>ضيافة أصيلة</h3>
+            <p>تجربة إنسانية دافئة تستند إلى العادات الليبية في الترحيب، المشاركة، واحترام الزائر.</p>
+          </article>
+          <article class="why-card reveal">
+            <span class="why-number">03</span>
+            <h3>تنوع طبيعي</h3>
+            <p>بحر، جبال، واحات، بحيرات، وصحراء كبرى تمنح كل رحلة إيقاعها الخاص.</p>
+          </article>
+          <article class="why-card reveal">
+            <span class="why-number">04</span>
+            <h3>مستقبل سياحي ذكي</h3>
+            <p>منصة رقمية تساعد الزائر على اكتشاف الوجهات وبناء مسارات واضحة بثقة وسلاسة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="experiences section-block has-soft-wave" id="experiences" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-kicker">Explore by Experience</div>
+        <div class="section-heading">
+          <h2 id="experience-title">اختر تجربتك في ليبيا</h2>
+          <p>من زيارة المدن التاريخية إلى رحلات الصحراء والبحر، صممت التجارب لتناسب الباحثين عن الأصالة والهدوء والاكتشاف.</p>
+        </div>
+
+        <div class="experience-grid">
+          <article class="experience-card reveal">
+            <img src="imges/Leptis Magna.jpg" alt="Leptis Magna ruins" loading="lazy">
+            <div>
+              <span>Heritage</span>
+              <h3>المدن الأثرية</h3>
+              <p>رحلات منظمة إلى لبدة، صبراتة، وشحات عبر مسارات ثقافية غنية.</p>
             </div>
-            <div class="stat-item">
-              <strong>1,770 كم</strong>
-              <span>من الساحل المتوسطي</span>
+          </article>
+          <article class="experience-card reveal">
+            <img src="imges/beaches.jpg" alt="Libyan beaches" loading="lazy">
+            <div>
+              <span>Coast</span>
+              <h3>الساحل الليبي</h3>
+              <p>شواطئ واسعة ومياه متوسطية صافية وتجارب هادئة على امتداد البحر.</p>
             </div>
-            <div class="stat-item">
-              <strong>صحراء وواحات</strong>
-              <span>الطبيعة المتناقضة</span>
+          </article>
+          <article class="experience-card reveal">
+            <img src="imges/Acacus.jpg" alt="Acacus desert" loading="lazy">
+            <div>
+              <span>Desert</span>
+              <h3>الصحراء الكبرى</h3>
+              <p>كثبان، نقوش صخرية، ومشاهد طبيعية تحمل هيبة الصحراء وروح المغامرة.</p>
             </div>
-            <div class="stat-item">
-              <strong>مدن أثرية</strong>
-              <span>أطلال عريقة</span>
+          </article>
+          <article class="experience-card reveal">
+            <img src="imges/natural lakes2.JPG" alt="Natural lakes in Libya" loading="lazy">
+            <div>
+              <span>Oases</span>
+              <h3>الواحات والبحيرات</h3>
+              <p>واحات هادئة وبحيرات طبيعية تمنح الرحلة توازنًا بين صفاء الماء وسكينة الصحراء.</p>
             </div>
-            <div class="stat-item">
-              <strong>ثقافة وضيافة</strong>
-              <span>روح ليبيا الحقيقية</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="destinations section-block" id="destinations" aria-labelledby="destinations-title">
+      <div class="container">
+        <div class="section-kicker">Destinations</div>
+        <div class="section-heading">
+          <h2 id="destinations-title">وجهات ليبيا الأبرز</h2>
+          <p>بطاقات وجهات مصممة لتقديم ليبيا كخريطة سياحية متكاملة تجمع المدن، الآثار، البحر، الصحراء، والواحات.</p>
+        </div>
+
+        <div class="destination-grid">
+          <article class="destination-card reveal">
+            <img src="imges/tripoliMarcus Arch.JPG" alt="Tripoli Marcus Aurelius Arch" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">Capital Gateway</span>
+              <h3>طرابلس</h3>
+              <p>مدينة المتوسط النابضة، تجمع الأسواق القديمة، المعالم الرومانية، والضيافة الحضرية.</p>
+            </div>
+          </article>
+          <article class="destination-card reveal">
+            <img src="imges/Ghadames2.JPG" alt="Ghadames old city" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">Desert Jewel</span>
+              <h3>غدامس</h3>
+              <p>مدينة واحة ذات عمارة فريدة، أزقة باردة، وذاكرة صحراوية عريقة.</p>
+            </div>
+          </article>
+          <article class="destination-card reveal">
+            <img src="imges/Leptis Magna.jpg" alt="Leptis Magna" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">UNESCO</span>
+              <h3>لبدة الكبرى</h3>
+              <p>إحدى أعظم المدن الرومانية المحفوظة على المتوسط ومشهد معماري عالمي.</p>
+            </div>
+          </article>
+          <article class="destination-card reveal">
+            <img src="imges/Sabratha.jpg" alt="Sabratha theatre" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">Mediterranean Stage</span>
+              <h3>صبراتة</h3>
+              <p>مسرح أثري مطل على البحر ومدينة تاريخية تمنح الزائر لقاءً نادرًا بين الفن والساحل.</p>
+            </div>
+          </article>
+          <article class="destination-card reveal">
+            <img src="imges/Cyrene.jpg" alt="Cyrene ruins" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">Green Mountain</span>
+              <h3>شحات / قورينا</h3>
+              <p>إرث إغريقي وروماني في أحضان الجبل الأخضر ومشهد ثقافي متفرد.</p>
+            </div>
+          </article>
+          <article class="destination-card reveal">
+            <img src="imges/Acacus.jpg" alt="Acacus mountains" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">Rock Art</span>
+              <h3>أكاكوس</h3>
+              <p>جبال ونقوش صخرية تسجل ذاكرة الإنسان والطبيعة في قلب الصحراء.</p>
+            </div>
+          </article>
+          <article class="destination-card reveal">
+            <img src="imges/Awjila.jpg" alt="Awjila oasis" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">Oasis Heritage</span>
+              <h3>أوجلة</h3>
+              <p>واحة تاريخية ومساجد طينية وعمارة محلية تعكس جمال الاستقرار الصحراوي.</p>
+            </div>
+          </article>
+          <article class="destination-card reveal">
+            <img src="imges/beaches.jpg" alt="Libyan beaches" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">Blue Coast</span>
+              <h3>الشواطئ الليبية</h3>
+              <p>امتداد بحري صاف يصلح للراحة، التصوير، والرحلات الساحلية الهادئة.</p>
+            </div>
+          </article>
+          <article class="destination-card reveal">
+            <img src="imges/natural lakes2.JPG" alt="Natural lakes" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">Natural Escape</span>
+              <h3>البحيرات الطبيعية</h3>
+              <p>مشاهد مائية وسط الطبيعة تمنح المسافر مساحة للتأمل والاسترخاء.</p>
+            </div>
+          </article>
+          <article class="destination-card reveal">
+            <img src="imges/The Sahara Desert.jpg" alt="The Sahara Desert" loading="lazy">
+            <div class="destination-content">
+              <span class="tag">Grand Sahara</span>
+              <h3>الصحراء الكبرى</h3>
+              <p>رحلات نجوم وكثبان ومسارات تمنح الزائر صورة ليبيا الرحبة والمهيبة.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="heritage section-block section-ornament" id="heritage" aria-labelledby="heritage-title">
+      <div class="container">
+        <div class="section-kicker">World Heritage</div>
+        <div class="section-heading">
+          <h2 id="heritage-title">التراث العالمي في ليبيا</h2>
+          <p>مواقع عالمية القيمة تشكل أساسًا قويًا لسياحة ثقافية عالية الجودة، من المدن الكلاسيكية إلى فنون الصحراء القديمة.</p>
+        </div>
+
+        <div class="heritage-timeline">
+          <article class="heritage-item reveal">
+            <img src="imges/Leptis Magna.jpg" alt="Leptis Magna" loading="lazy">
+            <div>
+              <span class="unesco-badge">UNESCO World Heritage</span>
+              <h3>لبدة الكبرى</h3>
+              <p>مدينة رومانية كبرى تكشف عن تخطيط حضري ومعماري يضع ليبيا في قلب تاريخ المتوسط.</p>
+            </div>
+          </article>
+          <article class="heritage-item reveal">
+            <img src="imges/Sabratha.jpg" alt="Sabratha" loading="lazy">
+            <div>
+              <span class="unesco-badge">UNESCO World Heritage</span>
+              <h3>صبراتة</h3>
+              <p>موقع ساحلي عريق يربط التجارة القديمة بالفنون المعمارية المطلة على البحر.</p>
+            </div>
+          </article>
+          <article class="heritage-item reveal">
+            <img src="imges/Cyrene.jpg" alt="Cyrene" loading="lazy">
+            <div>
+              <span class="unesco-badge">UNESCO World Heritage</span>
+              <h3>قورينا</h3>
+              <p>مدينة كلاسيكية في الجبل الأخضر تحمل طبقات من التاريخ والفلسفة والعمارة.</p>
+            </div>
+          </article>
+          <article class="heritage-item reveal">
+            <img src="imges/Ghadames2.JPG" alt="Ghadames" loading="lazy">
+            <div>
+              <span class="unesco-badge">UNESCO World Heritage</span>
+              <h3>غدامس القديمة</h3>
+              <p>نموذج فريد لعمارة الواحات وتكيّف الإنسان مع الصحراء بروح حضارية راقية.</p>
+            </div>
+          </article>
+          <article class="heritage-item reveal">
+            <img src="imges/Acacus.jpg" alt="Acacus" loading="lazy">
+            <div>
+              <span class="unesco-badge">UNESCO World Heritage</span>
+              <h3>تادرارت أكاكوس</h3>
+              <p>متحف مفتوح للنقوش الصخرية والمناظر الصحراوية التي توثق حياة الإنسان القديم.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="routes section-block has-soft-wave" id="routes" aria-labelledby="routes-title">
+      <div class="container">
+        <div class="section-kicker">Routes</div>
+        <div class="section-heading">
+          <h2 id="routes-title">مسارات سفر مقنعة وعملية</h2>
+          <p>اختر مسارًا واضحًا، ثم دع المنصة تساعدك على تحويل الاهتمام إلى رحلة قابلة للتنفيذ.</p>
+        </div>
+
+        <div class="route-grid">
+          <article class="route-card reveal">
+            <div class="route-top">
+              <span class="route-badge">Heritage Route</span>
+              <strong>5-7 أيام</strong>
+            </div>
+            <h3>مسار الحضارات الكلاسيكية</h3>
+            <div class="route-map" aria-label="Tripoli to Leptis Magna to Sabratha to Cyrene">
+              <span>طرابلس</span>
+              <i></i>
+              <span>لبدة</span>
+              <i></i>
+              <span>صبراتة</span>
+              <i></i>
+              <span>شحات</span>
+            </div>
+            <p>رحلة ثقافية تجمع بين العاصمة والمعالم العالمية، مناسبة للوفود، المصورين، وعشاق التاريخ.</p>
+          </article>
+          <article class="route-card reveal">
+            <div class="route-top">
+              <span class="route-badge">Desert Route</span>
+              <strong>6-8 أيام</strong>
+            </div>
+            <h3>مسار الواحات والصحراء</h3>
+            <div class="route-map" aria-label="Ghadames to Awjila to Acacus to Sahara">
+              <span>غدامس</span>
+              <i></i>
+              <span>أوجلة</span>
+              <i></i>
+              <span>أكاكوس</span>
+              <i></i>
+              <span>الصحراء</span>
+            </div>
+            <p>مسار يوازن بين العمارة الطينية، الهدوء الصحراوي، والنقوش الصخرية ذات القيمة العالمية.</p>
+          </article>
+          <article class="route-card reveal">
+            <div class="route-top">
+              <span class="route-badge">Coastal Route</span>
+              <strong>3-5 أيام</strong>
+            </div>
+            <h3>مسار المتوسط الليبي</h3>
+            <div class="route-map" aria-label="Tripoli to Sabratha to Beaches to Natural Lakes">
+              <span>طرابلس</span>
+              <i></i>
+              <span>صبراتة</span>
+              <i></i>
+              <span>الشواطئ</span>
+              <i></i>
+              <span>البحيرات</span>
+            </div>
+            <p>تجربة ساحلية مرنة تجمع بين التراث القريب من البحر والاسترخاء في مشاهد طبيعية مفتوحة.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="culture section-block" id="culture" aria-labelledby="culture-title">
+      <div class="container">
+        <div class="section-kicker">Culture</div>
+        <div class="section-heading">
+          <h2 id="culture-title">ثقافة تنبض بالضيافة</h2>
+          <p>الثقافة الليبية تجربة تعاش في الأسواق، البيوت، المذاق المحلي، الحرف، والموسيقى الشعبية.</p>
+        </div>
+
+        <div class="culture-panel reveal">
+          <div class="culture-copy">
+            <h3>من عبق المدن القديمة إلى دفء المجالس</h3>
+            <p>
+              تقدم ليبيا مزيجًا من الحرف التقليدية، الأزياء المحلية، المأكولات، والأسواق التاريخية التي تمنح الزائر فرصة للتعرّف إلى الناس قبل المكان.
+            </p>
+          </div>
+          <div class="culture-list">
+            <span>الأسواق القديمة</span>
+            <span>الحرف والصناعات التقليدية</span>
+            <span>المذاق الليبي</span>
+            <span>الموسيقى والفنون الشعبية</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="events section-block section-ornament" id="events" aria-labelledby="events-title">
+      <div class="container">
+        <div class="section-kicker">Events</div>
+        <div class="section-heading">
+          <h2 id="events-title">فعاليات وتجارب موسمية</h2>
+          <p>واجهة رسمية لربط الزائر بالمعارض، المهرجانات، الأيام الثقافية، وبرامج التعريف بالتراث والصناعات التقليدية.</p>
+        </div>
+
+        <div class="events-grid">
+          <article class="event-card reveal">
+            <span>Culture</span>
+            <h3>أيام التراث الليبي</h3>
+            <p>برنامج للتعريف بالحرف، الأزياء، المطبخ، والعروض الشعبية في المدن التاريخية.</p>
+          </article>
+          <article class="event-card reveal">
+            <span>Coast</span>
+            <h3>موسم المتوسط</h3>
+            <p>رحلات ساحلية وأنشطة تصوير وتجارب محلية على امتداد المدن المطلة على البحر.</p>
+          </article>
+          <article class="event-card reveal">
+            <span>Desert</span>
+            <h3>ليالي الصحراء</h3>
+            <p>تجارب منظمة لمراقبة النجوم، المخيمات التراثية، ورحلات الواحات.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="plan section-block" id="plan" aria-labelledby="plan-title">
+      <div class="container">
+        <div class="section-kicker">Plan Your Trip</div>
+        <div class="section-heading">
+          <h2 id="plan-title">خطط رحلتك بثقة</h2>
+          <p>معلومات موجزة ومنظمة تساعد الزائر على الانتقال من الإلهام إلى التخطيط العملي.</p>
+        </div>
+
+        <div class="plan-layout">
+          <div class="plan-steps reveal">
+            <article>
+              <span>01</span>
+              <h3>حدد نوع التجربة</h3>
+              <p>تراث، بحر، صحراء، ثقافة، أو مسار يجمع أكثر من تجربة.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>اختر الوجهات</h3>
+              <p>ابدأ بالمدن الكبرى ثم أضف المواقع القريبة لتكوين برنامج متوازن.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>ابنِ مسارك</h3>
+              <p>استخدم المسارات المقترحة أو تحدث مع VisitLibyaAI لتخصيص الرحلة.</p>
+            </article>
+          </div>
+
+          <div class="accordion-panel reveal">
+            <button class="accordion is-open" type="button" aria-expanded="true">
+              <span>أفضل أوقات الزيارة</span>
+            </button>
+            <div class="accordion-content">
+              <p>تكون رحلات المدن والساحل مريحة في الربيع والخريف، بينما تناسب الأجواء المعتدلة مسارات الصحراء والواحات.</p>
+            </div>
+
+            <button class="accordion" type="button" aria-expanded="false">
+              <span>ماذا أحضر معي؟</span>
+            </button>
+            <div class="accordion-content">
+              <p>ملابس مريحة، حذاء مناسب للمشي، حماية من الشمس، وكاميرا لتوثيق المواقع المفتوحة والمعالم التاريخية.</p>
+            </div>
+
+            <button class="accordion" type="button" aria-expanded="false">
+              <span>كيف أختار المسار؟</span>
+            </button>
+            <div class="accordion-content">
+              <p>ابدأ بعدد الأيام، ثم اختر محور الرحلة: تراثي، صحراوي، ساحلي، أو تجربة مختلطة بين المدن والطبيعة.</p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-panel reveal">
-          <div class="hero-card">
-            <span class="label">رحلة عبر الزمن</span>
-            <h2>من عبق التاريخ إلى مستقبل سياحي واعد</h2>
-            <p>منصة وطنية عالمية تعرض ليبيا كوجهة تراثية، بحرية، صحراوية، وواحات، مع تجربة سياحية فاخرة ومؤسسية.</p>
+    <section class="ai section-block has-soft-wave" id="ai" aria-labelledby="ai-title">
+      <div class="container">
+        <div class="ai-shell reveal">
+          <div class="ai-copy">
+            <div class="section-kicker">VisitLibyaAI</div>
+            <h2 id="ai-title">مساعد سياحي ذكي لاكتشاف ليبيا</h2>
+            <p>
+              اطرح سؤالًا عن الوجهات، المسارات، أو طبيعة التجربة التي تبحث عنها، وسيقترح لك المساعد اتجاهًا أوليًا واضحًا.
+            </p>
+            <div class="ai-chips">
+              <button type="button" data-ai-prompt="أقترح لي مسارًا تراثيًا لمدة خمسة أيام">مسار تراثي</button>
+              <button type="button" data-ai-prompt="أريد رحلة تجمع البحر والصحراء">البحر والصحراء</button>
+              <button type="button" data-ai-prompt="ما أفضل وجهات التصوير في ليبيا؟">وجهات التصوير</button>
+            </div>
+          </div>
+
+          <div class="chat-widget" aria-label="VisitLibyaAI chat">
+            <div class="chat-header">
+              <span class="chat-mark">AI</span>
+              <div>
+                <strong>VisitLibyaAI</strong>
+                <small>مساعد التخطيط السياحي</small>
+              </div>
+            </div>
+            <div class="chat-messages" id="chat-messages" aria-live="polite">
+              <div class="message bot">مرحبًا بك في ليبيا. أخبرني بعدد الأيام ونوع التجربة، وسأقترح لك مسارًا مناسبًا.</div>
+            </div>
+            <form class="chat-form" id="chat-form">
+              <input type="text" id="chat-input" name="message" placeholder="اكتب سؤالك هنا..." autocomplete="off">
+              <button type="submit">إرسال</button>
+            </form>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-soft" id="why">
-      <div class="container section-heading reveal">
-        <span class="section-kicker">لماذا ليبيا؟</span>
-        <h2>ليبيا ليست مجرد وجهة سياحية — إنها ذاكرة حضارية وتجربة طبيعية وثقافية نادرة.</h2>
-        <p>حيث يلتقي البحر بالصحراء، وتروي المدن القديمة والواحات قصة حضارات تعاقبت على هذه الأرض.</p>
-      </div>
-      <div class="container cards-grid reveal">
-        <article class="feature-card">
-          <div class="feature-icon">🏺</div>
-          <h3>أرض الحضارات</h3>
-          <p>شواهد أثرية تمتد من الفينيقية إلى الرومانية والإغريقية، تمثل قلب تاريخ المتوسط.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">🌊</div>
-          <h3>البحر المتوسط</h3>
-          <p>سواحل واسعة، شواطئ هادئة، ووجهات بحرية تؤمن توازنًا ساحرًا بين النشاط والاسترخاء.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">🏜️</div>
-          <h3>الصحراء الكبرى</h3>
-          <p>رحلات رملية، أكواخ وواحات صامتة، ومناظر طبيعية تأسر الخيال.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">🌿</div>
-          <h3>الواحات والبحيرات</h3>
-          <p>مساحات خضراء من الوحوش والمواسم، حيث تلتقي الطبيعة الصحراوية بالبلس.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">🎭</div>
-          <h3>الثقافة والضيافة</h3>
-          <p>تقاليد محلية، أسواق، وكرم ضيافة يجعل كل زيارة شخصية ودفء.</p>
-        </article>
-        <article class="feature-card">
-          <div class="feature-icon">🍲</div>
-          <h3>المطبخ الليبي</h3>
-          <p>نكهات تقليدية طبيعية، أطباق صحراوية ساحرة ومأكولات بحرية طازجة.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="experience">
-      <div class="container section-heading reveal">
-        <span class="section-kicker">اكتشف ليبيا حسب تجربتك</span>
-        <h2>اختر تجربتك وابدأ رحلتك من هناك</h2>
-      </div>
-      <div class="container experience-grid reveal">
-        <article class="experience-card">
-          <img src="imges/Leptis Magna.jpg" alt="عشاق التاريخ" />
-          <div class="experience-card-body">
-            <h3>عشاق التاريخ</h3>
-            <p>اكتشف آثار لبدة وصبراتة وشحات في رحلة عبر الزمن.</p>
-            <button class="btn btn-card">ابدأ التجربة</button>
-          </div>
-        </article>
-        <article class="experience-card">
-          <img src="imges/Acacus.jpg" alt="مغامرو الصحراء" />
-          <div class="experience-card-body">
-            <h3>مغامرو الصحراء</h3>
-            <p>رحلات عبر الكثبان ورؤية النقوش الصخرية في قلب الصحراء الكبرى.</p>
-            <button class="btn btn-card">ابدأ التجربة</button>
-          </div>
-        </article>
-        <article class="experience-card">
-          <img src="imges/beaches.jpg" alt="محبو البحر" />
-          <div class="experience-card-body">
-            <h3>محبو البحر</h3>
-            <p>شواطئ ليبيا الذهبية تنتظر الذين يبحثون عن البحر والهدوء.</p>
-            <button class="btn btn-card">ابدأ التجربة</button>
-          </div>
-        </article>
-        <article class="experience-card">
-          <img src="imges/traditional clothing.jpg" alt="الباحثون عن الثقافة" />
-          <div class="experience-card-body">
-            <h3>الباحثون عن الثقافة</h3>
-            <p>أسواق تقليدية وتراث حيّ يمزج بين الماضي والحاضر.</p>
-            <button class="btn btn-card">ابدأ التجربة</button>
-          </div>
-        </article>
-        <article class="experience-card">
-          <img src="imges/traditional industries.jpg" alt="المطبخ والضيافة" />
-          <div class="experience-card-body">
-            <h3>المطبخ والضيافة</h3>
-            <p>تجارب طعام وأجواء منزلية تحكي عن دفء الضيافة الليبية.</p>
-            <button class="btn btn-card">ابدأ التجربة</button>
-          </div>
-        </article>
-        <article class="experience-card">
-          <img src="imges/natural lakes2.JPG" alt="الطبيعة والواحات" />
-          <div class="experience-card-body">
-            <h3>الطبيعة والواحات</h3>
-            <p>واحات خضراء وبحيرات طبيعية تذكر بأن ليبيا أكثر من صحراء.</p>
-            <button class="btn btn-card">ابدأ التجربة</button>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="destinations">
-      <div class="container section-heading reveal">
-        <span class="section-kicker">وجهات لا تُنسى</span>
-        <h2>وجهات ليبية تضيف إلى قائمتك العالمية</h2>
-      </div>
-      <div class="container destination-grid reveal">
-        <article class="destination-card">
-          <img src="imges/tripoliMarcus Arch.JPG" alt="طرابلس" />
-          <div class="destination-content">
-            <span class="tag">العاصمة الساحلية</span>
-            <h3>طرابلس</h3>
-            <p>مدينة تجمع التاريخ الحضاري والأسواق البحرية والثقافة العصرية.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-        <article class="destination-card">
-          <img src="imges/Ghadames2.JPG" alt="غدامس" />
-          <div class="destination-content">
-            <span class="tag">تراث عالمي</span>
-            <h3>غدامس</h3>
-            <p>واحة أثرية تسكنها بيوت حجرية مترابطة تعكس عمق الثقافة الليبية.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-        <article class="destination-card">
-          <img src="imges/Leptis Magna.jpg" alt="لبدة الكبرى" />
-          <div class="destination-content">
-            <span class="tag">آثار رومانية</span>
-            <h3>لبدة الكبرى</h3>
-            <p>أضخم موقع روماني في الشرق الأوسط، يروي أسطورة ساحل المتوسط.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-        <article class="destination-card">
-          <img src="imges/Sabratha.jpg" alt="صبراتة" />
-          <div class="destination-content">
-            <span class="tag">مسار أثري</span>
-            <h3>صبراتة</h3>
-            <p>مسرح روماني مطل على البحر، تجربة تاريخية بامتياز.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-        <article class="destination-card">
-          <img src="imges/Cyrene.jpg" alt="شحات / قورينا" />
-          <div class="destination-content">
-            <span class="tag">تراث جبلي</span>
-            <h3>شحات / قورينا</h3>
-            <p>مواقع أثرية إغريقية في الجبل الأخضر، منظر ساحر للتاريخ.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-        <article class="destination-card">
-          <img src="imges/Acacus.jpg" alt="أكاكوس" />
-          <div class="destination-content">
-            <span class="tag">صحراء ومعالم</span>
-            <h3>أكاكوس</h3>
-            <p>نقوش صخرية وشعاب خاصة تُضيء حضارة الإنسان في الصحراء.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-        <article class="destination-card">
-          <img src="imges/Awjila.jpg" alt="أوجلة" />
-          <div class="destination-content">
-            <span class="tag">واحة ثقافية</span>
-            <h3>أوجلة</h3>
-            <p>واحة أصيلة تروي حكايات البدو والضيافة القديمة.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-        <article class="destination-card">
-          <img src="imges/beaches.jpg" alt="الشواطئ الليبية" />
-          <div class="destination-content">
-            <span class="tag">سياحة بحرية</span>
-            <h3>الشواطئ الليبية</h3>
-            <p>شواطئ نقية ومياه زرقاء توفر استرخاءً حقيقياً على البحر.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-        <article class="destination-card">
-          <img src="imges/natural lakes2.JPG" alt="البحيرات الطبيعية" />
-          <div class="destination-content">
-            <span class="tag">طبيعة خضراء</span>
-            <h3>البحيرات الطبيعية</h3>
-            <p>مناظر مياه هادئة وسط المناظر الخلابة تمنح راحة الروح.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-        <article class="destination-card">
-          <img src="imges/The Sahara Desert.jpg" alt="الصحراء الكبرى" />
-          <div class="destination-content">
-            <span class="tag">مغامرات</span>
-            <h3>الصحراء الكبرى</h3>
-            <p>رحلات سفاري وكثبان لا تُنسى تقودك إلى أعمق صدق ليبي.</p>
-            <button class="btn btn-card">اكتشف المزيد</button>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="heritage">
-      <div class="container section-heading reveal">
-        <span class="section-kicker">التراث العالمي في ليبيا</span>
-        <h2>خمسة مواقع ليبية تشهد لتاريخ عالمي</h2>
-        <p>هذه المواقع تمثل وجهة ثقافية أساسية وتضع ليبيا في قلب خارطة التراث العالمي.</p>
-      </div>
-      <div class="container timeline reveal">
-        <div class="timeline-item">
-          <span class="badge">UNESCO World Heritage</span>
-          <strong>لبدة الكبرى</strong>
-          <span>أعظم موقع روماني على ساحل المتوسط، وحكاية عمارة وتاريخ.</span>
-        </div>
-        <div class="timeline-item">
-          <span class="badge">UNESCO World Heritage</span>
-          <strong>صبراتة</strong>
-          <span>مسرح روماني وساحل يروي قصة الحضارة البحرية للبحر الأبيض.</span>
-        </div>
-        <div class="timeline-item">
-          <span class="badge">UNESCO World Heritage</span>
-          <strong>شحات / قورينا</strong>
-          <span>أطلال يونانية تعانق جبال الجبل الأخضر وتُظهر تناغماً بين الطبيعة والتاريخ.</span>
-        </div>
-        <div class="timeline-item">
-          <span class="badge">UNESCO World Heritage</span>
-          <strong>غدامس القديمة</strong>
-          <span>مخطط عمراني معماري فريد في واحة تعكس روح الصمود والهوية.</span>
-        </div>
-        <div class="timeline-item">
-          <span class="badge">UNESCO World Heritage</span>
-          <strong>تادرارت أكاكوس</strong>
-          <span>فن الصخر يعود لآلاف السنين ويحتفظ بذاكرة البشرية في قلب الصحراء.</span>
+    <section class="gallery section-block" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-kicker">Gallery</div>
+        <div class="section-heading">
+          <h2 id="gallery-title">مشاهد من ليبيا</h2>
+          <p>صور عريضة تستعرض تنوع المشهد الليبي بين المدن القديمة، البحر، الصحراء، والواحات.</p>
         </div>
       </div>
-    </section>
 
-    <section class="section section-soft" id="routes">
-      <div class="container section-heading reveal">
-        <span class="section-kicker">اختر مسارك في ليبيا</span>
-        <h2>مسارات سياحية ملهمة لكل زائر</h2>
-        <p>برامج مرنة ومكتملة لربط أهم الوجهات وتقديم رحلة متوازنة بين التاريخ والثقافة والطبيعة.</p>
-      </div>
-      <div class="container route-grid reveal">
-        <article class="route-card">
-          <h3>مسار الحضارات القديمة</h3>
-          <p>طرابلس → لبدة → صبراتة → شحات</p>
-        </article>
-        <article class="route-card">
-          <h3>مسار الصحراء والواحات</h3>
-          <p>غدامس → غات → أكاكوس → أوباري</p>
-        </article>
-        <article class="route-card">
-          <h3>مسار البحر المتوسط</h3>
-          <p>طرابلس → الخمس → صبراتة → مصراتة</p>
-        </article>
-        <article class="route-card">
-          <h3>مسار الثقافة والضيافة</h3>
-          <p>طرابلس القديمة → الصناعات التقليدية → المطبخ الليبي → الأسواق</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="culture">
-      <div class="container section-heading reveal">
-        <span class="section-kicker">الثقافة والمطبخ… روح ليبيا</span>
-        <h2>ثقافة ومأكولات تحكي قصة مجتمع</h2>
-        <p>الثقافة الليبية جزء أساسي من التجربة السياحية، تمتزج العادات واللباس والمطبخ والحرف الشعبية لخلق هوية مميزة.</p>
-      </div>
-      <div class="container culture-grid reveal">
-        <article class="culture-card large-card">
-          <img src="imges/traditional clothing.jpg" alt="العادات والتقاليد" />
-          <div>
-            <h3>العادات والتقاليد</h3>
-            <p>طقوس ترحيبية، ملابس تقليدية، واحتفالات تعكس أصالة المجتمع الليبي.</p>
-          </div>
-        </article>
-        <article class="culture-card large-card">
-          <img src="imges/traditional industries.jpg" alt="الصناعات التقليدية" />
-          <div>
-            <h3>الصناعات التقليدية</h3>
-            <p>حرف يدوية ومنتجات محلية تقدم تجربة ثقافية مميزة.</p>
-          </div>
-        </article>
-        <article class="culture-card">
-          <h3>المطبخ المحلي</h3>
-          <p>أطباق تراثية مثل الكسكسي، البازين، العصبان، والتمور.</p>
-        </article>
-        <article class="culture-card">
-          <h3>الضيافة الليبية</h3>
-          <p>كرم لا مثيل له يجعل كل رحلة حقيقية وشخصية.</p>
-        </article>
-        <article class="culture-card">
-          <h3>الفعاليات الشعبية</h3>
-          <p>مهرجانات ومناسبات تعكس التراث والهوية المحلية.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="events">
-      <div class="container section-heading reveal">
-        <span class="section-kicker">الفعاليات والمهرجانات</span>
-        <h2>فعاليات تضع ليبيا في موسوعة الرحلات الحية</h2>
-        <p>مهرجانات ثقافية، رياضات صحراوية، واحتفالات بحرية تُظهر الوجه الشعبي والنابض لليبيا.</p>
-      </div>
-      <div class="container events-grid reveal">
-        <article class="event-card">
-          <h3>مهرجانات الخريف في هون وغات</h3>
-        </article>
-        <article class="event-card">
-          <h3>مهرجان أوجلة الثقافي السياحي</h3>
-        </article>
-        <article class="event-card">
-          <h3>مهرجان جرمة السياحي</h3>
-        </article>
-        <article class="event-card">
-          <h3>الفروسية الشعبية</h3>
-        </article>
-        <article class="event-card">
-          <h3>الرياضات الصحراوية</h3>
-        </article>
-        <article class="event-card">
-          <h3>الأنشطة البحرية</h3>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="plan">
-      <div class="container section-heading reveal">
-        <span class="section-kicker">خطط رحلتك إلى ليبيا</span>
-        <h2>Travel Planner احترافي لكل رحلة</h2>
-        <p>أدوات واضحة لتخطيط رحلة متكاملة، من التأشيرة إلى الوصول والمرشدين.</p>
-      </div>
-      <div class="container plan-layout reveal">
-        <div class="accordion-panel">
-          <article class="accordion-item">
-            <button class="accordion-button">التأشيرات والدخول</button>
-            <div class="accordion-content"><p>اطلع على متطلبات التأشيرة وكن مستعدًا قبل الوصول.</p></div>
-          </article>
-          <article class="accordion-item">
-            <button class="accordion-button">الوصول إلى ليبيا</button>
-            <div class="accordion-content"><p>المطارات الرئيسية في طرابلس، بنغازي، ومصراتة تجعل الوصول سهلاً.</p></div>
-          </article>
-          <article class="accordion-item">
-            <button class="accordion-button">التنقل</button>
-            <div class="accordion-content"><p>خيارات النقل تشمل السيارات المستأجرة، الرحلات البرية، والطيران الداخلي.</p></div>
-          </article>
-          <article class="accordion-item">
-            <button class="accordion-button">الإقامة</button>
-            <div class="accordion-content"><p>فنادق فاخرة، بيوت ضيافة تقليدية، ومخيمات صحراوية لجميع الأذواق.</p></div>
-          </article>
-          <article class="accordion-item">
-            <button class="accordion-button">منظمو الرحلات</button>
-            <div class="accordion-content"><p>اعتمد على منظمي رحلات محليين لتجربة آمنة ومكثفة.</p></div>
-          </article>
-          <article class="accordion-item">
-            <button class="accordion-button">المرشدون السياحيون</button>
-            <div class="accordion-content"><p>المرشدون المحليون يعززون فهمك للتاريخ والثقافة خلال الرحلة.</p></div>
-          </article>
-          <article class="accordion-item">
-            <button class="accordion-button">نصائح السفر</button>
-            <div class="accordion-content"><p>تعرف على العادات المحلية، الطقس، وأفضل أوقات السفر.</p></div>
-          </article>
-        </div>
-        <aside class="route-card">
-          <span class="label">برنامج مقترح 7 أيام</span>
-          <h3>خطة رحلة متكاملة</h3>
-          <ol>
-            <li>طرابلس والمدينة القديمة</li>
-            <li>لبدة الكبرى</li>
-            <li>صبراتة</li>
-            <li>غدامس</li>
-            <li>الجبل الأخضر وشحات</li>
-            <li>أكاكوس أو أوجلة</li>
-            <li>المطبخ والأسواق المحلية</li>
-          </ol>
-          <p>برنامج مرن يمكن تصميمه حسب المدة والاهتمامات.</p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="assistant-section" id="visitlibyaai">
-      <div class="container assistant-grid reveal">
-        <div class="assistant-copy">
-          <span class="section-kicker">VisitLibyaAI</span>
-          <h2>دليلك الذكي لاكتشاف ليبيا</h2>
-          <p>مساعد افتراضي تجريبي يساعدك في اختيار الوجهات، فهم التراث، تخطيط الرحلة، والتعرف على التجارب السياحية في ليبيا.</p>
-          <div class="quick-prompts">
-            <button data-suggest="طرابلس">طرابلس</button>
-            <button data-suggest="التراث">التراث</button>
-            <button data-suggest="الصحراء">الصحراء</button>
-            <button data-suggest="الطعام">الطعام</button>
-            <button data-suggest="التأشيرات">التأشيرات</button>
-            <button data-suggest="الفعاليات">الفعاليات</button>
-          </div>
-        </div>
-        <div class="chatbox reveal" id="chatBox">
-          <div class="chat-header">
-            <h3>VisitLibyaAI</h3>
-            <p>اكتب كلمة مفتاحية أو سؤالاً سريعاً.</p>
-          </div>
-          <div class="chat-messages" id="chatLog"></div>
-          <form class="chat-form" id="chatForm">
-            <input type="text" id="chatInput" placeholder="اكتب سؤالك، مثلاً: طرابلس أو برنامج 7 أيام" />
-            <button type="submit" class="btn btn-primary">أرسل</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="gallery">
-      <div class="container section-heading reveal">
-        <span class="section-kicker">ليبيا بعدسة الزائر</span>
-        <h2>صور تعبر عن الانطباع الأول</h2>
-      </div>
-      <div class="container gallery-scroll" id="galleryScroll">
-        <article class="gallery-item">
-          <img src="imges/Acacus1.jpeg" alt="أكاكوس" />
-          <div class="gallery-caption">أكاكوس — الفن الصخري والصحراء</div>
-        </article>
-        <article class="gallery-item">
-          <img src="imges/Leptis Magna1.jpg" alt="لبدة الكبرى" />
-          <div class="gallery-caption">لبدة الكبرى — حضارة لا تُنسى</div>
-        </article>
-        <article class="gallery-item">
-          <img src="imges/Sabratha1.jpg" alt="صبراتة" />
-          <div class="gallery-caption">صبراتة — المسرح القديم والمشاهد البحرية</div>
-        </article>
-        <article class="gallery-item">
-          <img src="imges/Ghadames1.JPG" alt="غدامس" />
-          <div class="gallery-caption">غدامس — واحة وتاريخ مصمم</div>
-        </article>
-        <article class="gallery-item">
-          <img src="imges/beaches1.JPG" alt="الشواطئ" />
-          <div class="gallery-caption">الشواطئ الليبية — مياه نقية ورمال ذهبية</div>
-        </article>
-        <article class="gallery-item">
-          <img src="imges/natural lakes.jpg" alt="البحيرات الطبيعية" />
-          <div class="gallery-caption">البحيرات الطبيعية — هدوء الطبيعة الليبية</div>
-        </article>
-        <article class="gallery-item">
-          <img src="imges/traditional industries1.jpg" alt="الصناعات التقليدية" />
-          <div class="gallery-caption">الصناعات التقليدية — روح الحرف الليبية</div>
-        </article>
+      <div class="gallery-track" id="gallery-track" aria-label="Scrollable Libya gallery">
+        <figure class="gallery-card">
+          <img src="imges/Leptis Magna3.jpeg" data-fallback-src="imges/Leptis Magna3.jpg" alt="Leptis Magna" loading="lazy">
+          <figcaption>لبدة الكبرى</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="imges/Ghadames2.JPG" alt="Ghadames" loading="lazy">
+          <figcaption>غدامس</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="imges/Acacus.jpg" alt="Acacus" loading="lazy">
+          <figcaption>أكاكوس</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="imges/beaches.jpg" alt="Libyan beaches" loading="lazy">
+          <figcaption>الساحل الليبي</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="imges/natural lakes2.JPG" alt="Natural lakes" loading="lazy">
+          <figcaption>البحيرات الطبيعية</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="imges/The Sahara Desert.jpg" alt="The Sahara Desert" loading="lazy">
+          <figcaption>الصحراء الكبرى</figcaption>
+        </figure>
       </div>
     </section>
   </main>
 
+  <button class="floating-ai" type="button" aria-label="Open VisitLibyaAI" data-scroll-target="#ai">
+    <span>AI</span>
+  </button>
+
   <footer class="site-footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <img src="visitlibyalogo.png" alt="Visit Libya Logo" />
-        <div>
-          <strong>Visit Libya | زور ليبيا</strong>
-          <p>ليبيا أرض الحضارات وموطن السحر والجمال</p>
-          <p>من عبق التاريخ إلى مستقبل سياحي واعد</p>
-        </div>
+        <img src="visitlibyalogo.png" alt="Visit Libya logo" data-logo-fallback>
+        <h2>Visit Libya | زور ليبيا</h2>
+        <p>Gateway to Heritage and Hospitality</p>
+        <p>بوابة التراث والضيافة</p>
       </div>
-      <div class="footer-links">
-        <h4>روابط سريعة</h4>
-        <a href="#why" data-scroll>لماذا ليبيا</a>
-        <a href="#experience" data-scroll>التجربة</a>
-        <a href="#destinations" data-scroll>الوجهات</a>
-        <a href="#heritage" data-scroll>التراث</a>
-        <a href="#routes" data-scroll>اختيار المسار</a>
-        <a href="#plan" data-scroll>خطط رحلتك</a>
-        <a href="#visitlibyaai" data-scroll>VisitLibyaAI</a>
-      </div>
-      <div class="footer-info">
-        <h4>الجهة</h4>
+      <div class="footer-official">
+        <h3>منصة Visit Libya</h3>
         <p>وزارة السياحة والصناعات التقليدية</p>
         <p>مركز المعلومات والتوثيق السياحي</p>
         <p>تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p>
-        <p>جميع الحقوق محفوظة</p>
+      </div>
+      <div class="footer-links">
+        <h3>روابط المنصة</h3>
+        <a href="#destinations">الوجهات</a>
+        <a href="#heritage">التراث العالمي</a>
+        <a href="#routes">المسارات</a>
+        <a href="#plan">خطط رحلتك</a>
       </div>
     </div>
   </footer>
 
-  <button class="ai-float" id="aiFloat" aria-label="فتح دردشة VisitLibyaAI">💬</button>
-  <script src="main.js"></script>
+  <script src="main.js?v=hero-final-02"></script>
 </body>
 </html>
