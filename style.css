@@ -1923,7 +1923,7 @@ img.is-missing {
       rgba(0, 0, 0, 0.06) 45%,
       rgba(4, 54, 77, 0.18) 100%
     ),
-    url("imges/pan1.webp") center/cover no-repeat !important;
+    url("imges/Acacus.jpg") center/cover no-repeat !important;
   color: #fff !important;
 }
 
@@ -2111,5 +2111,124 @@ img.is-missing {
 @media (prefers-reduced-motion: reduce) {
   .hero {
     animation: none !important;
+  }
+}
+/* ===== HERO SLIDER CLEAN OVERRIDE ===== */
+.hero {
+  min-height: 92vh !important;
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.18) 100%),
+    url("imges/Acacus.jpg") center/cover no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  animation: none !important;
+  transition: none !important;
+  color: #fff !important;
+}
+
+.hero::before,
+.hero::after {
+  display: none !important;
+}
+
+.hero-bg-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 1.25s ease, transform 6s ease;
+  animation: heroBgDrift 18s ease-in-out infinite alternate;
+  will-change: opacity, transform, background-position;
+}
+
+.hero-bg-layer.is-active {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.hero-overlay {
+  z-index: 2 !important;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.18) 100%) !important;
+  pointer-events: none !important;
+}
+
+.hero-grid {
+  position: relative !important;
+  z-index: 5 !important;
+  grid-template-columns: 1fr !important;
+  justify-items: center !important;
+  text-align: center !important;
+  padding: 120px 0 80px !important;
+}
+
+.hero-copy {
+  max-width: 900px !important;
+  text-align: center !important;
+}
+
+.hero-brand {
+  justify-content: center !important;
+}
+
+.hero-caption {
+  opacity: 0.88 !important;
+}
+
+.hero-subtitle {
+  color: rgba(255,255,255,0.88) !important;
+}
+
+.hero-text,
+.hero-stats,
+.stat-item,
+.hero-panel,
+.hero-card {
+  display: none !important;
+}
+
+.hero-actions {
+  justify-content: center !important;
+  margin-top: 28px !important;
+}
+
+@keyframes heroBgDrift {
+  0% {
+    background-position: 44% 50%;
+  }
+  50% {
+    background-position: 56% 48%;
+  }
+  100% {
+    background-position: 50% 54%;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-grid {
+    padding: 110px 0 74px !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    width: min(360px, 100%) !important;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-layer {
+    animation: none !important;
+    transition: opacity 0.01ms !important;
+    transform: none !important;
   }
 }

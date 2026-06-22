@@ -19,14 +19,16 @@
   const heroNext = document.querySelector("[data-hero-next]");
   const heroSection = document.querySelector(".hero");
   const heroBackgrounds = [
-    "imges/pan1.webp",
-    "imges/pan6.webp",
-    "imges/pan5.webp",
-    "imges/pan4.webp",
-    "imges/pan2.avif",
-    "imges/pan3.avif"
+    "imges/Acacus.jpg",
+    "imges/Leptis Magna3.jpeg",
+    "imges/beaches.jpg",
+    "imges/Ghadames2.JPG",
+    "imges/Cyrene.jpg",
+    "imges/Sabratha.jpg"
   ];
   let heroIndex = 0;
+  let heroActiveLayer = 0;
+  let heroLayers = [];
 
   const setHeaderState = () => {
     if (!header) return;
@@ -45,18 +47,52 @@
     closeMobileMenu();
     section.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  const getHeroImageValue = (source) =>
+    `linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.08) 55%, rgba(0,0,0,0.18) 100%), url("${source}")`;
+
+  const resolveHeroBackgrounds = () =>
+    Promise.all(
+      heroBackgrounds.map(
+        (source) =>
+          new Promise((resolve) => {
+            const image = new Image();
+            image.onload = () => resolve(source);
+            image.onerror = () => resolve(null);
+            image.src = source;
+          })
+      )
+    ).then((sources) => sources.filter(Boolean));
+
   function updateHeroBackground() {
+    if (!heroLayers.length || !heroBackgrounds.length) return;
     heroIndex = (heroIndex + 1) % heroBackgrounds.length;
-    heroSection.style.setProperty(
-      "background-image",
-      `linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.06) 45%, rgba(4,54,77,0.18) 100%), url("${heroBackgrounds[heroIndex]}")`,
-      "important"
-    );
+    const nextLayer = heroActiveLayer === 0 ? 1 : 0;
+    heroLayers[nextLayer].style.backgroundImage = getHeroImageValue(heroBackgrounds[heroIndex]);
+    heroLayers[nextLayer].classList.add("is-active");
+    heroLayers[heroActiveLayer].classList.remove("is-active");
+    heroActiveLayer = nextLayer;
   }
 
   const wireHeroBackground = () => {
     if (!heroSection || !heroBackgrounds.length) return;
-    window.setInterval(updateHeroBackground, 5000);
+
+    heroLayers = [document.createElement("div"), document.createElement("div")];
+    heroLayers.forEach((layer) => {
+      layer.className = "hero-bg-layer";
+      layer.setAttribute("aria-hidden", "true");
+      heroSection.prepend(layer);
+    });
+
+    resolveHeroBackgrounds().then((sources) => {
+      if (sources.length) heroBackgrounds.splice(0, heroBackgrounds.length, ...sources);
+      heroIndex = 0;
+      heroActiveLayer = 0;
+      heroLayers[0].style.backgroundImage = getHeroImageValue(heroBackgrounds[0]);
+      heroLayers[0].classList.add("is-active");
+      if (heroBackgrounds.length > 1) {
+        window.setInterval(updateHeroBackground, 5000);
+      }
+    });
   };
 
   const wireHeroSlider = () => {
@@ -329,5 +365,5 @@
   wireImageFallbacks();
   setHeaderState();
   window.addEventListener("scroll", setHeaderState, { passive: true });
-  console.log("Visit Libya hero pan version: hero-pan-03");
+  console.log("Visit Libya Hero Slider Clean Loaded");
 })();
