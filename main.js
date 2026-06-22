@@ -19,10 +19,12 @@
   const heroNext = document.querySelector("[data-hero-next]");
   const heroSection = document.querySelector(".hero");
   const heroBackgrounds = [
-    "imges/Acacus.jpg",
-    "imges/Leptis Magna3.jpeg",
-    "imges/beaches.jpg",
-    "imges/Ghadames2.JPG"
+    "imges/pan1.webp",
+    "imges/pan6.webp",
+    "imges/pan5.webp",
+    "imges/pan4.webp",
+    "imges/pan2.avif",
+    "imges/pan3.avif"
   ];
   let heroIndex = 0;
 
@@ -45,8 +47,11 @@
   };
   function updateHeroBackground() {
     heroIndex = (heroIndex + 1) % heroBackgrounds.length;
-    heroSection.style.backgroundImage =
-      `linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.06) 45%, rgba(4,54,77,0.18) 100%), url("${heroBackgrounds[heroIndex]}")`;
+    heroSection.style.setProperty(
+      "background-image",
+      `linear-gradient(180deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.06) 45%, rgba(4,54,77,0.18) 100%), url("${heroBackgrounds[heroIndex]}")`,
+      "important"
+    );
   }
 
   const wireHeroBackground = () => {
@@ -324,5 +329,5 @@
   wireImageFallbacks();
   setHeaderState();
   window.addEventListener("scroll", setHeaderState, { passive: true });
-  console.log("Visit Libya hero final version: hero-final-02");
+  console.log("Visit Libya hero pan version: hero-pan-03");
 })();

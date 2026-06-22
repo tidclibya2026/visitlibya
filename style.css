@@ -1923,7 +1923,7 @@ img.is-missing {
       rgba(0, 0, 0, 0.06) 45%,
       rgba(4, 54, 77, 0.18) 100%
     ),
-    url("imges/Acacus.jpg") center/cover no-repeat !important;
+    url("imges/pan1.webp") center/cover no-repeat !important;
   color: #fff !important;
 }
 
@@ -2066,5 +2066,50 @@ img.is-missing {
 
   .hero-actions .btn {
     width: 100% !important;
+  }
+}
+/* ===== HERO PAN IMAGE MOTION ===== */
+.hero {
+  background-size: 100% 100%, cover !important;
+  background-position: center, center !important;
+  background-repeat: no-repeat !important;
+  animation: heroPanFocus 18s ease-in-out infinite alternate !important;
+  transition: background-image 1.1s ease-in-out !important;
+  will-change: background-position;
+}
+
+@keyframes heroPanFocus {
+  0% {
+    background-position: center, 46% 50%;
+  }
+  50% {
+    background-position: center, 54% 48%;
+  }
+  100% {
+    background-position: center, 48% 54%;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    animation-duration: 22s !important;
+  }
+
+  @keyframes heroPanFocus {
+    0% {
+      background-position: center, 42% 50%;
+    }
+    50% {
+      background-position: center, 58% 50%;
+    }
+    100% {
+      background-position: center, 46% 54%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero {
+    animation: none !important;
   }
 }
