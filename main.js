@@ -7,6 +7,10 @@
   const revealItems = document.querySelectorAll(".reveal");
   const accordions = document.querySelectorAll(".accordion");
   const galleryTrack = document.querySelector("#gallery-track");
+  const budgetDemo = document.querySelector("[data-budget-demo]");
+  const budgetDays = document.querySelector("[data-budget-days]");
+  const budgetStyle = document.querySelector("[data-budget-style]");
+  const budgetOutput = document.querySelector("[data-budget-output]");
   const chatForm = document.querySelector("#chat-form");
   const chatInput = document.querySelector("#chat-input");
   const chatMessages = document.querySelector("#chat-messages");
@@ -21,6 +25,7 @@
   const heroBackgrounds = [
     "imges/Acacus.jpg",
     "imges/Leptis Magna3.jpeg",
+    "imges/Leptis Magna3.jpg",
     "imges/beaches.jpg",
     "imges/Ghadames2.JPG",
     "imges/Cyrene.jpg",
@@ -264,42 +269,116 @@
     });
   };
 
+  const wireGalleryAuto = () => {
+    if (!galleryTrack || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frameId = 0;
+    let paused = false;
+
+    const tick = () => {
+      if (!paused && !galleryTrack.classList.contains("is-dragging")) {
+        galleryTrack.classList.add("is-auto-scrolling");
+        galleryTrack.scrollLeft += 0.32;
+        if (galleryTrack.scrollLeft + galleryTrack.clientWidth >= galleryTrack.scrollWidth - 2) {
+          galleryTrack.scrollLeft = 0;
+        }
+      }
+      frameId = window.requestAnimationFrame(tick);
+    };
+
+    galleryTrack.addEventListener("pointerenter", () => { paused = true; });
+    galleryTrack.addEventListener("pointerleave", () => { paused = false; });
+    galleryTrack.addEventListener("focusin", () => { paused = true; });
+    galleryTrack.addEventListener("focusout", () => { paused = false; });
+
+    frameId = window.requestAnimationFrame(tick);
+    window.addEventListener("beforeunload", () => window.cancelAnimationFrame(frameId));
+  };
+
+  const wireBudgetDemo = () => {
+    if (!budgetDemo || !budgetDays || !budgetStyle || !budgetOutput) return;
+
+    const labels = {
+      balanced: "متوازنة",
+      heritage: "تراثية",
+      desert: "صحراوية",
+      coast: "ساحلية"
+    };
+
+    const updateBudget = () => {
+      const days = Math.max(1, Math.min(21, Number(budgetDays.value) || 1));
+      const styleLabel = labels[budgetStyle.value] || "متوازنة";
+      const pace = days <= 3 ? "قصيرة ومركزة" : days <= 7 ? "متوسطة التفاصيل" : "واسعة وتحتاج تنسيقًا أكبر";
+      budgetOutput.textContent = `مؤشر تخطيط تجريبي: رحلة ${styleLabel} ${pace}. الأرقام تقديرية وغير رسمية وتحتاج اعتمادًا عند الإطلاق النهائي.`;
+    };
+
+    budgetDays.addEventListener("input", updateBudget);
+    budgetStyle.addEventListener("change", updateBudget);
+    updateBudget();
+  };
   const responses = [
     {
-      keywords: ["الثقافة", "ثقافة", "المطبخ", "اكل", "أكل", "مأكولات", "كسكسي", "بازين", "culture", "cuisine"],
-      answer: "الثقافة والمطبخ الليبي جزء أساسي من الرحلة: الضيافة، الشاي الليبي، الكسكسي، البازين، الحرف، والملابس التقليدية. يمكنك زيارة صفحة الثقافة والمطبخ لمعرفة المزيد."
+      keywords: ["طرابلس", "tripoli", "العاصمة", "المدينة القديمة"],
+      answer: "طرابلس بداية ممتازة للتعرف على ليبيا: المدينة القديمة، الأسواق، المعالم المتوسطية، ثم يمكن ربطها بزيارة لبدة الكبرى أو صبراتة حسب الوقت."
     },
     {
-      keywords: ["تراث", "التراث", "heritage", "لبدة", "صبراتة", "شحات", "قورينا", "غدامس", "أكاكوس"],
-      answer: "لرحلة تراثية، ابدأ من لبدة الكبرى وصبراتة، ثم أضف شحات وغدامس وأكاكوس بحسب مدة الرحلة. صفحة التراث العالمي تعرض المواقع الخمسة بصور ومسار أوضح."
+      keywords: ["لبدة", "leptis", "لبدة الكبرى"],
+      answer: "لبدة الكبرى من أهم محطات التراث في ليبيا. خصص لها يومًا مستقلًا إن أمكن، واجمعها مع طرابلس أو صبراتة في مسار تراثي قصير."
+    },
+    {
+      keywords: ["صبراتة", "sabratha"],
+      answer: "صبراتة تجمع بين المسرح القديم ومشهد البحر، وهي مناسبة لمسار تراثي ساحلي مع طرابلس ولبدة الكبرى."
+    },
+    {
+      keywords: ["شحات", "قورينا", "cyrene", "الجبل الأخضر"],
+      answer: "شحات / قورينا تمنحك تجربة كلاسيكية في الجبل الأخضر، ويمكن وضعها ضمن برنامج أطول يربط الشرق الليبي بالطبيعة والتراث."
+    },
+    {
+      keywords: ["غدامس", "ghadames"],
+      answer: "غدامس القديمة تجربة واحات وعمارة صحراوية فريدة. اجعلها محطة هادئة في برنامج يركز على الجنوب والثقافة المحلية."
+    },
+    {
+      keywords: ["أكاكوس", "اكاكوس", "acacus"],
+      answer: "تادرارت أكاكوس مناسبة لعشاق الصحراء والفنون الصخرية. يفضل التخطيط لها مع دليل محلي وتجهيزات مناسبة للمناطق المفتوحة."
+    },
+    {
+      keywords: ["المطبخ", "الثقافة", "ثقافة", "اكل", "أكل", "مأكولات", "كسكسي", "بازين", "شاي", "culture", "cuisine"],
+      answer: "الثقافة والمطبخ الليبي جزء أساسي من الرحلة: الكسكسي، البازين، الشاي الليبي، التمور، المأكولات البحرية، والحرف التقليدية. صفحة الثقافة تعرض تفاصيل أوسع."
+    },
+    {
+      keywords: ["تراث", "التراث", "heritage", "unesco"],
+      answer: "مواقع التراث العالمي في ليبيا هي: لبدة الكبرى، صبراتة، شحات / قورينا، غدامس القديمة، وتادرارت أكاكوس. لا نضيف مواقع أخرى تحت UNESCO إلا إذا كانت مدرجة رسميًا."
     },
     {
       keywords: ["التأشيرات", "تأشيرة", "فيزا", "الدخول", "visa", "entry"],
-      answer: "معلومات التأشيرات والدخول يجب اعتمادها من الجهات الرسمية عند الإطلاق النهائي. في صفحة خطط رحلتك ستجد إطارًا تنظيميًا يساعدك على ترتيب الأسئلة قبل السفر."
+      answer: "معلومات التأشيرات والدخول يجب اعتمادها من الجهات الرسمية عند الإطلاق النهائي. صفحة خطط رحلتك تعرض إطارًا تنظيميًا فقط بدون معلومات رسمية غير مؤكدة."
+    },
+    {
+      keywords: ["الأطلس", "اطلس", "atlas", "خريطة", "خرائط"],
+      answer: "يمكنك فتح الأطلس السياحي الوطني من قسم الأطلس في الصفحة الرئيسية لاستكشاف ليبيا عبر خرائط تفاعلية وبيانات سياحية وطنية."
+    },
+    {
+      keywords: ["برنامج 7 أيام", "سبعة أيام", "7 أيام", "seven days", "اسبوع", "أسبوع"],
+      answer: "برنامج 7 أيام مقترح: طرابلس، لبدة الكبرى، صبراتة، غدامس، شحات / الجبل الأخضر، أكاكوس أو أوجلة، ثم الأسواق والمطبخ الليبي. راجع صفحة خطط رحلتك للتفاصيل."
     },
     {
       keywords: ["السلامة", "سلامة", "آمن", "أمان", "safety", "safe"],
-      answer: "للسلامة العامة: حافظ على وثائقك، احمِ نفسك من الشمس، اشرب الماء بانتظام، واستعن بدليل محلي في المواقع المفتوحة. يرجى الرجوع إلى الجهات الرسمية عند الإطلاق النهائي."
+      answer: "للسلامة العامة: احتفظ بنسخ من الوثائق، استخدم دليلًا محليًا في الصحراء والمناطق النائية، واحمل الماء وواقي الشمس، وتابع التعليمات الرسمية."
     },
     {
       keywords: ["الميزانية", "ميزانية", "تكلفة", "تكاليف", "budget", "cost"],
-      answer: "حاسبة الميزانية في صفحة خطط رحلتك تجربة Demo فقط، والأرقام تقديرية وغير رسمية إلى أن ترتبط المنصة بمصادر وخدمات معتمدة."
+      answer: "حاسبة الميزانية في صفحة خطط رحلتك Demo فقط. لا تقدم أسعارًا رسمية، والأرقام أو المؤشرات تحتاج اعتمادًا عند الإطلاق النهائي."
     },
     {
-      keywords: ["المهرجانات", "مهرجان", "فعاليات", "غدامس الثقافي", "أوجلة", "جرمة", "تمور", "festivals", "events"],
-      answer: "من المهرجانات الثقافية: غدامس الثقافي، أوجلة الثقافي السياحي، جرمة، مهرجانات الخريف، ومهرجان التمور. صفحة الثقافة تعرضها كمدخل للتجارب الموسمية."
-    },
-    {
-      keywords: ["صحراء", "desert", "أكاكوس", "واحات"],
-      answer: "لرحلة الصحراء، اجمع بين غدامس وأكاكوس مع توقف في الواحات. الأفضل تخصيص ستة أيام على الأقل لتكون الرحلة مريحة."
+      keywords: ["المهرجانات", "مهرجان", "فعاليات", "أوجلة", "جرمة", "سوكنة", "الفروسية", "festivals", "events"],
+      answer: "من الفعاليات المقترحة للمحتوى السياحي: مهرجان غدامس الثقافي، أوجلة الثقافي السياحي، جرمة، مهرجانات الخريف، ملاقاة الربيع بسوكنة، والفروسية الشعبية."
     },
     {
       keywords: ["بحر", "شاطئ", "ساحل", "beach", "coast"],
-      answer: "لرحلة ساحلية، اختر طرابلس وصبراتة ثم أضف الشواطئ القريبة والبحيرات الطبيعية لتوازن بين التراث والاسترخاء."
+      answer: "لرحلة ساحلية، اختر طرابلس وصبراتة والشواطئ القريبة، ويمكن ربطها بتجارب بحرية ومأكولات ساحلية."
     },
     {
       keywords: ["تصوير", "صور", "gallery", "photo"],
-      answer: "أفضل وجهات التصوير تشمل لبدة الكبرى، غدامس، أكاكوس، قورينا، والشواطئ الليبية في ساعات الصباح أو قبل الغروب."
+      answer: "أفضل وجهات التصوير تشمل لبدة الكبرى، صبراتة، غدامس، أكاكوس، شحات، والشواطئ الليبية في ساعات الصباح أو قبل الغروب."
     }
   ];
 
@@ -381,9 +460,11 @@
   wireAccordions();
   wireReveal();
   wireGalleryDrag();
+  wireGalleryAuto();
+  wireBudgetDemo();
   wireChat();
   wireImageFallbacks();
   setHeaderState();
   window.addEventListener("scroll", setHeaderState, { passive: true });
-  console.log("Visit Libya Hero Slider Clean Loaded");
+  console.log("Visit Libya global integration v03 loaded");
 })();
