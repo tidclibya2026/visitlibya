@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VisitLibyaAI | المساعد الذكي</title>
-  <meta name="description" content="VisitLibyaAI – مساعد ذكي يساعدك على اختيار الوجهات، تخطيط الرحلة، وفهم التراث والثقافة الليبية." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VisitLibyaAI | Visit Libya</title>
+  <meta name="description" content="VisitLibyaAI مساعد ذكي تجريبي يساعد الزائر على اختيار الوجهات، تخطيط الرحلة، فهم التراث، والتعرف على الثقافة والمطبخ الليبي.">
+  <link rel="stylesheet" href="style.css?v=subpages-live-01">
 </head>
 <body>
   <header class="site-header" id="site-header">
     <nav class="nav-shell">
       <a class="brand" href="index.html">
-        <span class="brand-logo"><img src="visitlibyalogo.png" alt="Visit Libya" /></span>
-        <span class="brand-copy"><strong>Visit Libya</strong><small>زور ليبيا</small></span>
+        <span class="brand-logo">
+          <img src="visitlibyalogo.png" alt="Visit Libya logo">
+        </span>
+        <span class="brand-copy">
+          <strong>Visit Libya</strong>
+          <small>زور ليبيا</small>
+        </span>
       </a>
-      <button class="nav-toggle" aria-label="فتح القائمة"><span></span><span></span><span></span></button>
+
+      <button class="nav-toggle" type="button" aria-label="فتح القائمة">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <div class="nav-links" id="primary-menu">
         <a href="index.html">الرئيسية</a>
         <a href="destinations.html">الوجهات</a>
@@ -28,51 +36,58 @@
         <a href="atlas.html">الأطلس السياحي</a>
         <a href="ai.html">VisitLibyaAI</a>
       </div>
+
       <a class="nav-cta" href="plan.html">ابدأ رحلتك</a>
     </nav>
   </header>
 
   <main>
-    <section class="section-block" style="padding-top: 140px;">
+    <section class="page-hero">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">VisitLibyaAI</span>
-          <h1>دليلك الذكي لاكتشاف ليبيا</h1>
-          <p>اسأل عن أي شيء: وجهات، تراث، ثقافة، مطبخ، أو خطط سفر.</p>
-        </div>
+        <span>Visit Libya</span>
+        <h1>VisitLibyaAI</h1>
+        <p>VisitLibyaAI مساعد ذكي تجريبي يساعد الزائر على اختيار الوجهات، تخطيط الرحلة، فهم التراث، والتعرف على الثقافة والمطبخ الليبي.</p>
+      </div>
+    </section>
 
-        <div class="ai-layout">
-          <div class="reveal">
-            <h3>💡 كيف يمكنني مساعدتك؟</h3>
-            <ul style="list-style: disc; padding-right: 20px; color: var(--gray-600); line-height: 2;">
-              <li>أخبرني عن وجهة تحبها وسأقدم لك معلومات عنها.</li>
-              <li>اسأل عن مواقع التراث العالمي الخمسة.</li>
-              <li>استفسر عن المطبخ الليبي وأشهر الأطباق.</li>
-              <li>اطلب برنامجاً سياحياً مقترحاً.</li>
-              <li>تعرف على العادات والتقاليد الليبية.</li>
-            </ul>
-          </div>
-          <div class="chat-box reveal">
-            <div class="chat-messages" id="chat-messages">
-              <div class="message bot">مرحباً بك في VisitLibyaAI. أنا هنا لمساعدتك في التخطيط لرحلتك إلى ليبيا. اسألني أي شيء!</div>
+    <section class="page-section">
+      <div class="container">
+        <div class="page-grid">
+          <article class="page-card reveal"><h3>ما هو VisitLibyaAI؟</h3><p>محتوى تمهيدي قابل للتطوير في المراحل القادمة ضمن هوية Visit Libya.</p></article>
+          <article class="page-card reveal"><h3>ماذا يستطيع أن يفعل؟</h3><p>محتوى تمهيدي قابل للتطوير في المراحل القادمة ضمن هوية Visit Libya.</p></article>
+          <article class="page-card reveal"><h3>أمثلة أسئلة</h3><p>محتوى تمهيدي قابل للتطوير في المراحل القادمة ضمن هوية Visit Libya.</p></article>
+          <article class="page-card reveal"><h3>دردشة تجريبية</h3><p>محتوى تمهيدي قابل للتطوير في المراحل القادمة ضمن هوية Visit Libya.</p></article>
+        </div>
+        <div class="page-chat reveal">
+          <div class="chat-box">
+            <div class="chat-messages" id="chat-messages" aria-live="polite">
+              <div class="message bot">مرحبًا بك في VisitLibyaAI. اسألني عن وجهة أو تجربة أو برنامج 7 أيام.</div>
             </div>
             <form class="chat-form" id="chat-form">
-              <input type="text" id="chat-input" placeholder="اكتب سؤالك هنا..." autocomplete="off" />
+              <input id="chat-input" type="text" name="message" placeholder="اكتب سؤالك هنا..." autocomplete="off">
               <button type="submit">إرسال</button>
             </form>
           </div>
         </div>
+
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div><h2>Visit Libya | زور ليبيا</h2><p>وزارة السياحة والصناعات التقليدية</p><p>مركز المعلومات والتوثيق السياحي</p></div>
-      <div><p>تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p><p>جميع الحقوق محفوظة</p></div>
+      <div>
+        <h2>Visit Libya | زور ليبيا</h2>
+        <p>وزارة السياحة والصناعات التقليدية</p>
+        <p>مركز المعلومات والتوثيق السياحي</p>
+      </div>
+      <div>
+        <p>تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p>
+        <p>جميع الحقوق محفوظة</p>
+      </div>
     </div>
   </footer>
 
-  <script src="main.js?v=2"></script>
+  <script src="main.js?v=subpages-live-01"></script>
 </body>
 </html>

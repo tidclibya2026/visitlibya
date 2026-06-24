@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الوجهات السياحية في ليبيا | Visit Libya</title>
-  <meta name="description" content="تعرف على أبرز الوجهات السياحية في ليبيا: طرابلس، بنغازي، مصراتة، غدامس، شحات، لبدة، صبراتة، وغيرها." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2" />
+  <meta name="description" content="استكشف ليبيا عبر مدنها الرئيسية ومواقعها الأثرية وجبالها وصحاريها وواحاتها وساحلها المتوسطي.">
+  <link rel="stylesheet" href="style.css?v=subpages-live-01">
 </head>
 <body>
   <header class="site-header" id="site-header">
     <nav class="nav-shell">
-      <a class="brand" href="index.html">
-        <span class="brand-logo"><img src="visitlibyalogo.png" alt="Visit Libya" /></span>
+      <a class="brand" href="index.html" aria-label="Visit Libya">
+        <span class="brand-logo"><img src="visitlibyalogo.png" alt="Visit Libya logo"></span>
         <span class="brand-copy"><strong>Visit Libya</strong><small>زور ليبيا</small></span>
       </a>
-      <button class="nav-toggle" aria-label="فتح القائمة"><span></span><span></span><span></span></button>
+      <button class="nav-toggle" type="button" aria-label="فتح القائمة" aria-controls="primary-menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <div class="nav-links" id="primary-menu">
         <a href="index.html">الرئيسية</a>
         <a href="destinations.html">الوجهات</a>
@@ -31,138 +28,61 @@
       <a class="nav-cta" href="plan.html">ابدأ رحلتك</a>
     </nav>
   </header>
-
   <main>
-    <section class="section-block" style="padding-top: 140px;">
+    <section class="page-hero visual-page-hero" style="--page-hero-image: url('imges/tripoliMarcus Arch.JPG');">
+      <div class="page-hero-inner container reveal">
+        <span class="page-kicker">Destinations</span>
+        <h1 class="page-title">الوجهات السياحية في ليبيا</h1>
+        <p class="page-lead">استكشف ليبيا عبر مدنها الرئيسية، مواقعها الأثرية، جبالها، صحاريها، وواحاتها، من الساحل المتوسطي إلى عمق الصحراء الكبرى.</p>
+      </div>
+    </section>
+
+    <section class="page-section destinations-page">
       <div class="container">
-        <div class="section-heading reveal">
-          <span class="eyebrow">الوجهات</span>
-          <h1>استكشف أجمل وجهات ليبيا</h1>
-          <p>من المدن التاريخية إلى الصحراء الساحرة، كل وجهة تحمل قصة فريدة.</p>
+        <div class="filter-tabs reveal" aria-label="تصنيف الوجهات">
+          <button class="filter-btn is-active" type="button" data-filter="all">الكل</button>
+          <button class="filter-btn" type="button" data-filter="cities">المدن الرئيسية</button>
+          <button class="filter-btn" type="button" data-filter="heritage">التراث العالمي</button>
+          <button class="filter-btn" type="button" data-filter="desert">الصحراء والواحات</button>
+          <button class="filter-btn" type="button" data-filter="mountains">الجبال والطبيعة</button>
+          <button class="filter-btn" type="button" data-filter="lakes">البحيرات والجيولوجيا</button>
+          <button class="filter-btn" type="button" data-filter="culture">الثقافة والحرف</button>
         </div>
-
         <div class="destination-grid">
-          <!-- طرابلس -->
-          <div class="destination-card reveal" data-category="cities coast">
-            <img src="imges/tripoliMarcus Arch.JPG" alt="طرابلس" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">مدينة رئيسية</span>
-              <h3>طرابلس</h3>
-              <p>عاصمة ليبيا، تجمع بين المدينة القديمة والأسواق النابضة بالحياة والشواطئ الجميلة.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
-
-          <!-- بنغازي -->
-          <div class="destination-card reveal" data-category="cities coast">
-            <img src="imges/beaches.jpg" alt="بنغازي" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">مدينة رئيسية</span>
-              <h3>بنغازي</h3>
-              <p>بوابة الشرق، تضم معالم تاريخية مثل الجامع العتيق، بحيرة بنغازي، ومنتزه البوسكو.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
-
-          <!-- مصراتة -->
-          <div class="destination-card reveal" data-category="cities coast">
-            <img src="imges/traditional industries.jpg" alt="مصراتة" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">مدينة رئيسية</span>
-              <h3>مصراتة</h3>
-              <p>مدينة ساحلية حيوية، معروفة بصناعاتها التقليدية وأسواقها الحديثة.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
-
-          <!-- سبها -->
-          <div class="destination-card reveal" data-category="cities desert">
-            <img src="imges/The Sahara Desert.jpg" alt="سبها" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">بوابة الجنوب</span>
-              <h3>سبها</h3>
-              <p>محطة انطلاق لرحلات الصحراء والواحات، ومدينة غنية بالتراث.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
-
-          <!-- غدامس -->
-          <div class="destination-card reveal" data-category="heritage desert">
-            <img src="imges/Ghadames2.JPG" alt="غدامس" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">تراث عالمي</span>
-              <h3>غدامس</h3>
-              <p>واحة صحراوية بعمارتها الفريدة، مدرجة ضمن قائمة اليونسكو.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
-
-          <!-- شحات (قورينا) -->
-          <div class="destination-card reveal" data-category="heritage mountains">
-            <img src="imges/Cyrene.jpg" alt="شحات" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">تراث عالمي</span>
-              <h3>شحات / قورينا</h3>
-              <p>مدينة كلاسيكية في الجبل الأخضر، تتمتع بمناظر طبيعية خلابة.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
-
-          <!-- لبدة الكبرى -->
-          <div class="destination-card reveal" data-category="heritage coast">
-            <img src="imges/Leptis Magna.jpg" alt="لبدة" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">تراث عالمي</span>
-              <h3>لبدة الكبرى</h3>
-              <p>أكبر مدينة رومانية في شمال أفريقيا، بأعمدةها ومسارحها المهيبة.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
-
-          <!-- صبراتة -->
-          <div class="destination-card reveal" data-category="heritage coast">
-            <img src="imges/Sabratha.jpg" alt="صبراتة" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">تراث عالمي</span>
-              <h3>صبراتة</h3>
-              <p>مدينة أثرية على البحر، تشتهر بمسرحها الروماني ومينائها القديم.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
-
-          <!-- أكاكوس -->
-          <div class="destination-card reveal" data-category="heritage desert">
-            <img src="imges/Acacus.jpg" alt="أكاكوس" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">تراث عالمي</span>
-              <h3>تادرارت أكاكوس</h3>
-              <p>فن صخري يعود لآلاف السنين، ومناظر صحراوية ساحرة.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
-
-          <!-- أوباري -->
-          <div class="destination-card reveal" data-category="lakes desert">
-            <img src="imges/natural lakes2.JPG" alt="أوباري" loading="lazy" />
-            <div class="card-body">
-              <span class="tag">بحيرات</span>
-              <h3>أوباري</h3>
-              <p>بوابة بحيرات وادي الحياة، حيث المياه العذبة وسط الصحراء.</p>
-              <a href="#">اكتشف المزيد →</a>
-            </div>
-          </div>
+          <article class="destination-card reveal" data-category="cities culture"><img src="imges/tripoliMarcus Arch.JPG" alt="طرابلس" loading="lazy"><div><span>مدينة رئيسية</span><h3>طرابلس</h3><p>العاصمة والمدينة القديمة والأسواق والمعالم المتوسطية.</p></div></article>
+          <article class="destination-card reveal" data-category="cities coast"><img src="imges/beaches.jpg" alt="بنغازي" loading="lazy"><div><span>مدينة رئيسية</span><h3>بنغازي</h3><p>بوابة الشرق ومسار مناسب للجبل الأخضر وشحات.</p></div></article>
+          <article class="destination-card reveal" data-category="cities coast"><img src="imges/pan5.webp" alt="مصراتة" loading="lazy"><div><span>مدينة وساحل</span><h3>مصراتة</h3><p>مدينة حيوية ضمن المسارات الساحلية والتجارية.</p></div></article>
+          <article class="destination-card reveal" data-category="cities desert"><img src="imges/The Sahara Desert.jpg" alt="سبها" loading="lazy"><div><span>بوابة الجنوب</span><h3>سبها</h3><p>محطة انطلاق لمسارات فزان والواحات والصحراء.</p></div></article>
+          <article class="destination-card reveal" data-category="cities mountains"><img src="imges/Cyrene.jpg" alt="البيضاء" loading="lazy"><div><span>الجبل الأخضر</span><h3>البيضاء</h3><p>قرب الطبيعة ومواقع الجبل الأخضر وشحات.</p></div></article>
+          <article class="destination-card reveal" data-category="cities mountains coast"><img src="imges/beaches.jpg" alt="درنة" loading="lazy"><div><span>بحر وجبل</span><h3>درنة</h3><p>مدينة شرقية بين الساحل والمرتفعات.</p></div></article>
+          <article class="destination-card reveal" data-category="mountains culture"><img src="imges/traditional industries.jpg" alt="غريان" loading="lazy"><div><span>جبل نفوسة</span><h3>غريان</h3><p>حرف محلية وقرى جبلية وتجارب ثقافية.</p></div></article>
+          <article class="destination-card reveal" data-category="mountains culture"><img src="imges/pan5.webp" alt="نالوت" loading="lazy"><div><span>عمارة جبلية</span><h3>نالوت</h3><p>مخزون محلي من العمارة الجبلية والتراث.</p></div></article>
+          <article class="destination-card reveal" data-category="heritage desert"><img src="imges/Ghadames2.JPG" alt="غدامس" loading="lazy"><div><span>تراث عالمي</span><h3>غدامس</h3><p>مدينة الواحة وذاكرة العمارة الصحراوية.</p></div></article>
+          <article class="destination-card reveal" data-category="desert heritage"><img src="imges/Acacus.jpg" alt="غات" loading="lazy"><div><span>واحات وصحراء</span><h3>غات</h3><p>بوابة جنوبية قريبة من أكاكوس ومسارات الفن الصخري.</p></div></article>
+          <article class="destination-card reveal" data-category="desert culture"><img src="imges/pan1.webp" alt="هون" loading="lazy"><div><span>واحات</span><h3>هون، سوكنة، ودّان</h3><p>مدن واحات ومسارات داخلية في قلب ليبيا.</p></div></article>
+          <article class="destination-card reveal" data-category="lakes desert"><img src="imges/natural lakes2.JPG" alt="أوباري" loading="lazy"><div><span>بحيرات</span><h3>أوباري ووادي الحياة</h3><p>بحيرات وواحات وسط الصحراء ومشهد طبيعي فريد.</p></div></article>
+          <article class="destination-card reveal" data-category="heritage"><img src="imges/Leptis Magna.jpg" alt="لبدة الكبرى" loading="lazy"><div><span>تراث عالمي</span><h3>لبدة الكبرى</h3><p>مدينة رومانية كبرى قرب الساحل الغربي.</p></div></article>
+          <article class="destination-card reveal" data-category="heritage coast"><img src="imges/Sabratha.jpg" alt="صبراتة" loading="lazy"><div><span>تراث عالمي</span><h3>صبراتة</h3><p>مسرح روماني وموقع ساحلي متوسطي.</p></div></article>
+          <article class="destination-card reveal" data-category="heritage mountains"><img src="imges/Cyrene.jpg" alt="شحات قورينا" loading="lazy"><div><span>تراث عالمي</span><h3>شحات / قورينا</h3><p>موقع كلاسيكي في قلب الجبل الأخضر.</p></div></article>
+          <article class="destination-card reveal" data-category="heritage desert"><img src="imges/Acacus.jpg" alt="أكاكوس" loading="lazy"><div><span>تراث عالمي</span><h3>تادرارت أكاكوس</h3><p>فن صخري وتكوينات صحراوية مذهلة.</p></div></article>
+          <article class="destination-card reveal" data-category="mountains culture"><img src="imges/traditional industries.jpg" alt="جبل نفوسة" loading="lazy"><div><span>جبال وثقافة</span><h3>جبل نفوسة</h3><p>قرى وحرف ومسارات ثقافية في الغرب الليبي.</p></div></article>
+          <article class="destination-card reveal" data-category="mountains heritage"><img src="imges/pan5.webp" alt="الجبل الأخضر" loading="lazy"><div><span>طبيعة</span><h3>الجبل الأخضر</h3><p>غابات ووديان وسواحل ومواقع أثرية قريبة.</p></div></article>
+          <article class="destination-card reveal" data-category="mountains"><img src="imges/beaches.jpg" alt="رأس الهلال" loading="lazy"><div><span>ساحل أخضر</span><h3>رأس الهلال والأثرون</h3><p>شواطئ وممرات طبيعية ضمن مشهد الجبل الأخضر.</p></div></article>
+          <article class="destination-card reveal" data-category="lakes desert"><img src="imges/pan4.webp" alt="واو الناموس" loading="lazy"><div><span>جيولوجيا</span><h3>واو الناموس</h3><p>وجهة جيولوجية استثنائية في عمق الصحراء.</p></div></article>
+          <article class="destination-card reveal" data-category="lakes desert"><img src="imges/Acacus.jpg" alt="الحدائق الجيولوجية" loading="lazy"><div><span>جيولوجيا</span><h3>الحدائق الجيولوجية</h3><p>تكوينات صخرية وكهوف وكثبان ومسارات تصوير.</p></div></article>
+          <article class="destination-card reveal" data-category="culture"><img src="imges/Awjila.jpg" alt="أوجلة" loading="lazy"><div><span>ثقافة وواحات</span><h3>أوجلة</h3><p>مدينة واحة ذات طابع ثقافي ومحلي مميز.</p></div></article>
+          <article class="destination-card reveal" data-category="culture"><img src="imges/traditional industries.jpg" alt="الحرف والفخار" loading="lazy"><div><span>حرف</span><h3>الأسواق والحرف والفخار</h3><p>تجارب الأسواق التقليدية والصناعات المحلية.</p></div></article>
+          <article class="destination-card reveal" data-category="culture"><img src="imges/traditional clothing.jpg" alt="الفلكلور" loading="lazy"><div><span>فلكلور</span><h3>الفلكلور والفروسية</h3><p>ممارسات شعبية ولباس تقليدي وضيافة محلية.</p></div></article>
         </div>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-grid">
-      <div><h2>Visit Libya | زور ليبيا</h2><p>وزارة السياحة والصناعات التقليدية</p><p>مركز المعلومات والتوثيق السياحي</p></div>
-      <div><p>تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p><p>جميع الحقوق محفوظة</p></div>
+      <div><h2>Visit Libya | زور ليبيا</h2><p>ليبيا أرض الحضارات وموطن السحر والجمال</p><p>Gateway to Heritage and Hospitality</p></div>
+      <div><p>وزارة السياحة والصناعات التقليدية</p><p>مركز المعلومات والتوثيق السياحي</p><p>تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p><p>جميع الحقوق محفوظة</p></div>
     </div>
   </footer>
-
-  <script src="main.js?v=2"></script>
+  <script src="main.js?v=subpages-live-01"></script>
 </body>
 </html>
