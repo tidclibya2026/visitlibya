@@ -1,441 +1,751 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Tahoma, Arial, sans-serif; direction: rtl; background: #fbfdff; color: #1f2933; overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button, input { font: inherit; }
 
-  <title>Visit Libya | زور ليبيا</title>
-  <meta name="description" content="Visit Libya بوابة وطنية لاكتشاف ليبيا: التراث العالمي، الساحل، الصحراء، الثقافة، الأطلس السياحي، ومساعد VisitLibyaAI.">
+:root {
+  --snow: #fbfdff;
+  --white: #ffffff;
+  --sea-blue: #07577b;
+  --deep-blue: #04364d;
+  --sky-soft: #e8f5fb;
+  --sand-gold: #c99a3d;
+  --gold-light: #e8c77a;
+  --soft-gold: #fff4dd;
+  --text-dark: #1f2933;
+  --muted: #667085;
+  --line: #dbe7ef;
+}
+.container {
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+}
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  padding: 14px 0;
+  transition: padding 0.25s ease, background 0.25s ease;
+}
 
-  <link rel="stylesheet" href="style.css?v=hero-image-only-05">
-</head>
+.site-header.is-scrolled {
+  padding: 8px 0;
+}
 
-<body>
-  <header class="site-header" id="site-header">
-    <nav class="nav-shell" aria-label="Primary navigation">
-      <a class="brand" href="#home" aria-label="Visit Libya home">
-        <span class="brand-logo">
-          <img src="visitlibyalogo.png" alt="Visit Libya logo">
-        </span>
-        <span class="brand-copy">
-          <strong>Visit Libya</strong>
-          <small>زور ليبيا</small>
-        </span>
-      </a>
+.nav-shell {
+  width: min(1240px, calc(100% - 32px));
+  min-height: 72px;
+  margin: 0 auto;
+  padding: 10px 14px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid rgba(219, 231, 239, 0.82);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 20px 50px rgba(4, 54, 77, 0.12);
+  backdrop-filter: blur(18px);
+}
 
-      <button class="nav-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="primary-menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+.site-header.is-scrolled .nav-shell {
+  background: rgba(255, 255, 255, 0.94);
+}
 
-      <div class="nav-links" id="primary-menu">
-        <a href="#home">الرئيسية</a>
-        <a href="#why-libya">لماذا ليبيا</a>
-        <a href="#destinations">الوجهات</a>
-        <a href="#heritage">التراث</a>
-        <a href="#culture">الثقافة</a>
-        <a href="#plan">خطط رحلتك</a>
-        <a href="#atlas">الأطلس</a>
-        <a href="#ai">VisitLibyaAI</a>
-      </div>
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
 
-      <a class="nav-cta" href="#plan">ابدأ رحلتك</a>
-    </nav>
-  </header>
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--deep-blue), var(--sea-blue));
+}
 
-  <main>
-    <!-- HERO IMAGE ONLY -->
-    <section class="hero" id="home" aria-label="Visit Libya visual banner">
-      <div class="hero-overlay" aria-hidden="true"></div>
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 
-      <div class="container hero-grid">
-        <div class="hero-copy hero-logo-only reveal">
-          <a class="hero-brand" href="#why-libya" aria-label="Visit Libya">
-            <img src="visitlibyalogo.png" alt="Visit Libya official logo">
-          </a>
-        </div>
-      </div>
-    </section>
+.brand-copy {
+  display: grid;
+  line-height: 1.2;
+}
 
-    <!-- WHY LIBYA -->
-    <section class="why section-block" id="why-libya" aria-labelledby="why-title">
-      <div class="container">
-        <div class="section-kicker">Why Libya</div>
+.brand-copy strong {
+  color: var(--deep-blue);
+  font-weight: 900;
+}
 
-        <div class="section-heading">
-          <h2 id="why-title">ثلاثة عوالم في بلد واحد</h2>
-          <p>
-            تجمع ليبيا بين ساحل المتوسط، وصحراء فزان، وحضارات التاريخ في تجربة سياحية وطنية
-            غنية ومفتوحة على المستقبل.
-          </p>
-        </div>
+.brand-copy small {
+  color: var(--sand-gold);
+  font-weight: 800;
+}
 
-        <div class="why-grid">
-          <article class="why-card reveal">
-            <span class="why-number">01</span>
-            <h3>ساحل المتوسط</h3>
-            <p>مدن ساحلية، شواطئ طبيعية، ومشهد بحري يمنح الرحلة إيقاعًا هادئًا ومشرقًا.</p>
-          </article>
+.nav-links {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 1.15vw, 16px);
+  color: var(--deep-blue);
+  font-size: 0.9rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
 
-          <article class="why-card reveal">
-            <span class="why-number">02</span>
-            <h3>صحراء فزان</h3>
-            <p>واحات ومسارات صحراوية وتكوينات صخرية تجعل الجنوب الليبي تجربة مهيبة ومختلفة.</p>
-          </article>
+.nav-links a {
+  position: relative;
+  padding: 10px 0;
+}
 
-          <article class="why-card reveal">
-            <span class="why-number">03</span>
-            <h3>حضارات التاريخ</h3>
-            <p>مواقع أثرية عالمية ومدن قديمة تحكي تعاقب الحضارات المتوسطية والصحراوية والإسلامية.</p>
-          </article>
-        </div>
-      </div>
-    </section>
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  width: 0;
+  height: 2px;
+  border-radius: 99px;
+  background: var(--sand-gold);
+  transition: width 0.2s ease;
+}
 
-    <!-- DESTINATIONS -->
-    <section class="destinations section-block" id="destinations" aria-labelledby="destinations-title">
-      <div class="container">
-        <div class="section-kicker">Destinations</div>
+.nav-links a:hover::after,
+.nav-links a:focus-visible::after {
+  width: 100%;
+}
 
-        <div class="section-heading">
-          <h2 id="destinations-title">وجهات ليبيا الأبرز</h2>
-          <p>شبكة بصرية من المدن والمواقع الطبيعية والتراثية، مبنية على صور ليبية محلية من المشروع.</p>
-        </div>
+.nav-cta,
+.btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 999px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--deep-blue), var(--sea-blue));
+  box-shadow: 0 14px 26px rgba(4, 54, 77, 0.2);
+  font-weight: 900;
+}
 
-        <div class="destination-grid">
-          <article class="destination-card reveal is-wide">
-            <img src="imges/tripoliMarcus Arch.JPG" data-fallback-src="imges/tripoliMarcus Arch.jpg" alt="طرابلس وقوس ماركوس أوريليوس" loading="lazy">
-            <div class="destination-content">
-              <span class="tag">Capital</span>
-              <h3>طرابلس</h3>
-              <p>بوابة المدن القديمة والأسواق والذاكرة المتوسطية.</p>
-            </div>
-          </article>
+.nav-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+  color: var(--deep-blue);
+  cursor: pointer;
+}
 
-          <article class="destination-card reveal">
-            <img src="imges/Leptis Magna.jpg" alt="لبدة الكبرى" loading="lazy">
-            <div class="destination-content">
-              <span class="tag">World Heritage</span>
-              <h3>لبدة الكبرى</h3>
-              <p>مدينة رومانية كبرى تكشف قوة ليبيا في تاريخ المتوسط.</p>
-            </div>
-          </article>
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px auto;
+  border-radius: 99px;
+  background: currentColor;
+}
 
-          <article class="destination-card reveal">
-            <img src="imges/Sabratha.jpg" alt="صبراتة" loading="lazy">
-            <div class="destination-content">
-              <span class="tag">Coastal Heritage</span>
-              <h3>صبراتة</h3>
-              <p>مسرح قديم يطل على البحر ويجمع الفن والتجارة.</p>
-            </div>
-          </article>
+.hero {
+  position: relative;
+  min-height: 94vh;
+  overflow: hidden;
+  background: var(--deep-blue) center / cover no-repeat;
+  isolation: isolate;
+  transition: background-image 0.8s ease-in-out;
+}
 
-          <article class="destination-card reveal is-tall">
-            <img src="imges/Cyrene.jpg" alt="شحات قورينا" loading="lazy">
-            <div class="destination-content">
-              <span class="tag">Green Mountain</span>
-              <h3>شحات / قورينا</h3>
-              <p>مدينة كلاسيكية في الجبل الأخضر بطبقات تاريخية ثرية.</p>
-            </div>
-          </article>
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.08));
+}
 
-          <article class="destination-card reveal">
-            <img src="imges/Ghadames2.JPG" data-fallback-src="imges/Ghadames2.jpg" alt="غدامس القديمة" loading="lazy">
-            <div class="destination-content">
-              <span class="tag">Oasis City</span>
-              <h3>غدامس</h3>
-              <p>واحة معمارية تحفظ ذكاء الإنسان في الصحراء.</p>
-            </div>
-          </article>
+.hero-logo {
+  position: absolute;
+  top: clamp(120px, 18vh, 170px);
+  left: 50%;
+  z-index: 2;
+  width: clamp(150px, 18vw, 230px);
+  transform: translateX(-50%);
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14);
+  backdrop-filter: blur(10px);
+}
 
-          <article class="destination-card reveal is-wide">
-            <img src="imges/Acacus.jpg" alt="تادرارت أكاكوس" loading="lazy">
-            <div class="destination-content">
-              <span class="tag">Rock Art</span>
-              <h3>أكاكوس</h3>
-              <p>نقوش صخرية ومناظر صحراوية توثق ذاكرة الإنسان القديم.</p>
-            </div>
-          </article>
+.hero-logo img {
+  width: 100%;
+  height: auto;
+}
 
-          <article class="destination-card reveal">
-            <img src="imges/beaches.jpg" alt="الشواطئ الليبية" loading="lazy">
-            <div class="destination-content">
-              <span class="tag">Mediterranean</span>
-              <h3>الشواطئ</h3>
-              <p>ساحل واسع وتجارب بحرية هادئة ومفتوحة.</p>
-            </div>
-          </article>
+.hero-card,
+.hero-stats,
+.stat-item,
+.hero-panel {
+  display: none !important;
+}
 
-          <article class="destination-card reveal">
-            <img src="imges/natural lakes2.JPG" data-fallback-src="imges/natural lakes2.jpg" alt="البحيرات الطبيعية" loading="lazy">
-            <div class="destination-content">
-              <span class="tag">Nature</span>
-              <h3>البحيرات الطبيعية</h3>
-              <p>مشاهد طبيعية تضيف بعدًا بيئيًا لمسارات الزيارة.</p>
-            </div>
-          </article>
+.section-block {
+  padding: 96px 0;
+}
 
-          <article class="destination-card reveal">
-            <img src="imges/The Sahara Desert.jpg" alt="الصحراء الكبرى" loading="lazy">
-            <div class="destination-content">
-              <span class="tag">Grand Sahara</span>
-              <h3>الصحراء</h3>
-              <p>كثبان ونجوم ورحلات تمنح الزائر صورة ليبيا الرحبة.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+.section-heading {
+  max-width: 780px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
 
-    <!-- EXPERIENCES -->
-    <section class="experiences section-block has-soft-wave" id="experiences" aria-labelledby="experience-title">
-      <div class="container">
-        <div class="section-kicker">Experiences</div>
+.section-heading span,
+.atlas-card span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--sand-gold);
+  font-size: 0.82rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
 
-        <div class="section-heading">
-          <h2 id="experience-title">تجارب سياحية تصنع ذاكرة الرحلة</h2>
-          <p>اختر نوع التجربة، ثم انتقل إلى التخطيط أو اسأل VisitLibyaAI لبناء مسار أولي مناسب.</p>
-        </div>
+.section-heading h1,
+.section-heading h2,
+.atlas-card h2 {
+  margin: 0;
+  color: var(--deep-blue);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.15;
+}
 
-        <div class="experience-accordion reveal">
-          <button class="accordion is-open" type="button" aria-expanded="true">
-            <span>السياحة الثقافية والأثرية</span>
-          </button>
-          <div class="accordion-content open">
-            <p>استكشف لبدة وصبراتة وشحات وغدامس وأكاكوس ضمن مسارات تحترم قيمة المواقع وتعرضها بصريًا ومعرفيًا.</p>
-          </div>
+.section-heading p,
+.atlas-card p {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.9;
+}
 
-          <button class="accordion" type="button" aria-expanded="false">
-            <span>مغامرات الصحراء</span>
-          </button>
-          <div class="accordion-content">
-            <p>رحلات الواحات، النجوم، النقوش الصخرية، والكثبان ضمن تجربة منظّمة تستفيد من خبرة المرشدين المحليين.</p>
-          </div>
+.card-grid,
+.destination-grid,
+.program-grid {
+  display: grid;
+  gap: 22px;
+}
 
-          <button class="accordion" type="button" aria-expanded="false">
-            <span>سياحة الساحل</span>
-          </button>
-          <div class="accordion-content">
-            <p>مدن متوسطية وشواطئ وطبيعة بحرية يمكن ربطها بالتراث القريب من الساحل.</p>
-          </div>
+.three-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-          <button class="accordion" type="button" aria-expanded="false">
-            <span>السياحة البيئية</span>
-          </button>
-          <div class="accordion-content">
-            <p>تجارب في الجبل الأخضر والبحيرات والمناطق الطبيعية، مع تقديم ليبيا كوجهة مسؤولة وغنية بالتنوع.</p>
-          </div>
+.info-card {
+  min-height: 190px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--white);
+  box-shadow: 0 18px 46px rgba(4, 54, 77, 0.08);
+}
 
-          <button class="accordion" type="button" aria-expanded="false">
-            <span>الثقافة والمطبخ</span>
-          </button>
-          <div class="accordion-content">
-            <p>الكسكسي والبازين والشاي والتمور والحرف واللباس التقليدي كجزء من تجربة الضيافة الليبية.</p>
-          </div>
+.info-card strong,
+.heritage-strip strong {
+  color: var(--sand-gold);
+  font-weight: 900;
+}
 
-          <button class="accordion" type="button" aria-expanded="false">
-            <span>الفعاليات والرياضات الصحراوية</span>
-          </button>
-          <div class="accordion-content">
-            <p>مهرجانات الخريف وأوجلة وجرمة والفروسية والأنشطة البحرية والصحراوية كمسارات موسمية قابلة للتطوير.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+.info-card h2,
+.info-card h3,
+.heritage-strip h3 {
+  margin: 12px 0 8px;
+  color: var(--deep-blue);
+}
 
-    <!-- HERITAGE -->
-    <section class="heritage section-block heritage-luxury" id="heritage" aria-labelledby="heritage-title">
-      <div class="container">
-        <div class="section-kicker">World Heritage</div>
+.info-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
 
-        <div class="section-heading">
-          <h2 id="heritage-title">التراث العالمي في ليبيا</h2>
-          <p>خمسة مواقع ضمن التراث العالمي، تعرض ليبيا كمتحف مفتوح للحضارات المتوسطية والصحراوية.</p>
-        </div>
+.why,
+.experiences,
+.plan,
+.gallery {
+  background: var(--snow);
+}
 
-        <div class="unesco-strip">
-          <article class="reveal"><span>01</span><h3>لبدة الكبرى</h3></article>
-          <article class="reveal"><span>02</span><h3>صبراتة</h3></article>
-          <article class="reveal"><span>03</span><h3>شحات / قورينا</h3></article>
-          <article class="reveal"><span>04</span><h3>غدامس القديمة</h3></article>
-          <article class="reveal"><span>05</span><h3>تادرارت أكاكوس</h3></article>
-        </div>
-      </div>
-    </section>
+.destinations,
+.culture,
+.ai {
+  background: linear-gradient(180deg, var(--white), #f4fbff);
+}
 
-    <!-- CULTURE -->
-    <section class="culture section-block" id="culture" aria-labelledby="culture-title">
-      <div class="container">
-        <div class="section-kicker">Culture & Cuisine</div>
+.destination-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
 
-        <div class="section-heading">
-          <h2 id="culture-title">الثقافة والمطبخ الليبي</h2>
-          <p>الثقافة الليبية تجربة تعاش في الضيافة، اللباس، الحرف، الموسيقى، والمائدة التي تجمع البحر والصحراء.</p>
-        </div>
+.destination-card {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--sky-soft);
+  box-shadow: 0 22px 58px rgba(4, 54, 77, 0.12);
+}
 
-        <div class="culture-panel reveal">
-          <div class="culture-copy">
-            <h3>نكهات وطقوس تفتح باب المكان</h3>
-            <p>من الشاي الليبي والتمور إلى الكسكسي والبازين والمأكولات البحرية، تتحول المائدة إلى مدخل إنساني للتعرف على ليبيا.</p>
-          </div>
+.destination-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 58%;
+  background: linear-gradient(180deg, transparent, rgba(4, 54, 77, 0.78));
+  pointer-events: none;
+}
 
-          <div class="culture-list">
-            <span>الكسكسي</span>
-            <span>البازين</span>
-            <span>الشاي الليبي</span>
-            <span>الحرف التقليدية</span>
-            <span>الأزياء والفنون</span>
-            <span>المهرجانات</span>
-          </div>
-        </div>
-      </div>
-    </section>
+.destination-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
 
-    <!-- PLAN -->
-    <section class="plan section-block" id="plan" aria-labelledby="plan-title">
-      <div class="container">
-        <div class="section-kicker">Plan Your Trip</div>
+.destination-card:hover img {
+  transform: scale(1.045);
+}
 
-        <div class="section-heading">
-          <h2 id="plan-title">خطط رحلتك بثقة</h2>
-          <p>معلومات عملية تساعد الزائر على ترتيب الفكرة الأولى قبل الرجوع إلى الجهات الرسمية عند الإطلاق النهائي.</p>
-        </div>
+.destination-card div {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  padding: 22px;
+  color: var(--white);
+}
 
-        <div class="plan-layout">
-          <div class="plan-steps reveal">
-            <article><span>01</span><h3>حدد التجربة</h3><p>تراث، ساحل، صحراء، ثقافة، أو برنامج يجمع أكثر من محور.</p></article>
-            <article><span>02</span><h3>اختر الموسم</h3><p>الربيع والخريف للمدن والمواقع، والصيف للساحل، والشتاء للصحراء والواحات.</p></article>
-            <article><span>03</span><h3>رتب المسار</h3><p>ابدأ بالمدن الرئيسية ثم أضف المواقع القريبة والجولات المناسبة.</p></article>
-          </div>
+.destination-card span {
+  color: var(--gold-light);
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
 
-          <div class="practical-card reveal">
-            <h3>برنامج مقترح 7 أيام</h3>
-            <ol>
-              <li>طرابلس والمدينة القديمة</li>
-              <li>لبدة الكبرى</li>
-              <li>صبراتة</li>
-              <li>غدامس</li>
-              <li>شحات والجبل الأخضر</li>
-              <li>أكاكوس أو أوجلة</li>
-              <li>الأسواق والمطبخ الليبي</li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
+.destination-card h3 {
+  margin: 8px 0 6px;
+  font-size: 1.3rem;
+}
 
-    <!-- ATLAS -->
-    <section class="atlas section-block luxury-dark" id="atlas" aria-labelledby="atlas-title">
-      <div class="container atlas-shell reveal">
-        <div>
-          <div class="section-kicker">National Tourism Atlas</div>
-          <h2 id="atlas-title">الأطلس السياحي الوطني</h2>
-          <p>استكشف ليبيا عبر خرائط تفاعلية وبيانات سياحية وطنية، تربط الوجهات والمواقع التراثية والطبيعية والخدمية في تجربة واحدة.</p>
-        </div>
+.destination-card p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  line-height: 1.7;
+}
 
-        <a class="btn btn-primary" href="https://tidclibya.github.io/National-Tourism-Atlas-of-Libya/" target="_blank" rel="noopener">افتح الأطلس السياحي</a>
-      </div>
-    </section>
+.accordion-panel {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: 0 18px 46px rgba(4, 54, 77, 0.08);
+}
 
-    <!-- AI -->
-    <section class="ai section-block has-soft-wave" id="ai" aria-labelledby="ai-title">
-      <div class="container">
-        <div class="ai-shell reveal">
-          <div class="ai-copy">
-            <div class="section-kicker">VisitLibyaAI</div>
-            <h2 id="ai-title">VisitLibyaAI<br>دليلك الذكي لاكتشاف ليبيا</h2>
-            <p>اطرح سؤالًا عن الوجهات، التراث، المطبخ، الأطلس، أو برنامج سبعة أيام، وسيقترح لك المساعد اتجاهًا أوليًا واضحًا.</p>
+.accordion {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--deep-blue);
+  background: transparent;
+  text-align: right;
+  font-weight: 900;
+  cursor: pointer;
+}
 
-            <div class="ai-chips">
-              <button type="button" data-ai-prompt="اقترح برنامج 7 أيام في ليبيا">برنامج 7 أيام</button>
-              <button type="button" data-ai-prompt="ماذا أزور في طرابلس ولبدة وصبراتة؟">طرابلس ولبدة</button>
-              <button type="button" data-ai-prompt="حدثني عن المطبخ الليبي والثقافة">الثقافة والمطبخ</button>
-              <button type="button" data-ai-prompt="كيف أفتح الأطلس السياحي الوطني؟">الأطلس السياحي</button>
-            </div>
-          </div>
+.accordion.is-open {
+  color: var(--sand-gold);
+}
 
-          <div class="chat-widget" aria-label="VisitLibyaAI chat">
-            <div class="chat-header">
-              <span class="chat-mark">AI</span>
-              <div>
-                <strong>VisitLibyaAI</strong>
-                <small>مساعد التخطيط السياحي</small>
-              </div>
-            </div>
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s ease;
+}
 
-            <div class="chat-messages" id="chat-messages" aria-live="polite">
-              <div class="message bot">مرحبًا بك في ليبيا. اسألني عن وجهة، تجربة، أو برنامج رحلة وسأقترح لك مسارًا أوليًا.</div>
-            </div>
+.accordion.is-open + .accordion-content {
+  grid-template-rows: 1fr;
+}
 
-            <form class="chat-form" id="chat-form">
-              <input type="text" id="chat-input" name="message" placeholder="اكتب سؤالك هنا..." autocomplete="off">
-              <button type="submit">إرسال</button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+.accordion-content p {
+  min-height: 0;
+  overflow: hidden;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.9;
+}
 
-    <!-- GALLERY -->
-    <section class="gallery section-block" id="gallery" aria-labelledby="gallery-title">
-      <div class="container">
-        <div class="section-kicker">Gallery</div>
+.accordion.is-open + .accordion-content p {
+  padding: 14px 18px 18px;
+}
 
-        <div class="section-heading">
-          <h2 id="gallery-title">مشاهد من ليبيا</h2>
-          <p>مسار صور أفقي ناعم يعرض تنوع ليبيا بين التراث والساحل والصحراء والواحات.</p>
-        </div>
-      </div>
+.heritage {
+  background: linear-gradient(135deg, var(--deep-blue), var(--sea-blue));
+  color: var(--white);
+}
 
-      <div class="gallery-track" id="gallery-track" aria-label="Scrollable Libya gallery">
-        <figure class="gallery-card"><img src="imges/Leptis Magna3.jpeg" data-fallback-src="imges/Leptis Magna3.jpg" alt="لبدة الكبرى" loading="lazy"><figcaption>لبدة الكبرى</figcaption></figure>
-        <figure class="gallery-card"><img src="imges/Ghadames2.JPG" data-fallback-src="imges/Ghadames2.jpg" alt="غدامس" loading="lazy"><figcaption>غدامس</figcaption></figure>
-        <figure class="gallery-card"><img src="imges/Acacus.jpg" alt="أكاكوس" loading="lazy"><figcaption>أكاكوس</figcaption></figure>
-        <figure class="gallery-card"><img src="imges/beaches.jpg" alt="الساحل الليبي" loading="lazy"><figcaption>الساحل الليبي</figcaption></figure>
-        <figure class="gallery-card"><img src="imges/Cyrene.jpg" alt="شحات قورينا" loading="lazy"><figcaption>شحات / قورينا</figcaption></figure>
-        <figure class="gallery-card"><img src="imges/Sabratha.jpg" alt="صبراتة" loading="lazy"><figcaption>صبراتة</figcaption></figure>
-        <figure class="gallery-card"><img src="imges/The Sahara Desert.jpg" alt="الصحراء الكبرى" loading="lazy"><figcaption>الصحراء الكبرى</figcaption></figure>
-      </div>
-    </section>
-  </main>
+.heritage .section-heading h2,
+.heritage .section-heading p {
+  color: var(--white);
+}
 
-  <button class="floating-ai" type="button" aria-label="Open VisitLibyaAI" data-scroll-target="#ai">
-    <span>AI</span>
-  </button>
+.heritage-strip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
 
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <img src="visitlibyalogo.png" alt="Visit Libya logo">
-        <h2>Visit Libya | زور ليبيا</h2>
-        <p>ليبيا أرض الحضارات وموطن السحر والجمال</p>
-        <p>Gateway to Heritage and Hospitality</p>
-      </div>
+.heritage-strip article {
+  min-height: 160px;
+  padding: 22px;
+  border: 1px solid rgba(232, 199, 122, 0.34);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.14);
+}
 
-      <div class="footer-official">
-        <h3>منصة Visit Libya</h3>
-        <p>وزارة السياحة والصناعات التقليدية</p>
-        <p>مركز المعلومات والتوثيق السياحي</p>
-        <p>تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p>
-        <p>جميع الحقوق محفوظة</p>
-      </div>
+.heritage-strip h3 {
+  color: var(--white);
+}
 
-      <div class="footer-links">
-        <h3>روابط المنصة</h3>
-        <a href="#destinations">الوجهات</a>
-        <a href="#heritage">التراث</a>
-        <a href="#culture">الثقافة</a>
-        <a href="#plan">خطط رحلتك</a>
-        <a href="#atlas">الأطلس</a>
-      </div>
-    </div>
-  </footer>
+.split-section,
+.ai-grid,
+.footer-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: center;
+  gap: 34px;
+}
 
-  <script src="main.js?v=hero-image-only-05"></script>
-</body>
-</html>
+.compact-heading {
+  margin: 0;
+  text-align: right;
+}
+
+.soft-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: 0 18px 46px rgba(4, 54, 77, 0.08);
+}
+
+.soft-list span {
+  padding: 10px 16px;
+  border-radius: 999px;
+  color: var(--deep-blue);
+  background: var(--soft-gold);
+  font-weight: 900;
+}
+
+.program-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.atlas {
+  background: var(--sky-soft);
+}
+
+.atlas-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 34px;
+  border: 1px solid rgba(201, 154, 61, 0.36);
+  border-radius: 28px;
+  background: var(--white);
+  box-shadow: 0 20px 56px rgba(4, 54, 77, 0.1);
+}
+
+.chat-box {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--white);
+  box-shadow: 0 18px 46px rgba(4, 54, 77, 0.08);
+}
+
+.chat-messages {
+  height: 280px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.message {
+  max-width: 86%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  line-height: 1.7;
+}
+
+.message.bot {
+  align-self: flex-start;
+  color: var(--text-dark);
+  background: var(--sky-soft);
+}
+
+.message.user {
+  align-self: flex-end;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--deep-blue), var(--sea-blue));
+}
+
+.chat-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  padding: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.chat-form input {
+  min-width: 0;
+  height: 50px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  outline: none;
+}
+
+.chat-form input:focus {
+  border-color: var(--sand-gold);
+  box-shadow: 0 0 0 4px rgba(201, 154, 61, 0.14);
+}
+
+.chat-form button {
+  min-width: 88px;
+  border: 0;
+  border-radius: 16px;
+  color: var(--white);
+  background: var(--sea-blue);
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.gallery {
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(320px, 520px);
+  gap: 18px;
+  overflow-x: auto;
+  padding: 0 max(20px, calc((100vw - 1200px) / 2)) 18px;
+  cursor: grab;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.gallery-track.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.gallery-track figure {
+  position: relative;
+  height: 330px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  background: var(--sky-soft);
+  box-shadow: 0 18px 46px rgba(4, 54, 77, 0.12);
+  scroll-snap-align: start;
+}
+
+.gallery-track figure::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 50%;
+  background: linear-gradient(180deg, transparent, rgba(4, 54, 77, 0.64));
+}
+
+.gallery-track img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.gallery-track figcaption {
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  z-index: 2;
+  color: var(--white);
+  font-weight: 900;
+}
+
+.site-footer {
+  padding: 54px 0;
+  color: rgba(255, 255, 255, 0.82);
+  background: linear-gradient(135deg, #032c3f, var(--deep-blue));
+}
+
+.site-footer h2 {
+  margin: 0 0 12px;
+  color: var(--white);
+}
+
+.site-footer p {
+  margin: 6px 0;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+img.is-missing {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .nav-shell {
+    grid-template-columns: auto auto auto;
+  }
+
+  .nav-toggle {
+    display: block;
+    justify-self: center;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 16px;
+    left: 16px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 20px 46px rgba(4, 54, 77, 0.16);
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 12px 6px;
+  }
+
+  .three-grid,
+  .destination-grid,
+  .program-grid,
+  .heritage-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .split-section,
+  .ai-grid,
+  .footer-grid,
+  .atlas-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: min(100% - 28px, 1200px);
+  }
+
+  .nav-shell {
+    min-height: 66px;
+  }
+
+  .brand-copy {
+    display: none;
+  }
+
+  .nav-cta {
+    min-height: 40px;
+    padding: 0 13px;
+    font-size: 0.82rem;
+  }
+
+  .hero {
+    min-height: 86vh;
+  }
+
+  .hero-logo {
+    top: 118px;
+    width: 160px;
+  }
+
+  .section-block {
+    padding: 72px 0;
+  }
+
+  .three-grid,
+  .destination-grid,
+  .program-grid,
+  .heritage-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-card,
+  .destination-card img {
+    min-height: 320px;
+  }
+
+  .chat-form {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-track {
+    grid-auto-columns: minmax(270px, 84vw);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { transition: none; }
+}

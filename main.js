@@ -1,83 +1,18 @@
-/* =========================================================
-   Visit Libya Frontend
-   Version: hero-image-only-05
-   ========================================================= */
+(function () {
+  "use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const header = document.getElementById("site-header");
+  const header = document.querySelector("#site-header");
   const navToggle = document.querySelector(".nav-toggle");
-  const navLinks = document.getElementById("primary-menu");
+  const navLinks = document.querySelector("#primary-menu");
+  const hero = document.querySelector(".hero");
+  const accordions = document.querySelectorAll(".accordion");
+  const revealItems = document.querySelectorAll(".reveal");
+  const galleryTrack = document.querySelector("#gallery-track");
+  const chatForm = document.querySelector("#chat-form");
+  const chatInput = document.querySelector("#chat-input");
+  const chatMessages = document.querySelector("#chat-messages");
 
-  /* Header scroll */
-  window.addEventListener("scroll", () => {
-    if (!header) return;
-    header.classList.toggle("scrolled", window.scrollY > 40);
-  });
-
-  /* Mobile nav */
-  if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
-      const isOpen = navLinks.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
-  /* Smooth scroll */
-  document.querySelectorAll('a[href^="#"], button[data-scroll-target]').forEach((el) => {
-    el.addEventListener("click", (event) => {
-      const href = el.getAttribute("href") || el.getAttribute("data-scroll-target");
-      if (!href || href === "#") return;
-
-      const target = document.querySelector(href);
-      if (!target) return;
-
-      event.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-
-  /* Image fallback */
-  document.querySelectorAll("img[data-fallback-src]").forEach((img) => {
-    img.addEventListener("error", () => {
-      const fallback = img.getAttribute("data-fallback-src");
-      if (fallback && img.src.indexOf(fallback) === -1) {
-        img.src = fallback;
-      }
-    });
-  });
-
-  /* Reveal on scroll */
-  const reveals = document.querySelectorAll(".reveal");
-
-  if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            revealObserver.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.14 }
-    );
-
-    reveals.forEach((item) => revealObserver.observe(item));
-  } else {
-    reveals.forEach((item) => item.classList.add("active"));
-  }
-
-  /* Hero image-only slider */
-  const heroSection = document.querySelector(".hero");
-
-  const heroBackgrounds = [
+  const heroImages = [
     "imges/Leptis Magna3.jpeg",
     "imges/Leptis Magna3.jpg",
     "imges/Acacus.jpg",
@@ -88,212 +23,216 @@ document.addEventListener("DOMContentLoaded", () => {
     "imges/Sabratha.jpg"
   ];
 
-  let validHeroImages = [];
-  let heroIndex = 0;
+  let activeHeroIndex = 0;
+  let availableHeroImages = [];
 
-  function preloadHeroImages(paths) {
-    return Promise.all(
-      paths.map((src) => {
-        return new Promise((resolve) => {
-          const img = new Image();
-          img.onload = () => resolve(src);
-          img.onerror = () => resolve(null);
-          img.src = src;
-        });
-      })
-    ).then((results) => results.filter(Boolean));
-  }
+  const setHeaderState = () => {
+    if (!header) return;
+    header.classList.toggle("is-scrolled", window.scrollY > 20);
+  };
 
-  function setHeroBackground(src) {
-    if (!heroSection || !src) return;
+  const closeMenu = () => {
+    if (!navToggle || !navLinks) return;
+    navLinks.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  };
 
-    heroSection.classList.add("hero-fading");
+  const wireMobileMenu = () => {
+    if (!navToggle || !navLinks) return;
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-controls", "primary-menu");
 
-    heroSection.style.backgroundImage =
-      `linear-gradient(
-        180deg,
-        rgba(0,0,0,0.02) 0%,
-        rgba(0,0,0,0.04) 52%,
-        rgba(0,0,0,0.10) 100%
-      ), url("${src}")`;
-
-    setTimeout(() => {
-      heroSection.classList.remove("hero-fading");
-    }, 650);
-  }
-
-  if (heroSection) {
-    preloadHeroImages(heroBackgrounds).then((images) => {
-      validHeroImages = images.length ? images : ["imges/Acacus.jpg"];
-      setHeroBackground(validHeroImages[0]);
-
-      setInterval(() => {
-        heroIndex = (heroIndex + 1) % validHeroImages.length;
-        setHeroBackground(validHeroImages[heroIndex]);
-      }, 5000);
+    navToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
     });
-  }
 
-  /* Accordion */
-  const accordionButtons = document.querySelectorAll(".accordion");
+    document.addEventListener("click", (event) => {
+      if (navLinks.contains(event.target) || navToggle.contains(event.target)) return;
+      closeMenu();
+    });
+  };
 
-  accordionButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const content = button.nextElementSibling;
-      const isOpen = button.classList.contains("is-open");
-
-      accordionButtons.forEach((btn) => {
-        btn.classList.remove("is-open");
-        btn.setAttribute("aria-expanded", "false");
-
-        const panel = btn.nextElementSibling;
-        if (panel && panel.classList.contains("accordion-content")) {
-          panel.classList.remove("open");
-        }
+  const wireSmoothScroll = () => {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const targetId = link.getAttribute("href");
+        if (!targetId || targetId === "#") return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        event.preventDefault();
+        closeMenu();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
-
-      if (!isOpen) {
-        button.classList.add("is-open");
-        button.setAttribute("aria-expanded", "true");
-
-        if (content && content.classList.contains("accordion-content")) {
-          content.classList.add("open");
-        }
-      }
     });
+  };
+
+  const testImage = (src) => new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => resolve(src);
+    image.onerror = () => resolve(null);
+    image.src = src;
   });
 
-  /* VisitLibyaAI chat demo */
-  const chatForm = document.getElementById("chat-form");
-  const chatInput = document.getElementById("chat-input");
-  const chatMessages = document.getElementById("chat-messages");
-  const aiPromptButtons = document.querySelectorAll("[data-ai-prompt]");
+  const heroBackgroundValue = (src) =>
+    `linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.08)), url("${src}")`;
 
-  function appendMessage(text, type = "bot") {
-    if (!chatMessages) return;
+  const setHeroBackground = (src) => {
+    if (!hero || !src) return;
+    hero.style.backgroundImage = heroBackgroundValue(src);
+    hero.style.backgroundSize = "cover";
+    hero.style.backgroundPosition = "center";
+  };
 
+  const wireHeroSlider = async () => {
+    if (!hero) return;
+    const results = await Promise.all(heroImages.map(testImage));
+    availableHeroImages = results.filter(Boolean);
+    if (!availableHeroImages.length) return;
+
+    activeHeroIndex = 0;
+    setHeroBackground(availableHeroImages[activeHeroIndex]);
+
+    if (availableHeroImages.length < 2) return;
+    window.setInterval(() => {
+      activeHeroIndex = (activeHeroIndex + 1) % availableHeroImages.length;
+      setHeroBackground(availableHeroImages[activeHeroIndex]);
+    }, 5000);
+  };
+
+  const wireImageFallbacks = () => {
+    document.querySelectorAll("img").forEach((image) => {
+      image.addEventListener("error", () => {
+        const fallback = image.dataset.fallbackSrc;
+        if (fallback && !image.dataset.fallbackUsed) {
+          image.dataset.fallbackUsed = "true";
+          image.src = fallback;
+          return;
+        }
+        image.classList.add("is-missing");
+      });
+    });
+  };
+
+  const wireAccordions = () => {
+    accordions.forEach((button) => {
+      button.addEventListener("click", () => {
+        const wasOpen = button.classList.contains("is-open");
+        accordions.forEach((item) => {
+          item.classList.remove("is-open");
+          item.setAttribute("aria-expanded", "false");
+        });
+        if (!wasOpen) {
+          button.classList.add("is-open");
+          button.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+  };
+
+  const wireReveal = () => {
+    if (!revealItems.length) return;
+    if (!("IntersectionObserver" in window)) {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.14, rootMargin: "0px 0px -60px 0px" });
+
+    revealItems.forEach((item) => observer.observe(item));
+  };
+
+  const responses = [
+    { keys: ["طرابلس", "العاصمة"], text: "طرابلس بداية مناسبة للتعرف على المدينة القديمة والأسواق والمعالم المتوسطية." },
+    { keys: ["لبدة", "leptis"], text: "لبدة الكبرى محطة تراثية رئيسية ويمكن زيارتها ضمن مسار طرابلس وصبراتة." },
+    { keys: ["صبراتة", "sabratha"], text: "صبراتة تجمع بين المسرح القديم والمشهد الساحلي على البحر المتوسط." },
+    { keys: ["شحات", "قورينا", "cyrene"], text: "شحات / قورينا تجربة كلاسيكية في الجبل الأخضر وتناسب رحلات التراث والطبيعة." },
+    { keys: ["غدامس"], text: "غدامس القديمة واحة فريدة بعمارتها الصحراوية وذاكرتها الثقافية." },
+    { keys: ["أكاكوس", "اكاكوس"], text: "أكاكوس مناسبة لمحبي الصحراء والفنون الصخرية وتحتاج تخطيطًا مع دليل محلي." },
+    { keys: ["مطبخ", "ثقافة", "كسكسي", "بازين"], text: "الثقافة والمطبخ الليبي يضمان الكسكسي والبازين والشاي الليبي والتمور والحرف التقليدية." },
+    { keys: ["تراث", "unesco"], text: "مواقع التراث العالمي في ليبيا: لبدة الكبرى، صبراتة، شحات / قورينا، غدامس القديمة، وتادرارت أكاكوس." },
+    { keys: ["تأشيرة", "التأشيرات", "فيزا"], text: "معلومات التأشيرات والدخول يجب الرجوع فيها إلى الجهات الرسمية عند الإطلاق النهائي." },
+    { keys: ["الأطلس", "اطلس", "خريطة"], text: "يمكن فتح الأطلس السياحي الوطني من قسم الأطلس لاستكشاف الخرائط والبيانات السياحية." },
+    { keys: ["7 أيام", "سبعة أيام", "برنامج"], text: "برنامج 7 أيام مقترح: طرابلس، لبدة، صبراتة، غدامس، شحات، أكاكوس أو أوجلة، ثم الأسواق والمطبخ الليبي." }
+  ];
+
+  const createMessage = (text, type) => {
     const message = document.createElement("div");
     message.className = `message ${type}`;
     message.textContent = text;
+    return message;
+  };
 
-    chatMessages.appendChild(message);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
+  const getReply = (text) => {
+    const normalized = text.trim().toLowerCase();
+    const match = responses.find((item) => item.keys.some((key) => normalized.includes(key.toLowerCase())));
+    return match ? match.text : "اختر نوع التجربة أو الوجهة، وسأقترح لك مسارًا أوليًا بين التراث والساحل والصحراء والثقافة.";
+  };
 
-  function aiReply(input) {
-    const text = input.trim().toLowerCase();
-
-    if (!text) return "اكتب اسم وجهة أو نوع تجربة، وسأقترح لك مسارًا أوليًا.";
-
-    if (text.includes("7") || text.includes("سبعة") || text.includes("برنامج")) {
-      return "برنامج 7 أيام مقترح: اليوم الأول طرابلس والمدينة القديمة، الثاني لبدة الكبرى، الثالث صبراتة، الرابع غدامس، الخامس شحات والجبل الأخضر، السادس أكاكوس أو أوجلة، والسابع الأسواق والمطبخ الليبي.";
-    }
-
-    if (text.includes("طرابلس")) {
-      return "طرابلس مناسبة كبداية للرحلة: المدينة القديمة، قوس ماركوس أوريليوس، الأسواق التقليدية، ثم يمكن ربطها بزيارة لبدة وصبراتة.";
-    }
-
-    if (text.includes("لبدة") || text.includes("leptis")) {
-      return "لبدة الكبرى من أهم مواقع التراث في ليبيا، وتناسب مسار السياحة الثقافية والأثرية، خصوصًا مع طرابلس وصبراتة.";
-    }
-
-    if (text.includes("صبراتة")) {
-      return "صبراتة تجمع بين الساحل والآثار، ويمكن زيارتها ضمن مسار قصير من طرابلس إلى الغرب الليبي.";
-    }
-
-    if (text.includes("شحات") || text.includes("قورينا") || text.includes("cyrene")) {
-      return "شحات / قورينا وجهة مثالية في الجبل الأخضر لمحبي التاريخ والطبيعة والآثار الكلاسيكية.";
-    }
-
-    if (text.includes("غدامس")) {
-      return "غدامس واحة معمارية فريدة، مناسبة لمسار الصحراء والواحات، وتحتاج تخطيطًا مع مرشد أو منظم رحلات.";
-    }
-
-    if (text.includes("أكاكوس") || text.includes("اكاكوس")) {
-      return "أكاكوس من أهم مناطق الفن الصخري والصحراء في ليبيا، وتناسب رحلات المغامرة والثقافة العميقة.";
-    }
-
-    if (text.includes("المطبخ") || text.includes("الأكل") || text.includes("الطعام") || text.includes("الثقافة")) {
-      return "الثقافة والمطبخ الليبي جزء مهم من التجربة: الكسكسي، البازين، الشاي الليبي، التمور، الحرف التقليدية، والضيافة الأصيلة.";
-    }
-
-    if (text.includes("تراث") || text.includes("يونسكو")) {
-      return "مواقع التراث العالمي في ليبيا: لبدة الكبرى، صبراتة، شحات / قورينا، غدامس القديمة، وتادرارت أكاكوس.";
-    }
-
-    if (text.includes("أطلس") || text.includes("خريطة") || text.includes("خرائط")) {
-      return "يمكنك استخدام الأطلس السياحي الوطني لاستكشاف المواقع على الخريطة وربط الوجهات الطبيعية والتراثية والخدمية.";
-    }
-
-    if (text.includes("تأشيرة") || text.includes("دخول") || text.includes("السفر")) {
-      return "معلومات التأشيرات والدخول يجب اعتمادها من الجهات الرسمية عند الإطلاق النهائي. يمكنني مساعدتك الآن في بناء مسار رحلة أولي.";
-    }
-
-    return "ليبيا تقدم مسارات متعددة: التراث العالمي، الساحل، الصحراء، الواحات، الثقافة والمطبخ. اكتب اسم وجهة مثل طرابلس أو غدامس أو أكاكوس.";
-  }
-
-  if (chatForm && chatInput) {
+  const wireChat = () => {
+    if (!chatForm || !chatInput || !chatMessages) return;
     chatForm.addEventListener("submit", (event) => {
       event.preventDefault();
-
-      const userText = chatInput.value.trim();
-      if (!userText) return;
-
-      appendMessage(userText, "user");
+      const value = chatInput.value.trim();
+      if (!value) return;
+      chatMessages.appendChild(createMessage(value, "user"));
       chatInput.value = "";
-
-      setTimeout(() => {
-        appendMessage(aiReply(userText), "bot");
-      }, 350);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      window.setTimeout(() => {
+        chatMessages.appendChild(createMessage(getReply(value), "bot"));
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }, 280);
     });
-  }
+  };
 
-  aiPromptButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const prompt = button.getAttribute("data-ai-prompt");
-      if (!prompt) return;
-
-      appendMessage(prompt, "user");
-
-      setTimeout(() => {
-        appendMessage(aiReply(prompt), "bot");
-      }, 350);
-    });
-  });
-
-  /* Gallery drag scroll */
-  const galleryTrack = document.getElementById("gallery-track");
-
-  if (galleryTrack) {
+  const wireGalleryDrag = () => {
+    if (!galleryTrack) return;
     let isDown = false;
     let startX = 0;
     let scrollLeft = 0;
 
-    galleryTrack.addEventListener("mousedown", (event) => {
+    galleryTrack.addEventListener("pointerdown", (event) => {
       isDown = true;
-      galleryTrack.classList.add("dragging");
       startX = event.pageX - galleryTrack.offsetLeft;
       scrollLeft = galleryTrack.scrollLeft;
+      galleryTrack.classList.add("is-dragging");
+      galleryTrack.setPointerCapture(event.pointerId);
     });
 
-    galleryTrack.addEventListener("mouseleave", () => {
+    galleryTrack.addEventListener("pointerup", () => {
       isDown = false;
-      galleryTrack.classList.remove("dragging");
+      galleryTrack.classList.remove("is-dragging");
     });
 
-    galleryTrack.addEventListener("mouseup", () => {
+    galleryTrack.addEventListener("pointerleave", () => {
       isDown = false;
-      galleryTrack.classList.remove("dragging");
+      galleryTrack.classList.remove("is-dragging");
     });
 
-    galleryTrack.addEventListener("mousemove", (event) => {
+    galleryTrack.addEventListener("pointermove", (event) => {
       if (!isDown) return;
       event.preventDefault();
       const x = event.pageX - galleryTrack.offsetLeft;
-      const walk = (x - startX) * 1.4;
-      galleryTrack.scrollLeft = scrollLeft - walk;
+      galleryTrack.scrollLeft = scrollLeft - ((x - startX) * 1.25);
     });
-  }
+  };
 
-  console.log("Visit Libya hero image only v05 loaded");
-});
+  wireMobileMenu();
+  wireSmoothScroll();
+  wireHeroSlider();
+  wireImageFallbacks();
+  wireAccordions();
+  wireReveal();
+  wireChat();
+  wireGalleryDrag();
+  setHeaderState();
+  window.addEventListener("scroll", setHeaderState, { passive: true });
+
+  console.log("Visit Libya final clean build v10 loaded");
+})();
