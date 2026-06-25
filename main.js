@@ -11,19 +11,29 @@
     .replace(/[\u064B-\u065F\u0640]/g, "")
     .trim();
 
-  const heroImageGroups = [
-    ["imges/pan1.webp"],
-    ["imges/pan6.webp"],
-    ["imges/pan4.webp"],
-    ["imges/pan5.webp"],
-    ["imges/pan2.avif"],
-    ["imges/pan3.avif"],
-    ["imges/Leptis Magna3.jpeg", "imges/Leptis Magna3.jpg"],
-    ["imges/Acacus.jpg"],
-    ["imges/Ghadames2.JPG"],
-    ["imges/beaches.jpg"],
-    ["imges/Cyrene.jpg"],
-    ["imges/Sabratha.jpg"]
+  const heroBackgrounds = [
+    "panel/panel1.png",
+    "panel/panel2.png",
+    "panel/panel3.png",
+    "panel/panel4.png",
+    "panel/panel5.png",
+    "panel/panel6.jpg",
+    "panel/panel7.jpg",
+    "panel/panel8.jpg",
+    "panel/panel9.jpg",
+    "panel/panel10.jpg",
+    "panel/panel11.jpg",
+    "panel/panel12.jpg",
+    "panel/panel13.jpg",
+    "panel/panel14.jpg",
+    "panel/panel15.jpeg",
+    "panel/panel16.jpg",
+    "panel/panel17.JPG",
+    "panel/panel18.JPG",
+    "panel/panel19.jpeg",
+    "panel/panel20.jpg",
+    "panel/panel21.jpg",
+    "panel/panel22.jpg"
   ];
 
   const testImage = (src) => new Promise((resolve) => {
@@ -88,34 +98,31 @@
     });
   };
 
+  const heroBackgroundValue = (src) => `linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0.05) 55%, rgba(0,0,0,0.12) 100%), url("${src}")`;
+
+  const setHeroBackground = (hero, src) => {
+    if (!hero || !src) return;
+    hero.style.backgroundImage = heroBackgroundValue(src);
+    hero.style.backgroundSize = "cover";
+    hero.style.backgroundPosition = "center";
+    hero.style.backgroundRepeat = "no-repeat";
+  };
+
   const wireHeroSlider = async (hero) => {
     if (!hero) return;
 
-    const resolvedGroups = await Promise.all(heroImageGroups.map(firstAvailableFromGroup));
-    const heroImages = resolvedGroups.filter(Boolean);
-    if (!heroImages.length) return;
+    const loadedImages = (await Promise.all(heroBackgrounds.map(testImage))).filter(Boolean);
+    if (!loadedImages.length) return;
 
-    const slider = document.createElement("div");
-    slider.className = "hero-slider";
-
-    const slides = heroImages.map((src, index) => {
-      const slide = document.createElement("div");
-      slide.className = index === 0 ? "hero-slide is-active" : "hero-slide";
-      slide.style.backgroundImage = `url("${src}")`;
-      slider.appendChild(slide);
-      return slide;
-    });
-
-    hero.prepend(slider);
-    hero.classList.add("has-slider");
-
-    if (slides.length < 2) return;
     let activeIndex = 0;
+    setHeroBackground(hero, loadedImages[activeIndex]);
+    hero.classList.add("has-panel-hero");
+
+    if (loadedImages.length < 2) return;
     window.setInterval(() => {
-      slides[activeIndex].classList.remove("is-active");
-      activeIndex = (activeIndex + 1) % slides.length;
-      slides[activeIndex].classList.add("is-active");
-    }, 5000);
+      activeIndex = (activeIndex + 1) % loadedImages.length;
+      setHeroBackground(hero, loadedImages[activeIndex]);
+    }, 6000);
   };
 
   const wireDestinationFilters = () => {
@@ -298,7 +305,7 @@
     setHeaderState(header);
     window.addEventListener("scroll", () => setHeaderState(header), { passive: true });
 
-    console.log("Visit Libya subpages live v01 loaded");
+    console.log("Visit Libya panel hero slider v01 loaded");
   };
 
   if (document.readyState === "loading") {

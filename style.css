@@ -38,11 +38,9 @@ button, input { font: inherit; }
 .nav-toggle { display: none; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 15px; background: var(--white); color: var(--deep-blue); cursor: pointer; }
 .nav-toggle span { display: block; width: 20px; height: 2px; margin: 5px auto; border-radius: 99px; background: currentColor; }
 
-.hero { position: relative; min-height: 96vh; overflow: hidden; background: var(--deep-blue) center / cover no-repeat; isolation: isolate; }
-.hero-slider { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: var(--deep-blue); }
-.hero-slide { position: absolute; inset: 0; opacity: 0; background-position: center; background-size: cover; transform: scale(1); transition: opacity 1.25s ease, transform 6.5s ease; will-change: opacity, transform; }
-.hero-slide.is-active { opacity: 1; transform: scale(1.045); }
-.hero-overlay { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.03) 0%, rgba(0,0,0,.06) 60%, rgba(4,54,77,.16) 100%); }
+.hero { position: relative; min-height: 94vh; overflow: hidden; background: var(--deep-blue) center / cover no-repeat; background-size: cover; background-position: center; background-repeat: no-repeat; isolation: isolate; transition: background-image 1.4s ease-in-out, opacity .6s ease; }
+.hero::before, .hero::after { display: none !important; }
+.hero-overlay { position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.02) 0%, rgba(0,0,0,.05) 55%, rgba(0,0,0,.12) 100%); }
 .hero-mark { position: absolute; top: clamp(110px, 16vh, 160px); left: 50%; z-index: 2; width: clamp(118px, 12vw, 170px); transform: translateX(-50%); padding: 12px 14px; border: 1px solid rgba(255,255,255,.28); border-radius: 22px; background: rgba(255,255,255,.16); backdrop-filter: blur(10px); box-shadow: 0 20px 60px rgba(0,0,0,.12); }
 .hero-actions { position: absolute; right: 50%; bottom: 44px; z-index: 2; display: flex; gap: 12px; transform: translateX(50%); }
 .hero-pill { min-height: 42px; display: inline-flex; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid rgba(255,255,255,.38); border-radius: 999px; color: var(--white); background: rgba(255,255,255,.14); backdrop-filter: blur(12px); font-weight: 900; }
@@ -149,7 +147,7 @@ img.is-missing { display: none; }
 @media (max-width: 760px) {
   .container { width: min(100% - 28px, 1220px); }
   .brand-copy { display: none; }
-  .hero { min-height: 88vh; }
+  .hero { position: relative; min-height: 94vh; overflow: hidden; background: var(--deep-blue) center / cover no-repeat; background-size: cover; background-position: center; background-repeat: no-repeat; isolation: isolate; transition: background-image 1.4s ease-in-out, opacity .6s ease; }
   .hero-actions { width: calc(100% - 28px); justify-content: center; flex-wrap: wrap; }
   .section-block { padding: 76px 0; }
   .destination-grid, .experience-grid, .route-grid, .heritage-grid, .page-grid { grid-template-columns: 1fr; }
