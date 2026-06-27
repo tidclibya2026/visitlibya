@@ -194,3 +194,82 @@ img.is-missing { visibility: hidden; }
   html { scroll-behavior: auto; }
   .reveal { transition: none; }
 }
+
+.card-meta {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-size: .78rem;
+  font-weight: 900;
+}
+
+.card-actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.content-list {
+  margin: 12px 0 0;
+  padding: 0 18px 0 0;
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: .94rem;
+}
+
+.section-note {
+  margin-top: 12px !important;
+  padding: 12px 14px;
+  border-radius: 18px;
+  color: var(--navy) !important;
+  background: var(--cream);
+  font-weight: 800;
+}
+
+.link-card {
+  color: var(--navy);
+  background: var(--cream);
+  border: 1px solid rgba(217, 164, 65, .32);
+}
+
+.anchor-target {
+  scroll-margin-top: 118px;
+}
+
+.image-credit {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.chat-link {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 10px;
+  padding: 6px 11px;
+  border-radius: 999px;
+  color: var(--navy);
+  background: var(--cream);
+  font-weight: 900;
+}
+
+.destination-feature-card img,
+.story-card img,
+.experience-card img,
+.culture-strip-card img,
+.page-card img {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.page-card .section-note {
+  margin-bottom: 0;
+}
+
+body {
+  line-height: 1.65;
+}
+
+.page-section {
+  scroll-margin-top: 96px;
+}

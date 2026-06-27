@@ -25,6 +25,8 @@
     "panel/panel21.jpg",
     "panel/panel22.jpg"
 ];
+  const defaultImageFallback = "imges/landscapes.jpg";
+  const atlasUrl = "https://tidclibya2026.github.io/libyan--map/";
 
   const normalizeText = (value) => String(value || "")
     .toLowerCase()
@@ -49,6 +51,13 @@
     const setHeader = () => header && header.classList.toggle("is-scrolled", window.scrollY > 20);
     setHeader();
     window.addEventListener("scroll", setHeader, { passive: true });
+    if (navLinks) {
+      const currentPage = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+      navLinks.querySelectorAll("a").forEach((link) => {
+        const linkPage = (link.getAttribute("href") || "").split("#")[0].split("?")[0].toLowerCase();
+        link.classList.toggle("is-active", linkPage === currentPage);
+      });
+    }
     if (!navToggle || !navLinks) return;
     const closeMenu = () => {
       navLinks.classList.remove("is-open");
@@ -68,6 +77,11 @@
     });
   };
 
+  const scrollToSelector = (selector) => {
+    const target = selector ? document.querySelector(selector) : null;
+    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const wireSmoothScroll = () => {
     document.querySelectorAll('a[href^="#"], a[href^="index.html#"]').forEach((link) => {
       link.addEventListener("click", (event) => {
@@ -81,19 +95,18 @@
       });
     });
     document.querySelectorAll("[data-scroll-target]").forEach((button) => {
-      button.addEventListener("click", () => {
-        const selector = button.getAttribute("data-scroll-target");
-        const target = selector ? document.querySelector(selector) : null;
-        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+      button.addEventListener("click", () => scrollToSelector(button.getAttribute("data-scroll-target")));
     });
+    if (location.hash) {
+      window.setTimeout(() => scrollToSelector(location.hash), 350);
+    }
   };
 
   const wireHeroVideoFallback = async () => {
     const hero = document.querySelector(".cinematic-hero");
     if (!hero) return;
     const fallback = (await Promise.all(panelFallbackImages.map(testImage))).find(Boolean);
-    if (fallback) hero.style.setProperty("--hero-fallback-image", `url("${fallback}")`);
+    if (fallback) hero.style.backgroundImage = `linear-gradient(180deg, rgba(7,59,76,.16), rgba(7,59,76,.28)), url("${fallback}")`;
     const frame = hero.querySelector(".hero-video");
     if (!frame) {
       hero.classList.add("is-video-fallback");
@@ -129,7 +142,7 @@
   const wireImageFallbacks = () => {
     document.querySelectorAll("img").forEach((image) => {
       image.addEventListener("error", () => {
-        const fallback = image.dataset.fallbackSrc;
+        const fallback = image.dataset.fallbackSrc || defaultImageFallback;
         if (fallback && image.src.indexOf(fallback) === -1) {
           image.src = fallback;
           return;
@@ -139,21 +152,27 @@
     });
   };
 
+  const applyFilter = (scope, filter) => {
+    const buttons = scope.querySelectorAll("[data-filter]");
+    const section = scope.closest("section") || document;
+    const cards = section.querySelectorAll("[data-category]");
+    buttons.forEach((item) => item.classList.toggle("is-active", (item.dataset.filter || "all") === filter));
+    cards.forEach((card) => {
+      const categories = (card.dataset.category || "").split(/\s+/).filter(Boolean);
+      card.classList.toggle("is-hidden", filter !== "all" && !categories.includes(filter));
+    });
+  };
+
   const wireFilters = () => {
     document.querySelectorAll(".filter-tabs").forEach((scope) => {
       const buttons = scope.querySelectorAll("[data-filter]");
-      const section = scope.closest("section") || document;
-      const cards = section.querySelectorAll("[data-category]");
       buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const filter = button.dataset.filter || "all";
-          buttons.forEach((item) => item.classList.toggle("is-active", item === button));
-          cards.forEach((card) => {
-            const categories = (card.dataset.category || "").split(/\s+/).filter(Boolean);
-            card.classList.toggle("is-hidden", filter !== "all" && !categories.includes(filter));
-          });
-        });
+        button.addEventListener("click", () => applyFilter(scope, button.dataset.filter || "all"));
       });
+      const queryFilter = new URLSearchParams(location.search).get("filter");
+      if (queryFilter) {
+        applyFilter(scope, queryFilter);
+      }
     });
   };
 
@@ -168,8 +187,8 @@
       title.textContent = button.dataset.title || "";
       tag.textContent = button.dataset.tag || "";
       description.textContent = button.dataset.description || "";
-      image.src = button.dataset.image || "";
-      image.alt = button.dataset.title || "";
+      image.src = button.dataset.image || defaultImageFallback;
+      image.alt = button.dataset.title || "وجهة سياحية في ليبيا";
       modal.classList.add("is-open");
       modal.setAttribute("aria-hidden", "false");
       document.body.style.overflow = "hidden";
@@ -187,19 +206,47 @@
   };
 
   const knowledge = [
-    { keys: ["طرابلس", "tripoli"], text: "طرابلس بداية مثالية للمدينة القديمة والأسواق والواجهة المتوسطية، ويمكن ربطها بزيارة لبدة الكبرى وصبراتة." },
-    { keys: ["غدامس", "ghadames"], text: "غدامس مدينة الواحة والظل والضوء، وتناسب تجربة الثقافة والضيافة والمدينة القديمة." },
-    { keys: ["أكاكوس", "اكاكوس", "acacus"], text: "أكاكوس تجربة صحراوية عالمية للفنون الصخرية والتكوينات الطبيعية، وينصح بزيارتها مع دليل محلي متخصص." },
-    { keys: ["برنامج 7 أيام", "سبعة أيام"], text: "برنامج 7 أيام مبدئي: طرابلس، لبدة الكبرى، صبراتة، ثم غدامس أو شحات حسب التنظيم، مع يوم للتجربة الثقافية." },
-    { keys: ["المطبخ", "الأكلات", "البازين", "الكسكسي", "العصبان"], text: "من أشهر الأكلات الليبية: البازين، الكسكسي، العصبان، المبكبكة، ورشدة البرمة." },
-    { keys: ["التراث", "اليونسكو", "unesco"], text: "مواقع التراث العالمي في ليبيا: لبدة الكبرى، صبراتة، شحات / قورينا، غدامس القديمة، وتادرارت أكاكوس." },
-    { keys: ["السلامة", "التأشيرات", "فيزا"], text: "معلومات السلامة والتأشيرات يجب الرجوع فيها إلى الجهات الرسمية عند الإطلاق النهائي." }
+    { keys: ["طرابلس", "tripoli"], text: "طرابلس تجمع المدينة القديمة وقوس ماركوس والأسواق والسرايا الحمراء في تجربة حضرية متوسطية.", link: "destinations.html#tripoli", label: "افتح طرابلس" },
+    { keys: ["غدامس", "ghadames"], text: "غدامس جوهرة الصحراء، تشتهر بالشوارع المسقوفة وعين الفرس والرملة وعمارة الواحة.", link: "destinations.html#ghadames", label: "افتح غدامس" },
+    { keys: ["أكاكوس", "اكاكوس", "acacus"], text: "أكاكوس تجربة للفن الصخري والأقواس والوديان والتخييم في الجنوب الليبي.", link: "heritage.html#acacus", label: "افتح أكاكوس" },
+    { keys: ["أوجلة", "اوجلة", "awjila"], text: "أوجلة واحة ليبية في الشرق، تتميز بطابعها المحلي والتراثي وتعد محطة مهمة ضمن مسار الواحات: أوجلة → هون → سوكنة → ودان → أوباري → غدامس.", link: "destinations.html#awjila", label: "افتح أوجلة" },
+    { keys: ["الأكل", "اكل", "المطبخ", "البازين", "الكسكسي", "العصبان", "الرشدة", "المقروض"], text: "من أشهر الأكلات الليبية: البازين، الكسكسي، العصبان، الرشدة، والمقروض.", link: "culture.html#cuisine", label: "افتح المطبخ الليبي" },
+    { keys: ["الأطلس", "الاطلس", "خريطة", "خريطه"], text: "يمكنك فتح الأطلس السياحي الوطني عبر الرابط الرسمي الجديد.", link: atlasUrl, label: "افتح الأطلس السياحي" },
+    { keys: ["برنامج", "رحلة", "7 أيام", "خمسة", "عشرة"], text: "اقتراحات سريعة: 3 أيام طرابلس ولبدة وصبراتة، 5 أيام طرابلس وغدامس، 7 أيام طرابلس والجبل الأخضر والتراث العالمي، 10 أيام الساحل والصحراء والواحات.", link: "plan.html", label: "افتح تخطيط الرحلة" }
   ];
 
   const getBotReply = (message) => {
     const normalized = normalizeText(message);
-    const match = knowledge.find((item) => item.keys.some((key) => normalized.includes(normalizeText(key))));
-    return match ? match.text : "يمكنني مساعدتك في الوجهات، التراث، الثقافة، المطبخ، برنامج 7 أيام، أو التخطيط الأولي للرحلة.";
+    return knowledge.find((item) => item.keys.some((key) => normalized.includes(normalizeText(key)))) || {
+      text: "يمكنني مساعدتك في الوجهات، التراث، الثقافة، المطبخ، الأطلس، أوجلة، أو برنامج رحلة.",
+      link: "destinations.html",
+      label: "ابدأ بالوجهات"
+    };
+  };
+
+  const appendMessage = (messages, content, type) => {
+    const message = document.createElement("div");
+    message.className = `message ${type}`;
+    if (typeof content === "string") {
+      message.textContent = content;
+    } else {
+      const text = document.createElement("span");
+      text.textContent = content.text;
+      message.appendChild(text);
+      if (content.link) {
+        const link = document.createElement("a");
+        link.className = "chat-link";
+        link.href = content.link;
+        link.textContent = content.label || "افتح الرابط";
+        if (content.link.startsWith("http")) {
+          link.target = "_blank";
+          link.rel = "noopener";
+        }
+        message.appendChild(link);
+      }
+    }
+    messages.appendChild(message);
+    messages.scrollTop = messages.scrollHeight;
   };
 
   const wireChat = () => {
@@ -207,18 +254,11 @@
     const input = document.getElementById("chat-input");
     const messages = document.getElementById("chat-messages");
     if (!form || !input || !messages) return;
-    const appendMessage = (text, type) => {
-      const message = document.createElement("div");
-      message.className = `message ${type}`;
-      message.textContent = text;
-      messages.appendChild(message);
-      messages.scrollTop = messages.scrollHeight;
-    };
     const ask = (value) => {
       const clean = value.trim();
       if (!clean) return;
-      appendMessage(clean, "user");
-      window.setTimeout(() => appendMessage(getBotReply(clean), "bot"), 220);
+      appendMessage(messages, clean, "user");
+      window.setTimeout(() => appendMessage(messages, getBotReply(clean), "bot"), 220);
     };
     form.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -230,22 +270,6 @@
     });
   };
 
-  const wireBudget = () => {
-    const form = document.getElementById("budget-form");
-    if (!form) return;
-    const days = document.getElementById("budget-days");
-    const people = document.getElementById("budget-people");
-    const style = document.getElementById("budget-style");
-    const output = document.getElementById("budget-output");
-    const update = () => {
-      const total = Number(days.value || 0) * Number(people.value || 0) * Number(style.value || 0);
-      output.value = `تقدير تجريبي: ${total.toLocaleString("ar")} وحدة`;
-      output.textContent = output.value;
-    };
-    [days, people, style].forEach((field) => field.addEventListener("input", update));
-    update();
-  };
-
   const init = () => {
     wireHeader();
     wireSmoothScroll();
@@ -255,8 +279,7 @@
     wireFilters();
     wireModal();
     wireChat();
-    wireBudget();
-    console.log("Visit Libya official portal v1 loaded");
+    console.log("Visit Libya content atlas Awjila v3 loaded");
   };
 
   if (document.readyState === "loading") {
