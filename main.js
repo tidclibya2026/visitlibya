@@ -85,11 +85,21 @@
         target.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
+
+    document.querySelectorAll("[data-scroll-target]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetSelector = button.getAttribute("data-scroll-target");
+        const target = targetSelector ? document.querySelector(targetSelector) : null;
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
   };
 
   const wireHeroSlider = async () => {
     const hero = document.querySelector(".hero");
-    if (!hero) return;
+    if (!hero || hero.classList.contains("cinematic-hero")) return;
     const loadedImages = (await Promise.all(heroBackgrounds.map(testImage))).filter(Boolean);
     if (!loadedImages.length) return;
     let activeIndex = 0;
@@ -276,6 +286,7 @@
     wireChat();
     wireBudget();
     console.log("Visit Libya master content v10 loaded");
+    console.log("Visit Libya cinematic video hero v01 loaded");
   };
 
   if (document.readyState === "loading") {

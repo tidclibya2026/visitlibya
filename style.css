@@ -753,3 +753,258 @@ img.is-missing { visibility: hidden; }
   html { scroll-behavior: auto; }
   .reveal { transition: none; }
 }
+
+/* =========================================================
+   VISIT LIBYA - CINEMATIC VIDEO HERO
+   ========================================================= */
+
+.cinematic-hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #061e2d;
+  color: #fff;
+  isolation: isolate;
+}
+
+.cinematic-hero .hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+  background: #061e2d;
+}
+
+.cinematic-hero .hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 67.5vw;
+  min-width: 177.78vh;
+  min-height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 0;
+}
+
+.cinematic-hero .hero-video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 22, 34, 0.62) 0%,
+      rgba(3, 22, 34, 0.34) 42%,
+      rgba(3, 22, 34, 0.12) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.10) 0%,
+      rgba(0, 0, 0, 0.04) 50%,
+      rgba(0, 0, 0, 0.24) 100%
+    );
+}
+
+.cinematic-hero .hero-content {
+  position: relative;
+  z-index: 3;
+  width: min(980px, 92%);
+  margin-inline: auto;
+  text-align: center;
+  padding-top: 90px;
+}
+
+.cinematic-hero .hero-logo-mark {
+  width: 110px;
+  height: auto;
+  margin: 0 auto 22px;
+  filter: drop-shadow(0 18px 38px rgba(0, 0, 0, 0.28));
+}
+
+.cinematic-hero .hero-kicker {
+  margin: 0 0 16px;
+  color: #f4d28a;
+  font-size: 0.88rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.cinematic-hero .hero-content h1 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(4rem, 10vw, 9rem);
+  line-height: 0.95;
+  font-weight: 900;
+  text-shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
+}
+
+.cinematic-hero .hero-lead {
+  margin: 24px auto 0;
+  max-width: 820px;
+  color: #fff7e6;
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  line-height: 1.45;
+  font-weight: 800;
+  text-shadow: 0 14px 34px rgba(0, 0, 0, 0.36);
+}
+
+.cinematic-hero .hero-sublead {
+  margin: 10px auto 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+}
+
+.cinematic-hero .hero-actions {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.cinematic-hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 26px;
+  border-radius: 999px;
+  font-weight: 900;
+  text-decoration: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.cinematic-hero .btn:hover {
+  transform: translateY(-3px);
+}
+
+.cinematic-hero .btn-primary {
+  background: linear-gradient(135deg, #d9a441, #f4d28a);
+  color: #073b4c;
+  box-shadow: 0 18px 44px rgba(217, 164, 65, 0.28);
+}
+
+.cinematic-hero .btn-glass {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(12px);
+}
+
+.cinematic-hero .btn-outline-light {
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.46);
+}
+
+.cinematic-hero .hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  z-index: 4;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 64px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.cinematic-hero .hero-scroll span {
+  display: block;
+  width: 6px;
+  height: 12px;
+  margin: 12px auto 0;
+  border-radius: 999px;
+  background: #f4d28a;
+  animation: heroScroll 1.5s ease-in-out infinite;
+}
+
+@keyframes heroScroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(18px);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.cinematic-hero .hero-stats,
+.cinematic-hero .stat-card,
+.cinematic-hero .hero-card,
+.cinematic-hero .hero-panel,
+.cinematic-hero .hero-caption,
+.cinematic-hero .hero-title,
+.cinematic-hero .hero-subtitle:not(.hero-sublead),
+.cinematic-hero .hero-dots {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  .cinematic-hero {
+    min-height: 92vh;
+  }
+
+  .cinematic-hero .hero-video {
+    width: 220vw;
+    height: 123.75vw;
+    min-width: 100vh;
+    min-height: 92vh;
+  }
+
+  .cinematic-hero .hero-video-overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3, 22, 34, 0.52) 0%,
+        rgba(3, 22, 34, 0.30) 45%,
+        rgba(3, 22, 34, 0.50) 100%
+      );
+  }
+
+  .cinematic-hero .hero-content {
+    padding-top: 78px;
+  }
+
+  .cinematic-hero .hero-logo-mark {
+    width: 84px;
+    margin-bottom: 18px;
+  }
+
+  .cinematic-hero .hero-content h1 {
+    font-size: clamp(3.2rem, 18vw, 5.6rem);
+  }
+
+  .cinematic-hero .hero-lead {
+    font-size: 1.25rem;
+  }
+
+  .cinematic-hero .hero-actions {
+    gap: 10px;
+  }
+
+  .cinematic-hero .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .cinematic-hero .hero-scroll {
+    display: none;
+  }
+}
