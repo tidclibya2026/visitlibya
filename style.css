@@ -71,7 +71,6 @@ button, input, select { font: inherit; }
 }
 .hero-video-wrap { position: absolute; inset: 0; z-index: -3; overflow: hidden; background: var(--navy); }
 .hero-video { position: absolute; top: 50%; left: 50%; width: 120vw; height: 67.5vw; min-width: 177.78vh; min-height: 100vh; transform: translate(-50%, -50%); pointer-events: none; border: 0; }
-.cinematic-hero.is-video-fallback .hero-video-wrap { opacity: 0; }
 .hero-video-overlay { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(3,22,34,.58) 0%, rgba(3,22,34,.28) 44%, rgba(3,22,34,.10) 100%), linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.03) 52%, rgba(0,0,0,.22) 100%); }
 .hero-content { position: relative; z-index: 3; width: min(980px, 92%); margin-inline: auto; text-align: center; padding-top: 90px; }
 .hero-logo-mark { width: 112px; height: auto; margin: 0 auto 22px; filter: drop-shadow(0 18px 38px rgba(0,0,0,.28)); }
@@ -272,4 +271,45 @@ body {
 
 .page-section {
   scroll-margin-top: 96px;
+}
+
+/* Visit Libya Cinematic Hero Three Videos v3 */
+.cinematic-hero.video-mode {
+  background-color: #061e2d;
+  background-size: cover;
+  background-position: center;
+}
+
+.cinematic-hero.video-mode .hero-video-wrap {
+  display: block;
+}
+
+.cinematic-hero.video-mode .hero-video {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cinematic-hero.video-fallback .hero-video-wrap {
+  display: none;
+}
+
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  overflow: hidden;
+  background: #061e2d;
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 67.5vw;
+  min-width: 177.78vh;
+  min-height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border: 0;
 }

@@ -1,30 +1,6 @@
 (function () {
   "use strict";
 
-  const panelFallbackImages = [
-    "panel/panel1.png",
-    "panel/panel2.png",
-    "panel/panel3.png",
-    "panel/panel4.png",
-    "panel/panel5.png",
-    "panel/panel6.jpg",
-    "panel/panel7.jpg",
-    "panel/panel8.jpg",
-    "panel/panel9.jpg",
-    "panel/panel10.jpg",
-    "panel/panel11.jpg",
-    "panel/panel12.jpg",
-    "panel/panel13.jpg",
-    "panel/panel14.jpg",
-    "panel/panel15.jpeg",
-    "panel/panel16.jpg",
-    "panel/panel17.JPG",
-    "panel/panel18.JPG",
-    "panel/panel19.jpeg",
-    "panel/panel20.jpg",
-    "panel/panel21.jpg",
-    "panel/panel22.jpg"
-];
   const defaultImageFallback = "imges/landscapes.jpg";
   const atlasUrl = "https://tidclibya2026.github.io/libyan--map/";
 
@@ -37,12 +13,6 @@
     .replace(/[\u064B-\u065F\u0640]/g, "")
     .trim();
 
-  const testImage = (src) => new Promise((resolve) => {
-    const image = new Image();
-    image.onload = () => resolve(src);
-    image.onerror = () => resolve(null);
-    image.src = src;
-  });
 
   const wireHeader = () => {
     const header = document.getElementById("site-header");
@@ -102,24 +72,32 @@
     }
   };
 
-  const wireHeroVideoFallback = async () => {
+  const wireHeroVideoFallback = () => {
     const hero = document.querySelector(".cinematic-hero");
-    if (!hero) return;
-    const fallback = (await Promise.all(panelFallbackImages.map(testImage))).find(Boolean);
-    if (fallback) hero.style.backgroundImage = `linear-gradient(180deg, rgba(7,59,76,.16), rgba(7,59,76,.28)), url("${fallback}")`;
-    const frame = hero.querySelector(".hero-video");
-    if (!frame) {
-      hero.classList.add("is-video-fallback");
-      return;
-    }
-    let loaded = false;
+    const frame = document.getElementById("heroVideoFrame");
+
+    if (!hero || !frame) return;
+
+    hero.classList.add("video-mode");
+
+    const fallbackImage = "panel/panel1.png";
+
+    const activateVideoFallback = () => {
+      hero.classList.add("video-fallback");
+      hero.style.backgroundImage =
+        "linear-gradient(90deg, rgba(3,22,34,.58), rgba(3,22,34,.18)), url('" + fallbackImage + "')";
+    };
+
     frame.addEventListener("load", () => {
-      loaded = true;
-      hero.classList.remove("is-video-fallback");
+      hero.classList.add("video-loaded");
+      hero.classList.remove("video-fallback");
     });
+
     window.setTimeout(() => {
-      if (!loaded) hero.classList.add("is-video-fallback");
-    }, 3500);
+      if (!hero.classList.contains("video-loaded")) {
+        activateVideoFallback();
+      }
+    }, 7000);
   };
 
   const wireReveal = () => {
@@ -280,6 +258,7 @@
     wireModal();
     wireChat();
     console.log("Visit Libya content atlas Awjila v3 loaded");
+    console.log("Visit Libya cinematic hero three videos v3 loaded");
   };
 
   if (document.readyState === "loading") {
