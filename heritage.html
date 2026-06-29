@@ -1,126 +1,70 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>التراث العالمي في ليبيا | Visit Libya</title>
-  <meta name="description" content="مواقع التراث العالمي والمدن القديمة في ليبيا.">
-  <link rel="stylesheet" href="style.css?v=ministry-css-refine-v1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Heritage | Visit Libya</title>
+  <meta name="description" content="World heritage sites in Libya." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header" id="site-header">
-  <nav class="nav-shell" aria-label="القائمة الرئيسية">
-    <a class="brand" href="index.html" aria-label="Visit Libya">
-      <span class="brand-logo"><img src="visitlibyalogo.png" alt="شعار Visit Libya"></span>
-      <span class="brand-copy"><strong>Visit Libya</strong><small>زور ليبيا</small></span>
-    </a>
-    <button class="nav-toggle" type="button" aria-label="فتح القائمة" aria-controls="primary-menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <div class="nav-links" id="primary-menu"><a class="nav-link" href="index.html">الرئيسية</a><a class="nav-link" href="destinations.html">الوجهات</a><a class="nav-link" href="experiences.html">التجارب</a><a class="nav-link is-active" href="heritage.html">التراث العالمي</a><a class="nav-link" href="culture.html">الثقافة والمطبخ</a><a class="nav-link" href="plan.html">خطط رحلتك</a><a class="nav-link" href="atlas.html">الأطلس السياحي</a><a class="nav-link" href="ai.html">VisitLibyaAI</a></div>
-    <a class="nav-cta" href="plan.html">ابدأ رحلتك</a>
-  </nav>
-</header>
-  <main>
-  <section class="page-hero" style="--page-hero-image: url('imges/Leptis Magna3.jpeg')">
-  <div class="container page-hero-inner reveal">
-    <span class="page-tag">World Heritage</span>
-    <h1>التراث العالمي في ليبيا</h1>
-    <p>ليبيا متحف مفتوح للحضارات، تضم مواقع أثرية وإنسانية تعكس تعاقب الحضارات المتوسطية والصحراوية.</p>
-  </div>
-</section>
-  <section class="page-section anchor-target" id="world-heritage">
-    <div class="container">
-      <div class="section-heading reveal"><span class="eyebrow">UNESCO Sites</span><h2>مواقع التراث العالمي</h2></div>
-      <div class="page-grid">
-        <article class="page-card reveal anchor-target" id="leptis">
-  <img src="imges/Leptis Magna3.jpeg" alt="لبدة الكبرى" loading="lazy" data-fallback-src="imges/landscapes.jpg">
-  <div>
-    <h3>لبدة الكبرى</h3>
-    <p>إحدى أعظم المدن الأثرية في المتوسط، بمسرحها وحماماتها وساحاتها ومعابدها.</p>
-
-  </div>
-</article>
-        <article class="page-card reveal anchor-target" id="sabratha">
-  <img src="imges/Sabratha.jpg" alt="صبراتة" loading="lazy" data-fallback-src="imges/landscapes.jpg">
-  <div>
-    <h3>صبراتة</h3>
-    <p>مدينة أثرية على البحر تشتهر بمسرحها الروماني ومشهدها المتوسطي الفريد.</p>
-
-  </div>
-</article>
-        <article class="page-card reveal anchor-target" id="cyrene">
-  <img src="imges/Cyrene.jpg" alt="شحات / قورينا" loading="lazy" data-fallback-src="imges/landscapes.jpg">
-  <div>
-    <h3>شحات / قورينا</h3>
-    <p>مدينة الأساطير والمعابد والمدافن الصخرية في قلب الجبل الأخضر.</p>
-
-  </div>
-</article>
-        <article class="page-card reveal anchor-target" id="ghadames">
-  <img src="imges/Ghadames2.JPG" alt="غدامس القديمة" loading="lazy" data-fallback-src="imges/landscapes.jpg">
-  <div>
-    <h3>غدامس القديمة</h3>
-    <p>مدينة الطين الأبيض والشوارع المسقوفة وعبقرية التكيف مع البيئة.</p>
-
-  </div>
-</article>
-        <article class="page-card reveal anchor-target" id="acacus">
-  <img src="imges/Acacus.jpg" alt="تادرارت أكاكوس" loading="lazy" data-fallback-src="imges/landscapes.jpg">
-  <div>
-    <h3>تادرارت أكاكوس</h3>
-    <p>فن صخري وأقواس ووديان وتخييم في مشهد صحراوي عالمي.</p>
-
-  </div>
-</article>
+<header class="vl-topbar" id="siteHeader">
+  <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
+    <strong>Visit Libya</strong>
+    <span>Discover Authenticity</span>
+  </a>
+  <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="Open menu">☰</button>
+  <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
+    <a href="destinations.html">Destinations <span>⌄</span></a>
+    <a href="experiences.html">Experiences <span>⌄</span></a>
+    <div class="vl-dropdown">
+      <a href="culture.html" class="is-current">Discover <span>⌄</span></a>
+      <div class="vl-dropdown-menu" aria-label="Discover menu">
+        <a href="culture.html#culture">Culture</a>
+        <a href="culture.html#food">Food</a>
+        <a href="culture.html#folklore">Folklore</a>
+        <a href="culture.html#crafts">Crafts</a>
+        <a href="heritage.html">World Heritage</a>
       </div>
     </div>
-  </section>
-  <section class="page-section alt-section anchor-target" id="old-cities">
-    <div class="container">
-      <div class="section-heading reveal"><span class="eyebrow">Old Cities</span><h2>المدن القديمة</h2><p>تجمع المدن القديمة بين الأسواق والعمارة والذاكرة اليومية، من طرابلس إلى غدامس وشحات وصبراتة.</p></div>
-      <div class="page-grid">
-        <article class="page-card reveal anchor-target" id="old-tripoli">
-  <img src="imges/oldtripoli.jpg" alt="طرابلس القديمة" loading="lazy" data-fallback-src="imges/landscapes.jpg">
-  <div>
-    <h3>طرابلس القديمة</h3>
-    <p>أزقة وأسواق وجوامع وأبواب تفتح طبقات من الذاكرة المتوسطية.</p>
-
-  </div>
-</article>
-        <article class="page-card reveal anchor-target" id="old-ghadames">
-  <img src="imges/ghadames6.JPG" alt="غدامس" loading="lazy" data-fallback-src="imges/landscapes.jpg">
-  <div>
-    <h3>غدامس</h3>
-    <p>شوارع مسقوفة وبيوت مزخرفة وساحات تحفظ ذاكرة القوافل.</p>
-
-  </div>
-</article>
-        <article class="page-card reveal anchor-target" id="old-cyrene">
-  <img src="imges/Cyrene2.JPG" alt="قورينا" loading="lazy" data-fallback-src="imges/landscapes.jpg">
-  <div>
-    <h3>قورينا</h3>
-    <p>مدينة كلاسيكية تجمع بين الأسطورة والحجر والطبيعة.</p>
-
-  </div>
-</article>
-      </div>
+    <a href="plan.html">Plan Your Trip</a>
+    <a href="atlas.html">Interactive Map</a>
+  </nav>
+  <a class="vl-language" href="#" aria-label="Arabic language"><span>◉</span> عربي</a>
+</header>
+<main>
+  <section class="sub-hero" style="--hero-image:url('imges/Leptis Magna3.jpeg')"><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">World Heritage</span><h1>Libya’s world heritage places</h1><p>Outstanding heritage sites that connect Mediterranean history, desert urbanism, classical civilizations, and ancient rock art.</p></div></section>
+  <section class="section pale-section">
+    <div class="destination-grid large">
+      <article class="destination-card"><img src="imges/Leptis Magna3.jpeg" alt="Leptis Magna"><div><span>Roman city</span><h3>Leptis Magna</h3><p>A grand ancient city on the Mediterranean coast.</p></div></article>
+      <article class="destination-card"><img src="imges/Sabratha.jpg" alt="Sabratha"><div><span>Coastal heritage</span><h3>Sabratha</h3><p>Roman theatre, coastal ruins, and Mediterranean setting.</p></div></article>
+      <article class="destination-card"><img src="imges/Cyrene.jpg" alt="Cyrene"><div><span>Classical heritage</span><h3>Cyrene / Shahhat</h3><p>Temples, necropolis, and mountain context.</p></div></article>
+      <article class="destination-card"><img src="imges/Ghadames2.JPG" alt="Ghadames"><div><span>Desert oasis</span><h3>Ghadames</h3><p>White old city, covered lanes, and oasis architecture.</p></div></article>
+      <article class="destination-card"><img src="imges/Acacus.jpg" alt="Akakus"><div><span>Rock art</span><h3>Akakus</h3><p>Human memory, rock art, and Sahara landscapes.</p></div></article>
     </div>
   </section>
 </main>
-  <footer class="site-footer">
-  <div class="container footer-grid">
+<footer class="vl-footer">
+  <div class="vl-footer-grid">
     <div>
-      <h2>Visit Libya | زور ليبيا</h2>
-      <p>ليبيا أرض الحضارات وموطن السحر والجمال</p>
-      <p class="footer-en">Gateway to Heritage and Hospitality</p>
+      <h2>Visit Libya</h2>
+      <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
     </div>
     <div>
-      <p>وزارة السياحة والصناعات التقليدية</p>
-      <p>مركز المعلومات والتوثيق السياحي</p>
-      <p>تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p>
-      <p>جميع الحقوق محفوظة</p>
+      <h3>Explore</h3>
+      <a href="destinations.html">Destinations</a>
+      <a href="experiences.html">Experiences</a>
+      <a href="culture.html">Discover</a>
+      <a href="heritage.html">World Heritage</a>
+      <a href="atlas.html">Interactive Map</a>
+    </div>
+    <div>
+      <h3>Official Attribution</h3>
+      <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
+      <p class="small">Official names appear in the footer only.</p>
     </div>
   </div>
 </footer>
-  <script src="main.js?v=ministry-css-refine-v1"></script>
+<script src="main.js"></script>
 </body>
 </html>
