@@ -1,64 +1,70 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VisitLibyaAI | Visit Libya</title>
-  <meta name="description" content="مساعد VisitLibyaAI بروابط داخلية محدثة إلى الوجهات والأطلس وأوجلة.">
-  <link rel="stylesheet" href="style.css?v=ministry-css-refine-v1">
+  <meta name="description" content="Smart tourism assistant." />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header" id="site-header">
-  <nav class="nav-shell" aria-label="القائمة الرئيسية">
-    <a class="brand" href="index.html" aria-label="Visit Libya">
-      <span class="brand-logo"><img src="visitlibyalogo.png" alt="شعار Visit Libya"></span>
-      <span class="brand-copy"><strong>Visit Libya</strong><small>زور ليبيا</small></span>
-    </a>
-    <button class="nav-toggle" type="button" aria-label="فتح القائمة" aria-controls="primary-menu" aria-expanded="false"><span></span><span></span><span></span></button>
-    <div class="nav-links" id="primary-menu"><a class="nav-link" href="index.html">الرئيسية</a><a class="nav-link" href="destinations.html">الوجهات</a><a class="nav-link" href="experiences.html">التجارب</a><a class="nav-link" href="heritage.html">التراث العالمي</a><a class="nav-link" href="culture.html">الثقافة والمطبخ</a><a class="nav-link" href="plan.html">خطط رحلتك</a><a class="nav-link" href="atlas.html">الأطلس السياحي</a><a class="nav-link is-active" href="ai.html">VisitLibyaAI</a></div>
-    <a class="nav-cta" href="plan.html">ابدأ رحلتك</a>
+
+<header class="vl-topbar" id="siteHeader">
+  <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
+    <strong>Visit Libya</strong>
+    <span>Discover Authenticity</span>
+  </a>
+  <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="Open menu">☰</button>
+  <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
+    <a href="destinations.html">Destinations <span>⌄</span></a>
+    <a href="experiences.html">Experiences <span>⌄</span></a>
+    <a href="culture.html">Discover <span>⌄</span></a>
+    <a href="plan.html">Plan Your Trip</a>
+    <a href="atlas.html">Interactive Map</a>
   </nav>
+  <a class="vl-language" href="#" aria-label="Arabic language"><span>◉</span> عربي</a>
 </header>
-  <main>
-  <section class="page-hero" style="--page-hero-image: url('imges/Museumtripoli.jpg')">
-  <div class="container page-hero-inner reveal">
-    <span class="page-tag">AI Assistant</span>
-    <h1>VisitLibyaAI</h1>
-    <p>مساعد ذكي تجريبي يربط الزائر بالوجهات، التجارب، الثقافة، الأطلس، وخطط الرحلات.</p>
-  </div>
-</section>
-  <section class="page-section">
-    <div class="container ai-layout">
-      <div class="section-heading compact-heading reveal">
-        <span class="eyebrow">Demo</span>
-        <h2>اسأل عن ليبيا</h2>
-        <p>الردود التجريبية توجهك إلى صفحات المنصة وروابطها الداخلية.</p>
-        <div class="ai-question-grid">
-          <button type="button" data-ai-question="طرابلس">طرابلس</button><button type="button" data-ai-question="غدامس">غدامس</button><button type="button" data-ai-question="أكاكوس">أكاكوس</button><button type="button" data-ai-question="حدثني عن أوجلة">حدثني عن أوجلة</button><button type="button" data-ai-question="الأكل الليبي">الأكل الليبي</button><button type="button" data-ai-question="الأطلس">الأطلس</button><button type="button" data-ai-question="برنامج رحلة">برنامج رحلة</button>
-        </div>
-      </div>
-      <div class="chat-widget reveal">
-        <div class="chat-messages" id="chat-messages" aria-live="polite"><div class="message bot">مرحبًا، اسألني عن طرابلس أو غدامس أو أوجلة أو الأطلس أو برنامج رحلة.</div></div>
-        <form class="chat-form" id="chat-form"><input id="chat-input" type="text" name="message" placeholder="اكتب سؤالك هنا..." autocomplete="off"><button type="submit">إرسال</button></form>
-      </div>
+
+<main>
+  <section class="sub-hero" style="--hero-image: url('imges/Museumtripoli.jpg')">
+    <div class="hero-shade"></div>
+    <div class="sub-hero-content">
+      <span class="kicker">AI Guide</span>
+      <h1>VisitLibyaAI</h1>
+      <p>A smart gateway to routes, destinations, culture and tourism information.</p>
     </div>
   </section>
+  
+<section class="section ai-page">
+  <div class="chat-box">
+    <div class="chat-copy"><span class="kicker">Smart guide</span><h2>Ask VisitLibyaAI</h2><p>A simple demo assistant that guides visitors to destinations, culture, routes and the atlas.</p></div>
+    <form class="chat-form"><input placeholder="Ask about Ghadames, Akakus, food, heritage..." /><button type="submit">Send</button></form>
+  </div>
+</section>
+
 </main>
-  <footer class="site-footer">
-  <div class="container footer-grid">
+
+<footer class="vl-footer">
+  <div class="vl-footer-grid">
     <div>
-      <h2>Visit Libya | زور ليبيا</h2>
-      <p>ليبيا أرض الحضارات وموطن السحر والجمال</p>
-      <p class="footer-en">Gateway to Heritage and Hospitality</p>
+      <h2>Visit Libya</h2>
+      <p>Official national tourism platform for presenting Libya through destinations, living heritage, culture, routes, and trusted visual storytelling.</p>
     </div>
     <div>
-      <p>وزارة السياحة والصناعات التقليدية</p>
-      <p>مركز المعلومات والتوثيق السياحي</p>
-      <p>تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p>
-      <p>جميع الحقوق محفوظة</p>
+      <h3>Explore</h3>
+      <a href="destinations.html">Destinations</a>
+      <a href="experiences.html">Experiences</a>
+      <a href="culture.html">Culture & Heritage</a>
+      <a href="atlas.html">Interactive Map</a>
+    </div>
+    <div>
+      <h3>Official Attribution</h3>
+      <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
+      <p class="small">Names of the ministry and center appear in the footer only.</p>
     </div>
   </div>
 </footer>
-  <script src="main.js?v=ministry-css-refine-v1"></script>
+
+<script src="main.js"></script>
 </body>
 </html>
