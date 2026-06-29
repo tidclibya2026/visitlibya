@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <header class="vl-topbar" id="siteHeader">
   <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
     <strong>Visit Libya</strong>
@@ -17,55 +16,56 @@
   <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="Open menu">☰</button>
   <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
     <a href="destinations.html">Destinations <span>⌄</span></a>
-    <a href="experiences.html">Experiences <span>⌄</span></a>
-    <a href="culture.html">Discover <span>⌄</span></a>
+    <a href="experiences.html" class="is-current">Experiences <span>⌄</span></a>
+    <div class="vl-dropdown">
+      <a href="culture.html">Discover <span>⌄</span></a>
+      <div class="vl-dropdown-menu" aria-label="Discover menu">
+        <a href="culture.html#culture">Culture</a>
+        <a href="culture.html#food">Food</a>
+        <a href="culture.html#folklore">Folklore</a>
+        <a href="culture.html#crafts">Crafts</a>
+        <a href="heritage.html">World Heritage</a>
+      </div>
+    </div>
     <a href="plan.html">Plan Your Trip</a>
     <a href="atlas.html">Interactive Map</a>
   </nav>
   <a class="vl-language" href="#" aria-label="Arabic language"><span>◉</span> عربي</a>
 </header>
-
 <main>
-  <section class="sub-hero" style="--hero-image: url('imges/Acacus.jpg')">
-    <div class="hero-shade"></div>
-    <div class="sub-hero-content">
-      <span class="kicker">Experiences</span>
-      <h1>Experiences in Libya</h1>
-      <p>From old cities and Roman theatres to desert camping, food, culture and coastal discovery.</p>
+  <section class="sub-hero" style="--hero-image:url('imges/Acacus.jpg')"><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">Experiences</span><h1>Travel through experiences, not only places</h1><p>From the Sahara to the coast, and from Roman cities to living culture, every journey tells a different Libya.</p></div></section>
+  <section class="section">
+    <div class="experience-row experience-cards-grid">
+      <a class="wide-card" href="plan.html" style="--img:url('imges/Acacus.jpg')"><span>Experience</span><strong>Sahara Adventure</strong><p>Explore dunes, rock art, desert routes, camping, and guided discovery across Libya’s southern landscapes.</p></a>
+      <a class="wide-card" href="plan.html" style="--img:url('imges/Leptis Magna3.jpeg')"><span>Experience</span><strong>Roman Heritage</strong><p>Walk through Leptis Magna, Sabratha, Cyrene, theatres, temples, arches, and ancient Mediterranean cities.</p></a>
+      <a class="wide-card" href="plan.html" style="--img:url('imges/beaches.jpg')"><span>Experience</span><strong>Coastal Escape</strong><p>Discover Mediterranean beaches, coastal heritage cities, old ports, and peaceful sea views.</p></a>
+      <a class="wide-card" href="plan.html" style="--img:url('imges/traditional clothing.jpg')"><span>Experience</span><strong>Cultural Immersion</strong><p>Experience local hospitality, traditional dress, crafts, markets, cuisine, and folklore.</p></a>
+      <a class="wide-card" href="plan.html" style="--img:url('imges/landscapes5.JPG')"><span>Experience</span><strong>Green Mountain Nature</strong><p>Explore valleys, forests, cliffs, beaches, and the natural beauty of Jabal Al Akhdar.</p></a>
+      <a class="wide-card" href="plan.html" style="--img:url('imges/Bazin.jpg')"><span>Experience</span><strong>Food & Markets</strong><p>Taste Libyan cuisine and experience old markets, tea, spices, dishes, and local stories.</p></a>
     </div>
   </section>
-  
-<section class="section">
-  <div class="experience-row stacked">
-    <a class="wide-card" href="heritage.html" style="--img:url('imges/Leptis Magna.jpg')"><span>Heritage</span><strong>Walk through world heritage cities</strong></a>
-    <a class="wide-card" href="destinations.html" style="--img:url('imges/The Sahara Desert.jpg')"><span>Desert</span><strong>Camp under the Sahara sky</strong></a>
-    <a class="wide-card" href="culture.html" style="--img:url('imges/Bazin.jpg')"><span>Culture</span><strong>Taste hospitality and living traditions</strong></a>
-  </div>
-</section>
-
 </main>
-
 <footer class="vl-footer">
   <div class="vl-footer-grid">
     <div>
       <h2>Visit Libya</h2>
-      <p>Official national tourism platform for presenting Libya through destinations, living heritage, culture, routes, and trusted visual storytelling.</p>
+      <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
     </div>
     <div>
       <h3>Explore</h3>
       <a href="destinations.html">Destinations</a>
       <a href="experiences.html">Experiences</a>
-      <a href="culture.html">Culture & Heritage</a>
+      <a href="culture.html">Discover</a>
+      <a href="heritage.html">World Heritage</a>
       <a href="atlas.html">Interactive Map</a>
     </div>
     <div>
       <h3>Official Attribution</h3>
       <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
-      <p class="small">Names of the ministry and center appear in the footer only.</p>
+      <p class="small">Official names appear in the footer only.</p>
     </div>
   </div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>

@@ -1,1 +1,28 @@
-document.addEventListener('DOMContentLoaded',()=>{const t=document.getElementById('navToggle');const n=document.getElementById('primaryNav');if(t&&n){t.addEventListener('click',()=>n.classList.toggle('open'));}document.querySelectorAll('[data-filter-scope]').forEach(scope=>{const buttons=scope.querySelectorAll('[data-filter]');const cards=document.querySelectorAll('[data-category]');buttons.forEach(btn=>btn.addEventListener('click',()=>{buttons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;cards.forEach(c=>{const cats=(c.dataset.category||'').split(/\s+/);c.classList.toggle('hidden',f!=='all'&&!cats.includes(f));});}));});document.querySelectorAll('img').forEach(img=>{img.addEventListener('error',()=>{if(!img.dataset.fallback){img.dataset.fallback='1';img.src='imges/landscapes.jpg';}});});});
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('primaryNav');
+  if (toggle && nav) toggle.addEventListener('click', () => nav.classList.toggle('open'));
+
+  const fallback = 'imges/landscapes.jpg';
+  document.querySelectorAll('img').forEach(img => {
+    img.addEventListener('error', () => {
+      if (!img.src.includes(fallback)) img.src = fallback;
+    });
+  });
+
+  document.querySelectorAll('[data-filter-scope]').forEach(scope => {
+    const section = scope.closest('section');
+    const cards = section ? section.querySelectorAll('[data-category]') : [];
+    scope.querySelectorAll('[data-filter]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.dataset.filter;
+        scope.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        cards.forEach(card => {
+          const cats = (card.dataset.category || '').split(/\s+/);
+          card.classList.toggle('hidden', filter !== 'all' && !cats.includes(filter));
+        });
+      });
+    });
+  });
+});

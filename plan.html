@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Plan Your Trip | Visit Libya</title>
-  <meta name="description" content="Plan your trip to Libya." />
+  <meta name="description" content="Plan a trip to Libya." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <header class="vl-topbar" id="siteHeader">
   <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
     <strong>Visit Libya</strong>
@@ -18,54 +17,56 @@
   <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
     <a href="destinations.html">Destinations <span>⌄</span></a>
     <a href="experiences.html">Experiences <span>⌄</span></a>
-    <a href="culture.html">Discover <span>⌄</span></a>
-    <a href="plan.html">Plan Your Trip</a>
+    <div class="vl-dropdown">
+      <a href="culture.html">Discover <span>⌄</span></a>
+      <div class="vl-dropdown-menu" aria-label="Discover menu">
+        <a href="culture.html#culture">Culture</a>
+        <a href="culture.html#food">Food</a>
+        <a href="culture.html#folklore">Folklore</a>
+        <a href="culture.html#crafts">Crafts</a>
+        <a href="heritage.html">World Heritage</a>
+      </div>
+    </div>
+    <a href="plan.html" class="is-current">Plan Your Trip</a>
     <a href="atlas.html">Interactive Map</a>
   </nav>
   <a class="vl-language" href="#" aria-label="Arabic language"><span>◉</span> عربي</a>
 </header>
-
 <main>
-  <section class="sub-hero" style="--hero-image: url('imges/beaches.jpg')">
-    <div class="hero-shade"></div>
-    <div class="sub-hero-content">
-      <span class="kicker">Plan</span>
-      <h1>Plan Your Trip</h1>
-      <p>Build a first travel idea through season, route, experience type and reliable guidance.</p>
+  <section class="sub-hero" style="--hero-image:url('imges/beaches.jpg')"><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">Plan Your Trip</span><h1>Plan a refined journey across Libya</h1><p>Practical, elegant planning information to help visitors understand routes, seasons, preparation, and responsible travel.</p></div></section>
+  <section class="section">
+    <div class="plan-grid">
+      <article><span>01</span><h3>Choose your theme</h3><p>Heritage, Sahara, coast, culture, food, photography, or old cities.</p></article>
+      <article><span>02</span><h3>Pick your route</h3><p>Start with Tripoli, extend to Leptis Magna and Sabratha, or plan desert and eastern routes.</p></article>
+      <article><span>03</span><h3>Prepare responsibly</h3><p>Check official requirements, coordinate with local organizers, and prepare for long distances.</p></article>
+      <article><span>04</span><h3>Best seasons</h3><p>Spring and autumn are ideal for cultural routes, desert travel, and coastal discovery.</p></article>
+      <article><span>05</span><h3>Desert readiness</h3><p>Use suitable vehicles, guides, water, fuel, communication, and safe route planning.</p></article>
+      <article><span>06</span><h3>Build your trip</h3><p>Combine destinations and experiences based on time, interests, and geography.</p></article>
     </div>
   </section>
-  
-<section class="section">
-  <div class="plan-grid">
-    <article><span>01</span><h3>Choose your route</h3><p>Start with coast, desert, heritage or culture depending on season and time.</p></article>
-    <article><span>02</span><h3>Prepare documents</h3><p>Check official requirements and travel arrangements before confirming details.</p></article>
-    <article><span>03</span><h3>Use local guidance</h3><p>For desert and long routes, rely on licensed local operators and guides.</p></article>
-  </div>
-</section>
-
+  <section class="section map-band"><div><span class="kicker">Recommended start</span><h2>Begin with a 7-day civilizations route</h2><p>Tripoli, Sabratha, Leptis Magna, Old Tripoli, museums, markets, and cultural dining.</p></div><a class="btn btn-red" href="destinations.html">Explore route →</a></section>
 </main>
-
 <footer class="vl-footer">
   <div class="vl-footer-grid">
     <div>
       <h2>Visit Libya</h2>
-      <p>Official national tourism platform for presenting Libya through destinations, living heritage, culture, routes, and trusted visual storytelling.</p>
+      <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
     </div>
     <div>
       <h3>Explore</h3>
       <a href="destinations.html">Destinations</a>
       <a href="experiences.html">Experiences</a>
-      <a href="culture.html">Culture & Heritage</a>
+      <a href="culture.html">Discover</a>
+      <a href="heritage.html">World Heritage</a>
       <a href="atlas.html">Interactive Map</a>
     </div>
     <div>
       <h3>Official Attribution</h3>
       <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
-      <p class="small">Names of the ministry and center appear in the footer only.</p>
+      <p class="small">Official names appear in the footer only.</p>
     </div>
   </div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>

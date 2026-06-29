@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>World Heritage | Visit Libya</title>
-  <meta name="description" content="World heritage and historic sites in Libya." />
+  <meta name="description" content="World heritage sites in Libya." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <header class="vl-topbar" id="siteHeader">
   <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
     <strong>Visit Libya</strong>
@@ -18,56 +17,54 @@
   <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
     <a href="destinations.html">Destinations <span>⌄</span></a>
     <a href="experiences.html">Experiences <span>⌄</span></a>
-    <a href="culture.html">Discover <span>⌄</span></a>
+    <div class="vl-dropdown">
+      <a href="culture.html" class="is-current">Discover <span>⌄</span></a>
+      <div class="vl-dropdown-menu" aria-label="Discover menu">
+        <a href="culture.html#culture">Culture</a>
+        <a href="culture.html#food">Food</a>
+        <a href="culture.html#folklore">Folklore</a>
+        <a href="culture.html#crafts">Crafts</a>
+        <a href="heritage.html">World Heritage</a>
+      </div>
+    </div>
     <a href="plan.html">Plan Your Trip</a>
     <a href="atlas.html">Interactive Map</a>
   </nav>
   <a class="vl-language" href="#" aria-label="Arabic language"><span>◉</span> عربي</a>
 </header>
-
 <main>
-  <section class="sub-hero" style="--hero-image: url('imges/Leptis Magna3.jpeg')">
-    <div class="hero-shade"></div>
-    <div class="sub-hero-content">
-      <span class="kicker">Heritage</span>
-      <h1>World Heritage & Ancient Memory</h1>
-      <p>Libya presents a powerful heritage landscape from classical cities to desert rock art.</p>
+  <section class="sub-hero" style="--hero-image:url('imges/Leptis Magna3.jpeg')"><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">World Heritage</span><h1>Libya’s world heritage places</h1><p>Outstanding heritage sites that connect Mediterranean history, desert urbanism, classical civilizations, and ancient rock art.</p></div></section>
+  <section class="section pale-section">
+    <div class="destination-grid large">
+      <article class="destination-card"><img src="imges/Leptis Magna3.jpeg" alt="Leptis Magna"><div><span>Roman city</span><h3>Leptis Magna</h3><p>A grand ancient city on the Mediterranean coast.</p></div></article>
+      <article class="destination-card"><img src="imges/Sabratha.jpg" alt="Sabratha"><div><span>Coastal heritage</span><h3>Sabratha</h3><p>Roman theatre, coastal ruins, and Mediterranean setting.</p></div></article>
+      <article class="destination-card"><img src="imges/Cyrene.jpg" alt="Cyrene"><div><span>Classical heritage</span><h3>Cyrene / Shahhat</h3><p>Temples, necropolis, and mountain context.</p></div></article>
+      <article class="destination-card"><img src="imges/Ghadames2.JPG" alt="Ghadames"><div><span>Desert oasis</span><h3>Ghadames</h3><p>White old city, covered lanes, and oasis architecture.</p></div></article>
+      <article class="destination-card"><img src="imges/Acacus.jpg" alt="Akakus"><div><span>Rock art</span><h3>Akakus</h3><p>Human memory, rock art, and Sahara landscapes.</p></div></article>
     </div>
   </section>
-  
-<section class="section">
-  <div class="destination-grid large">
-    <article class="destination-card"><img src="imges/Leptis Magna3.jpeg" alt="Leptis Magna"><div><span>UNESCO-style highlight</span><h3>Leptis Magna</h3><p>Archaeological excellence on the Mediterranean coast.</p></div></article>
-    <article class="destination-card"><img src="imges/Sabratha.jpg" alt="Sabratha"><div><span>UNESCO-style highlight</span><h3>Sabratha</h3><p>Roman theatre and coastal urban heritage.</p></div></article>
-    <article class="destination-card"><img src="imges/Cyrene.jpg" alt="Cyrene"><div><span>UNESCO-style highlight</span><h3>Cyrene</h3><p>Classical landscape and historical depth in the east.</p></div></article>
-    <article class="destination-card"><img src="imges/Ghadames2.JPG" alt="Ghadames"><div><span>Old city</span><h3>Ghadames</h3><p>Oasis urbanism, shaded streets and desert adaptation.</p></div></article>
-    <article class="destination-card"><img src="imges/Acacus.jpg" alt="Akakus"><div><span>Rock art</span><h3>Akakus</h3><p>Prehistoric memory and desert formations.</p></div></article>
-  </div>
-</section>
-
 </main>
-
 <footer class="vl-footer">
   <div class="vl-footer-grid">
     <div>
       <h2>Visit Libya</h2>
-      <p>Official national tourism platform for presenting Libya through destinations, living heritage, culture, routes, and trusted visual storytelling.</p>
+      <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
     </div>
     <div>
       <h3>Explore</h3>
       <a href="destinations.html">Destinations</a>
       <a href="experiences.html">Experiences</a>
-      <a href="culture.html">Culture & Heritage</a>
+      <a href="culture.html">Discover</a>
+      <a href="heritage.html">World Heritage</a>
       <a href="atlas.html">Interactive Map</a>
     </div>
     <div>
       <h3>Official Attribution</h3>
       <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
-      <p class="small">Names of the ministry and center appear in the footer only.</p>
+      <p class="small">Official names appear in the footer only.</p>
     </div>
   </div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>

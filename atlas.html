@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interactive Map | Visit Libya</title>
-  <meta name="description" content="Interactive tourism map." />
+  <meta name="description" content="Interactive tourism map of Libya." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <header class="vl-topbar" id="siteHeader">
   <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
     <strong>Visit Libya</strong>
@@ -18,53 +17,57 @@
   <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
     <a href="destinations.html">Destinations <span>⌄</span></a>
     <a href="experiences.html">Experiences <span>⌄</span></a>
-    <a href="culture.html">Discover <span>⌄</span></a>
+    <div class="vl-dropdown">
+      <a href="culture.html">Discover <span>⌄</span></a>
+      <div class="vl-dropdown-menu" aria-label="Discover menu">
+        <a href="culture.html#culture">Culture</a>
+        <a href="culture.html#food">Food</a>
+        <a href="culture.html#folklore">Folklore</a>
+        <a href="culture.html#crafts">Crafts</a>
+        <a href="heritage.html">World Heritage</a>
+      </div>
+    </div>
     <a href="plan.html">Plan Your Trip</a>
-    <a href="atlas.html">Interactive Map</a>
+    <a href="atlas.html" class="is-current">Interactive Map</a>
   </nav>
   <a class="vl-language" href="#" aria-label="Arabic language"><span>◉</span> عربي</a>
 </header>
-
 <main>
-  <section class="sub-hero" style="--hero-image: url('imges/natural lakes1.jpg')">
-    <div class="hero-shade"></div>
-    <div class="sub-hero-content">
-      <span class="kicker">Interactive Map</span>
-      <h1>Explore Libya on the Map</h1>
-      <p>Connect places, routes, services and tourism layers through the national atlas.</p>
+  <section class="sub-hero" style="--hero-image:url('imges/natural lakes1.jpg')"><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">Interactive Map</span><h1>Explore Libya through a clean tourism map</h1><p>The map interface must use accurate Libya boundaries only. No manual or distorted borders should be used.</p></div></section>
+  <section class="section">
+    <div class="map-panel">
+      <div>
+        <span class="kicker">Tourism layers</span>
+        <h2>Filters for trusted discovery</h2>
+        <p>Use verified map assets and tourism layers for heritage, nature, desert, coast, accommodation, food, and routes.</p>
+        <div class="layer-chips"><span>World Heritage</span><span>Archaeology</span><span>Nature</span><span>Desert</span><span>Coast</span><span>Accommodation</span><span>Food</span><span>Routes</span></div>
+        <a class="btn btn-red" href="https://tidclibya2026.github.io/libyan--map/" target="_blank" rel="noopener">Open National Atlas →</a>
+      </div>
+      <div class="map-placeholder"><div>ACCURATE LIBYA MAP<br><small>Insert verified SVG / GeoJSON boundaries only</small></div></div>
     </div>
   </section>
-  
-<section class="section map-page">
-  <div class="map-panel">
-    <div><span class="kicker">Tourism Atlas</span><h2>Interactive Map</h2><p>Use the official national tourism atlas to explore tourism layers. Accurate Libya boundaries must come from verified map assets only.</p><a class="btn btn-red" target="_blank" rel="noopener" href="https://tidclibya2026.github.io/libyan--map/">Open Atlas →</a></div>
-    <div class="map-placeholder">Official Libya Map<br><small>Verified SVG / GeoJSON only</small></div>
-  </div>
-</section>
-
 </main>
-
 <footer class="vl-footer">
   <div class="vl-footer-grid">
     <div>
       <h2>Visit Libya</h2>
-      <p>Official national tourism platform for presenting Libya through destinations, living heritage, culture, routes, and trusted visual storytelling.</p>
+      <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
     </div>
     <div>
       <h3>Explore</h3>
       <a href="destinations.html">Destinations</a>
       <a href="experiences.html">Experiences</a>
-      <a href="culture.html">Culture & Heritage</a>
+      <a href="culture.html">Discover</a>
+      <a href="heritage.html">World Heritage</a>
       <a href="atlas.html">Interactive Map</a>
     </div>
     <div>
       <h3>Official Attribution</h3>
       <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
-      <p class="small">Names of the ministry and center appear in the footer only.</p>
+      <p class="small">Official names appear in the footer only.</p>
     </div>
   </div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>

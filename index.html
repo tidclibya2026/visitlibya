@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Visit Libya | Discover the Timeless Beauty of Libya</title>
-  <meta name="description" content="Visit Libya official tourism gateway: destinations, experiences, culture, heritage, and interactive map." />
+  <meta name="description" content="Visit Libya official tourism gateway." />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="home-page">
-
+<body>
 <header class="vl-topbar" id="siteHeader">
   <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
     <strong>Visit Libya</strong>
@@ -18,13 +17,21 @@
   <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
     <a href="destinations.html">Destinations <span>⌄</span></a>
     <a href="experiences.html">Experiences <span>⌄</span></a>
-    <a href="culture.html">Discover <span>⌄</span></a>
+    <div class="vl-dropdown">
+      <a href="culture.html">Discover <span>⌄</span></a>
+      <div class="vl-dropdown-menu" aria-label="Discover menu">
+        <a href="culture.html#culture">Culture</a>
+        <a href="culture.html#food">Food</a>
+        <a href="culture.html#folklore">Folklore</a>
+        <a href="culture.html#crafts">Crafts</a>
+        <a href="heritage.html">World Heritage</a>
+      </div>
+    </div>
     <a href="plan.html">Plan Your Trip</a>
     <a href="atlas.html">Interactive Map</a>
   </nav>
   <a class="vl-language" href="#" aria-label="Arabic language"><span>◉</span> عربي</a>
 </header>
-
 <main>
   <section class="hero figma-hero" style="--hero-image: url('imges/desert.jpg')">
     <div class="hero-shade"></div>
@@ -91,28 +98,27 @@
     <a class="btn btn-red" href="atlas.html">Open Interactive Map →</a>
   </section>
 </main>
-
 <footer class="vl-footer">
   <div class="vl-footer-grid">
     <div>
       <h2>Visit Libya</h2>
-      <p>Official national tourism platform for presenting Libya through destinations, living heritage, culture, routes, and trusted visual storytelling.</p>
+      <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
     </div>
     <div>
       <h3>Explore</h3>
       <a href="destinations.html">Destinations</a>
       <a href="experiences.html">Experiences</a>
-      <a href="culture.html">Culture & Heritage</a>
+      <a href="culture.html">Discover</a>
+      <a href="heritage.html">World Heritage</a>
       <a href="atlas.html">Interactive Map</a>
     </div>
     <div>
       <h3>Official Attribution</h3>
       <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
-      <p class="small">Names of the ministry and center appear in the footer only.</p>
+      <p class="small">Official names appear in the footer only.</p>
     </div>
   </div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>

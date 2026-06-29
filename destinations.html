@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <header class="vl-topbar" id="siteHeader">
   <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
     <strong>Visit Libya</strong>
@@ -16,67 +15,63 @@
   </a>
   <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="Open menu">☰</button>
   <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
-    <a href="destinations.html">Destinations <span>⌄</span></a>
+    <a href="destinations.html" class="is-current">Destinations <span>⌄</span></a>
     <a href="experiences.html">Experiences <span>⌄</span></a>
-    <a href="culture.html">Discover <span>⌄</span></a>
+    <div class="vl-dropdown">
+      <a href="culture.html">Discover <span>⌄</span></a>
+      <div class="vl-dropdown-menu" aria-label="Discover menu">
+        <a href="culture.html#culture">Culture</a>
+        <a href="culture.html#food">Food</a>
+        <a href="culture.html#folklore">Folklore</a>
+        <a href="culture.html#crafts">Crafts</a>
+        <a href="heritage.html">World Heritage</a>
+      </div>
+    </div>
     <a href="plan.html">Plan Your Trip</a>
     <a href="atlas.html">Interactive Map</a>
   </nav>
   <a class="vl-language" href="#" aria-label="Arabic language"><span>◉</span> عربي</a>
 </header>
-
 <main>
-  <section class="sub-hero" style="--hero-image: url('imges/tripoliMarcus Arch.JPG')">
-    <div class="hero-shade"></div>
-    <div class="sub-hero-content">
-      <span class="kicker">Destinations</span>
-      <h1>Destinations of Libya</h1>
-      <p>Explore ancient cities, desert oases, Mediterranean coastlines and cultural places.</p>
+  <section class="sub-hero" style="--hero-image:url('imges/tripoliMarcus Arch.JPG')"><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">Destinations</span><h1>Explore Libya by destination</h1><p>Clean visual cards, simple filters, and strong photography to present Libya’s heritage, desert, coast, nature, and culture.</p></div></section>
+  <section class="section pale-section">
+    <div class="filter-bar" data-filter-scope>
+      <button class="active" data-filter="all">All</button><button data-filter="heritage">World Heritage</button><button data-filter="desert">Desert</button><button data-filter="coast">Coast</button><button data-filter="culture">Culture</button><button data-filter="nature">Nature</button>
+    </div>
+    <div class="destination-grid large">
+      <article class="destination-card filter-item" data-category="heritage coast"><img src="imges/Leptis Magna3.jpeg" alt="Leptis Magna"><div><span>World Heritage</span><h3>Leptis Magna</h3><p>One of the most remarkable Roman cities on the Libyan Mediterranean coast.</p></div></article>
+      <article class="destination-card filter-item" data-category="heritage coast"><img src="imges/Sabratha.jpg" alt="Sabratha"><div><span>Coastal Heritage</span><h3>Sabratha</h3><p>A Roman theatre and ancient city facing the Mediterranean.</p></div></article>
+      <article class="destination-card filter-item" data-category="desert culture heritage"><img src="imges/Ghadames2.JPG" alt="Ghadames"><div><span>Desert Oasis</span><h3>Ghadames</h3><p>A historic oasis city of shaded lanes, white architecture, and desert memory.</p></div></article>
+      <article class="destination-card filter-item" data-category="desert heritage adventure"><img src="imges/Acacus.jpg" alt="Akakus"><div><span>Sahara Rock Art</span><h3>Akakus</h3><p>Desert landscapes, rock art, and deep human memory in the far south.</p></div></article>
+      <article class="destination-card filter-item" data-category="heritage nature"><img src="imges/Cyrene.jpg" alt="Cyrene / Shahhat"><div><span>Classical Heritage</span><h3>Cyrene / Shahhat</h3><p>Ancient temples and mountain landscapes in Jabal Al Akhdar.</p></div></article>
+      <article class="destination-card filter-item" data-category="culture coast"><img src="imges/oldtripoli.jpg" alt="Old Tripoli"><div><span>Medina & Markets</span><h3>Old Tripoli</h3><p>A living old city of arches, markets, crafts, and Mediterranean identity.</p></div></article>
+      <article class="destination-card filter-item" data-category="nature coast"><img src="imges/landscapes5.JPG" alt="Jabal Akhdar"><div><span>Nature & Coast</span><h3>Jabal Akhdar</h3><p>Forests, valleys, cliffs, beaches, and heritage in eastern Libya.</p></div></article>
+      <article class="destination-card filter-item" data-category="desert nature"><img src="imges/natural lakes1.jpg" alt="Ubari Lakes"><div><span>Desert Lakes</span><h3>Ubari Lakes</h3><p>Golden dunes and desert lakes in one of Libya’s most iconic landscapes.</p></div></article>
+      <article class="destination-card filter-item" data-category="culture heritage coast"><img src="imges/tripoliMarcus Arch.JPG" alt="Tripoli Marcus Arch"><div><span>Urban Heritage</span><h3>Tripoli Marcus Arch</h3><p>A gateway into the historic memory of Tripoli’s old city.</p></div></article>
     </div>
   </section>
-  
-<section class="section">
-  <div class="filter-bar" data-filter-scope>
-    <button class="active" data-filter="all">All</button>
-    <button data-filter="heritage">World Heritage</button>
-    <button data-filter="desert">Desert</button>
-    <button data-filter="coast">Coast</button>
-    <button data-filter="culture">Culture</button>
-    <button data-filter="nature">Nature</button>
-  </div>
-  <div class="destination-grid large">
-    <article class="destination-card" data-category="heritage coast"><img src="imges/Leptis Magna3.jpeg" alt="Leptis Magna"><div><span>World Heritage</span><h3>Leptis Magna</h3><p>Roman city, Mediterranean memory, theatres, streets, arches and grand public spaces.</p></div></article>
-    <article class="destination-card" data-category="heritage coast"><img src="imges/Sabratha.jpg" alt="Sabratha"><div><span>World Heritage</span><h3>Sabratha</h3><p>Ancient theatre and coastal archaeology on the western Libyan Mediterranean.</p></div></article>
-    <article class="destination-card" data-category="heritage desert culture"><img src="imges/Ghadames2.JPG" alt="Ghadames"><div><span>Oasis city</span><h3>Ghadames</h3><p>Shaded old city, traditional homes, oasis culture and desert architecture.</p></div></article>
-    <article class="destination-card" data-category="heritage desert"><img src="imges/Acacus.jpg" alt="Akakus"><div><span>Rock art</span><h3>Akakus</h3><p>Sandstone formations and prehistoric drawings in southern Libya.</p></div></article>
-    <article class="destination-card" data-category="heritage nature"><img src="imges/Cyrene.jpg" alt="Cyrene"><div><span>Classical heritage</span><h3>Cyrene / Shahhat</h3><p>Greek and Roman heritage within the landscape of Jabal Al Akhdar.</p></div></article>
-    <article class="destination-card" data-category="culture coast"><img src="imges/tripoliMarcus Arch.JPG" alt="Old Tripoli"><div><span>Old city</span><h3>Old Tripoli</h3><p>Markets, arches, medina life, traditional lanes, and Mediterranean urban memory.</p></div></article>
-  </div>
-</section>
-
 </main>
-
 <footer class="vl-footer">
   <div class="vl-footer-grid">
     <div>
       <h2>Visit Libya</h2>
-      <p>Official national tourism platform for presenting Libya through destinations, living heritage, culture, routes, and trusted visual storytelling.</p>
+      <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
     </div>
     <div>
       <h3>Explore</h3>
       <a href="destinations.html">Destinations</a>
       <a href="experiences.html">Experiences</a>
-      <a href="culture.html">Culture & Heritage</a>
+      <a href="culture.html">Discover</a>
+      <a href="heritage.html">World Heritage</a>
       <a href="atlas.html">Interactive Map</a>
     </div>
     <div>
       <h3>Official Attribution</h3>
       <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
-      <p class="small">Names of the ministry and center appear in the footer only.</p>
+      <p class="small">Official names appear in the footer only.</p>
     </div>
   </div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>

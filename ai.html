@@ -4,11 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VisitLibyaAI | Visit Libya</title>
-  <meta name="description" content="Smart tourism assistant." />
+  <meta name="description" content="AI assistant for Visit Libya." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
 <header class="vl-topbar" id="siteHeader">
   <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
     <strong>Visit Libya</strong>
@@ -18,53 +17,46 @@
   <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
     <a href="destinations.html">Destinations <span>⌄</span></a>
     <a href="experiences.html">Experiences <span>⌄</span></a>
-    <a href="culture.html">Discover <span>⌄</span></a>
+    <div class="vl-dropdown">
+      <a href="culture.html">Discover <span>⌄</span></a>
+      <div class="vl-dropdown-menu" aria-label="Discover menu">
+        <a href="culture.html#culture">Culture</a>
+        <a href="culture.html#food">Food</a>
+        <a href="culture.html#folklore">Folklore</a>
+        <a href="culture.html#crafts">Crafts</a>
+        <a href="heritage.html">World Heritage</a>
+      </div>
+    </div>
     <a href="plan.html">Plan Your Trip</a>
     <a href="atlas.html">Interactive Map</a>
   </nav>
   <a class="vl-language" href="#" aria-label="Arabic language"><span>◉</span> عربي</a>
 </header>
-
 <main>
-  <section class="sub-hero" style="--hero-image: url('imges/Museumtripoli.jpg')">
-    <div class="hero-shade"></div>
-    <div class="sub-hero-content">
-      <span class="kicker">AI Guide</span>
-      <h1>VisitLibyaAI</h1>
-      <p>A smart gateway to routes, destinations, culture and tourism information.</p>
-    </div>
-  </section>
-  
-<section class="section ai-page">
-  <div class="chat-box">
-    <div class="chat-copy"><span class="kicker">Smart guide</span><h2>Ask VisitLibyaAI</h2><p>A simple demo assistant that guides visitors to destinations, culture, routes and the atlas.</p></div>
-    <form class="chat-form"><input placeholder="Ask about Ghadames, Akakus, food, heritage..." /><button type="submit">Send</button></form>
-  </div>
-</section>
-
+  <section class="sub-hero" style="--hero-image:url('imges/Museumtripoli.jpg')"><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">VisitLibyaAI</span><h1>Ask before you explore</h1><p>A guided interface that will later connect visitors to destinations, routes, culture, atlas layers, and travel planning.</p></div></section>
+  <section class="section"><div class="chat-box"><span class="kicker">Demo Assistant</span><h2>What would you like to discover?</h2><p>Ask about Sahara Adventure, Roman Heritage, Culture, Food, Folklore, Crafts, or the Interactive Map.</p><form class="chat-form"><input type="text" placeholder="Ask about Libya..." /><button type="button">Ask</button></form></div></section>
 </main>
-
 <footer class="vl-footer">
   <div class="vl-footer-grid">
     <div>
       <h2>Visit Libya</h2>
-      <p>Official national tourism platform for presenting Libya through destinations, living heritage, culture, routes, and trusted visual storytelling.</p>
+      <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
     </div>
     <div>
       <h3>Explore</h3>
       <a href="destinations.html">Destinations</a>
       <a href="experiences.html">Experiences</a>
-      <a href="culture.html">Culture & Heritage</a>
+      <a href="culture.html">Discover</a>
+      <a href="heritage.html">World Heritage</a>
       <a href="atlas.html">Interactive Map</a>
     </div>
     <div>
       <h3>Official Attribution</h3>
       <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
-      <p class="small">Names of the ministry and center appear in the footer only.</p>
+      <p class="small">Official names appear in the footer only.</p>
     </div>
   </div>
 </footer>
-
 <script src="main.js"></script>
 </body>
 </html>
