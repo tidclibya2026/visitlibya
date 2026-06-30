@@ -26,3 +26,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+console.log("Visit Libya English proofreading v1 loaded");
