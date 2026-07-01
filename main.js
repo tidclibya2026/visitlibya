@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const fallback = `${assetBase}imges/landscapes.jpg`;
   document.querySelectorAll('img').forEach(img => {
     img.addEventListener('error', () => {
-      if (!img.src.includes(fallback)) img.src = fallback;
+      if (img.dataset.fallbackApplied === 'true') return;
+      img.dataset.fallbackApplied = 'true';
+      img.src = fallback;
     });
   });
 
