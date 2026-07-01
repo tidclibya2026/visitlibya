@@ -279,3 +279,109 @@ html[lang="ar"] .hero-actions-lower .btn {
     margin-top: 32px;
   }
 }
+
+
+/* =========================================================
+   VISIT LIBYA — RESTORE PANEL IMAGES (AR + EN)
+   Use page-specific hero image classes:
+   English example: <section class="sub-hero hero-heritage">
+   Arabic example:  <section class="sub-hero hero-heritage">
+   ========================================================= */
+
+/* Base hero panel image engine */
+.sub-hero,
+.page-hero {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  color: #fff !important;
+  background:
+    linear-gradient(180deg, rgba(7, 59, 76, 0.16) 0%, rgba(7, 59, 76, 0.52) 58%, rgba(7, 59, 76, 0.84) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.04)),
+    var(--hero-image, linear-gradient(#9b9b9b, #555)) center / cover no-repeat !important;
+}
+
+/* Keep inner content above image */
+.sub-hero > *,
+.page-hero > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Overlay in case existing HTML contains .hero-shade */
+.sub-hero .hero-shade,
+.page-hero .hero-shade {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  background:
+    linear-gradient(180deg, rgba(7, 59, 76, 0.08) 0%, rgba(7, 59, 76, 0.42) 60%, rgba(7, 59, 76, 0.76) 100%) !important;
+  pointer-events: none;
+}
+
+/* Strong readable text */
+.sub-hero h1,
+.sub-hero .page-title,
+.page-hero h1,
+.page-hero .page-title {
+  color: #fff !important;
+  text-shadow: 0 18px 45px rgba(0, 0, 0, 0.46) !important;
+}
+
+.sub-hero p,
+.sub-hero .page-lead,
+.page-hero p,
+.page-hero .page-lead {
+  color: rgba(255, 255, 255, 0.92) !important;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, 0.30) !important;
+}
+
+.sub-hero .kicker,
+.sub-hero .page-kicker,
+.page-hero .kicker,
+.page-hero .page-kicker {
+  color: #F3D27A !important;
+}
+
+/* English root page images */
+html:not([lang="ar"]) .hero-destinations { --hero-image: url("imges/Ghadames.jpg"); }
+html:not([lang="ar"]) .hero-heritage     { --hero-image: url("imges/Leptis Magna.jpg"); }
+html:not([lang="ar"]) .hero-culture      { --hero-image: url("imges/Bazin.jpg"); }
+html:not([lang="ar"]) .hero-experiences  { --hero-image: url("imges/Acacus.jpg"); }
+html:not([lang="ar"]) .hero-plan         { --hero-image: url("imges/desert.jpg"); }
+html:not([lang="ar"]) .hero-atlas        { --hero-image: url("panel/panel1.jpg"); }
+html:not([lang="ar"]) .hero-ai           { --hero-image: url("imges/tripolinow.jpg"); }
+
+/* Arabic /ar page images */
+html[lang="ar"] .hero-destinations { --hero-image: url("../imges/Ghadames.jpg"); }
+html[lang="ar"] .hero-heritage     { --hero-image: url("../imges/Leptis Magna.jpg"); }
+html[lang="ar"] .hero-culture      { --hero-image: url("../imges/Bazin.jpg"); }
+html[lang="ar"] .hero-experiences  { --hero-image: url("../imges/Acacus.jpg"); }
+html[lang="ar"] .hero-plan         { --hero-image: url("../imges/desert.jpg"); }
+html[lang="ar"] .hero-atlas        { --hero-image: url("../panel/panel1.jpg"); }
+html[lang="ar"] .hero-ai           { --hero-image: url("../imges/tripolinow.jpg"); }
+
+/* Better vertical composition */
+.sub-hero {
+  min-height: 62vh !important;
+  display: grid !important;
+  align-items: end !important;
+  padding: 170px 7vw 90px !important;
+}
+
+.page-hero {
+  min-height: 56vh !important;
+  display: grid !important;
+  place-items: center !important;
+  text-align: center !important;
+  padding: 150px 7vw 90px !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .sub-hero,
+  .page-hero {
+    min-height: 46vh !important;
+    padding: 120px 22px 70px !important;
+  }
+}
