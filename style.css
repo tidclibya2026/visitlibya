@@ -221,3 +221,61 @@ html[lang="ar"] .vl-dropdown:hover .vl-dropdown-menu {
     grid-template-columns: 1fr;
   }
 }
+
+html[lang="ar"] .hero-logo-hidden-ar,
+html[lang="ar"] .cinematic-hero .hero-logo-mark,
+html[lang="ar"] .ar-cinematic-hero .hero-logo-mark {
+  display: none !important;
+}
+
+html[lang="ar"] .hero-content-ar-clean {
+  transform: translateY(34px);
+}
+
+html[lang="ar"] .hero-content-ar-clean .hero-kicker {
+  margin: 0 0 18px;
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--official-gold-light, #F3D27A);
+  letter-spacing: 0;
+}
+
+html[lang="ar"] .hero-content-ar-clean .hero-lead {
+  max-width: 900px;
+  margin: 0 auto 12px;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  font-weight: 950;
+  line-height: 1.45;
+  color: #fff;
+}
+
+html[lang="ar"] .hero-content-ar-clean .hero-sublead {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: clamp(1.1rem, 1.6vw, 1.6rem);
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+}
+
+html[lang="ar"] .hero-actions-lower {
+  margin-top: 44px;
+}
+
+html[lang="ar"] .hero-actions-lower .btn {
+  min-width: 170px;
+}
+
+@media (max-width: 640px) {
+  html[lang="ar"] .hero-content-ar-clean {
+    transform: translateY(20px);
+    padding-inline: 18px;
+  }
+
+  html[lang="ar"] .hero-content-ar-clean .hero-lead {
+    font-size: 1.7rem;
+  }
+
+  html[lang="ar"] .hero-actions-lower {
+    margin-top: 32px;
+  }
+}
