@@ -385,3 +385,261 @@ html[lang="ar"] .hero-ai           { --hero-image: url("../imges/tripolinow.jpg"
     padding: 120px 22px 70px !important;
   }
 }
+
+.page-hero-with-image {
+  background: #073b4c !important;
+  min-height: clamp(460px, 66vh, 680px);
+}
+
+.page-hero-bg,
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.page-hero-bg {
+  z-index: 0;
+}
+
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.page-hero-overlay {
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(6, 30, 45, .08), rgba(6, 30, 45, .62)),
+    linear-gradient(90deg, rgba(3, 22, 34, .6), rgba(3, 22, 34, .12));
+  pointer-events: none;
+}
+
+.page-hero-with-image .hero-shade {
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(6, 30, 45, .05), rgba(6, 30, 45, .42));
+  backdrop-filter: none;
+  pointer-events: none;
+}
+
+.page-hero-with-image .sub-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.faq-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.faq-group {
+  background: #fff;
+  border: 1px solid rgba(11, 58, 103, .09);
+  border-radius: 28px;
+  padding: 26px;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .08);
+}
+
+.faq-group h3 {
+  margin: 0 0 18px;
+  color: var(--blue);
+  font-size: 22px;
+}
+
+.faq-group details {
+  border-top: 1px solid rgba(11, 58, 103, .12);
+  padding: 16px 0;
+}
+
+.faq-group details:first-of-type {
+  border-top: 0;
+}
+
+.faq-group summary {
+  cursor: pointer;
+  font-weight: 900;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.faq-group p {
+  margin: 12px 0 0;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.notice-text {
+  max-width: 860px;
+  margin: 30px auto 0;
+  padding: 18px 22px;
+  border: 1px solid rgba(200, 155, 60, .28);
+  border-radius: 18px;
+  background: rgba(200, 155, 60, .1);
+  color: var(--ink);
+  font-weight: 800;
+  text-align: center;
+}
+
+.gallery-section {
+  background: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 230px;
+  gap: 18px;
+}
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 26px;
+  background: #073b4c;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, .12);
+  color: #fff;
+}
+
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.gallery-item.tall {
+  grid-row: span 2;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .65s ease, filter .65s ease;
+}
+
+.gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.54));
+}
+
+.gallery-item span {
+  position: absolute;
+  inset-inline-start: 20px;
+  inset-block-end: 18px;
+  z-index: 1;
+  font-weight: 900;
+  text-shadow: 0 8px 22px rgba(0, 0, 0, .38);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+  filter: saturate(1.08) contrast(1.04);
+}
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+  place-items: center;
+  padding: 28px;
+  background: rgba(3, 22, 34, .86);
+}
+
+.gallery-lightbox.open {
+  display: grid;
+}
+
+.gallery-lightbox img {
+  width: min(1120px, 92vw);
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .42);
+}
+
+.gallery-lightbox span {
+  margin-top: 14px;
+  color: #fff;
+  font-weight: 900;
+}
+
+.gallery-lightbox-close {
+  position: absolute;
+  top: 22px;
+  inset-inline-end: 24px;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .92);
+  color: var(--ink);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.message.bot strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--blue);
+}
+
+.message.bot p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+.message.bot a,
+.chat-messages a {
+  color: var(--red);
+  font-weight: 900;
+}
+
+@media (max-width: 1050px) {
+  .faq-tabs,
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-hero-with-image {
+    min-height: 52vh;
+  }
+}
+
+@media (max-width: 640px) {
+  .faq-tabs,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid {
+    grid-auto-rows: 245px;
+  }
+
+  .gallery-item.large,
+  .gallery-item.tall {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .faq-group {
+    padding: 22px;
+    border-radius: 22px;
+  }
+
+  .gallery-lightbox {
+    padding: 18px;
+  }
+}

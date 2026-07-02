@@ -3,14 +3,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.getElementById('primaryNav');
   if (toggle && nav) toggle.addEventListener('click', () => nav.classList.toggle('open'));
 
-  const isArabicPage = document.documentElement.lang === 'ar' && window.location.pathname.includes('/ar/');
+  const isArabicPage = document.documentElement.lang === 'ar' || window.location.pathname.includes('/ar/');
   const assetBase = isArabicPage ? '../' : '';
-  const fallback = `${assetBase}imges/landscapes.jpg`;
+  const fallbackImages = [
+    `${assetBase}imges/landscapes.jpg`,
+    `${assetBase}imges/landscapes5.JPG`,
+    `${assetBase}panel/panel1.png`
+  ];
   document.querySelectorAll('img').forEach(img => {
     img.addEventListener('error', () => {
-      if (img.dataset.fallbackApplied === 'true') return;
-      img.dataset.fallbackApplied = 'true';
-      img.src = fallback;
+      const fallbackIndex = Number(img.dataset.fallbackIndex || 0);
+      if (fallbackIndex >= fallbackImages.length) return;
+      img.dataset.fallbackIndex = String(fallbackIndex + 1);
+      img.src = fallbackImages[fallbackIndex];
     });
   });
 
@@ -59,6 +64,65 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatForm = document.getElementById('chat-form');
   const chatInput = document.getElementById('chat-input');
   const chatMessages = document.getElementById('chat-messages');
+  const officialLinks = {
+    services: 'services.html',
+    evisa: 'https://evisa.gov.ly/',
+    customs: 'https://customs.gov.ly/wp-content/uploads/2026/04/%D8%A5%D9%82%D8%B1%D8%A7%D8%B1-%D8%A7%D9%84%D8%A5%D9%81%D8%B5%D8%A7%D8%AD-%D8%B9%D9%86-%D8%B9%D9%85%D9%84%D8%A9-%D8%B1%D9%82%D9%85-1-%D9%84%D8%B3%D9%86%D8%A9-2016.pdf'
+  };
+  const includesAny = (source, keys) => keys.some(key => source.includes(normalizeArabic(key)));
+
+  window.getVisitLibyaOfficialAnswer = (question) => {
+    const normalized = normalizeArabic(question);
+    const hasVisa = includesAny(normalized, ['تأشيرة', 'تاشيرة', 'visa', 'evisa']);
+    const hasEntry = includesAny(normalized, ['دخول', 'جواز', 'arrival', 'entry', 'passport']);
+    const hasCurrency = includesAny(normalized, ['عملة', 'الدينار', 'افصاح', 'إفصاح', 'جمارك', 'currency', 'dinar', 'customs', 'declaration']);
+    const hasWork = includesAny(normalized, ['عمل', 'شغل', 'وظيفة', 'work', 'job', 'employment']);
+
+    if (hasWork && hasVisa) {
+      return isArabicPage ? {
+        title: 'تنبيه رسمي',
+        text: 'التأشيرة السياحية مخصصة للزيارة والسياحة فقط ولا تستخدم لغرض العمل. لأغراض العمل يجب الرجوع إلى الجهات الرسمية المختصة وإجراءات التأشيرات والتصاريح المناسبة.',
+        link: officialLinks.services,
+        label: 'الخدمات والدخول'
+      } : {
+        title: 'Official Notice',
+        text: 'A tourist visa is for tourism and visits only. Work requires the appropriate visa and permits through the competent official authorities.',
+        link: officialLinks.services,
+        label: 'Travel Services'
+      };
+    }
+
+    if (hasVisa || hasEntry) {
+      return isArabicPage ? {
+        title: 'التأشيرة والدخول',
+        text: 'يرجى التحقق من الأهلية والرسوم ومتطلبات الدخول عبر الموقع الحكومي الرسمي للتأشيرة الإلكترونية قبل السفر. لا تعتمد المنصة مبالغ ثابتة أو شروطًا نهائية داخل الصفحة.',
+        link: officialLinks.evisa,
+        label: 'فتح الموقع الحكومي للتأشيرة'
+      } : {
+        title: 'eVisa and Entry',
+        text: 'Please verify eligibility, fees, and entry requirements through the official Libya eVisa government portal before travel. This platform does not publish fixed fees or final entry rules.',
+        link: officialLinks.evisa,
+        label: 'Open Official eVisa Portal'
+      };
+    }
+
+    if (hasCurrency) {
+      return isArabicPage ? {
+        title: 'العملة والإفصاح الجمركي',
+        text: 'العملة الوطنية هي الدينار الليبي. عند تجاوز الحدود الرسمية، يجب الإفصاح عن العملة وفق نموذج مصلحة الجمارك وتعليماتها قبل الدخول أو الخروج.',
+        link: officialLinks.customs,
+        label: 'تحميل نموذج الإفصاح'
+      } : {
+        title: 'Currency and Customs Declaration',
+        text: 'The national currency is the Libyan dinar. When exceeding official thresholds, travelers should complete the customs currency declaration form and review customs instructions before entry or departure.',
+        link: officialLinks.customs,
+        label: 'Download Customs Declaration'
+      };
+    }
+
+    return null;
+  };
+
   const appendMessage = (content, type) => {
     if (!chatMessages) return;
     const node = document.createElement('div');
@@ -66,9 +130,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof content === 'string') {
       node.textContent = content;
     } else {
-      const span = document.createElement('span');
-      span.textContent = content.text;
-      node.appendChild(span);
+      if (content.title) {
+        const title = document.createElement('strong');
+        title.textContent = content.title;
+        node.appendChild(title);
+      }
+      if (content.text) {
+        const paragraph = document.createElement('p');
+        paragraph.textContent = content.text;
+        node.appendChild(paragraph);
+      }
       if (content.link) {
         const link = document.createElement('a');
         link.href = content.link;
@@ -83,11 +154,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const clean = (question || '').trim();
     if (!clean) return;
     appendMessage(clean, 'user');
+    const officialReply = window.getVisitLibyaOfficialAnswer(clean);
+    if (officialReply) {
+      window.setTimeout(() => appendMessage(officialReply, 'bot'), 180);
+      return;
+    }
     const normalized = normalizeArabic(clean);
     const reply = aiReplies.find(item => item.keys.some(key => normalized.includes(normalizeArabic(key)))) || {
-      text: 'يمكنني مساعدتك في الوجهات، التراث، الثقافة، المطبخ، الأطلس، العملة، أو تخطيط الرحلة.',
-      link: isArabicPage ? 'destinations.html' : 'ar/destinations.html',
-      label: 'ابدأ بالوجهات'
+      text: isArabicPage ? 'يمكنني مساعدتك في الوجهات، التراث، الثقافة، المطبخ، الأطلس، العملة، أو تخطيط الرحلة.' : 'I can help with destinations, heritage, culture, cuisine, the atlas, currency, and trip planning.',
+      link: 'destinations.html',
+      label: isArabicPage ? 'ابدأ بالوجهات' : 'Explore Destinations'
     };
     window.setTimeout(() => appendMessage(reply, 'bot'), 180);
   };
@@ -98,9 +174,59 @@ document.addEventListener('DOMContentLoaded', () => {
       chatInput.value = '';
     });
   }
-  document.querySelectorAll('[data-ai-question]').forEach(button => {
-    button.addEventListener('click', () => answer(button.dataset.aiQuestion || button.textContent || ''));
+  document.querySelectorAll('[data-ai-question], [data-question]').forEach(button => {
+    button.addEventListener('click', () => answer(button.dataset.aiQuestion || button.dataset.question || button.textContent || ''));
   });
+
+  const galleryItems = document.querySelectorAll('[data-gallery]');
+  if (galleryItems.length) {
+    const lightbox = document.createElement('div');
+    lightbox.className = 'gallery-lightbox';
+    lightbox.setAttribute('aria-hidden', 'true');
+
+    const image = document.createElement('img');
+    image.alt = '';
+
+    const caption = document.createElement('span');
+    const close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'gallery-lightbox-close';
+    close.setAttribute('aria-label', isArabicPage ? 'إغلاق الصورة' : 'Close image');
+    close.textContent = '×';
+
+    lightbox.appendChild(close);
+    lightbox.appendChild(image);
+    lightbox.appendChild(caption);
+    document.body.appendChild(lightbox);
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+    };
+
+    galleryItems.forEach(item => {
+      item.addEventListener('click', (event) => {
+        event.preventDefault();
+        const thumb = item.querySelector('img');
+        image.src = item.getAttribute('href');
+        image.alt = thumb ? thumb.alt : '';
+        caption.textContent = item.querySelector('span') ? item.querySelector('span').textContent : image.alt;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('lightbox-open');
+      });
+    });
+
+    close.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeLightbox();
+    });
+  }
 });
 console.log("Visit Libya English proofreading v1 loaded");
 console.log("Visit Libya Arabic version with tourism content v1 loaded");
+console.log("Visit Libya services visa currency FAQ gallery v1 loaded");
