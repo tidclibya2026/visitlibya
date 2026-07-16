@@ -1,21 +1,51 @@
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('navToggle');
   const nav = document.getElementById('primaryNav');
-  if (toggle && nav) toggle.addEventListener('click', () => nav.classList.toggle('open'));
+  const closeNavigation = () => {
+    if (!toggle || !nav) return;
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+    nav.addEventListener('click', (event) => {
+      if (event.target.closest('a') && window.matchMedia('(max-width: 1050px)').matches) {
+        closeNavigation();
+      }
+    });
+    document.addEventListener('click', (event) => {
+      if (nav.classList.contains('open') && !nav.contains(event.target) && !toggle.contains(event.target)) {
+        closeNavigation();
+      }
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && nav.classList.contains('open')) {
+        closeNavigation();
+        toggle.focus();
+      }
+    });
+  }
 
   const isArabicPage = document.documentElement.lang === 'ar' || window.location.pathname.includes('/ar/');
-  const assetBase = isArabicPage ? '../' : '';
-  const fallbackImages = [
-    `${assetBase}imges/landscapes.jpg`,
-    `${assetBase}imges/landscapes5.JPG`,
-    `${assetBase}panel/panel1.png`
-  ];
-  document.querySelectorAll('img').forEach(img => {
+  document.querySelectorAll('img[data-fallback]').forEach((img) => {
     img.addEventListener('error', () => {
-      const fallbackIndex = Number(img.dataset.fallbackIndex || 0);
-      if (fallbackIndex >= fallbackImages.length) return;
-      img.dataset.fallbackIndex = String(fallbackIndex + 1);
-      img.src = fallbackImages[fallbackIndex];
+      if (img.dataset.fallbackApplied === 'true') {
+        console.error('Broken image fallback failed:', img.currentSrc || img.src);
+        return;
+      }
+
+      img.dataset.fallbackApplied = 'true';
+      img.src = img.dataset.fallback;
+    });
+  });
+
+  document.querySelectorAll('img:not([data-fallback])').forEach((img) => {
+    img.addEventListener('error', () => {
+      console.error('Broken image:', img.currentSrc || img.src);
     });
   });
 
@@ -44,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .replace(/\s+/g, ' ')
     .trim();
 
-  const aiReplies = [
+  const baseAiReplies = [
     { keys: ['طرابلس', 'tripoli'], text: 'طرابلس تجمع المدينة القديمة، قوس ماركوس، السرايا الحمراء، الأسواق، والذاكرة المتوسطية.', link: 'destinations.html#tripoli', label: 'افتح طرابلس' },
     { keys: ['بنغازي', 'بنغازي', 'benghazi'], text: 'بنغازي بوابة الشرق الليبي، تجمع البحر والأسواق والبحيرات والانطلاق نحو الجبل الأخضر.', link: 'destinations.html#benghazi', label: 'افتح بنغازي' },
     { keys: ['غدامس', 'ghadames'], text: 'غدامس جوهرة الصحراء ومدينة الطين الأبيض والشوارع المسقوفة وعمارة الواحة.', link: 'destinations.html#ghadames', label: 'افتح غدامس' },
@@ -60,6 +90,29 @@ document.addEventListener('DOMContentLoaded', () => {
     { keys: ['اوجله', 'أوجلة', 'awjila'], text: 'أوجلة واحة شرقية بطابع تراثي محلي، ضمن مسارات الواحات والصحراء.', link: 'destinations.html#awjila', label: 'افتح أوجلة' },
     { keys: ['خطط', 'رحله', 'رحلة', 'مسار'], text: 'لرحلة أولى يمكنك البدء بطرابلس ولبدة وصبراتة، أو اختيار مسار الجبل الأخضر أو الصحراء حسب الموسم.', link: 'plan.html', label: 'افتح خطط رحلتك' }
   ];
+
+  const englishAiReplies = [
+    { text: 'Tripoli brings together the old city, Marcus Aurelius Arch, the Red Castle, traditional markets, and Mediterranean memory.', link: 'destinations.html#tripoli', label: 'Explore Tripoli' },
+    { text: 'Benghazi is the gateway to eastern Libya, bringing together the sea, markets, lakes, and routes toward the Green Mountain.', link: 'destinations.html#benghazi', label: 'Explore Benghazi' },
+    { text: 'Ghadames is a jewel of the Sahara, known for its white earthen architecture, covered lanes, and oasis traditions.', link: 'destinations.html#ghadames', label: 'Explore Ghadames' },
+    { text: 'Acacus is a world-class desert destination for rock art, natural arches, valleys, scenic camping, and guided exploration.', link: 'destinations.html#acacus', label: 'Explore Acacus' },
+    { text: 'Sabratha is a coastal archaeological city renowned for its Roman theatre and Mediterranean setting.', link: 'destinations.html#sabratha', label: 'Explore Sabratha' },
+    { text: 'The Green Mountain combines forests, valleys, beaches, Shahat, Sousa, and Ras Al Hilal.', link: 'destinations.html#green-mountain', label: 'Explore the Green Mountain' },
+    { text: 'The Libyan Sahara offers dunes, lakes, stargazing, safaris, camping, and historic caravan routes.', link: 'experiences.html#desert', label: 'Explore Sahara Experiences' },
+    { text: 'The Nafusa Mountains are known for hilltop granaries, cave homes, pottery, olive oil, and traditional crafts.', link: 'destinations.html#nafusa', label: 'Explore the Nafusa Mountains' },
+    { text: 'Popular Libyan dishes include bazin, couscous, rishta, osban, haraimi, and Libyan soup.', link: 'culture.html#cuisine', label: 'Explore Libyan Cuisine' },
+    { text: 'Libya has five UNESCO World Heritage Sites: Leptis Magna, Sabratha, Cyrene, the Old Town of Ghadames, and the Rock-Art Sites of Tadrart Acacus.', link: 'heritage.html#world-heritage', label: 'Explore Heritage' },
+    { text: 'The Libya Tourism Atlas helps visitors explore destinations, heritage sites, natural attractions, and tourism layers on the map.', link: 'atlas.html', label: 'Open the Atlas' },
+    { text: 'The national currency is the Libyan dinar. Exchange rates vary, so check official sources before travel and review customs declaration requirements.', link: 'plan.html#currency', label: 'Open Trip Planning' },
+    { text: 'Awjila is an eastern oasis with a distinctive local heritage, located along Libya’s oasis and desert routes.', link: 'destinations.html#awjila', label: 'Explore Awjila' },
+    { text: 'For a first trip, consider Tripoli, Leptis Magna, and Sabratha, or choose a Green Mountain or Sahara route according to the season.', link: 'plan.html', label: 'Plan Your Trip' }
+  ];
+
+  const aiReplies = baseAiReplies.map((reply, index) => ({
+    keys: reply.keys,
+    ar: { text: reply.text, link: reply.link, label: reply.label },
+    en: englishAiReplies[index]
+  }));
 
   const chatForm = document.getElementById('chat-form');
   const chatInput = document.getElementById('chat-input');
@@ -161,11 +214,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const normalized = normalizeArabic(clean);
     const reply = aiReplies.find(item => item.keys.some(key => normalized.includes(normalizeArabic(key)))) || {
-      text: isArabicPage ? 'يمكنني مساعدتك في الوجهات، التراث، الثقافة، المطبخ، الأطلس، العملة، أو تخطيط الرحلة.' : 'I can help with destinations, heritage, culture, cuisine, the atlas, currency, and trip planning.',
-      link: 'destinations.html',
-      label: isArabicPage ? 'ابدأ بالوجهات' : 'Explore Destinations'
+      ar: {
+        text: 'يمكنني مساعدتك في الوجهات، التراث، الثقافة، المطبخ، الأطلس، العملة، أو تخطيط الرحلة.',
+        link: 'destinations.html',
+        label: 'ابدأ بالوجهات'
+      },
+      en: {
+        text: 'I can help with destinations, heritage, culture, cuisine, the atlas, currency, and trip planning.',
+        link: 'destinations.html',
+        label: 'Explore Destinations'
+      }
     };
-    window.setTimeout(() => appendMessage(reply, 'bot'), 180);
+    const localizedReply = isArabicPage ? reply.ar : reply.en;
+    window.setTimeout(() => appendMessage(localizedReply, 'bot'), 180);
   };
   if (chatForm && chatInput && chatMessages) {
     chatForm.addEventListener('submit', (event) => {
@@ -182,6 +243,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (galleryItems.length) {
     const lightbox = document.createElement('div');
     lightbox.className = 'gallery-lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
     lightbox.setAttribute('aria-hidden', 'true');
 
     const image = document.createElement('img');
@@ -199,15 +262,20 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.appendChild(caption);
     document.body.appendChild(lightbox);
 
+    let lightboxTrigger = null;
+
     const closeLightbox = () => {
+      if (!lightbox.classList.contains('open')) return;
       lightbox.classList.remove('open');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.classList.remove('lightbox-open');
+      if (lightboxTrigger) lightboxTrigger.focus();
     };
 
     galleryItems.forEach(item => {
       item.addEventListener('click', (event) => {
         event.preventDefault();
+        lightboxTrigger = item;
         const thumb = item.querySelector('img');
         image.src = item.getAttribute('href');
         image.alt = thumb ? thumb.alt : '';
@@ -215,6 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.add('open');
         lightbox.setAttribute('aria-hidden', 'false');
         document.body.classList.add('lightbox-open');
+        close.focus();
       });
     });
 
@@ -223,7 +292,28 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.target === lightbox) closeLightbox();
     });
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeLightbox();
+      if (!lightbox.classList.contains('open')) return;
+      if (event.key === 'Escape') {
+        closeLightbox();
+        return;
+      }
+      if (event.key === 'Tab') {
+        const focusable = [...lightbox.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])')]
+          .filter((element) => !element.hasAttribute('disabled'));
+        if (!focusable.length) {
+          event.preventDefault();
+          return;
+        }
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
     });
   }
 });
