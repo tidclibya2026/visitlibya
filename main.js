@@ -31,6 +31,52 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const isArabicPage = document.documentElement.lang === 'ar' || window.location.pathname.includes('/ar/');
+  const initHeroSlideshows = () => {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('[data-hero-slideshow]').forEach((hero) => {
+      const images = (hero.dataset.heroImages || '')
+        .split('|')
+        .map((item) => item.trim())
+        .filter(Boolean);
+
+      if (!images.length) return;
+
+      const interval = Number(hero.dataset.heroInterval || 3000);
+
+      const slides = images.map((src, index) => {
+        const slide = document.createElement('span');
+        slide.className = `hero-slide${index === 0 ? ' is-active' : ''}`;
+        slide.setAttribute('aria-hidden', 'true');
+        slide.style.backgroundImage = `url("${src}")`;
+        hero.insertBefore(slide, hero.firstChild);
+        return slide;
+      });
+
+      let current = 0;
+
+      const preload = (src) => {
+        const img = new Image();
+        img.src = src;
+      };
+
+      preload(images[1] || images[0]);
+
+      if (reducedMotion || slides.length < 2) return;
+
+      window.setInterval(() => {
+        const previous = current;
+        current = (current + 1) % slides.length;
+
+        slides[previous].classList.remove('is-active');
+        slides[current].classList.add('is-active');
+
+        preload(images[(current + 1) % images.length]);
+      }, Math.max(interval, 3000));
+    });
+  };
+
+  initHeroSlideshows();
   document.querySelectorAll('img[data-fallback]').forEach((img) => {
     img.addEventListener('error', () => {
       if (img.dataset.fallbackApplied === 'true') {
