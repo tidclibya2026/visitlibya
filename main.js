@@ -80,15 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
     { keys: ['غدامس', 'ghadames'], text: 'غدامس جوهرة الصحراء ومدينة الطين الأبيض والشوارع المسقوفة وعمارة الواحة.', link: 'destinations.html#ghadames', label: 'افتح غدامس' },
     { keys: ['اكاكوس', 'أكاكوس', 'akakus', 'acacus'], text: 'أكاكوس وجهة صحراوية عالمية للفن الصخري والأقواس والوديان والتخييم المنظم.', link: 'destinations.html#acacus', label: 'افتح أكاكوس' },
     { keys: ['صبراته', 'صبراتة', 'sabratha'], text: 'صبراتة مدينة أثرية ساحلية تشتهر بالمسرح الروماني والمشهد المتوسطي.', link: 'destinations.html#sabratha', label: 'افتح صبراتة' },
-    { keys: ['الجبل الاخضر', 'الجبل الأخضر', 'green mountain'], text: 'الجبل الأخضر يجمع الغابات والوديان والشواطئ وشحات وسوسة ورأس الهلال.', link: 'destinations.html#green-mountain', label: 'افتح الجبل الأخضر' },
-    { keys: ['الصحراء', 'sahara', 'desert'], text: 'الصحراء الليبية تقدم الكثبان والبحيرات والنجوم والسفاري والتخييم ومسارات القوافل.', link: 'experiences.html#desert', label: 'افتح تجارب الصحراء' },
+    { keys: ['الجبل الاخضر', 'الجبل الأخضر', 'green mountain', 'jebel akhdar'], text: 'الجبل الأخضر يجمع الغابات والوديان والشواطئ وشحات وسوسة ورأس الهلال.', link: 'destinations.html#green-mountain', label: 'افتح الجبل الأخضر' },
+    { keys: ['الصحراء', 'sahara', 'desert', 'ubari', 'ubari lakes'], text: 'الصحراء الليبية تقدم الكثبان والبحيرات والنجوم والسفاري والتخييم ومسارات القوافل.', link: 'experiences.html#desert', label: 'افتح تجارب الصحراء' },
     { keys: ['جبل نفوسه', 'جبل نفوسة', 'nafusa'], text: 'جبل نفوسة كنز للقصور الجبلية وبيوت الحفر والفخار وزيت الزيتون والحرف التقليدية.', link: 'destinations.html#nafusa', label: 'افتح جبل نفوسة' },
     { keys: ['اكل', 'الاكل', 'الأكلات', 'المطبخ', 'بازين', 'كسكسي', 'food', 'cuisine', 'libyan food', 'libyan cuisine'], text: 'من أشهر الأكلات الليبية: البازين، الكسكسي، الرشتة، العصبان، الحرايمي، والشربة الليبية.', link: 'culture.html#cuisine', label: 'افتح المطبخ الليبي' },
-    { keys: ['تراث', 'التراث', 'unesco', 'heritage', 'world heritage', 'unesco sites'], text: 'تضم ليبيا خمسة مواقع تراث عالمي: لبدة الكبرى، صبراتة، شحات، غدامس القديمة، وأكاكوس.', link: 'heritage.html#world-heritage', label: 'افتح التراث' },
+    { keys: ['living culture', 'traditional crafts'], text: 'تجمع الثقافة الليبية الحية الضيافة والأسواق القديمة والموسيقى والحرف التقليدية والقصص المتوارثة.', link: 'culture.html', label: 'افتح الثقافة الليبية' },
+    { keys: ['تراث', 'التراث', 'unesco', 'heritage', 'world heritage', 'unesco sites', 'leptis magna', 'cyrene'], text: 'تضم ليبيا خمسة مواقع تراث عالمي: لبدة الكبرى، صبراتة، شحات، غدامس القديمة، وأكاكوس.', link: 'heritage.html#world-heritage', label: 'افتح التراث' },
     { keys: ['اطلس', 'الأطلس', 'الاطلس', 'خريطه', 'خريطة', 'atlas', 'map', 'tourism map', 'libya tourism atlas'], text: 'الأطلس السياحي الوطني يساعدك على استكشاف الوجهات والمواقع والطبقات السياحية على الخريطة.', link: 'atlas.html', label: 'افتح الأطلس' },
     { keys: ['عمله', 'عملة', 'الدينار', 'currency', 'dinar', 'money', 'exchange'], text: 'العملة الوطنية هي الدينار الليبي. أسعار الصرف متغيرة ويجب التحقق منها من المصادر الرسمية قبل السفر.', link: 'plan.html#currency', label: 'افتح التخطيط' },
     { keys: ['اوجله', 'أوجلة', 'awjila'], text: 'أوجلة واحة شرقية بطابع تراثي محلي، ضمن مسارات الواحات والصحراء.', link: 'destinations.html#awjila', label: 'افتح أوجلة' },
-    { keys: ['خطط', 'رحله', 'رحلة', 'مسار', 'trip', 'trip planning', 'plan', 'itinerary', 'route'], text: 'لرحلة أولى يمكنك البدء بطرابلس ولبدة وصبراتة، أو اختيار مسار الجبل الأخضر أو الصحراء حسب الموسم.', link: 'plan.html', label: 'افتح خطط رحلتك' }
+    { keys: ['خطط', 'رحله', 'رحلة', 'مسار', 'trip', 'trip planning', 'plan', 'itinerary', 'route', 'discover libya'], text: 'لرحلة أولى يمكنك البدء بطرابلس ولبدة وصبراتة، أو اختيار مسار الجبل الأخضر أو الصحراء حسب الموسم.', link: 'plan.html', label: 'افتح خطط رحلتك' }
   ];
 
   const englishAiReplies = [
@@ -101,6 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
     { text: 'The Libyan Sahara offers dunes, lakes, stargazing, safaris, camping, and historic caravan routes.', link: 'experiences.html#desert', label: 'Explore Sahara Experiences' },
     { text: 'The Nafusa Mountains are known for hilltop granaries, cave homes, pottery, olive oil, and traditional crafts.', link: 'destinations.html#nafusa', label: 'Explore the Nafusa Mountains' },
     { text: 'Popular Libyan dishes include bazin, couscous, rishta, osban, haraimi, and Libyan soup.', link: 'culture.html#cuisine', label: 'Explore Libyan Cuisine' },
+    { text: 'Libya’s living culture brings together welcoming communities, historic souks, music, celebrations, and artisan traditions including pottery, weaving, leatherwork, and metalwork.', link: 'culture.html', label: 'Explore Living Culture' },
     { text: 'Libya has five UNESCO World Heritage Sites: Leptis Magna, Sabratha, Cyrene, the Old Town of Ghadames, and the Rock-Art Sites of Tadrart Acacus.', link: 'heritage.html#world-heritage', label: 'Explore Heritage' },
     { text: 'The Libya Tourism Atlas helps visitors explore destinations, heritage sites, natural attractions, and tourism layers on the map.', link: 'atlas.html', label: 'Open the Atlas' },
     { text: 'The national currency is the Libyan dinar. Exchange rates vary, so check official sources before travel and review customs declaration requirements.', link: 'plan.html#currency', label: 'Open Trip Planning' },
