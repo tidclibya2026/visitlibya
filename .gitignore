@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Environment files
+.env
+backend/.env
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/settings.json
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Unsupported web images
+*.tif
+*.tiff
