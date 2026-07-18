@@ -3,12 +3,18 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .mypy_cache/
+.ruff_cache/
 .venv/
 venv/
+coverage.xml
+htmlcov/
+*.log
 
 # Environment files
 .env
-backend/.env
+.env.*
+!.env.example
+!**/.env.example
 
 # Database
 *.db
@@ -16,7 +22,8 @@ backend/.env
 *.sqlite3
 
 # IDE
-.vscode/settings.json
+.vscode/
+.idea/
 
 # System files
 .DS_Store

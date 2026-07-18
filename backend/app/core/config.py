@@ -1,19 +1,25 @@
 from functools import lru_cache
+from typing import Any
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
     app_name: str = "Visit Libya API"
-    app_version: str = "1.0.0"
+    app_version: str = "2.0.1"
     environment: str = "development"
 
-    database_url: str = (
-        "postgresql+psycopg://visitlibya:visitlibya_password"
-        "@database:5432/visitlibya"
-    )
-
     api_v1_prefix: str = "/api/v1"
+
+    database_url: str
+
+    backend_cors_origins: list[str] = [
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "http://localhost:5500",
+        "http://127.0.0.1:5500",
+    ]
 
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -21,6 +27,14 @@ class Settings(BaseSettings):
         case_sensitive=False,
         extra="ignore",
     )
+
+    @field_validator("backend_cors_origins", mode="before")
+    @classmethod
+    def parse_cors_origins(cls, value: Any) -> Any:
+        if isinstance(value, str) and not value.startswith("["):
+            return [origin.strip() for origin in value.split(",")]
+
+        return value
 
 
 @lru_cache
