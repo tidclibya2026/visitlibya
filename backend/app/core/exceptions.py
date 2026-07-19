@@ -88,3 +88,27 @@ class DestinationMediaNotFoundError(MediaError):
 class DestinationMediaConflictError(MediaError):
     def __init__(self) -> None:
         super().__init__("Destination media association already exists")
+
+
+class ReviewError(Exception):
+    """Base class for review domain errors."""
+
+
+class ReviewNotFoundError(ReviewError):
+    def __init__(self) -> None:
+        super().__init__("Review not found")
+
+
+class ReviewRatingError(ReviewError):
+    def __init__(self) -> None:
+        super().__init__("Review rating must be between 1 and 5")
+
+
+class ReviewIntegrityError(ReviewError):
+    def __init__(self) -> None:
+        super().__init__("Review conflicts with existing data")
+
+
+class ReviewPersistenceError(ReviewError):
+    def __init__(self) -> None:
+        super().__init__("Review could not be persisted")
