@@ -22,6 +22,7 @@ from app.models.base import Base, TimestampMixin
 if TYPE_CHECKING:
     from app.models.category import Category
     from app.models.media import DestinationMedia
+    from app.models.review import Review
 
 
 class DestinationStatus(str, enum.Enum):
@@ -133,6 +134,12 @@ class Destination(TimestampMixin, Base):
     )
 
     media_items: Mapped[list["DestinationMedia"]] = relationship(
+        back_populates="destination",
+        cascade="all, delete-orphan",
+        lazy="selectin",
+    )
+
+    reviews: Mapped[list["Review"]] = relationship(
         back_populates="destination",
         cascade="all, delete-orphan",
         lazy="selectin",

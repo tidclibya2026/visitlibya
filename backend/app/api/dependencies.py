@@ -7,6 +7,7 @@ from app.db.session import get_db
 from app.services.category import CategoryService
 from app.services.destination import DestinationService
 from app.services.media import MediaService
+from app.services.review import ReviewService
 
 
 DatabaseSession = Annotated[Session, Depends(get_db)]
@@ -37,3 +38,10 @@ def get_media_service(db: DatabaseSession) -> MediaService:
 
 
 MediaServiceDependency = Annotated[MediaService, Depends(get_media_service)]
+
+
+def get_review_service(db: DatabaseSession) -> ReviewService:
+    return ReviewService(db)
+
+
+ReviewServiceDependency = Annotated[ReviewService, Depends(get_review_service)]

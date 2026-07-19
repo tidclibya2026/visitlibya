@@ -8,6 +8,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.models.base import Base, TimestampMixin
 
 if TYPE_CHECKING:
+    from app.models.review import Review
     from app.models.role import Role
 
 
@@ -73,5 +74,10 @@ class User(TimestampMixin, Base):
     roles: Mapped[list["Role"]] = relationship(
         secondary=user_roles,
         back_populates="users",
+        lazy="selectin",
+    )
+
+    reviews: Mapped[list["Review"]] = relationship(
+        back_populates="user",
         lazy="selectin",
     )
