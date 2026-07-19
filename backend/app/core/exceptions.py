@@ -112,3 +112,17 @@ class ReviewIntegrityError(ReviewError):
 class ReviewPersistenceError(ReviewError):
     def __init__(self) -> None:
         super().__init__("Review could not be persisted")
+
+
+class SearchError(Exception):
+    """Base class for public destination search errors."""
+
+
+class SearchValidationError(SearchError):
+    def __init__(self, message: str) -> None:
+        super().__init__(message)
+
+
+class SearchPersistenceError(SearchError):
+    def __init__(self) -> None:
+        super().__init__("Destination search could not be completed")
