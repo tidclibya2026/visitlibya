@@ -1,16 +1,15 @@
 from collections.abc import Sequence
 
 from sqlalchemy import Select, func, select
-from sqlalchemy.orm import Load, Session, joinedload, selectinload
+from sqlalchemy.orm import Load, joinedload, selectinload
 from sqlalchemy.sql.elements import ColumnElement
 
 from app.models.category import Category
 from app.models.destination import Destination, DestinationStatus
+from app.repositories.base import BaseRepository
 
 
-class DestinationRepository:
-    def __init__(self, session: Session) -> None:
-        self.session = session
+class DestinationRepository(BaseRepository[Destination]):
 
     @staticmethod
     def _load_options() -> tuple[Load, Load]:
@@ -126,15 +125,6 @@ class DestinationRepository:
             *filters
         )
         return self.session.scalar(statement) or 0
-
-    def add(self, destination: Destination) -> None:
-        self.session.add(destination)
-
-    def delete(self, destination: Destination) -> None:
-        self.session.delete(destination)
-
-    def flush(self) -> None:
-        self.session.flush()
 
     def refresh(self, destination: Destination) -> None:
         self.session.refresh(
