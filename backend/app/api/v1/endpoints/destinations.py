@@ -3,6 +3,7 @@ from typing import Annotated, NoReturn
 from fastapi import APIRouter, HTTPException, Query, status
 
 from app.api.dependencies import DestinationServiceDependency
+from app.api.pagination import LimitParameter, SkipParameter
 from app.core.exceptions import (
     CategoryNotFoundError,
     DestinationCoordinatesError,
@@ -47,8 +48,8 @@ def raise_http_error(error: DestinationError) -> NoReturn:
 @router.get("", response_model=DestinationListResponse)
 def list_destinations(
     service: DestinationServiceDependency,
-    skip: Annotated[int, Query(ge=0)] = 0,
-    limit: Annotated[int, Query(ge=1, le=100)] = 20,
+    skip: SkipParameter = 0,
+    limit: LimitParameter = 20,
     status_filter: Annotated[DestinationStatus | None, Query(alias="status")] = None,
     category_id: int | None = None,
     region: str | None = None,
