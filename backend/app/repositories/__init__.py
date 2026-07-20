@@ -3,6 +3,7 @@ from app.repositories.destination import DestinationRepository
 from app.repositories.media import MediaRepository
 from app.repositories.review import ReviewRepository
 from app.repositories.search import SearchRepository
+from app.repositories.user import UserRepository
 
 __all__ = [
     "CategoryRepository",
@@ -10,4 +11,5 @@ __all__ = [
     "MediaRepository",
     "ReviewRepository",
     "SearchRepository",
+    "UserRepository",
 ]
