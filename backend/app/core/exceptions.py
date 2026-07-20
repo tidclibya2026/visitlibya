@@ -126,3 +126,27 @@ class SearchValidationError(SearchError):
 class SearchPersistenceError(SearchError):
     def __init__(self) -> None:
         super().__init__("Destination search could not be completed")
+
+
+class AuthenticationError(Exception):
+    """Base class for authentication domain errors."""
+
+
+class InvalidCredentialsError(AuthenticationError):
+    def __init__(self) -> None:
+        super().__init__("Invalid username or password")
+
+
+class InvalidTokenError(AuthenticationError):
+    def __init__(self) -> None:
+        super().__init__("Could not validate credentials")
+
+
+class InactiveUserError(AuthenticationError):
+    def __init__(self) -> None:
+        super().__init__("Inactive user")
+
+
+class AuthenticationPersistenceError(AuthenticationError):
+    def __init__(self) -> None:
+        super().__init__("Authentication service is unavailable")
