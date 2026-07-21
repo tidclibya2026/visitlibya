@@ -12,12 +12,14 @@ from app.core.exceptions import (
 from app.core.security import decode_access_token, oauth2_scheme
 from app.models.user import User
 from app.repositories.user import UserRepository
+from app.repositories.favorite import FavoriteRepository
 from app.services.auth import AuthService
 from app.services.category import CategoryService
 from app.services.destination import DestinationService
 from app.services.media import MediaService
 from app.services.review import ReviewService
 from app.services.search import SearchService
+from app.services.favorite import FavoriteService
 
 
 DatabaseSession = Annotated[Session, Depends(get_db)]
@@ -74,6 +76,29 @@ def get_current_active_user(user: CurrentUserDependency) -> User:
 
 
 CurrentActiveUserDependency = Annotated[User, Depends(get_current_active_user)]
+
+
+def get_favorite_repository(db: DatabaseSession) -> FavoriteRepository:
+    return FavoriteRepository(db)
+
+
+FavoriteRepositoryDependency = Annotated[
+    FavoriteRepository,
+    Depends(get_favorite_repository),
+]
+
+
+def get_favorite_service(
+    db: DatabaseSession,
+    repository: FavoriteRepositoryDependency,
+) -> FavoriteService:
+    return FavoriteService(db, repository)
+
+
+FavoriteServiceDependency = Annotated[
+    FavoriteService,
+    Depends(get_favorite_service),
+]
 
 
 def get_category_service(db: DatabaseSession) -> CategoryService:

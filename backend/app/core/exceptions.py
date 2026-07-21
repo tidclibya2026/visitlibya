@@ -150,3 +150,17 @@ class InactiveUserError(AuthenticationError):
 class AuthenticationPersistenceError(AuthenticationError):
     def __init__(self) -> None:
         super().__init__("Authentication service is unavailable")
+
+
+class FavoriteError(Exception):
+    """Base class for favorite domain errors."""
+
+
+class FavoriteIntegrityError(FavoriteError):
+    def __init__(self) -> None:
+        super().__init__("Favorite conflicts with existing data")
+
+
+class FavoritePersistenceError(FavoriteError):
+    def __init__(self) -> None:
+        super().__init__("Favorite request could not be completed")
