@@ -23,6 +23,7 @@ if TYPE_CHECKING:
     from app.models.category import Category
     from app.models.media import DestinationMedia
     from app.models.review import Review
+    from app.models.favorite import Favorite
 
 
 class DestinationStatus(str, enum.Enum):
@@ -143,6 +144,13 @@ class Destination(TimestampMixin, Base):
         back_populates="destination",
         cascade="all, delete-orphan",
         lazy="selectin",
+    )
+
+    favorites: Mapped[list["Favorite"]] = relationship(
+        back_populates="destination",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+        lazy="raise",
     )
 
 
