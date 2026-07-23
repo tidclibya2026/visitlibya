@@ -1,0 +1,6 @@
+window.VISIT_LIBYA_CONFIG = Object.freeze({
+  apiBaseUrl: "http://127.0.0.1:8000/api/v1",
+  requestTimeoutMs: 10000,
+  defaultLocale: "en",
+  debug: false,
+});
