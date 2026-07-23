@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>رحلاتي | Visit Libya</title>
+  <meta name="description" content="أنشئ رحلاتك إلى ليبيا وأدرها بأمان.">
+  <link rel="stylesheet" href="../style.css?v=stabilization-sprint-01">
+  <link rel="stylesheet" href="../assets/css/trips.css?v=my-trips-01">
+</head>
+<body>
+<a class="trips-skip-link" href="#tripsMain">انتقل إلى رحلاتي</a>
+<header class="vl-topbar" id="siteHeader">
+  <a class="vl-logo" href="index.html" aria-label="Visit Libya الرئيسية">
+    <strong>Visit Libya</strong>
+    <span>زور ليبيا</span>
+  </a>
+  <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="primaryNav">☰</button>
+  <nav class="vl-nav" id="primaryNav" aria-label="القائمة الرئيسية">
+    <a href="index.html">الرئيسية</a>
+    <a href="destinations.html">الوجهات</a>
+    <a href="experiences.html">التجارب</a>
+    <a href="culture.html">الثقافة والمطبخ</a>
+    <a href="heritage.html">التراث</a>
+    <a href="plan.html">خطط رحلتك</a>
+    <a href="trips.html" class="is-current" aria-current="page">رحلاتي</a>
+  </nav>
+  <a class="vl-language" href="../trips.html" aria-label="English language"><span>◉</span> English</a>
+</header>
+
+<main class="trips-app" id="tripsMain" tabindex="-1">
+  <section class="trips-hero">
+    <div>
+      <span class="kicker">مخطط الرحلات الشخصي</span>
+      <h1>رحلاتي</h1>
+      <p>نظّم رحلاتك في ليبيا واحفظها في مكان واحد وآمن.</p>
+    </div>
+  </section>
+
+  <section class="trips-shell" aria-labelledby="loginTitle" data-login-panel>
+    <div class="trips-login-card">
+      <div>
+        <span class="kicker">دخول آمن</span>
+        <h2 id="loginTitle">سجّل الدخول إلى رحلاتك</h2>
+        <p>خطط رحلاتك خاصة بحسابك الموثق.</p>
+      </div>
+      <form class="trips-form" data-login-form novalidate>
+        <div class="trips-field">
+          <label for="loginIdentifier">اسم المستخدم أو البريد الإلكتروني</label>
+          <input id="loginIdentifier" name="username" type="text" autocomplete="username" required aria-describedby="loginIdentifierError">
+          <p class="trips-field-error" id="loginIdentifierError" data-error-for="username"></p>
+        </div>
+        <div class="trips-field">
+          <label for="loginPassword">كلمة المرور</label>
+          <input id="loginPassword" name="password" type="password" autocomplete="current-password" required aria-describedby="loginPasswordError">
+          <p class="trips-field-error" id="loginPasswordError" data-error-for="password"></p>
+        </div>
+        <label class="trips-checkbox">
+          <input name="remember" type="checkbox">
+          <span>تذكرني خلال جلسة المتصفح هذه</span>
+        </label>
+        <p class="trips-form-error" data-login-error role="alert" hidden></p>
+        <button class="trips-primary-button" type="submit" data-login-submit>تسجيل الدخول</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="trips-shell" data-trips-panel aria-labelledby="tripsListTitle" hidden>
+    <div class="trips-toolbar">
+      <div>
+        <span class="kicker">رحلاتك</span>
+        <h2 id="tripsListTitle" tabindex="-1">الرحلات المحفوظة</h2>
+        <p data-user-greeting></p>
+      </div>
+      <div class="trips-toolbar-actions">
+        <button class="trips-secondary-button" type="button" data-logout>تسجيل الخروج</button>
+        <button class="trips-primary-button" type="button" data-create-trip>إنشاء رحلة</button>
+      </div>
+    </div>
+    <div data-trips-content aria-live="polite"></div>
+    <nav class="trips-pagination" aria-label="صفحات الرحلات" data-pagination hidden></nav>
+  </section>
+</main>
+
+<footer class="vl-footer">
+  <div class="vl-footer-grid">
+    <div><h2>Visit Libya | زور ليبيا</h2><p>ليبيا أرض الحضارات وموطن السحر والجمال، ومنصة سياحية وطنية تقدم الوجهات والتجارب والثقافة والمسارات بأسلوب بصري موثوق.</p></div>
+    <div><h3>استكشف</h3><a href="destinations.html">الوجهات</a><a href="experiences.html">التجارب</a><a href="plan.html">خطط رحلتك</a><a href="trips.html">رحلاتي</a></div>
+    <div><h3>الجهة الرسمية</h3><p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p><p class="small">تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p></div>
+  </div>
+</footer>
+<script src="../main.js?v=stabilization-sprint-01"></script>
+<script src="../config/frontend-config.js"></script>
+<script type="module" src="../assets/js/pages/trips-page.js"></script>
+</body>
+</html>

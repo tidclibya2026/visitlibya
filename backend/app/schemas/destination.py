@@ -2,6 +2,8 @@ from datetime import datetime
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
+from app.schemas.pagination import PaginatedResponse
+
 from app.models.destination import DestinationStatus
 
 
@@ -177,8 +179,5 @@ class DestinationRead(DestinationBase):
     model_config = ConfigDict(from_attributes=True)
 
 
-class DestinationListResponse(BaseModel):
-    items: list[DestinationRead]
-    total: int
-    skip: int
-    limit: int
+class DestinationListResponse(PaginatedResponse[DestinationRead]):
+    pass

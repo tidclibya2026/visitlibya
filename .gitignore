@@ -32,3 +32,10 @@ Thumbs.db
 # Unsupported web images
 *.tif
 *.tiff
+# Python test and coverage artifacts
+.coverage
+*.coverage
+htmlcov/
+.pytest_cache/
+__pycache__/
+*.py[cod]

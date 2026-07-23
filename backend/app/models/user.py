@@ -8,7 +8,10 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.models.base import Base, TimestampMixin
 
 if TYPE_CHECKING:
+    from app.models.favorite import Favorite
+    from app.models.review import Review
     from app.models.role import Role
+    from app.models.trip import Trip
 
 
 user_roles = Table(
@@ -74,4 +77,23 @@ class User(TimestampMixin, Base):
         secondary=user_roles,
         back_populates="users",
         lazy="selectin",
+    )
+
+    reviews: Mapped[list["Review"]] = relationship(
+        back_populates="user",
+        lazy="selectin",
+    )
+
+    favorites: Mapped[list["Favorite"]] = relationship(
+        back_populates="user",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+        lazy="raise",
+    )
+
+    trips: Mapped[list["Trip"]] = relationship(
+        back_populates="user",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+        lazy="raise",
     )

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Trips | Visit Libya</title>
+  <meta name="description" content="Create and manage your Visit Libya travel plans.">
+  <link rel="stylesheet" href="style.css?v=stabilization-sprint-01">
+  <link rel="stylesheet" href="assets/css/trips.css?v=my-trips-01">
+</head>
+<body>
+<a class="trips-skip-link" href="#tripsMain">Skip to My Trips</a>
+<header class="vl-topbar" id="siteHeader">
+  <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
+    <strong>Visit Libya</strong>
+    <span>Discover Authenticity</span>
+  </a>
+  <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">☰</button>
+  <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="destinations.html">Destinations</a>
+    <a href="experiences.html">Things to Do</a>
+    <a href="culture.html">Culture &amp; Cuisine</a>
+    <a href="heritage.html">Heritage</a>
+    <a href="plan.html">Plan Your Trip</a>
+    <a href="trips.html" class="is-current" aria-current="page">My Trips</a>
+  </nav>
+  <a class="vl-language" href="ar/trips.html" aria-label="Arabic language"><span>◉</span> العربية</a>
+</header>
+
+<main class="trips-app" id="tripsMain" tabindex="-1">
+  <section class="trips-hero">
+    <div>
+      <span class="kicker">Personal Trip Planner</span>
+      <h1>My Trips</h1>
+      <p>Keep your Libya journeys organized in one secure place.</p>
+    </div>
+  </section>
+
+  <section class="trips-shell" aria-labelledby="loginTitle" data-login-panel>
+    <div class="trips-login-card">
+      <div>
+        <span class="kicker">Secure access</span>
+        <h2 id="loginTitle">Sign in to your trips</h2>
+        <p>Your trip plans are private to your authenticated account.</p>
+      </div>
+      <form class="trips-form" data-login-form novalidate>
+        <div class="trips-field">
+          <label for="loginIdentifier">Username or email</label>
+          <input id="loginIdentifier" name="username" type="text" autocomplete="username" required aria-describedby="loginIdentifierError">
+          <p class="trips-field-error" id="loginIdentifierError" data-error-for="username"></p>
+        </div>
+        <div class="trips-field">
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" name="password" type="password" autocomplete="current-password" required aria-describedby="loginPasswordError">
+          <p class="trips-field-error" id="loginPasswordError" data-error-for="password"></p>
+        </div>
+        <label class="trips-checkbox">
+          <input name="remember" type="checkbox">
+          <span>Remember me for this browser session</span>
+        </label>
+        <p class="trips-form-error" data-login-error role="alert" hidden></p>
+        <button class="trips-primary-button" type="submit" data-login-submit>Sign in</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="trips-shell" data-trips-panel aria-labelledby="tripsListTitle" hidden>
+    <div class="trips-toolbar">
+      <div>
+        <span class="kicker">Your journeys</span>
+        <h2 id="tripsListTitle" tabindex="-1">Saved trips</h2>
+        <p data-user-greeting></p>
+      </div>
+      <div class="trips-toolbar-actions">
+        <button class="trips-secondary-button" type="button" data-logout>Sign out</button>
+        <button class="trips-primary-button" type="button" data-create-trip>Create Trip</button>
+      </div>
+    </div>
+    <div data-trips-content aria-live="polite"></div>
+    <nav class="trips-pagination" aria-label="Trips pages" data-pagination hidden></nav>
+  </section>
+</main>
+
+<footer class="vl-footer">
+  <div class="vl-footer-grid">
+    <div><h2>Visit Libya</h2><p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p></div>
+    <div><h3>Explore</h3><a href="destinations.html">Destinations</a><a href="experiences.html">Things to Do</a><a href="plan.html">Plan Your Trip</a><a href="trips.html">My Trips</a></div>
+    <div><h3>Official Attribution</h3><p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p><p class="small">Official names appear in the footer only.</p></div>
+  </div>
+</footer>
+<script src="main.js?v=stabilization-sprint-01"></script>
+<script src="config/frontend-config.js"></script>
+<script type="module" src="assets/js/pages/trips-page.js"></script>
+</body>
+</html>
