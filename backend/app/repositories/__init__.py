@@ -5,6 +5,7 @@ from app.repositories.review import ReviewRepository
 from app.repositories.search import SearchRepository
 from app.repositories.user import UserRepository
 from app.repositories.favorite import FavoriteRepository
+from app.repositories.trip import TripRepository
 
 __all__ = [
     "CategoryRepository",
@@ -14,4 +15,5 @@ __all__ = [
     "SearchRepository",
     "UserRepository",
     "FavoriteRepository",
+    "TripRepository",
 ]

@@ -13,6 +13,7 @@ from app.core.security import decode_access_token, oauth2_scheme
 from app.models.user import User
 from app.repositories.user import UserRepository
 from app.repositories.favorite import FavoriteRepository
+from app.repositories.trip import TripRepository
 from app.services.auth import AuthService
 from app.services.category import CategoryService
 from app.services.destination import DestinationService
@@ -20,6 +21,7 @@ from app.services.media import MediaService
 from app.services.review import ReviewService
 from app.services.search import SearchService
 from app.services.favorite import FavoriteService
+from app.services.trip import TripService
 
 
 DatabaseSession = Annotated[Session, Depends(get_db)]
@@ -99,6 +101,23 @@ FavoriteServiceDependency = Annotated[
     FavoriteService,
     Depends(get_favorite_service),
 ]
+
+
+def get_trip_repository(db: DatabaseSession) -> TripRepository:
+    return TripRepository(db)
+
+
+TripRepositoryDependency = Annotated[TripRepository, Depends(get_trip_repository)]
+
+
+def get_trip_service(
+    db: DatabaseSession,
+    repository: TripRepositoryDependency,
+) -> TripService:
+    return TripService(db, repository)
+
+
+TripServiceDependency = Annotated[TripService, Depends(get_trip_service)]
 
 
 def get_category_service(db: DatabaseSession) -> CategoryService:

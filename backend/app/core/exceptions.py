@@ -164,3 +164,62 @@ class FavoriteIntegrityError(FavoriteError):
 class FavoritePersistenceError(FavoriteError):
     def __init__(self) -> None:
         super().__init__("Favorite request could not be completed")
+
+
+class TripError(Exception):
+    """Base class for trip-planner domain errors."""
+
+
+class TripNotFoundError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip not found")
+
+
+class TripItemNotFoundError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip item not found")
+
+
+class InvalidTripDateRangeError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip end date must not be before its start date")
+
+
+class InvalidTripDayError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip day is outside the trip date range")
+
+
+class TripItemDateOutOfRangeError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip item visit date is outside the trip date range")
+
+
+class DuplicateTripDestinationError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Destination already exists on this trip day")
+
+
+class DestinationUnavailableForTripError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Destination is unavailable for trip planning")
+
+
+class InvalidTripItemOrderError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip item order is invalid")
+
+
+class TripItemLimitExceededError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip item limit has been reached")
+
+
+class TripConcurrentModificationError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip was modified by another request")
+
+
+class TripPersistenceError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip request could not be completed")

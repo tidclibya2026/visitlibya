@@ -24,6 +24,7 @@ if TYPE_CHECKING:
     from app.models.media import DestinationMedia
     from app.models.review import Review
     from app.models.favorite import Favorite
+    from app.models.trip_item import TripItem
 
 
 class DestinationStatus(str, enum.Enum):
@@ -147,6 +148,13 @@ class Destination(TimestampMixin, Base):
     )
 
     favorites: Mapped[list["Favorite"]] = relationship(
+        back_populates="destination",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+        lazy="raise",
+    )
+
+    trip_items: Mapped[list["TripItem"]] = relationship(
         back_populates="destination",
         cascade="all, delete-orphan",
         passive_deletes=True,

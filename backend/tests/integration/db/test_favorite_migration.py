@@ -346,15 +346,17 @@ def test_favorite_migration_upgrade_downgrade_and_constraints() -> None:
     """
     Run a complete live migration lifecycle:
 
-    clean database -> upgrade head -> inspect and test schema ->
-    downgrade previous revision -> verify removal -> upgrade head again.
+    clean database -> upgrade to the Favorites revision -> inspect and test
+    schema -> downgrade previous revision -> verify removal -> upgrade to the
+    Favorites revision again.
     """
     database_url = _test_database_url()
     engine = create_engine(database_url, pool_pre_ping=True)
 
     try:
-        # Bring the isolated database to the latest migration.
-        _alembic(database_url, "upgrade", "head")
+        # Validate this migration at its own revision. A later repository head
+        # must not change the expected result of the Favorites lifecycle test.
+        _alembic(database_url, "upgrade", FAVORITES_REVISION)
 
         _assert_favorites_schema(engine)
         _assert_unique_constraint_and_cascades(engine)
@@ -374,7 +376,7 @@ def test_favorite_migration_upgrade_downgrade_and_constraints() -> None:
         assert current_revision == PREVIOUS_REVISION
 
         # Reapply the migration and verify that it can be recreated cleanly.
-        _alembic(database_url, "upgrade", "head")
+        _alembic(database_url, "upgrade", FAVORITES_REVISION)
 
         _assert_favorites_schema(engine)
 

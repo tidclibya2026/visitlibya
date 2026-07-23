@@ -1,7 +1,7 @@
 from functools import lru_cache
 from typing import Any, Literal
 
-from pydantic import Field, PositiveInt, SecretStr, field_validator
+from pydantic import Field, NonNegativeInt, PositiveInt, SecretStr, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -13,6 +13,11 @@ class Settings(BaseSettings):
     api_v1_prefix: str = "/api/v1"
 
     database_url: str
+    db_pool_size: PositiveInt = 5
+    db_max_overflow: NonNegativeInt = 10
+    db_pool_timeout: PositiveInt = 30
+    db_pool_recycle: PositiveInt = 1_800
+    db_pool_pre_ping: bool = True
 
     jwt_secret_key: SecretStr = Field(min_length=32)
     jwt_algorithm: Literal["HS256"] = "HS256"

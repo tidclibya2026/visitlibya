@@ -5,6 +5,7 @@ from app.services.review import ReviewService
 from app.services.search import SearchService
 from app.services.auth import AuthService
 from app.services.favorite import FavoriteService
+from app.services.trip import TripService
 
 __all__ = [
     "CategoryService",
@@ -14,4 +15,5 @@ __all__ = [
     "SearchService",
     "AuthService",
     "FavoriteService",
+    "TripService",
 ]
