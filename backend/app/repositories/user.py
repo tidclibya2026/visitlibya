@@ -6,6 +6,11 @@ from app.repositories.base import BaseRepository
 
 
 class UserRepository(BaseRepository[User]):
+    def create(self, user: User) -> User:
+        self.add(user)
+        self.flush()
+        return user
+
     def get_by_id(self, user_id: int) -> User | None:
         return self.session.scalar(
             select(User)

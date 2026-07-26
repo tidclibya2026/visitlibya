@@ -19,7 +19,32 @@ import {
  * @property {boolean} is_active
  * @property {boolean} is_superuser
  * @property {string[]} roles
+ *
+ * @typedef {object} UserRegistrationResponse
+ * @property {number} id
+ * @property {string} email
+ * @property {string} username
+ * @property {string} full_name
+ * @property {boolean} is_active
+ * @property {boolean} is_superuser
  */
+
+/**
+ * Create a normal user account without starting an authenticated session.
+ * @returns {Promise<UserRegistrationResponse>}
+ */
+export function register({ fullName, email, username, password }, options = {}) {
+  return apiClient.post(
+    "/auth/register",
+    {
+      full_name: String(fullName ?? ""),
+      email: String(email ?? ""),
+      username: String(username ?? ""),
+      password: String(password ?? ""),
+    },
+    options,
+  );
+}
 
 /**
  * Authenticate with FastAPI OAuth2PasswordRequestForm, then verify identity

@@ -11,10 +11,11 @@ from app.core.exceptions import (
     InactiveUserError,
     InvalidCredentialsError,
     InvalidTokenError,
+    RegistrationConflictError,
 )
 from app.core.security import create_access_token
 from app.main import app
-from app.schemas.auth import TokenResponse
+from app.schemas.auth import TokenResponse, UserRegistrationRequest
 from app.models.role import Role
 
 
@@ -22,7 +23,19 @@ class FakeAuthService:
     def __init__(self, user) -> None:
         self.user = user
         self.login_error = None
+        self.registration_error = None
         self.user_error = None
+
+    def register(self, payload: UserRegistrationRequest):
+        if self.registration_error is not None:
+            raise self.registration_error
+        self.user.full_name = payload.full_name
+        self.user.email = str(payload.email)
+        self.user.username = payload.username
+        self.user.is_active = True
+        self.user.is_superuser = False
+        self.user.roles = []
+        return self.user
 
     def login(self, identifier: str, password: str) -> TokenResponse:
         if self.login_error is not None:
@@ -56,6 +69,87 @@ def test_successful_login(test_user) -> None:
     assert response.status_code == 200
     assert response.json()["token_type"] == "bearer"
     assert response.json()["expires_in"] == 1800
+
+
+def test_successful_registration_returns_only_safe_normal_user_fields(test_user) -> None:
+    response = request_with_service(
+        FakeAuthService(test_user),
+        "POST",
+        "/api/v1/auth/register",
+        json={
+            "full_name": "New Traveler",
+            "email": "NEW@EXAMPLE.COM",
+            "username": "NewTraveler",
+            "password": "SecurePassword123!",
+        },
+    )
+
+    assert response.status_code == 201
+    assert response.json() == {
+        "id": 1,
+        "email": "new@example.com",
+        "username": "newtraveler",
+        "full_name": "New Traveler",
+        "is_active": True,
+        "is_superuser": False,
+    }
+    assert "hashed_password" not in response.json()
+    assert "password" not in response.json()
+    assert "roles" not in response.json()
+
+
+@pytest.mark.parametrize(
+    ("error", "expected_status"),
+    [
+        (RegistrationConflictError(), 409),
+        (AuthenticationPersistenceError(), 500),
+    ],
+)
+def test_registration_error_mapping(test_user, error, expected_status) -> None:
+    service = FakeAuthService(test_user)
+    service.registration_error = error
+    response = request_with_service(
+        service,
+        "POST",
+        "/api/v1/auth/register",
+        json={
+            "full_name": "New Traveler",
+            "email": "new@example.com",
+            "username": "newtraveler",
+            "password": "SecurePassword123!",
+        },
+    )
+
+    assert response.status_code == expected_status
+    if expected_status == 500:
+        assert response.json()["detail"] == "Authentication service is unavailable"
+
+
+@pytest.mark.parametrize(
+    "overrides",
+    [
+        {"email": "not-an-email"},
+        {"password": "weak-password"},
+        {"username": "invalid username"},
+        {"full_name": "   "},
+    ],
+)
+def test_registration_validation_rejects_invalid_fields(test_user, overrides) -> None:
+    payload = {
+        "full_name": "New Traveler",
+        "email": "new@example.com",
+        "username": "newtraveler",
+        "password": "SecurePassword123!",
+        **overrides,
+    }
+    response = request_with_service(
+        FakeAuthService(test_user),
+        "POST",
+        "/api/v1/auth/register",
+        json=payload,
+    )
+
+    assert response.status_code == 422
 
 
 @pytest.mark.parametrize(
