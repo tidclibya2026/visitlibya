@@ -135,7 +135,7 @@ class TripRepository(BaseRepository[Trip]):
         )
         return maximum if maximum is not None else -1
 
-    def increment_reorder_version(
+    def increment_trip_version(
         self,
         trip_id: int,
         user_id: int,

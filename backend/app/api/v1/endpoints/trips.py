@@ -1,6 +1,6 @@
 from typing import Annotated, NoReturn
 
-from fastapi import APIRouter, HTTPException, Path, status
+from fastapi import APIRouter, HTTPException, Path, Query, status
 
 from app.api.dependencies import CurrentActiveUserDependency, TripServiceDependency
 from app.api.pagination import LimitParameter, SkipParameter
@@ -159,9 +159,15 @@ def delete_trip_item(
     item_id: ItemId,
     user: CurrentActiveUserDependency,
     service: TripServiceDependency,
+    expected_version: Annotated[int | None, Query(ge=1)] = None,
 ) -> None:
     try:
-        service.delete_trip_item(user.id, trip_id, item_id)
+        service.delete_trip_item(
+            user.id,
+            trip_id,
+            item_id,
+            expected_version=expected_version,
+        )
     except TripError as error:
         raise_http_error(error)
 
