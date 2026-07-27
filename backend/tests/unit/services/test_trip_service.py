@@ -104,6 +104,9 @@ def service():
     session = MagicMock()
     session.is_active = True
     repository = MagicMock()
+    repository.increment_trip_version.side_effect = (
+        lambda trip_id, user_id, expected_version: expected_version + 1
+    )
     return TripService(session, repository), session, repository
 
 
@@ -155,6 +158,33 @@ def test_invalid_date_range_and_date_update_invalidating_items() -> None:
     repository.get_owned_trip_by_id.return_value = value
     with pytest.raises(InvalidTripDayError):
         subject.update_trip(1, 3, TripUpdate(end_date=date(2026, 9, 2)))
+
+
+def test_metadata_update_uses_expected_version_and_rejects_stale_write() -> None:
+    subject, session, repository = service()
+    value = trip()
+    repository.get_owned_trip_by_id.return_value = value
+    repository.increment_trip_version.side_effect = [2, None]
+
+    updated = subject.update_trip(
+        1,
+        3,
+        TripUpdate(title="First writer", expected_version=1),
+    )
+
+    assert updated.version == 2
+    assert updated.title == "First writer"
+    repository.increment_trip_version.assert_called_with(3, 1, 1)
+    value.title = "First writer"
+    value.version = 2
+    with pytest.raises(TripConcurrentModificationError):
+        subject.update_trip(
+            1,
+            3,
+            TripUpdate(title="Stale writer", expected_version=1),
+        )
+    assert value.title == "First writer"
+    assert session.rollback.call_count == 1
 
 
 def test_ownership_is_hidden_as_not_found() -> None:
@@ -222,6 +252,69 @@ def test_update_and_delete_item_are_owned() -> None:
         subject.delete_trip_item(1, 3, 99)
 
 
+def test_item_mutations_use_the_client_expected_version() -> None:
+    subject, _, repository = service()
+    value = trip()
+    current = item()
+    repository.get_owned_trip_by_id.return_value = value
+    repository.get_trip_item_by_id.return_value = current
+    repository.get_public_destination.return_value = destination()
+    repository.find_duplicate_trip_item.return_value = None
+    repository.count_trip_items.return_value = 0
+    repository.next_sort_order.return_value = 0
+
+    def assign_item() -> None:
+        created = repository.add_trip_item.call_args.args[0]
+        created.id = 15
+        created.created_at = created.updated_at = NOW
+
+    repository.flush.side_effect = assign_item
+    subject.add_trip_item(
+        1,
+        3,
+        TripItemCreate(
+            destination_id=7,
+            expected_version=4,
+        ),
+    )
+    repository.increment_trip_version.assert_called_with(3, 1, 4)
+
+    repository.flush.side_effect = None
+    subject.update_trip_item(
+        1,
+        3,
+        11,
+        TripItemUpdate(notes="Updated", expected_version=5),
+    )
+    repository.increment_trip_version.assert_called_with(3, 1, 5)
+
+    subject.delete_trip_item(1, 3, 11, expected_version=6)
+    repository.increment_trip_version.assert_called_with(3, 1, 6)
+
+
+def test_stale_item_mutation_rolls_back_without_applying_changes() -> None:
+    subject, session, repository = service()
+    current = item()
+    original_notes = current.notes
+    repository.get_owned_trip_by_id.return_value = trip([current])
+    repository.get_trip_item_by_id.return_value = current
+    repository.find_duplicate_trip_item.return_value = None
+    repository.increment_trip_version.side_effect = None
+    repository.increment_trip_version.return_value = None
+
+    with pytest.raises(TripConcurrentModificationError):
+        subject.update_trip_item(
+            1,
+            3,
+            11,
+            TripItemUpdate(notes="Stale", expected_version=1),
+        )
+
+    assert current.notes == original_notes
+    repository.flush.assert_not_called()
+    session.rollback.assert_called_once_with()
+
+
 def test_reorder_is_atomic_normalized_and_rejects_invalid_sets() -> None:
     subject, session, repository = service()
     first, second = item(11, 1, 7), item(12, 2, 8)
@@ -234,7 +327,8 @@ def test_reorder_is_atomic_normalized_and_rejects_invalid_sets() -> None:
             TripItemReorderElement(item_id=11, day_number=1),
         ]
     )
-    repository.increment_reorder_version.return_value = 2
+    repository.increment_trip_version.side_effect = None
+    repository.increment_trip_version.return_value = 2
     repository.max_sort_order.return_value = 1
     result = subject.reorder_trip_items(1, 3, payload)
     assert [entry.id for entry in result.items] == [12, 11]
@@ -504,7 +598,8 @@ def test_stale_reorder_rolls_back_before_item_mutation() -> None:
     current = item(11, 1, 7)
     repository.get_owned_trip_by_id.return_value = trip([current])
     repository.list_trip_items.return_value = [current]
-    repository.increment_reorder_version.return_value = None
+    repository.increment_trip_version.side_effect = None
+    repository.increment_trip_version.return_value = None
     payload = TripItemReorderRequest(
         expected_version=1,
         items=[TripItemReorderElement(item_id=11, day_number=2)],
@@ -552,7 +647,7 @@ def test_same_reorder_version_only_succeeds_once() -> None:
     value = trip([current])
     repository.get_owned_trip_by_id.return_value = value
     repository.list_trip_items.return_value = [current]
-    repository.increment_reorder_version.side_effect = [2, None]
+    repository.increment_trip_version.side_effect = [2, None]
     repository.max_sort_order.return_value = 0
     payload = TripItemReorderRequest(
         expected_version=1,

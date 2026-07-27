@@ -93,7 +93,7 @@ def test_item_count_max_order_and_optimistic_version_queries() -> None:
 
     assert repository.count_trip_items(3) == 0
     assert repository.max_sort_order(3) == 9
-    assert repository.increment_reorder_version(3, 1, 2) == 3
+    assert repository.increment_trip_version(3, 1, 2) == 3
 
     count_sql = str(session.scalar.call_args_list[0].args[0])
     max_sql = str(session.scalar.call_args_list[1].args[0])
