@@ -152,6 +152,24 @@ class AuthenticationPersistenceError(AuthenticationError):
         super().__init__("Authentication service is unavailable")
 
 
+class RegistrationConflictError(AuthenticationError):
+    def __init__(self) -> None:
+        super().__init__("An account with this email or username already exists")
+
+
+class EmailAlreadyRegisteredError(RegistrationConflictError):
+    def __init__(self) -> None:
+        AuthenticationError.__init__(
+            self,
+            "An account already exists with this email address",
+        )
+
+
+class UsernameAlreadyRegisteredError(RegistrationConflictError):
+    def __init__(self) -> None:
+        AuthenticationError.__init__(self, "This username is already in use")
+
+
 class FavoriteError(Exception):
     """Base class for favorite domain errors."""
 

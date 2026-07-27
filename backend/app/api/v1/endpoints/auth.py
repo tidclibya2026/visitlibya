@@ -9,15 +9,26 @@ from app.core.exceptions import (
     AuthenticationPersistenceError,
     InactiveUserError,
     InvalidCredentialsError,
+    RegistrationConflictError,
 )
 from app.models.user import User
-from app.schemas.auth import CurrentUserResponse, TokenResponse
+from app.schemas.auth import (
+    CurrentUserResponse,
+    TokenResponse,
+    UserRegistrationRequest,
+    UserRegistrationResponse,
+)
 
 
 router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 
 def raise_http_error(error: AuthenticationError) -> NoReturn:
+    if isinstance(error, RegistrationConflictError):
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail=str(error),
+        ) from error
     if isinstance(error, InvalidCredentialsError):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -35,6 +46,21 @@ def raise_http_error(error: AuthenticationError) -> NoReturn:
         status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         detail="Authentication request failed",
     ) from error
+
+
+@router.post(
+    "/register",
+    response_model=UserRegistrationResponse,
+    status_code=status.HTTP_201_CREATED,
+)
+def register(
+    payload: UserRegistrationRequest,
+    service: AuthServiceDependency,
+) -> User:
+    try:
+        return service.register(payload)
+    except AuthenticationError as error:
+        raise_http_error(error)
 
 
 @router.post("/login", response_model=TokenResponse)

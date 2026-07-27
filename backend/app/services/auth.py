@@ -1,17 +1,20 @@
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
 from app.core.config import settings
 from app.core.exceptions import (
     AuthenticationPersistenceError,
+    EmailAlreadyRegisteredError,
     InactiveUserError,
     InvalidCredentialsError,
     InvalidTokenError,
+    RegistrationConflictError,
+    UsernameAlreadyRegisteredError,
 )
-from app.core.security import create_access_token, verify_password
+from app.core.security import create_access_token, hash_password, verify_password
 from app.models.user import User
 from app.repositories.user import UserRepository
-from app.schemas.auth import TokenResponse
+from app.schemas.auth import TokenResponse, UserRegistrationRequest
 
 
 DUMMY_PASSWORD_HASH = (
@@ -46,6 +49,38 @@ class AuthService:
             access_token=create_access_token(user.id),
             expires_in=settings.access_token_expire_minutes * 60,
         )
+
+    def register(self, payload: UserRegistrationRequest) -> User:
+        try:
+            if self.repository.get_by_email(str(payload.email)):
+                raise EmailAlreadyRegisteredError()
+            if self.repository.get_by_username(payload.username):
+                raise UsernameAlreadyRegisteredError()
+
+            user = User(
+                full_name=payload.full_name,
+                email=str(payload.email),
+                username=payload.username,
+                hashed_password=hash_password(payload.password),
+                is_active=True,
+                is_superuser=False,
+                roles=[],
+            )
+            self.repository.create(user)
+            self.session.commit()
+            return user
+        except RegistrationConflictError:
+            self.session.rollback()
+            raise
+        except IntegrityError as exc:
+            self.session.rollback()
+            raise RegistrationConflictError() from exc
+        except SQLAlchemyError as exc:
+            self.session.rollback()
+            raise AuthenticationPersistenceError() from exc
+        except Exception:
+            self.session.rollback()
+            raise
 
     def get_user_by_id(self, user_id: int) -> User:
         try:

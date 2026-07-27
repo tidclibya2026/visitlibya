@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>محرر الرحلة | Visit Libya</title>
-  <meta name="description" content="صفحة تمهيدية لمحرر رحلات Visit Libya.">
+  <meta name="description" content="تعديل البيانات الأساسية لرحلتك عبر Visit Libya.">
   <link rel="stylesheet" href="../style.css?v=stabilization-sprint-01">
   <link rel="stylesheet" href="../assets/css/trips.css?v=my-trips-01">
 </head>
 <body>
-<a class="trips-skip-link" href="#tripPlaceholderMain">انتقل إلى الرحلة</a>
+<a class="trips-skip-link" href="#tripEditorMain">انتقل إلى محرر الرحلة</a>
 <header class="vl-topbar" id="siteHeader">
   <a class="vl-logo" href="index.html" aria-label="Visit Libya الرئيسية"><strong>Visit Libya</strong><span>زور ليبيا</span></a>
   <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="primaryNav">☰</button>
@@ -18,17 +18,109 @@
   </nav>
   <a class="vl-language" data-trip-language-link href="../trip.html" aria-label="English language"><span>◉</span> English</a>
 </header>
-<main class="trips-app trips-placeholder-page" id="tripPlaceholderMain" tabindex="-1">
+<main class="trips-app" id="tripEditorMain" tabindex="-1">
+  <section class="trips-hero">
+    <div>
+      <span class="kicker">مخطط الرحلات الشخصي</span>
+      <h1>محرر الرحلة</h1>
+      <p>حدّث البيانات الأساسية لرحلتك عبر ليبيا.</p>
+    </div>
+  </section>
   <section class="trips-shell">
-    <span class="kicker">المرحلة القادمة</span>
-    <h1>محرر الرحلة — المرحلة التالية</h1>
-    <p data-trip-id-text>جارٍ التحقق من معرّف الرحلة.</p>
-    <p class="trips-form-error" data-trip-id-error role="alert" hidden>رابط الرحلة غير صالح.</p>
-    <a class="trips-primary-button" href="trips.html">العودة إلى رحلاتي</a>
+    <a class="trips-secondary-button" href="trips.html">العودة إلى رحلاتي</a>
+
+    <div class="trips-empty" data-trip-loading role="status" aria-live="polite">
+      <p>جارٍ تحميل رحلتك…</p>
+    </div>
+
+    <section class="trips-error-state" data-trip-error role="alert" aria-labelledby="tripErrorTitle" hidden>
+      <h2 id="tripErrorTitle">تعذر فتح هذه الرحلة</h2>
+      <p data-trip-error-message></p>
+      <button class="trips-secondary-button" type="button" data-trip-retry>إعادة المحاولة</button>
+    </section>
+
+    <section class="trips-empty" data-auth-required aria-labelledby="tripAuthTitle" hidden>
+      <h2 id="tripAuthTitle">تسجيل الدخول مطلوب</h2>
+      <p>سجّل الدخول من صفحة رحلاتي للوصول إلى رحلتك الخاصة.</p>
+      <a class="trips-primary-button" href="trips.html">الانتقال إلى تسجيل الدخول</a>
+    </section>
+
+    <section class="trip-editor" data-trip-editor aria-labelledby="tripEditorTitle" hidden>
+      <div class="trips-login-card trip-editor__metadata">
+        <div>
+          <span class="kicker">بيانات الرحلة</span>
+          <h2 id="tripEditorTitle" data-trip-heading tabindex="-1">بيانات الرحلة</h2>
+          <p>الإصدار <strong data-trip-version>—</strong></p>
+        </div>
+
+        <form class="trips-form" data-trip-form novalidate>
+        <div class="trips-field">
+          <label for="tripTitle">عنوان الرحلة</label>
+          <input id="tripTitle" name="title" type="text" maxlength="200" required aria-describedby="tripTitleError">
+          <p class="trips-field-error" id="tripTitleError" data-error-for="title"></p>
+        </div>
+        <div class="trips-field">
+          <label for="tripDescription">الوصف</label>
+          <textarea id="tripDescription" name="description" maxlength="5000" aria-describedby="tripDescriptionError"></textarea>
+          <p class="trips-field-error" id="tripDescriptionError" data-error-for="description"></p>
+        </div>
+        <div class="trips-form-row">
+          <div class="trips-field">
+            <label for="tripStartDate">تاريخ البداية</label>
+            <input id="tripStartDate" name="start_date" type="date" aria-describedby="tripStartDateError">
+            <p class="trips-field-error" id="tripStartDateError" data-error-for="start_date"></p>
+          </div>
+          <div class="trips-field">
+            <label for="tripEndDate">تاريخ النهاية</label>
+            <input id="tripEndDate" name="end_date" type="date" aria-describedby="tripEndDateError">
+            <p class="trips-field-error" id="tripEndDateError" data-error-for="end_date"></p>
+          </div>
+        </div>
+        <div class="trips-form-row">
+          <div class="trips-field">
+            <label for="tripStatus">الحالة</label>
+            <select id="tripStatus" name="status">
+              <option value="draft">مسودة</option>
+              <option value="planned">مخططة</option>
+              <option value="active">نشطة</option>
+              <option value="completed">مكتملة</option>
+              <option value="cancelled">ملغاة</option>
+            </select>
+          </div>
+          <div class="trips-field">
+            <label for="tripVisibility">الظهور</label>
+            <select id="tripVisibility" name="visibility">
+              <option value="private">خاصة</option>
+              <option value="unlisted">غير مدرجة</option>
+              <option value="public">عامة</option>
+            </select>
+          </div>
+        </div>
+        <p class="trips-form-error" data-trip-form-error role="alert" hidden></p>
+          <div class="trips-toolbar-actions">
+            <button class="trips-secondary-button" type="button" data-trip-cancel disabled>إلغاء التغييرات</button>
+            <button class="trips-primary-button" type="submit" data-trip-save disabled>حفظ التغييرات</button>
+          </div>
+        </form>
+      </div>
+
+      <section class="trip-itinerary" aria-labelledby="tripItineraryTitle">
+        <div class="trips-toolbar">
+          <div>
+            <span class="kicker">التخطيط يومًا بيوم</span>
+            <h2 id="tripItineraryTitle">برنامج الرحلة</h2>
+            <p>نظّم الوجهات حسب اليوم وترتيب الزيارة.</p>
+          </div>
+          <button class="trips-primary-button" type="button" data-add-stop>إضافة محطة</button>
+        </div>
+        <div data-trip-itinerary aria-live="polite"></div>
+      </section>
+    </section>
   </section>
 </main>
 <footer class="vl-footer"><div class="vl-footer-grid"><div><h2>Visit Libya | زور ليبيا</h2><p>دليلك السياحي الوطني الرسمي.</p></div><div><h3>التخطيط</h3><a href="plan.html">خطط رحلتك</a><a href="trips.html">رحلاتي</a></div><div><h3>الجهة الرسمية</h3><p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p></div></div></footer>
 <script src="../main.js?v=stabilization-sprint-01"></script>
-<script type="module" src="../assets/js/pages/trip-placeholder.js"></script>
+<script src="../config/frontend-config.js"></script>
+<script type="module" src="../assets/js/pages/trip-editor.js"></script>
 </body>
 </html>

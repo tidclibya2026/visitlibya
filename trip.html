@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trip Editor | Visit Libya</title>
-  <meta name="description" content="Visit Libya Trip Editor placeholder.">
+  <meta name="description" content="Edit the basic details of your Visit Libya trip.">
   <link rel="stylesheet" href="style.css?v=stabilization-sprint-01">
   <link rel="stylesheet" href="assets/css/trips.css?v=my-trips-01">
 </head>
 <body>
-<a class="trips-skip-link" href="#tripPlaceholderMain">Skip to trip</a>
+<a class="trips-skip-link" href="#tripEditorMain">Skip to trip editor</a>
 <header class="vl-topbar" id="siteHeader">
   <a class="vl-logo" href="index.html" aria-label="Visit Libya home"><strong>Visit Libya</strong><span>Discover Authenticity</span></a>
   <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">☰</button>
@@ -18,17 +18,109 @@
   </nav>
   <a class="vl-language" data-trip-language-link href="ar/trip.html" aria-label="Arabic language"><span>◉</span> العربية</a>
 </header>
-<main class="trips-app trips-placeholder-page" id="tripPlaceholderMain" tabindex="-1">
+<main class="trips-app" id="tripEditorMain" tabindex="-1">
+  <section class="trips-hero">
+    <div>
+      <span class="kicker">Personal Trip Planner</span>
+      <h1>Trip Editor</h1>
+      <p>Update the essential details of your journey through Libya.</p>
+    </div>
+  </section>
   <section class="trips-shell">
-    <span class="kicker">Coming next</span>
-    <h1>Trip Editor — Next phase</h1>
-    <p data-trip-id-text>The trip identifier is being checked.</p>
-    <p class="trips-form-error" data-trip-id-error role="alert" hidden>The trip link is invalid.</p>
-    <a class="trips-primary-button" href="trips.html">Back to My Trips</a>
+    <a class="trips-secondary-button" href="trips.html">Back to My Trips</a>
+
+    <div class="trips-empty" data-trip-loading role="status" aria-live="polite">
+      <p>Loading your trip…</p>
+    </div>
+
+    <section class="trips-error-state" data-trip-error role="alert" aria-labelledby="tripErrorTitle" hidden>
+      <h2 id="tripErrorTitle">Unable to open this trip</h2>
+      <p data-trip-error-message></p>
+      <button class="trips-secondary-button" type="button" data-trip-retry>Try again</button>
+    </section>
+
+    <section class="trips-empty" data-auth-required aria-labelledby="tripAuthTitle" hidden>
+      <h2 id="tripAuthTitle">Sign in required</h2>
+      <p>Please sign in from My Trips to access your private trip.</p>
+      <a class="trips-primary-button" href="trips.html">Go to sign in</a>
+    </section>
+
+    <section class="trip-editor" data-trip-editor aria-labelledby="tripEditorTitle" hidden>
+      <div class="trips-login-card trip-editor__metadata">
+        <div>
+          <span class="kicker">Trip details</span>
+          <h2 id="tripEditorTitle" data-trip-heading tabindex="-1">Trip details</h2>
+          <p>Version <strong data-trip-version>—</strong></p>
+        </div>
+
+        <form class="trips-form" data-trip-form novalidate>
+        <div class="trips-field">
+          <label for="tripTitle">Trip title</label>
+          <input id="tripTitle" name="title" type="text" maxlength="200" required aria-describedby="tripTitleError">
+          <p class="trips-field-error" id="tripTitleError" data-error-for="title"></p>
+        </div>
+        <div class="trips-field">
+          <label for="tripDescription">Description</label>
+          <textarea id="tripDescription" name="description" maxlength="5000" aria-describedby="tripDescriptionError"></textarea>
+          <p class="trips-field-error" id="tripDescriptionError" data-error-for="description"></p>
+        </div>
+        <div class="trips-form-row">
+          <div class="trips-field">
+            <label for="tripStartDate">Start date</label>
+            <input id="tripStartDate" name="start_date" type="date" aria-describedby="tripStartDateError">
+            <p class="trips-field-error" id="tripStartDateError" data-error-for="start_date"></p>
+          </div>
+          <div class="trips-field">
+            <label for="tripEndDate">End date</label>
+            <input id="tripEndDate" name="end_date" type="date" aria-describedby="tripEndDateError">
+            <p class="trips-field-error" id="tripEndDateError" data-error-for="end_date"></p>
+          </div>
+        </div>
+        <div class="trips-form-row">
+          <div class="trips-field">
+            <label for="tripStatus">Status</label>
+            <select id="tripStatus" name="status">
+              <option value="draft">Draft</option>
+              <option value="planned">Planned</option>
+              <option value="active">Active</option>
+              <option value="completed">Completed</option>
+              <option value="cancelled">Cancelled</option>
+            </select>
+          </div>
+          <div class="trips-field">
+            <label for="tripVisibility">Visibility</label>
+            <select id="tripVisibility" name="visibility">
+              <option value="private">Private</option>
+              <option value="unlisted">Unlisted</option>
+              <option value="public">Public</option>
+            </select>
+          </div>
+        </div>
+        <p class="trips-form-error" data-trip-form-error role="alert" hidden></p>
+          <div class="trips-toolbar-actions">
+            <button class="trips-secondary-button" type="button" data-trip-cancel disabled>Cancel Changes</button>
+            <button class="trips-primary-button" type="submit" data-trip-save disabled>Save changes</button>
+          </div>
+        </form>
+      </div>
+
+      <section class="trip-itinerary" aria-labelledby="tripItineraryTitle">
+        <div class="trips-toolbar">
+          <div>
+            <span class="kicker">Day-by-day planning</span>
+            <h2 id="tripItineraryTitle">Trip itinerary</h2>
+            <p>Organize destinations by day and visit order.</p>
+          </div>
+          <button class="trips-primary-button" type="button" data-add-stop>Add stop</button>
+        </div>
+        <div data-trip-itinerary aria-live="polite"></div>
+      </section>
+    </section>
   </section>
 </main>
 <footer class="vl-footer"><div class="vl-footer-grid"><div><h2>Visit Libya</h2><p>Your official national tourism guide.</p></div><div><h3>Plan</h3><a href="plan.html">Plan Your Trip</a><a href="trips.html">My Trips</a></div><div><h3>Official Attribution</h3><p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p></div></div></footer>
 <script src="main.js?v=stabilization-sprint-01"></script>
-<script type="module" src="assets/js/pages/trip-placeholder.js"></script>
+<script src="config/frontend-config.js"></script>
+<script type="module" src="assets/js/pages/trip-editor.js"></script>
 </body>
 </html>

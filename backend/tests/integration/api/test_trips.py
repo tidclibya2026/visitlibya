@@ -76,7 +76,14 @@ class FakeTripService:
     def delete_trip(self, user_id, trip_id): self._raise()
     def add_trip_item(self, user_id, trip_id, payload): self._raise(); return self.trip.items[0]
     def update_trip_item(self, user_id, trip_id, item_id, payload): self._raise(); return self.trip.items[0]
-    def delete_trip_item(self, user_id, trip_id, item_id): self._raise()
+    def delete_trip_item(
+        self,
+        user_id,
+        trip_id,
+        item_id,
+        expected_version=None,
+    ):
+        self._raise()
     def reorder_trip_items(self, user_id, trip_id, payload): self._raise(); return self.trip
 
 
@@ -172,6 +179,33 @@ def test_validation_and_inactive_user(test_user, inactive_user) -> None:
     finally:
         app.dependency_overrides.clear()
     assert response.status_code == 403
+
+
+@pytest.mark.parametrize(
+    ("method", "path", "body"),
+    [
+        ("PATCH", "/api/v1/trips/3", {"title": "Updated", "expected_version": 0}),
+        (
+            "POST",
+            "/api/v1/trips/3/items",
+            {"destination_id": 7, "expected_version": 0},
+        ),
+        (
+            "PATCH",
+            "/api/v1/trips/3/items/11",
+            {"notes": "Updated", "expected_version": 0},
+        ),
+        ("DELETE", "/api/v1/trips/3/items/11?expected_version=0", None),
+    ],
+)
+def test_mutation_expected_version_must_be_positive(
+    test_user,
+    method,
+    path,
+    body,
+) -> None:
+    response = request(FakeTripService(), test_user, method, path, json=body)
+    assert response.status_code == 422
 
 
 def test_openapi_marks_every_trip_operation_as_bearer_protected() -> None:

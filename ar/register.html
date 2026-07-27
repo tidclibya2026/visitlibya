@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إنشاء حساب | Visit Libya</title>
+  <meta name="description" content="أنشئ حسابك في Visit Libya لحفظ الوجهات والتخطيط للرحلات.">
+  <link rel="stylesheet" href="../style.css?v=stabilization-sprint-01">
+  <link rel="stylesheet" href="../assets/css/trips.css?v=my-trips-01">
+</head>
+<body>
+<a class="trips-skip-link" href="#registerMain">انتقل إلى إنشاء الحساب</a>
+<header class="vl-topbar" id="siteHeader">
+  <a class="vl-logo" href="index.html" aria-label="Visit Libya الرئيسية">
+    <strong>Visit Libya</strong>
+    <span>زور ليبيا</span>
+  </a>
+  <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="primaryNav">☰</button>
+  <nav class="vl-nav" id="primaryNav" aria-label="القائمة الرئيسية">
+    <a href="index.html">الرئيسية</a>
+    <a href="destinations.html">الوجهات</a>
+    <a href="experiences.html">التجارب</a>
+    <a href="culture.html">الثقافة والمطبخ</a>
+    <a href="heritage.html">التراث</a>
+    <a href="plan.html">خطط رحلتك</a>
+    <a href="trips.html">رحلاتي</a>
+  </nav>
+  <a class="vl-language" href="../register.html" aria-label="English language"><span>◉</span> English</a>
+</header>
+
+<main class="trips-app" id="registerMain" tabindex="-1">
+  <section class="trips-hero">
+    <div>
+      <span class="kicker">رحلتك مع Visit Libya</span>
+      <h1>إنشاء حساب</h1>
+      <p>احفظ الوجهات وابدأ التخطيط لرحلاتك في ليبيا.</p>
+    </div>
+  </section>
+
+  <section class="trips-shell" aria-labelledby="registerTitle">
+    <div class="trips-login-card">
+      <div>
+        <span class="kicker">تسجيل آمن</span>
+        <h2 id="registerTitle">أنشئ حسابك في Visit Libya</h2>
+        <p>يجمع حسابك الوجهات المحفوظة وخطط رحلاتك الخاصة في مكان واحد.</p>
+      </div>
+      <form class="trips-form" data-register-form novalidate>
+        <div class="trips-field">
+          <label for="registerFullName">الاسم الكامل</label>
+          <input id="registerFullName" name="full_name" type="text" autocomplete="name" maxlength="200" required aria-describedby="registerFullNameError">
+          <p class="trips-field-error" id="registerFullNameError" data-error-for="full_name"></p>
+        </div>
+        <div class="trips-field">
+          <label for="registerEmail">البريد الإلكتروني</label>
+          <input id="registerEmail" name="email" type="email" inputmode="email" autocomplete="email" maxlength="320" required aria-describedby="registerEmailError">
+          <p class="trips-field-error" id="registerEmailError" data-error-for="email"></p>
+        </div>
+        <div class="trips-field">
+          <label for="registerUsername">اسم المستخدم</label>
+          <input id="registerUsername" name="username" type="text" autocomplete="username" minlength="3" maxlength="100" autocapitalize="none" spellcheck="false" required aria-describedby="registerUsernameHint registerUsernameError">
+          <p id="registerUsernameHint">استخدم أحرفًا إنجليزية صغيرة أو أرقامًا أو نقاطًا أو شرطات سفلية أو واصلات.</p>
+          <p class="trips-field-error" id="registerUsernameError" data-error-for="username"></p>
+        </div>
+        <div class="trips-field">
+          <label for="registerPassword">كلمة المرور</label>
+          <input id="registerPassword" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required aria-describedby="registerPasswordHint registerPasswordError">
+          <p id="registerPasswordHint">استخدم 12 حرفًا على الأقل تتضمن حرفًا كبيرًا وصغيرًا ورقمًا ورمزًا.</p>
+          <p class="trips-field-error" id="registerPasswordError" data-error-for="password"></p>
+        </div>
+        <div class="trips-field">
+          <label for="registerConfirmPassword">تأكيد كلمة المرور</label>
+          <input id="registerConfirmPassword" name="confirm_password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required aria-describedby="registerConfirmPasswordError">
+          <p class="trips-field-error" id="registerConfirmPasswordError" data-error-for="confirm_password"></p>
+        </div>
+        <p class="trips-form-error" data-register-error role="alert" aria-live="assertive" hidden></p>
+        <button class="trips-primary-button" type="submit" data-register-submit>إنشاء حساب</button>
+        <a class="trips-secondary-button" href="trips.html">تسجيل الدخول</a>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="vl-footer">
+  <div class="vl-footer-grid">
+    <div><h2>Visit Libya | زور ليبيا</h2><p>ليبيا أرض الحضارات وموطن السحر والجمال، ومنصة سياحية وطنية تقدم الوجهات والتجارب والثقافة والمسارات بأسلوب بصري موثوق.</p></div>
+    <div><h3>استكشف</h3><a href="destinations.html">الوجهات</a><a href="experiences.html">التجارب</a><a href="plan.html">خطط رحلتك</a><a href="trips.html">رحلاتي</a></div>
+    <div><h3>الجهة الرسمية</h3><p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p><p class="small">تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p></div>
+  </div>
+</footer>
+<script src="../main.js?v=stabilization-sprint-01"></script>
+<script src="../config/frontend-config.js"></script>
+<script type="module" src="../assets/js/pages/register.js"></script>
+</body>
+</html>

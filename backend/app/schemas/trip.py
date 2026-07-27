@@ -29,6 +29,7 @@ class TripCreate(BaseModel):
 
 
 class TripUpdate(BaseModel):
+    expected_version: int | None = Field(default=None, ge=1)
     title: str | None = Field(default=None, max_length=200)
     description: str | None = Field(default=None, max_length=MAX_TRIP_DESCRIPTION_LENGTH)
     start_date: date | None = None
@@ -57,6 +58,7 @@ class TripUpdate(BaseModel):
 
 
 class TripItemCreate(BaseModel):
+    expected_version: int | None = Field(default=None, ge=1)
     destination_id: int = Field(gt=0)
     day_number: int | None = Field(default=None, ge=1)
     visit_date: date | None = None
@@ -67,6 +69,7 @@ class TripItemCreate(BaseModel):
 
 
 class TripItemUpdate(BaseModel):
+    expected_version: int | None = Field(default=None, ge=1)
     destination_id: int | None = Field(default=None, gt=0)
     day_number: int | None = Field(default=None, ge=1)
     visit_date: date | None = None

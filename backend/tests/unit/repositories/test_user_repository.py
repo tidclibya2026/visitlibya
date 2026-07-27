@@ -32,3 +32,18 @@ def test_not_found_returns_none() -> None:
     session = MagicMock()
     session.scalar.return_value = None
     assert UserRepository(session).get_by_id(999) is None
+
+
+def test_create_adds_and_flushes_user() -> None:
+    session = MagicMock()
+    repository = UserRepository(session)
+    user = User(
+        full_name="New Traveler",
+        email="new@example.com",
+        username="newtraveler",
+        hashed_password="hash",
+    )
+
+    assert repository.create(user) is user
+    session.add.assert_called_once_with(user)
+    session.flush.assert_called_once_with()

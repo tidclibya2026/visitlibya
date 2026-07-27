@@ -1,14 +1,19 @@
 from unittest.mock import MagicMock
 
 import pytest
-from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 
 from app.core.exceptions import (
     AuthenticationPersistenceError,
+    EmailAlreadyRegisteredError,
     InactiveUserError,
     InvalidCredentialsError,
     InvalidTokenError,
+    RegistrationConflictError,
+    UsernameAlreadyRegisteredError,
 )
+from app.core.security import verify_password
+from app.schemas.auth import UserRegistrationRequest
 from app.services.auth import AuthService
 
 
@@ -19,6 +24,17 @@ def make_service(user=None):
     repository.get_by_login_identifier.return_value = user
     repository.get_by_id.return_value = user
     return AuthService(session, repository), session, repository
+
+
+def registration_payload(**overrides) -> UserRegistrationRequest:
+    values = {
+        "full_name": "New Traveler",
+        "email": "NEW.TRAVELER@EXAMPLE.COM",
+        "username": "New.Traveler",
+        "password": "SecurePassword123!",
+    }
+    values.update(overrides)
+    return UserRegistrationRequest(**values)
 
 
 @pytest.mark.parametrize("identifier", ["traveler@example.com", "traveler"])
@@ -74,3 +90,89 @@ def test_repository_failure_maps_to_persistence_error() -> None:
     repository.get_by_login_identifier.side_effect = SQLAlchemyError("database down")
     with pytest.raises(AuthenticationPersistenceError):
         service.login("traveler", "password")
+
+
+def test_register_normalizes_identity_hashes_password_and_commits() -> None:
+    service, session, repository = make_service()
+    repository.get_by_email.return_value = None
+    repository.get_by_username.return_value = None
+
+    user = service.register(registration_payload())
+
+    repository.get_by_email.assert_called_once_with("new.traveler@example.com")
+    repository.get_by_username.assert_called_once_with("new.traveler")
+    repository.create.assert_called_once_with(user)
+    session.commit.assert_called_once_with()
+    assert user.full_name == "New Traveler"
+    assert user.email == "new.traveler@example.com"
+    assert user.username == "new.traveler"
+    assert verify_password("SecurePassword123!", user.hashed_password)
+    assert user.is_active is True
+    assert user.is_superuser is False
+    assert user.roles == []
+
+
+@pytest.mark.parametrize(
+    ("conflicting_field", "expected_error"),
+    [
+        ("email", EmailAlreadyRegisteredError),
+        ("username", UsernameAlreadyRegisteredError),
+    ],
+)
+def test_register_rejects_existing_identity(
+    conflicting_field,
+    expected_error,
+    test_user,
+) -> None:
+    service, session, repository = make_service()
+    repository.get_by_email.return_value = (
+        test_user if conflicting_field == "email" else None
+    )
+    repository.get_by_username.return_value = (
+        test_user if conflicting_field == "username" else None
+    )
+
+    with pytest.raises(expected_error):
+        service.register(registration_payload())
+
+    repository.create.assert_not_called()
+    session.commit.assert_not_called()
+    session.rollback.assert_called_once_with()
+
+
+def test_register_maps_unique_constraint_race_to_conflict() -> None:
+    service, session, repository = make_service()
+    repository.get_by_email.return_value = None
+    repository.get_by_username.return_value = None
+    repository.create.side_effect = IntegrityError("insert", {}, Exception("unique"))
+
+    with pytest.raises(RegistrationConflictError):
+        service.register(registration_payload())
+
+    session.rollback.assert_called_once_with()
+    session.commit.assert_not_called()
+
+
+def test_register_maps_database_failure_to_safe_persistence_error() -> None:
+    service, session, repository = make_service()
+    repository.get_by_email.side_effect = SQLAlchemyError("database details")
+
+    with pytest.raises(AuthenticationPersistenceError) as raised:
+        service.register(registration_payload())
+
+    assert "database details" not in str(raised.value)
+    session.rollback.assert_called_once_with()
+
+
+def test_registered_password_can_be_used_by_login(monkeypatch) -> None:
+    service, _, repository = make_service()
+    repository.get_by_email.return_value = None
+    repository.get_by_username.return_value = None
+    user = service.register(registration_payload())
+    repository.reset_mock()
+    repository.get_by_login_identifier.return_value = user
+    monkeypatch.setattr("app.services.auth.create_access_token", lambda subject: "token")
+
+    response = service.login(user.email, "SecurePassword123!")
+
+    assert response.access_token == "token"

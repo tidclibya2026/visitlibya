@@ -91,6 +91,8 @@ async function initializeTripsPage() {
 
   const showLogin = (message = "") => {
     resetTripsState();
+    password.value = "";
+    remember.checked = false;
     setVisible(tripsPanel, false);
     setVisible(loginPanel, true);
     if (message) {

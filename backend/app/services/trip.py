@@ -76,16 +76,23 @@ class TripService:
     ) -> TripDetailResponse:
         trip = self._owned_trip(user_id, trip_id)
         changes = payload.model_dump(exclude_unset=True)
+        expected_version = changes.pop("expected_version", None) or trip.version
         start_date = changes.get("start_date", trip.start_date)
         end_date = changes.get("end_date", trip.end_date)
         self._validate_date_range(start_date, end_date)
         self._validate_existing_items(trip.items, start_date, end_date)
 
         def operation() -> TripDetailResponse:
+            next_version = self._increment_version(
+                trip,
+                user_id,
+                expected_version,
+            )
             for field, value in changes.items():
                 setattr(trip, field, value)
             self.repository.flush()
             self.session.commit()
+            trip.version = next_version
             return self._detail(trip)
 
         return self._write(operation)
@@ -104,6 +111,8 @@ class TripService:
         self, user_id: int, trip_id: int, payload: TripItemCreate
     ) -> TripItemResponse:
         trip = self._owned_trip(user_id, trip_id)
+        expected_version = payload.expected_version or trip.version
+
         def operation() -> TripItemResponse:
             if self.repository.count_trip_items(trip.id) >= MAX_TRIP_ITEMS:
                 raise TripItemLimitExceededError()
@@ -117,6 +126,11 @@ class TripService:
                 raise DuplicateTripDestinationError()
 
             attempts = TRIP_POSITION_RETRY_LIMIT if payload.sort_order is None else 1
+            next_version = self._increment_version(
+                trip,
+                user_id,
+                expected_version,
+            )
             for attempt in range(attempts):
                 sort_order = (
                     payload.sort_order
@@ -147,6 +161,7 @@ class TripService:
                         raise TripConcurrentModificationError() from exc
                     raise TripPersistenceError() from exc
                 self.session.commit()
+                trip.version = next_version
                 return self._item(item)
             raise TripConcurrentModificationError()
 
@@ -162,6 +177,7 @@ class TripService:
         trip = self._owned_trip(user_id, trip_id)
         item = self._trip_item(trip.id, item_id)
         changes = payload.model_dump(exclude_unset=True)
+        expected_version = changes.pop("expected_version", None) or trip.version
         destination_id = changes.get("destination_id", item.destination_id)
         destination = (
             self._public_destination(destination_id)
@@ -188,6 +204,11 @@ class TripService:
             raise DuplicateTripDestinationError()
 
         def operation() -> TripItemResponse:
+            next_version = self._increment_version(
+                trip,
+                user_id,
+                expected_version,
+            )
             for field, value in changes.items():
                 setattr(item, field, value)
             item.destination_id = destination_id
@@ -196,15 +217,24 @@ class TripService:
             item.visit_date = visit_date
             self.repository.flush()
             self.session.commit()
+            trip.version = next_version
             return self._item(item)
 
         return self._write(operation)
 
-    def delete_trip_item(self, user_id: int, trip_id: int, item_id: int) -> None:
+    def delete_trip_item(
+        self,
+        user_id: int,
+        trip_id: int,
+        item_id: int,
+        expected_version: int | None = None,
+    ) -> None:
         trip = self._owned_trip(user_id, trip_id)
         item = self._trip_item(trip.id, item_id)
+        current_version = expected_version or trip.version
 
         def operation() -> None:
+            self._increment_version(trip, user_id, current_version)
             self.repository.delete_trip_item(item)
             self.repository.flush()
             self.session.commit()
@@ -226,7 +256,7 @@ class TripService:
             if set(requested_ids) != {item.id for item in items}:
                 raise InvalidTripItemOrderError()
             by_id = {item.id: item for item in items}
-            next_version = self.repository.increment_reorder_version(
+            next_version = self.repository.increment_trip_version(
                 trip.id,
                 user_id,
                 payload.expected_version,
@@ -258,6 +288,21 @@ class TripService:
             return self._detail(trip)
 
         return self._write(operation)
+
+    def _increment_version(
+        self,
+        trip: Trip,
+        user_id: int,
+        expected_version: int,
+    ) -> int:
+        next_version = self.repository.increment_trip_version(
+            trip.id,
+            user_id,
+            expected_version,
+        )
+        if next_version is None:
+            raise TripConcurrentModificationError()
+        return next_version
 
     def _owned_trip(self, user_id: int, trip_id: int) -> Trip:
         try:

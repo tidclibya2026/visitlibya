@@ -93,8 +93,18 @@ export function updateTripItem(tripId, itemId, payload, options = {}) {
   return apiClient.patch(itemPath(tripId, itemId), payload, options);
 }
 
-export function deleteTripItem(tripId, itemId, options = {}) {
-  return apiClient.delete(itemPath(tripId, itemId), options);
+export function deleteTripItem(
+  tripId,
+  itemId,
+  expectedVersion,
+  options = {},
+) {
+  return apiClient.delete(
+    `${itemPath(tripId, itemId)}${buildQueryString({
+      expected_version: expectedVersion,
+    })}`,
+    options,
+  );
 }
 
 /**
@@ -105,4 +115,20 @@ export function deleteTripItem(tripId, itemId, options = {}) {
 export function reorderTripItems(tripId, payload, options = {}) {
   validateReorderPayload(payload);
   return apiClient.put(`${tripPath(tripId)}/items/reorder`, payload, options);
+}
+
+/**
+ * Search the bounded public destination catalog for stop selection.
+ */
+export function searchTripDestinations(query, options = {}) {
+  return apiClient.get(
+    `/search/destinations${buildQueryString({
+      q: String(query ?? "").trim() || null,
+      page: 1,
+      page_size: 10,
+      sort_by: "name",
+      sort_order: "asc",
+    })}`,
+    options,
+  );
 }
