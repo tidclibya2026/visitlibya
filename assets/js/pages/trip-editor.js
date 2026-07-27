@@ -1208,7 +1208,7 @@ export async function initializeTripEditor(documentRef = document) {
       activeMutation = false;
       setLoading(save, false, { disable: true });
       setText(save, t("trips.saveChanges"));
-      updateMetadataButtons();
+      mutationControls();
     }
   });
 
