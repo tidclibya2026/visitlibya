@@ -1,0 +1,1175 @@
+import {
+  addTripItem,
+  deleteTripItem,
+  getTrip,
+  reorderTripItems,
+  searchTripDestinations,
+  updateTrip,
+  updateTripItem,
+} from "../app/api/trips-api.js";
+import { bootstrap } from "../app/bootstrap.js";
+import { getLocalizedErrorMessage } from "../app/errors/error-messages.js";
+import { announce } from "../app/ui/announcer.js";
+import { setLoading } from "../app/ui/loading.js";
+import { createModal } from "../app/ui/modal.js";
+import { toast } from "../app/ui/toast.js";
+import {
+  createElement,
+  queryRequired,
+  setText,
+  setVisible,
+} from "../app/utils/dom.js";
+import { updateQueryParameters } from "../app/utils/query-string.js";
+import {
+  TRIP_LIMITS,
+  validateDateRange,
+  validateOptionalText,
+  validateRequiredText,
+} from "../app/utils/validation.js";
+
+const EDITABLE_FIELDS = Object.freeze([
+  "title",
+  "description",
+  "start_date",
+  "end_date",
+  "status",
+  "visibility",
+]);
+
+function readTripId(search = globalThis.location?.search ?? "") {
+  const parameters = new URLSearchParams(search);
+  const values = parameters.getAll("id");
+  if (values.length !== 1 || !/^[1-9]\d*$/.test(values[0])) return null;
+  const value = Number(values[0]);
+  return Number.isSafeInteger(value) ? value : null;
+}
+
+function formPayload(form) {
+  const data = new FormData(form);
+  return {
+    title: validateRequiredText(data.get("title"), {
+      field: "title",
+      maxLength: TRIP_LIMITS.title,
+    }),
+    description: validateOptionalText(data.get("description"), {
+      field: "description",
+      maxLength: TRIP_LIMITS.description,
+    }),
+    start_date: String(data.get("start_date") ?? "") || null,
+    end_date: String(data.get("end_date") ?? "") || null,
+    status: String(data.get("status") ?? ""),
+    visibility: String(data.get("visibility") ?? ""),
+  };
+}
+
+function normalizedSnapshot(trip) {
+  return JSON.stringify(
+    Object.fromEntries(
+      EDITABLE_FIELDS.map((field) => [field, trip?.[field] ?? null]),
+    ),
+  );
+}
+
+function parseDateOnly(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value ?? "")) return null;
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  return (
+    date.getFullYear() === year &&
+    date.getMonth() === month - 1 &&
+    date.getDate() === day
+  )
+    ? date
+    : null;
+}
+
+function tripDayCount(trip) {
+  const start = parseDateOnly(trip?.start_date);
+  const end = parseDateOnly(trip?.end_date);
+  if (!start || !end || end < start) return null;
+  return Math.round((end - start) / 86_400_000) + 1;
+}
+
+function dateForDay(trip, dayNumber) {
+  const start = parseDateOnly(trip?.start_date);
+  if (!start) return null;
+  const date = new Date(start);
+  date.setDate(date.getDate() + dayNumber - 1);
+  return date;
+}
+
+function availableDays(trip) {
+  const count = tripDayCount(trip);
+  if (count) return Array.from({ length: count }, (_, index) => index + 1);
+  const maximum = Math.max(
+    1,
+    ...trip.items.map((item) => item.day_number),
+  );
+  return Array.from({ length: maximum + 1 }, (_, index) => index + 1);
+}
+
+function orderedItems(items) {
+  return [...items].sort(
+    (left, right) =>
+      left.day_number - right.day_number ||
+      left.sort_order - right.sort_order ||
+      left.id - right.id,
+  );
+}
+
+function destinationName(item, locale) {
+  const destination = item.destination ?? item;
+  return (
+    (locale === "ar" ? destination.name_ar : destination.name_en) ||
+    destination.name_en ||
+    destination.name_ar ||
+    destination.slug ||
+    String(destination.id)
+  );
+}
+
+function publicErrorMessage(error, t) {
+  if (error?.code === "NETWORK_ERROR" && globalThis.navigator?.onLine === false) {
+    return t("errors.offline");
+  }
+  return getLocalizedErrorMessage(error, t);
+}
+
+function isVersionConflict(error) {
+  return error?.code === "TRIP_VERSION_CONFLICT";
+}
+
+function stopPayload(form, expectedVersion) {
+  const data = new FormData(form);
+  const dayNumber = Number(data.get("day_number"));
+  const durationValue = String(data.get("duration_minutes") ?? "").trim();
+  const notes = validateOptionalText(data.get("notes"), {
+    field: "notes",
+    maxLength: TRIP_LIMITS.itemNotes,
+  });
+  if (!Number.isInteger(dayNumber) || dayNumber < 1) {
+    throw new RangeError("day_number");
+  }
+  const duration = durationValue ? Number(durationValue) : null;
+  if (
+    duration !== null &&
+    (!Number.isInteger(duration) || duration < 1)
+  ) {
+    throw new RangeError("duration_minutes");
+  }
+  return {
+    expected_version: expectedVersion,
+    day_number: dayNumber,
+    start_time: String(data.get("start_time") ?? "") || null,
+    duration_minutes: duration,
+    notes,
+  };
+}
+
+function createLabeledField({
+  label,
+  input,
+  description,
+  errorName,
+}) {
+  const wrapper = createElement("div", { className: "trips-field" });
+  const labelElement = createElement("label", {
+    text: label,
+    attributes: { for: input.id },
+  });
+  wrapper.append(labelElement, input);
+  if (description) {
+    wrapper.appendChild(createElement("p", { text: description }));
+  }
+  if (errorName) {
+    wrapper.appendChild(
+      createElement("p", {
+        className: "trips-field-error",
+        attributes: {
+          "data-stop-error-for": errorName,
+          "aria-live": "polite",
+        },
+      }),
+    );
+  }
+  return wrapper;
+}
+
+function createStopForm(trip, t, item = null, defaultDay = 1) {
+  const suffix = crypto.randomUUID();
+  const form = createElement("form", {
+    className: "trips-form",
+    attributes: { novalidate: "" },
+  });
+  const day = createElement("select", {
+    attributes: {
+      id: `tripStopDay-${suffix}`,
+      name: "day_number",
+      required: "",
+    },
+  });
+  availableDays(trip).forEach((dayNumber) => {
+    const option = createElement("option", {
+      text: t("trips.dayHeading", { day: dayNumber }),
+      attributes: { value: dayNumber },
+    });
+    option.selected = dayNumber === (item?.day_number ?? defaultDay);
+    day.appendChild(option);
+  });
+  const startTime = createElement("input", {
+    attributes: {
+      id: `tripStopTime-${suffix}`,
+      name: "start_time",
+      type: "time",
+      value: item?.start_time?.slice(0, 5) ?? "",
+    },
+  });
+  const duration = createElement("input", {
+    attributes: {
+      id: `tripStopDuration-${suffix}`,
+      name: "duration_minutes",
+      type: "number",
+      min: "1",
+      step: "1",
+      inputmode: "numeric",
+      value: item?.duration_minutes ?? "",
+    },
+  });
+  const notes = createElement("textarea", {
+    attributes: {
+      id: `tripStopNotes-${suffix}`,
+      name: "notes",
+      maxlength: TRIP_LIMITS.itemNotes,
+    },
+  });
+  notes.value = item?.notes ?? "";
+  const error = createElement("p", {
+    className: "trips-form-error",
+    attributes: {
+      "data-stop-form-error": "",
+      role: "alert",
+      hidden: "",
+    },
+  });
+  form.append(
+    createLabeledField({
+      label: t("trips.day"),
+      input: day,
+      errorName: "day_number",
+    }),
+    createLabeledField({
+      label: t("trips.startTime"),
+      input: startTime,
+    }),
+    createLabeledField({
+      label: t("trips.durationMinutes"),
+      input: duration,
+      errorName: "duration_minutes",
+    }),
+    createLabeledField({
+      label: t("trips.notes"),
+      input: notes,
+      errorName: "notes",
+    }),
+    error,
+  );
+  return { form, day, startTime, duration, notes, error };
+}
+
+export async function initializeTripEditor(documentRef = document) {
+  const context = await bootstrap();
+  if (!context) return;
+
+  const { locale, translator } = context;
+  const { t } = translator;
+  const tripId = readTripId();
+  const languageLink = documentRef.querySelector("[data-trip-language-link]");
+  const loading = queryRequired("[data-trip-loading]", documentRef);
+  const errorPanel = queryRequired("[data-trip-error]", documentRef);
+  const errorMessage = queryRequired("[data-trip-error-message]", documentRef);
+  const retry = queryRequired("[data-trip-retry]", documentRef);
+  const authRequired = queryRequired("[data-auth-required]", documentRef);
+  const editor = queryRequired("[data-trip-editor]", documentRef);
+  const heading = queryRequired("[data-trip-heading]", documentRef);
+  const version = queryRequired("[data-trip-version]", documentRef);
+  const form = queryRequired("[data-trip-form]", documentRef);
+  const formError = queryRequired("[data-trip-form-error]", documentRef);
+  const cancel = queryRequired("[data-trip-cancel]", documentRef);
+  const save = queryRequired("[data-trip-save]", documentRef);
+  const addStop = queryRequired("[data-add-stop]", documentRef);
+  const itinerary = queryRequired("[data-trip-itinerary]", documentRef);
+
+  let trip = null;
+  let savedSnapshot = null;
+  let dirtyMetadata = false;
+  let activeMutation = false;
+  let draggedItemId = null;
+  let activeStopModal = null;
+
+  if (tripId && languageLink) {
+    languageLink.href = updateQueryParameters(
+      { id: tripId },
+      new URL(languageLink.href, globalThis.location.href).href,
+    );
+  }
+
+  const hideStates = () => {
+    setVisible(loading, false);
+    setVisible(errorPanel, false);
+    setVisible(authRequired, false);
+    setVisible(editor, false);
+  };
+
+  const showError = (message, { canRetry = true } = {}) => {
+    hideStates();
+    setText(errorMessage, message);
+    setVisible(retry, canRetry);
+    setVisible(errorPanel, true);
+    announce(message, { priority: "assertive", force: true });
+  };
+
+  const showAuthRequired = () => {
+    hideStates();
+    setVisible(authRequired, true);
+    announce(t("auth.required"), { priority: "assertive", force: true });
+  };
+
+  const updateMetadataButtons = () => {
+    cancel.disabled = activeMutation || !dirtyMetadata;
+    save.disabled = activeMutation || !dirtyMetadata;
+  };
+
+  const clearFieldErrors = () => {
+    form.querySelectorAll("[aria-invalid]").forEach((field) => {
+      field.removeAttribute("aria-invalid");
+    });
+    form.querySelectorAll("[data-error-for]").forEach((element) => setText(element, ""));
+    setText(formError, "");
+    setVisible(formError, false);
+  };
+
+  const setFieldError = (name, message) => {
+    const input = form.elements.namedItem(name);
+    const output = form.querySelector(`[data-error-for="${CSS.escape(name)}"]`);
+    if (!(input instanceof HTMLElement) || !output) return;
+    input.setAttribute("aria-invalid", "true");
+    setText(output, Array.isArray(message) ? message[0] : message);
+  };
+
+  const showConflict = () => {
+    const modal = createModal({
+      title: t("trips.conflictTitle"),
+      className: "app-modal trip-editor-conflict",
+    });
+    const message = createElement("p", {
+      text: t("trips.tripUpdatedElsewhere"),
+      attributes: { role: "alert" },
+    });
+    const keep = createElement("button", {
+      className: "trips-secondary-button",
+      text: t("trips.keepReviewing"),
+      attributes: { type: "button" },
+    });
+    const reload = createElement("button", {
+      className: "trips-primary-button",
+      text: t("trips.reloadLatest"),
+      attributes: { type: "button" },
+    });
+    const close = () => {
+      modal.close();
+      modal.destroy();
+    };
+    keep.addEventListener("click", close);
+    reload.addEventListener("click", () => {
+      close();
+      activeStopModal?.close();
+      activeStopModal?.destroy();
+      activeStopModal = null;
+      void loadTrip({ focus: true });
+    });
+    modal.content.appendChild(message);
+    modal.actions.append(keep, reload);
+    modal.open();
+  };
+
+  const dayLabel = (dayNumber) => {
+    const date = dateForDay(trip, dayNumber);
+    if (!date) return t("trips.dayHeading", { day: dayNumber });
+    const formatted = new Intl.DateTimeFormat(locale, {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+    }).format(date);
+    return t("trips.dayWithDate", { day: dayNumber, date: formatted });
+  };
+
+  const mutationControls = () => {
+    itinerary.querySelectorAll("button, [draggable]").forEach((element) => {
+      if ("disabled" in element) {
+        element.disabled =
+          activeMutation ||
+          element.hasAttribute("data-boundary-disabled") ||
+          (element.hasAttribute("data-add-stop-action") &&
+            trip.items.length >= TRIP_LIMITS.items);
+      }
+      element.setAttribute("aria-disabled", String(element.disabled ?? activeMutation));
+      if (element.hasAttribute("draggable")) {
+        element.draggable = !activeMutation;
+      }
+    });
+    addStop.disabled =
+      activeMutation || trip.items.length >= TRIP_LIMITS.items;
+    updateMetadataButtons();
+  };
+
+  const renderItinerary = () => {
+    itinerary.replaceChildren();
+    if (!trip.items.length) {
+      itinerary.appendChild(
+        createElement("div", {
+          className: "trips-empty",
+          text: t("trips.noStops"),
+        }),
+      );
+    }
+    const days = createElement("div", { className: "trip-days" });
+    const allItems = orderedItems(trip.items);
+    availableDays(trip).forEach((dayNumber) => {
+      const items = allItems.filter((item) => item.day_number === dayNumber);
+      const section = createElement("section", {
+        className: "trip-day",
+        attributes: {
+          "data-trip-day": dayNumber,
+          "aria-labelledby": `trip-day-${dayNumber}`,
+        },
+      });
+      const header = createElement("div", { className: "trip-day__header" });
+      const headingBlock = createElement("div");
+      headingBlock.append(
+        createElement("h3", {
+          text: dayLabel(dayNumber),
+          attributes: { id: `trip-day-${dayNumber}` },
+        }),
+        createElement("p", {
+          text: t("trips.stopCount", { count: items.length }),
+        }),
+      );
+      const addForDay = createElement("button", {
+        className: "trips-secondary-button",
+        text: t("trips.addStop"),
+        attributes: {
+          type: "button",
+          "data-add-stop-action": "",
+          "aria-label": t("trips.addStopToDay", { day: dayNumber }),
+        },
+      });
+      addForDay.addEventListener("click", () => openStopEditor(null, dayNumber));
+      header.append(headingBlock, addForDay);
+      const list = createElement("div", {
+        className: "trip-stop-list",
+        attributes: { "data-trip-day-list": dayNumber },
+      });
+      if (!items.length) {
+        list.appendChild(
+          createElement("p", {
+            className: "trip-day__empty",
+            text: t("trips.noStopsForDay"),
+          }),
+        );
+      }
+      items.forEach((item, index) => {
+        const name = destinationName(item, locale);
+        const card = createElement("article", {
+          className: "trip-stop",
+          attributes: { "data-stop-id": item.id },
+        });
+        const handle = createElement("button", {
+          className: "trip-stop__handle",
+          text: "↕",
+          attributes: {
+            type: "button",
+            draggable: "true",
+            "aria-label": t("trips.dragStop", { name }),
+            title: t("trips.dragStop", { name }),
+          },
+        });
+        handle.addEventListener("dragstart", (event) => {
+          if (activeMutation) {
+            event.preventDefault();
+            return;
+          }
+          draggedItemId = item.id;
+          card.classList.add("is-dragging");
+          event.dataTransfer.effectAllowed = "move";
+          event.dataTransfer.setData("text/plain", String(item.id));
+        });
+        handle.addEventListener("dragend", () => {
+          draggedItemId = null;
+          card.classList.remove("is-dragging");
+          documentRef.querySelectorAll(".is-drag-over").forEach((element) => {
+            element.classList.remove("is-drag-over");
+          });
+        });
+        const content = createElement("div", { className: "trip-stop__content" });
+        content.appendChild(createElement("h4", { text: name }));
+        const meta = createElement("p", { className: "trip-stop__meta" });
+        if (item.start_time) {
+          meta.appendChild(createElement("span", { text: item.start_time.slice(0, 5) }));
+        }
+        if (item.duration_minutes) {
+          meta.appendChild(
+            createElement("span", {
+              text: `${item.duration_minutes} ${t("trips.durationMinutes").toLowerCase()}`,
+            }),
+          );
+        }
+        if (meta.childNodes.length) content.appendChild(meta);
+        if (item.notes) {
+          content.appendChild(
+            createElement("p", {
+              className: "trip-stop__notes",
+              text: item.notes,
+            }),
+          );
+        }
+        const actions = createElement("div", { className: "trip-stop__actions" });
+        const action = (label, handler, disabled = false) => {
+          const button = createElement("button", {
+            text: label,
+            attributes: { type: "button" },
+          });
+          button.disabled = disabled;
+          if (disabled) {
+            button.setAttribute("data-boundary-disabled", "");
+          }
+          button.addEventListener("click", handler);
+          actions.appendChild(button);
+        };
+        action(
+          "↑",
+          () => void moveItem(item.id, { offset: -1 }),
+          index === 0,
+        );
+        actions.lastChild.setAttribute("aria-label", t("trips.moveUp", { name }));
+        action(
+          "↓",
+          () => void moveItem(item.id, { offset: 1 }),
+          index === items.length - 1,
+        );
+        actions.lastChild.setAttribute("aria-label", t("trips.moveDown", { name }));
+        action(
+          "←",
+          () => void moveItem(item.id, { dayOffset: -1 }),
+          dayNumber === 1,
+        );
+        actions.lastChild.setAttribute(
+          "aria-label",
+          t("trips.movePreviousDay", { name }),
+        );
+        action(
+          "→",
+          () => void moveItem(item.id, { dayOffset: 1 }),
+          dayNumber === availableDays(trip).at(-1),
+        );
+        actions.lastChild.setAttribute(
+          "aria-label",
+          t("trips.moveNextDay", { name }),
+        );
+        action(t("trips.editStop"), () => openStopEditor(item, dayNumber));
+        action(t("trips.deleteStop"), () => openDeleteStop(item));
+        card.append(handle, content, actions);
+        list.appendChild(card);
+      });
+      list.addEventListener("dragover", (event) => {
+        if (!draggedItemId || activeMutation) return;
+        event.preventDefault();
+        event.dataTransfer.dropEffect = "move";
+        section.classList.add("is-drag-over");
+      });
+      list.addEventListener("dragleave", (event) => {
+        if (!section.contains(event.relatedTarget)) {
+          section.classList.remove("is-drag-over");
+        }
+      });
+      list.addEventListener("drop", (event) => {
+        event.preventDefault();
+        section.classList.remove("is-drag-over");
+        if (draggedItemId) {
+          void moveItem(draggedItemId, { targetDay: dayNumber });
+        }
+      });
+      section.append(header, list);
+      days.appendChild(section);
+    });
+    itinerary.appendChild(days);
+    mutationControls();
+  };
+
+  const populate = (loadedTrip) => {
+    trip = Object.freeze({
+      ...loadedTrip,
+      items: Object.freeze(orderedItems(loadedTrip.items)),
+    });
+    EDITABLE_FIELDS.forEach((field) => {
+      const input = form.elements.namedItem(field);
+      if (input && "value" in input) input.value = trip[field] ?? "";
+    });
+    setText(heading, trip.title || t("trips.editorTitle"));
+    setText(version, trip.version);
+    savedSnapshot = normalizedSnapshot(trip);
+    dirtyMetadata = false;
+    clearFieldErrors();
+    updateMetadataButtons();
+    renderItinerary();
+  };
+
+  async function loadTrip({ focus = false } = {}) {
+    if (!tripId || activeMutation) return;
+    activeMutation = true;
+    hideStates();
+    setVisible(loading, true);
+    loading.setAttribute("aria-busy", "true");
+    try {
+      const loadedTrip = await getTrip(tripId, { retries: 1 });
+      populate(loadedTrip);
+      hideStates();
+      setVisible(editor, true);
+      if (focus) heading.focus();
+    } catch (error) {
+      if (error.status === 401) {
+        showAuthRequired();
+      } else if (error.status === 404) {
+        showError(t("trips.notFound"), { canRetry: false });
+      } else {
+        showError(publicErrorMessage(error, t));
+      }
+    } finally {
+      loading.setAttribute("aria-busy", "false");
+      activeMutation = false;
+      if (trip) mutationControls();
+    }
+  }
+
+  const refreshTripAfterMutation = async () => {
+    const refreshed = await getTrip(tripId);
+    populate(refreshed);
+    return refreshed;
+  };
+
+  async function persistOrder(nextItems, movedItemId) {
+    if (activeMutation) return;
+    const previousTrip = trip;
+    activeMutation = true;
+    trip = Object.freeze({ ...trip, items: Object.freeze(orderedItems(nextItems)) });
+    renderItinerary();
+    try {
+      const updated = await reorderTripItems(tripId, {
+        expected_version: previousTrip.version,
+        items: orderedItems(nextItems).map((item) => ({
+          item_id: item.id,
+          day_number: item.day_number,
+        })),
+      });
+      populate(updated);
+      const moved = updated.items.find((item) => item.id === movedItemId);
+      const position =
+        updated.items
+          .filter((item) => item.day_number === moved.day_number)
+          .findIndex((item) => item.id === moved.id) + 1;
+      const message = t("trips.stopMoved", {
+        name: destinationName(moved, locale),
+        day: moved.day_number,
+        position,
+      });
+      toast.success(t("trips.reorderSaved"), { closeLabel: t("common.close") });
+      announce(message, { force: true });
+      globalThis.setTimeout(() => {
+        documentRef
+          .querySelector(`[data-stop-id="${movedItemId}"] .trip-stop__handle`)
+          ?.focus();
+      }, 0);
+    } catch (error) {
+      trip = previousTrip;
+      renderItinerary();
+      if (isVersionConflict(error)) showConflict();
+      else {
+        const message =
+          error.status === 409
+            ? t("trips.duplicateDestination")
+            : t("trips.reorderFailed");
+        toast.error(message, { closeLabel: t("common.close") });
+        announce(message, { priority: "assertive", force: true });
+      }
+    } finally {
+      activeMutation = false;
+      mutationControls();
+    }
+  }
+
+  async function moveItem(itemId, options = {}) {
+    if (activeMutation) return;
+    const items = orderedItems(trip.items);
+    const moving = items.find((item) => item.id === itemId);
+    if (!moving) return;
+    const targetDay =
+      options.targetDay ??
+      moving.day_number + (options.dayOffset ?? 0);
+    if (!availableDays(trip).includes(targetDay)) return;
+    const groups = new Map(
+      availableDays(trip).map((day) => [
+        day,
+        items.filter((item) => item.day_number === day && item.id !== itemId),
+      ]),
+    );
+    const target = groups.get(targetDay);
+    if (targetDay === moving.day_number && options.offset) {
+      const originalIndex = items
+        .filter((item) => item.day_number === targetDay)
+        .findIndex((item) => item.id === itemId);
+      const nextIndex = Math.max(
+        0,
+        Math.min(target.length, originalIndex + options.offset),
+      );
+      target.splice(nextIndex, 0, { ...moving, day_number: targetDay });
+    } else {
+      target.push({ ...moving, day_number: targetDay });
+    }
+    const nextItems = [...groups.entries()].flatMap(([dayNumber, group]) =>
+      group.map((item, index) => ({
+        ...item,
+        day_number: dayNumber,
+        sort_order: index,
+      })),
+    );
+    await persistOrder(nextItems, itemId);
+  }
+
+  const renderDestinationResults = (
+    results,
+    container,
+    selectDestination,
+  ) => {
+    container.replaceChildren();
+    if (!results.length) {
+      container.appendChild(
+        createElement("p", { text: t("trips.noDestinationResults") }),
+      );
+      return;
+    }
+    results.forEach((destination) => {
+      const name = destinationName(destination, locale);
+      const button = createElement("button", {
+        className: "trip-destination-option",
+        attributes: {
+          type: "button",
+          "aria-label": t("trips.selectDestination", { name }),
+          "aria-pressed": "false",
+        },
+      });
+      button.appendChild(createElement("strong", { text: name }));
+      const location = [destination.municipality, destination.region]
+        .filter(Boolean)
+        .join(" — ");
+      if (location) button.appendChild(createElement("span", { text: location }));
+      button.addEventListener("click", () => {
+        container.querySelectorAll("[aria-pressed]").forEach((element) => {
+          element.setAttribute("aria-pressed", "false");
+        });
+        button.setAttribute("aria-pressed", "true");
+        selectDestination(destination);
+      });
+      container.appendChild(button);
+    });
+  };
+
+  function openStopEditor(item = null, defaultDay = 1) {
+    if (activeMutation) return;
+    if (!item && trip.items.length >= TRIP_LIMITS.items) {
+      toast.warning(t("trips.itemLimit"), { closeLabel: t("common.close") });
+      return;
+    }
+    const modal = createModal({
+      title: item ? t("trips.editStop") : t("trips.addStop"),
+      className: "app-modal trip-stop-modal",
+    });
+    activeStopModal = modal;
+    const stopForm = createStopForm(trip, t, item, defaultDay);
+    let selectedDestination = item?.destination ?? null;
+    let destinationError = null;
+
+    if (item) {
+      modal.content.appendChild(
+        createElement("p", {
+          text: t("trips.selectedDestination", {
+            name: destinationName(item, locale),
+          }),
+        }),
+      );
+    } else {
+      const searchSection = createElement("section", {
+        className: "trip-destination-search",
+        attributes: { "aria-labelledby": `destination-search-${item?.id ?? "new"}` },
+      });
+      searchSection.appendChild(
+        createElement("h3", {
+          text: t("trips.searchDestinations"),
+          attributes: { id: `destination-search-${item?.id ?? "new"}` },
+        }),
+      );
+      const controls = createElement("div", {
+        className: "trip-destination-search__controls",
+      });
+      const query = createElement("input", {
+        attributes: {
+          type: "search",
+          autocomplete: "off",
+          maxlength: "250",
+          placeholder: t("trips.destinationSearchHint"),
+          "aria-label": t("trips.searchDestinations"),
+        },
+      });
+      const searchButton = createElement("button", {
+        className: "trips-secondary-button",
+        text: t("trips.search"),
+        attributes: { type: "button" },
+      });
+      const results = createElement("div", {
+        className: "trip-destination-results",
+        attributes: {
+          role: "region",
+          "aria-label": t("trips.searchResults"),
+          "aria-live": "polite",
+        },
+      });
+      destinationError = createElement("p", {
+        className: "trips-field-error",
+        attributes: { "aria-live": "polite" },
+      });
+      const performSearch = async () => {
+        if (searchButton.disabled) return;
+        setLoading(searchButton, true, {
+          disable: true,
+          text: t("common.loading"),
+        });
+        try {
+          const response = await searchTripDestinations(query.value);
+          renderDestinationResults(
+            response.items,
+            results,
+            (destination) => {
+              selectedDestination = destination;
+              setText(destinationError, "");
+            },
+          );
+        } catch (error) {
+          setText(destinationError, publicErrorMessage(error, t));
+        } finally {
+          setLoading(searchButton, false, { disable: true });
+          setText(searchButton, t("trips.search"));
+        }
+      };
+      searchButton.addEventListener("click", () => void performSearch());
+      query.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          void performSearch();
+        }
+      });
+      controls.append(query, searchButton);
+      searchSection.append(controls, destinationError, results);
+      modal.content.appendChild(searchSection);
+    }
+
+    modal.content.appendChild(stopForm.form);
+    const cancelButton = createElement("button", {
+      className: "trips-secondary-button",
+      text: t("common.cancel"),
+      attributes: { type: "button" },
+    });
+    const submitButton = createElement("button", {
+      className: "trips-primary-button",
+      text: t("common.save"),
+      attributes: { type: "submit" },
+    });
+    stopForm.form.appendChild(submitButton);
+    const close = () => {
+      modal.close();
+      modal.destroy();
+      activeStopModal = null;
+    };
+    cancelButton.addEventListener("click", close);
+    modal.actions.appendChild(cancelButton);
+    stopForm.form.addEventListener("input", (event) => {
+      const fieldName = event.target?.name;
+      if (!fieldName) return;
+      const output = stopForm.form.querySelector(
+        `[data-stop-error-for="${CSS.escape(fieldName)}"]`,
+      );
+      if (output) setText(output, "");
+      event.target.removeAttribute("aria-invalid");
+    });
+    stopForm.form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (activeMutation || submitButton.disabled) return;
+      setText(stopForm.error, "");
+      setVisible(stopForm.error, false);
+      if (!selectedDestination) {
+        setText(destinationError, t("trips.destinationRequired"));
+        return;
+      }
+      let payload;
+      try {
+        payload = stopPayload(stopForm.form, trip.version);
+      } catch (error) {
+        const errorText = String(error.message);
+        const fieldName = errorText.startsWith("notes")
+          ? "notes"
+          : errorText;
+        const message =
+          fieldName === "duration_minutes"
+            ? t("trips.durationInvalid")
+            : fieldName === "notes"
+              ? t("trips.notesTooLong")
+              : t("trips.dayInvalid");
+        const output = stopForm.form.querySelector(
+          `[data-stop-error-for="${CSS.escape(fieldName)}"]`,
+        );
+        setText(output, message);
+        const invalidField = stopForm.form.elements.namedItem(fieldName);
+        invalidField?.setAttribute("aria-invalid", "true");
+        invalidField?.focus();
+        return;
+      }
+      activeMutation = true;
+      modal.setCritical(true);
+      cancelButton.disabled = true;
+      setLoading(submitButton, true, {
+        disable: true,
+        text: t("trips.saving"),
+      });
+      try {
+        if (item) {
+          await updateTripItem(tripId, item.id, payload);
+        } else {
+          await addTripItem(tripId, {
+            ...payload,
+            destination_id: selectedDestination.id,
+          });
+        }
+        await refreshTripAfterMutation();
+        modal.setCritical(false);
+        close();
+        const message = item ? t("trips.stopUpdated") : t("trips.stopAdded");
+        toast.success(message, { closeLabel: t("common.close") });
+        announce(message, { force: true });
+      } catch (error) {
+        modal.setCritical(false);
+        if (isVersionConflict(error)) {
+          showConflict();
+        } else {
+          const message =
+            error.status === 409
+              ? t("trips.duplicateDestination")
+              : publicErrorMessage(error, t);
+          setText(stopForm.error, message);
+          setVisible(stopForm.error, true);
+          announce(message, { priority: "assertive", force: true });
+        }
+      } finally {
+        activeMutation = false;
+        cancelButton.disabled = false;
+        setLoading(submitButton, false, { disable: true });
+        setText(submitButton, t("common.save"));
+        mutationControls();
+      }
+    });
+    modal.open();
+  }
+
+  function openDeleteStop(item) {
+    if (activeMutation) return;
+    const name = destinationName(item, locale);
+    const modal = createModal({
+      title: t("trips.deleteStopTitle"),
+      className: "app-modal trip-stop-delete-modal",
+    });
+    const message = createElement("p", {
+      text: t("trips.deleteStopMessage", { name }),
+    });
+    const errorText = createElement("p", {
+      className: "trips-form-error",
+      attributes: { role: "alert", hidden: "" },
+    });
+    const cancelButton = createElement("button", {
+      className: "trips-secondary-button",
+      text: t("common.cancel"),
+      attributes: { type: "button" },
+    });
+    const deleteButton = createElement("button", {
+      className: "trips-danger-button",
+      text: t("common.delete"),
+      attributes: { type: "button" },
+    });
+    const close = () => {
+      modal.close();
+      modal.destroy();
+    };
+    cancelButton.addEventListener("click", close);
+    deleteButton.addEventListener("click", async () => {
+      if (activeMutation || deleteButton.disabled) return;
+      activeMutation = true;
+      modal.setCritical(true);
+      cancelButton.disabled = true;
+      setLoading(deleteButton, true, {
+        disable: true,
+        text: t("trips.saving"),
+      });
+      try {
+        await deleteTripItem(tripId, item.id, trip.version);
+        await refreshTripAfterMutation();
+        modal.setCritical(false);
+        close();
+        toast.success(t("trips.stopDeleted"), { closeLabel: t("common.close") });
+        announce(t("trips.stopDeleted"), { force: true });
+        addStop.focus();
+      } catch (error) {
+        modal.setCritical(false);
+        if (isVersionConflict(error)) {
+          showConflict();
+        } else {
+          const text = publicErrorMessage(error, t);
+          setText(errorText, text);
+          setVisible(errorText, true);
+        }
+      } finally {
+        activeMutation = false;
+        cancelButton.disabled = false;
+        setLoading(deleteButton, false, { disable: true });
+        setText(deleteButton, t("common.delete"));
+        mutationControls();
+      }
+    });
+    modal.content.append(message, errorText);
+    modal.actions.append(cancelButton, deleteButton);
+    modal.open();
+  }
+
+  const updateDirtyMetadata = (event) => {
+    const field = event?.target;
+    if (field?.name) {
+      field.removeAttribute("aria-invalid");
+      const output = form.querySelector(
+        `[data-error-for="${CSS.escape(field.name)}"]`,
+      );
+      if (output) setText(output, "");
+    }
+    try {
+      dirtyMetadata = normalizedSnapshot(formPayload(form)) !== savedSnapshot;
+    } catch {
+      dirtyMetadata = true;
+    }
+    updateMetadataButtons();
+  };
+  form.addEventListener("input", updateDirtyMetadata);
+  form.addEventListener("change", updateDirtyMetadata);
+
+  cancel.addEventListener("click", () => {
+    if (activeMutation || !trip) return;
+    populate(trip);
+    announce(t("trips.changesDiscarded"), { force: true });
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    if (activeMutation || save.disabled || !trip) return;
+    clearFieldErrors();
+    let payload;
+    try {
+      payload = formPayload(form);
+      validateDateRange(payload.start_date, payload.end_date);
+    } catch (error) {
+      const errorText = String(error.message);
+      const field = errorText.startsWith("title")
+        ? "title"
+        : errorText.startsWith("description")
+          ? "description"
+          : "end_date";
+      const message =
+        field === "title"
+          ? errorText.includes("exceed")
+            ? t("trips.titleTooLong")
+            : t("trips.titleRequired")
+          : field === "description"
+            ? t("trips.descriptionTooLong")
+            : t("trips.dateRangeInvalid");
+      setFieldError(field, message);
+      form.elements.namedItem(field)?.focus();
+      return;
+    }
+    activeMutation = true;
+    cancel.disabled = true;
+    setLoading(save, true, {
+      disable: true,
+      text: t("trips.saving"),
+    });
+    try {
+      const updated = await updateTrip(tripId, {
+        ...payload,
+        expected_version: trip.version,
+      });
+      populate(updated);
+      toast.success(t("trips.metadataSaved"), { closeLabel: t("common.close") });
+      announce(t("trips.metadataSaved"), { force: true });
+    } catch (error) {
+      if (error.status === 401) {
+        showAuthRequired();
+      } else if (isVersionConflict(error)) {
+        showConflict();
+      } else {
+        Object.keys(error.fieldErrors ?? {}).forEach((name) => {
+          setFieldError(name.split(".").at(-1), t("errors.validation"));
+        });
+        const message = publicErrorMessage(error, t);
+        setText(formError, message);
+        setVisible(formError, true);
+        announce(message, { priority: "assertive", force: true });
+      }
+    } finally {
+      activeMutation = false;
+      setLoading(save, false, { disable: true });
+      setText(save, t("trips.saveChanges"));
+      updateMetadataButtons();
+    }
+  });
+
+  addStop.addEventListener("click", () => openStopEditor());
+  retry.addEventListener("click", () => void loadTrip({ focus: true }));
+  globalThis.addEventListener("visitlibya:auth-expired", showAuthRequired);
+  globalThis.addEventListener("beforeunload", (event) => {
+    if (!dirtyMetadata) return;
+    event.preventDefault();
+    event.returnValue = t("trips.unsavedWarning");
+  });
+
+  if (!tripId) {
+    showError(t("trips.invalidId"), { canRetry: false });
+    return;
+  }
+  if (!context.session.authenticated) {
+    showAuthRequired();
+    return;
+  }
+  await loadTrip();
+}
+
+if (typeof document !== "undefined") {
+  void initializeTripEditor();
+}
+
+export {
+  availableDays,
+  destinationName,
+  orderedItems,
+  readTripId,
+  tripDayCount,
+};
