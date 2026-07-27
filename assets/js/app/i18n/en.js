@@ -114,6 +114,7 @@ export const en = Object.freeze({
     destination: "Destination",
     searchDestinations: "Search destinations",
     destinationSearchHint: "Enter a destination name, municipality, or region.",
+    destinationSearchEmpty: "Start typing to search, or browse available destinations.",
     search: "Search",
     searchResults: "Destination search results",
     noDestinationResults: "No matching destinations were found.",

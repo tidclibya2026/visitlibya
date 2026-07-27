@@ -114,6 +114,7 @@ export const ar = Object.freeze({
     destination: "الوجهة",
     searchDestinations: "البحث عن وجهات",
     destinationSearchHint: "أدخل اسم وجهة أو بلدية أو منطقة.",
+    destinationSearchEmpty: "ابدأ الكتابة للبحث، أو تصفح الوجهات المتاحة.",
     search: "بحث",
     searchResults: "نتائج البحث عن الوجهات",
     noDestinationResults: "لم يتم العثور على وجهات مطابقة.",

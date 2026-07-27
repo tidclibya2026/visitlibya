@@ -35,6 +35,7 @@ const EDITABLE_FIELDS = Object.freeze([
   "status",
   "visibility",
 ]);
+const DESTINATION_SEARCH_DEBOUNCE_MS = 300;
 
 function readTripId(search = globalThis.location?.search ?? "") {
   const parameters = new URLSearchParams(search);
@@ -796,6 +797,7 @@ export async function initializeTripEditor(documentRef = document) {
     const stopForm = createStopForm(trip, t, item, defaultDay);
     let selectedDestination = item?.destination ?? null;
     let destinationError = null;
+    let stopSearchCleanup = () => {};
 
     if (item) {
       modal.content.appendChild(
@@ -845,14 +847,27 @@ export async function initializeTripEditor(documentRef = document) {
         className: "trips-field-error",
         attributes: { "aria-live": "polite" },
       });
+      let searchTimer = null;
+      let searchController = null;
       const performSearch = async () => {
-        if (searchButton.disabled) return;
+        globalThis.clearTimeout(searchTimer);
+        searchController?.abort();
+        const controller = new AbortController();
+        searchController = controller;
+        results.setAttribute("aria-busy", "true");
+        results.replaceChildren(
+          createElement("p", { text: t("common.loading") }),
+        );
+        setText(destinationError, "");
         setLoading(searchButton, true, {
           disable: true,
           text: t("common.loading"),
         });
         try {
-          const response = await searchTripDestinations(query.value);
+          const response = await searchTripDestinations(query.value, {
+            signal: controller.signal,
+          });
+          if (searchController !== controller) return;
           renderDestinationResults(
             response.items,
             results,
@@ -862,22 +877,76 @@ export async function initializeTripEditor(documentRef = document) {
             },
           );
         } catch (error) {
+          if (error.code === "ABORTED") return;
           setText(destinationError, publicErrorMessage(error, t));
         } finally {
+          if (searchController !== controller) return;
+          searchController = null;
+          results.removeAttribute("aria-busy");
           setLoading(searchButton, false, { disable: true });
           setText(searchButton, t("trips.search"));
         }
       };
       searchButton.addEventListener("click", () => void performSearch());
+      query.addEventListener("input", () => {
+        globalThis.clearTimeout(searchTimer);
+        if (!query.value.trim()) {
+          searchController?.abort();
+          searchController = null;
+          results.removeAttribute("aria-busy");
+          results.replaceChildren(
+            createElement("p", { text: t("trips.destinationSearchEmpty") }),
+          );
+          setLoading(searchButton, false, { disable: false });
+          setText(searchButton, t("trips.search"));
+          return;
+        }
+        searchTimer = globalThis.setTimeout(
+          () => void performSearch(),
+          DESTINATION_SEARCH_DEBOUNCE_MS,
+        );
+      });
       query.addEventListener("keydown", (event) => {
         if (event.key === "Enter") {
           event.preventDefault();
           void performSearch();
+        } else if (event.key === "ArrowDown") {
+          const firstResult = results.querySelector("button");
+          if (firstResult) {
+            event.preventDefault();
+            firstResult.focus();
+          }
         }
       });
+      results.addEventListener("keydown", (event) => {
+        if (!["ArrowDown", "ArrowUp", "Home", "End"].includes(event.key)) {
+          return;
+        }
+        const options = [...results.querySelectorAll("button")];
+        const currentIndex = options.indexOf(documentRef.activeElement);
+        if (currentIndex < 0 || !options.length) return;
+        event.preventDefault();
+        const nextIndex =
+          event.key === "Home"
+            ? 0
+            : event.key === "End"
+              ? options.length - 1
+              : event.key === "ArrowDown"
+                ? (currentIndex + 1) % options.length
+                : (currentIndex - 1 + options.length) % options.length;
+        options[nextIndex].focus();
+      });
+      results.appendChild(
+        createElement("p", { text: t("trips.destinationSearchEmpty") }),
+      );
+      stopSearchCleanup = () => {
+        globalThis.clearTimeout(searchTimer);
+        searchController?.abort();
+      };
       controls.append(query, searchButton);
       searchSection.append(controls, destinationError, results);
       modal.content.appendChild(searchSection);
+      searchTimer = globalThis.setTimeout(() => void performSearch(), 0);
     }
 
     modal.content.appendChild(stopForm.form);
@@ -893,6 +962,7 @@ export async function initializeTripEditor(documentRef = document) {
     });
     stopForm.form.appendChild(submitButton);
     const close = () => {
+      stopSearchCleanup();
       modal.close();
       modal.destroy();
       activeStopModal = null;
