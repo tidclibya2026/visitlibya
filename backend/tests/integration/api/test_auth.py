@@ -8,10 +8,12 @@ from app.api.dependencies import get_auth_service
 from app.core.config import settings
 from app.core.exceptions import (
     AuthenticationPersistenceError,
+    EmailAlreadyRegisteredError,
     InactiveUserError,
     InvalidCredentialsError,
     InvalidTokenError,
     RegistrationConflictError,
+    UsernameAlreadyRegisteredError,
 )
 from app.core.security import create_access_token
 from app.main import app
@@ -99,13 +101,36 @@ def test_successful_registration_returns_only_safe_normal_user_fields(test_user)
 
 
 @pytest.mark.parametrize(
-    ("error", "expected_status"),
+    ("error", "expected_status", "expected_detail"),
     [
-        (RegistrationConflictError(), 409),
-        (AuthenticationPersistenceError(), 500),
+        (
+            EmailAlreadyRegisteredError(),
+            409,
+            "An account already exists with this email address",
+        ),
+        (
+            UsernameAlreadyRegisteredError(),
+            409,
+            "This username is already in use",
+        ),
+        (
+            RegistrationConflictError(),
+            409,
+            "An account with this email or username already exists",
+        ),
+        (
+            AuthenticationPersistenceError(),
+            500,
+            "Authentication service is unavailable",
+        ),
     ],
 )
-def test_registration_error_mapping(test_user, error, expected_status) -> None:
+def test_registration_error_mapping(
+    test_user,
+    error,
+    expected_status,
+    expected_detail,
+) -> None:
     service = FakeAuthService(test_user)
     service.registration_error = error
     response = request_with_service(
@@ -121,8 +146,27 @@ def test_registration_error_mapping(test_user, error, expected_status) -> None:
     )
 
     assert response.status_code == expected_status
-    if expected_status == 500:
-        assert response.json()["detail"] == "Authentication service is unavailable"
+    assert response.json()["detail"] == expected_detail
+
+
+@pytest.mark.parametrize(
+    "origin",
+    ["http://127.0.0.1:5500", "http://localhost:5500"],
+)
+def test_auth_login_cors_allows_local_frontend_origins(origin) -> None:
+    with TestClient(app) as client:
+        response = client.options(
+            "/api/v1/auth/login",
+            headers={
+                "Origin": origin,
+                "Access-Control-Request-Method": "POST",
+                "Access-Control-Request-Headers": "content-type",
+            },
+        )
+
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == origin
+    assert response.headers["access-control-allow-credentials"] == "true"
 
 
 @pytest.mark.parametrize(

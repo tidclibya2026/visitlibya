@@ -5,10 +5,12 @@ from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 
 from app.core.exceptions import (
     AuthenticationPersistenceError,
+    EmailAlreadyRegisteredError,
     InactiveUserError,
     InvalidCredentialsError,
     InvalidTokenError,
     RegistrationConflictError,
+    UsernameAlreadyRegisteredError,
 )
 from app.core.security import verify_password
 from app.schemas.auth import UserRegistrationRequest
@@ -110,8 +112,18 @@ def test_register_normalizes_identity_hashes_password_and_commits() -> None:
     assert user.roles == []
 
 
-@pytest.mark.parametrize("conflicting_field", ["email", "username"])
-def test_register_rejects_existing_identity(conflicting_field, test_user) -> None:
+@pytest.mark.parametrize(
+    ("conflicting_field", "expected_error"),
+    [
+        ("email", EmailAlreadyRegisteredError),
+        ("username", UsernameAlreadyRegisteredError),
+    ],
+)
+def test_register_rejects_existing_identity(
+    conflicting_field,
+    expected_error,
+    test_user,
+) -> None:
     service, session, repository = make_service()
     repository.get_by_email.return_value = (
         test_user if conflicting_field == "email" else None
@@ -120,7 +132,7 @@ def test_register_rejects_existing_identity(conflicting_field, test_user) -> Non
         test_user if conflicting_field == "username" else None
     )
 
-    with pytest.raises(RegistrationConflictError):
+    with pytest.raises(expected_error):
         service.register(registration_payload())
 
     repository.create.assert_not_called()

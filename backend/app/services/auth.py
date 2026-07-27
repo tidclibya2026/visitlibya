@@ -4,10 +4,12 @@ from sqlalchemy.orm import Session
 from app.core.config import settings
 from app.core.exceptions import (
     AuthenticationPersistenceError,
+    EmailAlreadyRegisteredError,
     InactiveUserError,
     InvalidCredentialsError,
     InvalidTokenError,
     RegistrationConflictError,
+    UsernameAlreadyRegisteredError,
 )
 from app.core.security import create_access_token, hash_password, verify_password
 from app.models.user import User
@@ -50,11 +52,10 @@ class AuthService:
 
     def register(self, payload: UserRegistrationRequest) -> User:
         try:
-            if (
-                self.repository.get_by_email(str(payload.email))
-                or self.repository.get_by_username(payload.username)
-            ):
-                raise RegistrationConflictError()
+            if self.repository.get_by_email(str(payload.email)):
+                raise EmailAlreadyRegisteredError()
+            if self.repository.get_by_username(payload.username):
+                raise UsernameAlreadyRegisteredError()
 
             user = User(
                 full_name=payload.full_name,
