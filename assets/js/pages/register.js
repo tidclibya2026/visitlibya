@@ -144,8 +144,16 @@ async function initializeRegistrationPage() {
       fields.confirmPassword.value = "";
       showRegistrationSuccess(t, signInPath);
     } catch (error) {
-      if (error.status === 409) {
-        setText(formError, t("auth.accountConflict"));
+      if (error.code === "AUTH_EMAIL_CONFLICT") {
+        setFieldError("email", t("auth.emailConflict"));
+        setText(formError, t("auth.emailConflict"));
+        fields.email.focus();
+      } else if (error.code === "AUTH_USERNAME_CONFLICT") {
+        setFieldError("username", t("auth.usernameConflict"));
+        setText(formError, t("auth.usernameConflict"));
+        fields.username.focus();
+      } else if (error.status === 409) {
+        setText(formError, getLocalizedErrorMessage(error, t));
       } else if (error.status === 422) {
         let firstServerField = null;
         Object.keys(error.fieldErrors ?? {}).forEach((fieldName) => {

@@ -34,6 +34,24 @@ function getServerDetail(payload) {
 
 function classifyError(status, payload) {
   const detail = getServerDetail(payload);
+  if (status === 401 && detail === "Invalid username or password") {
+    return "AUTH_INVALID_CREDENTIALS";
+  }
+  if (
+    status === 409 &&
+    detail === "An account already exists with this email address"
+  ) {
+    return "AUTH_EMAIL_CONFLICT";
+  }
+  if (status === 409 && detail === "This username is already in use") {
+    return "AUTH_USERNAME_CONFLICT";
+  }
+  if (
+    status === 409 &&
+    detail === "An account with this email or username already exists"
+  ) {
+    return "AUTH_REGISTRATION_CONFLICT";
+  }
   if (status === 409 && detail === "Trip was modified by another request") {
     return "TRIP_VERSION_CONFLICT";
   }
@@ -136,7 +154,7 @@ export function createApiClient(config = loadRuntimeConfig()) {
 
         if (!response.ok) {
           const error = createHttpError(response, payload, requestId);
-          if (error.status === 401) {
+          if (error.status === 401 && token) {
             clearSession({ reason: "expired" });
             globalThis.dispatchEvent?.(
               new CustomEvent("visitlibya:auth-expired", { detail: { requestId } }),
