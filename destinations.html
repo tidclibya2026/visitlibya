@@ -1,81 +1,171 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Destinations | Visit Libya</title>
-  <meta name="description" content="Explore Destinations in Libya." />
-  <link rel="stylesheet" href="style.css?v=stabilization-sprint-01">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Libya’s Destinations | Visit Libya</title>
+  <meta name="description" content="Discover Libya’s ancient cities, Mediterranean shores, Sahara landscapes, oases, mountains, and living culture.">
+  <meta property="og:title" content="Explore Libya’s Destinations | Visit Libya">
+  <meta property="og:description" content="Discover ancient cities, Mediterranean shores, desert landscapes, oases, and living culture across Libya.">
+  <meta property="og:type" content="website">
+  <link rel="alternate" hreflang="en" href="destinations.html">
+  <link rel="alternate" hreflang="ar" href="ar/destinations.html">
+  <link rel="alternate" hreflang="x-default" href="destinations.html">
+  <link rel="stylesheet" href="style.css?v=hero-panel-slideshow-01">
+  <link rel="stylesheet" href="assets/css/design-system.css?v=frontend-2-01">
+  <link rel="stylesheet" href="assets/css/base.css?v=frontend-2-01">
+  <link rel="stylesheet" href="assets/css/layout.css?v=frontend-2-01">
+  <link rel="stylesheet" href="assets/css/components.css?v=frontend-2-01">
+  <link rel="stylesheet" href="assets/css/destinations.css?v=frontend-2-destinations-01">
 </head>
 <body>
-<header class="vl-topbar" id="siteHeader">
-  <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
-    <strong>Visit Libya</strong>
-    <span>Discover Authenticity</span>
-  </a>
-  <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">☰</button>
-  <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
-    <a href="index.html">Home</a>
-    <a href="destinations.html" class="is-current">Destinations <span>⌄</span></a>
-    <a href="experiences.html">Things to Do <span>⌄</span></a>
-    <div class="vl-dropdown">
-      <a href="culture.html">Culture &amp; Cuisine <span>⌄</span></a>
-      <div class="vl-dropdown-menu" aria-label="Discover menu">
-        <a href="culture.html#culture">Culture &amp; Cuisine</a>
-        <a href="culture.html#food">Cuisine</a>
-        <a href="culture.html#folklore">Folklore</a>
-        <a href="culture.html#crafts">Traditional Handicrafts</a>
+  <a class="site-skip-link" href="#mainContent">Skip to destination results</a>
+  <header class="vl-topbar" id="siteHeader">
+    <a class="vl-logo" href="index.html" aria-label="Visit Libya home">
+      <strong>Visit Libya</strong>
+      <span>Discover Authenticity</span>
+    </a>
+    <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">☰</button>
+    <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="destinations.html" class="is-current" aria-current="page">Destinations</a>
+      <a href="experiences.html">Things to Do</a>
+      <div class="vl-dropdown">
+        <a href="culture.html">Culture &amp; Cuisine <span aria-hidden="true">⌄</span></a>
+        <div class="vl-dropdown-menu" aria-label="Culture menu">
+          <a href="culture.html#culture">Culture &amp; Cuisine</a>
+          <a href="culture.html#food">Cuisine</a>
+          <a href="culture.html#folklore">Folklore</a>
+          <a href="culture.html#crafts">Traditional Handicrafts</a>
+          <a href="heritage.html">UNESCO World Heritage</a>
+        </div>
+      </div>
+      <a href="heritage.html">Heritage</a>
+      <a href="plan.html">Plan Your Trip</a>
+      <a href="services.html">Travel Services</a>
+      <a href="atlas.html">Libya Tourism Atlas</a>
+      <a href="ai.html">VisitLibya AI</a>
+    </nav>
+    <a class="vl-language" href="ar/destinations.html" aria-label="View this page in Arabic"><span aria-hidden="true">◉</span> العربية</a>
+  </header>
+
+  <main id="mainContent" class="destinations-page">
+    <section class="destinations-hero" aria-labelledby="destinationsTitle">
+      <img class="destinations-hero__image" src="imges/beaches.jpg" alt="" width="1280" height="715" fetchpriority="high">
+      <div class="destinations-hero__overlay"></div>
+      <div class="destinations-hero__content">
+        <p class="destinations-eyebrow">Mediterranean to Sahara</p>
+        <h1 id="destinationsTitle">Explore Libya</h1>
+        <p>Discover ancient cities, Mediterranean shores, desert landscapes, oases, and living culture.</p>
+      </div>
+    </section>
+
+    <section class="destinations-explorer" aria-labelledby="explorerTitle">
+      <div class="destinations-intro">
+        <div>
+          <p class="destinations-eyebrow">Find your next story</p>
+          <h2 id="explorerTitle">Discover remarkable places</h2>
+        </div>
+        <p>Search Libya’s tourism destinations and narrow the collection using categories and regions supported by the national destination catalogue.</p>
+      </div>
+
+      <form class="destinations-search" id="destinationSearchForm" role="search">
+        <div class="destinations-field destinations-field--search">
+          <label for="destinationQuery">Destination name or keyword</label>
+          <input id="destinationQuery" name="q" type="search" maxlength="250" autocomplete="off" placeholder="Try Tripoli, desert, or heritage">
+        </div>
+        <div class="destinations-field">
+          <label for="destinationRegion">Region</label>
+          <select id="destinationRegion" name="region">
+            <option value="">All regions</option>
+          </select>
+        </div>
+        <div class="destinations-field">
+          <label for="destinationSort">Sort by</label>
+          <select id="destinationSort" name="sort">
+            <option value="name:asc">Name A–Z</option>
+            <option value="name:desc">Name Z–A</option>
+            <option value="updated_at:desc">Recently updated</option>
+          </select>
+        </div>
+        <div class="destinations-search__actions">
+          <button class="destinations-button destinations-button--primary" type="submit">Search</button>
+          <button class="destinations-button destinations-button--quiet" id="clearDestinationFilters" type="button">Clear</button>
+        </div>
+      </form>
+
+      <fieldset class="destinations-categories">
+        <legend>Browse by category</legend>
+        <div class="destinations-category-list" id="destinationCategories">
+          <button type="button" class="is-active" data-category-id="" aria-pressed="true">All destinations</button>
+        </div>
+      </fieldset>
+
+      <div class="destinations-toolbar">
+        <p id="destinationResultsStatus" class="destinations-results-status" role="status" aria-live="polite">Loading destinations…</p>
+        <button class="destinations-clear-link" id="clearDestinationFiltersToolbar" type="button" hidden>Clear filters</button>
+      </div>
+
+      <div class="destinations-results" id="destinationResults" aria-busy="true">
+        <div class="destinations-loading" id="destinationLoading" role="status">
+          <span class="destinations-loader" aria-hidden="true"></span>
+          <p>Loading Libya’s destinations…</p>
+        </div>
+
+        <div class="destinations-grid" id="destinationGrid" hidden></div>
+
+        <section class="destinations-empty" id="destinationEmpty" aria-labelledby="destinationEmptyTitle" hidden>
+          <p class="destinations-state-mark" aria-hidden="true">0</p>
+          <h3 id="destinationEmptyTitle">No destinations match these filters</h3>
+          <p>Try a broader search term or clear the current filters to explore more of Libya.</p>
+          <button class="destinations-button destinations-button--primary" id="destinationEmptyClear" type="button">Clear filters</button>
+        </section>
+
+        <section class="destinations-error" id="destinationError" role="alert" aria-labelledby="destinationErrorTitle" hidden>
+          <p class="destinations-state-mark" aria-hidden="true">!</p>
+          <h3 id="destinationErrorTitle">Live destination updates are unavailable</h3>
+          <p>We are showing the curated Visit Libya collection. You can retry without losing your filters.</p>
+          <button class="destinations-button destinations-button--primary" id="destinationRetry" type="button">Retry</button>
+        </section>
+      </div>
+    </section>
+
+    <section class="destinations-planner" aria-labelledby="plannerTitle">
+      <div>
+        <p class="destinations-eyebrow">From discovery to journey</p>
+        <h2 id="plannerTitle">Turn inspiration into a Libyan itinerary</h2>
+        <p>Bring the destinations that inspire you together and shape a journey across Libya.</p>
+      </div>
+      <div class="destinations-planner__actions">
+        <a class="destinations-button destinations-button--gold" href="plan.html">Plan Your Trip</a>
+        <a class="destinations-button destinations-button--outline-light" href="trips.html">View My Trips</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="vl-footer">
+    <div class="vl-footer-grid">
+      <div>
+        <h2>Visit Libya</h2>
+        <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
+      </div>
+      <div>
+        <h3>Explore</h3>
+        <a href="destinations.html">Destinations</a>
+        <a href="experiences.html">Things to Do</a>
+        <a href="culture.html">Culture &amp; Cuisine</a>
         <a href="heritage.html">UNESCO World Heritage</a>
+        <a href="atlas.html">Libya Tourism Atlas</a>
+      </div>
+      <div>
+        <h3>Official Attribution</h3>
+        <p class="official">Ministry of Tourism and Traditional Industries<br>Tourism Information &amp; Documentation Center</p>
+        <p class="small">Official names appear in the footer only.</p>
       </div>
     </div>
-    <a href="heritage.html">Heritage</a>
-    <a href="plan.html">Plan Your Trip</a>
-    <a href="services.html">Travel Services</a>
-    <a href="atlas.html">Libya Tourism Atlas</a>
-    <a href="ai.html">VisitLibya AI</a>
-  </nav>
-  <a class="vl-language" href="ar/destinations.html" aria-label="Arabic language"><span>◉</span> العربية</a>
-</header>
-<main>
-  <section class="sub-hero page-hero-with-image" style="--hero-image:url('imges/tripoliMarcus Arch.JPG')"><span class="page-hero-bg"><img src="imges/tripoliMarcus Arch.JPG" alt="Visit Libya page hero" loading="eager"></span><span class="page-hero-overlay"></span><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">Destinations</span><h1>Explore Libya</h1><p>Journey through ancient cities, desert oases, Mediterranean shores, and the green landscapes of the east.</p></div></section>
-  <section class="section pale-section">
-    <div class="filter-bar" data-filter-scope>
-      <button class="active" data-filter="all">All</button><button data-filter="heritage">UNESCO World Heritage</button><button data-filter="desert">Sahara &amp; Oases</button><button data-filter="coast">Coast &amp; Beaches</button><button data-filter="culture">Culture &amp; Cuisine</button><button data-filter="nature">Nature</button>
-    </div>
-    <div class="destination-grid large">
-      <article class="destination-card filter-item" data-category="heritage coast"><img src="imges/Leptis Magna3.jpeg" alt="Leptis Magna"><div><span>Legacy of Rome by the sea</span><h3>Leptis Magna</h3><p>Monumental architecture and ancient streets reveal Roman heritage in a striking Mediterranean setting.</p></div></article>
-      <article class="destination-card filter-item" data-category="heritage coast"><img src="imges/Sabratha.jpg" alt="Sabratha"><div><span>History facing the Mediterranean</span><h3>Sabratha</h3><p>Its Roman theatre and sea-facing ruins shape an unforgettable coastal archaeological landscape.</p></div></article>
-      <article class="destination-card filter-item" data-category="desert culture heritage"><img src="imges/Ghadames2.JPG" alt="Ghadames"><div><span>The Pearl of the Desert</span><h3>Ghadames</h3><p>A UNESCO oasis city of traditional architecture, shaded passages, and enduring desert heritage.</p></div></article>
-      <article class="destination-card filter-item" data-category="desert heritage adventure"><img src="imges/Acacus.jpg" alt="Akakus"><div><span>The Sahara’s ancient story</span><h3>Akakus</h3><p>Rock formations, prehistoric art, and vast desert scenery preserve traces of early human memory.</p></div></article>
-      <article class="destination-card filter-item" data-category="heritage nature"><img src="imges/Cyrene.jpg" alt="Cyrene / Shahhat"><div><span>Ancient wonders in the Green Mountain</span><h3>Cyrene / Shahhat</h3><p>Classical temples and ruins meet mountain landscapes at a site of great North African significance.</p></div></article>
-      <article class="destination-card filter-item" data-category="culture coast"><img src="imges/oldtripoli.jpg" alt="Tripoli Old City"><div><span>Heritage meets Mediterranean life</span><h3>Tripoli Old City</h3><p>Historic streets, traditional markets, and Ottoman and Mediterranean architecture express the capital’s living spirit.</p></div></article>
-      <article class="destination-card filter-item" data-category="nature coast"><img src="imges/landscapes5.JPG" alt="Jebel Akhdar / Green Mountain"><div><span>Nature, mountains, and heritage</span><h3>Jebel Akhdar / Green Mountain</h3><p>Green valleys, forests, cliffs, and coastal beauty connect Shahat, Sousa, and Ras Al Hilal.</p></div></article>
-      <article class="destination-card filter-item" data-category="desert nature"><img src="imges/natural lakes1.jpg" alt="Ubari Lakes"><div><span>A desert oasis like no other</span><h3>Ubari Lakes</h3><p>Golden dunes frame desert lakes in one of the Sahara’s most memorable landscapes.</p></div></article>
-      <article class="destination-card filter-item" data-category="culture heritage coast"><img src="imges/tripoliMarcus Arch.JPG" alt="Tripoli Marcus Arch"><div><span>Urban Heritage</span><h3>Tripoli Marcus Arch</h3><p>A gateway into the historic memory of Tripoli’s old city.</p></div></article>
-    </div>
-  </section>
-</main>
-<footer class="vl-footer">
-  <div class="vl-footer-grid">
-    <div>
-      <h2>Visit Libya</h2>
-      <p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p>
-    </div>
-    <div>
-      <h3>Explore</h3>
-      <a href="destinations.html">Destinations</a>
-      <a href="experiences.html">Things to Do</a>
-      <a href="culture.html">Culture &amp; Cuisine</a>
-      <a href="heritage.html">UNESCO World Heritage</a>
-      <a href="atlas.html">Libya Tourism Atlas</a>
-    </div>
-    <div>
-      <h3>Official Attribution</h3>
-      <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
-      <p class="small">Official names appear in the footer only.</p>
-    </div>
-  </div>
-</footer>
-<script src="main.js?v=stabilization-sprint-01"></script>
+  </footer>
+  <script src="main.js?v=hero-panel-slideshow-01"></script>
+  <script type="module" src="assets/js/app/ui/site-shell.js?v=frontend-2-01"></script>
+  <script type="module" src="assets/js/pages/destinations.js?v=frontend-2-destinations-01"></script>
 </body>
 </html>
