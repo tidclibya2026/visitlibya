@@ -26,7 +26,7 @@ export function createAppContext() {
 async function runBootstrap() {
   try {
     const context = createAppContext();
-    if (getAccessToken()) {
+    if (context.config.apiEnabled && getAccessToken()) {
       try {
         const currentUser = await verifyRestoredSession();
         context.store.updateState({ authenticatedUser: currentUser });

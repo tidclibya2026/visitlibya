@@ -6,7 +6,6 @@ const isArabic = document.documentElement.lang === "ar";
 const locale = isArabic ? "ar" : "en";
 const pathPrefix = isArabic ? "../" : "";
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const DETAIL_REQUEST_TIMEOUT_MS = 5_000;
 const runtimeConfig = loadRuntimeConfig();
 let activeRequest = null;
 let requestSequence = 0;
@@ -141,18 +140,6 @@ function reportDevelopmentError(context, error) {
   });
 }
 
-function shouldSkipLoopbackRequest() {
-  try {
-    const apiHost = new URL(runtimeConfig.apiBaseUrl).hostname;
-    const pageHost = globalThis.location.hostname;
-    const apiIsLoopback = apiHost === "127.0.0.1" || apiHost === "localhost" || apiHost === "::1";
-    const pageIsLoopback = pageHost === "127.0.0.1" || pageHost === "localhost" || pageHost === "::1" || pageHost === "";
-    return apiIsLoopback && !pageIsLoopback;
-  } catch {
-    return false;
-  }
-}
-
 function appendParagraphs(container, value) {
   const paragraphs = text(value).split(/\n{2,}/).map((part) => part.trim()).filter(Boolean);
   const fragment = document.createDocumentFragment();
@@ -234,6 +221,7 @@ function render(destination, { fallback = false } = {}) {
     elements.heroImage.src = localPath("imges/beaches.jpg");
   }, { once: true });
   elements.fallbackNotice.hidden = !fallback;
+  if (elements.fallbackRetry) elements.fallbackRetry.hidden = !runtimeConfig.apiEnabled;
   elements.translationNotice.hidden = !destination.translationFallback;
   elements.planLink.href = `${pathPrefix}plan.html?destination=${encodeURIComponent(destination.slug)}`;
   elements.atlasLink.href = `${pathPrefix}atlas.html?destination=${encodeURIComponent(destination.slug)}`;
@@ -294,14 +282,18 @@ async function loadDestination() {
   setView("loading");
 
   try {
-    if (curated && shouldSkipLoopbackRequest()) {
+    if (curated && !runtimeConfig.apiEnabled) {
       result = { view: "curated" };
+      return;
+    }
+
+    if (!runtimeConfig.apiEnabled) {
+      result = { view: "error" };
       return;
     }
 
     const payload = await apiClient.get(`/destinations/${encodeURIComponent(slug)}`, {
       signal: controller.signal,
-      timeoutMs: DETAIL_REQUEST_TIMEOUT_MS,
       retries: 0,
     });
     const destination = normalizeApiDestination(payload, curated);

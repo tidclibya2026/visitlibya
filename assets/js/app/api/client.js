@@ -124,6 +124,20 @@ function buildBody(body, headers) {
 
 export function createApiClient(config = loadRuntimeConfig()) {
   async function request(path, options = {}) {
+    if (!config.apiEnabled || !config.apiBaseUrl) {
+      throw new AppError("API unavailable", {
+        code: "API_UNAVAILABLE",
+        retryable: false,
+        details: null,
+      });
+    }
+    if (typeof path !== "string" || !path.startsWith("/") || path.startsWith("//")) {
+      throw new AppError("Invalid API path", {
+        code: "BAD_REQUEST",
+        retryable: false,
+        details: null,
+      });
+    }
     const method = String(options.method ?? "GET").toUpperCase();
     const retries = method === "GET" ? Math.max(0, Number(options.retries ?? 0)) : 0;
     let attempt = 0;

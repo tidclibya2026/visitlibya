@@ -1,5 +1,9 @@
 # بنية Frontend Foundation لمنصة Visit Libya
 
+> إعداد النشر الحالي وسياسة API موثقان في
+> [`frontend-runtime-configuration.md`](frontend-runtime-configuration.md). ذلك المستند
+> هو المرجع المعتمد لإعداد local وGitHub Pages وبيئة production المستقبلية.
+
 ## 1. الهدف والنطاق
 
 توفر هذه الحزمة أساسًا معياريًا لربط Trip Planner بواجهة Visit Libya الثابتة دون
@@ -93,7 +97,8 @@ Static HTML Page
   → FastAPI Backend
 ```
 
-يبني runtime config عنوانًا ينتهي افتراضيًا بـ`/api/v1`. يدعم العميل GET وPOST
+لا يفترض runtime config عنوان API افتراضيًا، وتكون API معطلة بأمان حتى يتم
+تفعيلها صراحة بعنوان صالح. يدعم العميل GET وPOST
 وPATCH وPUT وDELETE، JSON وtext و204، timeout وAbortSignal خارجيًا، وrequest ID
 إذا أعاده Backend. retry معطل افتراضيًا ومتاح اختياريًا لـGET فقط.
 
@@ -173,9 +178,9 @@ window.VISIT_LIBYA_CONFIG = Object.freeze({
 });
 ```
 
-يحتوي المستودع حاليًا على `frontend-config.js` بقيم تطوير محلية آمنة لتشغيل
-My Trips دون خطأ تحميل. يجب استبدال `apiBaseUrl` أثناء النشر حسب البيئة، ولا
-يجوز أن يحتوي الملف على كلمات مرور أوtokens. عنوان API ليس سرًا.
+يحتوي المستودع على `frontend-config.js` بقيم static-host آمنة: API معطلة وعنوانها
+فارغ. أما `frontend-config.example.js` فهو مثال للتطوير المحلي فقط. راجع دليل
+runtime configuration لمعرفة إعداد GitHub Pages وHTTPS وCORS وحالة كل ميزة.
 
 ## 15. My Trips
 
