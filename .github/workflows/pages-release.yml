@@ -1,0 +1,57 @@
+name: Manual GitHub Pages release
+
+on:
+  workflow_dispatch:
+    inputs:
+      site_origin:
+        description: "Confirmed HTTPS public origin, without repository path (for example https://owner.github.io)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages-production
+  cancel-in-progress: false
+
+jobs:
+  release:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out selected revision
+        uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate source frontend
+        run: node scripts/validate-frontend.mjs
+      - name: Smoke test source frontend
+        run: node scripts/smoke-test-static-site.mjs
+      - name: Check JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r file; do node --check "$file"; done < <(find assets/js config scripts -type f \( -name '*.js' -o -name '*.mjs' \) -print)
+          node --check main.js
+          node --check partials.js
+      - name: Build sanitized release artifact
+        run: node scripts/build-pages-artifact.mjs --site-origin "${{ inputs.site_origin }}"
+      - name: Validate sanitized release artifact
+        run: node scripts/validate-pages-artifact.mjs
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload sanitized Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: .pages-artifact
+      - name: Deploy approved Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

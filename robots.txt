@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Account and trip-planning pages are excluded with page-level noindex metadata.
+# Sitemap is added only to release artifacts built with an explicit origin.

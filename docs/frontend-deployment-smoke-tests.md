@@ -108,3 +108,7 @@ Treat publication as failed and roll back to the last known-good static revision
 |  |  | Pass / Fail |  | Clean / Notes | Clean / Notes |  |  |
 
 Record failures explicitly. Do not mark a deployment successful when console, network, Arabic parity, or backend-unavailable checks were skipped.
+
+## Release artifact checks
+
+Run the artifact commands and complete [the release checklist](frontend-release-checklist.md) before any manual Pages workflow approval.
