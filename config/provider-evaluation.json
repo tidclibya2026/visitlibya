@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "status": "proposed",
+  "recommendation": "managed-container-plus-managed-postgresql-postgis",
+  "scoringScale": { "minimum": 0, "maximum": 5 },
+  "scoringRule": "Do not assign a score without dated authoritative evidence and a recorded confidence level.",
+  "blockingCriteria": [
+    "procurement_eligible",
+    "postgresql_16_compatible",
+    "postgis_3_4_compatible",
+    "private_database_networking",
+    "database_tls",
+    "backup_and_pitr",
+    "approved_data_residency",
+    "supported_exit_path"
+  ],
+  "criteria": [
+    { "id": "security_compliance", "label": "Security and compliance", "weight": 20 },
+    { "id": "database_capability", "label": "PostgreSQL/PostGIS capability", "weight": 15 },
+    { "id": "operability", "label": "Operations and observability", "weight": 15 },
+    { "id": "portability_exit", "label": "Portability and exit", "weight": 15 },
+    { "id": "networking_tls", "label": "Private networking and TLS", "weight": 10 },
+    { "id": "availability_recovery", "label": "Availability and recovery", "weight": 10 },
+    { "id": "residency_procurement", "label": "Residency and procurement", "weight": 10 },
+    { "id": "cost_governance", "label": "Cost governance", "weight": 5 }
+  ],
+  "providerEntryTemplate": {
+    "name": "<CANDIDATE_NOT_SELECTED>",
+    "scores": [],
+    "confidence": "unverified",
+    "authoritativeEvidence": [],
+    "evidenceDate": null,
+    "evidenceReference": null,
+    "technicalValidationResult": "not-run",
+    "procurementEligibility": "unknown",
+    "dataResidency": "unknown",
+    "support": "unknown",
+    "exitStrategy": "unverified"
+  },
+  "providers": []
+}
+

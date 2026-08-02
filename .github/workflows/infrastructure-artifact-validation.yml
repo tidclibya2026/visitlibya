@@ -1,0 +1,90 @@
+name: Infrastructure artifact validation
+
+on:
+  pull_request:
+    paths:
+      - "config/provider-evaluation.json"
+      - "deploy/**"
+      - "docs/adr/**"
+      - "docs/infrastructure/**"
+      - "scripts/deployment/**"
+      - "backend/tests/unit/core/test_infrastructure_artifacts.py"
+      - ".github/workflows/infrastructure-artifact-validation.yml"
+  push:
+    branches: ["feature/backend-production-infrastructure-*"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      APP_ENV: production
+      DEBUG: "false"
+      DATABASE_URL: postgresql+psycopg://validation:validation@db.invalid:5432/validation
+      JWT_SECRET_KEY: CI9!aB2@cD3#eF4$gH5%jK6^mN7&pQ8*rS0(tU1)vW2+xY3=z
+      CORS_ORIGINS: https://tidclibya2026.github.io
+      TRUSTED_HOSTS: api.invalid
+      FORWARDED_ALLOW_IPS: 10.0.0.0/24
+      DATABASE_SSL_MODE: verify-full
+      DATABASE_CONNECT_TIMEOUT: "10"
+      DATABASE_POOL_SIZE: "5"
+      DATABASE_MAX_OVERFLOW: "5"
+      DATABASE_POOL_TIMEOUT: "30"
+      DATABASE_POOL_RECYCLE: "1800"
+      LOG_LEVEL: INFO
+      ENABLE_DOCS: "false"
+      ENABLE_REDOC: "false"
+      ENABLE_OPENAPI: "false"
+      PORT: "8000"
+      WEB_CONCURRENCY: "2"
+      API_PREFIX: /api/v1
+      JWT_ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTES: "30"
+      IMAGE_REFERENCE: visitlibya/backend:validation
+      ALLOW_DIRTY_GIT: "true"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: ["backend/requirements.txt", "backend/requirements-dev.txt"]
+      - name: Install validation dependencies
+        working-directory: backend
+        run: pip install -r requirements.txt -r requirements-dev.txt
+      - name: Parse JSON and workflow YAML
+        run: |
+          python -m json.tool config/provider-evaluation.json > /dev/null
+          python -c "from pathlib import Path; import yaml; [yaml.safe_load(p.read_text()) for p in Path('.github/workflows').glob('*.yml')]; print('workflow YAML valid')"
+      - name: Validate shell and PowerShell scripts
+        run: |
+          bash -n scripts/deployment/validate-environment.sh scripts/deployment/preflight.sh
+          bash scripts/deployment/validate-environment.sh
+          bash scripts/deployment/preflight.sh
+      - name: Validate PowerShell behavior
+        shell: pwsh
+        run: |
+          $errors = $null
+          [System.Management.Automation.Language.Parser]::ParseFile("scripts/deployment/validate-environment.ps1", [ref]$null, [ref]$errors) | Out-Null
+          if ($errors.Count) { throw "PowerShell parser rejected validate-environment.ps1" }
+          [System.Management.Automation.Language.Parser]::ParseFile("scripts/deployment/preflight.ps1", [ref]$null, [ref]$errors) | Out-Null
+          if ($errors.Count) { throw "PowerShell parser rejected preflight.ps1" }
+          ./scripts/deployment/validate-environment.ps1
+          ./scripts/deployment/preflight.ps1
+      - name: Validate SQL and infrastructure artifacts
+        working-directory: backend
+        run: python -m pytest -q tests/unit/core/test_infrastructure_artifacts.py
+      - name: Confirm static frontend and provider-neutral safety
+        run: |
+          node scripts/validate-frontend.mjs
+          ! find . -type f \( -name '*.tf' -o -name '*.tfvars' -o -name 'render.yaml' -o -name 'railway.json' -o -name 'fly.toml' -o -name 'Chart.yaml' \) -print -quit | grep .
+          ! grep -Eiq 'PASSWORD[[:space:]]+['"'"'][^'"'"']+|\bDROP\b' deploy/database/roles.example.sql
+          ! grep -Eiq 'docker[[:space:]]+push|kubectl|terraform[[:space:]]+(apply|destroy)|aws[[:space:]]|az[[:space:]]|gcloud[[:space:]]' deploy scripts/deployment
+          ! grep -Eq 'apiEnabled:[[:space:]]*true' config/frontend-config.js
+          grep -Eq 'apiEnabled:[[:space:]]*false' config/frontend-config.js
+          ! grep -Eq '(^|[^A-Za-z])5432:5432' deploy/environment/*.example docker-compose.production.example.yml
+          ! grep -Eiq '^CMD .*alembic|uvicorn.*alembic|alembic.*uvicorn' backend/Dockerfile deploy/container-runtime-contract.md
+
