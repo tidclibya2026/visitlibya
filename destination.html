@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destination | Visit Libya</title>
+  <meta name="description" content="Explore a Libyan destination through trusted local stories, practical location information, and tourism planning links.">
+  <meta property="og:type" content="website">
+  <link rel="alternate" hreflang="en" href="destination.html">
+  <link rel="alternate" hreflang="ar" href="ar/destination.html">
+  <link rel="alternate" hreflang="x-default" href="destination.html">
+  <link rel="stylesheet" href="style.css?v=hero-panel-slideshow-01">
+  <link rel="stylesheet" href="assets/css/design-system.css?v=frontend-2-01">
+  <link rel="stylesheet" href="assets/css/base.css?v=frontend-2-01">
+  <link rel="stylesheet" href="assets/css/layout.css?v=frontend-2-01">
+  <link rel="stylesheet" href="assets/css/components.css?v=frontend-2-01">
+  <link rel="stylesheet" href="assets/css/destination-details.css?v=frontend-2-details-01">
+</head>
+<body>
+  <a class="site-skip-link" href="#mainContent">Skip to destination details</a>
+  <header class="vl-topbar" id="siteHeader">
+    <a class="vl-logo" href="index.html" aria-label="Visit Libya home"><strong>Visit Libya</strong><span>Discover Authenticity</span></a>
+    <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primaryNav">☰</button>
+    <nav class="vl-nav" id="primaryNav" aria-label="Main navigation">
+      <a href="index.html">Home</a><a href="destinations.html" class="is-current">Destinations</a><a href="experiences.html">Things to Do</a>
+      <div class="vl-dropdown"><a href="culture.html">Culture &amp; Cuisine <span aria-hidden="true">⌄</span></a><div class="vl-dropdown-menu" aria-label="Culture menu"><a href="culture.html#culture">Culture &amp; Cuisine</a><a href="culture.html#food">Cuisine</a><a href="culture.html#folklore">Folklore</a><a href="culture.html#crafts">Traditional Handicrafts</a><a href="heritage.html">UNESCO World Heritage</a></div></div>
+      <a href="heritage.html">Heritage</a><a href="plan.html">Plan Your Trip</a><a href="services.html">Travel Services</a><a href="atlas.html">Libya Tourism Atlas</a><a href="ai.html">VisitLibya AI</a>
+    </nav>
+    <a class="vl-language" id="destinationLanguageLink" href="ar/destination.html" aria-label="View this destination in Arabic"><span aria-hidden="true">◉</span> العربية</a>
+  </header>
+
+  <main id="mainContent" class="destination-detail-page">
+    <section class="destination-detail-state" id="destinationLoading" role="status" aria-live="polite">
+      <span class="destination-detail-loader" aria-hidden="true"></span><h1>Loading destination…</h1><p>Preparing local stories and travel information.</p>
+    </section>
+
+    <section class="destination-detail-state destination-detail-state--error" id="destinationNotFound" hidden>
+      <p class="destination-detail-state__mark" aria-hidden="true">404</p><h1>Destination not found</h1><p>The link may be incomplete or this destination is not currently available.</p><a class="destination-detail-button destination-detail-button--primary" href="destinations.html">Explore all destinations</a>
+    </section>
+
+    <section class="destination-detail-state destination-detail-state--error" id="destinationError" role="alert" hidden>
+      <p class="destination-detail-state__mark" aria-hidden="true">!</p><h1>Destination details are unavailable</h1><p>We could not retrieve this destination and no curated local record is available.</p><div class="destination-detail-actions"><button class="destination-detail-button destination-detail-button--primary" id="destinationRetry" type="button">Retry</button><a class="destination-detail-button destination-detail-button--secondary" href="destinations.html">Back to destinations</a></div>
+    </section>
+
+    <article id="destinationContent" hidden>
+      <section class="destination-detail-hero" aria-labelledby="destinationTitle">
+        <img id="destinationHeroImage" src="imges/beaches.jpg" alt="" width="1280" height="715" fetchpriority="high">
+        <div class="destination-detail-hero__overlay"></div>
+        <div class="destination-detail-hero__content">
+          <a class="destination-detail-back" href="destinations.html">← Back to destinations</a>
+          <p class="destination-detail-eyebrow" id="destinationCategory">Libyan destination</p>
+          <h1 id="destinationTitle">Destination</h1>
+          <p class="destination-detail-hero__intro" id="destinationIntroduction"></p>
+          <p class="destination-detail-location" id="destinationLocation"></p>
+        </div>
+      </section>
+
+      <div class="destination-detail-notices" aria-live="polite">
+        <div class="destination-detail-notice" id="destinationFallbackNotice" hidden><span>Live updates are unavailable. You are viewing Visit Libya’s curated local destination information.</span><button id="destinationFallbackRetry" type="button">Retry live data</button></div>
+        <p class="destination-detail-notice" id="destinationTranslationNotice" hidden>The English translation is not available, so the closest available destination text is shown.</p>
+      </div>
+
+      <section class="destination-detail-body" aria-labelledby="destinationOverviewTitle">
+        <div class="destination-detail-copy"><p class="destination-detail-eyebrow">Discover the place</p><h2 id="destinationOverviewTitle">About this destination</h2><div id="destinationDescription"></div></div>
+        <aside class="destination-detail-facts" aria-labelledby="destinationFactsTitle"><h2 id="destinationFactsTitle">Location at a glance</h2><dl><div><dt>Region</dt><dd id="destinationRegion">Libya</dd></div><div><dt>Municipality</dt><dd id="destinationMunicipality">Not specified</dd></div><div><dt>Destination type</dt><dd id="destinationCategoryFact">Libyan destination</dd></div></dl></aside>
+      </section>
+
+      <section class="destination-detail-gallery" id="destinationGallerySection" aria-labelledby="destinationGalleryTitle" hidden><div class="destination-detail-section-heading"><p class="destination-detail-eyebrow">Local perspectives</p><h2 id="destinationGalleryTitle">Gallery</h2></div><div class="destination-detail-gallery__grid" id="destinationGallery"></div></section>
+      <section class="destination-detail-related" id="destinationRelatedSection" aria-labelledby="destinationRelatedTitle" hidden><div class="destination-detail-section-heading"><p class="destination-detail-eyebrow">Continue exploring</p><h2 id="destinationRelatedTitle">Related destinations</h2></div><div class="destination-detail-related__grid" id="destinationRelated"></div></section>
+      <section class="destination-detail-cta" aria-labelledby="destinationCtaTitle"><div><p class="destination-detail-eyebrow">Shape your journey</p><h2 id="destinationCtaTitle">Continue planning your visit</h2><p>Bring this destination into a wider journey across Libya.</p></div><div class="destination-detail-actions"><a class="destination-detail-button destination-detail-button--gold" id="destinationPlanLink" href="plan.html">Plan a trip</a><a class="destination-detail-button destination-detail-button--light" id="destinationAtlasLink" href="atlas.html">Open tourism atlas</a></div></section>
+    </article>
+  </main>
+
+  <footer class="vl-footer"><div class="vl-footer-grid"><div><h2>Visit Libya</h2><p>Official national tourism platform for presenting Libya through destinations, experiences, culture, routes, and trusted visual storytelling.</p></div><div><h3>Explore</h3><a href="destinations.html">Destinations</a><a href="experiences.html">Things to Do</a><a href="culture.html">Culture &amp; Cuisine</a><a href="heritage.html">UNESCO World Heritage</a><a href="atlas.html">Libya Tourism Atlas</a></div><div><h3>Official Attribution</h3><p class="official">Ministry of Tourism and Traditional Industries<br>Tourism Information &amp; Documentation Center</p><p class="small">Official names appear in the footer only.</p></div></div></footer>
+  <script src="config/frontend-config.js"></script>
+  <script src="main.js?v=hero-panel-slideshow-01"></script>
+  <script type="module" src="assets/js/app/ui/site-shell.js?v=frontend-2-01"></script>
+  <script type="module" src="assets/js/pages/destination-details.js?v=frontend-2-details-02"></script>
+</body>
+</html>

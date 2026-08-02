@@ -1,0 +1,102 @@
+:root {
+  color-scheme: light;
+
+  /* Brand and semantic color */
+  --color-brand-primary: #0b3a67;
+  --color-brand-primary-hover: #082f55;
+  --color-brand-primary-active: #062542;
+  --color-brand-secondary: #c89b3c;
+  --color-accent: #2e7d5b;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f3f6f8;
+  --color-surface-elevated: #ffffff;
+  --color-text: #111827;
+  --color-text-muted: #5f6b7a;
+  --color-border: #d8e0e8;
+  --color-focus: #c89b3c;
+  --color-success: #287a55;
+  --color-warning: #a86612;
+  --color-danger: #8c2f22;
+  --color-info: #17699a;
+  --color-footer: #061b2e;
+  --color-overlay: rgb(6 27 46 / 72%);
+
+  /* Typography */
+  --font-family-sans: Inter, Cairo, "Noto Sans Arabic", Arial, sans-serif;
+  --font-family-display: Inter, Cairo, "Noto Sans Arabic", Arial, sans-serif;
+  --font-size-display: clamp(3rem, 7vw, 6.5rem);
+  --font-size-h1: clamp(2.65rem, 5vw, 5rem);
+  --font-size-h2: clamp(2rem, 3.8vw, 3.75rem);
+  --font-size-h3: clamp(1.35rem, 2vw, 1.75rem);
+  --font-size-body-lg: 1.125rem;
+  --font-size-body: 1rem;
+  --font-size-caption: 0.875rem;
+  --line-height-tight: 1.08;
+  --line-height-heading: 1.2;
+  --line-height-body: 1.7;
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+
+  /* Geometry */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
+  --radius-pill: 999px;
+  --container-wide: 90rem;
+  --container-content: 76rem;
+  --container-reading: 48rem;
+  --header-height: 5rem;
+  --control-height: 3rem;
+
+  /* Elevation */
+  --shadow-card: 0 16px 44px rgb(17 24 39 / 9%);
+  --shadow-card-hover: 0 24px 64px rgb(17 24 39 / 15%);
+  --shadow-navigation: 0 10px 32px rgb(6 27 46 / 9%);
+  --shadow-modal: 0 32px 96px rgb(6 27 46 / 28%);
+  --focus-ring: 0 0 0 4px rgb(200 155 60 / 28%);
+
+  /* Motion */
+  --duration-fast: 120ms;
+  --duration-normal: 220ms;
+  --duration-slow: 420ms;
+  --easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --easing-emphasized: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Compatibility aliases for the existing application */
+  --blue: var(--color-brand-primary);
+  --gold: var(--color-brand-secondary);
+  --green: var(--color-accent);
+  --red: var(--color-danger);
+  --ink: var(--color-text);
+  --muted: var(--color-text-muted);
+  --white: var(--color-surface);
+  --cream: var(--color-surface-muted);
+  --shadow: var(--shadow-card);
+}
+
+html[lang="ar"] {
+  --font-family-sans: Cairo, "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+  --font-family-display: Cairo, "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0.01ms;
+    --duration-normal: 0.01ms;
+    --duration-slow: 0.01ms;
+  }
+}
