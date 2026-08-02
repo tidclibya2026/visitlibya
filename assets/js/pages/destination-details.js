@@ -160,8 +160,8 @@ function renderGallery(destination) {
     const image = document.createElement("img");
     image.src = source;
     image.alt = isArabic
-      ? `${destination.name}، مشهد محلي ${new Intl.NumberFormat("ar-LY").format(index + 1)}`
-      : `${destination.name}, local view ${index + 1}`;
+      ? `الصورة ${new Intl.NumberFormat("ar-LY").format(index + 1)} في معرض ${destination.name}`
+      : `Image ${index + 1} in the ${destination.name} gallery`;
     image.loading = "lazy";
     image.decoding = "async";
     image.addEventListener("error", () => figure.remove(), { once: true });

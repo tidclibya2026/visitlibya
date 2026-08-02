@@ -115,7 +115,7 @@ function validateLocalReference(section, sourceFile, content, reference, index, 
     return null;
   }
   const rel = relative(resolved.target);
-  if (!tracked.has(rel) && rel !== "scripts/generate-sitemap.mjs") issue("Git tracking", at(sourceFile, content, index, `referenced dependency is not tracked by Git: ${reference}`));
+  if (!tracked.has(rel) && !["scripts/generate-sitemap.mjs", "favicon.png"].includes(rel)) issue("Git tracking", at(sourceFile, content, index, `referenced dependency is not tracked by Git: ${reference}`));
   if (isIgnored(rel)) issue("Git tracking", at(sourceFile, content, index, `referenced dependency is ignored by Git: ${reference}`));
   if (fragment) {
     const hashIndex = reference.indexOf("#");
@@ -313,8 +313,75 @@ if (/Disallow:\s*\/(?:assets|ar|imges|panel)/i.test(robotsSource)) issue("Releas
 if (fs.existsSync(path.join(root, "404.html"))) { const notFound = fs.readFileSync(path.join(root, "404.html"), "utf8"); if (!/noindex,follow/i.test(notFound) || !/[\u0600-\u06ff]/.test(notFound) || !/destinations\.html/.test(notFound)) issue("Release readiness", "404 page policy or bilingual recovery links are incomplete"); }
 if (fs.existsSync(path.join(root, ".github/workflows/pages-release.yml"))) { const workflow = fs.readFileSync(path.join(root, ".github/workflows/pages-release.yml"), "utf8"); if (!/workflow_dispatch:/.test(workflow) || /\bpush:|pull_request:/.test(workflow)) issue("Release readiness", "Pages workflow must remain manual-only"); for (const action of workflow.matchAll(/uses:\s*([^\s]+)/g)) if (!/^actions\/(?:checkout|setup-node|configure-pages|upload-pages-artifact|deploy-pages)@/.test(action[1])) issue("Release readiness", `unapproved action ${action[1]}`); if (!/path:\s*\.pages-artifact/.test(workflow)) issue("Release readiness", "workflow does not upload the sanitized artifact"); }
 
+const publicHtml = new Map(htmlByRelative);
+const notFoundPath = path.join(root, "404.html");
+if (fs.existsSync(notFoundPath)) publicHtml.set("404.html", fs.readFileSync(notFoundPath, "utf8"));
+for (const [rel, content] of publicHtml) {
+  const file = path.join(root, rel);
+  for (const match of content.matchAll(/<a\b[^>]*\bhref=["']([^"']*)["'][^>]*>/gi)) {
+    const href = match[1].trim();
+    if (!href) issue("Navigation", at(file, content, match.index, "public link has an empty href"));
+    if (href === "#") issue("Navigation", at(file, content, match.index, "public link uses href=#"));
+    if (/^javascript:/i.test(href)) issue("Navigation", at(file, content, match.index, "JavaScript pseudo-link is forbidden"));
+    if (/^(?:file:\/\/|https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?(?:\/|$))/i.test(href)) issue("Deployment safety", at(file, content, match.index, "public link uses a local URL"));
+    if (/\/visitlibya\/visitlibya\//i.test(href)) issue("Navigation", at(file, content, match.index, "duplicated /visitlibya/ project path"));
+  }
+  const favicon = content.match(/<link[^>]+rel=["']icon["'][^>]+href=["']([^"']+)["']/i)?.[1];
+  if (!favicon) issue("Release readiness", `${rel}: favicon missing`);
+  else {
+    const resolved = localTarget(file, favicon);
+    if (resolved.error || exactPathStatus(resolved.target) !== "ok") issue("HTML references", `${rel}: favicon does not resolve: ${favicon}`);
+  }
+  for (const property of ["og:title", "og:description", "og:type"]) if (!new RegExp(`<meta[^>]+property=["']${property}["']`, "i").test(content)) issue("Release readiness", `${rel}: ${property} missing`);
+  for (const name of ["twitter:card", "twitter:title", "twitter:description"]) if (!new RegExp(`<meta[^>]+name=["']${name}["']`, "i").test(content)) issue("Release readiness", `${rel}: ${name} missing`);
+  for (const hero of content.matchAll(/<span[^>]+class=["'][^"']*page-hero-bg[^"']*["'][^>]*>[\s\S]*?<img\b[^>]*\balt=["']([^"']*)["'][^>]*>/gi)) {
+    const alt = hero[1].trim();
+    if (!alt || /^(?:Visit Libya page hero|page hero|hero image)$/i.test(alt)) issue("HTML and parity", `${rel}: meaningful hero image has empty or generic alt text`);
+  }
+  if (/<link[^>]+rel=["']canonical["'][^>]+href=["']https?:\/\/(?:www\.)?visitlibya\.ly/i.test(content)) issue("Release readiness", `${rel}: active visitlibya.ly canonical URL is premature`);
+  for (const match of content.matchAll(/destination\.html\?slug=([^&#"']+)/gi)) {
+    const slug = decodePath(match[1]);
+    if (slug && !slugs.has(slug)) issue("Curated destinations", `${rel}: destination link uses unknown slug ${slug}`);
+  }
+}
+for (const pair of manifest.pagePairs) {
+  const enContent = htmlByRelative.get(pair.page) ?? "";
+  const arContent = htmlByRelative.get(`ar/${pair.page}`) ?? "";
+  for (const [rel, content, expected] of [
+    [pair.page, enContent, { en: pair.page, ar: `ar/${pair.page}`, "x-default": pair.page }],
+    [`ar/${pair.page}`, arContent, { ar: pair.page, en: `../${pair.page}`, "x-default": `../${pair.page}` }],
+  ]) for (const [language, href] of Object.entries(expected)) {
+    const escaped = href.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    if (!new RegExp(`<link[^>]+rel=["']alternate["'][^>]+hreflang=["']${language}["'][^>]+href=["']${escaped}["']`, "i").test(content)) issue("HTML and parity", `${rel}: missing origin-neutral hreflang=${language} for ${href}`);
+  }
+}
+
+const imageReferences = new Map();
+function recordImage(target, label) {
+  if (!fs.existsSync(target) || !fs.statSync(target).isFile()) return;
+  const rel = relative(target);
+  if (!imageReferences.has(rel)) imageReferences.set(rel, new Set());
+  imageReferences.get(rel).add(label);
+}
+for (const [rel, content] of publicHtml) {
+  for (const match of content.matchAll(/(?:src=["']|url\(\s*["']?)([^"')]+)(?:["']|\))/gi)) {
+    const decoded = decodePath(stripQueryAndFragment(match[1]));
+    if (!decoded || !/(?:^|\/)imges\//i.test(decoded)) continue;
+    recordImage(path.resolve(path.dirname(path.join(root, rel)), decoded), rel);
+  }
+}
+for (const destination of curatedDestinations) recordImage(path.join(root, destination.image), `curated destination: ${destination.slug}`);
+for (const match of destinationController.matchAll(/["'](imges\/[^"']+)["']/gi)) recordImage(path.join(root, match[1]), "destination gallery data");
+const strictImageSize = process.env.VISIT_LIBYA_STRICT_IMAGE_SIZE === "1";
+for (const [imagePath, references] of [...imageReferences].sort(([a], [b]) => a.localeCompare(b))) {
+  const bytes = fs.statSync(path.join(root, imagePath)).size;
+  const category = bytes > 15 * 1024 * 1024 ? "publication blocker (>15 MB)" : bytes > 5 * 1024 * 1024 ? "high-priority warning (>5 MB)" : bytes > 2 * 1024 * 1024 ? "warning (>2 MB)" : null;
+  if (!category) continue;
+  const message = `${imagePath} | ${category} | referenced by ${[...references].sort().join(", ")}`;
+  if (strictImageSize) issue("Image size audit", message); else warn(message);
+}
 const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
-const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness"];
+const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness", "Image size audit"];
 for (const name of orderedSections) {
   const items = sections.get(name) ?? [];
   if (items.length) {
