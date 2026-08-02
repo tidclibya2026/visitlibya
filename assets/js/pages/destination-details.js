@@ -21,7 +21,7 @@ const localGalleries = Object.freeze({
   tripoli: ["imges/oldtripoli.jpg", "imges/tripoliMarcus Arch.JPG", "imges/Museumtripoli.jpg"],
   benghazi: ["imges/bengazi1.JPG", "imges/bengazi.JPG", "imges/bengazi3.JPG"],
   ghadames: ["imges/Ghadames2.JPG", "imges/ghadames5.JPG", "imges/ghadames6.JPG"],
-  acacus: ["imges/Acacus.jpg", "imges/Acacus1.jpeg", "imges/Acacus2.jpeg"],
+  acacus: ["imges/curated/acacus-rock-art-chariot.jpg", "imges/curated/acacus-rock-art-scene-2.jpg", "imges/curated/acacus-rock-art-scene-3.jpg"],
   "green-mountain": ["imges/landscapes5.JPG", "imges/Cyrene2.JPG", "imges/landscapes7.jpg"],
   desert: ["imges/The Sahara Desert.jpg", "imges/natural lakes.jpg", "imges/desert.jpg"],
   nafusa: ["imges/traditional industries.jpg", "imges/pottery.jpg", "imges/qaser aje.jpg"],
@@ -29,8 +29,40 @@ const localGalleries = Object.freeze({
   awjila: ["imges/Awjila.jpg", "imges/gallery/awajla.jpg", "imges/natural lakes1.jpg"],
   sabratha: ["imges/Sabratha.jpg", "imges/Sabratha.jpeg", "imges/Leptis Magna3.jpeg"],
   "leptis-magna": ["imges/Leptis Magna3.jpeg", "imges/Leptis Magna1.jpg", "imges/Leptis Magna.jpeg"],
-  "villa-sileen": ["imges/Leptis Magna.jpg", "imges/Leptis Magna1.jpg", "imges/Leptis Magna.jpeg"],
+  "villa-sileen": ["imges/curated/villa-sileen-aerial.jpg", "imges/curated/villa-sileen-theatre.jpg", "imges/curated/villa-sileen-coast.jpg"],
 });
+
+const localImageAlt = Object.freeze({
+  "imges/curated/villa-sileen-aerial.jpg": {
+    en: "Aerial view of Villa Sileen on the Mediterranean coast",
+    ar: "منظر جوي لفيلا سيلين على ساحل البحر المتوسط",
+  },
+  "imges/curated/villa-sileen-theatre.jpg": {
+    en: "Theatre remains at Villa Sileen",
+    ar: "بقايا المسرح في فيلا سيلين",
+  },
+  "imges/curated/villa-sileen-coast.jpg": {
+    en: "Villa Sileen beside the Mediterranean coast",
+    ar: "فيلا سيلين بجوار ساحل البحر المتوسط",
+  },
+  "imges/curated/acacus-rock-art-chariot.jpg": {
+    en: "Rock-art scene depicting a chariot and horses in the Acacus region",
+    ar: "مشهد من الفن الصخري يصور عربة وخيولًا في منطقة أكاكوس",
+  },
+  "imges/curated/acacus-rock-art-scene-2.jpg": {
+    en: "Rock-art scene in the Acacus region",
+    ar: "مشهد من الفن الصخري في منطقة أكاكوس",
+  },
+  "imges/curated/acacus-rock-art-scene-3.jpg": {
+    en: "Ancient rock art in the Acacus region",
+    ar: "فن صخري قديم في منطقة أكاكوس",
+  },
+});
+
+function imageAlt(source, fallback) {
+  const normalized = source.replace(/^\.\.\//, "");
+  return localImageAlt[normalized]?.[locale] ?? fallback;
+}
 
 const elements = {
   loading: document.getElementById("destinationLoading"),
@@ -159,9 +191,9 @@ function renderGallery(destination) {
     figure.className = "destination-detail-gallery__figure";
     const image = document.createElement("img");
     image.src = source;
-    image.alt = isArabic
+    image.alt = imageAlt(source, isArabic
       ? `الصورة ${new Intl.NumberFormat("ar-LY").format(index + 1)} في معرض ${destination.name}`
-      : `Image ${index + 1} in the ${destination.name} gallery`;
+      : `Image ${index + 1} in the ${destination.name} gallery`);
     image.loading = "lazy";
     image.decoding = "async";
     image.addEventListener("error", () => figure.remove(), { once: true });
@@ -216,7 +248,7 @@ function render(destination, { fallback = false } = {}) {
   elements.region.textContent = destination.region;
   elements.municipality.textContent = destination.municipality;
   elements.heroImage.src = destination.hero || localPath("imges/beaches.jpg");
-  elements.heroImage.alt = isArabic ? `مشهد سياحي من ${destination.name}` : `Tourism view of ${destination.name}`;
+  elements.heroImage.alt = imageAlt(destination.hero, isArabic ? `مشهد سياحي من ${destination.name}` : `Tourism view of ${destination.name}`);
   elements.heroImage.addEventListener("error", () => {
     elements.heroImage.src = localPath("imges/beaches.jpg");
   }, { once: true });

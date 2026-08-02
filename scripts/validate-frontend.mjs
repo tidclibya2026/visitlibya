@@ -357,21 +357,77 @@ for (const pair of manifest.pagePairs) {
 }
 
 const layoutCss = fs.readFileSync(path.join(root, "style.css"), "utf8");
-const heritageImagePaths = new Set([
+const heritageImagePaths = [
   "imges/Leptis Magna3.jpeg",
   "imges/Cyrene.jpg",
   "imges/Sabratha.jpg",
-  "imges/Acacus.jpg",
+  "imges/curated/acacus-rock-art-chariot.jpg",
   "imges/Ghadames2.JPG",
-]);
+];
+const heritageSemanticOrder = Object.freeze({
+  "heritage.html": ["Leptis Magna", "Cyrene / Shahhat", "Sabratha", "Rock-Art Sites of Tadrart Acacus", "Old Town of Ghadames"],
+  "ar/heritage.html": ["لبدة الكبرى", "شحات / قورينا", "صبراتة", "الفن الصخري في أكاكوس", "مدينة غدامس القديمة"],
+});
+const voidElements = new Set(["area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr"]);
+function directChildElements(source, expectedTag) {
+  const elements = [];
+  const tags = /<\/?([a-z][a-z0-9-]*)\b[^>]*>/gi;
+  let depth = 0;
+  let current = null;
+  for (const tag of source.matchAll(tags)) {
+    const name = tag[1].toLowerCase();
+    const closing = tag[0].startsWith("</");
+    if (closing) {
+      if (!voidElements.has(name)) depth -= 1;
+      if (depth === 0 && current && name === expectedTag) {
+        elements.push({
+          opening: current.opening,
+          inner: source.slice(current.innerStart, tag.index),
+          outer: source.slice(current.start, tag.index + tag[0].length),
+        });
+        current = null;
+      }
+      continue;
+    }
+    if (depth === 0 && name === expectedTag) current = { start: tag.index, innerStart: tag.index + tag[0].length, opening: tag[0] };
+    if (!voidElements.has(name) && !tag[0].endsWith("/>") ) depth += 1;
+  }
+  return elements;
+}
+function elementById(source, tagName, id) {
+  const opening = new RegExp(`<${tagName}\\b[^>]*\\bid=["']${id}["'][^>]*>`, "i").exec(source);
+  if (!opening) return null;
+  const tags = new RegExp(`<\\/?${tagName}\\b[^>]*>`, "gi");
+  tags.lastIndex = opening.index;
+  let depth = 0;
+  for (const tag of source.matchAll(tags)) {
+    if (tag[0].startsWith("</")) depth -= 1;
+    else depth += 1;
+    if (depth === 0) return {
+      opening: opening[0],
+      inner: source.slice(opening.index + opening[0].length, tag.index),
+      outer: source.slice(opening.index, tag.index + tag[0].length),
+    };
+  }
+  return null;
+}
 for (const rel of ["heritage.html", "ar/heritage.html"]) {
   const content = htmlByRelative.get(rel) ?? "";
-  const section = content.match(/<section\b[^>]*\bid=["']world-heritage["'][^>]*>([\s\S]*?)<\/section>/i)?.[1] ?? "";
-  const cards = [...section.matchAll(/<article\b[^>]*class=["'][^"']*destination-card[^"']*["'][^>]*>[\s\S]*?<\/article>/gi)];
+  const section = elementById(content, "section", "world-heritage");
+  const grids = section ? directChildElements(section.inner, "div").filter((element) => /\bclass=["'][^"']*\b(?:heritage-card-grid|destination-grid)\b[^"']*["']/i.test(element.opening)) : [];
+  if (grids.length !== 1) issue("Editorial layout", `${rel}: World Heritage section must contain exactly one direct heritage grid`);
+  const grid = grids[0] ?? { opening: "", inner: "" };
+  if (!/\bclass=["'][^"']*\bdestination-grid\b[^"']*\bheritage-card-grid\b[^"']*["']/i.test(grid.opening)) issue("Editorial layout", `${rel}: World Heritage grid must use destination-grid heritage-card-grid`);
+  const cards = directChildElements(grid.inner, "article").filter((element) => /\bclass=["'][^"']*\bdestination-card\b[^"']*["']/i.test(element.opening));
   if (cards.length !== 5) issue("Editorial layout", `${rel}: World Heritage grid must contain exactly five cards`);
-  if (!/class=["'][^"']*destination-grid[^"']*["']/i.test(section)) issue("Editorial layout", `${rel}: World Heritage desktop grid class is missing`);
-  const paths = new Set([...section.matchAll(/<img\b[^>]*\bsrc=["'](?:\.\.\/)?([^"']+)["']/gi)].map((match) => match[1]));
-  if (paths.size !== heritageImagePaths.size || [...heritageImagePaths].some((image) => !paths.has(image))) issue("Editorial layout", `${rel}: World Heritage image paths changed`);
+  const paths = cards.map((card) => card.inner.match(/<img\b[^>]*\bsrc=["'](?:\.\.\/)?([^"']+)["']/i)?.[1] ?? "");
+  if (JSON.stringify(paths) !== JSON.stringify(heritageImagePaths)) issue("Editorial layout", `${rel}: World Heritage image paths or semantic order changed`);
+  const headings = cards.map((card) => card.inner.match(/<h3\b[^>]*>([\s\S]*?)<\/h3>/i)?.[1].replace(/<[^>]+>/g, "").trim() ?? "");
+  if (JSON.stringify(headings) !== JSON.stringify(heritageSemanticOrder[rel])) issue("HTML and parity", `${rel}: World Heritage destination order changed`);
+  for (const card of cards) {
+    const alt = card.inner.match(/<img\b[^>]*\balt=["']([^"']+)["']/i)?.[1].trim();
+    if (!alt) issue("HTML and parity", `${rel}: World Heritage card lacks meaningful alt text`);
+  }
 }
 for (const rel of ["culture.html", "ar/culture.html", "ar/experiences.html", "ar/heritage.html"]) {
   const content = htmlByRelative.get(rel) ?? "";

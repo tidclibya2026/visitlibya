@@ -53,7 +53,7 @@ export const curatedDestinations = Object.freeze([
     category_en: "Sahara and Rock Art",
     category_ar: "الصحراء والفن الصخري",
     category_key: "sahara-rock-art",
-    image: "imges/Acacus.jpg",
+    image: "imges/curated/acacus-rock-art-chariot.jpg",
   },
   {
     slug: "green-mountain",
@@ -157,6 +157,6 @@ export const curatedDestinations = Object.freeze([
     category_en: "Archaeological Sites",
     category_ar: "المواقع الأثرية",
     category_key: "archaeological-sites",
-    image: "imges/Leptis Magna.jpg",
+    image: "imges/curated/villa-sileen-aerial.jpg",
   },
 ]);
