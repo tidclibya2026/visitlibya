@@ -316,6 +316,11 @@ if (fs.existsSync(path.join(root, ".github/workflows/pages-release.yml"))) { con
 const publicHtml = new Map(htmlByRelative);
 const notFoundPath = path.join(root, "404.html");
 if (fs.existsSync(notFoundPath)) publicHtml.set("404.html", fs.readFileSync(notFoundPath, "utf8"));
+const mediaPerformancePages = new Set([
+  "index.html", "ar/index.html", "destinations.html", "ar/destinations.html", "destination.html", "ar/destination.html",
+  "culture.html", "ar/culture.html", "experiences.html", "ar/experiences.html", "heritage.html", "ar/heritage.html",
+  "atlas.html", "ar/atlas.html", "services.html", "ar/services.html",
+]);
 for (const [rel, content] of publicHtml) {
   const file = path.join(root, rel);
   for (const match of content.matchAll(/<a\b[^>]*\bhref=["']([^"']*)["'][^>]*>/gi)) {
@@ -342,6 +347,38 @@ for (const [rel, content] of publicHtml) {
   for (const match of content.matchAll(/destination\.html\?slug=([^&#"']+)/gi)) {
     const slug = decodePath(match[1]);
     if (slug && !slugs.has(slug)) issue("Curated destinations", `${rel}: destination link uses unknown slug ${slug}`);
+  }
+  const highPriorityImages = [...content.matchAll(/<img\b[^>]*\bfetchpriority=["']high["'][^>]*>/gi)];
+  if (highPriorityImages.length > 1) issue("Media delivery", `${rel}: more than one image uses fetchpriority=high`);
+  for (const highPriorityImage of highPriorityImages) {
+    const tag = highPriorityImage[0];
+    if (/\bloading=["']lazy["']/i.test(tag)) issue("Media delivery", at(file, content, highPriorityImage.index, "fetchpriority=high image must not use loading=lazy"));
+    const alt = tag.match(/\balt=["']([^"']+)["']/i)?.[1].trim();
+    if (!alt) issue("Media delivery", at(file, content, highPriorityImage.index, "fetchpriority=high image requires meaningful alt text"));
+  }
+  for (const picture of content.matchAll(/<picture\b[^>]*>([\s\S]*?)<\/picture>/gi)) {
+    if (!/<img\b[^>]*\bsrc=["'][^"']+["'][^>]*>/i.test(picture[1])) issue("Media delivery", at(file, content, picture.index, "picture element lacks a valid img fallback"));
+  }
+  for (const candidateSet of content.matchAll(/<(?:img|source)\b[^>]*\bsrcset=["']([^"']+)["'][^>]*>/gi)) {
+    for (const candidate of candidateSet[1].split(",")) {
+      const reference = candidate.trim().split(/\s+/, 1)[0];
+      validateLocalReference("HTML references", file, content, reference, candidateSet.index, { fragment: false });
+    }
+  }
+  for (const editorial of content.matchAll(/<(?:section)\b[^>]*class=["'][^"']*(?:discover-detail|ar-detail)[^"']*["'][^>]*>[\s\S]*?<img\b([^>]*)>/gi)) {
+    const attributes = editorial[1];
+    if (/\bsrc=["'](?:\.\.\/)?imges\/curated\//i.test(attributes) && !/\bloading=["']lazy["']/i.test(attributes)) issue("Media delivery", `${rel}: below-the-fold curated editorial image must use loading=lazy`);
+    if (/\bsrc=["'](?:\.\.\/)?imges\/curated\//i.test(attributes) && !/\bdecoding=["']async["']/i.test(attributes)) issue("Media delivery", `${rel}: curated editorial image must use decoding=async`);
+    const alt = attributes.match(/\balt=["']([^"']+)["']/i)?.[1].trim();
+    if (!alt) issue("Media delivery", `${rel}: editorial image lacks meaningful alt text`);
+  }
+  if (mediaPerformancePages.has(rel)) for (const image of content.matchAll(/<img\b[^>]*>/gi)) {
+    const tag = image[0];
+    if (!/\bdecoding=["']async["']/i.test(tag)) issue("Media delivery", at(file, content, image.index, "audited image must use decoding=async"));
+    const primary = /\b(?:loading=["']eager["']|fetchpriority=["']high["'])/i.test(tag);
+    if (!primary && !/\bloading=["']lazy["']/i.test(tag)) issue("Media delivery", at(file, content, image.index, "below-the-fold image must use loading=lazy"));
+    const source = tag.match(/\bsrc=["']([^"']+)["']/i)?.[1] ?? "";
+    if (!/\.webp(?:[?#]|$)/i.test(source) && (!/\bwidth=["']?\d+/i.test(tag) || !/\bheight=["']?\d+/i.test(tag))) issue("Media delivery", at(file, content, image.index, "audited image with known dimensions must declare width and height"));
   }
 }
 for (const pair of manifest.pagePairs) {
@@ -469,8 +506,12 @@ for (const [imagePath, references] of [...imageReferences].sort(([a], [b]) => a.
   const message = `${imagePath} | ${category} | referenced by ${[...references].sort().join(", ")}`;
   if (strictImageSize) issue("Image size audit", message); else warn(message);
 }
+for (const [imagePath, references] of [...imageReferences].filter(([imagePath]) => imagePath.startsWith("imges/optimized/"))) {
+  const bytes = fs.statSync(path.join(root, imagePath)).size;
+  if (bytes > 2 * 1024 * 1024) warn(`${imagePath} | optimized asset remains above 2 MB | referenced by ${[...references].sort().join(", ")}`);
+}
 const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
-const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Image size audit"];
+const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Media delivery", "Image size audit"];
 for (const name of orderedSections) {
   const items = sections.get(name) ?? [];
   if (items.length) {
