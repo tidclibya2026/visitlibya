@@ -361,7 +361,11 @@ const heritageImagePaths = new Set([
   "imges/Leptis Magna3.jpeg",
   "imges/Cyrene.jpg",
   "imges/Sabratha.jpg",
+<<<<<<< HEAD
   "imges/curated/acacus-rock-art-chariot.jpg",
+=======
+  "imges/Acacus.jpg",
+>>>>>>> origin/main
   "imges/Ghadames2.JPG",
 ]);
 for (const rel of ["heritage.html", "ar/heritage.html"]) {
