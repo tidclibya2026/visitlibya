@@ -356,6 +356,39 @@ for (const pair of manifest.pagePairs) {
   }
 }
 
+const layoutCss = fs.readFileSync(path.join(root, "style.css"), "utf8");
+const heritageImagePaths = new Set([
+  "imges/Leptis Magna3.jpeg",
+  "imges/Cyrene.jpg",
+  "imges/Sabratha.jpg",
+  "imges/Acacus.jpg",
+  "imges/Ghadames2.JPG",
+]);
+for (const rel of ["heritage.html", "ar/heritage.html"]) {
+  const content = htmlByRelative.get(rel) ?? "";
+  const section = content.match(/<section\b[^>]*\bid=["']world-heritage["'][^>]*>([\s\S]*?)<\/section>/i)?.[1] ?? "";
+  const cards = [...section.matchAll(/<article\b[^>]*class=["'][^"']*destination-card[^"']*["'][^>]*>[\s\S]*?<\/article>/gi)];
+  if (cards.length !== 5) issue("Editorial layout", `${rel}: World Heritage grid must contain exactly five cards`);
+  if (!/class=["'][^"']*destination-grid[^"']*["']/i.test(section)) issue("Editorial layout", `${rel}: World Heritage desktop grid class is missing`);
+  const paths = new Set([...section.matchAll(/<img\b[^>]*\bsrc=["'](?:\.\.\/)?([^"']+)["']/gi)].map((match) => match[1]));
+  if (paths.size !== heritageImagePaths.size || [...heritageImagePaths].some((image) => !paths.has(image))) issue("Editorial layout", `${rel}: World Heritage image paths changed`);
+}
+for (const rel of ["culture.html", "ar/culture.html", "ar/experiences.html", "ar/heritage.html"]) {
+  const content = htmlByRelative.get(rel) ?? "";
+  for (const match of content.matchAll(/<(?:section)\b[^>]*class=["'][^"']*(?:discover-detail|ar-detail)[^"']*["'][^>]*>[\s\S]*?<img\b([^>]*)>/gi)) {
+    const attributes = match[1];
+    if (/\bstyle=["'][^"']*(?:height|max-height|object-fit)\s*:/i.test(attributes)) issue("Editorial layout", `${rel}: editorial image uses an inline crop constraint`);
+    const alt = attributes.match(/\balt=["']([^"']+)["']/i)?.[1]?.trim();
+    if (!alt) issue("Editorial layout", `${rel}: editorial image lacks meaningful alt text`);
+  }
+}
+for (const required of [
+  /\.ar-detail img\s*\{[\s\S]*?height:\s*auto;[\s\S]*?object-fit:\s*contain;/,
+  /#world-heritage[^\{]*\{[\s\S]*?grid-template-columns:\s*repeat\(6,/,
+  /@media \(max-width:\s*1050px\)[\s\S]*?#world-heritage[\s\S]*?repeat\(2,/,
+  /@media \(max-width:\s*640px\)[\s\S]*?#world-heritage[\s\S]*?minmax\(0,\s*1fr\)/,
+]) if (!required.test(layoutCss)) issue("Editorial layout", "style.css: responsive editorial or heritage-grid rule is missing");
+
 const imageReferences = new Map();
 function recordImage(target, label) {
   if (!fs.existsSync(target) || !fs.statSync(target).isFile()) return;
@@ -381,7 +414,7 @@ for (const [imagePath, references] of [...imageReferences].sort(([a], [b]) => a.
   if (strictImageSize) issue("Image size audit", message); else warn(message);
 }
 const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
-const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness", "Image size audit"];
+const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Image size audit"];
 for (const name of orderedSections) {
   const items = sections.get(name) ?? [];
   if (items.length) {
