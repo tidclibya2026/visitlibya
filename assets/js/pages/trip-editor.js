@@ -300,6 +300,17 @@ export async function initializeTripEditor(documentRef = document) {
   const addStop = queryRequired("[data-add-stop]", documentRef);
   const itinerary = queryRequired("[data-trip-itinerary]", documentRef);
 
+  if (!context.config.apiEnabled) {
+    setVisible(loading, false);
+    setText(errorMessage, t("trips.plannerUnavailable"));
+    retry.hidden = true;
+    setVisible(errorPanel, true);
+    setVisible(authRequired, false);
+    setVisible(editor, false);
+    announce(t("trips.plannerUnavailable"), { force: true });
+    return;
+  }
+
   let trip = null;
   let savedSnapshot = null;
   let dirtyMetadata = false;

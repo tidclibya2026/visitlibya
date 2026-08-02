@@ -41,6 +41,10 @@ export const en = Object.freeze({
     emailConflict: "An account already exists with this email address.",
     usernameConflict: "This username is already in use.",
     registrationFailed: "Your account could not be created. Please try again.",
+    registrationUnavailable:
+      "Account registration is not available right now. You can continue exploring Visit Libya.",
+    signInUnavailable:
+      "Sign-in is not available right now. Curated destination information remains available.",
     registrationSuccessTitle: "Thank you for registering with Visit Libya",
     registrationSuccessMessage:
       "Your account has been created successfully. You can now sign in and start exploring destinations and planning your trip across Libya.",
@@ -151,10 +155,12 @@ export const en = Object.freeze({
       "This trip was updated elsewhere. Reload the latest version before saving additional changes.",
     keepReviewing: "Keep reviewing",
     saving: "Saving…",
+    plannerUnavailable:
+      "Trip planning is not available right now. You can continue exploring curated destinations.",
   }),
   errors: Object.freeze({
-    network:
-      "Unable to connect to the Visit Libya service. Confirm that the local API is running.",
+    apiUnavailable: "This online feature is not available right now.",
+    network: "The live service could not be reached. Please try again later.",
     offline: "You appear to be offline.",
     timeout: "The request took too long. Try again.",
     aborted: "The request was cancelled.",

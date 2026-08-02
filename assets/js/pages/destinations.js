@@ -1,9 +1,11 @@
 import { apiClient } from "../app/api/client.js";
+import { loadRuntimeConfig } from "../app/config/runtime-config.js";
 import { curatedDestinations } from "../data/curated-destinations.js";
 
 const isArabic = document.documentElement.lang === "ar";
 const locale = isArabic ? "ar-LY" : "en";
 const pathPrefix = isArabic ? "../" : "";
+const runtimeConfig = loadRuntimeConfig();
 
 const copy = Object.freeze({
   allCategories: isArabic ? "كل الوجهات" : "All destinations",
@@ -382,6 +384,11 @@ async function loadDestinations({ force = false } = {}) {
   state.query = elements.query.value.trim().slice(0, 250);
   state.region = elements.region.value;
   state.sort = elements.sort.value;
+
+  if (!runtimeConfig.apiEnabled) {
+    showFallback();
+    return;
+  }
   syncUrl();
 
   if (state.source === "curated" && !force) {

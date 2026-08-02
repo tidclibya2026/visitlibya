@@ -1,4 +1,5 @@
 const MESSAGE_KEYS = Object.freeze({
+  API_UNAVAILABLE: "errors.apiUnavailable",
   NETWORK_ERROR: "errors.network",
   TIMEOUT: "errors.timeout",
   ABORTED: "errors.aborted",

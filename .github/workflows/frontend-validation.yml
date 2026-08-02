@@ -1,0 +1,30 @@
+name: Frontend validation
+
+on:
+  pull_request:
+  push:
+    branches-ignore:
+      - gh-pages
+
+permissions:
+  contents: read
+
+jobs:
+  validate-static-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate runtime configuration and static paths
+        run: node scripts/validate-frontend.mjs
+
+      - name: Check frontend JavaScript syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r file; do
+            node --check "$file"
+          done < <(find assets/js config scripts -type f \( -name '*.js' -o -name '*.mjs' \) -print)
+          node --check main.js
+          node --check partials.js

@@ -48,7 +48,7 @@ async function initializeTripsPage() {
   const context = await bootstrap();
   if (!context) return;
 
-  const { locale, store, translator } = context;
+  const { config, locale, store, translator } = context;
   const { t } = translator;
   const loginPanel = queryRequired("[data-login-panel]");
   const tripsPanel = queryRequired("[data-trips-panel]");
@@ -66,6 +66,19 @@ async function initializeTripsPage() {
   const logoutButton = queryRequired("[data-logout]");
 
   let loadInProgress = false;
+
+  if (!config.apiEnabled) {
+    username.disabled = true;
+    password.disabled = true;
+    remember.disabled = true;
+    loginSubmit.disabled = true;
+    setText(loginError, t("auth.signInUnavailable"));
+    setVisible(loginError, true);
+    setVisible(tripsPanel, false);
+    setVisible(loginPanel, true);
+    announce(t("auth.signInUnavailable"), { force: true });
+    return;
+  }
 
   const clearLoginErrors = () => {
     [username, password].forEach((field) => field.removeAttribute("aria-invalid"));

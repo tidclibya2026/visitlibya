@@ -1,8 +1,10 @@
-﻿// Safe local-development configuration. Replace apiBaseUrl during deployment.
-// This file must never contain credentials, access tokens, or other secrets.
+// Public runtime configuration for static hosting. Never place secrets here.
 window.VISIT_LIBYA_CONFIG = Object.freeze({
-  apiBaseUrl: "http://127.0.0.1:8001/api/v1",
-  requestTimeoutMs: 10000,
-  defaultLocale: "en",
+  apiBaseUrl: "",
+  apiEnabled: false,
   debug: false,
+  requestTimeoutMs: 10000,
+  deploymentEnvironment: "static",
+  siteBasePath: "",
+  defaultLocale: "en",
 });

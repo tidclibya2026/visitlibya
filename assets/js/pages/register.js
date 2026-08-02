@@ -62,7 +62,7 @@ async function initializeRegistrationPage() {
   const context = await bootstrap();
   if (!context) return;
 
-  const { locale, translator } = context;
+  const { config, locale, translator } = context;
   const { t } = translator;
   const form = queryRequired("[data-register-form]");
   const submit = queryRequired("[data-register-submit]", form);
@@ -70,6 +70,15 @@ async function initializeRegistrationPage() {
   const fields = initializeFields(form);
   const signInPath = locale === "ar" ? "trips.html" : "trips.html";
   let submitting = false;
+
+  if (!config.apiEnabled) {
+    Object.values(fields).forEach((field) => { field.disabled = true; });
+    submit.disabled = true;
+    setText(formError, t("auth.registrationUnavailable"));
+    setVisible(formError, true);
+    announce(t("auth.registrationUnavailable"), { force: true });
+    return;
+  }
 
   const errorElement = (name) =>
     queryRequired(`[data-error-for="${name}"]`, form);
