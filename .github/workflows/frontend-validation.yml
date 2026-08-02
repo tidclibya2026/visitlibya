@@ -3,8 +3,9 @@ name: Frontend validation
 on:
   pull_request:
   push:
-    branches-ignore:
-      - gh-pages
+    branches:
+      - main
+      - "feature/frontend-*"
 
 permissions:
   contents: read
@@ -12,12 +13,21 @@ permissions:
 jobs:
   validate-static-frontend:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
       - name: Validate runtime configuration and static paths
         run: node scripts/validate-frontend.mjs
+
+      - name: Smoke test the static site
+        run: node scripts/smoke-test-static-site.mjs
 
       - name: Check frontend JavaScript syntax
         shell: bash

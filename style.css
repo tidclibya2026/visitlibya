@@ -366,17 +366,17 @@ html:not([lang="ar"]) .hero-heritage     { --hero-image: url("imges/Leptis Magna
 html:not([lang="ar"]) .hero-culture      { --hero-image: url("imges/Bazin.jpg"); }
 html:not([lang="ar"]) .hero-experiences  { --hero-image: url("imges/Acacus.jpg"); }
 html:not([lang="ar"]) .hero-plan         { --hero-image: url("imges/desert.jpg"); }
-html:not([lang="ar"]) .hero-atlas        { --hero-image: url("panel/panel1.jpg"); }
+html:not([lang="ar"]) .hero-atlas        { --hero-image: url("panel/panel1.png"); }
 html:not([lang="ar"]) .hero-ai           { --hero-image: url("imges/tripolinow.jpg"); }
 
 /* Arabic /ar page images */
-html[lang="ar"] .hero-destinations { --hero-image: url("../imges/Ghadames.jpg"); }
-html[lang="ar"] .hero-heritage     { --hero-image: url("../imges/Leptis Magna.jpg"); }
-html[lang="ar"] .hero-culture      { --hero-image: url("../imges/Bazin.jpg"); }
-html[lang="ar"] .hero-experiences  { --hero-image: url("../imges/Acacus.jpg"); }
-html[lang="ar"] .hero-plan         { --hero-image: url("../imges/desert.jpg"); }
-html[lang="ar"] .hero-atlas        { --hero-image: url("../panel/panel1.jpg"); }
-html[lang="ar"] .hero-ai           { --hero-image: url("../imges/tripolinow.jpg"); }
+html[lang="ar"] .hero-destinations { --hero-image: url("imges/Ghadames.jpg"); }
+html[lang="ar"] .hero-heritage     { --hero-image: url("imges/Leptis Magna.jpg"); }
+html[lang="ar"] .hero-culture      { --hero-image: url("imges/Bazin.jpg"); }
+html[lang="ar"] .hero-experiences  { --hero-image: url("imges/Acacus.jpg"); }
+html[lang="ar"] .hero-plan         { --hero-image: url("imges/desert.jpg"); }
+html[lang="ar"] .hero-atlas        { --hero-image: url("panel/panel1.png"); }
+html[lang="ar"] .hero-ai           { --hero-image: url("imges/tripolinow.jpg"); }
 
 /* Better vertical composition */
 .sub-hero {

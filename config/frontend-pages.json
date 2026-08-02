@@ -1,0 +1,25 @@
+{
+  "projectBasePath": "/visitlibya/",
+  "pagePairs": [
+    { "page": "index.html", "classification": "fully-static" },
+    { "page": "destinations.html", "classification": "static-curated-fallback", "controller": "assets/js/pages/destinations.js", "runtime": "curated" },
+    { "page": "destination.html", "classification": "static-curated-fallback", "controller": "assets/js/pages/destination-details.js", "runtime": "curated-detail" },
+    { "page": "experiences.html", "classification": "fully-static" },
+    { "page": "culture.html", "classification": "fully-static" },
+    { "page": "heritage.html", "classification": "fully-static" },
+    { "page": "plan.html", "classification": "fully-static" },
+    { "page": "services.html", "classification": "fully-static" },
+    { "page": "atlas.html", "classification": "external-link-launcher" },
+    { "page": "ai.html", "classification": "placeholder-demo" },
+    { "page": "register.html", "classification": "live-backend-required", "controller": "assets/js/pages/register.js", "runtime": "registration-unavailable" },
+    { "page": "trips.html", "classification": "live-backend-required", "controller": "assets/js/pages/trips-page.js", "runtime": "sign-in-unavailable" },
+    { "page": "trip.html", "classification": "live-backend-required", "controller": "assets/js/pages/trip-editor.js", "runtime": "planner-unavailable" }
+  ],
+  "apiDependentPages": ["destinations.html", "destination.html", "register.html", "trips.html", "trip.html"],
+  "criticalUrls": [
+    "index.html", "ar/index.html", "destinations.html", "ar/destinations.html",
+    "destination.html?slug=leptis-magna", "ar/destination.html?slug=leptis-magna",
+    "register.html", "ar/register.html", "trips.html", "ar/trips.html",
+    "trip.html?id=1", "ar/trip.html?id=1"
+  ]
+}

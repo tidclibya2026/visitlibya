@@ -79,6 +79,9 @@ Run:
 
 ```text
 node scripts/validate-frontend.mjs
+node scripts/smoke-test-static-site.mjs
 ```
 
-The command exits non-zero for unsafe local URLs outside approved examples, missing runtime config on API pages, invalid production transport, missing scripts/modules, root-relative project paths, or duplicated public configuration.
+The commands exit non-zero for deployment violations or failed static HTTP/runtime checks. The smoke runner serves the repository temporarily under a simulated GitHub Pages project subpath and shuts down without writing generated files.
+
+Use the [frontend deployment smoke-test checklist](frontend-deployment-smoke-tests.md) for pre-publication review, post-publication URLs, browser checks, rollback criteria, and evidence capture.

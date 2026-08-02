@@ -1,0 +1,327 @@
+import fs from "node:fs";
+import http from "node:http";
+import path from "node:path";
+import vm from "node:vm";
+import process from "node:process";
+import { fileURLToPath, pathToFileURL } from "node:url";
+
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const manifest = JSON.parse(fs.readFileSync(path.join(root, "config/frontend-pages.json"), "utf8"));
+const basePath = manifest.projectBasePath;
+const failures = [];
+let executed = 0;
+let passed = 0;
+
+const mimeTypes = new Map(Object.entries({
+  ".html": "text/html; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".mjs": "text/javascript; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".png": "image/png",
+  ".webp": "image/webp",
+  ".avif": "image/avif",
+  ".svg": "image/svg+xml",
+  ".kml": "application/vnd.google-earth.kml+xml",
+  ".csv": "text/csv; charset=utf-8",
+  ".txt": "text/plain; charset=utf-8",
+  ".xml": "application/xml; charset=utf-8",
+  ".ico": "image/x-icon",
+  ".woff": "font/woff",
+  ".woff2": "font/woff2",
+  ".ttf": "font/ttf",
+  ".otf": "font/otf",
+  ".pdf": "application/pdf",
+}));
+
+async function test(name, assertion) {
+  executed += 1;
+  try {
+    await assertion();
+    passed += 1;
+    console.log(`PASS ${name}`);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    failures.push(`${name}: ${message}`);
+    console.error(`FAIL ${name}: ${message}`);
+  }
+}
+
+function assert(condition, message) {
+  if (!condition) throw new Error(message);
+}
+
+function decodeRequestPath(rawUrl) {
+  const rawPath = String(rawUrl ?? "/").split(/[?#]/, 1)[0];
+  let decoded;
+  try { decoded = decodeURIComponent(rawPath); } catch { return { status: 400 }; }
+  if (decoded.includes("\\") || decoded.split("/").includes("..") || decoded.includes("\0")) return { status: 403 };
+  let pathname = decoded;
+  if (pathname === "/" || pathname === basePath.slice(0, -1)) pathname = "/index.html";
+  else if (pathname === basePath) pathname = `${basePath}index.html`;
+  if (pathname.startsWith(basePath)) pathname = `/${pathname.slice(basePath.length)}`;
+  const target = path.resolve(root, `.${pathname}`);
+  if (path.relative(root, target).startsWith("..")) return { status: 403 };
+  return { status: 200, target };
+}
+
+function createServer() {
+  return http.createServer((request, response) => {
+    if (!["GET", "HEAD"].includes(request.method ?? "")) {
+      response.writeHead(405, { Allow: "GET, HEAD" }).end();
+      return;
+    }
+    const resolved = decodeRequestPath(request.url);
+    if (resolved.status !== 200) {
+      response.writeHead(resolved.status).end();
+      return;
+    }
+    let stat;
+    try { stat = fs.statSync(resolved.target); } catch { response.writeHead(404).end(); return; }
+    const target = stat.isDirectory() ? path.join(resolved.target, "index.html") : resolved.target;
+    if (!fs.existsSync(target) || !fs.statSync(target).isFile()) { response.writeHead(404).end(); return; }
+    const mime = mimeTypes.get(path.extname(target).toLowerCase()) ?? "application/octet-stream";
+    const size = fs.statSync(target).size;
+    response.writeHead(200, { "Content-Type": mime, "Content-Length": size, "X-Content-Type-Options": "nosniff" });
+    if (request.method === "HEAD") response.end();
+    else fs.createReadStream(target).pipe(response);
+  });
+}
+
+function listen(server) {
+  return new Promise((resolve, reject) => {
+    server.once("error", reject);
+    server.listen(0, "127.0.0.1", () => resolve(server.address().port));
+  });
+}
+
+function close(server) {
+  return new Promise((resolve, reject) => server.close((error) => error ? reject(error) : resolve()));
+}
+
+function rawStatus(port, requestPath) {
+  return new Promise((resolve, reject) => {
+    const request = http.get({ hostname: "127.0.0.1", port, path: requestPath }, (response) => {
+      response.resume();
+      response.once("end", () => resolve(response.statusCode));
+    });
+    request.once("error", reject);
+  });
+}
+
+function pagePaths() {
+  return manifest.pagePairs.flatMap(({ page }) => [page, `ar/${page}`]);
+}
+
+function htmlAttributes(content) {
+  const match = content.match(/<html\b([^>]*)>/i);
+  return match?.[1] ?? "";
+}
+
+function scripts(content) {
+  return [...content.matchAll(/<script[^>]+src=["']([^"']+)["']/gi)].map((match) => match[1]);
+}
+
+function localLinks(content) {
+  return [...content.matchAll(/href=["']([^"']+)["']/gi)].map((match) => match[1]).filter((link) =>
+    link && !link.startsWith("#") && !/^(?:https?:|mailto:|tel:|javascript:|data:|\/\/)/i.test(link));
+}
+
+const server = createServer();
+let origin;
+try {
+  const port = await listen(server);
+  origin = `http://127.0.0.1:${port}`;
+  console.log(`Static smoke server: ${origin}${basePath}`);
+
+  await test("server binds to loopback on an ephemeral port", () => {
+    const address = server.address();
+    assert(address.address === "127.0.0.1", `bound to ${address.address}`);
+    assert(Number.isInteger(address.port) && address.port > 0, "ephemeral port was not assigned");
+  });
+
+  for (const page of pagePaths()) {
+    await test(`HTTP 200 ${basePath}${page}`, async () => {
+      const response = await fetch(`${origin}${basePath}${page}`);
+      assert(response.status === 200, `received ${response.status}`);
+      assert(response.headers.get("content-type")?.startsWith("text/html"), `unexpected MIME ${response.headers.get("content-type")}`);
+      const content = await response.text();
+      const arabic = page.startsWith("ar/");
+      const attrs = htmlAttributes(content);
+      assert(new RegExp(`\\blang=["']${arabic ? "ar" : "en"}["']`, "i").test(attrs), "incorrect lang attribute");
+      assert(new RegExp(`\\bdir=["']${arabic ? "rtl" : "ltr"}["']`, "i").test(attrs), "incorrect dir attribute");
+    });
+  }
+
+  for (const requestPath of ["/", "/index.html", "/ar/index.html"]) {
+    await test(`root-style request ${requestPath}`, async () => {
+      const response = await fetch(`${origin}${requestPath}`);
+      assert(response.status === 200, `received ${response.status}`);
+    });
+  }
+
+  const criticalAssets = [
+    ["config/frontend-config.js", "text/javascript"],
+    ["config/frontend-pages.json", "application/json"],
+    ["assets/js/app/config/runtime-config.js", "text/javascript"],
+    ["assets/js/app/api/client.js", "text/javascript"],
+    ["assets/js/data/curated-destinations.js", "text/javascript"],
+    ["style.css", "text/css"],
+    ["assets/css/design-system.css", "text/css"],
+    ["assets/css/destinations.css", "text/css"],
+    ["assets/css/destination-details.css", "text/css"],
+    ["imges/Leptis Magna3.jpeg", "image/jpeg"],
+    ["imges/Stone inscriptions in antiquities.jpg", "image/jpeg"],
+    ["imges/الدبلة.webp", "image/webp"],
+  ];
+  for (const [asset, expectedMime] of criticalAssets) {
+    await test(`asset and MIME ${asset}`, async () => {
+      const response = await fetch(`${origin}${basePath}${encodeURI(asset)}`);
+      assert(response.status === 200, `received ${response.status}`);
+      assert(response.headers.get("content-type")?.startsWith(expectedMime), `expected ${expectedMime}, received ${response.headers.get("content-type")}`);
+    });
+  }
+
+  await test("query strings and fragments preserve the static pathname", async () => {
+    const response = await fetch(`${origin}${basePath}destination.html?slug=leptis-magna#mainContent`);
+    assert(response.status === 200, `received ${response.status}`);
+    assert((await response.text()).includes("destinationContent"), "destination detail content container is missing");
+  });
+
+  await test("directory traversal is rejected", async () => {
+    const status = await rawStatus(port, `${basePath}%2e%2e/%2e%2e/config/frontend-config.js`);
+    assert(status === 403, `expected 403, received ${status}`);
+  });
+
+  for (const page of ["destination.html", "ar/destination.html"]) {
+    await test(`${page} detail state containers and config order`, async () => {
+      const content = await (await fetch(`${origin}${basePath}${page}?slug=leptis-magna`)).text();
+      for (const id of ["destinationLoading", "destinationNotFound", "destinationError", "destinationContent", "destinationLanguageLink"]) assert(content.includes(`id="${id}"`), `missing #${id}`);
+      assert(content.indexOf("config/frontend-config.js") < content.indexOf("assets/js/pages/destination-details.js"), "runtime config does not precede controller");
+    });
+  }
+
+  const unavailableHooks = {
+    "register.html": ["data-register-form", "data-register-error", "data-register-submit"],
+    "trips.html": ["data-login-form", "data-login-error", "data-login-submit"],
+    "trip.html": ["data-trip-error", "data-trip-editor", "data-trip-loading"],
+  };
+  for (const [page, hooks] of Object.entries(unavailableHooks)) {
+    for (const rel of [page, `ar/${page}`]) {
+      await test(`${rel} API-disabled structural hooks`, async () => {
+        const content = await (await fetch(`${origin}${basePath}${rel}`)).text();
+        for (const hook of hooks) assert(content.includes(hook), `missing ${hook}`);
+        assert(content.indexOf("config/frontend-config.js") < content.indexOf(manifest.pagePairs.find((entry) => entry.page === page).controller), "runtime config does not precede controller");
+      });
+    }
+  }
+
+  await test("visitor pages do not depend on scripts directory", async () => {
+    for (const page of pagePaths()) {
+      const content = await (await fetch(`${origin}${basePath}${page}`)).text();
+      assert(!scripts(content).some((source) => /(?:^|\/)scripts\//.test(source)), `${page} references a test/operator script`);
+    }
+  });
+
+  await test("all internal page links return HTTP 200 under project subpath", async () => {
+    const checked = new Set();
+    for (const page of pagePaths()) {
+      const sourceUrl = new URL(`${basePath}${page}`, origin);
+      const content = await (await fetch(sourceUrl)).text();
+      for (const link of localLinks(content)) {
+        const target = new URL(link, sourceUrl);
+        if (!target.pathname.endsWith(".html") && !target.pathname.endsWith("/")) continue;
+        const key = `${target.pathname}${target.search}`;
+        if (checked.has(key)) continue;
+        checked.add(key);
+        const response = await fetch(target);
+        assert(response.status === 200, `${page} -> ${link} returned ${response.status}`);
+      }
+    }
+    assert(checked.size > 20, `only ${checked.size} internal links were checked`);
+  });
+
+  const runtimeUrl = pathToFileURL(path.join(root, "assets/js/app/config/runtime-config.js"));
+  const clientUrl = pathToFileURL(path.join(root, "assets/js/app/api/client.js"));
+  const { loadRuntimeConfig } = await import(runtimeUrl);
+  const { createApiClient } = await import(clientUrl);
+  const remoteHttps = { protocol: "https:", hostname: "visit.example" };
+  const localHttp = { protocol: "http:", hostname: "127.0.0.1" };
+  const policyCases = [
+    ["empty enabled URL is disabled", { apiEnabled: true, apiBaseUrl: "" }, remoteHttps, false, "missing-url"],
+    ["remote localhost is disabled", { apiEnabled: true, apiBaseUrl: "http://127.0.0.1:8000/api/v1" }, remoteHttps, false, "local-url-on-remote-host"],
+    ["HTTP API under HTTPS is disabled", { apiEnabled: true, apiBaseUrl: "http://api.example.test/api/v1" }, remoteHttps, false, "insecure-url"],
+    ["illustrative HTTPS API is accepted", { apiEnabled: true, apiBaseUrl: "https://api.example.test/api/v1" }, remoteHttps, true, "available"],
+    ["local loopback API is accepted locally", { apiEnabled: true, apiBaseUrl: "http://127.0.0.1:8000/api/v1" }, localHttp, true, "available"],
+  ];
+  for (const [name, config, location, enabled, status] of policyCases) {
+    await test(name, () => {
+      const result = loadRuntimeConfig(config, location);
+      assert(result.apiEnabled === enabled, `apiEnabled=${result.apiEnabled}`);
+      assert(result.apiStatus === status, `apiStatus=${result.apiStatus}`);
+    });
+  }
+  await test("apiEnabled false returns API_UNAVAILABLE before fetch", async () => {
+    const originalFetch = globalThis.fetch;
+    let fetchCalls = 0;
+    globalThis.fetch = async () => { fetchCalls += 1; throw new Error("fetch must not run"); };
+    try {
+      const client = createApiClient(loadRuntimeConfig({ apiEnabled: false }, remoteHttps));
+      let error;
+      try { await client.get("/destinations"); } catch (caught) { error = caught; }
+      assert(error?.code === "API_UNAVAILABLE", `received ${error?.code ?? "no error"}`);
+      assert(fetchCalls === 0, `fetch called ${fetchCalls} time(s)`);
+    } finally { globalThis.fetch = originalFetch; }
+  });
+
+  await test("committed runtime config is static-safe and hostname-free", () => {
+    const source = fs.readFileSync(path.join(root, "config/frontend-config.js"), "utf8");
+    const sandbox = { window: {} };
+    vm.runInNewContext(source, sandbox, { filename: "config/frontend-config.js" });
+    const config = sandbox.window.VISIT_LIBYA_CONFIG;
+    assert(config.apiEnabled === false, "apiEnabled is not false");
+    assert(config.apiBaseUrl === "", "apiBaseUrl is not empty");
+    assert(config.deploymentEnvironment === "static", "deploymentEnvironment is not static");
+    assert(!/https?:\/\/[^\s"']+/.test(source), "a production/API hostname is committed");
+  });
+
+  const curatedPath = path.join(root, "assets/js/data/curated-destinations.js");
+  const { curatedDestinations } = await import(pathToFileURL(curatedPath));
+  await test("curated destination integrity", () => {
+    const required = ["name_en", "name_ar", "description_en", "description_ar", "region_en", "region_ar", "category_en", "category_ar", "slug", "image"];
+    const slugs = new Set();
+    for (const item of curatedDestinations) {
+      for (const field of required) assert(typeof item[field] === "string" && item[field].trim(), `${item.slug ?? "unknown"} missing ${field}`);
+      assert(/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.slug), `invalid slug ${item.slug}`);
+      assert(!slugs.has(item.slug), `duplicate slug ${item.slug}`);
+      slugs.add(item.slug);
+      assert(fs.existsSync(path.join(root, item.image)), `${item.slug} image is missing: ${item.image}`);
+    }
+    assert(slugs.has("leptis-magna"), "leptis-magna is missing");
+  });
+
+  await test("destination links and language switch preserve valid slugs", () => {
+    const listing = fs.readFileSync(path.join(root, "assets/js/pages/destinations.js"), "utf8");
+    const detail = fs.readFileSync(path.join(root, "assets/js/pages/destination-details.js"), "utf8");
+    assert(/destination\.html\?slug=\$\{encodeURIComponent\(destination\.slug\)\}/.test(listing), "listing does not encode detail slugs");
+    assert(/destination\.html\?slug=\$\{encodeURIComponent\(slug\)\}/.test(detail), "language switch does not preserve slug");
+    assert(/if \(!runtimeConfig\.apiEnabled\)[\s\S]{0,150}view:\s*["']error["']/.test(detail), "unknown static slug lacks a terminal error state");
+  });
+} finally {
+  if (server.listening) await close(server);
+}
+
+await test("static server shut down cleanly", () => assert(!server.listening, "server is still listening"));
+console.log(`Smoke tests executed: ${executed}`);
+console.log(`Passed: ${passed}`);
+console.log(`Failed: ${failures.length}`);
+if (failures.length) {
+  console.error("Actionable failures:");
+  for (const failure of failures) console.error(`  - ${failure}`);
+  console.error("Final exit code: 1");
+  process.exitCode = 1;
+} else {
+  console.log("Final exit code: 0");
+}
