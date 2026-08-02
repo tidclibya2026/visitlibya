@@ -1,5 +1,5 @@
 import { apiClient } from "../app/api/client.js";
-import { loadRuntimeConfig } from "../app/config/runtime-config.js";
+import { curatedDestinations } from "../data/curated-destinations.js";
 
 const isArabic = document.documentElement.lang === "ar";
 const locale = isArabic ? "ar-LY" : "en";
@@ -31,154 +31,6 @@ const copy = Object.freeze({
       : `${count} for “${query}”`,
 });
 
-// This is the destination content that existed in the two static pages before
-// the API-backed explorer. It remains available only as the established,
-// curated fallback when live public search cannot be reached.
-const curatedDestinations = Object.freeze([
-  {
-    slug: "tripoli",
-    name_en: "Tripoli Old City",
-    name_ar: "طرابلس",
-    description_en: "Historic streets, traditional markets, and Mediterranean architecture express the capital’s living spirit.",
-    description_ar: "مدينة تجمع بين عبق التاريخ وجمال الحاضر، وتضم المدينة القديمة وقوس ماركوس أوريليوس والسرايا الحمراء والأسواق التقليدية.",
-    region_en: "Tripoli · Mediterranean Coast",
-    region_ar: "طرابلس · الساحل المتوسطي",
-    category_en: "Historic Cities",
-    category_ar: "المدن التاريخية",
-    category_key: "historic-cities",
-    image: "imges/oldtripoli.jpg",
-  },
-  {
-    slug: "benghazi",
-    name_en: "Benghazi",
-    name_ar: "بنغازي",
-    description_en: "A Mediterranean city where urban heritage, culture, lakes, and gateways to the Green Mountain meet.",
-    description_ar: "مدينة عريقة تطل على البحر المتوسط وتجمع بين التاريخ والثقافة والطبيعة، ومنها تنطلق المسارات نحو الجبل الأخضر.",
-    region_en: "Benghazi · Eastern Libya",
-    region_ar: "بنغازي · شرق ليبيا",
-    category_en: "Historic Cities",
-    category_ar: "المدن التاريخية",
-    category_key: "historic-cities",
-    image: "imges/bengazi1.JPG",
-  },
-  {
-    slug: "ghadames",
-    name_en: "Ghadames",
-    name_ar: "غدامس",
-    description_en: "A UNESCO oasis city of shaded passages, white houses, traditional craft, and enduring desert heritage.",
-    description_ar: "جوهرة الصحراء ومدينة تراث عالمي تتميز بشوارعها المسقوفة وبيوتها البيضاء وأسواق الصناعات التقليدية.",
-    region_en: "Ghadames · Western Desert",
-    region_ar: "غدامس · الصحراء الغربية",
-    category_en: "Oases and Heritage",
-    category_ar: "الواحات والتراث",
-    category_key: "oases-heritage",
-    image: "imges/Ghadames2.JPG",
-  },
-  {
-    slug: "acacus",
-    name_en: "Tadrart Acacus",
-    name_ar: "تادرارت أكاكوس",
-    description_en: "Rock formations, prehistoric art, natural arches, and vast desert scenery preserve early human memory.",
-    description_ar: "موطن لحضارة ما قبل التدوين، يشتهر بالفن الصخري والوديان والتشكيلات الصخرية والأقواس الطبيعية.",
-    region_en: "Fezzan · Southwest Libya",
-    region_ar: "فزان · جنوب غرب ليبيا",
-    category_en: "Sahara and Rock Art",
-    category_ar: "الصحراء والفن الصخري",
-    category_key: "sahara-rock-art",
-    image: "imges/Acacus.jpg",
-  },
-  {
-    slug: "green-mountain",
-    name_en: "Jebel Akhdar",
-    name_ar: "الجبل الأخضر",
-    description_en: "Green valleys, forests, cliffs, ancient sites, and coastal beauty connect Shahat, Sousa, and Ras Al Hilal.",
-    description_ar: "منطقة تجمع بين الغابات والشواطئ والمرتفعات والوديان والعيون والمواقع الأثرية من شحات إلى رأس الهلال.",
-    region_en: "Cyrenaica · Northeast Libya",
-    region_ar: "برقة · شمال شرق ليبيا",
-    category_en: "Mountains and Nature",
-    category_ar: "الجبال والطبيعة",
-    category_key: "mountains-nature",
-    image: "imges/landscapes5.JPG",
-  },
-  {
-    slug: "desert",
-    name_en: "The Libyan Sahara",
-    name_ar: "الصحراء الليبية",
-    description_en: "Dunes, lakes, oases, mountains, rock art, and star-filled skies shape the heart of Libya’s desert.",
-    description_ar: "قلب المتعة الحقيقية بما يضمه من كثبان وبحيرات وواحات وجبال وفن صخري وسماء صافية للنجوم.",
-    region_en: "Sahara · Southern Libya",
-    region_ar: "الصحراء الكبرى · جنوب ليبيا",
-    category_en: "Sahara and Desert",
-    category_ar: "الصحراء",
-    category_key: "sahara-desert",
-    image: "imges/The Sahara Desert.jpg",
-  },
-  {
-    slug: "nafusa",
-    name_en: "Nafusa Mountains",
-    name_ar: "جبل نفوسة",
-    description_en: "Mountain settlements, fortified granaries, cave homes, pottery, textiles, and olive groves reveal a distinct cultural landscape.",
-    description_ar: "كنز تاريخي وثقافي يضم القصور الجبلية وبيوت الحفر والفخار والصوفيات وزيت الزيتون.",
-    region_en: "Nafusa · Northwest Libya",
-    region_ar: "جبل نفوسة · شمال غرب ليبيا",
-    category_en: "Mountains and Heritage",
-    category_ar: "الجبال والتراث",
-    category_key: "mountains-heritage",
-    image: "imges/traditional industries.jpg",
-  },
-  {
-    slug: "bomba-bay",
-    name_en: "Bomba Bay",
-    name_ar: "خليج بمبة",
-    description_en: "Secluded beaches, islands, marine life, and submerged heritage shape one of northeastern Libya’s distinctive bays.",
-    description_ar: "من أجمل المواقع الساحلية في شمال شرق ليبيا، يتميز بجزره وشواطئه المنعزلة وثرائه البحري.",
-    region_en: "Derna District · Northeast Coast",
-    region_ar: "منطقة درنة · الساحل الشمالي الشرقي",
-    category_en: "Mediterranean Coast",
-    category_ar: "الساحل المتوسطي",
-    category_key: "mediterranean-coast",
-    image: "imges/beaches.jpg",
-  },
-  {
-    slug: "awjila",
-    name_en: "Awjila",
-    name_ar: "أوجلة",
-    description_en: "An eastern oasis shaped by local hospitality, markets, palm groves, and the rhythms of oasis life.",
-    description_ar: "واحة شرقية بطابع تراثي محلي تجمع بين الضيافة والأسواق والحياة الواحية ضمن مسارات الصحراء.",
-    region_en: "Al Wahat · Eastern Libya",
-    region_ar: "الواحات · شرق ليبيا",
-    category_en: "Oases and Nature",
-    category_ar: "الواحات والطبيعة",
-    category_key: "oases-nature",
-    image: "imges/Awjila.jpg",
-  },
-  {
-    slug: "sabratha",
-    name_en: "Sabratha",
-    name_ar: "صبراتة",
-    description_en: "A UNESCO coastal archaeological city known for its Roman theatre, temples, baths, and Mediterranean setting.",
-    description_ar: "مدينة أثرية على الساحل الليبي ومدرجة ضمن التراث العالمي، تشتهر بمسرحها الروماني ومعابدها وحماماتها.",
-    region_en: "Sabratha · Northwest Coast",
-    region_ar: "صبراتة · الساحل الشمالي الغربي",
-    category_en: "Archaeological Sites",
-    category_ar: "المواقع الأثرية",
-    category_key: "archaeological-sites",
-    image: "imges/Sabratha.jpg",
-  },
-  {
-    slug: "villa-sileen",
-    name_en: "Villa Sileen",
-    name_ar: "فيلا سيلين",
-    description_en: "A Roman coastal villa distinguished by its central courtyard, colonnades, mosaics, and garden setting.",
-    description_ar: "جوهرة معمارية رومانية تتميز بفنائها المركزي وأروقتها المعمدة وفسيفسائها وحدائقها الخارجية.",
-    region_en: "Khoms · Northwest Coast",
-    region_ar: "الخمس · الساحل الشمالي الغربي",
-    category_en: "Archaeological Sites",
-    category_ar: "المواقع الأثرية",
-    category_key: "archaeological-sites",
-    image: "imges/Leptis Magna.jpg",
-  },
-]);
 
 const elements = {
   form: document.getElementById("destinationSearchForm"),
@@ -257,6 +109,7 @@ function normalizeApiItem(item) {
   const id = Number(item.id);
   const slug = safeText(item.slug, Number.isInteger(id) ? `destination-${id}` : "");
   if (!slug) return null;
+  const curatedImage = curatedDestinations.find((entry) => entry.slug === slug)?.image;
   return {
     slug,
     name: safeText(isArabic ? item.name_ar : item.name_en, safeText(isArabic ? item.name_en : item.name_ar, copy.categoryUnknown)),
@@ -270,22 +123,13 @@ function normalizeApiItem(item) {
       copy.categoryUnknown,
     ),
     categoryId: Number.isInteger(Number(item.category?.id)) ? String(item.category.id) : "",
-    image: normalizeImageUrl(item.primary_media_url),
+    image: normalizeImageUrl(item.primary_media_url) || (curatedImage ? `${pathPrefix}${curatedImage}` : ""),
   };
 }
 
 function normalizeImageUrl(value) {
   if (typeof value !== "string" || !value.trim()) return "";
   const source = value.trim();
-  if (/^https?:\/\//i.test(source)) return source;
-  if (source.startsWith("/")) {
-    try {
-      const url = new URL(source, loadRuntimeConfig().apiBaseUrl);
-      return ["http:", "https:"].includes(url.protocol) ? url.href : "";
-    } catch {
-      return "";
-    }
-  }
   if (/^(?:\.\.\/|\.\/)?(?:imges|assets)\//i.test(source)) return source;
   return "";
 }
@@ -337,6 +181,15 @@ function createCard(destination) {
   const actions = document.createElement("div");
   actions.className = "destination-explorer-card__actions";
 
+  const details = document.createElement("a");
+  details.className = "destination-explorer-card__link destination-explorer-card__link--primary";
+  details.href = `${pathPrefix}destination.html?slug=${encodeURIComponent(destination.slug)}`;
+  details.textContent = isArabic ? "عرض التفاصيل" : "View details";
+  details.setAttribute(
+    "aria-label",
+    `${isArabic ? "عرض تفاصيل" : "View details for"} ${destination.name}`,
+  );
+
   const atlas = document.createElement("a");
   atlas.className = "destination-explorer-card__link";
   atlas.href = `${pathPrefix}atlas.html`;
@@ -349,7 +202,7 @@ function createCard(destination) {
   plan.textContent = copy.plan;
   plan.setAttribute("aria-label", `${copy.plan}: ${destination.name}`);
 
-  actions.append(atlas, plan);
+  actions.append(details, atlas, plan);
   body.append(category, title, locationText, description, actions);
   article.append(media, body);
   return article;
@@ -596,6 +449,8 @@ function updateCategoryState() {
 }
 
 let debounceTimer;
+
+function initializeDestinationExplorer() {
 elements.query.addEventListener("input", () => {
   globalThis.clearTimeout(debounceTimer);
   debounceTimer = globalThis.setTimeout(() => loadDestinations(), 320);
@@ -644,3 +499,6 @@ globalThis.addEventListener("popstate", () => {
 
 readUrlState();
 loadDestinations();
+}
+
+if (elements.form) initializeDestinationExplorer();

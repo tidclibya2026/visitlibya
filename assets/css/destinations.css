@@ -371,6 +371,11 @@ html[dir="rtl"] .destination-explorer-card__eyebrow {
   font-weight: var(--font-weight-bold);
 }
 
+.destination-explorer-card__link--primary {
+  color: var(--color-brand-primary);
+  font-weight: var(--font-weight-black);
+}
+
 .destination-explorer-card__link::after {
   margin-inline-start: var(--space-2);
   content: "→";

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>وجهة سياحية | Visit Libya</title>
+  <meta name="description" content="استكشف وجهة ليبية من خلال قصص محلية موثوقة ومعلومات الموقع وروابط التخطيط السياحي.">
+  <meta property="og:type" content="website">
+  <link rel="alternate" hreflang="ar" href="destination.html">
+  <link rel="alternate" hreflang="en" href="../destination.html">
+  <link rel="alternate" hreflang="x-default" href="../destination.html">
+  <link rel="stylesheet" href="../style.css?v=hero-panel-slideshow-01">
+  <link rel="stylesheet" href="../assets/css/design-system.css?v=frontend-2-01">
+  <link rel="stylesheet" href="../assets/css/base.css?v=frontend-2-01">
+  <link rel="stylesheet" href="../assets/css/layout.css?v=frontend-2-01">
+  <link rel="stylesheet" href="../assets/css/components.css?v=frontend-2-01">
+  <link rel="stylesheet" href="../assets/css/destination-details.css?v=frontend-2-details-01">
+</head>
+<body>
+  <a class="site-skip-link" href="#mainContent">انتقل إلى تفاصيل الوجهة</a>
+  <header class="vl-topbar" id="siteHeader">
+    <a class="vl-logo" href="index.html" aria-label="الصفحة الرئيسية لمنصة Visit Libya"><strong>Visit Libya</strong><span>زور ليبيا</span></a>
+    <button class="vl-nav-toggle" id="navToggle" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="primaryNav">☰</button>
+    <nav class="vl-nav" id="primaryNav" aria-label="القائمة الرئيسية">
+      <a href="index.html">الرئيسية</a><a href="destinations.html" class="is-current">الوجهات</a><a href="experiences.html">التجارب</a>
+      <div class="vl-dropdown"><a href="culture.html">الثقافة والمطبخ <span aria-hidden="true">⌄</span></a><div class="vl-dropdown-menu" aria-label="قائمة الثقافة"><a href="culture.html#cuisine">المطبخ الليبي</a><a href="culture.html#crafts">الصناعات التقليدية</a><a href="culture.html#folklore">الفلكلور</a><a href="culture.html#festivals">المهرجانات</a><a href="heritage.html#world-heritage">التراث العالمي</a></div></div>
+      <a href="heritage.html">التراث</a><a href="plan.html">خطط لرحلتك</a><a href="services.html">الخدمات والدخول</a><a href="atlas.html">الأطلس السياحي</a><a href="ai.html">VisitLibya AI</a>
+    </nav>
+    <a class="vl-language" id="destinationLanguageLink" href="../destination.html" aria-label="عرض هذه الوجهة باللغة الإنجليزية"><span aria-hidden="true">◉</span> English</a>
+  </header>
+
+  <main id="mainContent" class="destination-detail-page">
+    <section class="destination-detail-state" id="destinationLoading" role="status" aria-live="polite"><span class="destination-detail-loader" aria-hidden="true"></span><h1>جارٍ تحميل الوجهة…</h1><p>نجهز القصص المحلية ومعلومات الزيارة.</p></section>
+    <section class="destination-detail-state destination-detail-state--error" id="destinationNotFound" hidden><p class="destination-detail-state__mark" aria-hidden="true">٤٠٤</p><h1>لم يتم العثور على الوجهة</h1><p>قد يكون الرابط غير مكتمل أو أن هذه الوجهة غير متاحة حاليًا.</p><a class="destination-detail-button destination-detail-button--primary" href="destinations.html">استكشف كل الوجهات</a></section>
+    <section class="destination-detail-state destination-detail-state--error" id="destinationError" role="alert" hidden><p class="destination-detail-state__mark" aria-hidden="true">!</p><h1>تفاصيل الوجهة غير متاحة</h1><p>تعذر جلب هذه الوجهة ولا يتوفر لها سجل محلي منسق.</p><div class="destination-detail-actions"><button class="destination-detail-button destination-detail-button--primary" id="destinationRetry" type="button">إعادة المحاولة</button><a class="destination-detail-button destination-detail-button--secondary" href="destinations.html">العودة إلى الوجهات</a></div></section>
+
+    <article id="destinationContent" hidden>
+      <section class="destination-detail-hero" aria-labelledby="destinationTitle"><img id="destinationHeroImage" src="../imges/beaches.jpg" alt="" width="1280" height="715" fetchpriority="high"><div class="destination-detail-hero__overlay"></div><div class="destination-detail-hero__content"><a class="destination-detail-back" href="destinations.html">العودة إلى الوجهات ←</a><p class="destination-detail-eyebrow" id="destinationCategory">وجهة ليبية</p><h1 id="destinationTitle">وجهة</h1><p class="destination-detail-hero__intro" id="destinationIntroduction"></p><p class="destination-detail-location" id="destinationLocation"></p></div></section>
+      <div class="destination-detail-notices" aria-live="polite"><div class="destination-detail-notice" id="destinationFallbackNotice" hidden><span>التحديثات المباشرة غير متاحة. أنت تشاهد معلومات الوجهة المحلية المنسقة من Visit Libya.</span><button id="destinationFallbackRetry" type="button">إعادة محاولة البيانات المباشرة</button></div><p class="destination-detail-notice" id="destinationTranslationNotice" hidden>الترجمة العربية غير متاحة، لذلك نعرض أقرب نص متوفر للوجهة.</p></div>
+      <section class="destination-detail-body" aria-labelledby="destinationOverviewTitle"><div class="destination-detail-copy"><p class="destination-detail-eyebrow">اكتشف المكان</p><h2 id="destinationOverviewTitle">عن هذه الوجهة</h2><div id="destinationDescription"></div></div><aside class="destination-detail-facts" aria-labelledby="destinationFactsTitle"><h2 id="destinationFactsTitle">الموقع في لمحة</h2><dl><div><dt>المنطقة</dt><dd id="destinationRegion">ليبيا</dd></div><div><dt>البلدية</dt><dd id="destinationMunicipality">غير محددة</dd></div><div><dt>نوع الوجهة</dt><dd id="destinationCategoryFact">وجهة ليبية</dd></div></dl></aside></section>
+      <section class="destination-detail-gallery" id="destinationGallerySection" aria-labelledby="destinationGalleryTitle" hidden><div class="destination-detail-section-heading"><p class="destination-detail-eyebrow">مشاهد محلية</p><h2 id="destinationGalleryTitle">معرض الصور</h2></div><div class="destination-detail-gallery__grid" id="destinationGallery"></div></section>
+      <section class="destination-detail-related" id="destinationRelatedSection" aria-labelledby="destinationRelatedTitle" hidden><div class="destination-detail-section-heading"><p class="destination-detail-eyebrow">واصل الاستكشاف</p><h2 id="destinationRelatedTitle">وجهات ذات صلة</h2></div><div class="destination-detail-related__grid" id="destinationRelated"></div></section>
+      <section class="destination-detail-cta" aria-labelledby="destinationCtaTitle"><div><p class="destination-detail-eyebrow">اصنع رحلتك</p><h2 id="destinationCtaTitle">واصل التخطيط لزيارتك</h2><p>اجعل هذه الوجهة جزءًا من رحلة أوسع عبر ليبيا.</p></div><div class="destination-detail-actions"><a class="destination-detail-button destination-detail-button--gold" id="destinationPlanLink" href="plan.html">خطط لرحلتك</a><a class="destination-detail-button destination-detail-button--light" id="destinationAtlasLink" href="atlas.html">افتح الأطلس السياحي</a></div></section>
+    </article>
+  </main>
+
+  <footer class="vl-footer"><div class="vl-footer-grid"><div><h2>Visit Libya | زور ليبيا</h2><p>ليبيا أرض الحضارات وموطن السحر والجمال، ومنصة سياحية وطنية تقدم الوجهات والتجارب والثقافة والمسارات بأسلوب بصري موثوق.</p></div><div><h3>استكشف</h3><a href="destinations.html">الوجهات</a><a href="experiences.html">التجارب</a><a href="culture.html">الثقافة والمطبخ</a><a href="heritage.html">التراث</a><a href="atlas.html">الأطلس السياحي</a></div><div><h3>الجهة الرسمية</h3><p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p><p class="small">تصميم وتطوير مركز المعلومات والتوثيق السياحي 2026</p></div></div></footer>
+  <script src="../config/frontend-config.js"></script>
+  <script src="../main.js?v=hero-panel-slideshow-01"></script>
+  <script type="module" src="../assets/js/app/ui/site-shell.js?v=frontend-2-01"></script>
+  <script type="module" src="../assets/js/pages/destination-details.js?v=frontend-2-details-02"></script>
+</body>
+</html>
