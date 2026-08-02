@@ -1,0 +1,57 @@
+name: Backend production validation
+
+on:
+  pull_request:
+    paths: ["backend/**", "docker-compose*.yml", ".github/workflows/backend-production-validation.yml"]
+  push:
+    branches: ["feature/backend-*"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate-backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_DB: visitlibya_test
+          POSTGRES_USER: visitlibya_test
+          POSTGRES_PASSWORD: test-only-placeholder-password
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U visitlibya_test -d visitlibya_test"
+          --health-interval 10s --health-timeout 5s --health-retries 10
+    env:
+      APP_ENV: test
+      DATABASE_URL: postgresql+psycopg://visitlibya_test:test-only-placeholder-password@127.0.0.1:5432/visitlibya_test
+      TEST_DATABASE_URL: postgresql+psycopg://visitlibya_test:test-only-placeholder-password@127.0.0.1:5432/visitlibya_test
+      JWT_SECRET_KEY: test-only-placeholder-jwt-secret-that-is-at-least-32-characters
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: ["backend/requirements.txt", "backend/requirements-dev.txt"]
+      - name: Install backend dependencies
+        working-directory: backend
+        run: pip install -r requirements.txt -r requirements-dev.txt
+      - name: Compile and validate configuration
+        working-directory: backend
+        run: |
+          python -m compileall -q app scripts tests
+          pytest -q tests/unit/core/test_config.py tests/unit/core/test_production_artifacts.py
+      - name: Apply and verify migrations
+        working-directory: backend
+        run: |
+          alembic upgrade head
+          python -m scripts.check_database
+          python -m scripts.check_migrations
+      - name: Run complete backend suite
+        working-directory: backend
+        run: pytest -q
+      - name: Build production container
+        run: docker build --tag visitlibya-backend-validation ./backend

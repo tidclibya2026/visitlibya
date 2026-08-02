@@ -1,8 +1,8 @@
 from typing import Annotated, NoReturn
 
-from fastapi import APIRouter, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 
-from app.api.dependencies import ReviewServiceDependency
+from app.api.dependencies import ReviewServiceDependency, require_content_admin
 from app.api.pagination import LimitParameter, SkipParameter
 from app.core.exceptions import (
     DestinationNotFoundError,
@@ -68,7 +68,7 @@ def list_approved_reviews(
     return ReviewListResponse(items=list(items), total=total, skip=skip, limit=limit)
 
 
-@router.get("/admin", response_model=ReviewListResponse, tags=["Reviews Admin"])
+@router.get("/admin", response_model=ReviewListResponse, tags=["Reviews Admin"], dependencies=[Depends(require_content_admin)])
 def list_reviews_admin(
     service: ReviewServiceDependency,
     skip: SkipParameter = 0,
@@ -96,7 +96,7 @@ def list_reviews_admin(
     return ReviewListResponse(items=list(items), total=total, skip=skip, limit=limit)
 
 
-@router.put("/admin/{review_id}", response_model=ReviewRead, tags=["Reviews Admin"])
+@router.put("/admin/{review_id}", response_model=ReviewRead, tags=["Reviews Admin"], dependencies=[Depends(require_content_admin)])
 def update_review_admin(
     review_id: int,
     payload: ReviewUpdate,
@@ -112,6 +112,7 @@ def update_review_admin(
     "/admin/{review_id}/status",
     response_model=ReviewRead,
     tags=["Reviews Admin"],
+    dependencies=[Depends(require_content_admin)],
 )
 def moderate_review_admin(
     review_id: int,
@@ -128,6 +129,7 @@ def moderate_review_admin(
     "/admin/{review_id}",
     status_code=status.HTTP_204_NO_CONTENT,
     tags=["Reviews Admin"],
+    dependencies=[Depends(require_content_admin)],
 )
 def delete_review_admin(review_id: int, service: ReviewServiceDependency) -> None:
     try:

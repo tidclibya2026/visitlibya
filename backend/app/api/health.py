@@ -1,35 +1,31 @@
-from fastapi import APIRouter, HTTPException, status
-from sqlalchemy import text
-from sqlalchemy.exc import SQLAlchemyError
+from fastapi import APIRouter, Response, status
+from app.db.health import check_database_connection, check_postgis, migration_is_current
 
-from app.api.dependencies import DatabaseSession
-from app.core.config import settings
+router = APIRouter(prefix="/health", tags=["System"])
 
 
-router = APIRouter(
-    prefix="/health",
-    tags=["System"],
-)
+@router.get("/live")
+def liveness() -> dict[str, str]:
+    return {"status": "ok"}
+
+
+@router.get("/ready")
+def readiness(response: Response) -> dict[str, str]:
+    if not check_database_connection() or not migration_is_current():
+        response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
+        return {"status": "not_ready"}
+    return {"status": "ready"}
+
+
+@router.get("/db")
+def database_health(response: Response) -> dict[str, str]:
+    if not check_database_connection() or not check_postgis():
+        response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
+        return {"status": "unavailable"}
+    return {"status": "ok"}
 
 
 @router.get("")
-def health_check(db: DatabaseSession) -> dict[str, str]:
-    try:
-        db.execute(text("SELECT 1"))
-    except SQLAlchemyError as exc:
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail={
-                "status": "error",
-                "service": settings.app_name,
-                "database": "disconnected",
-            },
-        ) from exc
-
-    return {
-        "status": "ok",
-        "service": settings.app_name,
-        "version": settings.app_version,
-        "environment": settings.environment,
-        "database": "connected",
-    }
+def compatibility_health(response: Response) -> dict[str, str]:
+    """Compatibility alias with readiness semantics."""
+    return readiness(response)

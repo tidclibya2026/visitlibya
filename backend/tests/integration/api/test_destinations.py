@@ -3,7 +3,7 @@ from datetime import UTC, datetime
 from fastapi.testclient import TestClient
 from geoalchemy2.elements import WKTElement
 
-from app.api.dependencies import get_destination_service
+from app.api.dependencies import get_destination_service, require_content_admin
 from app.core.exceptions import (
     CategoryNotFoundError,
     DestinationIntegrityError,
@@ -162,6 +162,7 @@ def test_get_by_slug_and_404() -> None:
 def test_post_translations_geometry_and_conflicts() -> None:
     service = FakeDestinationService()
     app.dependency_overrides[get_destination_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     payload = {
         "slug": "sabratha",
         "category_id": 1,
@@ -200,6 +201,7 @@ def test_post_translations_geometry_and_conflicts() -> None:
 def test_put_updates_destination_and_validates_category() -> None:
     service = FakeDestinationService()
     app.dependency_overrides[get_destination_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     try:
         with TestClient(app) as client:
             updated = client.put(
@@ -227,6 +229,7 @@ def test_put_updates_destination_and_validates_category() -> None:
 def test_delete_returns_204_and_missing_returns_404() -> None:
     service = FakeDestinationService()
     app.dependency_overrides[get_destination_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     try:
         with TestClient(app) as client:
             deleted = client.delete("/api/v1/destinations/1")

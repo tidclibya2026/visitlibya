@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 
 from fastapi.testclient import TestClient
 
-from app.api.dependencies import get_review_service
+from app.api.dependencies import get_review_service, require_content_admin
 from app.core.exceptions import ReviewIntegrityError, ReviewNotFoundError, ReviewPersistenceError
 from app.main import app
 from app.models.review import Review, ReviewStatus
@@ -74,6 +74,7 @@ def test_public_create_list_get_and_errors() -> None:
 
 def test_admin_list_pagination_filters_and_update() -> None:
     service = FakeReviewService(); app.dependency_overrides[get_review_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     try:
         with TestClient(app) as client:
             listed = client.get("/api/v1/reviews/admin", params={"skip": 5, "limit": 10, "destination_id": 7, "status": "pending", "rating": 5, "is_verified": False, "sort_by": "rating", "sort_order": "asc"})
@@ -88,6 +89,7 @@ def test_admin_list_pagination_filters_and_update() -> None:
 
 def test_admin_approve_reject_hide_delete_and_404() -> None:
     service = FakeReviewService(); app.dependency_overrides[get_review_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     try:
         with TestClient(app) as client:
             approved = client.patch("/api/v1/reviews/admin/2/status", json={"status": "approved"})

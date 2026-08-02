@@ -53,6 +53,19 @@ def inactive_user(password_hash_value: str):
 
 
 @pytest.fixture
+def admin_user(password_hash_value: str):
+    from app.models.role import Role
+    from app.models.user import User
+
+    role = Role(id=1, name="Content administrator", code="content_admin", is_active=True)
+    return User(
+        id=3, full_name="Content Administrator", email="admin@example.test",
+        username="content-admin", hashed_password=password_hash_value,
+        is_active=True, is_superuser=False, roles=[role],
+    )
+
+
+@pytest.fixture
 def access_token_factory():
     from app.core.security import create_access_token
 

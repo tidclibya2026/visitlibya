@@ -1,8 +1,8 @@
 from typing import Annotated, NoReturn
 
-from fastapi import APIRouter, HTTPException, Query, status
+from fastapi import APIRouter, Depends, HTTPException, Query, status
 
-from app.api.dependencies import DestinationServiceDependency
+from app.api.dependencies import DestinationServiceDependency, require_content_admin
 from app.api.pagination import LimitParameter, SkipParameter
 from app.core.exceptions import (
     CategoryNotFoundError,
@@ -73,7 +73,7 @@ def list_destinations(
     return DestinationListResponse(items=list(items), total=total, skip=skip, limit=limit)
 
 
-@router.post("", response_model=DestinationRead, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=DestinationRead, status_code=status.HTTP_201_CREATED, dependencies=[Depends(require_content_admin)])
 def create_destination(
     payload: DestinationCreate,
     service: DestinationServiceDependency,
@@ -95,7 +95,7 @@ def get_destination(
         raise_http_error(error)
 
 
-@router.put("/{destination_id}", response_model=DestinationRead)
+@router.put("/{destination_id}", response_model=DestinationRead, dependencies=[Depends(require_content_admin)])
 def update_destination(
     destination_id: int,
     payload: DestinationUpdate,
@@ -107,7 +107,7 @@ def update_destination(
         raise_http_error(error)
 
 
-@router.delete("/{destination_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{destination_id}", status_code=status.HTTP_204_NO_CONTENT, dependencies=[Depends(require_content_admin)])
 def delete_destination(
     destination_id: int,
     service: DestinationServiceDependency,

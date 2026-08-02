@@ -79,6 +79,23 @@ def get_current_active_user(user: CurrentUserDependency) -> User:
 
 CurrentActiveUserDependency = Annotated[User, Depends(get_current_active_user)]
 
+CONTENT_ADMIN_ROLE_CODES = frozenset({"content_admin"})
+
+
+def require_content_admin(user: CurrentActiveUserDependency) -> User:
+    authorized = user.is_superuser or any(
+        role.is_active and role.code in CONTENT_ADMIN_ROLE_CODES for role in user.roles
+    )
+    if not authorized:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="Insufficient permissions",
+        )
+    return user
+
+
+ContentAdminDependency = Annotated[User, Depends(require_content_admin)]
+
 
 def get_favorite_repository(db: DatabaseSession) -> FavoriteRepository:
     return FavoriteRepository(db)
