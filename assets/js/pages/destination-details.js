@@ -221,6 +221,7 @@ function renderRelated(destination) {
     image.src = localized.hero;
     image.alt = localized.name;
     image.loading = "lazy";
+    image.decoding = "async";
     const body = document.createElement("div");
     body.className = "destination-detail-related-card__body";
     const title = document.createElement("h3");
