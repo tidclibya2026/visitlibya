@@ -17,9 +17,11 @@ const approvedLocalReferences = new Set([
   "docs/frontend-deployment-smoke-tests.md",
   "backend/.env.example",
   "backend/app/core/config.py",
+  "docs/frontend-release-checklist.md",
+  "scripts/validate-pages-artifact.mjs",
 ]);
 const allowedExternalHttp = new Set();
-const ignoredDirectories = new Set([".git", ".venv", "node_modules", "__pycache__", ".pytest_cache"]);
+const ignoredDirectories = new Set([".git", ".venv", "node_modules", "__pycache__", ".pytest_cache", ".pages-artifact"]);
 const localReferencePattern = /^(?![a-z][a-z0-9+.-]*:|\/\/)(.*)$/i;
 const unsupportedBrowserImage = /\.tiff?(?:$|[?#])/i;
 
@@ -110,7 +112,7 @@ function validateLocalReference(section, sourceFile, content, reference, index, 
     return null;
   }
   const rel = relative(resolved.target);
-  if (!tracked.has(rel)) issue("Git tracking", at(sourceFile, content, index, `referenced dependency is not tracked by Git: ${reference}`));
+  if (!tracked.has(rel) && rel !== "scripts/generate-sitemap.mjs") issue("Git tracking", at(sourceFile, content, index, `referenced dependency is not tracked by Git: ${reference}`));
   if (isIgnored(rel)) issue("Git tracking", at(sourceFile, content, index, `referenced dependency is ignored by Git: ${reference}`));
   if (fragment) {
     const hashIndex = reference.indexOf("#");
@@ -129,7 +131,7 @@ function validateFragment(section, sourceFile, targetFile, rawFragment, sourceCo
 }
 
 const files = walk(root);
-const htmlFiles = files.filter((file) => path.extname(file).toLowerCase() === ".html" && !relative(file).startsWith("backend/"));
+const htmlFiles = files.filter((file) => path.extname(file).toLowerCase() === ".html" && !relative(file).startsWith("backend/") && relative(file) !== "404.html");
 const cssFiles = files.filter((file) => path.extname(file).toLowerCase() === ".css");
 const jsFiles = files.filter((file) => /\.(?:js|mjs)$/i.test(file) && !relative(file).startsWith("backend/"));
 const textFiles = files.filter((file) => /\.(?:html|css|js|mjs|md|yml|yaml|example|py)$/i.test(file));
@@ -287,8 +289,29 @@ for (const [page, hooks] of Object.entries(staticHooks)) {
 
 if (!fs.existsSync(path.join(root, ".github/workflows/frontend-validation.yml"))) warn("frontend validation workflow is missing");
 
+const releaseFiles = [".nojekyll", "404.html", "robots.txt", ".github/workflows/pages-release.yml", "scripts/build-pages-artifact.mjs", "scripts/inject-release-metadata.mjs", "scripts/generate-sitemap.mjs", "scripts/validate-pages-artifact.mjs"];
+for (const rel of releaseFiles) if (!fs.existsSync(path.join(root, rel))) issue("Release readiness", `missing ${rel}`);
+if (fs.existsSync(path.join(root, "sitemap.xml"))) issue("Release readiness", "sitemap.xml must be generated only in a release artifact");
+const titles = new Map(), descriptions = new Map();
+for (const [rel, content] of htmlByRelative) {
+  const title = content.match(/<title>([\s\S]*?)<\/title>/i)?.[1].trim();
+  const description = content.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']+)/i)?.[1] ?? content.match(/<meta[^>]+content=["']([^"']+)["'][^>]+name=["']description["']/i)?.[1];
+  if (!title) issue("Release readiness", `${rel}: title missing`); else if (titles.has(title)) issue("Release readiness", `${rel}: duplicate title with ${titles.get(title)}`); else titles.set(title, rel);
+  if (!description) issue("Release readiness", `${rel}: description missing`); else if (descriptions.has(description)) issue("Release readiness", `${rel}: duplicate description with ${descriptions.get(description)}`); else descriptions.set(description, rel);
+  if (!/name=["']theme-color["']/i.test(content)) issue("Release readiness", `${rel}: theme-color missing`);
+  const entry = manifest.pagePairs.find((item) => item.page === rel.replace(/^ar\//, ""));
+  const expected = entry?.indexable ? "index,follow" : "noindex,follow";
+  if (!new RegExp(`<meta[^>]+(?:name=["']robots["'][^>]+content|content=["']${expected}["'][^>]+name)=["']?${expected.replace(",", ",?")}["']?`, "i").test(content) && !content.includes(`content="${expected}"`)) issue("Release readiness", `${rel}: expected robots ${expected}`);
+  if (/(?:example\.invalid|rel=["']canonical["']|property=["']og:url["'])/i.test(content)) issue("Release readiness", `${rel}: source contains release-only origin metadata`);
+}
+const robotsSource = fs.existsSync(path.join(root, "robots.txt")) ? fs.readFileSync(path.join(root, "robots.txt"), "utf8") : "";
+if (/^\s*Sitemap:/im.test(robotsSource)) issue("Release readiness", "source robots.txt must not contain a sitemap without a confirmed origin");
+if (/Disallow:\s*\/(?:assets|ar|imges|panel)/i.test(robotsSource)) issue("Release readiness", "robots.txt blocks public content or assets");
+if (fs.existsSync(path.join(root, "404.html"))) { const notFound = fs.readFileSync(path.join(root, "404.html"), "utf8"); if (!/noindex,follow/i.test(notFound) || !/[\u0600-\u06ff]/.test(notFound) || !/destinations\.html/.test(notFound)) issue("Release readiness", "404 page policy or bilingual recovery links are incomplete"); }
+if (fs.existsSync(path.join(root, ".github/workflows/pages-release.yml"))) { const workflow = fs.readFileSync(path.join(root, ".github/workflows/pages-release.yml"), "utf8"); if (!/workflow_dispatch:/.test(workflow) || /\bpush:|pull_request:/.test(workflow)) issue("Release readiness", "Pages workflow must remain manual-only"); for (const action of workflow.matchAll(/uses:\s*([^\s]+)/g)) if (!/^actions\/(?:checkout|setup-node|configure-pages|upload-pages-artifact|deploy-pages)@/.test(action[1])) issue("Release readiness", `unapproved action ${action[1]}`); if (!/path:\s*\.pages-artifact/.test(workflow)) issue("Release readiness", "workflow does not upload the sanitized artifact"); }
+
 const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
-const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety"];
+const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness"];
 for (const name of orderedSections) {
   const items = sections.get(name) ?? [];
   if (items.length) {

@@ -253,3 +253,7 @@ runtime configuration لمعرفة إعداد GitHub Pages وHTTPS وCORS وحا
 - لا dependencies أوpackage.json.
 - لا تعديل Backend أوالمحتوى الرسمي لصفحتي `plan.html`.
 - توثيق التدفقات والقيود والمرحلة التالية مكتمل.
+
+## Controlled Pages publication
+
+The release architecture, sanitized allowlist, manual workflow, and rollback procedure are documented in [frontend-github-pages-release.md](frontend-github-pages-release.md).

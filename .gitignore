@@ -39,3 +39,6 @@ htmlcov/
 .pytest_cache/
 __pycache__/
 *.py[cod]
+
+# Generated GitHub Pages release artifact
+.pages-artifact/

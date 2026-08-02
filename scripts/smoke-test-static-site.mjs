@@ -79,7 +79,7 @@ function createServer() {
       return;
     }
     let stat;
-    try { stat = fs.statSync(resolved.target); } catch { response.writeHead(404).end(); return; }
+    try { stat = fs.statSync(resolved.target); } catch { const fallback = path.join(root, "404.html"); const body = fs.readFileSync(fallback); response.writeHead(404, { "Content-Type": "text/html; charset=utf-8", "Content-Length": body.length }).end(request.method === "HEAD" ? undefined : body); return; }
     const target = stat.isDirectory() ? path.join(resolved.target, "index.html") : resolved.target;
     if (!fs.existsSync(target) || !fs.statSync(target).isFile()) { response.writeHead(404).end(); return; }
     const mime = mimeTypes.get(path.extname(target).toLowerCase()) ?? "application/octet-stream";
@@ -308,6 +308,29 @@ try {
     assert(/destination\.html\?slug=\$\{encodeURIComponent\(destination\.slug\)\}/.test(listing), "listing does not encode detail slugs");
     assert(/destination\.html\?slug=\$\{encodeURIComponent\(slug\)\}/.test(detail), "language switch does not preserve slug");
     assert(/if \(!runtimeConfig\.apiEnabled\)[\s\S]{0,150}view:\s*["']error["']/.test(detail), "unknown static slug lacks a terminal error state");
+  });
+  await test("404 page and unknown-path behavior", async () => {
+    const direct = await fetch(`${origin}${basePath}404.html`);
+    assert(direct.status === 200, `direct 404 returned ${direct.status}`);
+    const missing = await fetch(`${origin}${basePath}missing/deep/path`);
+    const content = await missing.text();
+    assert(missing.status === 404, `unknown path returned ${missing.status}`);
+    assert(/noindex,follow/i.test(content) && /[\u0600-\u06ff]/.test(content), "404 is not bilingual/noindex");
+    assert(!/config\/frontend-config|assets\/js\/app\/api/i.test(content), "404 depends on runtime/API code");
+  });
+  await test("robots is origin-neutral and leaves public paths crawlable", async () => {
+    const content = await (await fetch(`${origin}${basePath}robots.txt`)).text();
+    assert(!/^\s*Sitemap:/im.test(content), "source robots has an unconfirmed sitemap");
+    assert(!/Disallow:\s*\/(?:assets|ar|imges|panel)/i.test(content), "robots blocks public paths");
+  });
+  await test("sitemap generator requires HTTPS and is deterministic", async () => {
+    const { render } = await import(pathToFileURL(path.join(root, "scripts/generate-sitemap.mjs")));
+    let rejected = false; try { render({ siteOrigin: "http://" + "example.invalid", basePath, manifest }); } catch { rejected = true; }
+    assert(rejected, "HTTP origin was accepted");
+    const xml = render({ siteOrigin: "https://" + "example.invalid", basePath, manifest });
+    assert(xml.includes("https://" + "example.invalid/visitlibya/ar/index.html"), "Arabic alternate/base path missing");
+    assert(!xml.includes("register.html") && !xml.includes("trips.html") && !xml.includes("trip.html") && !xml.includes("ai.html"), "noindex page entered sitemap");
+    assert(xml === render({ siteOrigin: "https://" + "example.invalid", basePath, manifest }), "sitemap is not deterministic");
   });
 } finally {
   if (server.listening) await close(server);

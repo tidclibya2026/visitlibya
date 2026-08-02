@@ -85,3 +85,7 @@ node scripts/smoke-test-static-site.mjs
 The commands exit non-zero for deployment violations or failed static HTTP/runtime checks. The smoke runner serves the repository temporarily under a simulated GitHub Pages project subpath and shuts down without writing generated files.
 
 Use the [frontend deployment smoke-test checklist](frontend-deployment-smoke-tests.md) for pre-publication review, post-publication URLs, browser checks, rollback criteria, and evidence capture.
+
+## GitHub Pages release
+
+See [GitHub Pages release architecture and procedure](frontend-github-pages-release.md). Origin-aware metadata is generated only in the sanitized release artifact from an explicit HTTPS origin.
