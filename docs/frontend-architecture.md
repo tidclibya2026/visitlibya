@@ -3,6 +3,9 @@
 > إعداد النشر الحالي وسياسة API موثقان في
 > [`frontend-runtime-configuration.md`](frontend-runtime-configuration.md). ذلك المستند
 > هو المرجع المعتمد لإعداد local وGitHub Pages وبيئة production المستقبلية.
+> أوامر التحقق قبل النشر وقائمة الفحص اليدوية موثقة في
+> [`frontend-deployment-smoke-tests.md`](frontend-deployment-smoke-tests.md):
+> `node scripts/validate-frontend.mjs` و`node scripts/smoke-test-static-site.mjs`.
 
 ## 1. الهدف والنطاق
 

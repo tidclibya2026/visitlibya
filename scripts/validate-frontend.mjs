@@ -1,110 +1,305 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
-import { fileURLToPath } from "node:url";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const violations = [];
+const manifestPath = path.join(root, "config/frontend-pages.json");
+const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
+const sections = new Map();
 const warnings = [];
-const apiPages = [
-  "destinations.html", "destination.html", "register.html", "trips.html", "trip.html",
-  "ar/destinations.html", "ar/destination.html", "ar/register.html", "ar/trips.html", "ar/trip.html",
-];
 const approvedLocalReferences = new Set([
   "config/frontend-config.example.js",
   "assets/js/app/config/runtime-config.js",
   "docs/frontend-architecture.md",
   "docs/frontend-runtime-configuration.md",
+  "docs/frontend-deployment-smoke-tests.md",
   "backend/.env.example",
   "backend/app/core/config.py",
 ]);
+const allowedExternalHttp = new Set();
+const ignoredDirectories = new Set([".git", ".venv", "node_modules", "__pycache__", ".pytest_cache"]);
+const localReferencePattern = /^(?![a-z][a-z0-9+.-]*:|\/\/)(.*)$/i;
+const unsupportedBrowserImage = /\.tiff?(?:$|[?#])/i;
 
-function fail(message) { violations.push(message); }
+function issue(section, message) {
+  if (!sections.has(section)) sections.set(section, []);
+  sections.get(section).push(message);
+}
+
+function warn(message) { warnings.push(message); }
 function relative(file) { return path.relative(root, file).replaceAll("\\", "/"); }
-function exists(relativePath) { return fs.existsSync(path.join(root, relativePath)); }
+function sourceLine(content, index) { return content.slice(0, index).split(/\r?\n/).length; }
+function at(file, content, index, message) { return `${relative(file)}:${sourceLine(content, index)}: ${message}`; }
+function stripQueryAndFragment(reference) { return reference.split(/[?#]/, 1)[0]; }
+function decodePath(reference) {
+  try { return decodeURIComponent(reference); } catch { return null; }
+}
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    if (ignoredDirectories.has(entry.name)) return [];
     const target = path.join(directory, entry.name);
-    if (entry.name === ".git" || entry.name === ".venv" || entry.name === "node_modules") return [];
     return entry.isDirectory() ? walk(target) : [target];
   });
 }
 
+function exactPathStatus(target) {
+  const absolute = path.resolve(target);
+  const rel = path.relative(root, absolute);
+  if (rel.startsWith("..") || path.isAbsolute(rel) && rel === absolute) return "outside repository";
+  let current = root;
+  for (const segment of rel.split(path.sep).filter(Boolean)) {
+    let entries;
+    try { entries = fs.readdirSync(current); } catch { return "missing"; }
+    if (!entries.includes(segment)) {
+      if (entries.some((entry) => entry.toLowerCase() === segment.toLowerCase())) return "filename case mismatch";
+      return "missing";
+    }
+    current = path.join(current, segment);
+  }
+  return fs.existsSync(absolute) ? "ok" : "missing";
+}
+
+function localTarget(sourceFile, reference) {
+  const clean = stripQueryAndFragment(reference);
+  const decoded = decodePath(clean);
+  if (decoded === null) return { error: "invalid URL encoding" };
+  if (decoded.includes("\\")) return { error: "Windows backslash in browser URL" };
+  if (/^[A-Za-z]:[\\/]/.test(decoded) || decoded.startsWith("file://")) return { error: "local absolute filesystem URL" };
+  if (decoded.startsWith("/")) return { error: "root-relative path breaks GitHub Pages project hosting" };
+  const target = path.resolve(path.dirname(sourceFile), decoded || path.basename(sourceFile));
+  if (path.relative(root, target).startsWith("..")) return { error: "path escapes repository" };
+  return { target };
+}
+
+const gitFilesResult = spawnSync("git", ["ls-files", "-z"], { cwd: root, encoding: "utf8" });
+if (gitFilesResult.status !== 0) issue("Git tracking", "git ls-files failed; tracked dependency status cannot be verified");
+const tracked = new Set((gitFilesResult.stdout ?? "").split("\0").filter(Boolean).map((item) => item.replaceAll("\\", "/")));
+const ignoredCache = new Map();
+
+function isIgnored(rel) {
+  if (!ignoredCache.has(rel)) {
+    const result = spawnSync("git", ["check-ignore", "--no-index", "--quiet", "--", rel], { cwd: root });
+    ignoredCache.set(rel, result.status === 0);
+  }
+  return ignoredCache.get(rel);
+}
+
+function validateLocalReference(section, sourceFile, content, reference, index, { fragment = true } = {}) {
+  if (!reference || reference.startsWith("#")) {
+    if (fragment && reference.startsWith("#")) validateFragment(section, sourceFile, sourceFile, reference.slice(1), content, index);
+    return null;
+  }
+  if (/^https:\/\//i.test(reference)) return null;
+  if (/^http:\/\//i.test(reference)) {
+    if (!allowedExternalHttp.has(reference)) issue(section, at(sourceFile, content, index, `unsafe external HTTP reference ${reference}`));
+    return null;
+  }
+  if (/^(?:mailto:|tel:|data:|javascript:|\/\/)/i.test(reference)) return null;
+  if (!localReferencePattern.test(reference)) return null;
+  if (unsupportedBrowserImage.test(reference)) issue(section, at(sourceFile, content, index, `direct TIFF/TIF browser reference ${reference}`));
+  const resolved = localTarget(sourceFile, reference);
+  if (resolved.error) {
+    issue(section, at(sourceFile, content, index, `${resolved.error}: ${reference}`));
+    return null;
+  }
+  const status = exactPathStatus(resolved.target);
+  if (status !== "ok") {
+    issue(section, at(sourceFile, content, index, `${status}: ${reference}`));
+    return null;
+  }
+  const rel = relative(resolved.target);
+  if (!tracked.has(rel)) issue("Git tracking", at(sourceFile, content, index, `referenced dependency is not tracked by Git: ${reference}`));
+  if (isIgnored(rel)) issue("Git tracking", at(sourceFile, content, index, `referenced dependency is ignored by Git: ${reference}`));
+  if (fragment) {
+    const hashIndex = reference.indexOf("#");
+    if (hashIndex >= 0) validateFragment(section, sourceFile, resolved.target, reference.slice(hashIndex + 1), content, index);
+  }
+  return resolved.target;
+}
+
+function validateFragment(section, sourceFile, targetFile, rawFragment, sourceContent, index) {
+  if (!rawFragment) return;
+  const fragment = decodePath(rawFragment);
+  if (fragment === null || !fs.existsSync(targetFile) || path.extname(targetFile).toLowerCase() !== ".html") return;
+  const targetContent = fs.readFileSync(targetFile, "utf8");
+  const ids = new Set([...targetContent.matchAll(/\bid=["']([^"']+)["']/gi)].map((match) => match[1]));
+  if (!ids.has(fragment)) issue(section, at(sourceFile, sourceContent, index, `fragment #${fragment} is missing in ${relative(targetFile)}`));
+}
+
 const files = walk(root);
-const textFiles = files.filter((file) => /\.(?:html|css|js|mjs|md|yml|yaml|example|py)$/.test(file));
+const htmlFiles = files.filter((file) => path.extname(file).toLowerCase() === ".html" && !relative(file).startsWith("backend/"));
+const cssFiles = files.filter((file) => path.extname(file).toLowerCase() === ".css");
+const jsFiles = files.filter((file) => /\.(?:js|mjs)$/i.test(file) && !relative(file).startsWith("backend/"));
+const textFiles = files.filter((file) => /\.(?:html|css|js|mjs|md|yml|yaml|example|py)$/i.test(file));
+const expectedPages = manifest.pagePairs.flatMap(({ page }) => [page, `ar/${page}`]).sort();
+const actualPages = htmlFiles.map(relative).sort();
+
+for (const page of expectedPages.filter((item) => !actualPages.includes(item))) issue("HTML and parity", `${page}: expected bilingual page is missing`);
+for (const page of actualPages.filter((item) => !expectedPages.includes(item))) issue("HTML and parity", `${page}: HTML page is absent from config/frontend-pages.json`);
+
+const htmlByRelative = new Map(htmlFiles.map((file) => [relative(file), fs.readFileSync(file, "utf8")]));
+for (const file of htmlFiles) {
+  const rel = relative(file);
+  const content = htmlByRelative.get(rel);
+  const arabic = rel.startsWith("ar/");
+  const expectedLang = arabic ? "ar" : "en";
+  const expectedDir = arabic ? "rtl" : "ltr";
+  if (!new RegExp(`<html[^>]*\\blang=["']${expectedLang}["']`, "i").test(content)) issue("HTML and parity", `${rel}: expected lang=${expectedLang}`);
+  if (!new RegExp(`<html[^>]*\\bdir=["']${expectedDir}["']`, "i").test(content)) issue("HTML and parity", `${rel}: expected dir=${expectedDir}`);
+  const ids = [...content.matchAll(/\bid=["']([^"']+)["']/gi)].map((match) => match[1]);
+  for (const [id, count] of [...new Set(ids)].map((id) => [id, ids.filter((item) => item === id).length])) {
+    if (count > 1) issue("HTML and parity", `${rel}: duplicate id=${id}`);
+  }
+  for (const match of content.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)) {
+    validateLocalReference("HTML references", file, content, match[1], match.index);
+  }
+  for (const match of content.matchAll(/url\(\s*["']?([^)'"']+)["']?\s*\)/gi)) {
+    validateLocalReference("HTML references", file, content, match[1].trim(), match.index, { fragment: false });
+  }
+  for (const match of content.matchAll(/<a\b[^>]*target=["']_blank["'][^>]*>/gi)) {
+    if (!/\brel=["'][^"']*(?:noopener|noreferrer)/i.test(match[0])) issue("Navigation", at(file, content, match.index, "target=_blank link lacks rel=noopener or noreferrer"));
+  }
+  for (const match of content.matchAll(/(?:href|src)=["']([^"']*\\[^"']*)["']/gi)) issue("HTML references", at(file, content, match.index, `Windows backslash in browser URL ${match[1]}`));
+  for (const match of content.matchAll(/href=["']([^"']*destination\.html\?slug=([^&#"']+)[^"']*)["']/gi)) {
+    const slug = decodePath(match[2]);
+    if (!slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) issue("Navigation", at(file, content, match.index, `invalid destination slug ${match[2]}`));
+  }
+}
+
+for (const pair of manifest.pagePairs) {
+  const enContent = htmlByRelative.get(pair.page);
+  const arContent = htmlByRelative.get(`ar/${pair.page}`);
+  if (!enContent || !arContent) continue;
+  const normalizeScripts = (content) => [...content.matchAll(/<script[^>]+src=["']([^"']+)["']/gi)]
+    .map((match) => stripQueryAndFragment(match[1]).replace(/^\.\.\//, "")).sort();
+  if (JSON.stringify(normalizeScripts(enContent)) !== JSON.stringify(normalizeScripts(arContent))) issue("HTML and parity", `${pair.page}: English and Arabic script sets differ`);
+  const expectedEn = `ar/${pair.page}`;
+  const expectedAr = `../${pair.page}`;
+  if (!new RegExp(`class=["'][^"']*(?:vl-language|language)[^"']*["'][^>]*href=["']${expectedEn.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["']`, "i").test(enContent)) issue("Navigation", `${pair.page}: language switch does not resolve to ${expectedEn}`);
+  if (!new RegExp(`class=["'][^"']*(?:vl-language|language)[^"']*["'][^>]*href=["']${expectedAr.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["']`, "i").test(arContent)) issue("Navigation", `ar/${pair.page}: language switch does not resolve to ${expectedAr}`);
+}
+
+for (const page of manifest.apiDependentPages.flatMap((item) => [item, `ar/${item}`])) {
+  const content = htmlByRelative.get(page);
+  if (!content) continue;
+  const pair = manifest.pagePairs.find(({ page: candidate }) => candidate === page.replace(/^ar\//, ""));
+  const configIndex = content.indexOf("config/frontend-config.js");
+  const controller = pair?.controller;
+  const controllerIndex = controller ? content.indexOf(controller) : -1;
+  if (configIndex < 0) issue("Runtime configuration", `${page}: missing frontend runtime configuration script`);
+  if (controllerIndex < 0) issue("Runtime configuration", `${page}: missing required page controller ${controller ?? "unknown"}`);
+  if (configIndex >= 0 && controllerIndex >= 0 && configIndex > controllerIndex) issue("Runtime configuration", `${page}: configuration loads after its page controller`);
+}
+
+for (const file of cssFiles) {
+  const content = fs.readFileSync(file, "utf8");
+  for (const match of content.matchAll(/url\(\s*["']?([^)'"']+)["']?\s*\)/gi)) {
+    const reference = match[1].trim();
+    if (/^https:\/\/fonts\.googleapis\.com\//i.test(reference)) warn(`${relative(file)}:${sourceLine(content, match.index)}: external Google Fonts import is an availability/privacy dependency`);
+    else validateLocalReference("CSS references", file, content, reference, match.index, { fragment: false });
+  }
+  for (const match of content.matchAll(/@import\s+(?:url\(\s*)?["']([^"']+)["']/gi)) {
+    const reference = match[1];
+    if (/^https:\/\/fonts\.googleapis\.com\//i.test(reference)) continue;
+    validateLocalReference("CSS references", file, content, reference, match.index, { fragment: false });
+  }
+}
+
+for (const file of jsFiles) {
+  const content = fs.readFileSync(file, "utf8");
+  for (const match of content.matchAll(/(?:from\s+|import\s*)["']([^"']+)["']/g)) {
+    if (!match[1].startsWith(".")) continue;
+    const target = validateLocalReference("JavaScript modules", file, content, match[1], match.index, { fragment: false });
+    if (target && !/\.(?:js|mjs|json)$/i.test(target)) issue("JavaScript modules", at(file, content, match.index, `unsupported module extension ${match[1]}`));
+    if (relative(file).startsWith("assets/js/pages/") && /\/pages\//.test(relative(target ?? ""))) {
+      const imported = relative(target);
+      if (imported !== relative(file) && /(?:data|curated)/i.test(content.slice(match.index, match.index + match[0].length + 80))) issue("JavaScript modules", at(file, content, match.index, "page controller imports another page controller for shared data"));
+    }
+  }
+}
+
+const curatedFile = path.join(root, "assets/js/data/curated-destinations.js");
+const curatedSource = fs.readFileSync(curatedFile, "utf8");
+if (/\b(?:document|window)\b|addEventListener\s*\(|initialize\w*\s*\(/.test(curatedSource)) issue("JavaScript modules", "assets/js/data/curated-destinations.js: shared data module contains page initialization side effects");
 
 for (const file of textFiles) {
   const rel = relative(file);
   const content = fs.readFileSync(file, "utf8");
-  if (/\b(?:localhost|127\.0\.0\.1)\b/i.test(content) &&
-      !approvedLocalReferences.has(rel) &&
-      !rel.startsWith("backend/tests/") &&
-      rel !== "scripts/validate-frontend.mjs") {
-    fail(`${rel}: local host reference is not in an approved development example`);
-  }
-  if (/\b(?:src|href)=["']\/(?!\/)|url\(["']?\/(?!\/)/i.test(content)) {
-    fail(`${rel}: root-relative frontend path can break project-subpath hosting`);
-  }
+  if (/\b(?:localhost|127\.0\.0\.1)\b/i.test(content) && !approvedLocalReferences.has(rel) && !rel.startsWith("backend/tests/") && rel !== "scripts/validate-frontend.mjs" && rel !== "scripts/smoke-test-static-site.mjs") issue("Deployment safety", `${rel}: local host reference is not in an approved development example`);
+  if (/\b(?:src|href)=["']\/(?!\/)|url\(\s*["']?\/(?!\/)/i.test(content)) issue("Deployment safety", `${rel}: root-relative frontend path can break project-subpath hosting`);
+  const browserSource = /^(?:ar\/.*\.html|[^/]+\.html|style\.css|assets\/.*\.(?:css|js)|config\/frontend-config(?:\.example)?\.js)$/i.test(rel);
+  if (/file:\/\//i.test(content) && browserSource) issue("Deployment safety", `${rel}: file:// browser reference is forbidden`);
 }
 
-for (const page of apiPages) {
-  const content = fs.readFileSync(path.join(root, page), "utf8");
-  const configIndex = content.indexOf("config/frontend-config.js");
-  const controllerMatch = content.match(/<script\s+type=["']module["']\s+src=["']([^"']*assets\/js\/pages\/[^"']+)["']/i);
-  if (configIndex < 0) fail(`${page}: missing frontend runtime configuration script`);
-  if (!controllerMatch) fail(`${page}: missing API page controller module`);
-  else if (configIndex > content.indexOf(controllerMatch[0])) fail(`${page}: configuration loads after its page controller`);
-}
+const publicConfigFile = path.join(root, "config/frontend-config.js");
+const publicConfig = fs.readFileSync(publicConfigFile, "utf8");
+if (!/apiEnabled:\s*false\b/.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: committed apiEnabled must be false");
+if (!/apiBaseUrl:\s*["']\s*["']/.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: committed apiBaseUrl must be empty");
+if (!/deploymentEnvironment:\s*["']static["']/.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: committed environment must be static");
+if (/apiEnabled:\s*true\b/.test(publicConfig) && !/apiBaseUrl:\s*["']https:\/\//.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: enabled non-local configuration must use HTTPS");
+if (/\b(?:token|secret|password|apiKey|authorization)\s*:/i.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: token-like or secret-like configuration field is forbidden");
+if (/https?:\/\/[^\s"']+/i.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: production/API hostname must not be committed in static mode");
 
-const publicConfig = fs.readFileSync(path.join(root, "config/frontend-config.js"), "utf8");
-if (!/apiEnabled:\s*false\b/.test(publicConfig)) fail("config/frontend-config.js: committed apiEnabled must be false");
-if (!/apiBaseUrl:\s*["']\s*["']/.test(publicConfig)) fail("config/frontend-config.js: committed apiBaseUrl must be empty");
-if (!/deploymentEnvironment:\s*["']static["']/.test(publicConfig)) fail("config/frontend-config.js: committed environment must be static");
-if (/apiEnabled:\s*true\b/.test(publicConfig) && /apiBaseUrl:\s*["']http:\/\//.test(publicConfig)) {
-  fail("config/frontend-config.js: enabled production configuration must not use HTTP");
-}
-
-const configAssignments = textFiles.filter((file) => {
-  const rel = relative(file);
-  return rel.endsWith(".js") && /VISIT_LIBYA_CONFIG\s*=/.test(fs.readFileSync(file, "utf8"));
-}).map(relative);
-const allowedAssignments = new Set(["config/frontend-config.js", "config/frontend-config.example.js"]);
+const configAssignments = jsFiles.filter((file) => /VISIT_LIBYA_CONFIG\s*=/.test(fs.readFileSync(file, "utf8"))).map(relative);
 for (const assignment of configAssignments) {
-  if (!allowedAssignments.has(assignment)) fail(`${assignment}: duplicates the public runtime configuration`);
+  if (!["config/frontend-config.js", "config/frontend-config.example.js"].includes(assignment)) issue("Runtime configuration", `${assignment}: duplicates the public runtime configuration`);
 }
 
-for (const file of files.filter((item) => item.endsWith(".html"))) {
-  const content = fs.readFileSync(file, "utf8");
-  for (const match of content.matchAll(/<script[^>]+src=["']([^"']+)["']/gi)) {
-    const reference = match[1].split(/[?#]/, 1)[0];
-    if (/^(?:https?:)?\/\//i.test(reference)) continue;
-    const target = path.resolve(path.dirname(file), reference);
-    if (!fs.existsSync(target)) fail(`${relative(file)}: missing script ${reference}`);
+const { curatedDestinations } = await import(pathToFileURL(curatedFile));
+const requiredCuratedFields = ["name_en", "name_ar", "description_en", "description_ar", "region_en", "region_ar", "category_en", "category_ar", "slug", "image"];
+const slugs = new Set();
+for (const destination of curatedDestinations) {
+  for (const field of requiredCuratedFields) if (typeof destination[field] !== "string" || !destination[field].trim()) issue("Curated destinations", `${destination.slug ?? "unknown"}: missing bilingual field ${field}`);
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(destination.slug)) issue("Curated destinations", `${destination.slug}: invalid slug pattern`);
+  if (slugs.has(destination.slug)) issue("Curated destinations", `${destination.slug}: duplicate slug`);
+  slugs.add(destination.slug);
+  validateLocalReference("Curated destinations", curatedFile, curatedSource, `../../../${destination.image}`, curatedSource.indexOf(`slug: "${destination.slug}"`), { fragment: false });
+}
+if (!slugs.has("leptis-magna")) issue("Curated destinations", "leptis-magna is missing from curated data");
+
+const destinationController = fs.readFileSync(path.join(root, "assets/js/pages/destination-details.js"), "utf8");
+if (!/destination\.html\?slug=\$\{encodeURIComponent\(slug\)\}/.test(destinationController)) issue("Navigation", "destination-details.js: language switching does not preserve the destination slug");
+if (!/if \(!slug\)[\s\S]{0,200}view:\s*["']not-found["']/.test(destinationController)) issue("Curated destinations", "destination-details.js: invalid/unknown slug lacks a terminal state");
+if (!/if \(!runtimeConfig\.apiEnabled\)[\s\S]{0,150}view:\s*["']error["']/.test(destinationController)) issue("Curated destinations", "destination-details.js: unknown slug can remain loading when API is disabled");
+
+const en = (await import(pathToFileURL(path.join(root, "assets/js/app/i18n/en.js")))).en;
+const ar = (await import(pathToFileURL(path.join(root, "assets/js/app/i18n/ar.js")))).ar;
+function dictionaryKeys(value, prefix = "") {
+  return Object.entries(value).flatMap(([key, child]) => child && typeof child === "object" ? dictionaryKeys(child, `${prefix}${key}.`) : [`${prefix}${key}`]).sort();
+}
+if (JSON.stringify(dictionaryKeys(en)) !== JSON.stringify(dictionaryKeys(ar))) issue("HTML and parity", "English and Arabic dynamic dictionaries are not structurally equivalent");
+for (const key of ["registrationUnavailable", "signInUnavailable"]) if (!en.auth[key] || !ar.auth[key]) issue("HTML and parity", `missing bilingual auth.${key}`);
+if (!en.trips.plannerUnavailable || !ar.trips.plannerUnavailable) issue("HTML and parity", "missing bilingual trips.plannerUnavailable");
+
+const staticHooks = {
+  "register.html": ["data-register-form", "data-register-error", "data-register-submit"],
+  "trips.html": ["data-login-form", "data-login-error", "data-login-submit"],
+  "trip.html": ["data-trip-error", "data-trip-editor", "data-trip-loading"],
+};
+for (const [page, hooks] of Object.entries(staticHooks)) {
+  for (const rel of [page, `ar/${page}`]) {
+    const content = htmlByRelative.get(rel) ?? "";
+    for (const hook of hooks) if (!content.includes(hook)) issue("Static unavailable states", `${rel}: missing ${hook} hook`);
   }
 }
 
-for (const file of files.filter((item) => /\.(?:js|mjs)$/.test(item))) {
-  const content = fs.readFileSync(file, "utf8");
-  for (const match of content.matchAll(/(?:from\s+|import\s*)["']([^"']+)["']/g)) {
-    const reference = match[1];
-    if (!reference.startsWith(".")) continue;
-    const target = path.resolve(path.dirname(file), reference);
-    if (!fs.existsSync(target)) fail(`${relative(file)}: missing module ${reference}`);
-  }
+if (!fs.existsSync(path.join(root, ".github/workflows/frontend-validation.yml"))) warn("frontend validation workflow is missing");
+
+const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
+const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety"];
+for (const name of orderedSections) {
+  const items = sections.get(name) ?? [];
+  if (items.length) {
+    console.error(`FAIL ${name} (${items.length})`);
+    for (const item of items) console.error(`  - ${item}`);
+  } else console.log(`PASS ${name}`);
 }
-
-const en = fs.readFileSync(path.join(root, "assets/js/app/i18n/en.js"), "utf8");
-const ar = fs.readFileSync(path.join(root, "assets/js/app/i18n/ar.js"), "utf8");
-const keys = (source) => [...source.matchAll(/^\s{4}([A-Za-z][A-Za-z0-9]*):/gm)].map((match) => match[1]).sort();
-if (JSON.stringify(keys(en)) !== JSON.stringify(keys(ar))) fail("English and Arabic dynamic dictionaries are not structurally equivalent");
-
-if (!exists(".github/workflows/frontend-validation.yml")) warnings.push("frontend validation workflow is missing");
-
-for (const warning of warnings) console.warn(`WARN: ${warning}`);
-if (violations.length) {
-  for (const violation of violations) console.error(`FAIL: ${violation}`);
-  console.error(`Frontend validation failed with ${violations.length} violation(s).`);
+for (const warning of warnings) console.warn(`WARN ${warning}`);
+if (failures) {
+  console.error(`Frontend validation failed: ${failures} violation(s), ${warnings.length} warning(s).`);
   process.exitCode = 1;
 } else {
-  console.log(`Frontend validation passed (${apiPages.length} API pages checked).`);
+  console.log(`Frontend validation passed: ${orderedSections.length} sections, ${actualPages.length} pages, ${warnings.length} warning(s).`);
 }
