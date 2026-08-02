@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 
 from fastapi.testclient import TestClient
 
-from app.api.dependencies import get_category_service
+from app.api.dependencies import get_category_service, require_content_admin
 from app.core.exceptions import (
     CategoryCodeConflictError,
     CategoryNotFoundError,
@@ -93,6 +93,7 @@ def test_get_list_supports_pagination_and_active_filter() -> None:
 def test_post_and_conflict_and_validation() -> None:
     service = FakeCategoryService()
     app.dependency_overrides[get_category_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     payload = {"code": "culture", "name_ar": "الثقافة", "name_en": "Culture"}
     try:
         with TestClient(app) as client:
@@ -136,6 +137,7 @@ def test_get_by_code_and_errors() -> None:
 def test_put_updates_and_handles_errors() -> None:
     service = FakeCategoryService()
     app.dependency_overrides[get_category_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     try:
         with TestClient(app) as client:
             updated = client.put(
@@ -165,6 +167,7 @@ def test_put_updates_and_handles_errors() -> None:
 def test_delete_returns_204_and_404() -> None:
     service = FakeCategoryService()
     app.dependency_overrides[get_category_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     try:
         with TestClient(app) as client:
             deleted = client.delete("/api/v1/categories/1")

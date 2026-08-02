@@ -5,6 +5,7 @@ __pycache__/
 .mypy_cache/
 .ruff_cache/
 .venv/
+.venv*/
 venv/
 coverage.xml
 htmlcov/
@@ -15,6 +16,7 @@ htmlcov/
 .env.*
 !.env.example
 !**/.env.example
+backend/.envpython
 
 # Database
 *.db

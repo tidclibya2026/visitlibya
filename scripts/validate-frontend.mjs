@@ -17,6 +17,9 @@ const approvedLocalReferences = new Set([
   "docs/frontend-deployment-smoke-tests.md",
   "backend/.env.example",
   "backend/app/core/config.py",
+  ".github/workflows/backend-production-validation.yml",
+  "docker-compose.production.example.yml",
+  "docs/backend-cors-and-frontend-integration.md",
   "docs/frontend-release-checklist.md",
   "scripts/validate-pages-artifact.mjs",
 ]);

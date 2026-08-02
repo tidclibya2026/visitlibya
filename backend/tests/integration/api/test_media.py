@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 
 from fastapi.testclient import TestClient
 
-from app.api.dependencies import get_media_service
+from app.api.dependencies import get_media_service, require_content_admin
 from app.core.exceptions import DestinationMediaConflictError, DestinationMediaNotFoundError, MediaAssetNotFoundError, MediaAssetPathConflictError, MediaAssetPersistenceError
 from app.main import app
 from app.models.media import DestinationMedia, MediaAsset
@@ -44,6 +44,7 @@ class FakeMediaService:
 
 def test_media_crud_pagination_filters_ordering_and_errors() -> None:
     service = FakeMediaService(); app.dependency_overrides[get_media_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     body = {"file_name": "leptis.jpg", "file_path": "/media/leptis.jpg", "mime_type": "image/jpeg"}
     try:
         with TestClient(app) as client:
@@ -66,6 +67,7 @@ def test_media_crud_pagination_filters_ordering_and_errors() -> None:
 
 def test_destination_association_primary_update_and_remove() -> None:
     service = FakeMediaService(); app.dependency_overrides[get_media_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
     try:
         with TestClient(app) as client:
             linked = client.post("/api/v1/media/1/destinations/7", json={"sort_order": 2, "is_primary": True})

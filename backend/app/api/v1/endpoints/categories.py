@@ -1,8 +1,8 @@
 from typing import NoReturn
 
-from fastapi import APIRouter, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status
 
-from app.api.dependencies import CategoryServiceDependency
+from app.api.dependencies import CategoryServiceDependency, require_content_admin
 from app.api.pagination import LimitParameter, SkipParameter
 from app.core.exceptions import (
     CategoryCodeConflictError,
@@ -56,7 +56,7 @@ def list_categories(
     return CategoryListResponse(items=list(items), total=total, skip=skip, limit=limit)
 
 
-@router.post("", response_model=CategoryRead, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=CategoryRead, status_code=status.HTTP_201_CREATED, dependencies=[Depends(require_content_admin)])
 def create_category(
     payload: CategoryCreate,
     service: CategoryServiceDependency,
@@ -75,7 +75,7 @@ def get_category(code: str, service: CategoryServiceDependency) -> Category:
         raise_http_error(error)
 
 
-@router.put("/{category_id}", response_model=CategoryRead)
+@router.put("/{category_id}", response_model=CategoryRead, dependencies=[Depends(require_content_admin)])
 def update_category(
     category_id: int,
     payload: CategoryUpdate,
@@ -87,7 +87,7 @@ def update_category(
         raise_http_error(error)
 
 
-@router.delete("/{category_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete("/{category_id}", status_code=status.HTTP_204_NO_CONTENT, dependencies=[Depends(require_content_admin)])
 def delete_category(
     category_id: int,
     service: CategoryServiceDependency,
