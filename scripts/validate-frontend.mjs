@@ -387,7 +387,10 @@ for (const [rel, content] of publicHtml) {
     const resolved = localTarget(file, favicon);
     if (resolved.error || exactPathStatus(resolved.target) !== "ok") issue("HTML references", `${rel}: favicon does not resolve: ${favicon}`);
   }
-  for (const property of ["og:title", "og:description", "og:type"]) if (!new RegExp(`<meta[^>]+property=["']${property}["']`, "i").test(content)) issue("Release readiness", `${rel}: ${property} missing`);
+  if (rel !== "404.html") {
+    const logoPath = rel.startsWith("ar/") ? "../visitlibyalogo.png" : "visitlibyalogo.png";
+    if (!new RegExp(`<a\\b[^>]*class=["''][^"'']*vl-logo[^"'']*["''][^>]*href=["'']index\\.html["''][^>]*>[\\s\\S]*?<img\\b[^>]*class=["''][^"'']*media-logo[^"'']*["''][^>]*src=["'']${logoPath.replaceAll(".", "\\.")}["''][^>]*alt=["'']["'']`, "i").test(content)) issue("Visual system", `${rel}: approved decorative header logo or language-local home link is missing`);
+  }  for (const property of ["og:title", "og:description", "og:type"]) if (!new RegExp(`<meta[^>]+property=["']${property}["']`, "i").test(content)) issue("Release readiness", `${rel}: ${property} missing`);
   for (const name of ["twitter:card", "twitter:title", "twitter:description"]) if (!new RegExp(`<meta[^>]+name=["']${name}["']`, "i").test(content)) issue("Release readiness", `${rel}: ${name} missing`);
   for (const hero of content.matchAll(/<span[^>]+class=["'][^"']*page-hero-bg[^"']*["'][^>]*>[\s\S]*?<img\b[^>]*\balt=["']([^"']*)["'][^>]*>/gi)) {
     const alt = hero[1].trim();
@@ -560,8 +563,22 @@ for (const [imagePath, references] of [...imageReferences].filter(([imagePath]) 
   const bytes = fs.statSync(path.join(root, imagePath)).size;
   if (bytes > 2 * 1024 * 1024) warn(`${imagePath} | optimized asset remains above 2 MB | referenced by ${[...references].sort().join(", ")}`);
 }
-const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
-const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Media delivery", "Image size audit"];
+const visualCssFiles = [layoutCss, fs.readFileSync(path.join(root, "assets/css/design-system.css"), "utf8"), fs.readFileSync(path.join(root, "assets/css/base.css"), "utf8")];
+const visualCss = visualCssFiles.join("\n");
+if (!fs.existsSync(path.join(root, "visitlibyalogo.png"))) issue("Visual system", "approved visitlibyalogo.png is missing");
+if (!fs.existsSync(path.join(root, "favicon.png"))) issue("Visual system", "approved favicon.png is missing");
+if (!/--font-latin:[^;]+Inter[^;]+system-ui/i.test(visualCss) || !/--font-arabic:[^;]+Cairo[^;]+Noto Sans Arabic[^;]+Tahoma/i.test(visualCss)) issue("Visual system", "English and Arabic fallback font stacks are incomplete");
+const fontImports = [...layoutCss.matchAll(/@import\s+url\([^)]*fonts\.googleapis\.com[^)]*\)/gi)];
+if (fontImports.length !== 1) issue("Visual system", `expected one Google Fonts import, found ${fontImports.length}`);
+else if (!/display=swap/i.test(fontImports[0][0])) issue("Visual system", "external font import must use display=swap");
+if (!/\.media-natural,\.media-editorial,[^{]+\{width:100%;height:auto;max-height:none;object-fit:contain\}/i.test(layoutCss)) issue("Visual system", "editorial media must preserve natural ratio with contain");
+if (/\.media-(?:editorial|natural)[^{]*\{[^}]*(?:height:\s*\d|object-fit:\s*cover)/i.test(layoutCss)) issue("Visual system", "editorial media contains a fixed-height crop rule");
+if (!/\.media-(?:card|hero)[^{]*[\s\S]{0,220}object-fit:cover/i.test(layoutCss)) issue("Visual system", "controlled card and hero cover behavior is missing");
+if (fs.existsSync(allowlistPath)) {
+  const iconAllowlist = JSON.parse(fs.readFileSync(allowlistPath, "utf8")).rootFiles ?? [];
+  for (const asset of ["visitlibyalogo.png", "favicon.png"]) if (!iconAllowlist.includes(asset)) issue("Visual system", `artifact allowlist omits ${asset}`);
+}const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
+const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Media delivery", "Visual system", "Image size audit"];
 for (const name of orderedSections) {
   const items = sections.get(name) ?? [];
   if (items.length) {
