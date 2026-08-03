@@ -1,6 +1,7 @@
 import { apiClient } from "../app/api/client.js";
 import { loadRuntimeConfig } from "../app/config/runtime-config.js";
 import { curatedDestinations } from "../data/curated-destinations.js";
+import { resolveResponsiveImage } from "../data/responsive-images.js";
 
 const isArabic = document.documentElement.lang === "ar";
 const locale = isArabic ? "ar-LY" : "en";
@@ -113,6 +114,7 @@ function normalizeApiItem(item) {
   if (!slug) return null;
   const curated = curatedDestinations.find((entry) => entry.slug === slug);
   const apiImage = normalizeImageUrl(item.primary_media_url);
+  const responsive = apiImage || !curated ? null : resolveResponsiveImage(curated.image, pathPrefix);
   return {
     slug,
     name: safeText(isArabic ? item.name_ar : item.name_en, safeText(isArabic ? item.name_en : item.name_ar, copy.categoryUnknown)),
@@ -127,7 +129,8 @@ function normalizeApiItem(item) {
     ),
     categoryId: Number.isInteger(Number(item.category?.id)) ? String(item.category.id) : "",
     image: apiImage || (curated?.image ? `${pathPrefix}${curated.image}` : ""),
-    imageWebp: apiImage || !curated?.imageWebp ? "" : `${pathPrefix}${curated.imageWebp}`,
+    imageWebp: responsive?.webp ?? "",
+    imageWebpSrcset: responsive?.srcset ?? "",
   };
 }
 
@@ -164,7 +167,10 @@ function createCard(destination) {
       picture.className = "responsive-picture";
       const source = document.createElement("source");
       source.type = "image/webp";
-      source.srcset = destination.imageWebp;
+      source.srcset = destination.imageWebpSrcset || destination.imageWebp;
+      if (destination.imageWebpSrcset) {
+        source.sizes = "(max-width: 700px) calc(100vw - 2rem), (max-width: 1100px) 50vw, 33vw";
+      }
       picture.append(source, image);
       media.appendChild(picture);
     } else {
@@ -351,7 +357,8 @@ function fallbackItems() {
       category: isArabic ? item.category_ar : item.category_en,
       categoryId: `curated:${item.category_key}`,
       image: `${pathPrefix}${item.image}`,
-      imageWebp: item.imageWebp ? `${pathPrefix}${item.imageWebp}` : "",
+      imageWebp: resolveResponsiveImage(item.image, pathPrefix)?.webp ?? "",
+      imageWebpSrcset: resolveResponsiveImage(item.image, pathPrefix)?.srcset ?? "",
     }));
 
   const direction = state.sort === "name:desc" ? -1 : 1;

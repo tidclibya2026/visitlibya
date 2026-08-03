@@ -1,6 +1,7 @@
 import { apiClient } from "../app/api/client.js";
 import { loadRuntimeConfig } from "../app/config/runtime-config.js";
 import { curatedDestinations } from "../data/curated-destinations.js";
+import { resolveResponsiveImage } from "../data/responsive-images.js";
 
 const isArabic = document.documentElement.lang === "ar";
 const locale = isArabic ? "ar" : "en";
@@ -32,21 +33,6 @@ const localGalleries = Object.freeze({
   "villa-sileen": ["imges/curated/villa-sileen-aerial.jpg", "imges/curated/villa-sileen-theatre.jpg", "imges/curated/villa-sileen-coast.jpg"],
 });
 
-const optimizedImages = Object.freeze({
-  "imges/Cyrene2.JPG": "imges/optimized/cyrene2.webp",
-  "imges/natural lakes2.JPG": "imges/optimized/natural-lakes2.webp",
-  "imges/tripoliMarcus Arch.JPG": "imges/optimized/tripoli-marcus-arch.webp",
-  "imges/gallery/Architectural heritage.JPG": "imges/optimized/architectural-heritage.webp",
-  "imges/beaches1.JPG": "imges/optimized/beaches1.webp",
-  "imges/bengazi1.JPG": "imges/optimized/benghazi1.webp",
-  "imges/bengazi3.JPG": "imges/optimized/benghazi3.webp",
-  "imges/bengazi.JPG": "imges/optimized/benghazi.webp",
-  "imges/desert.jpg": "imges/optimized/desert.webp",
-  "imges/ghadames6.JPG": "imges/optimized/ghadames6.webp",
-  "imges/landscapes5.JPG": "imges/optimized/landscapes5.webp",
-  "imges/landscapes7.jpg": "imges/optimized/landscapes7.webp",
-  "imges/gallery/beaches18.JPG": "imges/optimized/beaches18.webp",
-});
 const localImageAlt = Object.freeze({
   "imges/curated/villa-sileen-aerial.jpg": {
     en: "Aerial view of Villa Sileen on the Mediterranean coast",
@@ -125,16 +111,17 @@ function localPath(source) {
 function localMedia(source) {
   const src = localPath(source);
   if (!src) return null;
-  return { src, webp: localPath(optimizedImages[source] ?? "") };
+  return { src, ...resolveResponsiveImage(source, pathPrefix) };
 }
 
-function createResponsivePicture(image, webp) {
-  if (!webp) return image;
+function createResponsivePicture(image, media, sizes) {
+  if (!media?.webp) return image;
   const picture = document.createElement("picture");
   picture.className = "responsive-picture";
   const source = document.createElement("source");
   source.type = "image/webp";
-  source.srcset = webp;
+  source.srcset = media.srcset || media.webp;
+  if (media.srcset) source.sizes = sizes;
   picture.append(source, image);
   return picture;
 }
@@ -152,7 +139,7 @@ function localizedCurated(item) {
     region: isArabic ? item.region_ar : item.region_en,
     municipality: copy.unspecified,
     hero: localPath(item.image),
-    heroWebp: localPath(item.imageWebp ?? optimizedImages[item.image] ?? ""),
+    heroMedia: resolveResponsiveImage(item.image, pathPrefix),
     gallery: (localGalleries[item.slug] ?? [item.image]).map(localMedia).filter(Boolean),
     translationFallback: false,
   };
@@ -185,7 +172,7 @@ function normalizeApiDestination(payload, curated) {
     region: text(payload.region, curatedRecord?.region ?? copy.libya),
     municipality: text(payload.municipality, curatedRecord?.municipality ?? copy.unspecified),
     hero: curatedRecord?.hero ?? localPath("imges/beaches.jpg"),
-    heroWebp: curatedRecord?.heroWebp ?? "",
+    heroMedia: curatedRecord?.heroMedia ?? null,
     gallery: curatedRecord?.gallery ?? [],
     translationFallback: usedAlternate,
   };
@@ -233,7 +220,10 @@ function renderGallery(destination) {
     image.addEventListener("error", () => figure.remove(), { once: true });
     const caption = document.createElement("figcaption");
     caption.textContent = isArabic ? `مشهد من ${destination.name}` : `A local view of ${destination.name}`;
-    figure.append(createResponsivePicture(image, media.webp), caption);
+    const sizes = index === 0
+      ? "100vw"
+      : "(max-width: 768px) calc(100vw - 2rem), min(50vw, 720px)";
+    figure.append(createResponsivePicture(image, media, sizes), caption);
     fragment.appendChild(figure);
   });
   elements.gallery.replaceChildren(fragment);
@@ -267,7 +257,7 @@ function renderRelated(destination) {
     link.textContent = copy.view;
     link.setAttribute("aria-label", `${copy.view}: ${localized.name}`);
     body.append(title, location, link);
-    card.append(createResponsivePicture(image, localized.heroWebp), body);
+    card.append(createResponsivePicture(image, localized.heroMedia, "(max-width: 700px) calc(100vw - 2rem), (max-width: 1100px) 50vw, 33vw"), body);
     fragment.appendChild(card);
   });
   elements.related.replaceChildren(fragment);
@@ -284,10 +274,11 @@ function render(destination, { fallback = false } = {}) {
   elements.municipality.textContent = destination.municipality;
   elements.heroImage.src = destination.hero || localPath("imges/beaches.jpg");
   elements.heroPicture.querySelector("source")?.remove();
-  if (destination.heroWebp) {
+  if (destination.heroMedia?.webp) {
     const source = document.createElement("source");
     source.type = "image/webp";
-    source.srcset = destination.heroWebp;
+    source.srcset = destination.heroMedia.srcset || destination.heroMedia.webp;
+    if (destination.heroMedia.srcset) source.sizes = "100vw";
     elements.heroPicture.prepend(source);
   }
   elements.heroImage.alt = imageAlt(destination.hero, isArabic ? `مشهد سياحي من ${destination.name}` : `Tourism view of ${destination.name}`);
