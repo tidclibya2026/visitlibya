@@ -573,7 +573,12 @@ if (fontImports.length !== 1) issue("Visual system", `expected one Google Fonts 
 else if (!/display=swap/i.test(fontImports[0][0])) issue("Visual system", "external font import must use display=swap");
 if (!/\.media-natural,\.media-editorial,[^{]+\{width:100%;height:auto;max-height:none;object-fit:contain\}/i.test(layoutCss)) issue("Visual system", "editorial media must preserve natural ratio with contain");
 if (/\.media-(?:editorial|natural)[^{]*\{[^}]*(?:height:\s*\d|object-fit:\s*cover)/i.test(layoutCss)) issue("Visual system", "editorial media contains a fixed-height crop rule");
-if (!/\.media-(?:card|hero)[^{]*[\s\S]{0,220}object-fit:cover/i.test(layoutCss)) issue("Visual system", "controlled card and hero cover behavior is missing");
+if (!/\.media-(?:card|hero)[^{]*[\s\S]{0,220}object-fit:cover/i.test(layoutCss)) issue("Visual system", "controlled card and hero cover behavior is missing");if (!/\.vl-nav\{[^}]*min-width:0;[^}]*max-width:100%/i.test(layoutCss)) issue("Visual system", "legacy navigation must permit shrinking without overflow");
+if (/\.vl-language\{[^}]*position:\s*absolute/i.test(layoutCss)) issue("Visual system", "language switch must remain in normal flow");
+if (/(?:html|body)[^{]*\{[^}]*overflow-x:\s*hidden/i.test(layoutCss)) issue("Visual system", "global html/body overflow hiding is forbidden as a layout workaround");
+if (!/\.chat-form\{[^}]*grid-template-columns:minmax\(0,1fr\) auto/i.test(layoutCss) || !/\.chat-form input\{[^}]*min-width:0;[^}]*width:100%/i.test(layoutCss)) issue("Visual system", "AI form grid lacks mobile min-content width safety");
+if (!/\.vl-logo img\{[^}]*width:clamp\([^}]*height:auto;[^}]*object-fit:contain/i.test(layoutCss)) issue("Visual system", "legacy header logo must preserve responsive contained sizing");
+if (!fs.existsSync(path.join(root, "docs/visual-qa-report.md"))) issue("Visual system", "visual QA report is missing");
 if (fs.existsSync(allowlistPath)) {
   const iconAllowlist = JSON.parse(fs.readFileSync(allowlistPath, "utf8")).rootFiles ?? [];
   for (const asset of ["visitlibyalogo.png", "favicon.png"]) if (!iconAllowlist.includes(asset)) issue("Visual system", `artifact allowlist omits ${asset}`);
