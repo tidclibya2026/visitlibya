@@ -1,0 +1,92 @@
+{
+  "rootFiles": [
+    ".nojekyll",
+    "404.html",
+    "robots.txt",
+    "main.js",
+    "partials.js",
+    "style.css",
+    "visitlibyalogo.png",
+    "favicon.png",
+    "config/frontend-config.js",
+    "config/frontend-pages.json"
+  ],
+  "pageSource": "config/frontend-pages.json",
+  "publicTrees": {
+    "assets/css": [
+      ".css"
+    ],
+    "assets/js": [
+      ".js"
+    ]
+  },
+  "publicMedia": [
+    "imges/Acacus.jpg",
+    "imges/Awjila.jpg",
+    "imges/Bazin.jpg",
+    "imges/beaches.jpg",
+    "imges/beaches1.JPG",
+    "imges/bengazi.JPG",
+    "imges/bengazi1.JPG",
+    "imges/bengazi3.JPG",
+    "imges/curated/acacus-rock-art-chariot.jpg",
+    "imges/curated/acacus-rock-art-scene-2.jpg",
+    "imges/curated/acacus-rock-art-scene-3.jpg",
+    "imges/curated/horse-rider-traditional.jpg",
+    "imges/curated/horse-riding-group.jpg",
+    "imges/curated/libyan-couscous-detail.jpg",
+    "imges/curated/libyan-couscous.jpg",
+    "imges/curated/libyan-traditional-dress.jpg",
+    "imges/curated/villa-sileen-aerial.jpg",
+    "imges/curated/villa-sileen-coast.jpg",
+    "imges/curated/villa-sileen-theatre.jpg",
+    "imges/Cyrene.jpg",
+    "imges/Cyrene2.JPG",
+    "imges/desert.jpg",
+    "imges/gallery/Architectural heritage.JPG",
+    "imges/gallery/awajla.jpg",
+    "imges/gallery/beaches18.JPG",
+    "imges/Ghadames.jpg",
+    "imges/Ghadames2.JPG",
+    "imges/ghadames5.JPG",
+    "imges/ghadames6.JPG",
+    "imges/landscapes5.JPG",
+    "imges/landscapes7.jpg",
+    "imges/Leptis Magna.jpeg",
+    "imges/Leptis Magna.jpg",
+    "imges/Leptis Magna1.jpg",
+    "imges/Leptis Magna3.jpeg",
+    "imges/Museumtripoli.jpg",
+    "imges/natural lakes.jpg",
+    "imges/natural lakes1.jpg",
+    "imges/natural lakes2.JPG",
+    "imges/oldtripoli.jpg",
+    "imges/pottery.jpg",
+    "imges/qaser aje.jpg",
+    "imges/Sabratha.jpeg",
+    "imges/Sabratha.jpg",
+    "imges/Stone inscriptions in antiquities.jpg",
+    "imges/The Sahara Desert.jpg",
+    "imges/traditional food.jpg",
+    "imges/traditional industries.jpg",
+    "imges/tripoliMarcus Arch.JPG",
+    "imges/tripolinow.jpg",
+    "imges/الدبلة.webp",
+    "panel/desert.jpg",
+    "panel/panel1.png"
+  ],
+  "generatedFiles": [
+    "release-manifest.json",
+    "sitemap.xml"
+  ],
+  "forbiddenTopLevel": [
+    ".git",
+    ".github",
+    "backend",
+    "deploy",
+    "docs",
+    "node_modules",
+    "scripts",
+    "tests"
+  ]
+}
