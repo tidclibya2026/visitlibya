@@ -32,6 +32,21 @@ const localGalleries = Object.freeze({
   "villa-sileen": ["imges/curated/villa-sileen-aerial.jpg", "imges/curated/villa-sileen-theatre.jpg", "imges/curated/villa-sileen-coast.jpg"],
 });
 
+const optimizedImages = Object.freeze({
+  "imges/Cyrene2.JPG": "imges/optimized/cyrene2.webp",
+  "imges/natural lakes2.JPG": "imges/optimized/natural-lakes2.webp",
+  "imges/tripoliMarcus Arch.JPG": "imges/optimized/tripoli-marcus-arch.webp",
+  "imges/gallery/Architectural heritage.JPG": "imges/optimized/architectural-heritage.webp",
+  "imges/beaches1.JPG": "imges/optimized/beaches1.webp",
+  "imges/bengazi1.JPG": "imges/optimized/benghazi1.webp",
+  "imges/bengazi3.JPG": "imges/optimized/benghazi3.webp",
+  "imges/bengazi.JPG": "imges/optimized/benghazi.webp",
+  "imges/desert.jpg": "imges/optimized/desert.webp",
+  "imges/ghadames6.JPG": "imges/optimized/ghadames6.webp",
+  "imges/landscapes5.JPG": "imges/optimized/landscapes5.webp",
+  "imges/landscapes7.jpg": "imges/optimized/landscapes7.webp",
+  "imges/gallery/beaches18.JPG": "imges/optimized/beaches18.webp",
+});
 const localImageAlt = Object.freeze({
   "imges/curated/villa-sileen-aerial.jpg": {
     en: "Aerial view of Villa Sileen on the Mediterranean coast",
@@ -72,6 +87,7 @@ const elements = {
   content: document.getElementById("destinationContent"),
   languageLink: document.getElementById("destinationLanguageLink"),
   heroImage: document.getElementById("destinationHeroImage"),
+  heroPicture: document.querySelector(".destination-detail-hero__picture"),
   category: document.getElementById("destinationCategory"),
   title: document.getElementById("destinationTitle"),
   introduction: document.getElementById("destinationIntroduction"),
@@ -106,6 +122,22 @@ function localPath(source) {
   return `${pathPrefix}${source}`;
 }
 
+function localMedia(source) {
+  const src = localPath(source);
+  if (!src) return null;
+  return { src, webp: localPath(optimizedImages[source] ?? "") };
+}
+
+function createResponsivePicture(image, webp) {
+  if (!webp) return image;
+  const picture = document.createElement("picture");
+  picture.className = "responsive-picture";
+  const source = document.createElement("source");
+  source.type = "image/webp";
+  source.srcset = webp;
+  picture.append(source, image);
+  return picture;
+}
 function curatedBySlug(slug) {
   return curatedDestinations.find((item) => item.slug === slug) ?? null;
 }
@@ -120,7 +152,8 @@ function localizedCurated(item) {
     region: isArabic ? item.region_ar : item.region_en,
     municipality: copy.unspecified,
     hero: localPath(item.image),
-    gallery: (localGalleries[item.slug] ?? [item.image]).map(localPath).filter(Boolean),
+    heroWebp: localPath(item.imageWebp ?? optimizedImages[item.image] ?? ""),
+    gallery: (localGalleries[item.slug] ?? [item.image]).map(localMedia).filter(Boolean),
     translationFallback: false,
   };
 }
@@ -152,6 +185,7 @@ function normalizeApiDestination(payload, curated) {
     region: text(payload.region, curatedRecord?.region ?? copy.libya),
     municipality: text(payload.municipality, curatedRecord?.municipality ?? copy.unspecified),
     hero: curatedRecord?.hero ?? localPath("imges/beaches.jpg"),
+    heroWebp: curatedRecord?.heroWebp ?? "",
     gallery: curatedRecord?.gallery ?? [],
     translationFallback: usedAlternate,
   };
@@ -186,12 +220,12 @@ function appendParagraphs(container, value) {
 
 function renderGallery(destination) {
   const fragment = document.createDocumentFragment();
-  destination.gallery.slice(0, 3).forEach((source, index) => {
+  destination.gallery.slice(0, 3).forEach((media, index) => {
     const figure = document.createElement("figure");
     figure.className = "destination-detail-gallery__figure";
     const image = document.createElement("img");
-    image.src = source;
-    image.alt = imageAlt(source, isArabic
+    image.src = media.src;
+    image.alt = imageAlt(media.src, isArabic
       ? `الصورة ${new Intl.NumberFormat("ar-LY").format(index + 1)} في معرض ${destination.name}`
       : `Image ${index + 1} in the ${destination.name} gallery`);
     image.loading = "lazy";
@@ -199,7 +233,7 @@ function renderGallery(destination) {
     image.addEventListener("error", () => figure.remove(), { once: true });
     const caption = document.createElement("figcaption");
     caption.textContent = isArabic ? `مشهد من ${destination.name}` : `A local view of ${destination.name}`;
-    figure.append(image, caption);
+    figure.append(createResponsivePicture(image, media.webp), caption);
     fragment.appendChild(figure);
   });
   elements.gallery.replaceChildren(fragment);
@@ -233,7 +267,7 @@ function renderRelated(destination) {
     link.textContent = copy.view;
     link.setAttribute("aria-label", `${copy.view}: ${localized.name}`);
     body.append(title, location, link);
-    card.append(image, body);
+    card.append(createResponsivePicture(image, localized.heroWebp), body);
     fragment.appendChild(card);
   });
   elements.related.replaceChildren(fragment);
@@ -249,8 +283,16 @@ function render(destination, { fallback = false } = {}) {
   elements.region.textContent = destination.region;
   elements.municipality.textContent = destination.municipality;
   elements.heroImage.src = destination.hero || localPath("imges/beaches.jpg");
+  elements.heroPicture.querySelector("source")?.remove();
+  if (destination.heroWebp) {
+    const source = document.createElement("source");
+    source.type = "image/webp";
+    source.srcset = destination.heroWebp;
+    elements.heroPicture.prepend(source);
+  }
   elements.heroImage.alt = imageAlt(destination.hero, isArabic ? `مشهد سياحي من ${destination.name}` : `Tourism view of ${destination.name}`);
   elements.heroImage.addEventListener("error", () => {
+    elements.heroPicture.querySelector("source")?.remove();
     elements.heroImage.src = localPath("imges/beaches.jpg");
   }, { once: true });
   elements.fallbackNotice.hidden = !fallback;

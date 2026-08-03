@@ -111,7 +111,8 @@ function normalizeApiItem(item) {
   const id = Number(item.id);
   const slug = safeText(item.slug, Number.isInteger(id) ? `destination-${id}` : "");
   if (!slug) return null;
-  const curatedImage = curatedDestinations.find((entry) => entry.slug === slug)?.image;
+  const curated = curatedDestinations.find((entry) => entry.slug === slug);
+  const apiImage = normalizeImageUrl(item.primary_media_url);
   return {
     slug,
     name: safeText(isArabic ? item.name_ar : item.name_en, safeText(isArabic ? item.name_en : item.name_ar, copy.categoryUnknown)),
@@ -125,7 +126,8 @@ function normalizeApiItem(item) {
       copy.categoryUnknown,
     ),
     categoryId: Number.isInteger(Number(item.category?.id)) ? String(item.category.id) : "",
-    image: normalizeImageUrl(item.primary_media_url) || (curatedImage ? `${pathPrefix}${curatedImage}` : ""),
+    image: apiImage || (curated?.image ? `${pathPrefix}${curated.image}` : ""),
+    imageWebp: apiImage || !curated?.imageWebp ? "" : `${pathPrefix}${curated.imageWebp}`,
   };
 }
 
@@ -157,7 +159,17 @@ function createCard(destination) {
       },
       { once: true },
     );
-    media.appendChild(image);
+    if (destination.imageWebp) {
+      const picture = document.createElement("picture");
+      picture.className = "responsive-picture";
+      const source = document.createElement("source");
+      source.type = "image/webp";
+      source.srcset = destination.imageWebp;
+      picture.append(source, image);
+      media.appendChild(picture);
+    } else {
+      media.appendChild(image);
+    }
   } else {
     media.classList.add("is-fallback");
   }
@@ -339,6 +351,7 @@ function fallbackItems() {
       category: isArabic ? item.category_ar : item.category_en,
       categoryId: `curated:${item.category_key}`,
       image: `${pathPrefix}${item.image}`,
+      imageWebp: item.imageWebp ? `${pathPrefix}${item.imageWebp}` : "",
     }));
 
   const direction = state.sort === "name:desc" ? -1 : 1;

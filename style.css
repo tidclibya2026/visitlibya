@@ -366,7 +366,7 @@ html:not([lang="ar"]) .hero-destinations { --hero-image: url("imges/Ghadames.jpg
 html:not([lang="ar"]) .hero-heritage     { --hero-image: url("imges/Leptis Magna.jpg"); }
 html:not([lang="ar"]) .hero-culture      { --hero-image: url("imges/Bazin.jpg"); }
 html:not([lang="ar"]) .hero-experiences  { --hero-image: url("imges/Acacus.jpg"); }
-html:not([lang="ar"]) .hero-plan         { --hero-image: url("imges/desert.jpg"); }
+html:not([lang="ar"]) .hero-plan         { --hero-image: url("imges/desert.jpg"); --hero-image: image-set(url("imges/optimized/desert.webp") type("image/webp"), url("imges/desert.jpg") type("image/jpeg")); }
 html:not([lang="ar"]) .hero-atlas        { --hero-image: url("panel/panel1.png"); }
 html:not([lang="ar"]) .hero-ai           { --hero-image: url("imges/tripolinow.jpg"); }
 
@@ -375,7 +375,7 @@ html[lang="ar"] .hero-destinations { --hero-image: url("imges/Ghadames.jpg"); }
 html[lang="ar"] .hero-heritage     { --hero-image: url("imges/Leptis Magna.jpg"); }
 html[lang="ar"] .hero-culture      { --hero-image: url("imges/Bazin.jpg"); }
 html[lang="ar"] .hero-experiences  { --hero-image: url("imges/Acacus.jpg"); }
-html[lang="ar"] .hero-plan         { --hero-image: url("imges/desert.jpg"); }
+html[lang="ar"] .hero-plan         { --hero-image: url("imges/desert.jpg"); --hero-image: image-set(url("imges/optimized/desert.webp") type("image/webp"), url("imges/desert.jpg") type("image/jpeg")); }
 html[lang="ar"] .hero-atlas        { --hero-image: url("panel/panel1.png"); }
 html[lang="ar"] .hero-ai           { --hero-image: url("imges/tripolinow.jpg"); }
 
@@ -782,3 +782,6 @@ body.lightbox-open {
   }
 }
 /* Shared visual system */ .media-natural,.media-editorial,.discover-detail img,.ar-detail img{width:100%;height:auto;max-height:none;object-fit:contain}.media-card,.media-hero,.destination-card img,.page-hero-bg img,.discovery-bg img,.story-bg img,.mosaic img{width:100%;object-fit:cover}.media-logo,.vl-logo img,.ar-hero-logo{object-fit:contain}:where(.destination-card,.wide-card,.discovery-card,.story-card,.plan-grid article){transition:transform var(--transition),box-shadow var(--transition)}:where(.destination-card,.wide-card,.discovery-card,.story-card,.plan-grid article):focus-within{box-shadow:var(--shadow-hover),var(--focus-ring)}html[lang="en"] body{font-family:var(--font-latin)}html[lang="ar"] body{font-family:var(--font-arabic);line-height:var(--leading-relaxed)}html[lang="ar"] :where(h1,h2,h3,h4,h5,h6,.vl-nav,.btn,button){letter-spacing:0}@media(max-width:560px){.hero,.ar-cinematic-hero{min-height:min(46rem,calc(100svh - 68px))}.sub-hero,.page-hero-with-image{min-height:clamp(25rem,72svh,36rem)}.vl-logo img{width:42px;max-height:36px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Responsive WebP wrappers preserve the original image box in existing layouts. */
+.responsive-picture { display: contents; }

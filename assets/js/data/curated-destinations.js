@@ -28,6 +28,7 @@ export const curatedDestinations = Object.freeze([
     category_ar: "المدن التاريخية",
     category_key: "historic-cities",
     image: "imges/bengazi1.JPG",
+    imageWebp: "imges/optimized/benghazi1.webp",
   },
   {
     slug: "ghadames",
@@ -67,6 +68,7 @@ export const curatedDestinations = Object.freeze([
     category_ar: "الجبال والطبيعة",
     category_key: "mountains-nature",
     image: "imges/landscapes5.JPG",
+    imageWebp: "imges/optimized/landscapes5.webp",
   },
   {
     slug: "desert",

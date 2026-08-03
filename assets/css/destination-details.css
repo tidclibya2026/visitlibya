@@ -60,7 +60,7 @@
   color: #fff;
 }
 
-.destination-detail-hero > img,
+.destination-detail-hero__picture,
 .destination-detail-hero__overlay {
   position: absolute;
   inset: 0;
@@ -68,8 +68,14 @@
   height: 100%;
 }
 
-.destination-detail-hero > img {
+.destination-detail-hero__picture {
   z-index: -2;
+  display: block;
+}
+
+.destination-detail-hero__picture > img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
