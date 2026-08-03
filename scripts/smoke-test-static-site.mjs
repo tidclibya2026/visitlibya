@@ -5,7 +5,9 @@ import vm from "node:vm";
 import process from "node:process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const sourceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const argument = (name) => { const index = process.argv.indexOf(name); return index < 0 ? undefined : process.argv[index + 1]; };
+const root = path.resolve(argument("--root") || sourceRoot);
 const manifest = JSON.parse(fs.readFileSync(path.join(root, "config/frontend-pages.json"), "utf8"));
 const basePath = manifest.projectBasePath;
 const failures = [];
@@ -324,13 +326,14 @@ try {
     assert(!/Disallow:\s*\/(?:assets|ar|imges|panel)/i.test(content), "robots blocks public paths");
   });
   await test("sitemap generator requires HTTPS and is deterministic", async () => {
-    const { render } = await import(pathToFileURL(path.join(root, "scripts/generate-sitemap.mjs")));
-    let rejected = false; try { render({ siteOrigin: "http://" + "example.invalid", basePath, manifest }); } catch { rejected = true; }
+    const { render } = await import(pathToFileURL(path.join(sourceRoot, "scripts/generate-sitemap.mjs")));
+    let rejected = false; try { render({ siteOrigin: "http://" + "example.com", basePath, manifest }); } catch { rejected = true; }
     assert(rejected, "HTTP origin was accepted");
-    const xml = render({ siteOrigin: "https://" + "example.invalid", basePath, manifest });
-    assert(xml.includes("https://" + "example.invalid/visitlibya/ar/index.html"), "Arabic alternate/base path missing");
+    const xml = render({ siteOrigin: "https://" + "example.com", basePath, manifest });
+    assert(xml.includes("https://" + "example.com/visitlibya/ar/index.html"), "Arabic alternate/base path missing");
     assert(!xml.includes("register.html") && !xml.includes("trips.html") && !xml.includes("trip.html") && !xml.includes("ai.html"), "noindex page entered sitemap");
-    assert(xml === render({ siteOrigin: "https://" + "example.invalid", basePath, manifest }), "sitemap is not deterministic");
+    assert(!xml.includes("destination.html"), "generic destination template entered sitemap");
+    assert(xml === render({ siteOrigin: "https://" + "example.com", basePath, manifest }), "sitemap is not deterministic");
   });
 } finally {
   if (server.listening) await close(server);

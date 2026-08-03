@@ -4,24 +4,22 @@ on:
   workflow_dispatch:
     inputs:
       site_origin:
-        description: "Confirmed HTTPS public origin, without repository path (for example https://owner.github.io)"
+        description: "Confirmed HTTPS public origin, without repository path"
         required: true
         type: string
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: github-pages-production
   cancel-in-progress: false
 
 jobs:
-  release:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -35,23 +33,42 @@ jobs:
         run: node scripts/validate-frontend.mjs
       - name: Smoke test source frontend
         run: node scripts/smoke-test-static-site.mjs
-      - name: Check JavaScript syntax
+      - name: Check release JavaScript syntax
+        run: |
+          node --check scripts/build-pages-artifact.mjs
+          node --check scripts/generate-sitemap.mjs
+          node --check scripts/inject-release-metadata.mjs
+          node --check scripts/validate-pages-artifact.mjs
+      - name: Build allowlisted release artifact
+        run: node scripts/build-pages-artifact.mjs --site-origin "${{ inputs.site_origin }}"
+      - name: Validate release artifact
+        run: node scripts/validate-pages-artifact.mjs
+      - name: Smoke test release artifact
+        run: node scripts/smoke-test-static-site.mjs --root .pages-artifact
+      - name: Record artifact manifest summary
         shell: bash
         run: |
-          set -euo pipefail
-          while IFS= read -r file; do node --check "$file"; done < <(find assets/js config scripts -type f \( -name '*.js' -o -name '*.mjs' \) -print)
-          node --check main.js
-          node --check partials.js
-      - name: Build sanitized release artifact
-        run: node scripts/build-pages-artifact.mjs --site-origin "${{ inputs.site_origin }}"
-      - name: Validate sanitized release artifact
-        run: node scripts/validate-pages-artifact.mjs
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+          node -e "const m=require('./.pages-artifact/release-manifest.json'); console.log('sourceCommit='+m.sourceCommit); console.log('fileCount='+m.fileCount); console.log('totalBytes='+m.totalBytes); console.log('originStatus='+m.releaseOriginStatus)"
       - name: Upload sanitized Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: .pages-artifact
-      - name: Deploy approved Pages artifact
+
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Deploy explicitly approved Pages artifact
         id: deployment
         uses: actions/deploy-pages@v4

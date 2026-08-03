@@ -23,6 +23,9 @@ const approvedLocalReferences = new Set([
   "docs/backend-cors-and-frontend-integration.md",
   "docs/frontend-release-checklist.md",
   "scripts/validate-pages-artifact.mjs",
+  "scripts/build-pages-artifact.mjs",
+  "scripts/generate-sitemap.mjs",
+  "docs/release-artifact-guide.md",
 ]);
 const allowedExternalHttp = new Set();
 const ignoredDirectories = new Set([".git", ".venv", "node_modules", "__pycache__", ".pytest_cache", ".pages-artifact"]);
@@ -294,7 +297,7 @@ for (const [page, hooks] of Object.entries(staticHooks)) {
 
 if (!fs.existsSync(path.join(root, ".github/workflows/frontend-validation.yml"))) warn("frontend validation workflow is missing");
 
-const releaseFiles = [".nojekyll", "404.html", "robots.txt", "docs/public-release-readiness.md", "docs/release-checklist.md", ".github/workflows/pages-release.yml", "scripts/build-pages-artifact.mjs", "scripts/inject-release-metadata.mjs", "scripts/generate-sitemap.mjs", "scripts/validate-pages-artifact.mjs"];
+const releaseFiles = [".nojekyll", "404.html", "robots.txt", "docs/public-release-readiness.md", "docs/release-checklist.md", "docs/release-artifact-guide.md", "config/pages-artifact-allowlist.json", ".github/workflows/pages-release.yml", ".github/workflows/release-artifact-validation.yml", "scripts/build-pages-artifact.mjs", "scripts/inject-release-metadata.mjs", "scripts/generate-sitemap.mjs", "scripts/validate-pages-artifact.mjs"];
 for (const rel of releaseFiles) if (!fs.existsSync(path.join(root, rel))) issue("Release readiness", `missing ${rel}`);
 if (fs.existsSync(path.join(root, "sitemap.xml"))) issue("Release readiness", "sitemap.xml must be generated only in a release artifact");
 const titles = new Map(), descriptions = new Map();
@@ -314,6 +317,32 @@ if (/^\s*Sitemap:/im.test(robotsSource)) issue("Release readiness", "source robo
 if (/Disallow:\s*\/(?:assets|ar|imges|panel)/i.test(robotsSource)) issue("Release readiness", "robots.txt blocks public content or assets");
 if (fs.existsSync(path.join(root, "404.html"))) { const notFound = fs.readFileSync(path.join(root, "404.html"), "utf8"); if (!/noindex,follow/i.test(notFound) || !/[\u0600-\u06ff]/.test(notFound) || !/destinations\.html/.test(notFound)) issue("Release readiness", "404 page policy or bilingual recovery links are incomplete"); }
 if (fs.existsSync(path.join(root, ".github/workflows/pages-release.yml"))) { const workflow = fs.readFileSync(path.join(root, ".github/workflows/pages-release.yml"), "utf8"); if (!/workflow_dispatch:/.test(workflow) || /\bpush:|pull_request:/.test(workflow)) issue("Release readiness", "Pages workflow must remain manual-only"); for (const action of workflow.matchAll(/uses:\s*([^\s]+)/g)) if (!/^actions\/(?:checkout|setup-node|configure-pages|upload-pages-artifact|deploy-pages)@/.test(action[1])) issue("Release readiness", `unapproved action ${action[1]}`); if (!/path:\s*\.pages-artifact/.test(workflow)) issue("Release readiness", "workflow does not upload the sanitized artifact"); }
+if (fs.existsSync(path.join(root, ".github/workflows/pages-release.yml"))) {
+  const workflow = fs.readFileSync(path.join(root, ".github/workflows/pages-release.yml"), "utf8");
+  if (!/\bbuild:\s*[\s\S]*\bdeploy:\s*/.test(workflow) || !/\bneeds:\s*build/.test(workflow)) issue("Release readiness", "Pages build and deploy jobs are not separated");
+  if (!/github\.ref == 'refs\/heads\/main'/.test(workflow)) issue("Release readiness", "Pages deployment is not restricted to main");
+  if (!/smoke-test-static-site\.mjs --root \.pages-artifact/.test(workflow)) issue("Release readiness", "Pages workflow does not smoke test the artifact");
+  if (/\bbackend\//.test(workflow) || /apiEnabled\s*:\s*true/.test(workflow)) issue("Release readiness", "Pages workflow references backend activation");
+}
+const artifactWorkflowPath = path.join(root, ".github/workflows/release-artifact-validation.yml");
+if (fs.existsSync(artifactWorkflowPath)) {
+  const workflow = fs.readFileSync(artifactWorkflowPath, "utf8");
+  if (/deploy-pages|pages:\s*write|id-token:\s*write/.test(workflow)) issue("Release readiness", "validation-only artifact workflow can deploy");
+  if (!/contents:\s*read/.test(workflow) || !/build-pages-artifact\.mjs/.test(workflow) || !/validate-pages-artifact\.mjs/.test(workflow)) issue("Release readiness", "validation-only artifact workflow is incomplete");
+}
+const allowlistPath = path.join(root, "config/pages-artifact-allowlist.json");
+if (fs.existsSync(allowlistPath)) {
+  const allowlist = JSON.parse(fs.readFileSync(allowlistPath, "utf8"));
+  for (const forbidden of [".git", ".github", "backend", "docs", "node_modules", "scripts", "tests"]) if (!allowlist.forbiddenTopLevel?.includes(forbidden)) issue("Release readiness", `artifact allowlist does not forbid ${forbidden}`);
+  if (!allowlist.rootFiles?.includes("config/frontend-config.js") || !allowlist.rootFiles?.includes("404.html") || !allowlist.publicTrees?.["assets/js"] || !Array.isArray(allowlist.publicMedia) || allowlist.publicMedia.length === 0) issue("Release readiness", "artifact allowlist lacks required public scope");
+}
+const builderSource = fs.existsSync(path.join(root, "scripts/build-pages-artifact.mjs")) ? fs.readFileSync(path.join(root, "scripts/build-pages-artifact.mjs"), "utf8") : "";
+for (const requirement of ["assertSafeOutput", "pages-artifact-allowlist.json", "release-manifest.json", "sha256", "sourceCommit", "releaseOriginStatus", "validate-pages-artifact.mjs"]) if (!builderSource.includes(requirement)) issue("Release readiness", `artifact builder lacks ${requirement}`);
+const { origin: validateReleaseOrigin } = await import(pathToFileURL(path.join(root, "scripts/generate-sitemap.mjs")).href);
+for (const unsafeOrigin of ["http://example.com", "https://localhost", "https://127.0.0.1", "https://10.0.0.1", "https://192.168.1.1", "https://172.16.0.1", "https://user:pass@example.com", "https://example.com/path"]) {
+  try { validateReleaseOrigin(unsafeOrigin); issue("Release readiness", `unsafe SITE_ORIGIN accepted: ${unsafeOrigin}`); } catch {}
+}
+try { if (validateReleaseOrigin("https://example.com/") !== "https://example.com") issue("Release readiness", "safe SITE_ORIGIN normalization failed"); } catch { issue("Release readiness", "safe HTTPS SITE_ORIGIN was rejected"); }
 
 const publicConfigPath = path.join(root, "config/frontend-config.js");
 if (fs.existsSync(publicConfigPath)) {

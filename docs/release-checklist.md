@@ -19,3 +19,19 @@
 - [ ] The project-subpath 404 recovery behavior is tested.
 - [ ] Rollback commit `95a4806` is recorded before launch.
 - [ ] No commit, deployment, Pages-setting change, or DNS change occurs without explicit approval.
+
+## Release artifact approval
+
+- [ ] Artifact allowlist reviewed.
+- [ ] Artifact manifest archived.
+- [ ] Artifact reproducibility passed after excluding only the UTC build timestamp.
+- [ ] Source commit matches the artifact manifest.
+- [ ] No private or development files are present in the artifact.
+- [ ] No populated public secrets or private runtime endpoints are present.
+- [ ] `SITE_ORIGIN` is explicitly approved.
+- [ ] Canonical and absolute hreflang strategy is approved.
+- [ ] Dynamic destination canonical/prerendering strategy is approved.
+- [ ] Sitemap is generated from the approved origin and correct project base path.
+- [ ] Artifact validation and all 67 artifact smoke tests pass.
+- [ ] Deployment workflow permissions, environment protection, and concurrency are reviewed.
+- [ ] Deployment remains manual and disabled until explicit operational approval.
