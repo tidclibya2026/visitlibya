@@ -17,7 +17,6 @@ const copy = Object.freeze({
   unspecified: isArabic ? "غير محددة" : "Not specified",
   view: isArabic ? "عرض الوجهة" : "View destination",
 });
-
 const localGalleries = Object.freeze({
   tripoli: ["imges/oldtripoli.jpg", "imges/tripoliMarcus Arch.JPG", "imges/Museumtripoli.jpg"],
   benghazi: ["imges/bengazi1.JPG", "imges/bengazi.JPG", "imges/bengazi3.JPG"],
@@ -25,14 +24,13 @@ const localGalleries = Object.freeze({
   acacus: ["imges/curated/acacus-rock-art-chariot.jpg", "imges/curated/acacus-rock-art-scene-2.jpg", "imges/curated/acacus-rock-art-scene-3.jpg"],
   "green-mountain": ["imges/landscapes5.JPG", "imges/Cyrene2.JPG", "imges/landscapes7.jpg"],
   desert: ["imges/The Sahara Desert.jpg", "imges/natural lakes.jpg", "imges/desert.jpg"],
-  nafusa: ["imges/traditional industries.jpg", "imges/pottery.jpg", "imges/qaser aje.jpg"],
-  "bomba-bay": ["imges/beaches.jpg", "imges/beaches1.JPG", "imges/gallery/beaches18.JPG"],
-  awjila: ["imges/Awjila.jpg", "imges/gallery/awajla.jpg", "imges/natural lakes1.jpg"],
-  sabratha: ["imges/Sabratha.jpg", "imges/Sabratha.jpeg", "imges/Leptis Magna3.jpeg"],
+  nafusa: ["imges/destinations/temporary/nafusa-mountains.jpg", "imges/pottery.jpg", "imges/qaser aje.jpg"],
+  "bomba-bay": ["imges/destinations/temporary/bomba-bay.png", "imges/beaches.jpg", "imges/beaches1.JPG"],
+  awjila: ["imges/destinations/temporary/awjila-master.jpg", "imges/destinations/temporary/awjila-gallery-01.jpg", "imges/destinations/temporary/awjila-gallery-02.jpg", "imges/destinations/temporary/awjila-gallery-03.jpg", "imges/destinations/temporary/awjila-gallery-04.jpg"],
+  sabratha: ["imges/Sabratha.jpg", "imges/Sabratha.jpeg"],
   "leptis-magna": ["imges/Leptis Magna3.jpeg", "imges/Leptis Magna1.jpg", "imges/Leptis Magna.jpeg"],
-  "villa-sileen": ["imges/curated/villa-sileen-aerial.jpg", "imges/curated/villa-sileen-theatre.jpg", "imges/curated/villa-sileen-coast.jpg"],
+  "villa-sileen": ["imges/destinations/temporary/villa-sileen-columns.jpg"],
 });
-
 const localImageAlt = Object.freeze({
   "imges/curated/villa-sileen-aerial.jpg": {
     en: "Aerial view of Villa Sileen on the Mediterranean coast",
@@ -57,6 +55,38 @@ const localImageAlt = Object.freeze({
   "imges/curated/acacus-rock-art-scene-3.jpg": {
     en: "Ancient rock art in the Acacus region",
     ar: "فن صخري قديم في منطقة أكاكوس",
+  },
+  "imges/destinations/temporary/awjila-master.jpg": {
+    en: "Earthen mosque and palm oasis architecture in Awjila, Libya",
+    ar: "العمارة الطينية والمسجد وواحة النخيل في أوجلة، ليبيا",
+  },
+  "imges/destinations/temporary/awjila-gallery-01.jpg": {
+    en: "Community members in traditional dress in Awjila",
+    ar: "أفراد من المجتمع باللباس التقليدي في أوجلة",
+  },
+  "imges/destinations/temporary/awjila-gallery-02.jpg": {
+    en: "Domed earthen architecture in Awjila",
+    ar: "عمارة طينية ذات قباب في أوجلة",
+  },
+  "imges/destinations/temporary/awjila-gallery-03.jpg": {
+    en: "Palm-lined entrance in Awjila",
+    ar: "مدخل تحيط به أشجار النخيل في أوجلة",
+  },
+  "imges/destinations/temporary/awjila-gallery-04.jpg": {
+    en: "Interior passage in Awjila's earthen architecture",
+    ar: "ممر داخلي ضمن العمارة الطينية في أوجلة",
+  },
+  "imges/destinations/temporary/nafusa-mountains.jpg": {
+    en: "Mountain settlement and heritage landscape in the Nafusa Mountains",
+    ar: "تجمع جبلي ومشهد تراثي في جبل نفوسة",
+  },
+  "imges/destinations/temporary/bomba-bay.png": {
+    en: "Coastal landscape of Bomba Bay in eastern Libya",
+    ar: "المشهد الساحلي لخليج بمبة في شرق ليبيا",
+  },
+  "imges/destinations/temporary/villa-sileen-columns.jpg": {
+    en: "Archaeological columns associated with the Roman Villa Sileen site",
+    ar: "أعمدة أثرية مرتبطة بموقع فيلا سيلين الرومانية",
   },
 });
 
@@ -139,6 +169,7 @@ function localizedCurated(item) {
     region: isArabic ? item.region_ar : item.region_en,
     municipality: copy.unspecified,
     hero: localPath(item.image),
+    heroAlt: isArabic ? item.image_alt_ar : item.image_alt_en,
     heroMedia: resolveResponsiveImage(item.image, pathPrefix),
     gallery: (localGalleries[item.slug] ?? [item.image]).map(localMedia).filter(Boolean),
     translationFallback: false,
@@ -207,7 +238,7 @@ function appendParagraphs(container, value) {
 
 function renderGallery(destination) {
   const fragment = document.createDocumentFragment();
-  destination.gallery.slice(0, 3).forEach((media, index) => {
+  destination.gallery.slice(0, 5).forEach((media, index) => {
     const figure = document.createElement("figure");
     figure.className = "destination-detail-gallery__figure";
     const image = document.createElement("img");
@@ -243,7 +274,7 @@ function renderRelated(destination) {
     card.className = "destination-detail-related-card";
     const image = document.createElement("img");
     image.src = localized.hero;
-    image.alt = localized.name;
+    image.alt = localized.heroAlt || localized.name;
     image.loading = "lazy";
     image.decoding = "async";
     const body = document.createElement("div");
@@ -281,7 +312,7 @@ function render(destination, { fallback = false } = {}) {
     if (destination.heroMedia.srcset) source.sizes = "100vw";
     elements.heroPicture.prepend(source);
   }
-  elements.heroImage.alt = imageAlt(destination.hero, isArabic ? `مشهد سياحي من ${destination.name}` : `Tourism view of ${destination.name}`);
+  elements.heroImage.alt = imageAlt(destination.hero, destination.heroAlt || (isArabic ? `مشهد سياحي من ${destination.name}` : `Tourism view of ${destination.name}`));
   elements.heroImage.addEventListener("error", () => {
     elements.heroPicture.querySelector("source")?.remove();
     elements.heroImage.src = localPath("imges/beaches.jpg");

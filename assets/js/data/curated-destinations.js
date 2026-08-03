@@ -94,7 +94,9 @@ export const curatedDestinations = Object.freeze([
     category_en: "Mountains and Heritage",
     category_ar: "الجبال والتراث",
     category_key: "mountains-heritage",
-    image: "imges/traditional industries.jpg",
+    image: "imges/destinations/temporary/nafusa-mountains.jpg",
+    image_alt_en: "Mountain settlement and heritage landscape in the Nafusa Mountains",
+    image_alt_ar: "تجمع جبلي ومشهد تراثي في جبل نفوسة",
   },
   {
     slug: "bomba-bay",
@@ -107,7 +109,9 @@ export const curatedDestinations = Object.freeze([
     category_en: "Mediterranean Coast",
     category_ar: "الساحل المتوسطي",
     category_key: "mediterranean-coast",
-    image: "imges/beaches.jpg",
+    image: "imges/destinations/temporary/bomba-bay.png",
+    image_alt_en: "Coastal landscape of Bomba Bay in eastern Libya",
+    image_alt_ar: "المشهد الساحلي لخليج بمبة في شرق ليبيا",
   },
   {
     slug: "awjila",
@@ -120,7 +124,9 @@ export const curatedDestinations = Object.freeze([
     category_en: "Oases and Nature",
     category_ar: "الواحات والطبيعة",
     category_key: "oases-nature",
-    image: "imges/Awjila.jpg",
+    image: "imges/destinations/temporary/awjila-master.jpg",
+    image_alt_en: "Earthen mosque and palm oasis architecture in Awjila, Libya",
+    image_alt_ar: "العمارة الطينية والمسجد وواحة النخيل في أوجلة، ليبيا",
   },
   {
     slug: "sabratha",

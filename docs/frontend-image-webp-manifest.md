@@ -32,3 +32,7 @@ The approved maximum WebPs above remain unchanged. Browser measurements justifie
 | landscapes5 | `landscapes5-640.webp`, `landscapes5-1280.webp`, `landscapes5.webp` (1600) | Q84 | Destination cards and editorial/gallery use. |
 
 All paths are relative to `imges/optimized/`; original JPG/JPEG fallbacks remain unchanged.
+
+## Temporarily approved destination families
+
+The 2026-08-03 owner-approved temporary families use Q88 for Awjila master, Nafusa, Bomba Bay, and Villa Sileen columns, and Q86 for the four Awjila gallery images. Widths are 640/1280/1600 for Awjila master and Nafusa, 640/1042 for Bomba Bay, 960/1600 for Villa Sileen columns, and 960 for each 1080-pixel Awjila gallery source. Permanent provenance and rights records remain pending.

@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import { createHash } from "node:crypto";
 import { spawnSync } from "node:child_process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -38,6 +39,7 @@ function issue(section, message) {
 }
 
 function warn(message) { warnings.push(message); }
+function sha256(file) { return createHash("sha256").update(fs.readFileSync(file)).digest("hex"); }
 function relative(file) { return path.relative(root, file).replaceAll("\\", "/"); }
 function sourceLine(content, index) { return content.slice(0, index).split(/\r?\n/).length; }
 function at(file, content, index, message) { return `${relative(file)}:${sourceLine(content, index)}: ${message}`; }
@@ -630,6 +632,57 @@ const allowlistedMedia = fs.existsSync(allowlistPath)
   : new Set();
 for (const optimized of responsiveOptimizedReferences) if (!allowlistedMedia.has(optimized)) issue("Media delivery", `${optimized}: responsive asset is missing from artifact allowlist`);
 for (const optimized of [...allowlistedMedia].filter((item) => item.startsWith("imges/optimized/"))) if (!responsiveOptimizedReferences.has(optimized)) issue("Media delivery", `${optimized}: allowlisted optimized asset is absent from responsive image manifest`);
+
+const temporaryManifestPath = path.join(root, "config/temporary-destination-media.json");
+if (!fs.existsSync(temporaryManifestPath)) issue("Media delivery", "config/temporary-destination-media.json: temporary media manifest is missing");
+else {
+  let temporaryManifest;
+  const source = fs.readFileSync(temporaryManifestPath, "utf8");
+  try { temporaryManifest = JSON.parse(source); } catch (error) { issue("Media delivery", `temporary media manifest is malformed: ${error.message}`); }
+  if (/[A-Za-z]:[\\/]|(?:^|["'])file:\/\//i.test(source)) issue("Deployment safety", "temporary media manifest contains a private absolute path");
+  if (temporaryManifest) {
+    if (temporaryManifest.approvalDate !== "2026-08-03" || temporaryManifest.approvalStatus !== "temporary-owner-approved" || temporaryManifest.provenanceStatus !== "temporary-owner-supplied" || temporaryManifest.permanentRightsStatus !== "pending") issue("Media delivery", "temporary media manifest approval/provenance status is invalid");
+    const manifestFallbacks = new Set();
+    const manifestOptimized = new Set();
+    for (const entry of temporaryManifest.files ?? []) {
+      const fallback = entry.repositorySourcePath;
+      if (manifestFallbacks.has(fallback)) issue("Media delivery", `${fallback}: duplicate temporary manifest entry`);
+      manifestFallbacks.add(fallback);
+      const status = exactPathStatus(path.join(root, fallback));
+      if (status !== "ok") issue("Media delivery", `${fallback}: temporary fallback is ${status}`);
+      else if (sha256(path.join(root, fallback)) !== entry.sourceSha256) issue("Media delivery", `${fallback}: approved source SHA-256 mismatch`);
+      for (const optimized of entry.optimizedWebpPaths ?? []) {
+        if (manifestOptimized.has(optimized)) issue("Media delivery", `${optimized}: duplicate temporary derivative manifest entry`);
+        manifestOptimized.add(optimized);
+        if (exactPathStatus(path.join(root, optimized)) !== "ok") issue("Media delivery", `${optimized}: temporary derivative is missing or case-mismatched`);
+        if (!allowlistedMedia.has(optimized)) issue("Media delivery", `${optimized}: temporary derivative is not allowlisted`);
+      }
+      if (entry.approvalStatus !== "temporary-owner-approved" || entry.ownerApprovalDate !== "2026-08-03" || entry.provenanceStatus !== "temporary-owner-supplied" || entry.permanentRightsStatus !== "pending") issue("Media delivery", `${fallback}: incomplete temporary approval metadata`);
+    }
+    for (const item of [...allowlistedMedia].filter((value) => value.startsWith("imges/destinations/temporary/"))) if (!manifestFallbacks.has(item)) issue("Media delivery", `${item}: allowlisted temporary fallback is absent from the manifest`);
+    for (const item of [...allowlistedMedia].filter((value) => value.startsWith("imges/optimized/destinations/"))) if (!manifestOptimized.has(item)) issue("Media delivery", `${item}: unused temporary derivative is allowlisted`);
+    const destinations = temporaryManifest.destinations ?? {};
+    const awjila = curatedDestinations.find((item) => item.slug === "awjila");
+    const nafusa = curatedDestinations.find((item) => item.slug === "nafusa");
+    const bomba = curatedDestinations.find((item) => item.slug === "bomba-bay");
+    const villa = curatedDestinations.find((item) => item.slug === "villa-sileen");
+    if (awjila?.image !== destinations.awjila?.hero || destinations.awjila?.card !== destinations.awjila?.hero) issue("Media delivery", "Awjila hero/card does not use the approved master");
+    if (nafusa?.image !== destinations.nafusa?.hero || destinations.nafusa?.card !== destinations.nafusa?.hero) issue("Media delivery", "Nafusa hero/card does not use the approved landscape");
+    if (bomba?.image !== destinations["bomba-bay"]?.hero || destinations["bomba-bay"]?.card !== destinations["bomba-bay"]?.hero) issue("Media delivery", "Bomba Bay hero/card does not use the approved coast image");
+    if (villa?.image === destinations["villa-sileen"]?.gallery?.[0]) issue("Media delivery", "Villa Sileen columns must not be used as hero/card");
+    if (new Set(destinations.awjila?.gallery ?? []).size !== (destinations.awjila?.gallery ?? []).length) issue("Media delivery", "Awjila gallery contains duplicate entries");
+    const forbiddenRelationships = [
+      [/awjila:\s*\[[^\]]*natural lakes1\.jpg/i, "Awjila still references natural lakes1.jpg"],
+      [/nafusa:\s*\[[^\]]*traditional industries\.jpg/i, "Nafusa gallery still uses traditional industries.jpg"],
+      [/"bomba-bay":\s*\[[^\]]*beaches18\.JPG/i, "Bomba Bay still references beaches18.JPG"],
+      [/sabratha:\s*\[[^\]]*Leptis Magna3\.jpeg/i, "Sabratha still references Leptis Magna3.jpeg"],
+      [/"villa-sileen":\s*\[[^\]]*villa-sileen-(?:aerial|coast|theatre)\.jpg/i, "Villa Sileen gallery still presents modern-compound media"],
+    ];
+    for (const [pattern, message] of forbiddenRelationships) if (pattern.test(destinationController)) issue("Media delivery", message);
+    const villaRoles = temporaryManifest.files.find((item) => item.repositorySourcePath.endsWith("villa-sileen-columns.jpg"))?.selectedRoles ?? [];
+    if (villaRoles.length !== 1 || villaRoles[0] !== "gallery") issue("Media delivery", "Villa Sileen columns approval must remain gallery-only");
+  }
+}
 const strictImageSize = process.env.VISIT_LIBYA_STRICT_IMAGE_SIZE === "1";
 for (const [imagePath, references] of [...imageReferences].sort(([a], [b]) => a.localeCompare(b))) {
   const bytes = fs.statSync(path.join(root, imagePath)).size;
