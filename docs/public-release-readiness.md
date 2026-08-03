@@ -83,3 +83,7 @@ Launch blockers: no repository-code blocker remains. Operational release must st
 ## Final pre-launch checklist
 
 Use `docs/release-checklist.md`. Every operational item must be checked by the responsible release owner immediately before launch; unchecked origin, Pages, Actions, HTTPS, or rollback items block production publication but do not block preparing this release candidate.
+
+## Measured runtime-performance update
+
+A local Edge CDP audit measured 28 bilingual routes across nine viewport/DPR cases. AI-only JavaScript is now page-scoped, reducing aggregate JavaScript transfer 25.9% across the 252-case matrix. Source and artifact runs retained zero failed local assets, console errors, and horizontal-overflow cases. Google Fonts remains a documented non-blocking availability/privacy dependency with display=swap and system fallbacks. Results are local laboratory measurements, not production Core Web Vitals; final release-owner approval remains pending.

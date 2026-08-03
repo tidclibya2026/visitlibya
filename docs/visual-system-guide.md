@@ -54,3 +54,7 @@ The approved non-square logo uses natural height, `object-fit: contain`, and res
 ## Responsive photography rule
 
 Use measured, layout-derived sizes values with ascending WebP width candidates. Preserve original intrinsic dimensions and fallback, existing object-fit/object-position, and hero composition. When the same source appears as hero and first gallery item, align candidate selection to avoid a duplicate transfer.
+
+## Runtime delivery rule
+
+Keep shared navigation and visual behavior in the shared script, but load feature controllers only on pages that expose that feature. Do not trade delivery savings for delayed accessibility-critical behavior. Retain the approved Cairo/Inter display=swap request and robust system fallbacks until a separately approved font-hosting policy exists.

@@ -113,3 +113,7 @@ No original image was deleted, renamed, replaced, recompressed, or encoded. The 
 ## Measured responsive delivery
 
 Measured cold-cache Edge evidence selected six approved families for twelve width-specific WebP derivatives. Original files and approved maximum WebPs remain unchanged. Across 160 source cases, recorded image transfer fell 21.8%; unapproved high-impact families remain deferred. See measured-responsive-image-performance.md.
+
+## Non-image runtime measurement
+
+The measured runtime phase left all image files, responsive mappings, intrinsic dimensions, loading, decoding, and fetch priority unchanged. Page-scoping AI-only JavaScript reduced non-AI transfer without altering media delivery. See measured-runtime-performance.md.

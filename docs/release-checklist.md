@@ -69,3 +69,14 @@
 - [x] Responsive assets included in artifact allowlist.
 - [x] Source and artifact image delivery checks completed.
 - [ ] Final release-owner responsive-image approval recorded.
+
+## Measured runtime performance
+
+- [x] Cold-load source and artifact CDP matrices completed.
+- [x] CSS rule usage reviewed without unsafe coverage-only deletion.
+- [x] External-font available and blocked behavior measured.
+- [x] AI-only JavaScript scoped to English and Arabic AI pages.
+- [x] Duplicate CSS/script and font-request guards added.
+- [x] Local LCP, CLS, long-task, and interaction proxies recorded.
+- [x] Runtime visual and functional regression QA completed.
+- [ ] Final release-owner runtime-performance approval recorded.

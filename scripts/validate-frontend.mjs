@@ -173,6 +173,16 @@ const htmlByRelative = new Map(htmlFiles.map((file) => [relative(file), fs.readF
 for (const file of htmlFiles) {
   const rel = relative(file);
   const content = htmlByRelative.get(rel);
+  const stylesheetHrefs = [...content.matchAll(/<link\b[^>]*\brel=["'][^"']*stylesheet[^"']*["'][^>]*\bhref=["']([^"']+)["'][^>]*>/gi)].map((match) => match[1]);
+  const scriptSources = [...content.matchAll(/<script\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi)].map((match) => match[1]);
+  for (const [kind, values] of [["stylesheet", stylesheetHrefs], ["script", scriptSources]]) {
+    const normalized = values.map(stripQueryAndFragment);
+    for (const value of new Set(normalized)) if (normalized.filter((item) => item === value).length > 1) issue(kind === "stylesheet" ? "CSS references" : "JavaScript modules", `${rel}: duplicate ${kind} dependency ${value}`);
+  }
+  const normalizedAiScript = scriptSources.map((source) => stripQueryAndFragment(source).replace(/^\.\.\//, "")).includes("assets/js/pages/ai.js");
+  if (/^(?:ar\/)?ai\.html$/.test(rel) ? !normalizedAiScript : normalizedAiScript) issue("JavaScript modules", `${rel}: AI controller scope is incorrect`);
+  const head = content.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i)?.[1] ?? "";
+  for (const match of head.matchAll(/<script\b([^>]*)\bsrc=["']([^"']+)["'][^>]*>/gi)) if (!/\b(?:defer|async)\b|\btype=["']module["']/i.test(match[1])) issue("JavaScript modules", `${rel}: blocking classic script in document head: ${match[2]}`);
   const arabic = rel.startsWith("ar/");
   const expectedLang = arabic ? "ar" : "en";
   const expectedDir = arabic ? "rtl" : "ltr";
@@ -264,6 +274,10 @@ for (const file of textFiles) {
   if (/file:\/\//i.test(content) && browserSource) issue("Deployment safety", `${rel}: file:// browser reference is forbidden`);
 }
 
+for (const file of files) {
+  const rel = relative(file);
+  if (/(?:^|\/)(?:\.qa-review|coverage|contact-sheets?|screenshots?|browser-profiles?|runtime-performance-qa)(?:\/|$)/i.test(rel)) issue("Release readiness", `${rel}: temporary QA output must remain outside the repository`);
+}
 const publicConfigFile = path.join(root, "config/frontend-config.js");
 const publicConfig = fs.readFileSync(publicConfigFile, "utf8");
 if (!/apiEnabled:\s*false\b/.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: committed apiEnabled must be false");
@@ -322,7 +336,7 @@ for (const [page, hooks] of Object.entries(staticHooks)) {
 
 if (!fs.existsSync(path.join(root, ".github/workflows/frontend-validation.yml"))) warn("frontend validation workflow is missing");
 
-const releaseFiles = [".nojekyll", "404.html", "robots.txt", "docs/public-release-readiness.md", "docs/release-checklist.md", "docs/release-artifact-guide.md", "config/pages-artifact-allowlist.json", ".github/workflows/pages-release.yml", ".github/workflows/release-artifact-validation.yml", "scripts/build-pages-artifact.mjs", "scripts/inject-release-metadata.mjs", "scripts/generate-sitemap.mjs", "scripts/validate-pages-artifact.mjs"];
+const releaseFiles = [".nojekyll", "404.html", "robots.txt", "docs/public-release-readiness.md", "docs/release-checklist.md", "docs/release-artifact-guide.md", "docs/measured-runtime-performance.md", "config/pages-artifact-allowlist.json", ".github/workflows/pages-release.yml", ".github/workflows/release-artifact-validation.yml", "scripts/build-pages-artifact.mjs", "scripts/inject-release-metadata.mjs", "scripts/generate-sitemap.mjs", "scripts/validate-pages-artifact.mjs"];
 for (const rel of releaseFiles) if (!fs.existsSync(path.join(root, rel))) issue("Release readiness", `missing ${rel}`);
 if (fs.existsSync(path.join(root, "sitemap.xml"))) issue("Release readiness", "sitemap.xml must be generated only in a release artifact");
 const titles = new Map(), descriptions = new Map();
@@ -635,7 +649,11 @@ if (!fs.existsSync(path.join(root, "favicon.png"))) issue("Visual system", "appr
 if (!/--font-latin:[^;]+Inter[^;]+system-ui/i.test(visualCss) || !/--font-arabic:[^;]+Cairo[^;]+Noto Sans Arabic[^;]+Tahoma/i.test(visualCss)) issue("Visual system", "English and Arabic fallback font stacks are incomplete");
 const fontImports = [...layoutCss.matchAll(/@import\s+url\([^)]*fonts\.googleapis\.com[^)]*\)/gi)];
 if (fontImports.length !== 1) issue("Visual system", `expected one Google Fonts import, found ${fontImports.length}`);
-else if (!/display=swap/i.test(fontImports[0][0])) issue("Visual system", "external font import must use display=swap");
+else {
+  const fontImport = fontImports[0][0];
+  if (!/display=swap/i.test(fontImport)) issue("Visual system", "external font import must use display=swap");
+  if (!/family=Cairo:wght@400;700;800;900&family=Inter:wght@400;600;700;800;900/i.test(fontImport)) issue("Visual system", "external font import uses unapproved families or weights");
+}
 if (!/\.media-natural,\.media-editorial,[^{]+\{width:100%;height:auto;max-height:none;object-fit:contain\}/i.test(layoutCss)) issue("Visual system", "editorial media must preserve natural ratio with contain");
 if (/\.media-(?:editorial|natural)[^{]*\{[^}]*(?:height:\s*\d|object-fit:\s*cover)/i.test(layoutCss)) issue("Visual system", "editorial media contains a fixed-height crop rule");
 if (!/\.media-(?:card|hero)[^{]*[\s\S]{0,220}object-fit:cover/i.test(layoutCss)) issue("Visual system", "controlled card and hero cover behavior is missing");if (!/\.vl-nav\{[^}]*min-width:0;[^}]*max-width:100%/i.test(layoutCss)) issue("Visual system", "legacy navigation must permit shrinking without overflow");
