@@ -15,6 +15,7 @@ const approvedLocalReferences = new Set([
   "docs/frontend-architecture.md",
   "docs/frontend-runtime-configuration.md",
   "docs/frontend-deployment-smoke-tests.md",
+  "docs/public-release-readiness.md",
   "backend/.env.example",
   "backend/app/core/config.py",
   ".github/workflows/backend-production-validation.yml",
@@ -233,6 +234,7 @@ for (const file of textFiles) {
   const rel = relative(file);
   const content = fs.readFileSync(file, "utf8");
   if (/\b(?:localhost|127\.0\.0\.1)\b/i.test(content) && !approvedLocalReferences.has(rel) && !rel.startsWith("backend/tests/") && rel !== "scripts/validate-frontend.mjs" && rel !== "scripts/smoke-test-static-site.mjs") issue("Deployment safety", `${rel}: local host reference is not in an approved development example`);
+  if (/^(?:<{7}|={7}|>{7})/m.test(content)) issue("Release readiness", `${rel}: unresolved merge marker`);
   if (/\b(?:src|href)=["']\/(?!\/)|url\(\s*["']?\/(?!\/)/i.test(content)) issue("Deployment safety", `${rel}: root-relative frontend path can break project-subpath hosting`);
   const browserSource = /^(?:ar\/.*\.html|[^/]+\.html|style\.css|assets\/.*\.(?:css|js)|config\/frontend-config(?:\.example)?\.js)$/i.test(rel);
   if (/file:\/\//i.test(content) && browserSource) issue("Deployment safety", `${rel}: file:// browser reference is forbidden`);
@@ -292,7 +294,7 @@ for (const [page, hooks] of Object.entries(staticHooks)) {
 
 if (!fs.existsSync(path.join(root, ".github/workflows/frontend-validation.yml"))) warn("frontend validation workflow is missing");
 
-const releaseFiles = [".nojekyll", "404.html", "robots.txt", ".github/workflows/pages-release.yml", "scripts/build-pages-artifact.mjs", "scripts/inject-release-metadata.mjs", "scripts/generate-sitemap.mjs", "scripts/validate-pages-artifact.mjs"];
+const releaseFiles = [".nojekyll", "404.html", "robots.txt", "docs/public-release-readiness.md", "docs/release-checklist.md", ".github/workflows/pages-release.yml", "scripts/build-pages-artifact.mjs", "scripts/inject-release-metadata.mjs", "scripts/generate-sitemap.mjs", "scripts/validate-pages-artifact.mjs"];
 for (const rel of releaseFiles) if (!fs.existsSync(path.join(root, rel))) issue("Release readiness", `missing ${rel}`);
 if (fs.existsSync(path.join(root, "sitemap.xml"))) issue("Release readiness", "sitemap.xml must be generated only in a release artifact");
 const titles = new Map(), descriptions = new Map();
@@ -313,6 +315,12 @@ if (/Disallow:\s*\/(?:assets|ar|imges|panel)/i.test(robotsSource)) issue("Releas
 if (fs.existsSync(path.join(root, "404.html"))) { const notFound = fs.readFileSync(path.join(root, "404.html"), "utf8"); if (!/noindex,follow/i.test(notFound) || !/[\u0600-\u06ff]/.test(notFound) || !/destinations\.html/.test(notFound)) issue("Release readiness", "404 page policy or bilingual recovery links are incomplete"); }
 if (fs.existsSync(path.join(root, ".github/workflows/pages-release.yml"))) { const workflow = fs.readFileSync(path.join(root, ".github/workflows/pages-release.yml"), "utf8"); if (!/workflow_dispatch:/.test(workflow) || /\bpush:|pull_request:/.test(workflow)) issue("Release readiness", "Pages workflow must remain manual-only"); for (const action of workflow.matchAll(/uses:\s*([^\s]+)/g)) if (!/^actions\/(?:checkout|setup-node|configure-pages|upload-pages-artifact|deploy-pages)@/.test(action[1])) issue("Release readiness", `unapproved action ${action[1]}`); if (!/path:\s*\.pages-artifact/.test(workflow)) issue("Release readiness", "workflow does not upload the sanitized artifact"); }
 
+const publicConfigPath = path.join(root, "config/frontend-config.js");
+if (fs.existsSync(publicConfigPath)) {
+  const publicConfig = fs.readFileSync(publicConfigPath, "utf8");
+  if (/https?:\/\/(?:localhost|127\.0\.0\.1|10(?:\.\d{1,3}){3}|192\.168(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2}|[^/]*\.(?:test|invalid))(?:[:/]|$)/i.test(publicConfig)) issue("Deployment safety", "config/frontend-config.js: localhost, private, or test URL in public runtime configuration");
+  if (/\b(?:apiKey|api_key|password|secret|token)\s*[:=]\s*["''][^"'']+["'']/i.test(publicConfig)) issue("Deployment safety", "config/frontend-config.js: possible public secret value");
+}
 const publicHtml = new Map(htmlByRelative);
 const notFoundPath = path.join(root, "404.html");
 if (fs.existsSync(notFoundPath)) publicHtml.set("404.html", fs.readFileSync(notFoundPath, "utf8"));
@@ -323,6 +331,19 @@ const mediaPerformancePages = new Set([
 ]);
 for (const [rel, content] of publicHtml) {
   const file = path.join(root, rel);
+  const expectedLanguage = rel.startsWith("ar/") ? "ar" : "en";
+  const expectedDirection = rel.startsWith("ar/") ? "rtl" : "ltr";
+  if (!new RegExp(`<html[^>]*\\blang=["'']${expectedLanguage}["'']`, "i").test(content) || !new RegExp(`<html[^>]*\\bdir=["'']${expectedDirection}["'']`, "i").test(content)) issue("HTML and parity", `${rel}: invalid release language or direction attributes`);
+  const pageH1 = [...content.matchAll(/<h1\b[^>]*>/gi)];
+  if (pageH1.length !== 1) issue("HTML and parity", `${rel}: expected exactly one h1, found ${pageH1.length}`);
+  const publicIds = [...content.matchAll(/\bid=["'']([^"'']+)["'']/gi)].map((match) => match[1]);
+  for (const id of new Set(publicIds)) if (publicIds.filter((candidate) => candidate === id).length > 1) issue("HTML and parity", `${rel}: duplicate id=${id}`);
+  if (/tabindex=["''][1-9]\d*["'']/i.test(content)) issue("HTML and parity", `${rel}: positive tabindex is forbidden`);
+  if (rel !== "404.html" && !/<a\b[^>]*class=["''][^"'']*(?:site-skip-link|trips-skip-link)[^"'']*["''][^>]*href=["'']#[^"'']+["'']/i.test(content)) issue("HTML and parity", `${rel}: skip link is missing`);
+  for (const match of content.matchAll(/<a\b[^>]*target=["'']_blank["''][^>]*>/gi)) {
+    const relation = match[0].match(/\brel=["'']([^"'']*)["'']/i)?.[1] ?? "";
+    if (!/\bnoopener\b/i.test(relation) || !/\bnoreferrer\b/i.test(relation)) issue("Navigation", at(file, content, match.index, "target=_blank link requires rel=noopener noreferrer"));
+  }
   for (const match of content.matchAll(/<a\b[^>]*\bhref=["']([^"']*)["'][^>]*>/gi)) {
     const href = match[1].trim();
     if (!href) issue("Navigation", at(file, content, match.index, "public link has an empty href"));
