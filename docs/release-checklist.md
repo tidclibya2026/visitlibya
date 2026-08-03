@@ -1,0 +1,21 @@
+# Visit Libya release checklist
+
+- [ ] Main is synchronized with the approved release commit.
+- [ ] Working tree is clean before the release action.
+- [ ] Frontend validation and static smoke tests pass.
+- [ ] Required GitHub Actions checks pass.
+- [ ] GitHub Pages source and sanitized artifact are verified.
+- [ ] Custom-domain decision is recorded; do not infer a domain.
+- [ ] HTTPS status is verified at the selected public origin.
+- [ ] Canonical origin is supplied during the release artifact process.
+- [ ] Sitemap is generated with the same HTTPS origin and `/visitlibya/` base path where applicable.
+- [ ] `robots.txt` remains origin-neutral until the sitemap origin is known.
+- [ ] `apiEnabled: false`, `apiBaseUrl: ""`, and `deploymentEnvironment: "static"` are confirmed.
+- [ ] The 13 oversized-image warnings are acknowledged.
+- [ ] The external Google Fonts availability/privacy dependency is acknowledged.
+- [ ] Accessibility checks pass, including headings, skip links, labels, focus, RTL, and reduced motion.
+- [ ] English/Arabic navigation and destination-slug parity pass.
+- [ ] Desktop, tablet, and mobile layouts are reviewed.
+- [ ] The project-subpath 404 recovery behavior is tested.
+- [ ] Rollback commit `95a4806` is recorded before launch.
+- [ ] No commit, deployment, Pages-setting change, or DNS change occurs without explicit approval.
