@@ -59,3 +59,13 @@
 - [x] Confirmed horizontal overflow corrected and remeasured.
 - [x] Forms and disabled states reviewed.
 - [ ] Final release-owner visual approval recorded.
+
+## Measured responsive images
+
+- [x] Cold-cache source performance matrix completed.
+- [x] Responsive WebP widths match measured display needs.
+- [x] Mobile currentSrc selects smaller candidates.
+- [x] Original photograph integrity verified.
+- [x] Responsive assets included in artifact allowlist.
+- [x] Source and artifact image delivery checks completed.
+- [ ] Final release-owner responsive-image approval recorded.

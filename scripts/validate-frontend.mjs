@@ -70,6 +70,27 @@ function exactPathStatus(target) {
   return fs.existsSync(absolute) ? "ok" : "missing";
 }
 
+function webpDimensions(file) {
+  const buffer = fs.readFileSync(file);
+  if (buffer.length < 30 || buffer.toString("ascii", 0, 4) !== "RIFF" || buffer.toString("ascii", 8, 12) !== "WEBP") return null;
+  for (let offset = 12; offset + 8 <= buffer.length;) {
+    const type = buffer.toString("ascii", offset, offset + 4);
+    const size = buffer.readUInt32LE(offset + 4);
+    const data = offset + 8;
+    if (type === "VP8X" && data + 10 <= buffer.length) {
+      return { width: 1 + buffer.readUIntLE(data + 4, 3), height: 1 + buffer.readUIntLE(data + 7, 3) };
+    }
+    if (type === "VP8 " && data + 10 <= buffer.length && buffer[data + 3] === 0x9d && buffer[data + 4] === 0x01 && buffer[data + 5] === 0x2a) {
+      return { width: buffer.readUInt16LE(data + 6) & 0x3fff, height: buffer.readUInt16LE(data + 8) & 0x3fff };
+    }
+    if (type === "VP8L" && data + 5 <= buffer.length && buffer[data] === 0x2f) {
+      const bits = buffer.readUInt32LE(data + 1);
+      return { width: (bits & 0x3fff) + 1, height: ((bits >> 14) & 0x3fff) + 1 };
+    }
+    offset = data + size + (size % 2);
+  }
+  return null;
+}
 function localTarget(sourceFile, reference) {
   const clean = stripQueryAndFragment(reference);
   const decoded = decodePath(clean);
@@ -258,6 +279,10 @@ for (const assignment of configAssignments) {
 }
 
 const { curatedDestinations } = await import(pathToFileURL(curatedFile));
+const responsiveManifestFile = path.join(root, "assets/js/data/responsive-images.js");
+const responsiveImages = fs.existsSync(responsiveManifestFile)
+  ? (await import(pathToFileURL(responsiveManifestFile))).responsiveImages
+  : {};
 const requiredCuratedFields = ["name_en", "name_ar", "description_en", "description_ar", "region_en", "region_ar", "category_en", "category_ar", "slug", "image"];
 const slugs = new Set();
 for (const destination of curatedDestinations) {
@@ -413,9 +438,20 @@ for (const [rel, content] of publicHtml) {
     if (!/<img\b[^>]*\bsrc=["'][^"']+["'][^>]*>/i.test(picture[1])) issue("Media delivery", at(file, content, picture.index, "picture element lacks a valid img fallback"));
   }
   for (const candidateSet of content.matchAll(/<(?:img|source)\b[^>]*\bsrcset=["']([^"']+)["'][^>]*>/gi)) {
-    for (const candidate of candidateSet[1].split(",")) {
-      const reference = candidate.trim().split(/\s+/, 1)[0];
+    const candidates = candidateSet[1].split(",").map((candidate) => candidate.trim()).filter(Boolean);
+    const widthDescriptors = candidates.map((candidate) => candidate.match(/\s+(\d+)w$/)?.[1]).filter(Boolean).map(Number);
+    if (widthDescriptors.length && !/\bsizes=["'][^"']+["']/i.test(candidateSet[0])) issue("Media delivery", at(file, content, candidateSet.index, "width-descriptor srcset requires sizes"));
+    if (widthDescriptors.length !== new Set(widthDescriptors).size || widthDescriptors.some((width, index) => index > 0 && width <= widthDescriptors[index - 1])) issue("Media delivery", at(file, content, candidateSet.index, "srcset widths must be unique and ascending"));
+    for (const candidate of candidates) {
+      const [reference, descriptor = ""] = candidate.split(/\s+/);
       validateLocalReference("HTML references", file, content, reference, candidateSet.index, { fragment: false });
+      const width = Number(descriptor.match(/^(\d+)w$/)?.[1] ?? 0);
+      const local = localTarget(file, reference);
+      if (width && local.target && fs.existsSync(local.target) && /\.webp$/i.test(local.target)) {
+        const dimensions = webpDimensions(local.target);
+        if (!dimensions) issue("Media delivery", at(file, content, candidateSet.index, `invalid WebP candidate: ${reference}`));
+        else if (dimensions.width !== width) issue("Media delivery", at(file, content, candidateSet.index, `${reference}: ${width}w descriptor does not match ${dimensions.width}px file width`));
+      }
     }
   }
   for (const editorial of content.matchAll(/<(?:section)\b[^>]*class=["'][^"']*(?:discover-detail|ar-detail)[^"']*["'][^>]*>[\s\S]*?<img\b([^>]*)>/gi)) {
@@ -551,6 +587,35 @@ for (const [rel, content] of publicHtml) {
 }
 for (const destination of curatedDestinations) recordImage(path.join(root, destination.image), `curated destination: ${destination.slug}`);
 for (const match of destinationController.matchAll(/["'](imges\/[^"']+)["']/gi)) recordImage(path.join(root, match[1]), "destination gallery data");
+const responsiveOptimizedReferences = new Set();
+for (const [fallback, delivery] of Object.entries(responsiveImages)) {
+  const fallbackStatus = exactPathStatus(path.join(root, fallback));
+  if (fallbackStatus !== "ok") issue("Media delivery", `${fallback}: responsive manifest fallback is ${fallbackStatus}`);
+  const base = path.join(root, delivery.webp);
+  const baseDimensions = fs.existsSync(base) ? webpDimensions(base) : null;
+  if (!baseDimensions) issue("Media delivery", `${delivery.webp}: responsive manifest base is missing or invalid WebP`);
+  responsiveOptimizedReferences.add(delivery.webp);
+  let priorWidth = 0;
+  const seen = new Set();
+  for (const candidate of delivery.candidates) {
+    responsiveOptimizedReferences.add(candidate.src);
+    if (seen.has(candidate.width) || candidate.width <= priorWidth) issue("Media delivery", `${fallback}: responsive candidate widths must be unique and ascending`);
+    seen.add(candidate.width);
+    priorWidth = candidate.width;
+    const target = path.join(root, candidate.src);
+    const dimensions = fs.existsSync(target) ? webpDimensions(target) : null;
+    if (!dimensions) issue("Media delivery", `${candidate.src}: missing or invalid WebP derivative`);
+    else {
+      if (dimensions.width !== candidate.width) issue("Media delivery", `${candidate.src}: filename/manifest width ${candidate.width} does not match ${dimensions.width}px`);
+      if (baseDimensions && dimensions.width > baseDimensions.width) issue("Media delivery", `${candidate.src}: derivative is upscaled beyond approved base width`);
+    }
+  }
+}
+const allowlistedMedia = fs.existsSync(allowlistPath)
+  ? new Set(JSON.parse(fs.readFileSync(allowlistPath, "utf8")).publicMedia ?? [])
+  : new Set();
+for (const optimized of responsiveOptimizedReferences) if (!allowlistedMedia.has(optimized)) issue("Media delivery", `${optimized}: responsive asset is missing from artifact allowlist`);
+for (const optimized of [...allowlistedMedia].filter((item) => item.startsWith("imges/optimized/"))) if (!responsiveOptimizedReferences.has(optimized)) issue("Media delivery", `${optimized}: allowlisted optimized asset is absent from responsive image manifest`);
 const strictImageSize = process.env.VISIT_LIBYA_STRICT_IMAGE_SIZE === "1";
 for (const [imagePath, references] of [...imageReferences].sort(([a], [b]) => a.localeCompare(b))) {
   const bytes = fs.statSync(path.join(root, imagePath)).size;

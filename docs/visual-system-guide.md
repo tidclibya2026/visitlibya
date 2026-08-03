@@ -50,3 +50,7 @@ The external font dependency and thirteen oversized source photographs remain do
 Shared headers must use a 100%-wide, shrink-safe grid. Central navigation uses `min-width: 0`, `max-width: 100%`, responsive gaps, and a `minmax(0, 1fr)` track. Language switches remain normal-flow, non-shrinking items placed with logical auto margin; they must never be absolutely positioned to compensate for width pressure.
 
 The approved non-square logo uses natural height, `object-fit: contain`, and responsive width: moderately larger on desktop and compact on mobile without increasing header height. RTL form grids use `minmax(0, 1fr)`, and form controls use `min-width: 0` and `max-width: 100%` where intrinsic sizing could displace the page.
+
+## Responsive photography rule
+
+Use measured, layout-derived sizes values with ascending WebP width candidates. Preserve original intrinsic dimensions and fallback, existing object-fit/object-position, and hero composition. When the same source appears as hero and first gallery item, align candidate selection to avoid a duplicate transfer.
