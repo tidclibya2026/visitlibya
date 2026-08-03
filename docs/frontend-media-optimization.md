@@ -103,3 +103,9 @@ This inventory covers the 52 unique public image URLs referenced by the audited 
 | `imges/الدبلة.webp` | unknown | 60406 | WEBP | editorial | normal/lazy | filename case/space | ar/culture.html |
 | `panel/desert.jpg` | 3872×2592 | 3362184 | JPG | other | lazy | >2 MB; excess pixels; filename case/space; exact duplicate | ar/index.html, index.html |
 | `panel/panel1.png` | 1512×592 | 1518707 | PNG | hero | high | filename case/space | style.css |
+
+## Visual presentation refinement
+
+The visual-system phase added reusable semantic presentation rules for hero, card, editorial, natural-ratio, and logo media. Editorial and documentary images remain fully visible with natural height and `object-fit: contain`; controlled hero and card frames retain `object-fit: cover`. Mobile hero bounds were refined without changing image paths, subjects, loading, decoding, fetch priority, or intrinsic dimensions.
+
+No original image was deleted, renamed, replaced, recompressed, or encoded. The thirteen oversized source photographs and all future WebP conversions remain pending until a trusted encoder and visual quality review are available.

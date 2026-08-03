@@ -35,3 +35,12 @@
 - [ ] Artifact validation and all 67 artifact smoke tests pass.
 - [ ] Deployment workflow permissions, environment protection, and concurrency are reviewed.
 - [ ] Deployment remains manual and disabled until explicit operational approval.
+## Visual system approval
+
+- [ ] Favicon resolves with exact case on every public page.
+- [ ] Approved logo is checked in English and Arabic desktop/mobile headers.
+- [ ] English and Arabic typography and fallback stacks are checked.
+- [ ] Editorial images show no stretching and card/hero crops remain intentional.
+- [ ] Hero crops are reviewed at desktop, tablet, and mobile widths.
+- [ ] Mobile visual review is completed at 430 px and 360 px.
+- [ ] External-font fallback behavior is accepted.

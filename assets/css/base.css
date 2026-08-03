@@ -33,7 +33,7 @@ main {
 h1,
 h2,
 h3,
-h4 {
+h4, h5, h6 {
   color: inherit;
   font-family: var(--font-family-display);
   line-height: var(--line-height-heading);
@@ -134,3 +134,4 @@ table {
     transition-duration: 0.01ms !important;
   }
 }
+html[lang="en"] body{font-family:var(--font-latin)} html[lang="ar"] body{font-family:var(--font-arabic);line-height:var(--leading-relaxed)} html[lang="ar"] :where(h1,h2,h3,h4,h5,h6,.site-navigation,button){letter-spacing:0} html[lang="ar"] :where(p,li){line-height:1.9}
