@@ -44,3 +44,18 @@
 - [ ] Hero crops are reviewed at desktop, tablet, and mobile widths.
 - [ ] Mobile visual review is completed at 430 px and 360 px.
 - [ ] External-font fallback behavior is accepted.
+
+## Evidence-based visual QA
+
+- [x] Desktop visual QA evidence captured and technically reviewed.
+- [x] Tablet visual QA evidence captured and technically reviewed.
+- [x] Mobile visual QA evidence captured and technically reviewed.
+- [x] Arabic and RTL visual QA completed.
+- [x] English visual QA completed.
+- [x] Header and logo sizing reviewed.
+- [x] Hero overscan confirmed intentional and preserved.
+- [x] Image distortion review completed without image-file changes.
+- [x] Typography review completed.
+- [x] Confirmed horizontal overflow corrected and remeasured.
+- [x] Forms and disabled states reviewed.
+- [ ] Final release-owner visual approval recorded.
