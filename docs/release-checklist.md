@@ -80,3 +80,12 @@
 - [x] Local LCP, CLS, long-task, and interaction proxies recorded.
 - [x] Runtime visual and functional regression QA completed.
 - [ ] Final release-owner runtime-performance approval recorded.
+
+## Temporary destination media
+
+- [x] Temporary owner approval dated 2026-08-03 is recorded with source hashes and rollback paths.
+- [x] Awjila, Nafusa Mountains, Bomba Bay, Villa Sileen gallery, and Sabratha relationships are corrected.
+- [x] Responsive derivatives and bilingual alt text are validated.
+- [ ] Permanent provenance, photographer, institution, licensing, and attribution records are complete.
+- [ ] Villa Sileen hero/card replacement is approved.
+- [ ] Sabratha replacement gallery media is approved.

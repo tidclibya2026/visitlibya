@@ -16,7 +16,14 @@ export const responsiveImages = Object.freeze({
   "imges/ghadames6.JPG": entry("imges/optimized/ghadames6.webp"),
   "imges/landscapes5.JPG": entry("imges/optimized/landscapes5.webp", [[640, "imges/optimized/landscapes5-640.webp"], [1280, "imges/optimized/landscapes5-1280.webp"], [1600, "imges/optimized/landscapes5.webp"]]),
   "imges/landscapes7.jpg": entry("imges/optimized/landscapes7.webp"),
-  "imges/gallery/beaches18.JPG": entry("imges/optimized/beaches18.webp"),
+  "imges/destinations/temporary/awjila-master.jpg": entry("imges/optimized/destinations/awjila-master-1600.webp", [[640, "imges/optimized/destinations/awjila-master-640.webp"], [1280, "imges/optimized/destinations/awjila-master-1280.webp"], [1600, "imges/optimized/destinations/awjila-master-1600.webp"]]),
+  "imges/destinations/temporary/awjila-gallery-01.jpg": entry("imges/optimized/destinations/awjila-gallery-01-960.webp", [[960, "imges/optimized/destinations/awjila-gallery-01-960.webp"]]),
+  "imges/destinations/temporary/awjila-gallery-02.jpg": entry("imges/optimized/destinations/awjila-gallery-02-960.webp", [[960, "imges/optimized/destinations/awjila-gallery-02-960.webp"]]),
+  "imges/destinations/temporary/awjila-gallery-03.jpg": entry("imges/optimized/destinations/awjila-gallery-03-960.webp", [[960, "imges/optimized/destinations/awjila-gallery-03-960.webp"]]),
+  "imges/destinations/temporary/awjila-gallery-04.jpg": entry("imges/optimized/destinations/awjila-gallery-04-960.webp", [[960, "imges/optimized/destinations/awjila-gallery-04-960.webp"]]),
+  "imges/destinations/temporary/nafusa-mountains.jpg": entry("imges/optimized/destinations/nafusa-1600.webp", [[640, "imges/optimized/destinations/nafusa-640.webp"], [1280, "imges/optimized/destinations/nafusa-1280.webp"], [1600, "imges/optimized/destinations/nafusa-1600.webp"]]),
+  "imges/destinations/temporary/bomba-bay.png": entry("imges/optimized/destinations/bomba-bay-1042.webp", [[640, "imges/optimized/destinations/bomba-bay-640.webp"], [1042, "imges/optimized/destinations/bomba-bay-1042.webp"]]),
+  "imges/destinations/temporary/villa-sileen-columns.jpg": entry("imges/optimized/destinations/villa-sileen-columns-1600.webp", [[960, "imges/optimized/destinations/villa-sileen-columns-960.webp"], [1600, "imges/optimized/destinations/villa-sileen-columns-1600.webp"]]),
 });
 
 export function resolveResponsiveImage(source, pathPrefix = "") {

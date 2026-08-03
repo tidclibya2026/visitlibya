@@ -129,6 +129,7 @@ function normalizeApiItem(item) {
     ),
     categoryId: Number.isInteger(Number(item.category?.id)) ? String(item.category.id) : "",
     image: apiImage || (curated?.image ? `${pathPrefix}${curated.image}` : ""),
+    imageAlt: curated ? (isArabic ? curated.image_alt_ar : curated.image_alt_en) : "",
     imageWebp: responsive?.webp ?? "",
     imageWebpSrcset: responsive?.srcset ?? "",
   };
@@ -151,7 +152,7 @@ function createCard(destination) {
   if (destination.image) {
     const image = document.createElement("img");
     image.src = destination.image;
-    image.alt = destination.name;
+    image.alt = destination.imageAlt || destination.name;
     image.loading = "lazy";
     image.decoding = "async";
     image.addEventListener(
@@ -357,6 +358,7 @@ function fallbackItems() {
       category: isArabic ? item.category_ar : item.category_en,
       categoryId: `curated:${item.category_key}`,
       image: `${pathPrefix}${item.image}`,
+      imageAlt: isArabic ? item.image_alt_ar : item.image_alt_en,
       imageWebp: resolveResponsiveImage(item.image, pathPrefix)?.webp ?? "",
       imageWebpSrcset: resolveResponsiveImage(item.image, pathPrefix)?.srcset ?? "",
     }));
