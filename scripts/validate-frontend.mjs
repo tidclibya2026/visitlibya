@@ -314,6 +314,33 @@ const destinationController = fs.readFileSync(path.join(root, "assets/js/pages/d
 if (!/destination\.html\?slug=\$\{encodeURIComponent\(slug\)\}/.test(destinationController)) issue("Navigation", "destination-details.js: language switching does not preserve the destination slug");
 if (!/if \(!slug\)[\s\S]{0,200}view:\s*["']not-found["']/.test(destinationController)) issue("Curated destinations", "destination-details.js: invalid/unknown slug lacks a terminal state");
 if (!/if \(!runtimeConfig\.apiEnabled\)[\s\S]{0,150}view:\s*["']error["']/.test(destinationController)) issue("Curated destinations", "destination-details.js: unknown slug can remain loading when API is disabled");
+for (const [page, content] of [
+  ["destination.html", htmlByRelative.get("destination.html") ?? ""],
+  ["ar/destination.html", htmlByRelative.get("ar/destination.html") ?? ""],
+]) {
+  if (!/<button[^>]+id=["']destinationAddToTrip["'][^>]+type=["']button["']/i.test(content)) {
+    issue("Trip integration", `${page}: missing semantic Add to Trip button`);
+  }
+  if (!content.includes('id="destinationTripAvailability"')) {
+    issue("Trip integration", `${page}: missing curated destination availability status`);
+  }
+}
+for (const requirement of [
+  /listTrips\(\{ limit: 100 \}\)/,
+  /getTrip\(tripId\)/,
+  /expected_version:\s*latestTrip\.version/,
+  /destination_id:\s*currentDestination\.id/,
+  /day_number:\s*dayNumber/,
+  /Number\.isSafeInteger\(payload\.id\)/,
+  /TRIP_VERSION_CONFLICT/,
+]) {
+  if (!requirement.test(destinationController)) {
+    issue("Trip integration", `destination-details.js: missing contract guard ${requirement}`);
+  }
+}
+if (/\b(?:innerHTML|outerHTML|insertAdjacentHTML|eval|document\.write)\b/.test(destinationController)) {
+  issue("Trip integration", "destination-details.js: unsafe dynamic DOM API found");
+}
 
 const en = (await import(pathToFileURL(path.join(root, "assets/js/app/i18n/en.js")))).en;
 const ar = (await import(pathToFileURL(path.join(root, "assets/js/app/i18n/ar.js")))).ar;
@@ -323,6 +350,11 @@ function dictionaryKeys(value, prefix = "") {
 if (JSON.stringify(dictionaryKeys(en)) !== JSON.stringify(dictionaryKeys(ar))) issue("HTML and parity", "English and Arabic dynamic dictionaries are not structurally equivalent");
 for (const key of ["registrationUnavailable", "signInUnavailable"]) if (!en.auth[key] || !ar.auth[key]) issue("HTML and parity", `missing bilingual auth.${key}`);
 if (!en.trips.plannerUnavailable || !ar.trips.plannerUnavailable) issue("HTML and parity", "missing bilingual trips.plannerUnavailable");
+for (const key of ["addToTrip", "signInRequired", "success", "duplicate", "conflict", "unavailableForCurated"]) {
+  if (!en.tripIntegration[key] || !ar.tripIntegration[key]) {
+    issue("Trip integration", `missing bilingual tripIntegration.${key}`);
+  }
+}
 
 const staticHooks = {
   "register.html": ["data-register-form", "data-register-error", "data-register-submit"],

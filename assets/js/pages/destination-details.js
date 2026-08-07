@@ -1,4 +1,13 @@
 import { apiClient } from "../app/api/client.js";
+import { addTripItem, getTrip, listTrips } from "../app/api/trips-api.js";
+import { bootstrap } from "../app/bootstrap.js";
+import { getLocalizedErrorMessage } from "../app/errors/error-messages.js";
+import { createTranslator } from "../app/i18n/translator.js";
+import { announce } from "../app/ui/announcer.js";
+import { setLoading } from "../app/ui/loading.js";
+import { createModal } from "../app/ui/modal.js";
+import { toast } from "../app/ui/toast.js";
+import { createElement, setText, setVisible } from "../app/utils/dom.js";
 import { loadRuntimeConfig } from "../app/config/runtime-config.js";
 import { curatedDestinations } from "../data/curated-destinations.js";
 import { resolveResponsiveImage } from "../data/responsive-images.js";
@@ -8,8 +17,11 @@ const locale = isArabic ? "ar" : "en";
 const pathPrefix = isArabic ? "../" : "";
 const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const runtimeConfig = loadRuntimeConfig();
+const pageTranslator = createTranslator(locale);
 let activeRequest = null;
 let requestSequence = 0;
+let currentDestination = null;
+let activeTripModal = null;
 
 const copy = Object.freeze({
   destination: isArabic ? "وجهة ليبية" : "Libyan destination",
@@ -121,6 +133,8 @@ const elements = {
   related: document.getElementById("destinationRelated"),
   planLink: document.getElementById("destinationPlanLink"),
   atlasLink: document.getElementById("destinationAtlasLink"),
+  addToTrip: document.getElementById("destinationAddToTrip"),
+  tripAvailability: document.getElementById("destinationTripAvailability"),
 };
 
 function readSlug(search = globalThis.location.search) {
@@ -161,6 +175,7 @@ function curatedBySlug(slug) {
 
 function localizedCurated(item) {
   return {
+    id: null,
     slug: item.slug,
     name: isArabic ? item.name_ar : item.name_en,
     introduction: isArabic ? item.description_ar : item.description_en,
@@ -195,6 +210,7 @@ function normalizeApiDestination(payload, curated) {
   const introduction = text(translation.short_description, text(translation.description, curatedRecord?.introduction ?? ""));
   const description = text(translation.description, introduction);
   return {
+    id: Number.isSafeInteger(payload.id) && payload.id > 0 ? payload.id : null,
     slug: payload.slug,
     name: text(translation.name, curatedRecord?.name ?? copy.destination),
     introduction,
@@ -295,7 +311,415 @@ function renderRelated(destination) {
   elements.relatedSection.hidden = candidates.length === 0;
 }
 
+function parseDateOnly(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value ?? "")) return null;
+  const [year, month, day] = value.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  return date.getFullYear() === year &&
+    date.getMonth() === month - 1 &&
+    date.getDate() === day
+    ? date
+    : null;
+}
+
+function tripDays(trip) {
+  const start = parseDateOnly(trip?.start_date);
+  const end = parseDateOnly(trip?.end_date);
+  if (start && end && end >= start) {
+    return Array.from(
+      { length: Math.round((end - start) / 86_400_000) + 1 },
+      (_, index) => index + 1,
+    );
+  }
+  const maximum = Math.max(
+    1,
+    ...(Array.isArray(trip?.items)
+      ? trip.items.map((item) => Number(item.day_number) || 1)
+      : []),
+  );
+  return Array.from({ length: maximum + 1 }, (_, index) => index + 1);
+}
+
+function dateForTripDay(trip, dayNumber) {
+  const start = parseDateOnly(trip?.start_date);
+  if (!start) return null;
+  const date = new Date(start);
+  date.setDate(date.getDate() + dayNumber - 1);
+  return new Intl.DateTimeFormat(isArabic ? "ar-LY" : "en-GB", {
+    dateStyle: "medium",
+  }).format(date);
+}
+
+function closeTripModal() {
+  if (!activeTripModal) return;
+  activeTripModal.setCritical(false);
+  activeTripModal.close();
+  activeTripModal.destroy();
+  activeTripModal = null;
+}
+
+function tripRoute(tripId) {
+  return `${pathPrefix}trip.html?id=${encodeURIComponent(tripId)}`;
+}
+
+function tripsRoute() {
+  return `${pathPrefix}trips.html`;
+}
+
+function publicTripError(error, t) {
+  if (error?.code === "NETWORK_ERROR" || error?.code === "TIMEOUT") {
+    return t("tripIntegration.networkError");
+  }
+  if (error?.code === "TRIP_VERSION_CONFLICT") {
+    return t("tripIntegration.conflict");
+  }
+  if (error?.code === "TRIP_DUPLICATE_DESTINATION") {
+    return t("tripIntegration.duplicate");
+  }
+  if (error?.status === 404) return t("tripIntegration.tripUnavailable");
+  return getLocalizedErrorMessage(error, t);
+}
+
+function appendModalLink(modal, label, href, className = "destination-trip-button") {
+  const link = createElement("a", {
+    className,
+    text: label,
+    attributes: { href },
+  });
+  modal.actions.appendChild(link);
+  return link;
+}
+
+function renderSignInState(modal, t) {
+  modal.content.replaceChildren(
+    createElement("p", {
+      className: "destination-trip-message",
+      text: t("tripIntegration.signInRequired"),
+    }),
+  );
+  modal.actions.replaceChildren();
+  const cancel = createElement("button", {
+    className: "destination-trip-button destination-trip-button--secondary",
+    text: t("common.cancel"),
+    attributes: { type: "button" },
+  });
+  cancel.addEventListener("click", closeTripModal);
+  modal.actions.appendChild(cancel);
+  appendModalLink(
+    modal,
+    t("tripIntegration.signIn"),
+    tripsRoute(),
+    "destination-trip-button destination-trip-button--primary",
+  );
+}
+
+function renderTripSuccess(modal, t, trip, destination) {
+  const message = t("tripIntegration.success", {
+    name: destination.name,
+    trip: trip.title,
+  });
+  modal.content.replaceChildren(
+    createElement("p", {
+      className: "destination-trip-success",
+      text: message,
+      attributes: { role: "status" },
+    }),
+  );
+  modal.actions.replaceChildren();
+  appendModalLink(
+    modal,
+    t("tripIntegration.openTrip"),
+    tripRoute(trip.id),
+    "destination-trip-button destination-trip-button--primary",
+  );
+  appendModalLink(
+    modal,
+    t("tripIntegration.viewTrips"),
+    tripsRoute(),
+    "destination-trip-button destination-trip-button--secondary",
+  );
+  const continueButton = createElement("button", {
+    className: "destination-trip-button destination-trip-button--secondary",
+    text: t("tripIntegration.continueExploring"),
+    attributes: { type: "button" },
+  });
+  continueButton.addEventListener("click", closeTripModal);
+  modal.actions.appendChild(continueButton);
+  toast.success(message, { closeLabel: t("common.close") });
+  announce(message, { force: true });
+}
+
+async function openTripIntegration() {
+  if (activeTripModal || !currentDestination?.id) return;
+  const context = await bootstrap();
+  if (!context) return;
+  const { t } = context.translator;
+  const modal = createModal({
+    title: t("tripIntegration.title"),
+    className: "app-modal destination-trip-modal",
+  });
+  activeTripModal = modal;
+  modal.element.addEventListener("close", () => {
+    if (activeTripModal === modal) {
+      activeTripModal = null;
+      modal.destroy();
+    }
+  }, { once: true });
+  modal.element.dir = isArabic ? "rtl" : "ltr";
+  modal.content.appendChild(
+    createElement("p", {
+      className: "destination-trip-summary",
+      text: t("tripIntegration.destinationSummary", {
+        name: currentDestination.name,
+      }),
+    }),
+  );
+  modal.open();
+
+  if (!context.session.authenticated) {
+    renderSignInState(modal, t);
+    return;
+  }
+
+  const loading = createElement("p", {
+    text: t("tripIntegration.loadingTrips"),
+    attributes: { role: "status" },
+  });
+  modal.content.appendChild(loading);
+  try {
+    const response = await listTrips({ limit: 100 });
+    if (!Array.isArray(response?.items) || response.items.length === 0) {
+      modal.content.replaceChildren(
+        createElement("p", {
+          className: "destination-trip-message",
+          text: t("tripIntegration.noTrips"),
+        }),
+      );
+      modal.actions.replaceChildren();
+      const cancel = createElement("button", {
+        className: "destination-trip-button destination-trip-button--secondary",
+        text: t("common.cancel"),
+        attributes: { type: "button" },
+      });
+      cancel.addEventListener("click", closeTripModal);
+      modal.actions.appendChild(cancel);
+      appendModalLink(
+        modal,
+        t("tripIntegration.createTrip"),
+        tripsRoute(),
+        "destination-trip-button destination-trip-button--primary",
+      );
+      return;
+    }
+
+    const suffix = crypto.randomUUID();
+    const form = createElement("form", {
+      className: "destination-trip-form",
+      attributes: { id: `destinationTripForm-${suffix}`, novalidate: "" },
+    });
+    const tripLabel = createElement("label", {
+      text: t("tripIntegration.chooseTrip"),
+      attributes: { for: `destinationTrip-${suffix}` },
+    });
+    const tripSelect = createElement("select", {
+      attributes: {
+        id: `destinationTrip-${suffix}`,
+        name: "trip_id",
+        required: "",
+      },
+    });
+    tripSelect.appendChild(
+      createElement("option", {
+        text: t("tripIntegration.chooseTripPlaceholder"),
+        attributes: { value: "" },
+      }),
+    );
+    response.items.forEach((trip) => {
+      const dates = trip.start_date && trip.end_date
+        ? t("tripIntegration.dates", {
+          start: trip.start_date,
+          end: trip.end_date,
+        })
+        : t("tripIntegration.noDates");
+      tripSelect.appendChild(
+        createElement("option", {
+          text: `${trip.title} — ${dates} — ${t(`trips.status${trip.status[0].toUpperCase()}${trip.status.slice(1)}`)}`,
+          attributes: { value: trip.id },
+        }),
+      );
+    });
+    const dayLabel = createElement("label", {
+      text: t("tripIntegration.chooseDay"),
+      attributes: { for: `destinationDay-${suffix}` },
+    });
+    const daySelect = createElement("select", {
+      attributes: {
+        id: `destinationDay-${suffix}`,
+        name: "day_number",
+        required: "",
+        disabled: "",
+      },
+    });
+    const error = createElement("p", {
+      className: "destination-trip-error",
+      attributes: { id: `destinationTripError-${suffix}`, role: "alert", hidden: "" },
+    });
+    tripSelect.setAttribute("aria-describedby", error.id);
+    daySelect.setAttribute("aria-describedby", error.id);
+    const refresh = createElement("button", {
+      className: "destination-trip-refresh",
+      text: t("tripIntegration.refresh"),
+      attributes: { type: "button", hidden: "" },
+    });
+    let selectedTrip = null;
+    let loadingTrip = false;
+
+    const showError = (message, { canRefresh = false } = {}) => {
+      setText(error, message);
+      setVisible(error, true);
+      setVisible(refresh, canRefresh);
+      announce(message, { priority: "assertive", force: true });
+    };
+    const clearError = () => {
+      setText(error, "");
+      setVisible(error, false);
+      setVisible(refresh, false);
+    };
+    const loadSelectedTrip = async () => {
+      const tripId = Number(tripSelect.value);
+      selectedTrip = null;
+      daySelect.replaceChildren();
+      daySelect.disabled = true;
+      clearError();
+      if (!Number.isSafeInteger(tripId) || tripId < 1) return;
+      loadingTrip = true;
+      tripSelect.disabled = true;
+      try {
+        const trip = await getTrip(tripId);
+        selectedTrip = trip;
+        tripDays(trip).forEach((dayNumber) => {
+          const date = dateForTripDay(trip, dayNumber);
+          daySelect.appendChild(
+            createElement("option", {
+              text: date
+                ? t("tripIntegration.dayWithDate", { day: dayNumber, date })
+                : t("tripIntegration.day", { day: dayNumber }),
+              attributes: { value: dayNumber },
+            }),
+          );
+        });
+        daySelect.disabled = false;
+      } catch (loadError) {
+        if (loadError?.status === 401) {
+          renderSignInState(modal, t);
+          return;
+        }
+        showError(publicTripError(loadError, t));
+      } finally {
+        loadingTrip = false;
+        tripSelect.disabled = false;
+      }
+    };
+    tripSelect.addEventListener("change", () => void loadSelectedTrip());
+    refresh.addEventListener("click", () => void loadSelectedTrip());
+
+    const cancel = createElement("button", {
+      className: "destination-trip-button destination-trip-button--secondary",
+      text: t("common.cancel"),
+      attributes: { type: "button" },
+    });
+    const submit = createElement("button", {
+      className: "destination-trip-button destination-trip-button--primary",
+      text: t("tripIntegration.add"),
+      attributes: { type: "submit", form: form.id },
+    });
+    cancel.addEventListener("click", closeTripModal);
+    form.append(tripLabel, tripSelect, dayLabel, daySelect, error, refresh);
+    modal.content.replaceChildren(
+      createElement("p", {
+        className: "destination-trip-summary",
+        text: t("tripIntegration.destinationSummary", {
+          name: currentDestination.name,
+        }),
+      }),
+      form,
+    );
+    modal.actions.replaceChildren(cancel, submit);
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (loadingTrip || submit.disabled) return;
+      const tripId = Number(tripSelect.value);
+      const dayNumber = Number(daySelect.value);
+      if (!selectedTrip || selectedTrip.id !== tripId) {
+        showError(t("tripIntegration.chooseTrip"));
+        tripSelect.focus();
+        return;
+      }
+      if (!Number.isInteger(dayNumber) || !tripDays(selectedTrip).includes(dayNumber)) {
+        showError(t("tripIntegration.invalidDay"));
+        daySelect.focus();
+        return;
+      }
+      modal.setCritical(true);
+      cancel.disabled = true;
+      tripSelect.disabled = true;
+      daySelect.disabled = true;
+      setLoading(submit, true, {
+        disable: true,
+        text: t("tripIntegration.adding"),
+      });
+      clearError();
+      try {
+        const latestTrip = await getTrip(tripId);
+        if (!tripDays(latestTrip).includes(dayNumber)) {
+          selectedTrip = latestTrip;
+          throw Object.assign(new Error("Trip day changed"), {
+            code: "TRIP_VERSION_CONFLICT",
+          });
+        }
+        await addTripItem(tripId, {
+          expected_version: latestTrip.version,
+          destination_id: currentDestination.id,
+          day_number: dayNumber,
+        });
+        modal.setCritical(false);
+        renderTripSuccess(modal, t, latestTrip, currentDestination);
+      } catch (mutationError) {
+        modal.setCritical(false);
+        if (mutationError?.status === 401) {
+          renderSignInState(modal, t);
+          return;
+        }
+        showError(publicTripError(mutationError, t), {
+          canRefresh: mutationError?.code === "TRIP_VERSION_CONFLICT",
+        });
+      } finally {
+        cancel.disabled = false;
+        tripSelect.disabled = false;
+        daySelect.disabled = !selectedTrip;
+        setLoading(submit, false, { disable: true });
+        setText(submit, t("tripIntegration.add"));
+      }
+    });
+  } catch (error) {
+    if (error?.status === 401) {
+      renderSignInState(modal, t);
+      return;
+    }
+    const message = publicTripError(error, t);
+    modal.content.replaceChildren(
+      createElement("p", {
+        className: "destination-trip-error",
+        text: message,
+        attributes: { role: "alert" },
+      }),
+    );
+    announce(message, { priority: "assertive", force: true });
+  }
+}
+
 function render(destination, { fallback = false } = {}) {
+  currentDestination = destination;
   elements.title.textContent = destination.name;
   elements.category.textContent = destination.category;
   elements.categoryFact.textContent = destination.category;
@@ -322,6 +746,16 @@ function render(destination, { fallback = false } = {}) {
   elements.translationNotice.hidden = !destination.translationFallback;
   elements.planLink.href = `${pathPrefix}plan.html?destination=${encodeURIComponent(destination.slug)}`;
   elements.atlasLink.href = `${pathPrefix}atlas.html?destination=${encodeURIComponent(destination.slug)}`;
+  const canSaveToTrip = Number.isSafeInteger(destination.id) && destination.id > 0;
+  elements.addToTrip.disabled = !canSaveToTrip;
+  elements.addToTrip.setAttribute("aria-disabled", String(!canSaveToTrip));
+  elements.tripAvailability.hidden = canSaveToTrip;
+  setText(
+    elements.tripAvailability,
+    canSaveToTrip
+      ? ""
+      : pageTranslator.t("tripIntegration.unavailableForCurated"),
+  );
   appendParagraphs(elements.description, destination.description);
   renderGallery(destination);
   renderRelated(destination);
@@ -421,6 +855,7 @@ async function loadDestination() {
 
 elements.retry?.addEventListener("click", loadDestination);
 elements.fallbackRetry?.addEventListener("click", loadDestination);
+elements.addToTrip?.addEventListener("click", () => void openTripIntegration());
 loadDestination().catch((error) => {
   reportDevelopmentError("Destination initialization failed", error);
   const curated = curatedBySlug(readSlug());

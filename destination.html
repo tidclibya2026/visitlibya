@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="assets/css/base.css?v=frontend-2-01">
   <link rel="stylesheet" href="assets/css/layout.css?v=frontend-2-01">
   <link rel="stylesheet" href="assets/css/components.css?v=frontend-2-01">
-  <link rel="stylesheet" href="assets/css/destination-details.css?v=frontend-2-details-01">
+  <link rel="stylesheet" href="assets/css/destination-details.css?v=frontend-2-trip-integration-01">
   <meta name="theme-color" content="#0B3A67">
   <meta name="robots" content="index,follow">
 
@@ -76,7 +76,7 @@
 
       <section class="destination-detail-gallery" id="destinationGallerySection" aria-labelledby="destinationGalleryTitle" hidden><div class="destination-detail-section-heading"><p class="destination-detail-eyebrow">Local perspectives</p><h2 id="destinationGalleryTitle">Gallery</h2></div><div class="destination-detail-gallery__grid" id="destinationGallery"></div></section>
       <section class="destination-detail-related" id="destinationRelatedSection" aria-labelledby="destinationRelatedTitle" hidden><div class="destination-detail-section-heading"><p class="destination-detail-eyebrow">Continue exploring</p><h2 id="destinationRelatedTitle">Related destinations</h2></div><div class="destination-detail-related__grid" id="destinationRelated"></div></section>
-      <section class="destination-detail-cta" aria-labelledby="destinationCtaTitle"><div><p class="destination-detail-eyebrow">Shape your journey</p><h2 id="destinationCtaTitle">Continue planning your visit</h2><p>Bring this destination into a wider journey across Libya.</p></div><div class="destination-detail-actions"><a class="destination-detail-button destination-detail-button--gold" id="destinationPlanLink" href="plan.html">Plan a trip</a><a class="destination-detail-button destination-detail-button--light" id="destinationAtlasLink" href="atlas.html">Open tourism atlas</a></div></section>
+      <section class="destination-detail-cta" aria-labelledby="destinationCtaTitle"><div><p class="destination-detail-eyebrow">Shape your journey</p><h2 id="destinationCtaTitle">Continue planning your visit</h2><p>Bring this destination into a wider journey across Libya.</p><p class="destination-trip-availability" id="destinationTripAvailability" role="status" hidden></p></div><div class="destination-detail-actions"><button class="destination-detail-button destination-detail-button--gold" id="destinationAddToTrip" type="button">Add to Trip</button><a class="destination-detail-button destination-detail-button--light" id="destinationPlanLink" href="plan.html">Plan a trip</a><a class="destination-detail-button destination-detail-button--light" id="destinationAtlasLink" href="atlas.html">Open tourism atlas</a></div></section>
     </article>
   </main>
 
@@ -84,6 +84,6 @@
   <script src="config/frontend-config.js?v=runtime-config-01"></script>
   <script src="main.js?v=hero-panel-slideshow-01"></script>
   <script type="module" src="assets/js/app/ui/site-shell.js?v=frontend-2-01"></script>
-  <script type="module" src="assets/js/pages/destination-details.js?v=frontend-2-details-02"></script>
+  <script type="module" src="assets/js/pages/destination-details.js?v=frontend-2-trip-integration-01"></script>
 </body>
 </html>
