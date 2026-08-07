@@ -13,6 +13,8 @@ const MESSAGE_KEYS = Object.freeze({
   AUTH_USERNAME_CONFLICT: "auth.usernameConflict",
   AUTH_REGISTRATION_CONFLICT: "auth.accountConflict",
   TRIP_VERSION_CONFLICT: "trips.versionConflict",
+  TRIP_DUPLICATE_DESTINATION: "tripIntegration.duplicate",
+  TRIP_DESTINATION_UNAVAILABLE: "tripIntegration.invalidDestination",
   VALIDATION_ERROR: "errors.validation",
   RATE_LIMITED: "errors.rateLimit",
   SERVER_ERROR: "errors.server",

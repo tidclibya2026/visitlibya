@@ -55,6 +55,12 @@ function classifyError(status, payload) {
   if (status === 409 && detail === "Trip was modified by another request") {
     return "TRIP_VERSION_CONFLICT";
   }
+  if (status === 409 && detail === "Destination already exists on this trip day") {
+    return "TRIP_DUPLICATE_DESTINATION";
+  }
+  if (status === 422 && detail === "Destination is unavailable for trip planning") {
+    return "TRIP_DESTINATION_UNAVAILABLE";
+  }
   if (status >= 500) return "SERVER_ERROR";
   return STATUS_CODES[status] ?? "UNKNOWN_ERROR";
 }
