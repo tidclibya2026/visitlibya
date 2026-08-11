@@ -170,6 +170,7 @@ try {
     ["assets/js/app/config/runtime-config.js", "text/javascript"],
     ["assets/js/app/api/client.js", "text/javascript"],
     ["assets/js/data/curated-destinations.js", "text/javascript"],
+    ["assets/js/app/map/trip-map.js", "text/javascript"],
     ["style.css", "text/css"],
     ["assets/css/design-system.css", "text/css"],
     ["assets/css/destinations.css", "text/css"],
@@ -316,6 +317,28 @@ try {
     assert(/destination\.html\?slug=\$\{encodeURIComponent\(destination\.slug\)\}/.test(listing), "listing does not encode detail slugs");
     assert(/destination\.html\?slug=\$\{encodeURIComponent\(slug\)\}/.test(detail), "language switch does not preserve slug");
     assert(/if \(!runtimeConfig\.apiEnabled\)[\s\S]{0,150}view:\s*["']error["']/.test(detail), "unknown static slug lacks a terminal error state");
+  });
+  await test("trip map derives only valid authoritative coordinate pairs", async () => {
+    const modulePath = path.join(root, "assets/js/app/map/trip-map.js");
+    const { validCoordinatePair, buildTripMapStops, mapCoverageSummary } = await import(pathToFileURL(modulePath));
+    assert(validCoordinatePair({ latitude: 32.6, longitude: 14.3 }), "valid pair rejected");
+    for (const value of [
+      { latitude: null, longitude: null },
+      { latitude: 32.6, longitude: null },
+      { latitude: "32.6", longitude: 14.3 },
+      { latitude: 91, longitude: 14.3 },
+      { latitude: 32.6, longitude: 181 },
+    ]) assert(!validCoordinatePair(value), "invalid pair accepted");
+    const items = [
+      { id: 3, day_number: 2, sort_order: 0, start_time: null, destination: { id: 3, slug: "third", name_en: "Third", name_ar: "الثالثة", latitude: 25, longitude: 20 } },
+      { id: 1, day_number: 1, sort_order: 0, start_time: "09:00:00", destination: { id: 1, slug: "first", name_en: "First", name_ar: "الأولى", latitude: 32, longitude: 13 } },
+      { id: 2, day_number: 1, sort_order: 1, start_time: null, destination: { id: 2, slug: "second", name_en: "Second", name_ar: "الثانية", latitude: null, longitude: null } },
+    ];
+    const mapped = buildTripMapStops(items, "en");
+    assert(mapped.length === 2 && mapped[0].itemId === 1 && mapped[0].sequenceNumber === 1, "map order is not deterministic");
+    assert(mapped[1].itemId === 3 && mapped[1].sequenceNumber === 3 && mapped[1].dayNumber === 2, "unmapped stop changed itinerary sequence");
+    assert(mapCoverageSummary(3, 2, "en").includes("2 of 3"), "partial coverage copy is incorrect");
+    assert(/[\u0600-\u06ff]/.test(mapCoverageSummary(3, 2, "ar")), "Arabic coverage copy is missing");
   });
   await test("404 page and unknown-path behavior", async () => {
     const direct = await fetch(`${origin}${basePath}404.html`);

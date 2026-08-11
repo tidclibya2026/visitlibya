@@ -6,7 +6,7 @@
   <title>محرر الرحلة | Visit Libya</title>
   <meta name="description" content="عدّل البيانات الأساسية لرحلتك عند توفر خدمة تخطيط الرحلات الإلكترونية وتسجيل الدخول.">
   <link rel="stylesheet" href="../style.css?v=stabilization-sprint-01">
-  <link rel="stylesheet" href="../assets/css/trips.css?v=trip-content-enrichment-01">
+  <link rel="stylesheet" href="../assets/css/trips.css?v=trip-map-01">
   <link rel="stylesheet" href="../assets/css/design-system.css?v=frontend-2-01">
   <link rel="stylesheet" href="../assets/css/base.css?v=frontend-2-01">
   <link rel="stylesheet" href="../assets/css/layout.css?v=frontend-2-01">
@@ -131,6 +131,15 @@
         </form>
       </div>
 
+      <section class="trip-map" data-trip-map aria-labelledby="tripMapTitle">
+        <div class="trip-map__heading"><div><span class="kicker">جغرافية برنامجك</span><h2 id="tripMapTitle">خريطة الرحلة</h2><p>تعرّف على مواقع وجهاتك المخططة. يظل البرنامج اليومي السجل الكامل للرحلة.</p></div><span class="trip-map__legend">تسلسل محطات الرحلة</span></div>
+        <p class="trip-map__status" data-trip-map-status role="status" aria-live="polite">ستظهر خريطة رحلتك هنا</p>
+        <div class="trip-map__plot" data-trip-map-plot aria-label="محطات برنامج الرحلة المعروضة جغرافيًا"></div>
+        <div class="trip-map__context" data-trip-map-context hidden></div>
+        <p class="trip-map__disclaimer">توضح الخطوط تسلسل المحطات المخططة فقط، ولا تمثل مسارات قيادة.</p>
+        <p class="trip-map__failure" data-trip-map-failure role="status" hidden>خريطة الرحلة غير متاحة مؤقتًا.</p>
+      </section>
+
       <div class="trip-insights">
         <section class="trip-insight-card" aria-labelledby="tripSummaryTitle"><span class="kicker">لمحة سريعة</span><h2 id="tripSummaryTitle">الملخص الذكي</h2><dl class="trip-summary" data-trip-summary></dl></section>
         <section class="trip-insight-card" aria-labelledby="tripReviewTitle"><span class="kicker">مراجعة التخطيط</span><h2 id="tripReviewTitle">مراجعة الرحلة</h2><ul class="trip-review" data-trip-review></ul></section>
@@ -155,6 +164,6 @@
 <script src="../config/frontend-config.js?v=runtime-config-01"></script>
 <script src="../main.js?v=stabilization-sprint-01"></script>
 <script type="module" src="../assets/js/app/ui/site-shell.js?v=atlas-integration-01"></script>
-<script type="module" src="../assets/js/pages/trip-editor.js?v=live-catalogue-01"></script>
+<script type="module" src="../assets/js/pages/trip-editor.js?v=trip-map-01"></script>
 </body>
 </html>
