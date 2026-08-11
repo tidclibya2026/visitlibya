@@ -16,6 +16,7 @@ htmlcov/
 .env.*
 !.env.example
 !**/.env.example
+!backend/.env.production.example
 backend/.envpython
 
 # Database
