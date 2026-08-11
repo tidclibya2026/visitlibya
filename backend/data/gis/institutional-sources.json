@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "organization": "Tourism Information and Documentation Center",
+  "sources": [
+    {
+      "source_id": "tourism-villages-resorts-ly",
+      "source_type": "institutional_gis",
+      "title": "Tourism villages and resorts",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "القرى_والمنتجعات السياحية_LY.kml",
+      "format": "kml",
+      "dataset_role": "tourism_facilities",
+      "source_scope": "Libya",
+      "status": "parsed",
+      "sha256": "1a1d1375c4cb6357c5892566d7948b98923a185b688d6fc2c9b00c048dbb98a1",
+      "feature_count": 262,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 262
+      },
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "tourism-investment-opportunities",
+      "source_type": "institutional_gis",
+      "title": "Tourism projects and investment opportunities",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "المشاريع وفرص الاستثمار السياحي.kml",
+      "format": "kml",
+      "dataset_role": "tourism_investment",
+      "source_scope": "Libya",
+      "status": "malformed",
+      "sha256": "05edb4b55f83725b2e96fef1d092a81d04f097e19c86c799a06fd6593000a1cd",
+      "feature_count": 0,
+      "record_count": 0,
+      "geometry_types": {},
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "hotels-ly",
+      "source_type": "institutional_gis",
+      "title": "Hotels in Libya",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "الفنادق_LY.kml",
+      "format": "kml",
+      "dataset_role": "tourism_facilities",
+      "source_scope": "Libya",
+      "status": "parsed",
+      "sha256": "88e20782d2bb1fcdf92ad16f1d880550e7483ed373b13d6e29bb6cf1c59f7e03",
+      "feature_count": 572,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 572
+      },
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "tripoli-old-city",
+      "source_type": "institutional_gis",
+      "title": "Tripoli Old City features",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "المدينة القديمة _طرابلس.kml",
+      "format": "kml",
+      "dataset_role": "heritage_context",
+      "source_scope": "Tripoli Old City",
+      "status": "parsed",
+      "sha256": "26ffc9519ebccfaafbd029e070dd21e736c0f0bc839b36231668792d6866eab5",
+      "feature_count": 430,
+      "record_count": 0,
+      "geometry_types": {
+        "LineString": 285,
+        "Point": 135,
+        "Polygon": 10
+      },
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "tripoli-hotels",
+      "source_type": "institutional_gis",
+      "title": "Hotels in Tripoli",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "فنادق في طرابلس.kml",
+      "format": "kml",
+      "dataset_role": "tourism_facilities",
+      "source_scope": "Tripoli",
+      "status": "parsed",
+      "sha256": "ff1261d3f99502329dadc4cc207f6cd2e10550bb9695e3b89e5ec1209d88ea96",
+      "feature_count": 196,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 195
+      },
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "tripoli-cafes",
+      "source_type": "institutional_gis",
+      "title": "Cafes in Tripoli",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "المقاهي_طرابلس.kml",
+      "format": "kml",
+      "dataset_role": "visitor_services",
+      "source_scope": "Tripoli",
+      "status": "parsed",
+      "sha256": "c6392c3ad020840fcc3860f95f1cd19dc3efb1f91336587c9d27232cd5068919",
+      "feature_count": 404,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 404
+      },
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "tripoli-restaurants",
+      "source_type": "institutional_gis",
+      "title": "Restaurants in Tripoli",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "المطاعم في طرابلس.kml",
+      "format": "kml",
+      "dataset_role": "visitor_services",
+      "source_scope": "Tripoli",
+      "status": "parsed",
+      "sha256": "7a3595c34450f7b3a997af3dfc11f7ec757fad7dd70ea05ae258a97bcb275075",
+      "feature_count": 75,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 75
+      },
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "acacus-features",
+      "source_type": "institutional_gis",
+      "title": "Acacus features",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "اكاكوس.kml",
+      "format": "kml",
+      "dataset_role": "heritage_natural_context",
+      "source_scope": "Tadrart Acacus",
+      "status": "parsed",
+      "sha256": "641ab45b3ace5e77eae78e63931b08fb925f2494a536f3736d74e01bf5ed2988",
+      "feature_count": 430,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 427,
+        "Polygon": 1
+      },
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "unesco-five-sites-ly",
+      "source_type": "institutional_gis",
+      "title": "Five World Heritage Sites in Libya",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "مواقع التراث العالمي الخمسة_LY.kml",
+      "format": "kml",
+      "dataset_role": "heritage_context",
+      "source_scope": "Libya",
+      "status": "parsed",
+      "sha256": "07f88ae5fbcad07d7d653d3a4a8ca6c6f1c77772b4fe6adba6aabfc7f4def555",
+      "feature_count": 345,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 284,
+        "Polygon": 61
+      },
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "natural-atlas-base",
+      "source_type": "institutional_gis",
+      "title": "Natural Resources and Landscape Atlas",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "atlasnatrual.geojson",
+      "format": "geojson",
+      "dataset_role": "natural_atlas_base",
+      "source_scope": "Libya",
+      "status": "parsed",
+      "sha256": "cff3cc8c58daf1246a30e0c95bd2cbe14ed91ae887876874d832d1a49993a8c6",
+      "feature_count": 945,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 945
+      },
+      "coordinate_system": "EPSG:4326"
+    },
+    {
+      "source_id": "natural-atlas-media",
+      "source_type": "institutional_gis",
+      "title": "Natural Resources and Landscape Atlas with media",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "atlasnatrual-with-media.geojson",
+      "format": "geojson",
+      "dataset_role": "natural_atlas_media_enrichment",
+      "source_scope": "Libya",
+      "status": "parsed",
+      "sha256": "b389136b4d9f8fcc138f48999745b26b899747830489475b70988f679c442f49",
+      "feature_count": 945,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 945
+      },
+      "coordinate_system": "EPSG:4326"
+    },
+    {
+      "source_id": "tourism-atlas-hotels-reference-draft",
+      "source_type": "institutional_gis",
+      "title": "Tourism Atlas hotels KML 2025 reference draft",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "أطلس_ليبيا_السياحي_2026_الفنادق_KML2025_مرجعي_DRAFT.kml",
+      "format": "kml",
+      "dataset_role": "reference_draft",
+      "source_scope": "Libya",
+      "status": "parsed",
+      "sha256": "bd4b42c017b0558af3f32e2951750603b295ea95f053d22d8885e12ccd00c3e4",
+      "feature_count": 436,
+      "record_count": 0,
+      "geometry_types": {
+        "Point": 436
+      },
+      "coordinate_system": "KML longitude/latitude (WGS84)"
+    },
+    {
+      "source_id": "hotels-visual-qa-decisions",
+      "source_type": "institutional_gis",
+      "title": "Hotels visual QA decisions",
+      "organization": "Tourism Information and Documentation Center",
+      "file_name": "hotels_visual_qa_decisions.json",
+      "format": "json",
+      "dataset_role": "media_governance",
+      "source_scope": "Hotel reference records",
+      "status": "parsed",
+      "sha256": "ed829a811761e43c1e269e0ef67e73560c7b0a84fff9ea78f2cd84a9f67814d6",
+      "feature_count": 0,
+      "record_count": 53,
+      "geometry_types": {},
+      "coordinate_system": null
+    }
+  ]
+}
