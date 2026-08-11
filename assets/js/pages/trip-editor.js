@@ -409,6 +409,8 @@ export async function initializeTripEditor(documentRef = document) {
   const overviewVisibility = queryRequired("[data-trip-overview-visibility]", documentRef);
   const summary = queryRequired("[data-trip-summary]", documentRef);
   const review = queryRequired("[data-trip-review]", documentRef);
+  const tripMapRoot = queryRequired("[data-trip-map]", documentRef);
+  const tripMapFailure = queryRequired("[data-trip-map-failure]", documentRef);
   const tripAtlasLink = queryRequired("[data-trip-atlas-link]", documentRef);
   configureAtlasExternalLink(tripAtlasLink, { locale });
 
@@ -431,6 +433,72 @@ export async function initializeTripEditor(documentRef = document) {
   let activeStopModal = null;
   let destinationEnrichment = new Map();
   let enrichmentGeneration = 0;
+  let tripMapController = null;
+  let tripMapRequest = null;
+  let mapHighlightTimer = null;
+
+  const reducedMotion = globalThis.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
+  const scrollBehavior = reducedMotion ? "auto" : "smooth";
+
+  const highlightStopFromMap = (stop) => {
+    const card = itinerary.querySelector(`[data-stop-id="${CSS.escape(String(stop.itemId))}"]`);
+    if (!(card instanceof HTMLElement)) return;
+    globalThis.clearTimeout(mapHighlightTimer);
+    itinerary.querySelectorAll(".is-map-highlighted").forEach((element) => element.classList.remove("is-map-highlighted"));
+    card.classList.add("is-map-highlighted");
+    card.scrollIntoView({ behavior: scrollBehavior, block: "center" });
+    card.focus({ preventScroll: true });
+    announce(locale === "ar"
+      ? `${stop.name}، اليوم ${stop.dayNumber}، المحطة ${stop.position}`
+      : `${stop.name}, Day ${stop.dayNumber}, Stop ${stop.position}`,
+    { force: true });
+    mapHighlightTimer = globalThis.setTimeout(() => card.classList.remove("is-map-highlighted"), reducedMotion ? 0 : 2400);
+  };
+
+  const ensureTripMap = async () => {
+    if (tripMapController) return tripMapController;
+    if (!tripMapRequest) {
+      tripMapRequest = import("../app/map/trip-map.js")
+        .then(({ createTripMap }) => {
+          tripMapController = createTripMap({ root: tripMapRoot, locale, onMarkerActivate: highlightStopFromMap });
+          tripMapFailure.hidden = true;
+          return tripMapController;
+        })
+        .catch(() => {
+          tripMapFailure.hidden = false;
+          tripMapRoot.dataset.mapState = "failed";
+          return null;
+        });
+    }
+    return tripMapRequest;
+  };
+
+  const renderTripMap = () => {
+    const currentTrip = trip;
+    void ensureTripMap().then((controller) => {
+      if (!controller || !currentTrip || currentTrip !== trip) return;
+      try {
+        controller.update(currentTrip);
+      } catch {
+        tripMapFailure.hidden = false;
+        tripMapRoot.dataset.mapState = "failed";
+      }
+    });
+  };
+
+  const showStopOnMap = (item, name) => {
+    void ensureTripMap().then((controller) => {
+      if (!controller || !trip) return;
+      try {
+        controller.update(trip);
+        if (!controller.activate(item.id, { focusMarker: true })) return;
+        tripMapRoot.scrollIntoView({ behavior: scrollBehavior, block: "center" });
+        announce(locale === "ar" ? `عرض ${name} على خريطة الرحلة` : `Showing ${name} on the trip map`, { force: true });
+      } catch {
+        tripMapFailure.hidden = false;
+      }
+    });
+  };
 
   if (tripId && languageLink) {
     languageLink.href = updateQueryParameters(
@@ -566,6 +634,7 @@ export async function initializeTripEditor(documentRef = document) {
     }
     const days = createElement("div", { className: "trip-days" });
     const allItems = orderedItems(trip.items);
+    const sequenceByItemId = new Map(allItems.map((item, index) => [Number(item.id), index + 1]));
     availableDays(trip).forEach((dayNumber) => {
       const items = allItems.filter((item) => item.day_number === dayNumber);
       const section = createElement("section", {
@@ -614,7 +683,7 @@ export async function initializeTripEditor(documentRef = document) {
         const enrichment = destinationEnrichment.get(Number(item.destination?.id));
         const card = createElement("article", {
           className: "trip-stop",
-          attributes: { "data-stop-id": item.id },
+          attributes: { "data-stop-id": item.id, tabindex: "-1" },
         });
         const handle = createElement("button", {
           className: "trip-stop__handle",
@@ -677,6 +746,11 @@ export async function initializeTripEditor(documentRef = document) {
           media.setAttribute("aria-hidden", "true");
         }
         const content = createElement("div", { className: "trip-stop__content" });
+        const sequenceNumber = sequenceByItemId.get(Number(item.id));
+        content.appendChild(createElement("span", {
+          className: "trip-stop__sequence",
+          text: locale === "ar" ? `المحطة ${sequenceNumber}` : `Stop ${sequenceNumber}`,
+        }));
         const stopTitle = createElement("h4");
         const slug = String(item.destination?.slug ?? "").trim();
         if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
@@ -716,8 +790,10 @@ export async function initializeTripEditor(documentRef = document) {
             }),
           );
         }
+        const mappedCoordinates = destinationCoordinates(item.destination);
+        let links = null;
         if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
-          const links = createElement("div", { className: "trip-stop__links" });
+          links = createElement("div", { className: "trip-stop__links" });
           links.append(
             createElement("a", { className: "trip-stop__destination-link", text: locale === "ar" ? "عرض الوجهة" : "View Destination", attributes: { href: `destination.html?slug=${encodeURIComponent(slug)}`, "aria-label": `${locale === "ar" ? "عرض الوجهة" : "View Destination"}: ${name}` } }),
             (() => {
@@ -726,8 +802,18 @@ export async function initializeTripEditor(documentRef = document) {
               return atlasLink;
             })(),
           );
-          content.appendChild(links);
         }
+        if (mappedCoordinates) {
+          links ??= createElement("div", { className: "trip-stop__links" });
+          const showOnMap = createElement("button", {
+            className: "trip-stop__map-button",
+            text: locale === "ar" ? "عرض على الخريطة" : "Show on map",
+            attributes: { type: "button", "aria-label": `${locale === "ar" ? "عرض على الخريطة" : "Show on map"}: ${name}` },
+          });
+          showOnMap.addEventListener("click", () => showStopOnMap(item, name));
+          links.appendChild(showOnMap);
+        }
+        if (links) content.appendChild(links);
         const actions = createElement("div", { className: "trip-stop__actions" });
         const action = (label, handler, disabled = false) => {
           const button = createElement("button", {
@@ -848,6 +934,7 @@ export async function initializeTripEditor(documentRef = document) {
     clearFieldErrors();
     updateMetadataButtons();
     renderItinerary();
+    renderTripMap();
     const generation = ++enrichmentGeneration;
     const destinations = trip.items.map((item) => item.destination).filter(Boolean);
     if (destinations.length) {

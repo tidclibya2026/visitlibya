@@ -563,6 +563,41 @@
 .trip-review li { padding-inline-start: 5px; color: var(--ink); line-height: 1.55; }
 .trip-review li::marker { color: var(--gold); }
 
+.trip-map {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(11,58,103,.14);
+  border-radius: 28px;
+  background: linear-gradient(145deg, #f2f7fb, #fffaf0);
+  padding: clamp(22px, 4vw, 38px);
+  box-shadow: 0 16px 42px rgba(17,24,39,.08);
+}
+
+.trip-map__heading { display: flex; gap: 24px; align-items: flex-start; justify-content: space-between; }
+.trip-map__heading h2 { margin: 5px 0 0; color: var(--blue); font-size: clamp(28px, 4vw, 42px); }
+.trip-map__heading p { max-width: 68ch; margin: 10px 0 0; color: var(--muted); line-height: 1.65; }
+.trip-map__legend { display: inline-flex; min-height: 44px; align-items: center; border-radius: 999px; background: var(--blue); padding: 8px 16px; color: var(--white); font-weight: 900; white-space: nowrap; }
+.trip-map__status { display: grid; gap: 5px; margin: 22px 0 12px; color: var(--ink); font-weight: 800; }
+.trip-map__status span { color: var(--muted); font-weight: 600; }
+.trip-map__plot { position: relative; overflow: hidden; min-height: clamp(280px, 38vw, 430px); border: 1px solid rgba(11,58,103,.18); border-radius: 20px; background-color: #eaf2f7; background-image: linear-gradient(rgba(11,58,103,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(11,58,103,.07) 1px, transparent 1px), radial-gradient(circle at 50% 35%, rgba(46,125,91,.16), transparent 48%); background-size: 40px 40px, 40px 40px, auto; }
+.trip-map[data-map-state="empty"] .trip-map__plot,
+.trip-map[data-map-state="unavailable"] .trip-map__plot { display: grid; place-items: center; opacity: .72; }
+.trip-map[data-map-state="failed"] .trip-map__plot { display: none; }
+.trip-map__plot svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.trip-map__sequence-line { fill: none; stroke: var(--gold); stroke-width: 3; stroke-dasharray: 7 5; }
+.trip-map__marker { position: absolute; z-index: 2; display: grid; width: 46px; height: 46px; transform: translate(-50%, -50%); place-items: center; border: 3px solid var(--white); border-radius: 50%; background: var(--blue); box-shadow: 0 7px 18px rgba(11,58,103,.28); color: var(--white); font-weight: 900; cursor: pointer; }
+.trip-map__marker:hover,
+.trip-map__marker:focus-visible,
+.trip-map__marker.is-active { background: var(--heritage-red, #8C2F22); outline: 3px solid rgba(200,155,60,.55); outline-offset: 3px; }
+.trip-map__context { display: flex; gap: 8px 20px; align-items: center; flex-wrap: wrap; margin-top: 14px; border-radius: 14px; background: var(--white); padding: 14px 16px; }
+.trip-map__context strong { color: var(--blue); }
+.trip-map__context span { color: var(--muted); }
+.trip-map__context a { min-height: 44px; display: inline-flex; align-items: center; color: var(--blue); font-weight: 900; }
+.trip-map__disclaimer { margin: 14px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.trip-map__failure { margin: 14px 0 0; border-inline-start: 4px solid var(--heritage-red, #8C2F22); padding-inline-start: 12px; color: var(--heritage-red, #8C2F22); font-weight: 800; }
+.trip-stop.is-map-highlighted { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(200,155,60,.22); }
+.trip-stop__map-button { min-height: 44px; border: 0; background: transparent; padding: 0; color: var(--blue); font: inherit; font-weight: 900; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+
 .trip-empty-state {
   display: grid;
   justify-items: center;
@@ -849,7 +884,13 @@
   .trip-stop__actions {
     justify-content: flex-start;
   }
+
+  .trip-map__heading { align-items: stretch; flex-direction: column; }
+  .trip-map__legend { align-self: flex-start; white-space: normal; }
 }
+
+.trip-stop__sequence { display: block; margin-bottom: 5px; color: var(--heritage-red, #8C2F22); font-size: 12px; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; }
+[lang="ar"] .trip-stop__sequence { letter-spacing: 0; }
 
 @media (max-width: 480px) {
   .trips-shell {
@@ -917,6 +958,9 @@
   .trip-summary { grid-template-columns: 1fr 1fr; }
 
   .trip-overview__heading .trips-toolbar-actions { width: 100%; }
+  .trip-map { border-radius: 20px; padding: 18px; }
+  .trip-map__plot { min-height: 280px; }
+  .trip-map__marker { width: 44px; height: 44px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -925,4 +969,5 @@
     animation: none;
     transition: none;
   }
+  .trip-stop.is-map-highlighted { transition: none; }
 }

@@ -359,8 +359,30 @@ for (const requirement of [
 ]) if (!requirement.test(destinationEnrichmentController)) issue("Trip enrichment", `trip-editor.js: missing cache/media guard ${requirement}`);
 if (/\b(?:localStorage|sessionStorage|innerHTML|outerHTML|insertAdjacentHTML|eval|document\.write)\b/.test(destinationEnrichmentController)) issue("Trip enrichment", "trip-editor.js: unsafe storage or DOM API found");
 for (const rel of ["trip.html", "ar/trip.html", "trips.html", "ar/trips.html", "register.html", "ar/register.html"]) {
-  if (!(htmlByRelative.get(rel) ?? "").includes("trips.css?v=trip-content-enrichment-01")) issue("Trip enrichment", `${rel}: shared trips stylesheet cache key is stale`);
+  if (!(htmlByRelative.get(rel) ?? "").includes("trips.css?v=trip-map-01")) issue("Trip enrichment", `${rel}: shared trips stylesheet cache key is stale`);
 }
+
+const tripMapModule = fs.readFileSync(path.join(root, "assets/js/app/map/trip-map.js"), "utf8");
+for (const requirement of [
+  /export function validCoordinatePair/,
+  /export function buildTripMapStops/,
+  /export function mapCoverageSummary/,
+  /Number\.isFinite\(latitude\)/,
+  /Number\.isFinite\(longitude\)/,
+  /trip-map__sequence-line/,
+]) if (!requirement.test(tripMapModule)) issue("Trip map", `trip-map.js: missing pure data/rendering guard ${requirement}`);
+for (const rel of ["trip.html", "ar/trip.html"]) {
+  const content = htmlByRelative.get(rel) ?? "";
+  if (!content.includes("data-trip-map") || !content.includes("data-trip-map-failure")) issue("Trip map", `${rel}: map hooks or local failure state are missing`);
+}
+for (const rel of actualPages.filter((page) => !["trip.html", "ar/trip.html"].includes(page))) {
+  if ((htmlByRelative.get(rel) ?? "").includes("trip-map.js")) issue("Trip map", `${rel}: trip map module must load only through Trip Editor`);
+}
+if (!/import\("\.\.\/app\/map\/trip-map\.js"\)/.test(tripEditorController)) issue("Trip map", "trip-editor.js: map module is not lazy-loaded");
+if (!/Lines show the planned stop sequence only\. They are not driving routes\./.test(htmlByRelative.get("trip.html") ?? "")) issue("Trip map", "trip.html: sequence disclaimer is missing");
+if (!/توضح الخطوط تسلسل المحطات المخططة فقط، ولا تمثل مسارات قيادة\./.test(htmlByRelative.get("ar/trip.html") ?? "")) issue("Trip map", "ar/trip.html: sequence disclaimer is missing");
+if (/(?:googleapis|mapbox|openstreetmap|routing|geocod|directions|distance.matrix)/i.test(tripMapModule)) issue("Trip map", "trip-map.js: external mapping, routing, or geocoding dependency found");
+if (/\b(?:localStorage|sessionStorage|innerHTML|outerHTML|insertAdjacentHTML|eval|document\.write)\b/.test(tripMapModule)) issue("Trip map", "trip-map.js: unsafe storage or DOM API found");
 
 const runtimeConfigModule = await import(pathToFileURL(path.join(root, "assets/js/app/config/runtime-config.js")));
 const atlasUrl = runtimeConfigModule.ATLAS_PRESENTATION_URL;
@@ -788,7 +810,7 @@ if (fs.existsSync(allowlistPath)) {
   const iconAllowlist = JSON.parse(fs.readFileSync(allowlistPath, "utf8")).rootFiles ?? [];
   for (const asset of ["visitlibyalogo.png", "favicon.png"]) if (!iconAllowlist.includes(asset)) issue("Visual system", `artifact allowlist omits ${asset}`);
 }const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
-const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Media delivery", "Visual system", "Image size audit"];
+const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Trip map", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Media delivery", "Visual system", "Image size audit"];
 for (const name of orderedSections) {
   const items = sections.get(name) ?? [];
   if (items.length) {
