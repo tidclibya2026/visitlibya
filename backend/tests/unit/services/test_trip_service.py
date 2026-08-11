@@ -147,6 +147,19 @@ def test_create_list_get_update_and_delete_trip() -> None:
     repository.delete_trip.assert_called_once_with(value)
 
 
+def test_existing_trip_retains_destination_that_later_becomes_inactive() -> None:
+    subject, _, repository = service()
+    existing_item = item()
+    existing_item.destination.status = DestinationStatus.ARCHIVED
+    existing_item.destination.is_active = False
+    repository.get_owned_trip_by_id.return_value = trip([existing_item])
+
+    result = subject.get_trip(1, 3)
+
+    assert result.items[0].destination.id == existing_item.destination_id
+    assert result.items[0].destination.name_en == "Destination 7"
+
+
 def test_invalid_date_range_and_date_update_invalidating_items() -> None:
     subject, _, repository = service()
     with pytest.raises(InvalidTripDateRangeError):

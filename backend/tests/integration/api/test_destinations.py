@@ -66,12 +66,24 @@ class FakeDestinationService:
         self.list_arguments = arguments
         return [self.destination], 1
 
+    def list_public_destinations(self, **arguments: object) -> tuple[list[Destination], int]:
+        self.list_arguments = arguments
+        if self.destination.status == DestinationStatus.PUBLISHED and self.destination.is_active:
+            return [self.destination], 1
+        return [], 0
+
     def get_destination_by_slug(self, slug: str) -> Destination:
         if slug == "missing":
             raise DestinationNotFoundError()
         if slug == "database-error":
             raise DestinationPersistenceError()
         return self.destination
+
+    def get_public_destination_by_slug(self, slug: str) -> Destination:
+        destination = self.get_destination_by_slug(slug)
+        if destination.status != DestinationStatus.PUBLISHED or not destination.is_active:
+            raise DestinationNotFoundError()
+        return destination
 
     def create_destination(self, payload: DestinationCreate) -> Destination:
         if payload.slug == "duplicate":
@@ -117,6 +129,7 @@ class FakeDestinationService:
 
 def test_get_list_supports_pagination_and_filters() -> None:
     service = FakeDestinationService()
+    service.destination.status = DestinationStatus.PUBLISHED
     app.dependency_overrides[get_destination_service] = lambda: service
     try:
         with TestClient(app) as client:
@@ -142,10 +155,13 @@ def test_get_list_supports_pagination_and_filters() -> None:
     assert response.json()["limit"] == 10
     assert service.list_arguments["skip"] == 5
     assert service.list_arguments["region"] == "Tripolitania"
+    assert "status" not in service.list_arguments
+    assert "is_active" not in service.list_arguments
 
 
 def test_get_by_slug_and_404() -> None:
     service = FakeDestinationService()
+    service.destination.status = DestinationStatus.PUBLISHED
     app.dependency_overrides[get_destination_service] = lambda: service
     try:
         with TestClient(app) as client:
@@ -156,7 +172,98 @@ def test_get_by_slug_and_404() -> None:
 
     assert found.status_code == 200
     assert found.json()["slug"] == "leptis-magna"
+    assert found.json()["translations"][0]["name"] == "لبدة الكبرى"
+    assert found.json()["latitude"] == 32.6389
+    assert found.json()["longitude"] == 14.2906
     assert missing.status_code == 404
+
+
+def test_public_list_rejects_non_public_filter_requests() -> None:
+    service = FakeDestinationService()
+    service.destination.status = DestinationStatus.PUBLISHED
+    app.dependency_overrides[get_destination_service] = lambda: service
+    try:
+        with TestClient(app) as client:
+            draft = client.get("/api/v1/destinations", params={"status": "draft"})
+            inactive = client.get("/api/v1/destinations", params={"is_active": False})
+    finally:
+        app.dependency_overrides.clear()
+    assert draft.status_code == 200 and draft.json()["items"] == []
+    assert inactive.status_code == 200 and inactive.json()["items"] == []
+
+
+def test_public_list_hides_every_non_public_state() -> None:
+    service = FakeDestinationService()
+    app.dependency_overrides[get_destination_service] = lambda: service
+    try:
+        with TestClient(app) as client:
+            for destination_status in (
+                DestinationStatus.DRAFT,
+                DestinationStatus.UNDER_REVIEW,
+                DestinationStatus.APPROVED,
+                DestinationStatus.ARCHIVED,
+            ):
+                service.destination.status = destination_status
+                service.destination.is_active = True
+                response = client.get("/api/v1/destinations")
+                assert response.status_code == 200
+                assert response.json()["items"] == []
+            service.destination.status = DestinationStatus.PUBLISHED
+            service.destination.is_active = False
+            response = client.get("/api/v1/destinations")
+            assert response.json()["items"] == []
+    finally:
+        app.dependency_overrides.clear()
+
+
+def test_public_detail_hides_unpublished_and_inactive_without_disclosure() -> None:
+    service = FakeDestinationService()
+    app.dependency_overrides[get_destination_service] = lambda: service
+    try:
+        with TestClient(app) as client:
+            for destination_status in (
+                DestinationStatus.DRAFT,
+                DestinationStatus.UNDER_REVIEW,
+                DestinationStatus.APPROVED,
+                DestinationStatus.ARCHIVED,
+            ):
+                service.destination.status = destination_status
+                service.destination.is_active = True
+                response = client.get("/api/v1/destinations/leptis-magna")
+                assert response.status_code == 404
+                assert response.json() == {"detail": "Destination not found"}
+            service.destination.status = DestinationStatus.PUBLISHED
+            service.destination.is_active = False
+            response = client.get("/api/v1/destinations/leptis-magna")
+            assert response.status_code == 404
+            assert response.json() == {"detail": "Destination not found"}
+    finally:
+        app.dependency_overrides.clear()
+
+
+def test_admin_reads_preserve_draft_access_and_coordinates() -> None:
+    service = FakeDestinationService()
+    app.dependency_overrides[get_destination_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
+    try:
+        with TestClient(app) as client:
+            listed = client.get("/api/v1/destinations/admin", params={"status": "draft"})
+            detail = client.get("/api/v1/destinations/admin/leptis-magna")
+    finally:
+        app.dependency_overrides.clear()
+    assert listed.status_code == 200 and listed.json()["items"][0]["status"] == "draft"
+    assert service.list_arguments["status"] == DestinationStatus.DRAFT
+    assert detail.status_code == 200
+    assert detail.json()["latitude"] == 32.6389
+    assert detail.json()["longitude"] == 14.2906
+
+
+def test_admin_destination_reads_require_authentication() -> None:
+    with TestClient(app) as client:
+        listed = client.get("/api/v1/destinations/admin")
+        detail = client.get("/api/v1/destinations/admin/leptis-magna")
+    assert listed.status_code == 401
+    assert detail.status_code == 401
 
 
 def test_post_translations_geometry_and_conflicts() -> None:

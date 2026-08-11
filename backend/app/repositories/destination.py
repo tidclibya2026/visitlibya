@@ -59,6 +59,18 @@ class DestinationRepository(BaseRepository[Destination]):
         )
         return self.session.scalar(statement)
 
+    def get_public_by_slug(self, slug: str) -> Destination | None:
+        statement = (
+            select(Destination)
+            .options(*self._load_options())
+            .where(
+                Destination.slug == slug,
+                Destination.status == DestinationStatus.PUBLISHED,
+                Destination.is_active.is_(True),
+            )
+        )
+        return self.session.scalar(statement)
+
     def slug_exists(
         self,
         slug: str,

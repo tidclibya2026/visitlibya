@@ -23,6 +23,18 @@ def test_category_exists() -> None:
     assert repository.category_exists(99) is False
 
 
+def test_public_slug_lookup_requires_published_and_active() -> None:
+    session = MagicMock()
+    repository = DestinationRepository(session)
+
+    repository.get_public_by_slug("leptis-magna")
+
+    statement = str(session.scalar.call_args.args[0])
+    assert "destinations.slug" in statement
+    assert "destinations.status" in statement
+    assert "destinations.is_active" in statement
+
+
 def test_list_and_count_use_the_same_filters() -> None:
     destination = Destination(id=1, slug="leptis-magna")
     scalar_result = MagicMock()

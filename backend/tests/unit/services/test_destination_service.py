@@ -7,11 +7,12 @@ from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from app.core.exceptions import (
     CategoryNotFoundError,
     DestinationIntegrityError,
+    DestinationNotFoundError,
     DestinationPersistenceError,
     DestinationSlugConflictError,
     DestinationTranslationConflictError,
 )
-from app.models.destination import Destination, DestinationTranslation
+from app.models.destination import Destination, DestinationStatus, DestinationTranslation
 from app.schemas.destination import (
     DestinationCreate,
     DestinationTranslationCreate,
@@ -36,6 +37,12 @@ class FakeDestinationRepository:
             (item for item in self.destinations.values() if item.slug == slug),
             None,
         )
+
+    def get_public_by_slug(self, slug: str) -> Destination | None:
+        destination = self.get_by_slug(slug)
+        if destination is None:
+            return None
+        return destination if destination.status == DestinationStatus.PUBLISHED and destination.is_active else None
 
     def slug_exists(
         self,
@@ -115,6 +122,49 @@ def test_create_commits_and_builds_geometry_with_srid_4326() -> None:
     session.commit.assert_called_once_with()
     session.rollback.assert_not_called()
     assert repository.get_by_id(1) is destination
+
+
+def test_public_list_is_always_published_and_active() -> None:
+    service, _, repository = make_service()
+    captured: dict[str, object] = {}
+    repository.count = lambda **filters: captured.update(filters) or 0  # type: ignore[method-assign]
+    repository.list = lambda **arguments: []  # type: ignore[method-assign]
+
+    items, total = service.list_public_destinations(
+        skip=0, limit=20, category_id=None, region=None,
+        municipality=None, is_featured=None,
+    )
+
+    assert items == [] and total == 0
+    assert captured["status"] == DestinationStatus.PUBLISHED
+    assert captured["is_active"] is True
+
+
+@pytest.mark.parametrize(
+    ("status", "is_active", "visible"),
+    [
+        (DestinationStatus.PUBLISHED, True, True),
+        (DestinationStatus.DRAFT, True, False),
+        (DestinationStatus.UNDER_REVIEW, True, False),
+        (DestinationStatus.APPROVED, True, False),
+        (DestinationStatus.ARCHIVED, True, False),
+        (DestinationStatus.PUBLISHED, False, False),
+    ],
+)
+def test_public_detail_hides_non_public_states(status, is_active, visible) -> None:
+    service, _, repository = make_service()
+    destination = Destination(
+        id=1, slug="leptis-magna", status=status, is_active=is_active,
+        latitude=32.6389, longitude=14.2906,
+    )
+    destination.translations = []
+    repository.destinations[1] = destination
+
+    if visible:
+        assert service.get_public_destination_by_slug("leptis-magna") is destination
+    else:
+        with pytest.raises(DestinationNotFoundError):
+            service.get_public_destination_by_slug("leptis-magna")
 
 
 def test_create_rejects_missing_category() -> None:
