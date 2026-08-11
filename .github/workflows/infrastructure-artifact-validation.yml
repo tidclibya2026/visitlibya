@@ -45,6 +45,7 @@ jobs:
       ACCESS_TOKEN_EXPIRE_MINUTES: "30"
       IMAGE_REFERENCE: visitlibya/backend:validation
       ALLOW_DIRTY_GIT: "true"
+      PREFLIGHT_GIT_BRANCH: ${{ github.head_ref || github.ref_name }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

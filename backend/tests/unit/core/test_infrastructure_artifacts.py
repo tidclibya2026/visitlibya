@@ -105,3 +105,30 @@ def test_no_provider_manifests_cloud_credentials_or_private_keys() -> None:
     assert "AZURE_CLIENT_SECRET=" not in text
     assert "GOOGLE_APPLICATION_CREDENTIALS=" not in text
 
+
+def test_backend_workflow_uses_module_pytest_invocation() -> None:
+    workflow = read(".github/workflows/backend-production-validation.yml")
+    assert "python -m pytest -q tests/unit/core/test_config.py tests/unit/core/test_production_artifacts.py" in workflow
+    assert "run: python -m pytest -q" in workflow
+    assert not re.search(r"(?m)^\s+(?:run:\s*)?pytest\s+-q", workflow)
+
+
+def test_preflight_branch_override_preserves_strict_fallback_and_other_checks() -> None:
+    bash = read("scripts/deployment/preflight.sh")
+    powershell = read("scripts/deployment/preflight.ps1")
+    workflow = read(".github/workflows/infrastructure-artifact-validation.yml")
+
+    assert 'branch="${PREFLIGHT_GIT_BRANCH:-$(git -C "$root" branch --show-current 2>/dev/null || true)}"' in bash
+    assert "[[ -n \"$branch\" ]] || fail 'Git branch could not be determined.'" in bash
+    assert "$env:PREFLIGHT_GIT_BRANCH" in powershell
+    assert "git -C $root branch --show-current" in powershell
+    assert "if ([string]::IsNullOrWhiteSpace($branch)) { Fail 'Git branch could not be determined.' }" in powershell
+    assert "if (-not $?) { Fail 'Environment validation failed.' }" in powershell
+    assert "if ($LASTEXITCODE -ne 0) { Fail 'Environment validation failed.' }" not in powershell
+    assert "PREFLIGHT_GIT_BRANCH: ${{ github.head_ref || github.ref_name }}" in workflow
+
+    for script in (bash, powershell):
+        assert "ALLOW_DIRTY_GIT" in script
+        assert "IMAGE_REFERENCE" in script
+        assert "Environment validation failed." in script
+

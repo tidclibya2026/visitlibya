@@ -45,7 +45,7 @@ jobs:
         working-directory: backend
         run: |
           python -m compileall -q app scripts tests
-          pytest -q tests/unit/core/test_config.py tests/unit/core/test_production_artifacts.py
+          python -m pytest -q tests/unit/core/test_config.py tests/unit/core/test_production_artifacts.py
       - name: Apply and verify migrations
         working-directory: backend
         run: |
@@ -54,6 +54,6 @@ jobs:
           python -m scripts.check_migrations
       - name: Run complete backend suite
         working-directory: backend
-        run: pytest -q
+        run: python -m pytest -q
       - name: Build production container
         run: docker build --tag visitlibya-backend-validation ./backend
