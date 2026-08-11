@@ -348,7 +348,7 @@ for (const requirement of [
   /enrichTripDestinations\(destinations, locale,/,
   /\.catch\(\(\) => \{[\s\S]{0,180}Enrichment is optional/,
   /loading:\s*"lazy"/,
-  /atlas\.html\?destination=\$\{encodeURIComponent\(slug\)\}/,
+  /configureAtlasExternalLink\(atlasLink, \{ locale, context: name \}\)/,
 ]) if (!requirement.test(tripEditorController)) issue("Trip enrichment", `trip-editor.js: missing enrichment guard ${requirement}`);
 for (const requirement of [
   /listTripDestinationCatalogue\(requestedPage\)/,
@@ -361,6 +361,23 @@ if (/\b(?:localStorage|sessionStorage|innerHTML|outerHTML|insertAdjacentHTML|eva
 for (const rel of ["trip.html", "ar/trip.html", "trips.html", "ar/trips.html", "register.html", "ar/register.html"]) {
   if (!(htmlByRelative.get(rel) ?? "").includes("trips.css?v=trip-content-enrichment-01")) issue("Trip enrichment", `${rel}: shared trips stylesheet cache key is stale`);
 }
+
+const runtimeConfigModule = await import(pathToFileURL(path.join(root, "assets/js/app/config/runtime-config.js")));
+const atlasUrl = runtimeConfigModule.ATLAS_PRESENTATION_URL;
+let parsedAtlasUrl;
+try { parsedAtlasUrl = new URL(atlasUrl); } catch { issue("Atlas integration", "central Atlas URL is malformed"); }
+if (parsedAtlasUrl && (parsedAtlasUrl.protocol !== "https:" || parsedAtlasUrl.hostname !== "tidclibya2026.github.io" || parsedAtlasUrl.pathname !== "/Libya_Tourist_Atlas/" || parsedAtlasUrl.search || parsedAtlasUrl.hash || parsedAtlasUrl.username || parsedAtlasUrl.password)) issue("Atlas integration", "central Atlas URL violates the approved origin/path contract");
+for (const input of [undefined, {}, { destinationName: "Ghadames" }, { destinationName: "Old City Tripoli" }, { destinationName: "Murzuq's oasis" }, { destinationName: "غدامس" }, { destinationName: "javascript:alert(1)&token=x" }, { slug: "../invalid" }]) {
+  if (runtimeConfigModule.buildAtlasPresentationUrl(input) !== atlasUrl) issue("Atlas integration", "Atlas builder must return only the fixed landing URL");
+}
+const atlasRelevantFiles = ["atlas.html", "ar/atlas.html", "destination.html", "ar/destination.html", "trip.html", "ar/trip.html", "assets/js/pages/destination-details.js", "assets/js/pages/trip-editor.js", "assets/js/app/ui/site-shell.js"];
+for (const rel of atlasRelevantFiles) {
+  const content = fs.readFileSync(path.join(root, rel), "utf8");
+  if (/tidclibya2026\.github\.io|libyan--map/i.test(content)) issue("Atlas integration", `${rel}: Atlas origin is scattered outside centralized configuration`);
+  if (/[?&](?:token|user_id|trip_id)=/i.test(content)) issue("Atlas integration", `${rel}: private data appears in an Atlas URL`);
+}
+for (const requirement of [/target", "_blank"/, /rel", "noopener noreferrer"/, /\[data-atlas-external\]/]) if (!requirement.test(fs.readFileSync(path.join(root, "assets/js/app/config/runtime-config.js"), "utf8") + fs.readFileSync(path.join(root, "assets/js/app/ui/site-shell.js"), "utf8"))) issue("Atlas integration", `central external-link safety is missing ${requirement}`);
+for (const rel of ["destination.html", "ar/destination.html", "trip.html", "ar/trip.html", "atlas.html", "ar/atlas.html"]) if (!(htmlByRelative.get(rel) ?? "").includes("data-atlas-external")) issue("Atlas integration", `${rel}: centralized Atlas link hook is missing`);
 
 const en = (await import(pathToFileURL(path.join(root, "assets/js/app/i18n/en.js")))).en;
 const ar = (await import(pathToFileURL(path.join(root, "assets/js/app/i18n/ar.js")))).ar;
@@ -469,7 +486,7 @@ for (const [rel, content] of publicHtml) {
   for (const match of content.matchAll(/<a\b[^>]*\bhref=["']([^"']*)["'][^>]*>/gi)) {
     const href = match[1].trim();
     if (!href) issue("Navigation", at(file, content, match.index, "public link has an empty href"));
-    if (href === "#") issue("Navigation", at(file, content, match.index, "public link uses href=#"));
+    if (href === "#" && !/\bdata-atlas-external\b/i.test(match[0])) issue("Navigation", at(file, content, match.index, "public link uses href=#"));
     if (/^javascript:/i.test(href)) issue("Navigation", at(file, content, match.index, "JavaScript pseudo-link is forbidden"));
     if (/^(?:file:\/\/|https?:\/\/(?:localhost|127\.0\.0\.1)(?::\d+)?(?:\/|$))/i.test(href)) issue("Deployment safety", at(file, content, match.index, "public link uses a local URL"));
     if (/\/visitlibya\/visitlibya\//i.test(href)) issue("Navigation", at(file, content, match.index, "duplicated /visitlibya/ project path"));
