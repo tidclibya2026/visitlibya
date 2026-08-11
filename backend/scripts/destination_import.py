@@ -245,6 +245,14 @@ def published_active_count(session: Session) -> int:
 
 def format_report(dataset: ImportDataset, digest: str, plan: ImportPlan, environment: str, apply: bool) -> str:
     complete_coordinates = sum(item.latitude is not None for item in dataset.records)
+    create_slugs = {item.slug for item in plan.create_destinations}
+    unchanged_slugs = set(plan.unchanged_destinations)
+    create_translations = sum(
+        len(item.translations) for item in dataset.records if item.slug in create_slugs
+    )
+    unchanged_translations = sum(
+        len(item.translations) for item in dataset.records if item.slug in unchanged_slugs
+    )
     mode = "APPLY" if apply else "DRY RUN"
     lines = [
         f"Dataset: {dataset.dataset} v{dataset.schema_version}",
@@ -259,6 +267,9 @@ def format_report(dataset: ImportDataset, digest: str, plan: ImportPlan, environ
         "Categories:",
         f"  Create: {len(plan.create_categories)}",
         f"  Existing unchanged: {len(plan.unchanged_categories)}",
+        "Translations:",
+        f"  Create: {create_translations}",
+        f"  Existing unchanged: {unchanged_translations}",
         "Coordinates:",
         f"  Complete: {complete_coordinates}",
         f"  Missing: {len(dataset.records) - complete_coordinates}",
