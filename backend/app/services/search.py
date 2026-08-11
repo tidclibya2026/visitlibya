@@ -103,6 +103,8 @@ class SearchService:
             short_description_en=cls._value(english, "short_description"),
             municipality=destination.municipality,
             region=destination.region,
+            latitude=destination.latitude,
+            longitude=destination.longitude,
             category=(
                 SearchCategoryItem(
                     id=category.id,

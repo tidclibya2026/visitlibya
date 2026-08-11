@@ -39,11 +39,19 @@ class SearchDestinationItem(BaseModel):
     short_description_en: str | None
     municipality: str | None
     region: str | None
+    latitude: float | None = Field(default=None, ge=-90, le=90)
+    longitude: float | None = Field(default=None, ge=-180, le=180)
     category: SearchCategoryItem | None
     primary_media_url: str | None
     is_featured: bool
     average_rating: float | None
     reviews_count: int
+
+    @model_validator(mode="after")
+    def validate_coordinate_pair(self) -> "SearchDestinationItem":
+        if (self.latitude is None) != (self.longitude is None):
+            raise ValueError("latitude and longitude must be provided together")
+        return self
 
 
 class SearchDestinationResponse(BaseModel):

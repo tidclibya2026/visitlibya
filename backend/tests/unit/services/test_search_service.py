@@ -7,7 +7,7 @@ from app.core.exceptions import SearchPersistenceError, SearchValidationError
 from app.models.category import Category
 from app.models.destination import Destination, DestinationStatus, DestinationTranslation
 from app.repositories.search import SearchResultRow
-from app.schemas.search import SearchFilters
+from app.schemas.search import SearchDestinationItem, SearchFilters
 from app.services.search import SearchService
 
 
@@ -15,7 +15,7 @@ class FakeSearchRepository:
     def __init__(self) -> None:
         self.arguments: dict[str, object] = {}; self.error: Exception | None = None
         category = Category(id=3, code="heritage", name_ar="التراث", name_en="Heritage")
-        destination = Destination(id=1, slug="leptis-magna", status=DestinationStatus.PUBLISHED, municipality="Al Khums", region="Tripolitania", is_featured=True, is_active=True)
+        destination = Destination(id=1, slug="leptis-magna", status=DestinationStatus.PUBLISHED, municipality="Al Khums", region="Tripolitania", latitude=32.6389, longitude=14.2906, is_featured=True, is_active=True)
         destination.category = category
         destination.translations = [DestinationTranslation(language_code="ar", name="لبدة الكبرى", short_description="مدينة أثرية"), DestinationTranslation(language_code="en", name="Leptis Magna", short_description="Ancient city")]
         self.rows = [SearchResultRow(destination, 4.5, 2, "/media/leptis.jpg")]
@@ -41,7 +41,19 @@ def test_valid_search_maps_results_and_pagination() -> None:
     assert item.name_ar == "لبدة الكبرى" and item.name_en == "Leptis Magna"
     assert item.category is not None and item.category.code == "heritage"
     assert item.average_rating == 4.5 and item.reviews_count == 2 and item.primary_media_url == "/media/leptis.jpg"
+    assert item.latitude == 32.6389 and item.longitude == 14.2906
     session.commit.assert_not_called(); session.rollback.assert_not_called()
+
+
+def test_search_coordinates_require_a_complete_pair() -> None:
+    with pytest.raises(ValueError, match="must be provided together"):
+        SearchDestinationItem(
+            id=1, slug="leptis-magna", name_ar=None, name_en="Leptis Magna",
+            short_description_ar=None, short_description_en=None,
+            municipality=None, region=None, latitude=32.6389, longitude=None,
+            category=None, primary_media_url=None, is_featured=False,
+            average_rating=None, reviews_count=0,
+        )
 
 
 @pytest.mark.parametrize("page,page_size", [(0, 20), (1, 0), (1, 101)])

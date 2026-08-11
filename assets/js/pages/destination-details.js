@@ -210,6 +210,11 @@ function normalizeApiDestination(payload, curated) {
   const curatedRecord = curated ? localizedCurated(curated) : null;
   const introduction = text(translation.short_description, text(translation.description, curatedRecord?.introduction ?? ""));
   const description = text(translation.description, introduction);
+  const { latitude, longitude } = payload;
+  const coordinates = Number.isFinite(latitude) && latitude >= -90 && latitude <= 90 &&
+    Number.isFinite(longitude) && longitude >= -180 && longitude <= 180
+    ? Object.freeze({ latitude, longitude })
+    : null;
   return {
     id: Number.isSafeInteger(payload.id) && payload.id > 0 ? payload.id : null,
     slug: payload.slug,
@@ -223,6 +228,7 @@ function normalizeApiDestination(payload, curated) {
     heroMedia: curatedRecord?.heroMedia ?? null,
     gallery: curatedRecord?.gallery ?? [],
     translationFallback: usedAlternate,
+    coordinates,
   };
 }
 

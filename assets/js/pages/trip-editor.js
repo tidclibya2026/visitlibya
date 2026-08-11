@@ -93,6 +93,17 @@ function localizedDestinationName(value, locale) {
     safeDestinationText(locale === "ar" ? value?.name_en : value?.name_ar);
 }
 
+function destinationCoordinates(...sources) {
+  for (const source of sources) {
+    const { latitude, longitude } = source ?? {};
+    if (Number.isFinite(latitude) && latitude >= -90 && latitude <= 90 &&
+        Number.isFinite(longitude) && longitude >= -180 && longitude <= 180) {
+      return Object.freeze({ latitude, longitude });
+    }
+  }
+  return null;
+}
+
 function mergeDestinationContext(destination, locale, pathPrefix) {
   const identity = validDestinationIdentity(destination);
   if (!identity) return null;
@@ -110,6 +121,7 @@ function mergeDestinationContext(destination, locale, pathPrefix) {
     imageAlt: safeDestinationText(locale === "ar" ? curated?.image_alt_ar : curated?.image_alt_en),
     imageWebp: responsive?.webp ?? "",
     imageSrcset: responsive?.srcset ?? "",
+    coordinates: destinationCoordinates(destination, api),
   });
 }
 
