@@ -116,6 +116,7 @@ def _facility_context(feature: NormalizedFeature, spec: SourceSpec) -> bool:
 
 def _semantic_scope(slug: str, feature: NormalizedFeature, reasons: list[str]) -> str:
     name = semantic_normalize(feature.raw_name)
+    heritage_summary = len(feature.context_path) >= 2 and semantic_normalize(feature.context_path[1]) == semantic_normalize("مواقع التراث العالمي الخمسة")
     destination_level_names = {
         "acacus": ("مواقع تادرارت أكاكوس الصخرية",),
         "leptis-magna": ("موقع لبدة الأثري",),
@@ -123,7 +124,7 @@ def _semantic_scope(slug: str, feature: NormalizedFeature, reasons: list[str]) -
         "ghadames": ("مدينة غدامس القديمة",),
         "bomba-bay": ("خليج بمبة",),
     }
-    if any(semantic_normalize(value) in name for value in destination_level_names.get(slug, ())):
+    if any(semantic_normalize(value) in name for value in destination_level_names.get(slug, ())) and (slug != "ghadames" or heritage_summary):
         return "DESTINATION_LEVEL_FEATURE"
     if any(term in name for term in ("مدخل", "نقطة مراقبة", "مركز زوار", "visitor center", "بوابة")):
         return "INSTITUTIONAL_ANCHOR"
@@ -143,7 +144,9 @@ def _candidate_status(slug: str, feature: NormalizedFeature, spec: SourceSpec, s
     if slug == "sabratha" and feature.source_id == "unesco-five-sites-ly" and semantic_normalize("موقع صبراتة الأثري") in name:
         return "APPROVAL_READY", "source explicitly names the Sabratha archaeological site at destination level; human approval is still required"
     if slug == "ghadames" and feature.source_id == "unesco-five-sites-ly" and semantic_normalize("مدينة غدامس القديمة") in name:
-        return "APPROVAL_READY", "source explicitly names Old Ghadames at site/city level; competing site-level points must be resolved by human review"
+        if scope == "DESTINATION_LEVEL_FEATURE":
+            return "APPROVAL_READY", "supplied institutional heritage Placemark identity «مدينة غدامس القديمة» is preserved verbatim and represents the World Heritage destination; human approval is still required"
+        return "REVIEW_REQUIRED", "secondary Ghadames source record is preserved verbatim but does not override the top-level institutional World Heritage Placemark"
     if slug == "bomba-bay" and feature.source_id == "natural-atlas-media" and name == semantic_normalize("خليج بمبة"):
         return "APPROVAL_READY", "Natural Atlas enriched feature explicitly names Bomba Bay and retains proven base-source lineage"
     if PROFILES.get(slug, ReviewProfile(())).aggregate:
@@ -191,6 +194,7 @@ def build_canonical_review(
                 "source_feature_id": feature.feature_id,
                 "source_native_id": feature.source_feature_id,
                 "source_name": feature.raw_name,
+                "source_description": feature.description,
                 "source_description_excerpt": description_excerpt(feature.description),
                 "category_context": {
                     "category": feature.category, "locality": feature.locality, "region": feature.region,
@@ -201,6 +205,7 @@ def build_canonical_review(
                 "geometry_type": feature.geometry_types,
                 "match_status": status,
                 "semantic_scope": scope,
+                "institutional_semantic_identity": feature.raw_name if feature.source_id == "unesco-five-sites-ly" and scope == "DESTINATION_LEVEL_FEATURE" else None,
                 "match_reason": semantic_reason,
                 "discovery_rank": rank,
                 "discovery_similarity": score,

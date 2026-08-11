@@ -211,6 +211,23 @@ def test_explicit_acacus_destination_feature_is_approval_ready_for_human_review(
     assert destination["representation_findings"]["explicit_destination_level_feature"] is True
 
 
+def test_top_level_ghadames_heritage_identity_is_preserved_and_prioritized(tmp_path: Path) -> None:
+    path = tmp_path / "unesco.kml"
+    write(path, '<?xml version="1.0" encoding="UTF-8"?><kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>مواقع التراث العالمي الخمسة_LY</name>'
+        '<Folder><name>مواقع التراث العالمي الخمسة</name><Placemark><name>مدينة غدامس القديمة</name><description>النص المؤسسي</description><Point><coordinates>9.496486,30.133674</coordinates></Point></Placemark></Folder>'
+        '<Folder><name>غدامس</name><Placemark><name>مدينة غدامس القديمة</name><description>سجل ثانوي</description><Point><coordinates>9.4972408,30.1323647</coordinates></Point></Placemark></Folder>'
+        '</Document></kml>')
+    source = spec("kml", "unesco-five-sites-ly", "unesco.kml")
+    features, audit = parse_kml(source, path)
+    review = build_canonical_review(canonical("ghadames", "Ghadames", "غدامس"), features, {source.source_id: source}, {source.source_id: audit})
+    destination = review["destinations"][0]
+    assert destination["review_status"] == "APPROVAL_READY"
+    assert destination["best_candidate"]["source_name"] == "مدينة غدامس القديمة"
+    assert destination["candidates"][0]["institutional_semantic_identity"] == "مدينة غدامس القديمة"
+    assert destination["candidates"][0]["source_description"] == "النص المؤسسي"
+    assert destination["candidates"][1]["semantic_scope"] == "SUB_FEATURE"
+
+
 def test_aggregate_sub_feature_remains_review_required(tmp_path: Path) -> None:
     path = tmp_path / "acacus.kml"
     write(path, kml('<Placemark><name>وادي أكاكوس</name><Point><coordinates>10.56,24.81</coordinates></Point></Placemark>'))

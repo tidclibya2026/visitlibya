@@ -69,6 +69,8 @@ The review uses `APPROVAL_READY`, `REVIEW_REQUIRED`, `REVIEW_REQUIRED_AGGREGATE`
 
 Every candidate also records one semantic scope: `DESTINATION_LEVEL_FEATURE`, `INSTITUTIONAL_ANCHOR`, `SUB_FEATURE`, or `REGIONAL_CONTEXT`. Broad destinations may be `APPROVAL_READY` when an institutional source explicitly provides a destination-level feature or representative anchor. Regional metadata and sub-features establish source coverage but do not by themselves authorize a representative coordinate.
 
+World Heritage Placemark authority is literal. Names, descriptions, coordinates, hierarchy, references, and source hashes from `مواقع التراث العالمي الخمسة_LY.kml` remain source-derived and are not renamed, split, merged, or replaced with broader inferred entities. A top-level heritage summary Placemark such as `مدينة غدامس القديمة` retains that exact institutional semantic identity; similarly named secondary records remain visible but cannot override it.
+
 Preview the canonical review without writing files:
 
 ```text
