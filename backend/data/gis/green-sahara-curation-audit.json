@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "audit": "green-mountain-and-libyan-sahara-curation",
+  "green_mountain": {
+    "source_tourism_candidates": 193,
+    "curated": 180,
+    "cross_layer_review": 11,
+    "excluded_from_natural": 2,
+    "duplicate_groups_merged": 0
+  },
+  "libyan_sahara": {
+    "source_tourism_candidates": 73,
+    "curated": 69,
+    "cross_layer_review": 2,
+    "excluded_from_natural": 0,
+    "duplicate_groups_merged": 2
+  },
+  "duplicate_merges": [
+    {
+      "layer": "libyan-sahara",
+      "name": "بحيرة أم الماء",
+      "retained_source_feature_id": 529,
+      "merged_source_feature_ids": [
+        530
+      ]
+    },
+    {
+      "layer": "libyan-sahara",
+      "name": "بحيرة العيون",
+      "retained_source_feature_id": 539,
+      "merged_source_feature_ids": [
+        540
+      ]
+    }
+  ],
+  "safety": {
+    "database_changes": "NONE",
+    "source_files_modified": false,
+    "publication_approvals": "NONE",
+    "centroids_generated": false,
+    "geocoding_used": false
+  }
+}
