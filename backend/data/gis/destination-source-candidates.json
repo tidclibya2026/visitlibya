@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "generation_policy": "exact normalized equality discovery only; human review required",
+  "canonical_dataset_sha256": "9ad127ce713454aa2b94c59e98b175eb9009860f08e90d217da5008210b32f28",
+  "records": [
+    {
+      "destination_slug": "bomba-bay",
+      "destination_name_ar": "خليج بمبة",
+      "destination_name_en": "Bomba Bay",
+      "source_id": "natural-atlas-media",
+      "source_file": "atlasnatrual-with-media.geojson",
+      "source_feature_id": "667",
+      "source_name": "خليج بمبة",
+      "latitude": 32.3072999,
+      "longitude": 23.2208064,
+      "match_reason": "exact normalized name equality; identity provenance still requires human review",
+      "review_status": "REVIEW_REQUIRED",
+      "source_reference": "atlasnatrual-with-media.geojson#Feature-667"
+    },
+    {
+      "destination_slug": "tripoli",
+      "destination_name_ar": "طرابلس",
+      "destination_name_en": "Tripoli Old City",
+      "source_id": "tripoli-cafes",
+      "source_file": "المقاهي_طرابلس.kml",
+      "source_feature_id": "fp-046095c13e22d5d63bab7af3",
+      "source_name": "طرابلس",
+      "latitude": 32.7845745,
+      "longitude": 13.184615,
+      "match_reason": "exact normalized name equality; identity provenance still requires human review",
+      "review_status": "REVIEW_REQUIRED",
+      "source_reference": "المقاهي_طرابلس.kml#Placemark-292"
+    }
+  ],
+  "unresolved": {
+    "benghazi": "NO_MATCH",
+    "ghadames": "NO_MATCH",
+    "acacus": "NO_MATCH",
+    "green-mountain": "NO_MATCH",
+    "desert": "NO_MATCH",
+    "nafusa": "NO_MATCH",
+    "awjila": "NO_MATCH",
+    "sabratha": "NO_MATCH",
+    "leptis-magna": "NO_MATCH",
+    "villa-sileen": "NO_MATCH"
+  }
+}
