@@ -247,7 +247,7 @@ try {
 
   const runtimeUrl = pathToFileURL(path.join(root, "assets/js/app/config/runtime-config.js"));
   const clientUrl = pathToFileURL(path.join(root, "assets/js/app/api/client.js"));
-  const { loadRuntimeConfig } = await import(runtimeUrl);
+  const { loadRuntimeConfig, ATLAS_PRESENTATION_URL, buildAtlasPresentationUrl } = await import(runtimeUrl);
   const { createApiClient } = await import(clientUrl);
   const remoteHttps = { protocol: "https:", hostname: "visit.example" };
   const localHttp = { protocol: "http:", hostname: "127.0.0.1" };
@@ -265,6 +265,12 @@ try {
       assert(result.apiStatus === status, `apiStatus=${result.apiStatus}`);
     });
   }
+  await test("Atlas builder is fixed, HTTPS, and privacy-safe", () => {
+    const url = new URL(ATLAS_PRESENTATION_URL);
+    assert(url.protocol === "https:" && url.hostname === "tidclibya2026.github.io" && url.pathname === "/Libya_Tourist_Atlas/", "Atlas origin/path mismatch");
+    for (const input of [undefined, { destinationName: "Ghadames" }, { destinationName: "غدامس" }, { destinationName: "javascript:alert(1)&token=x" }, { slug: "../invalid" }]) assert(buildAtlasPresentationUrl(input) === ATLAS_PRESENTATION_URL, "Atlas builder accepted unverified deep-link input");
+    assert(!/[?&](?:token|user_id|trip_id)=/i.test(ATLAS_PRESENTATION_URL), "Atlas URL leaks private identifiers");
+  });
   await test("apiEnabled false returns API_UNAVAILABLE before fetch", async () => {
     const originalFetch = globalThis.fetch;
     let fetchCalls = 0;

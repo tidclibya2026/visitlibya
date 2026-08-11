@@ -10,6 +10,24 @@ const SAFE_DEFAULTS = Object.freeze({
 
 const LOOPBACK_HOSTS = new Set(["127.0.0.1", "localhost", "::1"]);
 const ENVIRONMENTS = new Set(["local", "static", "staging", "production"]);
+export const ATLAS_PRESENTATION_URL = "https://tidclibya2026.github.io/Libya_Tourist_Atlas/";
+
+export function buildAtlasPresentationUrl() {
+  return ATLAS_PRESENTATION_URL;
+}
+
+export function configureAtlasExternalLink(anchor, options = {}) {
+  if (!anchor || typeof anchor.setAttribute !== "function") return anchor;
+  const locale = options.locale === "ar" ? "ar" : "en";
+  const context = typeof options.context === "string" ? options.context.trim() : "";
+  const label = locale === "ar" ? "فتح أطلس ليبيا السياحي" : "Open Libya Tourist Atlas";
+  const external = locale === "ar" ? "يفتح في علامة تبويب جديدة" : "opens in a new tab";
+  anchor.setAttribute("href", buildAtlasPresentationUrl());
+  anchor.setAttribute("target", "_blank");
+  anchor.setAttribute("rel", "noopener noreferrer");
+  anchor.setAttribute("aria-label", `${label}${context ? `: ${context}` : ""} (${external})`);
+  return anchor;
+}
 
 function normalizeTimeout(value) {
   const timeout = Number(value);

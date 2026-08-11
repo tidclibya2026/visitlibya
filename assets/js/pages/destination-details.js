@@ -11,6 +11,7 @@ import { createElement, setText, setVisible } from "../app/utils/dom.js";
 import { loadRuntimeConfig } from "../app/config/runtime-config.js";
 import { curatedDestinations } from "../data/curated-destinations.js";
 import { resolveResponsiveImage } from "../data/responsive-images.js";
+import { configureAtlasExternalLink } from "../app/config/runtime-config.js";
 
 const isArabic = document.documentElement.lang === "ar";
 const locale = isArabic ? "ar" : "en";
@@ -745,7 +746,10 @@ function render(destination, { fallback = false } = {}) {
   if (elements.fallbackRetry) elements.fallbackRetry.hidden = !runtimeConfig.apiEnabled;
   elements.translationNotice.hidden = !destination.translationFallback;
   elements.planLink.href = `${pathPrefix}plan.html?destination=${encodeURIComponent(destination.slug)}`;
-  elements.atlasLink.href = `${pathPrefix}atlas.html?destination=${encodeURIComponent(destination.slug)}`;
+  configureAtlasExternalLink(elements.atlasLink, {
+    locale: isArabic ? "ar" : "en",
+    context: destination.name,
+  });
   const canSaveToTrip = Number.isSafeInteger(destination.id) && destination.id > 0;
   elements.addToTrip.disabled = !canSaveToTrip;
   elements.addToTrip.setAttribute("aria-disabled", String(!canSaveToTrip));

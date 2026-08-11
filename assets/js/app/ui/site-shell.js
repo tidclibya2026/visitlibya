@@ -3,6 +3,7 @@ import {
   restoreSession,
   subscribe,
 } from "../auth/session.js";
+import { configureAtlasExternalLink } from "../config/runtime-config.js";
 
 const MOBILE_NAV_QUERY = "(max-width: 1050px)";
 
@@ -102,12 +103,23 @@ function markDocument() {
   document.querySelector("main")?.classList.add("site-page-main");
 }
 
+function enhanceAtlasLinks() {
+  const locale = document.documentElement.lang === "ar" ? "ar" : "en";
+  document.querySelectorAll("[data-atlas-external]").forEach((link) => {
+    configureAtlasExternalLink(link, {
+      locale,
+      context: link.getAttribute("data-atlas-context") ?? "",
+    });
+  });
+}
+
 function initializeSiteShell() {
   ensureSkipLink();
   markDocument();
   enhanceHeader();
   preserveLanguageQuery();
   enhanceFooter();
+  enhanceAtlasLinks();
 }
 
 if (document.readyState === "loading") {

@@ -9,6 +9,7 @@ import {
   updateTripItem,
 } from "../app/api/trips-api.js";
 import { bootstrap } from "../app/bootstrap.js";
+import { configureAtlasExternalLink } from "../app/config/runtime-config.js";
 import { getLocalizedErrorMessage } from "../app/errors/error-messages.js";
 import { curatedDestinations } from "../data/curated-destinations.js";
 import { resolveResponsiveImage } from "../data/responsive-images.js";
@@ -396,6 +397,8 @@ export async function initializeTripEditor(documentRef = document) {
   const overviewVisibility = queryRequired("[data-trip-overview-visibility]", documentRef);
   const summary = queryRequired("[data-trip-summary]", documentRef);
   const review = queryRequired("[data-trip-review]", documentRef);
+  const tripAtlasLink = queryRequired("[data-trip-atlas-link]", documentRef);
+  configureAtlasExternalLink(tripAtlasLink, { locale });
 
   if (!context.config.apiEnabled) {
     setVisible(loading, false);
@@ -705,7 +708,11 @@ export async function initializeTripEditor(documentRef = document) {
           const links = createElement("div", { className: "trip-stop__links" });
           links.append(
             createElement("a", { className: "trip-stop__destination-link", text: locale === "ar" ? "عرض الوجهة" : "View Destination", attributes: { href: `destination.html?slug=${encodeURIComponent(slug)}`, "aria-label": `${locale === "ar" ? "عرض الوجهة" : "View Destination"}: ${name}` } }),
-            createElement("a", { className: "trip-stop__destination-link", text: locale === "ar" ? "استكشف في الأطلس السياحي" : "Explore in Tourism Atlas", attributes: { href: `atlas.html?destination=${encodeURIComponent(slug)}`, "aria-label": `${locale === "ar" ? "استكشف في الأطلس السياحي" : "Explore in Tourism Atlas"}: ${name}` } }),
+            (() => {
+              const atlasLink = createElement("a", { className: "trip-stop__destination-link", text: locale === "ar" ? "استكشف في الأطلس" : "Explore in Atlas" });
+              configureAtlasExternalLink(atlasLink, { locale, context: name });
+              return atlasLink;
+            })(),
           );
           content.appendChild(links);
         }
