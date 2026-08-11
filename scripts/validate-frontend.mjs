@@ -342,6 +342,26 @@ if (/\b(?:innerHTML|outerHTML|insertAdjacentHTML|eval|document\.write)\b/.test(d
   issue("Trip integration", "destination-details.js: unsafe dynamic DOM API found");
 }
 
+const tripEditorController = fs.readFileSync(path.join(root, "assets/js/pages/trip-editor.js"), "utf8");
+const destinationEnrichmentController = tripEditorController;
+for (const requirement of [
+  /enrichTripDestinations\(destinations, locale,/,
+  /\.catch\(\(\) => \{[\s\S]{0,180}Enrichment is optional/,
+  /loading:\s*"lazy"/,
+  /atlas\.html\?destination=\$\{encodeURIComponent\(slug\)\}/,
+]) if (!requirement.test(tripEditorController)) issue("Trip enrichment", `trip-editor.js: missing enrichment guard ${requirement}`);
+for (const requirement of [
+  /listTripDestinationCatalogue\(requestedPage\)/,
+  /const destinationCatalogueById = new Map\(\)/,
+  /let destinationPageRequest = null/,
+  /Number\(bySlug\?\.id\) === identity\.id/,
+  /resolveResponsiveImage\(imageSource, pathPrefix\)/,
+]) if (!requirement.test(destinationEnrichmentController)) issue("Trip enrichment", `trip-editor.js: missing cache/media guard ${requirement}`);
+if (/\b(?:localStorage|sessionStorage|innerHTML|outerHTML|insertAdjacentHTML|eval|document\.write)\b/.test(destinationEnrichmentController)) issue("Trip enrichment", "trip-editor.js: unsafe storage or DOM API found");
+for (const rel of ["trip.html", "ar/trip.html", "trips.html", "ar/trips.html", "register.html", "ar/register.html"]) {
+  if (!(htmlByRelative.get(rel) ?? "").includes("trips.css?v=trip-content-enrichment-01")) issue("Trip enrichment", `${rel}: shared trips stylesheet cache key is stale`);
+}
+
 const en = (await import(pathToFileURL(path.join(root, "assets/js/app/i18n/en.js")))).en;
 const ar = (await import(pathToFileURL(path.join(root, "assets/js/app/i18n/ar.js")))).ar;
 function dictionaryKeys(value, prefix = "") {

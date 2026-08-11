@@ -2,6 +2,7 @@ import {
   addTripItem,
   deleteTripItem,
   getTrip,
+  listTripDestinationCatalogue,
   reorderTripItems,
   searchTripDestinations,
   updateTrip,
@@ -9,6 +10,8 @@ import {
 } from "../app/api/trips-api.js";
 import { bootstrap } from "../app/bootstrap.js";
 import { getLocalizedErrorMessage } from "../app/errors/error-messages.js";
+import { curatedDestinations } from "../data/curated-destinations.js";
+import { resolveResponsiveImage } from "../data/responsive-images.js";
 import { announce } from "../app/ui/announcer.js";
 import { setLoading } from "../app/ui/loading.js";
 import { createModal } from "../app/ui/modal.js";
@@ -36,6 +39,84 @@ const EDITABLE_FIELDS = Object.freeze([
   "visibility",
 ]);
 const DESTINATION_SEARCH_DEBOUNCE_MS = 300;
+const DESTINATION_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const destinationCatalogueById = new Map();
+const destinationCatalogueBySlug = new Map();
+const curatedDestinationBySlug = new Map(curatedDestinations.map((item) => [item.slug, item]));
+
+let nextDestinationPage = 1;
+let destinationPageCount = Number.POSITIVE_INFINITY;
+let destinationPageRequest = null;
+
+function safeDestinationText(value) {
+  return typeof value === "string" && value.trim() ? value.trim() : "";
+}
+
+function validDestinationIdentity(destination) {
+  const id = Number(destination?.id);
+  const slug = safeDestinationText(destination?.slug).toLowerCase();
+  return Number.isSafeInteger(id) && id > 0 && DESTINATION_SLUG_PATTERN.test(slug) ? { id, slug } : null;
+}
+
+async function loadNextDestinationPage() {
+  if (nextDestinationPage > destinationPageCount) return;
+  if (!destinationPageRequest) {
+    const requestedPage = nextDestinationPage;
+    destinationPageRequest = listTripDestinationCatalogue(requestedPage)
+      .then((payload) => {
+        if (!payload || !Array.isArray(payload.items)) throw new TypeError("Invalid destination catalogue response");
+        payload.items.forEach((item) => {
+          const identity = validDestinationIdentity(item);
+          if (!identity) return;
+          destinationCatalogueById.set(identity.id, item);
+          destinationCatalogueBySlug.set(identity.slug, item);
+        });
+        const pages = Number(payload.pages);
+        destinationPageCount = Number.isSafeInteger(pages) && pages >= 0 ? pages : requestedPage;
+        nextDestinationPage = requestedPage + 1;
+      })
+      .finally(() => { destinationPageRequest = null; });
+  }
+  await destinationPageRequest;
+}
+
+function findDestinationCatalogueItem(identity) {
+  const byId = destinationCatalogueById.get(identity.id);
+  if (byId && safeDestinationText(byId.slug).toLowerCase() === identity.slug) return byId;
+  const bySlug = destinationCatalogueBySlug.get(identity.slug);
+  return Number(bySlug?.id) === identity.id ? bySlug : null;
+}
+
+function localizedDestinationName(value, locale) {
+  return safeDestinationText(locale === "ar" ? value?.name_ar : value?.name_en) ||
+    safeDestinationText(locale === "ar" ? value?.name_en : value?.name_ar);
+}
+
+function mergeDestinationContext(destination, locale, pathPrefix) {
+  const identity = validDestinationIdentity(destination);
+  if (!identity) return null;
+  const api = findDestinationCatalogueItem(identity);
+  const curated = curatedDestinationBySlug.get(identity.slug);
+  const imageSource = safeDestinationText(curated?.image);
+  const responsive = imageSource ? resolveResponsiveImage(imageSource, pathPrefix) : null;
+  const municipality = safeDestinationText(api?.municipality);
+  const region = safeDestinationText(api?.region);
+  return Object.freeze({
+    category: localizedDestinationName(api?.category, locale) || safeDestinationText(locale === "ar" ? curated?.category_ar : curated?.category_en),
+    location: [...new Set([municipality, region].filter(Boolean))].join(" · ") || safeDestinationText(locale === "ar" ? curated?.region_ar : curated?.region_en),
+    description: safeDestinationText(locale === "ar" ? api?.short_description_ar : api?.short_description_en) || safeDestinationText(locale === "ar" ? api?.short_description_en : api?.short_description_ar) || safeDestinationText(locale === "ar" ? curated?.description_ar : curated?.description_en),
+    image: imageSource ? `${pathPrefix}${imageSource}` : "",
+    imageAlt: safeDestinationText(locale === "ar" ? curated?.image_alt_ar : curated?.image_alt_en),
+    imageWebp: responsive?.webp ?? "",
+    imageSrcset: responsive?.srcset ?? "",
+  });
+}
+
+async function enrichTripDestinations(destinations, locale, pathPrefix = "") {
+  const identities = [...new Map(destinations.map(validDestinationIdentity).filter(Boolean).map((item) => [item.id, item])).values()];
+  while (identities.some((identity) => !findDestinationCatalogueItem(identity)) && nextDestinationPage <= destinationPageCount) await loadNextDestinationPage();
+  return new Map(destinations.map((destination) => [Number(destination?.id), mergeDestinationContext(destination, locale, pathPrefix)]).filter(([id, value]) => Number.isSafeInteger(id) && value));
+}
 
 function readTripId(search = globalThis.location?.search ?? "") {
   const parameters = new URLSearchParams(search);
@@ -333,6 +414,8 @@ export async function initializeTripEditor(documentRef = document) {
   let activeMutation = false;
   let draggedItemId = null;
   let activeStopModal = null;
+  let destinationEnrichment = new Map();
+  let enrichmentGeneration = 0;
 
   if (tripId && languageLink) {
     languageLink.href = updateQueryParameters(
@@ -513,6 +596,7 @@ export async function initializeTripEditor(documentRef = document) {
       }
       items.forEach((item, index) => {
         const name = destinationName(item, locale);
+        const enrichment = destinationEnrichment.get(Number(item.destination?.id));
         const card = createElement("article", {
           className: "trip-stop",
           attributes: { "data-stop-id": item.id },
@@ -544,6 +628,39 @@ export async function initializeTripEditor(documentRef = document) {
             element.classList.remove("is-drag-over");
           });
         });
+        const media = createElement("div", { className: "trip-stop__media" });
+        if (enrichment?.image) {
+          const image = createElement("img", {
+            attributes: {
+              src: enrichment.image,
+              alt: enrichment.imageAlt || name,
+              width: "240",
+              height: "160",
+              loading: "lazy",
+              decoding: "async",
+            },
+          });
+          image.addEventListener("error", () => {
+            media.replaceChildren();
+            media.classList.add("is-fallback");
+            media.setAttribute("aria-hidden", "true");
+          }, { once: true });
+          if (enrichment.imageWebp) {
+            const picture = createElement("picture", { className: "responsive-picture" });
+            const source = createElement("source", {
+              attributes: {
+                type: "image/webp",
+                srcset: enrichment.imageSrcset || enrichment.imageWebp,
+                sizes: "(max-width: 480px) calc(100vw - 5rem), 120px",
+              },
+            });
+            picture.append(source, image);
+            media.appendChild(picture);
+          } else media.appendChild(image);
+        } else {
+          media.classList.add("is-fallback");
+          media.setAttribute("aria-hidden", "true");
+        }
         const content = createElement("div", { className: "trip-stop__content" });
         const stopTitle = createElement("h4");
         const slug = String(item.destination?.slug ?? "").trim();
@@ -551,6 +668,19 @@ export async function initializeTripEditor(documentRef = document) {
           stopTitle.appendChild(createElement("a", { text: name, attributes: { href: `destination.html?slug=${encodeURIComponent(slug)}` } }));
         } else stopTitle.appendChild(documentRef.createTextNode(name));
         content.appendChild(stopTitle);
+        const destinationContext = [enrichment?.category, enrichment?.location].filter(Boolean);
+        if (destinationContext.length) {
+          content.appendChild(createElement("p", {
+            className: "trip-stop__context",
+            text: destinationContext.join(" · "),
+          }));
+        }
+        if (enrichment?.description) {
+          content.appendChild(createElement("p", {
+            className: "trip-stop__description",
+            text: enrichment.description,
+          }));
+        }
         const meta = createElement("p", { className: "trip-stop__meta" });
         if (item.start_time) {
           meta.appendChild(createElement("span", { text: item.start_time.slice(0, 5) }));
@@ -572,7 +702,12 @@ export async function initializeTripEditor(documentRef = document) {
           );
         }
         if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
-          content.appendChild(createElement("a", { className: "trip-stop__destination-link", text: locale === "ar" ? "عرض الوجهة" : "View Destination", attributes: { href: `destination.html?slug=${encodeURIComponent(slug)}`, "aria-label": `${locale === "ar" ? "عرض الوجهة" : "View Destination"}: ${name}` } }));
+          const links = createElement("div", { className: "trip-stop__links" });
+          links.append(
+            createElement("a", { className: "trip-stop__destination-link", text: locale === "ar" ? "عرض الوجهة" : "View Destination", attributes: { href: `destination.html?slug=${encodeURIComponent(slug)}`, "aria-label": `${locale === "ar" ? "عرض الوجهة" : "View Destination"}: ${name}` } }),
+            createElement("a", { className: "trip-stop__destination-link", text: locale === "ar" ? "استكشف في الأطلس السياحي" : "Explore in Tourism Atlas", attributes: { href: `atlas.html?destination=${encodeURIComponent(slug)}`, "aria-label": `${locale === "ar" ? "استكشف في الأطلس السياحي" : "Explore in Tourism Atlas"}: ${name}` } }),
+          );
+          content.appendChild(links);
         }
         const actions = createElement("div", { className: "trip-stop__actions" });
         const action = (label, handler, disabled = false) => {
@@ -619,7 +754,7 @@ export async function initializeTripEditor(documentRef = document) {
         );
         action(t("trips.editStop"), () => openStopEditor(item, dayNumber));
         action(t("trips.deleteStop"), () => openDeleteStop(item));
-        card.append(handle, content, actions);
+        card.append(handle, media, content, actions);
         list.appendChild(card);
       });
       list.addEventListener("dragover", (event) => {
@@ -694,6 +829,19 @@ export async function initializeTripEditor(documentRef = document) {
     clearFieldErrors();
     updateMetadataButtons();
     renderItinerary();
+    const generation = ++enrichmentGeneration;
+    const destinations = trip.items.map((item) => item.destination).filter(Boolean);
+    if (destinations.length) {
+      void enrichTripDestinations(destinations, locale, locale === "ar" ? "../" : "")
+        .then((enriched) => {
+          if (generation !== enrichmentGeneration) return;
+          destinationEnrichment = enriched;
+          renderItinerary();
+        })
+        .catch(() => {
+          // Enrichment is optional; authoritative trip data and controls remain usable.
+        });
+    } else destinationEnrichment = new Map();
   };
 
   async function loadTrip({ focus = false } = {}) {

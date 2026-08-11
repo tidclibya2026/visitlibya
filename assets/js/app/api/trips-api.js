@@ -132,3 +132,19 @@ export function searchTripDestinations(query, options = {}) {
     options,
   );
 }
+
+/**
+ * Load one bounded page of the public destination catalogue for optional
+ * trip-card enrichment. This never carries or persists private trip data.
+ */
+export function listTripDestinationCatalogue(page = 1, options = {}) {
+  return apiClient.get(
+    `/search/destinations${buildQueryString({
+      page,
+      page_size: 100,
+      sort_by: "name",
+      sort_order: "asc",
+    })}`,
+    options,
+  );
+}
