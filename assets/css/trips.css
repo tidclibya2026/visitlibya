@@ -490,6 +490,93 @@
   width: 100%;
 }
 
+.trip-overview {
+  overflow: hidden;
+  border-radius: 30px;
+  background: linear-gradient(135deg, var(--blue), #062744 72%);
+  padding: clamp(28px, 5vw, 56px);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.trip-overview .kicker { color: #e5c477; }
+
+.trip-overview__heading {
+  display: flex;
+  gap: 28px;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.trip-overview__heading h2 {
+  max-width: 18ch;
+  margin: 6px 0 0;
+  color: var(--white);
+  font-size: clamp(34px, 6vw, 66px);
+  line-height: 1.02;
+}
+
+.trip-overview__heading p { max-width: 65ch; margin: 16px 0 0; color: #dce8f3; line-height: 1.7; }
+.trip-overview .trips-secondary-button { border-color: rgba(255,255,255,.55); background: transparent; color: var(--white); }
+
+.trip-overview__facts,
+.trip-summary {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 32px 0 0;
+}
+
+.trip-overview__facts > div {
+  border-top: 1px solid rgba(255,255,255,.25);
+  padding-top: 16px;
+}
+
+.trip-overview__facts dt { color: #bed0df; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+.trip-overview__facts dd { margin: 7px 0 0; color: var(--white); font-size: clamp(18px, 2vw, 24px); font-weight: 900; }
+
+.trip-insights {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.trip-insight-card,
+.trip-atlas-card {
+  border: 1px solid rgba(11,58,103,.12);
+  border-radius: 24px;
+  background: var(--white);
+  padding: clamp(24px, 4vw, 36px);
+  box-shadow: 0 12px 34px rgba(17,24,39,.07);
+}
+
+.trip-insight-card h2,
+.trip-atlas-card h2 { margin: 5px 0 0; color: var(--blue); font-size: clamp(25px, 3vw, 34px); }
+.trip-atlas-card { grid-column: 1 / -1; background: linear-gradient(120deg, #f2f7fb, #fffaf0); }
+.trip-atlas-card p { max-width: 72ch; color: var(--muted); line-height: 1.7; }
+
+.trip-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 22px; }
+.trip-summary > div { border-radius: 14px; background: var(--snow); padding: 16px; }
+.trip-summary dt { color: var(--muted); font-size: 13px; font-weight: 800; }
+.trip-summary dd { margin: 6px 0 0; color: var(--blue); font-size: 28px; font-weight: 900; }
+.trip-review { display: grid; gap: 12px; margin: 22px 0 0; padding-inline-start: 22px; }
+.trip-review li { padding-inline-start: 5px; color: var(--ink); line-height: 1.55; }
+.trip-review li::marker { color: var(--gold); }
+
+.trip-empty-state {
+  display: grid;
+  justify-items: center;
+  border: 1px dashed rgba(11,58,103,.3);
+  border-radius: 22px;
+  background: linear-gradient(145deg, #f8fafc, #fffaf0);
+  padding: clamp(34px, 7vw, 70px) 24px;
+  text-align: center;
+}
+
+.trip-empty-state__mark { display: grid; width: 64px; height: 64px; place-items: center; border-radius: 50%; background: var(--gold); color: var(--blue); font-size: 30px; }
+.trip-empty-state h3 { margin: 20px 0 6px; color: var(--blue); font-size: clamp(26px, 4vw, 38px); }
+.trip-empty-state p { margin: 0 0 22px; color: var(--muted); }
+
 .trip-itinerary {
   min-width: 0;
   border: 1px solid rgba(11, 58, 103, .1);
@@ -586,6 +673,9 @@
   color: var(--blue);
   font-size: 20px;
 }
+
+.trip-stop__content h4 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.trip-stop__destination-link { display: inline-flex; margin-top: 13px; color: var(--blue); font-weight: 900; text-underline-offset: 4px; }
 
 .trip-stop__meta {
   display: flex;
@@ -686,6 +776,8 @@
   .trips-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .trip-overview__facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 768px) {
@@ -707,6 +799,10 @@
     align-items: stretch;
     flex-direction: column;
   }
+
+  .trip-overview__heading { align-items: stretch; flex-direction: column; }
+  .trip-insights { grid-template-columns: 1fr; }
+  .trip-atlas-card { grid-column: auto; }
 
   .trip-stop {
     grid-template-columns: auto minmax(0, 1fr);
@@ -775,6 +871,11 @@
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .trip-overview__facts,
+  .trip-summary { grid-template-columns: 1fr 1fr; }
+
+  .trip-overview__heading .trips-toolbar-actions { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

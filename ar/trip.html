@@ -6,7 +6,7 @@
   <title>محرر الرحلة | Visit Libya</title>
   <meta name="description" content="عدّل البيانات الأساسية لرحلتك عند توفر خدمة تخطيط الرحلات الإلكترونية وتسجيل الدخول.">
   <link rel="stylesheet" href="../style.css?v=stabilization-sprint-01">
-  <link rel="stylesheet" href="../assets/css/trips.css?v=my-trips-01">
+  <link rel="stylesheet" href="../assets/css/trips.css?v=smart-trip-planner-01">
   <link rel="stylesheet" href="../assets/css/design-system.css?v=frontend-2-01">
   <link rel="stylesheet" href="../assets/css/base.css?v=frontend-2-01">
   <link rel="stylesheet" href="../assets/css/layout.css?v=frontend-2-01">
@@ -63,14 +63,24 @@
     </section>
 
     <section class="trip-editor" data-trip-editor aria-labelledby="tripEditorTitle" hidden>
+      <section class="trip-overview" aria-labelledby="tripEditorTitle">
+        <div class="trip-overview__heading">
+          <div><span class="kicker">رحلتك</span><h2 id="tripEditorTitle" data-trip-heading tabindex="-1">نظرة عامة على الرحلة</h2><p data-trip-overview-description hidden></p></div>
+          <div class="trips-toolbar-actions"><button class="trips-secondary-button" type="button" data-edit-trip-details aria-expanded="false" aria-controls="tripMetadataForm">تعديل بيانات الرحلة</button><button class="trips-primary-button" type="button" data-add-stop>إضافة محطة</button></div>
+        </div>
+        <dl class="trip-overview__facts">
+          <div><dt>التواريخ</dt><dd data-trip-overview-dates>—</dd></div><div><dt>الأيام</dt><dd data-trip-overview-days>—</dd></div><div><dt>المحطات</dt><dd data-trip-overview-stops>0</dd></div><div><dt>الحالة</dt><dd data-trip-overview-status>—</dd></div><div><dt>الظهور</dt><dd data-trip-overview-visibility>—</dd></div>
+        </dl>
+      </section>
+
       <div class="trips-login-card trip-editor__metadata">
         <div>
           <span class="kicker">بيانات الرحلة</span>
-          <h2 id="tripEditorTitle" data-trip-heading tabindex="-1">بيانات الرحلة</h2>
+          <h2>بيانات الرحلة</h2>
           <p>الإصدار <strong data-trip-version>—</strong></p>
         </div>
 
-        <form class="trips-form" data-trip-form novalidate>
+        <form class="trips-form" id="tripMetadataForm" data-trip-form novalidate hidden>
         <div class="trips-field">
           <label for="tripTitle">عنوان الرحلة</label>
           <input id="tripTitle" name="title" type="text" maxlength="200" required aria-describedby="tripTitleError">
@@ -121,6 +131,12 @@
         </form>
       </div>
 
+      <div class="trip-insights">
+        <section class="trip-insight-card" aria-labelledby="tripSummaryTitle"><span class="kicker">لمحة سريعة</span><h2 id="tripSummaryTitle">الملخص الذكي</h2><dl class="trip-summary" data-trip-summary></dl></section>
+        <section class="trip-insight-card" aria-labelledby="tripReviewTitle"><span class="kicker">مراجعة التخطيط</span><h2 id="tripReviewTitle">مراجعة الرحلة</h2><ul class="trip-review" data-trip-review></ul></section>
+        <aside class="trip-atlas-card" aria-labelledby="tripAtlasTitle"><span class="kicker">سياق الخريطة</span><h2 id="tripAtlasTitle">استكشف رحلتك في سياقها</h2><p>لا يستقبل المخطط إحداثيات محطات الرحلة. افتح الأطلس السياحي لاستكشاف ليبيا من دون مسارات أو أزمنة سفر تقديرية.</p><a class="trips-secondary-button" href="atlas.html">فتح الأطلس السياحي</a></aside>
+      </div>
+
       <section class="trip-itinerary" aria-labelledby="tripItineraryTitle">
         <div class="trips-toolbar">
           <div>
@@ -128,7 +144,7 @@
             <h2 id="tripItineraryTitle">برنامج الرحلة</h2>
             <p>نظّم الوجهات حسب اليوم وترتيب الزيارة.</p>
           </div>
-          <button class="trips-primary-button" type="button" data-add-stop>إضافة محطة</button>
+          <a class="trips-secondary-button" href="trips.html">العودة إلى رحلاتي</a>
         </div>
         <div data-trip-itinerary aria-live="polite"></div>
       </section>
