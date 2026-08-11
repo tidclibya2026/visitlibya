@@ -11,7 +11,8 @@ class FakeSearchService:
     def search_destinations(self, **arguments: object) -> SearchDestinationResponse:
         self.arguments = arguments; filters = arguments["filters"]
         if getattr(filters, "q") == "database-error": raise SearchPersistenceError()
-        items = [] if getattr(filters, "q") == "empty" else [SearchDestinationItem(id=1, slug="leptis-magna", name_ar="لبدة الكبرى", name_en="Leptis Magna", short_description_ar="مدينة أثرية", short_description_en="Ancient city", municipality="Al Khums", region="Tripolitania", category=None, primary_media_url="/media/leptis.jpg", is_featured=True, average_rating=4.5, reviews_count=2)]
+        coordinates = (None, None) if getattr(filters, "q") == "null-coordinates" else (32.6389, 14.2906)
+        items = [] if getattr(filters, "q") == "empty" else [SearchDestinationItem(id=1, slug="leptis-magna", name_ar="لبدة الكبرى", name_en="Leptis Magna", short_description_ar="مدينة أثرية", short_description_en="Ancient city", municipality="Al Khums", region="Tripolitania", latitude=coordinates[0], longitude=coordinates[1], category=None, primary_media_url="/media/leptis.jpg", is_featured=True, average_rating=4.5, reviews_count=2)]
         return SearchDestinationResponse.create(items=items, total=len(items), page=arguments["page"], page_size=arguments["page_size"])
 
 
@@ -49,5 +50,18 @@ def test_public_contract_contains_no_review_or_administrative_data() -> None:
         with TestClient(app) as client: response = client.get("/api/v1/search/destinations", params={"is_featured": True, "minimum_rating": 4})
     finally: app.dependency_overrides.clear()
     item = response.json()["items"][0]
-    assert set(item) == {"id", "slug", "name_ar", "name_en", "short_description_ar", "short_description_en", "municipality", "region", "category", "primary_media_url", "is_featured", "average_rating", "reviews_count"}
+    assert set(item) == {"id", "slug", "name_ar", "name_en", "short_description_ar", "short_description_en", "municipality", "region", "latitude", "longitude", "category", "primary_media_url", "is_featured", "average_rating", "reviews_count"}
     assert "reviews" not in item and "status" not in item
+
+
+def test_search_coordinate_contract_is_present_and_null_safe() -> None:
+    service = FakeSearchService(); app.dependency_overrides[get_search_service] = lambda: service
+    try:
+        with TestClient(app) as client:
+            present = client.get("/api/v1/search/destinations")
+            missing = client.get("/api/v1/search/destinations", params={"q": "null-coordinates"})
+    finally: app.dependency_overrides.clear()
+    assert present.json()["items"][0]["latitude"] == 32.6389
+    assert present.json()["items"][0]["longitude"] == 14.2906
+    assert missing.json()["items"][0]["latitude"] is None
+    assert missing.json()["items"][0]["longitude"] is None

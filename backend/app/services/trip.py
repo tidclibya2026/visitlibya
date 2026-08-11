@@ -456,6 +456,8 @@ class TripService:
                 slug=item.destination.slug,
                 name_ar=cls._translation_name(translations.get("ar")),
                 name_en=cls._translation_name(translations.get("en")),
+                latitude=item.destination.latitude,
+                longitude=item.destination.longitude,
             ),
             day_number=item.day_number,
             visit_date=item.visit_date,

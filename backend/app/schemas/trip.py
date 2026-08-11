@@ -1,6 +1,6 @@
 from datetime import date, datetime, time
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 from app.core.trip_constants import (
     MAX_TRIP_DESCRIPTION_LENGTH,
@@ -104,6 +104,14 @@ class TripDestinationSummary(BaseModel):
     slug: str
     name_ar: str | None
     name_en: str | None
+    latitude: float | None = Field(default=None, ge=-90, le=90)
+    longitude: float | None = Field(default=None, ge=-180, le=180)
+
+    @model_validator(mode="after")
+    def validate_coordinate_pair(self) -> "TripDestinationSummary":
+        if (self.latitude is None) != (self.longitude is None):
+            raise ValueError("latitude and longitude must be provided together")
+        return self
 
 
 class TripItemResponse(BaseModel):

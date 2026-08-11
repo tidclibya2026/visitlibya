@@ -30,7 +30,7 @@ NOW = datetime.now(UTC)
 def detail() -> TripDetailResponse:
     item = TripItemResponse(
         id=11,
-        destination=TripDestinationSummary(id=7, slug="leptis", name_ar=None, name_en="Leptis"),
+        destination=TripDestinationSummary(id=7, slug="leptis", name_ar=None, name_en="Leptis", latitude=32.6389, longitude=14.2906),
         day_number=1,
         visit_date=date(2026, 9, 1),
         start_time=None,
@@ -55,6 +55,14 @@ def detail() -> TripDetailResponse:
         created_at=NOW,
         updated_at=NOW,
     )
+
+
+def test_trip_destination_coordinates_require_a_complete_pair() -> None:
+    with pytest.raises(ValueError, match="must be provided together"):
+        TripDestinationSummary(
+            id=7, slug="leptis", name_ar=None, name_en="Leptis",
+            latitude=32.6389, longitude=None,
+        )
 
 
 class FakeTripService:
@@ -129,6 +137,13 @@ def test_list_pagination_and_user_isolation_not_found(test_user) -> None:
     assert response.json()["skip"] == 5 and response.json()["limit"] == 10
     service.error = TripNotFoundError()
     assert request(service, test_user, "GET", "/api/v1/trips/99").status_code == 404
+
+
+def test_trip_detail_exposes_authoritative_destination_coordinates(test_user) -> None:
+    response = request(FakeTripService(), test_user, "GET", "/api/v1/trips/3")
+    destination = response.json()["items"][0]["destination"]
+    assert destination["latitude"] == 32.6389
+    assert destination["longitude"] == 14.2906
 
 
 @pytest.mark.parametrize(

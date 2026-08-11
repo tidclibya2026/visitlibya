@@ -7,6 +7,7 @@ const isArabic = document.documentElement.lang === "ar";
 const locale = isArabic ? "ar-LY" : "en";
 const pathPrefix = isArabic ? "../" : "";
 const runtimeConfig = loadRuntimeConfig();
+const DESTINATION_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 const copy = Object.freeze({
   allCategories: isArabic ? "كل الوجهات" : "All destinations",
@@ -110,29 +111,42 @@ function safeText(value, fallback) {
 function normalizeApiItem(item) {
   if (!item || typeof item !== "object") return null;
   const id = Number(item.id);
-  const slug = safeText(item.slug, Number.isInteger(id) ? `destination-${id}` : "");
-  if (!slug) return null;
+  const slug = safeText(item.slug, "").toLowerCase();
+  if (!Number.isSafeInteger(id) || id < 1 || !DESTINATION_SLUG_PATTERN.test(slug)) return null;
   const curated = curatedDestinations.find((entry) => entry.slug === slug);
+  const curatedName = safeText(isArabic ? curated?.name_ar : curated?.name_en, "");
+  const curatedDescription = safeText(isArabic ? curated?.description_ar : curated?.description_en, "");
+  const curatedRegion = safeText(isArabic ? curated?.region_ar : curated?.region_en, "");
+  const curatedCategory = safeText(isArabic ? curated?.category_ar : curated?.category_en, "");
   const apiImage = normalizeImageUrl(item.primary_media_url);
   const responsive = apiImage || !curated ? null : resolveResponsiveImage(curated.image, pathPrefix);
+  const coordinates = normalizeCoordinates(item.latitude, item.longitude);
   return {
     slug,
-    name: safeText(isArabic ? item.name_ar : item.name_en, safeText(isArabic ? item.name_en : item.name_ar, copy.categoryUnknown)),
+    name: safeText(isArabic ? item.name_ar : item.name_en, safeText(isArabic ? item.name_en : item.name_ar, curatedName || copy.categoryUnknown)),
     description: safeText(
       isArabic ? item.short_description_ar : item.short_description_en,
-      safeText(isArabic ? item.short_description_en : item.short_description_ar, copy.descriptionUnknown),
+      safeText(isArabic ? item.short_description_en : item.short_description_ar, curatedDescription || copy.descriptionUnknown),
     ),
-    region: safeText(item.region, safeText(item.municipality, copy.locationUnknown)),
+    region: safeText(item.region, safeText(item.municipality, curatedRegion || copy.locationUnknown)),
     category: safeText(
       isArabic ? item.category?.name_ar : item.category?.name_en,
-      copy.categoryUnknown,
+      curatedCategory || copy.categoryUnknown,
     ),
     categoryId: Number.isInteger(Number(item.category?.id)) ? String(item.category.id) : "",
     image: apiImage || (curated?.image ? `${pathPrefix}${curated.image}` : ""),
     imageAlt: curated ? (isArabic ? curated.image_alt_ar : curated.image_alt_en) : "",
     imageWebp: responsive?.webp ?? "",
     imageWebpSrcset: responsive?.srcset ?? "",
+    coordinates,
   };
+}
+
+function normalizeCoordinates(latitude, longitude) {
+  return Number.isFinite(latitude) && latitude >= -90 && latitude <= 90 &&
+    Number.isFinite(longitude) && longitude >= -180 && longitude <= 180
+    ? Object.freeze({ latitude, longitude })
+    : null;
 }
 
 function normalizeImageUrl(value) {
