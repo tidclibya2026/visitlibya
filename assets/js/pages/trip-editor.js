@@ -129,6 +129,13 @@ function destinationName(item, locale) {
   );
 }
 
+function localizedTripValue(prefix, value, t) {
+  if (!value) return "—";
+  const key = `${prefix}${value[0].toUpperCase()}${value.slice(1)}`;
+  const translated = t(key);
+  return translated === key ? value : translated;
+}
+
 function publicErrorMessage(error, t) {
   if (error?.code === "NETWORK_ERROR" && globalThis.navigator?.onLine === false) {
     return t("errors.offline");
@@ -299,6 +306,15 @@ export async function initializeTripEditor(documentRef = document) {
   const save = queryRequired("[data-trip-save]", documentRef);
   const addStop = queryRequired("[data-add-stop]", documentRef);
   const itinerary = queryRequired("[data-trip-itinerary]", documentRef);
+  const editTripDetails = queryRequired("[data-edit-trip-details]", documentRef);
+  const overviewDescription = queryRequired("[data-trip-overview-description]", documentRef);
+  const overviewDates = queryRequired("[data-trip-overview-dates]", documentRef);
+  const overviewDays = queryRequired("[data-trip-overview-days]", documentRef);
+  const overviewStops = queryRequired("[data-trip-overview-stops]", documentRef);
+  const overviewStatus = queryRequired("[data-trip-overview-status]", documentRef);
+  const overviewVisibility = queryRequired("[data-trip-overview-visibility]", documentRef);
+  const summary = queryRequired("[data-trip-summary]", documentRef);
+  const review = queryRequired("[data-trip-review]", documentRef);
 
   if (!context.config.apiEnabled) {
     setVisible(loading, false);
@@ -437,12 +453,18 @@ export async function initializeTripEditor(documentRef = document) {
   const renderItinerary = () => {
     itinerary.replaceChildren();
     if (!trip.items.length) {
-      itinerary.appendChild(
-        createElement("div", {
-          className: "trips-empty",
-          text: t("trips.noStops"),
-        }),
+      const empty = createElement("div", { className: "trip-empty-state" });
+      empty.append(
+        createElement("span", { className: "trip-empty-state__mark", text: "✦", attributes: { "aria-hidden": "true" } }),
+        createElement("h3", { text: locale === "ar" ? "ابدأ في بناء رحلتك" : "Start building your journey" }),
+        createElement("p", { text: locale === "ar" ? "أضف الوجهات لتنظيم برنامج رحلتك يومًا بيوم." : "Add destinations to organize your trip day by day." }),
       );
+      const emptyActions = createElement("div", { className: "trips-toolbar-actions" });
+      const emptyAdd = createElement("button", { className: "trips-primary-button", text: t("trips.addStop"), attributes: { type: "button", "data-add-stop-action": "" } });
+      emptyAdd.addEventListener("click", () => openStopEditor());
+      emptyActions.append(emptyAdd, createElement("a", { className: "trips-secondary-button", text: locale === "ar" ? "استكشف الوجهات" : "Explore Destinations", attributes: { href: locale === "ar" ? "destinations.html" : "destinations.html" } }));
+      empty.appendChild(emptyActions);
+      itinerary.appendChild(empty);
     }
     const days = createElement("div", { className: "trip-days" });
     const allItems = orderedItems(trip.items);
@@ -523,7 +545,12 @@ export async function initializeTripEditor(documentRef = document) {
           });
         });
         const content = createElement("div", { className: "trip-stop__content" });
-        content.appendChild(createElement("h4", { text: name }));
+        const stopTitle = createElement("h4");
+        const slug = String(item.destination?.slug ?? "").trim();
+        if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+          stopTitle.appendChild(createElement("a", { text: name, attributes: { href: `destination.html?slug=${encodeURIComponent(slug)}` } }));
+        } else stopTitle.appendChild(documentRef.createTextNode(name));
+        content.appendChild(stopTitle);
         const meta = createElement("p", { className: "trip-stop__meta" });
         if (item.start_time) {
           meta.appendChild(createElement("span", { text: item.start_time.slice(0, 5) }));
@@ -543,6 +570,9 @@ export async function initializeTripEditor(documentRef = document) {
               text: item.notes,
             }),
           );
+        }
+        if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) {
+          content.appendChild(createElement("a", { className: "trip-stop__destination-link", text: locale === "ar" ? "عرض الوجهة" : "View Destination", attributes: { href: `destination.html?slug=${encodeURIComponent(slug)}`, "aria-label": `${locale === "ar" ? "عرض الوجهة" : "View Destination"}: ${name}` } }));
         }
         const actions = createElement("div", { className: "trip-stop__actions" });
         const action = (label, handler, disabled = false) => {
@@ -628,6 +658,37 @@ export async function initializeTripEditor(documentRef = document) {
     });
     setText(heading, trip.title || t("trips.editorTitle"));
     setText(version, trip.version);
+    const days = tripDayCount(trip);
+    const dateFormatter = new Intl.DateTimeFormat(locale, { year: "numeric", month: "short", day: "numeric" });
+    const start = parseDateOnly(trip.start_date);
+    const end = parseDateOnly(trip.end_date);
+    setText(overviewDates, start && end ? `${dateFormatter.format(start)} – ${dateFormatter.format(end)}` : start ? dateFormatter.format(start) : t("trips.noDates"));
+    setText(overviewDays, days ?? "—");
+    setText(overviewStops, trip.items.length);
+    setText(overviewStatus, localizedTripValue("trips.status", trip.status, t));
+    setText(overviewVisibility, localizedTripValue("trips.visibility", trip.visibility, t));
+    setText(overviewDescription, trip.description ?? "");
+    setVisible(overviewDescription, Boolean(trip.description));
+
+    const represented = new Set(trip.items.map((item) => item.destination?.id).filter(Boolean)).size;
+    const dayNumbers = availableDays(trip);
+    const emptyDays = dayNumbers.filter((day) => !trip.items.some((item) => item.day_number === day)).length;
+    const facts = locale === "ar"
+      ? [["الأيام", days ?? "—"], ["المحطات المخططة", trip.items.length], ["الأيام الفارغة", emptyDays], ["الوجهات الممثلة", represented]]
+      : [["Days", days ?? "—"], ["Planned stops", trip.items.length], ["Empty days", emptyDays], ["Destinations represented", represented]];
+    summary.replaceChildren(...facts.map(([label, value]) => { const wrapper = createElement("div"); wrapper.append(createElement("dt", { text: label }), createElement("dd", { text: value })); return wrapper; }));
+    const observations = [];
+    if (!trip.items.length) observations.push(locale === "ar" ? "لا تحتوي الرحلة على محطات بعد." : "This trip has no stops yet.");
+    if (!start || !end) observations.push(locale === "ar" ? "تواريخ الرحلة غير مكتملة." : "Trip dates are not complete.");
+    dayNumbers.forEach((day) => {
+      const stops = trip.items.filter((item) => item.day_number === day);
+      if (!stops.length) observations.push(locale === "ar" ? `اليوم ${day} فارغ.` : `Day ${day} is empty.`);
+      if (stops.length > 5) observations.push(locale === "ar" ? `يحتوي اليوم ${day} على عدد كبير من المحطات (${stops.length}).` : `Day ${day} has an unusually high number of stops (${stops.length}).`);
+    });
+    const missingTimes = trip.items.filter((item) => !item.start_time).length;
+    if (missingTimes) observations.push(locale === "ar" ? `${missingTimes} من المحطات بلا وقت زيارة.` : `${missingTimes} ${missingTimes === 1 ? "stop is" : "stops are"} missing a visit time.`);
+    if (!observations.length) observations.push(locale === "ar" ? "لم ترصد مراجعة التخطيط أي ملاحظات." : "The planning check found no observations.");
+    review.replaceChildren(...observations.map((text) => createElement("li", { text })));
     savedSnapshot = normalizedSnapshot(trip);
     dirtyMetadata = false;
     clearFieldErrors();
@@ -1224,6 +1285,12 @@ export async function initializeTripEditor(documentRef = document) {
   });
 
   addStop.addEventListener("click", () => openStopEditor());
+  editTripDetails.addEventListener("click", () => {
+    const willOpen = form.hidden;
+    form.hidden = !willOpen;
+    editTripDetails.setAttribute("aria-expanded", String(willOpen));
+    if (willOpen) form.elements.namedItem("title")?.focus();
+  });
   retry.addEventListener("click", () => void loadTrip({ focus: true }));
   globalThis.addEventListener("visitlibya:auth-expired", showAuthRequired);
   globalThis.addEventListener("beforeunload", (event) => {
