@@ -7,13 +7,17 @@ $errors = [System.Collections.Generic.List[string]]::new()
 function Fail([string]$Message) { $errors.Add($Message) }
 
 foreach ($tool in @('git','node')) { if (-not (Get-Command $tool -ErrorAction SilentlyContinue)) { Fail "Required tool is unavailable: $tool" } }
-$branch = git -C $root branch --show-current
+$branch = if (-not [string]::IsNullOrWhiteSpace($env:PREFLIGHT_GIT_BRANCH)) {
+  $env:PREFLIGHT_GIT_BRANCH
+} else {
+  git -C $root branch --show-current
+}
 if ([string]::IsNullOrWhiteSpace($branch)) { Fail 'Git branch could not be determined.' }
 if ($env:ALLOW_DIRTY_GIT -ne 'true' -and (git -C $root status --porcelain)) { Fail 'Git state is not clean or explicitly approved.' }
 if ($env:IMAGE_REFERENCE -notmatch '^[a-z0-9][a-z0-9._/-]*(?::[A-Za-z0-9._-]+|@sha256:[a-f0-9]{64})$') { Fail 'IMAGE_REFERENCE format is invalid.' }
 
 & (Join-Path $PSScriptRoot 'validate-environment.ps1')
-if ($LASTEXITCODE -ne 0) { Fail 'Environment validation failed.' }
+if (-not $?) { Fail 'Environment validation failed.' }
 
 $requiredFiles = @(
   'docs/adr/ADR-001-production-hosting-architecture.md',

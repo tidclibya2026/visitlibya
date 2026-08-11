@@ -6,7 +6,7 @@ errors=0
 fail() { printf '%s\n' "$1" >&2; errors=$((errors + 1)); }
 
 for tool in git node python3; do command -v "$tool" >/dev/null 2>&1 || fail "Required tool is unavailable: $tool"; done
-branch="$(git -C "$root" branch --show-current 2>/dev/null || true)"
+branch="${PREFLIGHT_GIT_BRANCH:-$(git -C "$root" branch --show-current 2>/dev/null || true)}"
 [[ -n "$branch" ]] || fail 'Git branch could not be determined.'
 if [[ "${ALLOW_DIRTY_GIT:-}" != 'true' ]] && [[ -n "$(git -C "$root" status --porcelain)" ]]; then fail 'Git state is not clean or explicitly approved.'; fi
 if [[ ! "${IMAGE_REFERENCE:-}" =~ ^[a-z0-9][a-z0-9._/-]*(:[A-Za-z0-9._-]+|@sha256:[a-f0-9]{64})$ ]]; then fail 'IMAGE_REFERENCE format is invalid.'; fi
