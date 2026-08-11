@@ -31,6 +31,13 @@
       "longitude": 23.2208064,
       "source_reference": "atlasnatrual-with-media.geojson#Feature-667",
       "status": "reviewed"
+    },
+    {
+      "slug": "old-city-ghadames",
+      "latitude": 30.133674,
+      "longitude": 9.496486,
+      "source_reference": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-5",
+      "status": "reviewed"
     }
   ]
 }
