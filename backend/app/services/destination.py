@@ -72,6 +72,37 @@ class DestinationService:
             self._rollback_failed_read()
             raise DestinationPersistenceError() from exc
 
+    def list_public_destinations(
+        self,
+        *,
+        skip: int,
+        limit: int,
+        category_id: int | None,
+        region: str | None,
+        municipality: str | None,
+        is_featured: bool | None,
+    ) -> tuple[Sequence[Destination], int]:
+        return self.list_destinations(
+            skip=skip,
+            limit=limit,
+            status=DestinationStatus.PUBLISHED,
+            category_id=category_id,
+            region=region,
+            municipality=municipality,
+            is_featured=is_featured,
+            is_active=True,
+        )
+
+    def get_public_destination_by_slug(self, slug: str) -> Destination:
+        try:
+            destination = self.repository.get_public_by_slug(slug)
+        except SQLAlchemyError as exc:
+            self._rollback_failed_read()
+            raise DestinationPersistenceError() from exc
+        if destination is None:
+            raise DestinationNotFoundError()
+        return destination
+
     def get_destination_by_slug(self, slug: str) -> Destination:
         try:
             destination = self.repository.get_by_slug(slug)

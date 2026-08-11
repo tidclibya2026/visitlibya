@@ -57,6 +57,34 @@ def list_destinations(
     is_featured: bool | None = None,
     is_active: bool | None = True,
 ) -> DestinationListResponse:
+    if status_filter not in (None, DestinationStatus.PUBLISHED) or is_active is False:
+        return DestinationListResponse(items=[], total=0, skip=skip, limit=limit)
+    try:
+        items, total = service.list_public_destinations(
+            skip=skip,
+            limit=limit,
+            category_id=category_id,
+            region=region,
+            municipality=municipality,
+            is_featured=is_featured,
+        )
+    except DestinationError as error:
+        raise_http_error(error)
+    return DestinationListResponse(items=list(items), total=total, skip=skip, limit=limit)
+
+
+@router.get("/admin", response_model=DestinationListResponse, tags=["Destinations Admin"], dependencies=[Depends(require_content_admin)])
+def list_destinations_admin(
+    service: DestinationServiceDependency,
+    skip: SkipParameter = 0,
+    limit: LimitParameter = 20,
+    status_filter: Annotated[DestinationStatus | None, Query(alias="status")] = None,
+    category_id: int | None = None,
+    region: str | None = None,
+    municipality: str | None = None,
+    is_featured: bool | None = None,
+    is_active: bool | None = None,
+) -> DestinationListResponse:
     try:
         items, total = service.list_destinations(
             skip=skip,
@@ -71,6 +99,17 @@ def list_destinations(
     except DestinationError as error:
         raise_http_error(error)
     return DestinationListResponse(items=list(items), total=total, skip=skip, limit=limit)
+
+
+@router.get("/admin/{slug}", response_model=DestinationRead, tags=["Destinations Admin"], dependencies=[Depends(require_content_admin)])
+def get_destination_admin(
+    slug: str,
+    service: DestinationServiceDependency,
+) -> Destination:
+    try:
+        return service.get_destination_by_slug(slug)
+    except DestinationError as error:
+        raise_http_error(error)
 
 
 @router.post("", response_model=DestinationRead, status_code=status.HTTP_201_CREATED, dependencies=[Depends(require_content_admin)])
@@ -90,7 +129,7 @@ def get_destination(
     service: DestinationServiceDependency,
 ) -> Destination:
     try:
-        return service.get_destination_by_slug(slug)
+        return service.get_public_destination_by_slug(slug)
     except DestinationError as error:
         raise_http_error(error)
 
