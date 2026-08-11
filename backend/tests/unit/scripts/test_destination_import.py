@@ -10,6 +10,7 @@ from scripts.destination_import import (
     apply_plan,
     build_plan,
     environment_allows_apply,
+    format_report,
     load_dataset,
 )
 
@@ -149,6 +150,12 @@ def test_dry_run_plan_performs_zero_commits() -> None:
     session = FakeSession()
     plan = build_plan(model(), {}, {})
     assert plan.create_destinations and session.commits == 0 and not session.added
+
+
+def test_report_includes_translation_plan() -> None:
+    dataset = model(); plan = build_plan(dataset, {}, {})
+    report = format_report(dataset, "0" * 64, plan, "development", False)
+    assert "Translations:\n  Create: 2\n  Existing unchanged: 0" in report
 
 
 def test_apply_uses_one_commit() -> None:

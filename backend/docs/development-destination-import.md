@@ -38,6 +38,28 @@ python -m scripts.seed_destinations --apply
 
 Do not use this importer as a production publication mechanism.
 
+## Local PostgreSQL/PostGIS workflow on Windows
+
+The repository's Docker Compose backend is the preferred execution environment. It mounts `backend/` at `/app` and receives the same `DATABASE_URL` used by the running API, so it avoids an accidental local SQLite fallback without duplicating or printing credentials.
+
+From the repository root in PowerShell:
+
+```text
+docker compose up -d
+docker compose ps
+docker compose exec -T backend python -m scripts.check_database
+docker compose exec -T backend python -m scripts.check_migrations
+docker compose exec -T backend python -m alembic current
+docker compose exec -T backend python -m alembic heads
+docker compose exec -T backend python -m scripts.seed_destinations
+```
+
+The last command is dry-run because it omits `--apply`. A correct report identifies environment `development` and target `database / visitlibya`. A report identifying `local / ./visitlibya.db` means the command was launched outside the configured backend environment and must not be applied.
+
+Compose requires local `POSTGRES_PASSWORD` and `DATABASE_URL` environment values, but commands and documentation must never echo them. The current development compose file mounts the backend source, so importer changes are immediately visible in the container. Rebuilding is necessary only when Python dependencies or the image definition change.
+
+If the services are not already running, `docker compose up -d` starts them without resetting the named PostgreSQL volume. Do not run an Alembic upgrade as part of importer execution; compare `current` and `heads`, and stop for review if they differ.
+
 ## Idempotency and conflicts
 
 The first conflict-free apply creates missing categories, destinations, and translation rows. A second run compares every managed field and reports the same rows as unchanged. A changed existing record is a conflict and receives no write; version 1 intentionally has no update mode.
@@ -45,3 +67,21 @@ The first conflict-free apply creates missing categories, destinations, and tran
 ## Verification after a human-approved apply
 
 Check the public list, search, and each exact slug through the API. Only published, active rows should appear. Confirm Arabic and English translations and nullable coordinate serialization. The importer does not create trips or send anything to the Libya Tourist Atlas.
+
+## Reviewed coordinate intake
+
+`data/dev/destination-coordinates.reviewed.json` is an intentionally empty handoff envelope. Coordinate records may be added only from a supplied center-owned or otherwise approved local source. Each record requires an exact canonical destination slug, a complete validated pair, a source reference, and explicit `reviewed` status. Reviewer and review date remain null until truthful values are supplied.
+
+Preview a handoff without changing any file or database:
+
+```text
+docker compose exec -T backend python -m scripts.merge_destination_coordinates
+```
+
+After an institutional source is supplied and reviewed, an authorized operator can explicitly update only the canonical JSON dataset:
+
+```text
+docker compose exec -T backend python -m scripts.merge_destination_coordinates --write-dataset
+```
+
+The write is atomic and reports before/after SHA-256 values. It never opens a database session. Unknown slugs and differences from an existing canonical coordinate pair block the write. Re-run the destination importer in dry-run mode after any dataset update; database apply remains a separate, human-approved action.
