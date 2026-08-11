@@ -1,7 +1,36 @@
 {
   "schema_version": 1,
-  "source": null,
+  "source": "backend/data/gis/canonical-destination-coordinate-review.json",
   "reviewed_by": null,
   "review_date": null,
-  "records": []
+  "records": [
+    {
+      "slug": "leptis-magna",
+      "latitude": 32.6389502,
+      "longitude": 14.2883012,
+      "source_reference": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-1",
+      "status": "reviewed"
+    },
+    {
+      "slug": "sabratha",
+      "latitude": 32.805035,
+      "longitude": 12.484983,
+      "source_reference": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-2",
+      "status": "reviewed"
+    },
+    {
+      "slug": "acacus",
+      "latitude": 24.812882,
+      "longitude": 10.568242,
+      "source_reference": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-4",
+      "status": "reviewed"
+    },
+    {
+      "slug": "bomba-bay",
+      "latitude": 32.3072999,
+      "longitude": 23.2208064,
+      "source_reference": "atlasnatrual-with-media.geojson#Feature-667",
+      "status": "reviewed"
+    }
+  ]
 }
