@@ -1,0 +1,390 @@
+{
+  "schema_version": 1,
+  "layer_id": "natural-layer-cross-layer-review",
+  "policy": {
+    "publication_approved": false,
+    "database_write": false,
+    "records_deleted": false
+  },
+  "summary": {
+    "green_cross_layer": 11,
+    "green_excluded_from_natural": 2,
+    "sahara_cross_layer": 2,
+    "sahara_excluded_from_natural": 0
+  },
+  "records": {
+    "green_cross_layer": [
+      {
+        "source_feature_id": 111,
+        "name": "استراحة منتزه وادي الكوف",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 21.5634833333334,
+        "latitude": 32.7017888888889,
+        "locality_signals": [
+          "وادي الكوف",
+          "الكوف"
+        ],
+        "tourism_signals": [
+          "وادي"
+        ],
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "استراحة"
+        ]
+      },
+      {
+        "source_feature_id": 123,
+        "name": "جسر وادي الكوف",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 21.5651463,
+        "latitude": 32.6969085,
+        "locality_signals": [
+          "وادي الكوف",
+          "الكوف"
+        ],
+        "tourism_signals": [
+          "وادي"
+        ],
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "جسر"
+        ]
+      },
+      {
+        "source_feature_id": 124,
+        "name": "جسر وادي الكوف القديم",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 21.5745439,
+        "latitude": 32.6985923,
+        "locality_signals": [
+          "وادي الكوف",
+          "الكوف"
+        ],
+        "tourism_signals": [
+          "وادي"
+        ],
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "جسر"
+        ]
+      },
+      {
+        "source_feature_id": 135,
+        "name": "قصر المقدم",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 21.5388888888889,
+        "latitude": 32.6702777777778,
+        "locality_signals": [
+          "وادي الكوف",
+          "الكوف"
+        ],
+        "tourism_signals": [
+          "وادي"
+        ],
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "قصر"
+        ]
+      },
+      {
+        "source_feature_id": 137,
+        "name": "قلعة وادي الباب",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 20.5283472,
+        "latitude": 31.5715241,
+        "locality_signals": [],
+        "tourism_signals": [
+          "وادي"
+        ],
+        "tourism_relevance": "MEDIUM_HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "قلعة"
+        ]
+      },
+      {
+        "source_feature_id": 157,
+        "name": "مقابر أثرية",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 22.2933224,
+        "latitude": 32.8152321,
+        "locality_signals": [],
+        "tourism_signals": [
+          "وادي"
+        ],
+        "tourism_relevance": "MEDIUM_HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "مقابر"
+        ]
+      },
+      {
+        "source_feature_id": 158,
+        "name": "مقبرة المنيخرات",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 20.9201183,
+        "latitude": 32.4613738,
+        "locality_signals": [
+          "المرج"
+        ],
+        "tourism_signals": [
+          "وادي"
+        ],
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "مقبرة"
+        ]
+      },
+      {
+        "source_feature_id": 159,
+        "name": "منتجع الينابيع السياحي",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 22.19025,
+        "latitude": 32.8815,
+        "locality_signals": [
+          "شحات",
+          "رأس الهلال",
+          "الأثرون"
+        ],
+        "tourism_signals": [
+          "وادي",
+          "شلال",
+          "خليج",
+          "رأس"
+        ],
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "منتجع"
+        ]
+      },
+      {
+        "source_feature_id": 160,
+        "name": "منتجع وادي الكوف",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 21.562313,
+        "latitude": 32.70194,
+        "locality_signals": [
+          "البيضاء",
+          "وادي الكوف",
+          "الكوف"
+        ],
+        "tourism_signals": [
+          "وادي"
+        ],
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "منتجع"
+        ]
+      },
+      {
+        "source_feature_id": 161,
+        "name": "منتجع وادي الكوف",
+        "primary_category": "الأودية ومصباتها",
+        "longitude": 21.563798,
+        "latitude": 32.702,
+        "locality_signals": [
+          "البيضاء",
+          "وادي الكوف",
+          "الكوف"
+        ],
+        "tourism_signals": [
+          "وادي"
+        ],
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "منتجع"
+        ]
+      },
+      {
+        "source_feature_id": 939,
+        "name": "قلعة القيقب",
+        "primary_category": "محميات وموائل الطيور المهاجرة",
+        "longitude": 22.0215212,
+        "latitude": 32.7257113,
+        "locality_signals": [
+          "الجبل الأخضر",
+          "القيقب"
+        ],
+        "tourism_signals": [
+          "جبل"
+        ],
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "قلعة"
+        ]
+      }
+    ],
+    "green_excluded_from_natural": [
+      {
+        "source_feature_id": 662,
+        "name": "الكنيسة الايطالية",
+        "primary_category": "العيون الطبيعية",
+        "longitude": 21.6280004,
+        "latitude": 32.75328,
+        "locality_signals": [],
+        "tourism_signals": [
+          "عين"
+        ],
+        "tourism_relevance": "MEDIUM_HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "EXCLUDED_FROM_NATURAL_LAYER",
+        "curation_reason": "semantic_misclassification",
+        "matched_terms": [
+          "الكنيسة",
+          "كنيسة"
+        ]
+      },
+      {
+        "source_feature_id": 834,
+        "name": "مستشفى عين مارة",
+        "primary_category": "العيون الطبيعية",
+        "longitude": 22.3879812,
+        "latitude": 32.7494853,
+        "locality_signals": [],
+        "tourism_signals": [
+          "عين"
+        ],
+        "tourism_relevance": "MEDIUM_HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "publication_approved": false,
+        "curation_status": "EXCLUDED_FROM_NATURAL_LAYER",
+        "curation_reason": "semantic_misclassification",
+        "matched_terms": [
+          "مستشفى"
+        ]
+      }
+    ],
+    "sahara_cross_layer": [
+      {
+        "source_feature_id": 832,
+        "name": "قلعة ام العبيد",
+        "primary_category": "العيون الطبيعية",
+        "all_categories": "العيون الطبيعية",
+        "longitude": 15.0273444444445,
+        "latitude": 27.5092527777778,
+        "source": "اطلس2026.xml",
+        "origin": "أطلس ليبيا السياحي 2026",
+        "status": "جاهز مبدئياً",
+        "regional_layer": "libyan-sahara",
+        "selection_evidence": {
+          "method": "southern_libya_regional_guard",
+          "matched_keywords": []
+        },
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "canonical_approval": false,
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "tourism_name_signals": [],
+        "classification_reason": "visitor_relevant_natural_category",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "قلعة"
+        ]
+      },
+      {
+        "source_feature_id": 913,
+        "name": "قصر أم الحمام الأثري",
+        "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+        "all_categories": "الفوارات والمياه الكبريتية والحمامات",
+        "longitude": 13.6240768,
+        "latitude": 25.9997678,
+        "source": "اطلس2026.xml",
+        "origin": "أطلس ليبيا السياحي 2026",
+        "status": "جاهز مبدئياً",
+        "regional_layer": "libyan-sahara",
+        "selection_evidence": {
+          "method": "southern_libya_regional_guard",
+          "matched_keywords": []
+        },
+        "media_companion_found": true,
+        "review_status": "REVIEW_REQUIRED",
+        "canonical_approval": false,
+        "tourism_relevance": "HIGH",
+        "recommended_action": "TOURISM_REVIEW",
+        "tourism_name_signals": [
+          "حمام"
+        ],
+        "classification_reason": "visitor_relevant_natural_category",
+        "publication_approved": false,
+        "curation_status": "CROSS_LAYER_REVIEW",
+        "curation_reason": "tourism_relevant_but_not_purely_natural",
+        "matched_terms": [
+          "قصر"
+        ]
+      }
+    ],
+    "sahara_excluded_from_natural": []
+  }
+}
