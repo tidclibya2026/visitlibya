@@ -74,6 +74,26 @@
         <aside class="destination-detail-facts" aria-labelledby="destinationFactsTitle"><h2 id="destinationFactsTitle">Location at a glance</h2><dl><div><dt>Region</dt><dd id="destinationRegion">Libya</dd></div><div><dt>Municipality</dt><dd id="destinationMunicipality">Not specified</dd></div><div><dt>Destination type</dt><dd id="destinationCategoryFact">Libyan destination</dd></div></dl></aside>
       </section>
 
+      <section class="destination-natural" id="destinationNaturalSection" aria-labelledby="destinationNaturalTitle" hidden>
+        <div class="destination-detail-section-heading destination-natural__heading">
+          <p class="destination-detail-eyebrow">Explore Nature</p>
+          <h2 id="destinationNaturalTitle">Natural Tourism Map</h2>
+          <p id="destinationNaturalDescription">Explore selected natural tourism sites across this destination.</p>
+        </div>
+        <div class="destination-natural__toolbar">
+          <div class="destination-natural__filter">
+            <label for="destinationNaturalFilter">Filter by category</label>
+            <select id="destinationNaturalFilter"><option value="all">All categories</option></select>
+          </div>
+          <p id="destinationNaturalCount" class="destination-natural__count" data-natural-map-status aria-live="polite"></p>
+        </div>
+        <div id="destinationNaturalMap" class="natural-map" role="group" aria-label="Natural tourism sites map" aria-describedby="destinationNaturalDescription">
+          <div class="natural-map__plot" data-natural-map-plot role="group" aria-label="Natural tourism map markers"></div>
+          <div class="natural-map__context" data-natural-map-context role="status" aria-live="polite" hidden></div>
+        </div>
+        <p id="destinationNaturalMapFailure" class="destination-natural__failure" role="status" hidden>The natural tourism map could not be loaded.</p>
+      </section>
+
       <section class="destination-detail-gallery" id="destinationGallerySection" aria-labelledby="destinationGalleryTitle" hidden><div class="destination-detail-section-heading"><p class="destination-detail-eyebrow">Local perspectives</p><h2 id="destinationGalleryTitle">Gallery</h2></div><div class="destination-detail-gallery__grid" id="destinationGallery"></div></section>
       <section class="destination-detail-related" id="destinationRelatedSection" aria-labelledby="destinationRelatedTitle" hidden><div class="destination-detail-section-heading"><p class="destination-detail-eyebrow">Continue exploring</p><h2 id="destinationRelatedTitle">Related destinations</h2></div><div class="destination-detail-related__grid" id="destinationRelated"></div></section>
       <section class="destination-detail-cta" aria-labelledby="destinationCtaTitle"><div><p class="destination-detail-eyebrow">Shape your journey</p><h2 id="destinationCtaTitle">Continue planning your visit</h2><p>Bring this destination into a wider journey across Libya.</p><p class="destination-trip-availability" id="destinationTripAvailability" role="status" hidden></p></div><div class="destination-detail-actions"><button class="destination-detail-button destination-detail-button--gold" id="destinationAddToTrip" type="button">Add to Trip</button><a class="destination-detail-button destination-detail-button--light" id="destinationPlanLink" href="plan.html">Plan a trip</a><a class="destination-detail-button destination-detail-button--light" id="destinationAtlasLink" data-atlas-external href="#">Explore in Tourism Atlas</a></div></section>

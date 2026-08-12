@@ -23,6 +23,13 @@ let activeRequest = null;
 let requestSequence = 0;
 let currentDestination = null;
 let activeTripModal = null;
+let naturalTourismGeneration = 0;
+let naturalTourismController = null;
+
+const NATURAL_TOURISM_DESTINATIONS = Object.freeze({
+  "green-mountain": "green-mountain",
+  desert: "libyan-sahara",
+});
 
 const copy = Object.freeze({
   destination: isArabic ? "وجهة ليبية" : "Libyan destination",
@@ -136,7 +143,75 @@ const elements = {
   atlasLink: document.getElementById("destinationAtlasLink"),
   addToTrip: document.getElementById("destinationAddToTrip"),
   tripAvailability: document.getElementById("destinationTripAvailability"),
+  naturalSection: document.getElementById("destinationNaturalSection"),
+  naturalFilter: document.getElementById("destinationNaturalFilter"),
+  naturalMap: document.getElementById("destinationNaturalMap"),
+  naturalFailure: document.getElementById("destinationNaturalMapFailure"),
 };
+
+function resetNaturalTourism() {
+  naturalTourismGeneration += 1;
+  naturalTourismController?.update({ features: [] });
+  naturalTourismController = null;
+  elements.naturalFilter.onchange = null;
+  elements.naturalSection.hidden = true;
+  elements.naturalFailure.hidden = true;
+  elements.naturalMap.hidden = false;
+  elements.naturalFilter.replaceChildren(
+    createElement("option", {
+      text: isArabic ? "جميع الفئات" : "All categories",
+      attributes: { value: "all" },
+    }),
+  );
+}
+
+async function renderNaturalTourism(slug) {
+  resetNaturalTourism();
+  const layerId = NATURAL_TOURISM_DESTINATIONS[slug];
+  if (!layerId) return;
+
+  const generation = naturalTourismGeneration;
+  elements.naturalSection.hidden = false;
+
+  try {
+    const [dataModule, mapModule] = await Promise.all([
+      import("../data/natural-tourism-layers.js"),
+      import("../app/map/natural-tourism-map.js"),
+    ]);
+    if (generation !== naturalTourismGeneration) return;
+
+    const features = dataModule.getNaturalTourismFeatures(layerId);
+    const categories = mapModule.naturalLayerCategoryOptions(features);
+    const options = [
+      createElement("option", {
+        text: isArabic ? "جميع الفئات" : "All categories",
+        attributes: { value: "all" },
+      }),
+      ...categories.map((category) =>
+        createElement("option", {
+          text: isArabic ? category.ar : category.en,
+          attributes: { value: category.key },
+        }),
+      ),
+    ];
+
+    elements.naturalFilter.replaceChildren(...options);
+    naturalTourismController = mapModule.createNaturalTourismMap({
+      root: elements.naturalMap,
+      locale,
+    });
+    naturalTourismController.update({ layerId, features });
+
+    elements.naturalFilter.onchange = () => {
+      naturalTourismController?.setCategory(elements.naturalFilter.value);
+    };
+  } catch (error) {
+    if (generation !== naturalTourismGeneration) return;
+    reportDevelopmentError("Natural tourism map failed", error);
+    elements.naturalMap.hidden = true;
+    elements.naturalFailure.hidden = false;
+  }
+}
 
 function readSlug(search = globalThis.location.search) {
   const parameters = new URLSearchParams(search);
@@ -769,6 +844,7 @@ function render(destination, { fallback = false } = {}) {
   appendParagraphs(elements.description, destination.description);
   renderGallery(destination);
   renderRelated(destination);
+  void renderNaturalTourism(destination.slug);
   document.title = `${destination.name} | Visit Libya`;
   setView("content");
 }
