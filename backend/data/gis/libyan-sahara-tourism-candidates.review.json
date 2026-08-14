@@ -1,0 +1,1912 @@
+{
+  "schema_version": 1,
+  "layer_id": "libyan-sahara-tourism-candidates",
+  "canonical_destination_slug": "desert",
+  "policy": {
+    "publication_approved": false,
+    "database_write": false,
+    "source_modified": false,
+    "coordinate_generated": false
+  },
+  "summary": {
+    "record_count": 73,
+    "category_counts": {
+      "الأودية ومصباتها": 3,
+      "البحيرات الطبيعية والصحراوية": 36,
+      "البرك والبلطات والقلتات": 7,
+      "السبخات والأراضي الرطبة": 8,
+      "العيون الطبيعية": 12,
+      "الفوارات والمياه الكبريتية والحمامات": 7
+    }
+  },
+  "records": [
+    {
+      "source_feature_id": 136,
+      "name": "قلتة وادي بوبو",
+      "primary_category": "الأودية ومصباتها",
+      "all_categories": "الأودية ومصباتها؛ البرك والبلطات والقلتات",
+      "longitude": 10.6366694444445,
+      "latitude": 24.5794388888889,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "قلتة"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 460,
+      "name": "وادي عين احباتر",
+      "primary_category": "الأودية ومصباتها",
+      "all_categories": "الأودية ومصباتها؛ العيون الطبيعية",
+      "longitude": 12.141931,
+      "latitude": 25.7447041,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 461,
+      "name": "وادي عين حباتر",
+      "primary_category": "الأودية ومصباتها",
+      "all_categories": "الأودية ومصباتها؛ العيون الطبيعية",
+      "longitude": 11.9888550000001,
+      "latitude": 25.695042,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 520,
+      "name": "العين ( بحيرة شديدة الملوحة )",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.874098,
+      "latitude": 27.4419713,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين",
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 522,
+      "name": "بحيرات المحروقة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 14.0707116,
+      "latitude": 27.4397354,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 523,
+      "name": "بحيرات برقن",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.6258365,
+      "latitude": 27.5316778,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 524,
+      "name": "بحيرات برقن",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.6335675,
+      "latitude": 27.511145,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 525,
+      "name": "بحيرات زلة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 17.5572158,
+      "latitude": 28.5428914,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 526,
+      "name": "بحيرة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.3255708,
+      "latitude": 27.4750061,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 527,
+      "name": "بحيرة أجراجير",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية؛ آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 10.156943,
+      "latitude": 24.771209,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 528,
+      "name": "بحيرة أم الحصان",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.4805465,
+      "latitude": 26.9140724,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 529,
+      "name": "بحيرة أم الماء",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية؛ آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 13.334806,
+      "latitude": 26.7104619,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": [
+          "أم الماء"
+        ]
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 530,
+      "name": "بحيرة أم الماء",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية؛ آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 13.3348,
+      "latitude": 26.71046,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": [
+          "أم الماء"
+        ]
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 531,
+      "name": "بحيرة أم ملفاع",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 15.123134,
+      "latitude": 26.153761,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 532,
+      "name": "بحيرة احجارة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 14.4708333,
+      "latitude": 27.0588889,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 534,
+      "name": "بحيرة البحير",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.5862255,
+      "latitude": 26.8513066,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 537,
+      "name": "بحيرة العرجة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 15.741599,
+      "latitude": 28.99957,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 538,
+      "name": "بحيرة العنبة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 12.9778147,
+      "latitude": 26.944854,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 539,
+      "name": "بحيرة العيون",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 14.0103736,
+      "latitude": 27.4678864,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 540,
+      "name": "بحيرة العيون",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 14.0103736,
+      "latitude": 27.4678864,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 542,
+      "name": "بحيرة الفريدغة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.3506739,
+      "latitude": 26.9317886,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 546,
+      "name": "بحيرة بزيمة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 22.0435899,
+      "latitude": 24.8924127,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 547,
+      "name": "بحيرة بزيمة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "مواقع السياحة الاستشفائية؛ الفوارات/الحمامات/البحيرات",
+      "longitude": 24.89241,
+      "latitude": 22.04358,
+      "source": "الفوارات.docx",
+      "origin": "وثائق داعمة 2025-2026",
+      "status": "مستخرج من وثائق داعمة - يحتاج اعتماد إحداثيات",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 548,
+      "name": "بحيرة بن عتي",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.0715525,
+      "latitude": 26.6989318,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 551,
+      "name": "بحيرة تامزيا",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.4853315,
+      "latitude": 26.7751543,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 552,
+      "name": "بحيرة تدكما",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.6649966,
+      "latitude": 26.9341943,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 553,
+      "name": "بحيرة تمزيز",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.4724247,
+      "latitude": 26.7707864,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 554,
+      "name": "بحيرة تمسة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 15.8162336,
+      "latitude": 26.403131,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 555,
+      "name": "بحيرة تنقرزان",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.4997725,
+      "latitude": 26.8919519,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 556,
+      "name": "بحيرة ربيانة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 21.9672222222223,
+      "latitude": 24.2891666666667,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": [
+          "ربيانة"
+        ]
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 559,
+      "name": "بحيرة طرونة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.383472,
+      "latitude": 26.9283451,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 560,
+      "name": "بحيرة قبر عون",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.5379457,
+      "latitude": 26.8037138,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": [
+          "قبر عون"
+        ]
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 561,
+      "name": "بحيرة لغلغ",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.3934498,
+      "latitude": 26.6889151,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 562,
+      "name": "بحيرة لغلغ",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.4578228,
+      "latitude": 26.7597511,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 563,
+      "name": "بحيرة مافو",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.5072827,
+      "latitude": 26.7876249,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 564,
+      "name": "بحيرة محروقة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.4229326,
+      "latitude": 26.7166338,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 565,
+      "name": "بحيرة مندرة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.3127689,
+      "latitude": 26.6925385,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": [
+          "مندرة"
+        ]
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 566,
+      "name": "بحيرة نشنوشة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 13.4005308,
+      "latitude": 26.9467286,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "بحيرة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 572,
+      "name": "واو الناموس",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "all_categories": "البحيرات الطبيعية والصحراوية",
+      "longitude": 17.7652358,
+      "latitude": 24.9171684,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 574,
+      "name": "البلطة",
+      "primary_category": "البرك والبلطات والقلتات",
+      "all_categories": "البرك والبلطات والقلتات",
+      "longitude": 18.13123,
+      "latitude": 27.76294,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 585,
+      "name": "غدير الذهب",
+      "primary_category": "البرك والبلطات والقلتات",
+      "all_categories": "البرك والبلطات والقلتات",
+      "longitude": 17.487402,
+      "latitude": 27.9862918,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 587,
+      "name": "قلتة",
+      "primary_category": "البرك والبلطات والقلتات",
+      "all_categories": "البرك والبلطات والقلتات",
+      "longitude": 10.49872,
+      "latitude": 24.78918,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "قلتة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 589,
+      "name": "قلتة انتريكي",
+      "primary_category": "البرك والبلطات والقلتات",
+      "all_categories": "البرك والبلطات والقلتات",
+      "longitude": 10.5405583333334,
+      "latitude": 24.7433388888889,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "قلتة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 590,
+      "name": "قلتة تيبستين",
+      "primary_category": "البرك والبلطات والقلتات",
+      "all_categories": "البرك والبلطات والقلتات",
+      "longitude": 10.55585,
+      "latitude": 24.8947305555556,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "قلتة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 591,
+      "name": "قلتة تين أمتيلي",
+      "primary_category": "البرك والبلطات والقلتات",
+      "all_categories": "البرك والبلطات والقلتات",
+      "longitude": 10.6465777777778,
+      "latitude": 24.60335,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "قلتة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 592,
+      "name": "قلتة تين تراريت",
+      "primary_category": "البرك والبلطات والقلتات",
+      "all_categories": "البرك والبلطات والقلتات",
+      "longitude": 10.5113611,
+      "latitude": 25.2919389,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "قلتة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 594,
+      "name": "سبخة",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "all_categories": "السبخات والأراضي الرطبة",
+      "longitude": 19.8060781,
+      "latitude": 28.9360354,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "سبخة"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 595,
+      "name": "سبخة أم العزم",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "all_categories": "السبخات والأراضي الرطبة",
+      "longitude": 15.3856871,
+      "latitude": 26.1802505,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "سبخة"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 605,
+      "name": "سبخة الشقوة",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "all_categories": "السبخات والأراضي الرطبة",
+      "longitude": 14.0005556,
+      "latitude": 25.9569444,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "سبخة"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 622,
+      "name": "سبخة حفرة الملح",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "all_categories": "السبخات والأراضي الرطبة",
+      "longitude": 14.3308333,
+      "latitude": 25.8841667,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "سبخة"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 624,
+      "name": "سبخة رملة زقوط",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "all_categories": "السبخات والأراضي الرطبة",
+      "longitude": 19.7027746,
+      "latitude": 28.9516246,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "سبخة"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 625,
+      "name": "سبخة زويلة",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "all_categories": "السبخات والأراضي الرطبة",
+      "longitude": 15.1210623,
+      "latitude": 26.14024,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "سبخة"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 632,
+      "name": "سبخة مرزق",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "all_categories": "السبخات والأراضي الرطبة",
+      "longitude": 13.9058333,
+      "latitude": 25.9086111,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": [
+          "مرزق"
+        ]
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "سبخة"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 633,
+      "name": "سبخة مسقوين",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "all_categories": "السبخات والأراضي الرطبة",
+      "longitude": 14.8461111,
+      "latitude": 26.1255556,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "سبخة"
+      ],
+      "classification_reason": "regional_feature_with_tourism_name_signal",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 670,
+      "name": "سبخة عين القدر",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية؛ السبخات والأراضي الرطبة",
+      "longitude": 20.0205556,
+      "latitude": 28.9252778,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين",
+        "سبخة"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 722,
+      "name": "عين الشب",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية؛ الفوارات والمياه الكبريتية والحمامات؛ آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 14.895165,
+      "latitude": 27.4005085,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 730,
+      "name": "عين العودل",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 23.3549916,
+      "latitude": 24.4616916,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 733,
+      "name": "عين الغزال",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 10.130733,
+      "latitude": 27.6842201,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 739,
+      "name": "عين الفقار ، سوكنة",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 15.7749617,
+      "latitude": 28.9919266,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 751,
+      "name": "عين النادوة",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 14.0187392,
+      "latitude": 27.4776869,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 762,
+      "name": "عين براك",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 14.2697904,
+      "latitude": 27.5386587,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 785,
+      "name": "عين دوا أو عين كازيط",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 24.8579407,
+      "latitude": 21.813377,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 789,
+      "name": "عين رامي",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 14.0175853,
+      "latitude": 27.4741599,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 791,
+      "name": "عين زوية",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 24.804039,
+      "latitude": 21.8783853,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 823,
+      "name": "عين مور",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 24.62,
+      "latitude": 22.2766666666667,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "عين"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 832,
+      "name": "قلعة ام العبيد",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 15.0273444444445,
+      "latitude": 27.5092527777778,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 848,
+      "name": "الفوار الكبريتي",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "all_categories": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.0529073,
+      "latitude": 26.3757502,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 853,
+      "name": "حمام البئر الساخن",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "all_categories": "مواقع السياحة الاستشفائية؛ الفوارات/الحمامات/البحيرات",
+      "longitude": 10.25588,
+      "latitude": 25.17864,
+      "source": "الفوارات.docx",
+      "origin": "وثائق داعمة 2025-2026",
+      "status": "مستخرج من وثائق داعمة - يحتاج اعتماد إحداثيات",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "حمام"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 899,
+      "name": "فوار الميتين",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "all_categories": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 17.5953782,
+      "latitude": 24.0526091,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 900,
+      "name": "فوار الميتين 200",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "all_categories": "مواقع السياحة الاستشفائية؛ الفوارات/الحمامات/البحيرات",
+      "longitude": 17.59537,
+      "latitude": 24.0526,
+      "source": "الفوارات.docx",
+      "origin": "وثائق داعمة 2025-2026",
+      "status": "مستخرج من وثائق داعمة - يحتاج اعتماد إحداثيات",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 911,
+      "name": "قرية أم الحمام",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "all_categories": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 13.6380565,
+      "latitude": 25.9933936,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "حمام"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 913,
+      "name": "قصر أم الحمام الأثري",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "all_categories": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 13.6240768,
+      "latitude": 25.9997678,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "حمام"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 916,
+      "name": "قويرات الكبريت",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "all_categories": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 17.7448501,
+      "latitude": 26.6528165,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false
+    }
+  ]
+}
