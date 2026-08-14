@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "artifact_status": "HUMAN_REVIEW_ONLY_NOT_PUBLICATION_APPROVAL",
+  "classification_policy": "Routing evidence assigns a human review path only; it does not approve identity, coordinates, destination membership, media, or publication.",
+  "source_artifacts": [
+    "backend/data/gis/natural-layer-cross-layer-review.json",
+    "backend/data/gis/libyan-sahara-tourism-candidates.review.json"
+  ],
+  "policy": {
+    "automatic_publication": false,
+    "automatic_destination_membership": false,
+    "automatic_canonical_identity": false,
+    "automatic_coordinate_approval": false,
+    "coordinate_generation": false,
+    "database_write": false,
+    "frontend_write": false,
+    "source_records_deleted": false
+  },
+  "summary": {
+    "candidate_count": 2,
+    "review_required": 2,
+    "publication_approved": 0
+  },
+  "records": [
+    {
+      "source_feature_id": 832,
+      "name": "قلعة ام العبيد",
+      "primary_category": "العيون الطبيعية",
+      "all_categories": "العيون الطبيعية",
+      "longitude": 15.0273444444445,
+      "latitude": 27.5092527777778,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false,
+      "curation_status": "CROSS_LAYER_REVIEW",
+      "curation_reason": "tourism_relevant_but_not_purely_natural",
+      "matched_terms": [
+        "قلعة"
+      ],
+      "routing_status": "HERITAGE_REVIEW_REQUIRED",
+      "recommended_review_path": "FORTIFICATION_HERITAGE_REVIEW",
+      "routing_evidence": {
+        "observed_name_signals": [
+          "قلعة"
+        ],
+        "supporting_tracked_occurrences": [
+          "التراث الثقافي.docx"
+        ],
+        "evidence_scope": "ROUTING_ONLY_NOT_IDENTITY_APPROVAL"
+      },
+      "canonical_identity_approved": false,
+      "coordinate_approved": false,
+      "destination_membership_approved": false,
+      "media_approved": false,
+      "institutional_review": null,
+      "publication_decision": null
+    },
+    {
+      "source_feature_id": 913,
+      "name": "قصر أم الحمام الأثري",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "all_categories": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 13.6240768,
+      "latitude": 25.9997678,
+      "source": "اطلس2026.xml",
+      "origin": "أطلس ليبيا السياحي 2026",
+      "status": "جاهز مبدئياً",
+      "regional_layer": "libyan-sahara",
+      "selection_evidence": {
+        "method": "southern_libya_regional_guard",
+        "matched_keywords": []
+      },
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "canonical_approval": false,
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "tourism_name_signals": [
+        "حمام"
+      ],
+      "classification_reason": "visitor_relevant_natural_category",
+      "publication_approved": false,
+      "curation_status": "CROSS_LAYER_REVIEW",
+      "curation_reason": "tourism_relevant_but_not_purely_natural",
+      "matched_terms": [
+        "قصر"
+      ],
+      "routing_status": "HERITAGE_REVIEW_REQUIRED",
+      "recommended_review_path": "ARCHAEOLOGICAL_SITE_REVIEW",
+      "routing_evidence": {
+        "observed_name_signals": [
+          "الأثري"
+        ],
+        "supporting_tracked_occurrences": [],
+        "evidence_scope": "ROUTING_ONLY_NOT_IDENTITY_APPROVAL"
+      },
+      "canonical_identity_approved": false,
+      "coordinate_approved": false,
+      "destination_membership_approved": false,
+      "media_approved": false,
+      "institutional_review": null,
+      "publication_decision": null
+    }
+  ]
+}
