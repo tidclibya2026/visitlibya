@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "policy_id": "visit-libya-publication-approval-governance",
+  "policy_version": "1.0.0-phase-1",
+  "governance_owner": "Tourism Information and Documentation Center",
+  "compatibility_mode": {
+    "phase": "FOUNDATION_PHASE_1_VALIDATION_ONLY",
+    "current_behavior": "Current static and backend publication behavior remains unchanged in Phase 1.",
+    "legacy_freeze": "Legacy content is frozen as an explicit baseline.",
+    "approval_disclaimer": "Legacy baseline status is not institutional approval.",
+    "future_content_rule": "No new or changed public record may be treated as institutionally approved without a future valid ledger decision.",
+    "compatibility_field_rule": "publication_approved remains compatibility metadata and is not authoritative.",
+    "empty_ledger_rule": "An empty ledger means no governed approvals exist."
+  },
+  "canonicalization": {
+    "contract_version": 1,
+    "encoding": "UTF-8",
+    "key_ordering": "DETERMINISTIC_LEXICOGRAPHIC",
+    "field_allowlist_policy": "VERSIONED_BY_SUBJECT_TYPE",
+    "stable_number_representation": true,
+    "include_visitor_visible_bilingual_fields": true,
+    "include_source_ids": true,
+    "include_authoritative_coordinates": true,
+    "include_applicable_media_hashes": true,
+    "exclude_approval_metadata": true,
+    "digest_algorithm": "SHA-256",
+    "digest_encoding": "LOWERCASE_HEXADECIMAL",
+    "subject_type_field_allowlists": {
+      "gis_feature": [
+        "subject_id",
+        "source_id",
+        "source_feature_id",
+        "name_ar",
+        "name_en",
+        "category",
+        "latitude",
+        "longitude",
+        "media_hashes"
+      ],
+      "destination": [
+        "slug",
+        "category",
+        "name_ar",
+        "name_en",
+        "description_ar",
+        "description_en",
+        "latitude",
+        "longitude",
+        "media_hashes"
+      ],
+      "media_asset": [
+        "repository_path",
+        "source_hash",
+        "public_derivative_hashes",
+        "subject_identity",
+        "usage_scope"
+      ]
+    }
+  },
+  "lifecycle_states": [
+    "DRAFT",
+    "REVIEW_REQUIRED",
+    "UNDER_REVIEW",
+    "RECOMMENDED",
+    "APPROVED",
+    "REJECTED",
+    "DEFERRED",
+    "EXPIRED",
+    "REVOKED",
+    "SUPERSEDED",
+    "CORRECTION_REQUIRED"
+  ],
+  "decision_types": [
+    "CANONICAL_IDENTITY",
+    "COORDINATE",
+    "DESTINATION_MEMBERSHIP",
+    "MEDIA_RIGHTS",
+    "PUBLICATION",
+    "REVOCATION",
+    "CORRECTION"
+  ],
+  "institutional_roles": [
+    "data_preparer",
+    "technical_validator",
+    "subject_matter_reviewer",
+    "media_rights_reviewer",
+    "publication_approver",
+    "final_release_operator",
+    "auditor",
+    "emergency_revocation_authority"
+  ],
+  "separation_of_duties": [
+    "A data preparer cannot approve the same subject and version.",
+    "A publication approver cannot operate the final release for the same release.",
+    "Technical validation cannot substitute for subject review.",
+    "Media-rights approval remains independent.",
+    "A release operator cannot override failed eligibility.",
+    "An auditor cannot create or alter approval events through the validator."
+  ],
+  "prerequisite_decisions": {
+    "publication_does_not_imply_other_approvals": true,
+    "canonical_identity_independent": true,
+    "coordinate_independent": true,
+    "destination_membership_independent": true,
+    "media_rights_independent": true,
+    "publication_requires_applicable_active_prerequisites": true
+  },
+  "legacy_baseline_policy": {
+    "classification": "LEGACY_PUBLIC_BASELINE_NOT_INSTITUTIONAL_APPROVAL",
+    "frozen_compatibility_evidence_only": true,
+    "not_publication_approval": true,
+    "not_identity_approval": true,
+    "not_media_approval": true,
+    "not_permission_for_new_content": true,
+    "hash_mismatch_requires_explicit_review": true,
+    "entry_removal_or_modification_prohibited_in_phase_1": true,
+    "current_runtime_behavior_unchanged": true
+  },
+  "append_only_policy": {
+    "ledger_format": "UTF-8_JSON_LINES",
+    "phase_1_required_event_count": 0,
+    "existing_events_may_not_be_modified_deleted_or_reordered": true,
+    "corrections_require_new_superseding_events": true,
+    "validator_is_read_only": true
+  },
+  "invalidation_policy": {
+    "approval_binds_to_exact_subject_content_hash": true,
+    "content_change_invalidates_or_suspends_approval": true,
+    "media_change_requires_recalculation": true,
+    "approval_metadata_excluded_from_subject_hash": true
+  },
+  "revocation_policy": {
+    "revocation_requires_append_only_event": true,
+    "reason_and_effective_date_required": true,
+    "prior_events_retained": true,
+    "emergency_takedown_requires_follow_up_audit": true
+  },
+  "public_projection_policy": {
+    "frontend_must_not_receive_personal_actor_data": true,
+    "frontend_must_not_receive_private_evidence": true,
+    "frontend_must_not_receive_secrets_or_tokens": true,
+    "future_public_data_must_be_generated_from_governed_authoritative_data": true,
+    "phase_1_frontend_generation_enabled": false
+  },
+  "release_policy": {
+    "phase_1_static_deployment_behavior_unchanged": true,
+    "release_operator_cannot_create_content_approval": true,
+    "failed_validation_cannot_be_overridden_by_release_operator": true,
+    "future_release_manifest_must_bind_governance_and_content_hashes": true
+  }
+}
