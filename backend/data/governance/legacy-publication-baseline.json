@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "baseline_id": "visit-libya-legacy-publication-baseline-phase-1",
+  "artifact_status": "FROZEN_COMPATIBILITY_EVIDENCE_NOT_INSTITUTIONAL_APPROVAL",
+  "policy_reference": "backend/data/governance/publication-policy.json#1.0.0-phase-1",
+  "created_from_commit": "db7090dfba1cc3838e81764193dd82a32509725b",
+  "artifacts": [
+    {
+      "path": "assets/js/data/natural-tourism-layers.js",
+      "sha256": "7af880acbbd6a16cdf3bb1c6455c5515c9f5da3a018b0c5a79917f4809c94988",
+      "byte_size": 158981,
+      "git_tracked": true,
+      "semantic_role": "STATIC_NATURAL_TOURISM_FRONTEND_DATA",
+      "record_count": 249,
+      "count_semantics": "NATURAL_FEATURES",
+      "compatibility_classification": "LEGACY_PUBLIC_BASELINE_NOT_INSTITUTIONAL_APPROVAL"
+    },
+    {
+      "path": "assets/js/data/curated-destinations.js",
+      "sha256": "ebd5025e153e5761c5752b4b235feb06fd1c9aad24fcb3003f9428fc43298e7f",
+      "byte_size": 9721,
+      "git_tracked": true,
+      "semantic_role": "STATIC_CURATED_DESTINATION_FRONTEND_DATA",
+      "record_count": 12,
+      "count_semantics": "CURATED_DESTINATIONS",
+      "compatibility_classification": "LEGACY_PUBLIC_BASELINE_NOT_INSTITUTIONAL_APPROVAL"
+    },
+    {
+      "path": "backend/data/dev/destinations.json",
+      "sha256": "f5756f58100b44b06ded35b795cc31a2262829133ae81e06016a54b0ac9f4aa9",
+      "byte_size": 9392,
+      "git_tracked": true,
+      "semantic_role": "DEVELOPMENT_BACKEND_DESTINATION_SEED_DATA",
+      "record_count": 13,
+      "count_semantics": "BACKEND_DESTINATIONS",
+      "compatibility_classification": "LEGACY_PUBLIC_BASELINE_NOT_INSTITUTIONAL_APPROVAL"
+    }
+  ],
+  "summary": {
+    "artifact_count": 3,
+    "natural_feature_count": 249,
+    "curated_frontend_destination_count": 12,
+    "backend_destination_count": 13,
+    "governed_approval_event_count": 0
+  },
+  "policy": {
+    "frozen_compatibility_evidence_only": true,
+    "not_publication_approval": true,
+    "not_identity_approval": true,
+    "not_media_approval": true,
+    "not_permission_for_new_content": true,
+    "hash_mismatch_requires_explicit_review": true,
+    "entry_removal_or_modification_prohibited_in_phase_1": true,
+    "current_runtime_behavior_unchanged": true
+  }
+}
