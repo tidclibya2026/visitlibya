@@ -61,6 +61,12 @@ class Settings(BaseSettings):
     enable_docs: bool | None = None
     enable_redoc: bool | None = None
     enable_openapi: bool | None = None
+    publication_governance_enabled: bool = False
+    publication_approval_mutations_enabled: bool = False
+    publication_institutional_role_mapping: StringList = Field(default_factory=list)
+    publication_evidence_reference_policy: str | None = None
+    publication_actor_identity_provider: str | None = None
+    publication_decision_storage: Literal["unconfigured"] = "unconfigured"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8",
                                       case_sensitive=False, extra="ignore", populate_by_name=True)
@@ -68,6 +74,11 @@ class Settings(BaseSettings):
     @field_validator("cors_origins", "trusted_hosts", "forwarded_allow_ips", mode="before")
     @classmethod
     def parse_lists(cls, value: Any) -> Any:
+        return _parse_list(value)
+
+    @field_validator("publication_institutional_role_mapping", mode="before")
+    @classmethod
+    def parse_publication_roles(cls, value: Any) -> Any:
         return _parse_list(value)
 
     @field_validator("cors_origins")
@@ -107,11 +118,22 @@ class Settings(BaseSettings):
 
     @model_validator(mode="after")
     def validate_environment_policy(self) -> "Settings":
+        approval_prerequisites = (
+            self.publication_governance_enabled,
+            bool(self.publication_institutional_role_mapping),
+            bool(self.publication_evidence_reference_policy),
+            bool(self.publication_actor_identity_provider),
+            self.publication_decision_storage != "unconfigured",
+        )
+        if self.publication_approval_mutations_enabled and not all(approval_prerequisites):
+            raise ValueError("approval mutations require complete institutional configuration and durable storage")
         docs_default = self.app_env in {"development", "test"}
         if self.enable_docs is None: self.enable_docs = docs_default
         if self.enable_redoc is None: self.enable_redoc = docs_default
         if self.enable_openapi is None: self.enable_openapi = docs_default
         if self.app_env == "production":
+            if self.publication_approval_mutations_enabled:
+                raise ValueError("approval mutations are unavailable until durable production storage is implemented")
             missing = {"debug", "cors_origins", "trusted_hosts"} - self.model_fields_set
             if missing:
                 raise ValueError("production requires explicit DEBUG, CORS_ORIGINS, and TRUSTED_HOSTS")

@@ -56,6 +56,11 @@ class DestinationPersistenceError(DestinationError):
         super().__init__("Destination could not be persisted")
 
 
+class DestinationPublicationBlockedError(DestinationError):
+    def __init__(self) -> None:
+        super().__init__("PUBLICATION_ELIGIBILITY_REQUIRED")
+
+
 class MediaError(Exception):
     """Base class for media domain errors."""
 

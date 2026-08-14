@@ -59,6 +59,7 @@ class DestinationTranslationRead(DestinationTranslationBase):
 
 
 class DestinationBase(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     slug: str = Field(
         min_length=2,
         max_length=200,
@@ -116,6 +117,7 @@ class DestinationCreate(DestinationBase):
 
 
 class DestinationUpdate(BaseModel):
+    model_config = ConfigDict(extra="forbid")
     slug: str | None = Field(
         default=None,
         min_length=2,

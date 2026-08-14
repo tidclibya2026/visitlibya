@@ -9,6 +9,7 @@ from app.models.destination import Destination, DestinationStatus, DestinationTr
 from app.repositories.search import SearchResultRow
 from app.schemas.search import SearchDestinationItem, SearchFilters
 from app.services.search import SearchService
+from app.services.destination import DestinationService
 
 
 class FakeSearchRepository:
@@ -32,7 +33,8 @@ def make_service() -> tuple[SearchService, MagicMock, FakeSearchRepository]:
     return SearchService(session, repository), session, repository  # type: ignore[arg-type]
 
 
-def test_valid_search_maps_results_and_pagination() -> None:
+def test_valid_search_maps_results_and_pagination(monkeypatch) -> None:
+    monkeypatch.setattr(DestinationService, "_is_legacy_compatible", lambda destination: True)
     service, session, repository = make_service()
     response = service.search_destinations(filters=SearchFilters(q="Leptis"), page=2, page_size=10, sort_by="average_rating", sort_order="desc")
     item = response.items[0]

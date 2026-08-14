@@ -12,6 +12,7 @@ from app.schemas.search import (
     SearchSortField,
     SearchSortOrder,
 )
+from app.services.destination import DestinationService
 
 
 class SearchService:
@@ -41,9 +42,10 @@ class SearchService:
             if not self.session.is_active:
                 self.session.rollback()
             raise SearchPersistenceError() from exc
+        eligible_rows = [row for row in rows if DestinationService._is_legacy_compatible(row.destination)]
         return SearchDestinationResponse.create(
-            items=[self._to_item(row) for row in rows],
-            total=total,
+            items=[self._to_item(row) for row in eligible_rows],
+            total=len(eligible_rows),
             page=page,
             page_size=page_size,
         )
