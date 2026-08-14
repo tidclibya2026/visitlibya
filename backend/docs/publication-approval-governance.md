@@ -49,7 +49,38 @@ Revocation stops eligibility for the bound content version. Corrections create a
 
 Frontend publication files must eventually be generated deterministically from governed authoritative content and valid decisions. Direct editing of generated publication files must be detected. A public projection may contain only the minimum non-sensitive decision facts needed to demonstrate eligibility; it must exclude personal identifiers, private evidence, secrets, and internal notes.
 
-Phase 1 is validation only and changes no enforcement or deployment behavior. Phase 2 is expected to add deterministic, diff-checked generation and governed eligibility projections. Phase 3 is expected to enforce the same eligibility rules in backend services and APIs while preserving static GitHub Pages deployment.
+Phase 1 is validation only and changes no enforcement or deployment behavior. Phase 2 adds deterministic, diff-checked generation for outputs whose canonical mapping is proven; it does not add governed eligibility projections or change visibility. Phase 3 is expected to enforce eligibility rules in backend services and APIs while preserving static GitHub Pages deployment.
+
+## Phase 2 deterministic publication artifacts
+
+`publication-generation-manifest.json` is the machine-readable boundary between governed inputs and the three protected compatibility outputs. It records the generator contract, output hashes and counts, serialization rules, support status, and explicit blockers. Its generation classification is not institutional approval.
+
+The natural-tourism frontend module is deterministically generated from these ordered, tracked review artifacts:
+
+- `backend/data/gis/green-mountain-tourism-curated.review.json`
+- `backend/data/gis/libyan-sahara-tourism-curated.review.json`
+
+The mapping preserves source order, source IDs, Arabic names, coordinates, media state, source provenance, and false approval state. Category presentation uses a closed mapping already present in the protected output. IDs 832 and 913 are rejected because they belong only to governed heritage review. No text, coordinate, filename, path, or source identity is normalized silently.
+
+Serialization is UTF-8 without a BOM, two-space JSON indentation, explicit object-key order, governed input record order, unescaped Arabic, CRLF newlines, and a terminal newline inside the established ES-module wrapper. Identical inputs therefore produce byte-identical output.
+
+`assets/js/data/curated-destinations.js` remains frozen legacy verification-only because no independent governed canonical input preserves all editorial, media-path, and JavaScript projection fields. `backend/data/dev/destinations.json` also remains frozen verification-only: it is itself the documented development seed and no independent canonical input reproduces its backend-only fields and additional record. Neither limitation may be hidden by inventing a generator or treating the artifact as approved.
+
+### Direct-edit detection and safe generation
+
+Verification regenerates the supported natural artifact in memory, byte-compares it with the protected file, and validates the two frozen artifacts against Phase 1 hashes, sizes, and counts. It fails without repairing a mismatch. CI also generates the supported artifact beneath the runner's temporary directory and runs the same comparison.
+
+Local commands from the repository root are:
+
+```text
+python backend/scripts/publication_generation.py validate-manifest
+python backend/scripts/publication_generation.py verify
+python backend/scripts/publication_generation.py generate --output-dir C:\path\outside\the\repository
+```
+
+Generation refuses an output directory inside the repository. Protected replacement is disabled unless the `replace` command receives `--allow-protected-replacement`. Even then, governance and input invariants are validated first, an unreviewed direct edit is refused, only deterministically supported outputs are eligible, and replacement is atomic where supported. Replacement never changes the ledger or any approval field. Normal review and CI use verification or external generation, not replacement.
+
+Public visibility means content is currently reachable by visitors. Legacy compatibility means that existing behavior is frozen without an approval claim. Generated output means bytes can be reproduced from declared governed inputs. Institutional publication approval requires a future valid ledger decision bound to the approved content hash; none of the other three states implies it.
 
 ## Validation
 
@@ -58,9 +89,13 @@ Run from the repository root:
 ```text
 python -m json.tool backend/data/governance/publication-policy.json
 python -m json.tool backend/data/governance/legacy-publication-baseline.json
+python -m json.tool backend/data/governance/publication-generation-manifest.json
 python backend/scripts/publication_governance.py
+python backend/scripts/publication_generation.py validate-manifest
+python backend/scripts/publication_generation.py verify
 cd backend
 python -m pytest -q tests/unit/scripts/test_publication_governance.py
+python -m pytest -q tests/unit/scripts/test_publication_generation.py
 python -m pytest -q tests/unit/scripts
 ```
 
@@ -72,4 +107,4 @@ node scripts/smoke-test-static-site.mjs
 git diff --check
 ```
 
-This implementation grants no approval, creates no decision event, publishes nothing, and assigns no person to an institutional role.
+Phase 2 grants no approval, creates no decision event, changes no public bytes or visibility, publishes nothing, and assigns no person to an institutional role.

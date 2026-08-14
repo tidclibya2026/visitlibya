@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "manifest_id": "visit-libya-publication-generation-phase-2",
+  "generator": {
+    "identifier": "visit-libya-publication-generation",
+    "version": "1.0.0-phase-2",
+    "implementation": "backend/scripts/publication_generation.py"
+  },
+  "governance": {
+    "classification": "LEGACY_COMPATIBILITY_GENERATION_NOT_INSTITUTIONAL_APPROVAL",
+    "policy": "backend/data/governance/publication-policy.json",
+    "approval_ledger": "backend/data/governance/publication-approval-ledger.jsonl",
+    "legacy_baseline": "backend/data/governance/legacy-publication-baseline.json",
+    "empty_ledger_required": true,
+    "approval_values_must_remain_false": true,
+    "runtime_behavior_unchanged": true
+  },
+  "protected_outputs": [
+    {
+      "path": "assets/js/data/natural-tourism-layers.js",
+      "governed_inputs": [
+        {
+          "path": "backend/data/gis/green-mountain-tourism-curated.review.json",
+          "record_count": 180,
+          "ordered_source_ids_sha256": "337df7243318ececb030fa2049357c4900654e6234731c43cd132d15ff2ed60b"
+        },
+        {
+          "path": "backend/data/gis/libyan-sahara-tourism-curated.review.json",
+          "record_count": 69,
+          "ordered_source_ids_sha256": "41d81795c830969684214f17dc7b524f6eaa8eaf60442c5f1aea7badd905e806"
+        }
+      ],
+      "generator_identifier": "visit-libya-natural-tourism-layers-v1",
+      "generator_version": 1,
+      "serialization_contract": {
+        "encoding": "UTF-8",
+        "bom": false,
+        "newline": "CRLF",
+        "indent_spaces": 2,
+        "key_order": "EXPLICIT_CONTRACT_ORDER",
+        "record_order": "GOVERNED_INPUT_ORDER",
+        "ensure_ascii": false,
+        "terminal_newline": true,
+        "javascript_wrapper": "ES_MODULE_OBJECT_FREEZE_V1"
+      },
+      "expected_record_count": 249,
+      "expected_sha256": "7af880acbbd6a16cdf3bb1c6455c5515c9f5da3a018b0c5a79917f4809c94988",
+      "expected_byte_size": 158981,
+      "governance_classification": "LEGACY_PUBLIC_BASELINE_NOT_INSTITUTIONAL_APPROVAL",
+      "deterministic_regeneration_supported": true,
+      "blocker": null
+    },
+    {
+      "path": "assets/js/data/curated-destinations.js",
+      "governed_inputs": [],
+      "generator_identifier": null,
+      "generator_version": null,
+      "serialization_contract": null,
+      "expected_record_count": 12,
+      "expected_sha256": "ebd5025e153e5761c5752b4b235feb06fd1c9aad24fcb3003f9428fc43298e7f",
+      "expected_byte_size": 9721,
+      "governance_classification": "LEGACY_PUBLIC_BASELINE_NOT_INSTITUTIONAL_APPROVAL",
+      "deterministic_regeneration_supported": false,
+      "blocker": "No independent governed canonical input preserves the complete editorial, media-path, and JavaScript projection fields byte-for-byte."
+    },
+    {
+      "path": "backend/data/dev/destinations.json",
+      "governed_inputs": [],
+      "generator_identifier": null,
+      "generator_version": null,
+      "serialization_contract": null,
+      "expected_record_count": 13,
+      "expected_sha256": "f5756f58100b44b06ded35b795cc31a2262829133ae81e06016a54b0ac9f4aa9",
+      "expected_byte_size": 9392,
+      "governance_classification": "LEGACY_PUBLIC_BASELINE_NOT_INSTITUTIONAL_APPROVAL",
+      "deterministic_regeneration_supported": false,
+      "blocker": "This development seed is itself the documented source; no independent governed canonical input reproduces its backend-only fields and additional record."
+    }
+  ]
+}
