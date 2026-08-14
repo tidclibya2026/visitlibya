@@ -351,7 +351,10 @@
         "curation_reason": "tourism_relevant_but_not_purely_natural",
         "matched_terms": [
           "قلعة"
-        ]
+        ],
+        "routing_status": "ROUTED_TO_HERITAGE_CANDIDATE_REVIEW",
+        "routed_artifact": "backend/data/gis/heritage-candidates.review.json",
+        "recommended_review_path": "FORTIFICATION_HERITAGE_REVIEW"
       },
       {
         "source_feature_id": 913,
@@ -382,7 +385,10 @@
         "curation_reason": "tourism_relevant_but_not_purely_natural",
         "matched_terms": [
           "قصر"
-        ]
+        ],
+        "routing_status": "ROUTED_TO_HERITAGE_CANDIDATE_REVIEW",
+        "routed_artifact": "backend/data/gis/heritage-candidates.review.json",
+        "recommended_review_path": "ARCHAEOLOGICAL_SITE_REVIEW"
       }
     ],
     "sahara_excluded_from_natural": []
