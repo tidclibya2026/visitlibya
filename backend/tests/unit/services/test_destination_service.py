@@ -12,6 +12,7 @@ from app.core.exceptions import (
     DestinationSlugConflictError,
     DestinationTranslationConflictError,
 )
+from app.core.exceptions import DestinationPublicationBlockedError
 from app.models.destination import Destination, DestinationStatus, DestinationTranslation
 from app.schemas.destination import (
     DestinationCreate,
@@ -153,6 +154,7 @@ def test_public_list_is_always_published_and_active() -> None:
 )
 def test_public_detail_hides_non_public_states(status, is_active, visible) -> None:
     service, _, repository = make_service()
+    service._is_legacy_compatible = lambda destination: True  # type: ignore[method-assign]
     destination = Destination(
         id=1, slug="leptis-magna", status=status, is_active=is_active,
         latitude=32.6389, longitude=14.2906,
@@ -259,5 +261,25 @@ def test_sqlalchemy_error_rolls_back() -> None:
     with pytest.raises(DestinationPersistenceError):
         service.create_destination(make_create_payload())
 
+    session.rollback.assert_called_once_with()
+
+
+def test_new_published_destination_cannot_bypass_governance() -> None:
+    service, session, _ = make_service()
+    payload = make_create_payload()
+    payload.status = DestinationStatus.PUBLISHED
+    with pytest.raises(DestinationPublicationBlockedError):
+        service.create_destination(payload)
+    session.rollback.assert_called_once_with()
+
+
+def test_published_legacy_content_change_is_blocked_until_unpublished() -> None:
+    service, session, repository = make_service()
+    destination = Destination(id=1, slug="leptis-magna", status=DestinationStatus.PUBLISHED,
+                              is_active=True, is_featured=False, priority_order=0)
+    destination.translations = []
+    repository.destinations[1] = destination
+    with pytest.raises(DestinationPublicationBlockedError):
+        service.update_destination(1, DestinationUpdate(region="changed"))
     session.rollback.assert_called_once_with()
     session.commit.assert_not_called()

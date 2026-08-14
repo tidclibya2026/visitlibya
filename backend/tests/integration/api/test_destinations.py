@@ -363,3 +363,21 @@ def test_persistence_error_returns_generic_500() -> None:
     assert response.json() == {
         "detail": "Destination service could not complete the request"
     }
+
+
+def test_client_approval_fields_are_rejected_and_never_projected_publicly() -> None:
+    service = FakeDestinationService()
+    service.destination.status = DestinationStatus.PUBLISHED
+    app.dependency_overrides[get_destination_service] = lambda: service
+    app.dependency_overrides[require_content_admin] = lambda: object()
+    payload = {"slug": "synthetic", "translations": [{"language_code": "en", "name": "Synthetic"}]}
+    try:
+        with TestClient(app) as client:
+            direct = client.post("/api/v1/destinations", json={**payload, "publication_approved": True})
+            decision = client.post("/api/v1/destinations", json={**payload, "institutional_decision": "APPROVED"})
+            public = client.get("/api/v1/destinations/leptis-magna")
+    finally:
+        app.dependency_overrides.clear()
+    assert direct.status_code == 422 and decision.status_code == 422
+    assert public.status_code == 200
+    assert not ({"publication_approved", "institutional_decision", "evidence_reference", "actor_id"} & public.json().keys())

@@ -108,3 +108,97 @@ git diff --check
 ```
 
 Phase 2 grants no approval, creates no decision event, changes no public bytes or visibility, publishes nothing, and assigns no person to an institutional role.
+
+## Phase 3 backend enforcement foundation
+
+Phase 3 adds a migration-free, framework-light enforcement boundary in
+`app/publication/governance.py`. It separates publication class, editorial state,
+technical validity, institutional decision, and runtime visibility. The possible
+runtime outcomes are `LEGACY_VISIBLE`, `ELIGIBLE`, `INELIGIBLE`, `REVOKED`, and
+`CONFIGURATION_BLOCKED`. A result of `LEGACY_VISIBLE` always carries
+`institutionally_approved=false`.
+
+### Bypass map and mitigations
+
+Before Phase 3, destination list, detail, search, favorite admission, and trip
+admission relied on database `status=published` and `is_active=true`. Destination
+create/update accepted those ordinary workflow fields from `content_admin` or a
+superuser. The development importer could also insert the frozen seed directly.
+The static frontend reads separate protected JavaScript artifacts and does not use
+the backend database.
+
+The authoritative visitor-facing destination list/detail and search service
+boundaries now apply the same frozen legacy fingerprint catalog after the existing
+published/active query. A database row is legacy-compatible only when its slug and
+complete seed projection still match the frozen `backend/data/dev/destinations.json`
+contract. This does not turn legacy visibility into approval and cannot extend to a
+new slug or changed content. Favorite and trip routes remain authenticated personal
+features and continue to rely on the destination repository's public predicate;
+they do not create public destination visibility.
+
+Destination mutations centrally refuse an `approved` state and refuse a
+`published` result unless the result is an exact legacy compatibility match.
+`publication_approved`, institutional decisions, and evidence fields are not API
+schema fields; explicit client attempts are rejected as extra input. Content admins
+and superusers retain draft/editorial operations but are not institutional
+approvers. The development importer remains restricted to development/test, rejects
+conflicts, and can create only records from the governance-protected frozen seed.
+
+### Eligibility matrix
+
+| Class | Runtime published/active | Frozen match | Editorial ready | Technical valid | Effective decision | Outcome |
+|---|---:|---:|---:|---:|---|---|
+| Legacy compatibility | yes | yes | n/a | n/a | none | `LEGACY_VISIBLE` (not approved) |
+| Legacy compatibility | yes | no | n/a | n/a | any | `INELIGIBLE` |
+| Governed record | yes | n/a | yes | yes | matching, unexpired `APPROVED` | `ELIGIBLE` |
+| Governed record | any | n/a | no | any | any | `INELIGIBLE` |
+| Governed record | any | n/a | any | no | any | `INELIGIBLE` |
+| Governed record | any | n/a | any | any | missing/rejected/expired/hash mismatch | `INELIGIBLE` |
+| Governed record | any | n/a | any | any | revoked | `REVOKED` |
+| Governed record | any | n/a | any | any | ambiguous | `CONFIGURATION_BLOCKED` |
+
+### Transition matrix and separation of duties
+
+The append-only contract permits `NOT_SUBMITTED -> PENDING`, `PENDING -> APPROVED`,
+`PENDING -> REJECTED`, a new `REJECTED -> PENDING` submission, and
+`APPROVED -> REVOKED/EXPIRED`. Every event requires version, unique event ID,
+subject type and ID, action, previous/resulting state, content hash, actor ID,
+institutional role, evidence reference, reason, and timestamp. Previous state and
+event-ID uniqueness are checked against immutable history. Approval requires the
+`publication_approver` institutional role and rejects self-approval. Neither
+`admin`, `content_admin`, an unknown role, nor a missing actor/evidence value is
+sufficient.
+
+No approval mutation endpoint is exposed. The in-memory decision source exists for
+isolated unit tests only. The repository JSONL adapter is read-only. The committed
+ledger is not a concurrency-safe production database and must never be used as one.
+
+### Configuration, rollout, privacy, and operations
+
+`LEGACY_COMPATIBILITY` preserves only exact frozen content. `GOVERNED_ENFORCEMENT`
+fails closed for new or changed records. `APPROVAL_MUTATIONS` defaults off and cannot
+be enabled without governance, institutional role mapping, evidence-reference
+policy, actor identity provider, trusted deployment conditions, and durable atomic
+decision storage. Since durable storage is intentionally unconfigured, production
+validation rejects approval mutations even if other values are asserted.
+
+Public responses contain no actor identity, evidence reference, event history, or
+approval metadata. Stable errors contain only non-sensitive policy codes. Rollback
+consists of reverting the backend enforcement code; it must never edit ledger
+history or rewrite protected public artifacts.
+
+Safe rollout is: validate legacy fingerprints; deploy read enforcement with
+mutations disabled; provision an institutionally approved actor/role/evidence
+policy; design and review concurrency-safe durable storage; then separately review
+an authenticated, separation-of-duties mutation API. Remaining institutional
+decisions are the authorized identity provider, recognized role mapping, evidence
+reference rules, expiry policy, and operational authorities. No value is inferred
+in this phase.
+
+Phase 3 validation adds:
+
+```text
+cd backend
+python -m pytest -q tests/unit/publication tests/unit/core/test_publication_config.py tests/unit/schemas/test_destination_publication_fields.py
+python -m pytest -q tests/integration/api/test_destinations.py tests/integration/api/test_search.py tests/integration/api/test_production_security.py
+```

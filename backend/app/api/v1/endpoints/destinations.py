@@ -11,6 +11,7 @@ from app.core.exceptions import (
     DestinationIntegrityError,
     DestinationNotFoundError,
     DestinationPersistenceError,
+    DestinationPublicationBlockedError,
     DestinationSlugConflictError,
     DestinationTranslationConflictError,
 )
@@ -36,6 +37,8 @@ def raise_http_error(error: DestinationError) -> NoReturn:
     if isinstance(error, (CategoryNotFoundError, DestinationCoordinatesError)):
         raise HTTPException(status_code=422, detail=str(error)) from error
     if isinstance(error, DestinationIntegrityError):
+        raise HTTPException(status_code=409, detail=str(error)) from error
+    if isinstance(error, DestinationPublicationBlockedError):
         raise HTTPException(status_code=409, detail=str(error)) from error
     if isinstance(error, DestinationPersistenceError):
         raise HTTPException(

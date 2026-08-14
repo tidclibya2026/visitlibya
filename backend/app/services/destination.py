@@ -11,6 +11,7 @@ from app.core.exceptions import (
     DestinationIntegrityError,
     DestinationNotFoundError,
     DestinationPersistenceError,
+    DestinationPublicationBlockedError,
     DestinationSlugConflictError,
     DestinationTranslationConflictError,
 )
@@ -25,6 +26,10 @@ from app.schemas.destination import (
     DestinationTranslationCreate,
     DestinationUpdate,
 )
+from app.publication.governance import LegacyDestinationCatalog
+from pathlib import Path
+
+LEGACY_CATALOG = LegacyDestinationCatalog(Path(__file__).resolve().parents[2] / "data/dev/destinations.json")
 
 
 class DestinationService:
@@ -82,7 +87,7 @@ class DestinationService:
         municipality: str | None,
         is_featured: bool | None,
     ) -> tuple[Sequence[Destination], int]:
-        return self.list_destinations(
+        items, _ = self.list_destinations(
             skip=skip,
             limit=limit,
             status=DestinationStatus.PUBLISHED,
@@ -92,6 +97,8 @@ class DestinationService:
             is_featured=is_featured,
             is_active=True,
         )
+        eligible = [item for item in items if self._is_legacy_compatible(item)]
+        return eligible, len(eligible)
 
     def get_public_destination_by_slug(self, slug: str) -> Destination:
         try:
@@ -99,7 +106,7 @@ class DestinationService:
         except SQLAlchemyError as exc:
             self._rollback_failed_read()
             raise DestinationPersistenceError() from exc
-        if destination is None:
+        if destination is None or not self._is_legacy_compatible(destination):
             raise DestinationNotFoundError()
         return destination
 
@@ -136,6 +143,8 @@ class DestinationService:
                 for item in payload.translations
             ]
             self._apply_coordinates(destination)
+
+            self._prevent_publication_bypass(destination)
 
             self.repository.add(destination)
             self.repository.flush()
@@ -185,6 +194,8 @@ class DestinationService:
                 if (destination.latitude is None) != (destination.longitude is None):
                     raise DestinationCoordinatesError()
                 self._apply_coordinates(destination)
+
+            self._prevent_publication_bypass(destination)
 
             self.repository.flush()
             self.session.commit()
@@ -291,3 +302,31 @@ class DestinationService:
     def _rollback_failed_read(self) -> None:
         if not self.session.is_active:
             self.session.rollback()
+
+    @staticmethod
+    def _snapshot(destination: Destination) -> dict[str, object]:
+        category = destination.category.code if destination.category is not None else None
+        return {
+            "slug": destination.slug, "category": category,
+            "status": destination.status.value if isinstance(destination.status, DestinationStatus) else destination.status,
+            "is_active": destination.is_active, "is_featured": destination.is_featured,
+            "priority_order": destination.priority_order, "municipality": destination.municipality,
+            "region": destination.region, "latitude": destination.latitude, "longitude": destination.longitude,
+            "translations": [
+                {name: getattr(item, name) for name in (
+                    "language_code", "name", "short_description", "description",
+                    "historical_background", "visitor_information",
+                    "accessibility_information", "seo_title", "seo_description")}
+                for item in destination.translations
+            ],
+        }
+
+    @classmethod
+    def _is_legacy_compatible(cls, destination: Destination) -> bool:
+        return LEGACY_CATALOG.matches(cls._snapshot(destination))
+
+    @classmethod
+    def _prevent_publication_bypass(cls, destination: Destination) -> None:
+        if destination.status in {DestinationStatus.PUBLISHED, DestinationStatus.APPROVED}:
+            if destination.status is DestinationStatus.APPROVED or not cls._is_legacy_compatible(destination):
+                raise DestinationPublicationBlockedError()
