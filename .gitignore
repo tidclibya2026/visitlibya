@@ -45,3 +45,4 @@ __pycache__/
 
 # Generated GitHub Pages release artifact
 .pages-artifact/
+/config/frontend-config.local.backup.js

@@ -1,0 +1,4241 @@
+{
+  "schema_version": 1,
+  "layer_id": "green-mountain-expanded-review",
+  "canonical_destination_slug": "green-mountain",
+  "policy": {
+    "automatic_publication": false,
+    "canonical_coordinate_generated": false,
+    "centroid_generated": false,
+    "database_write": false,
+    "source_modified": false
+  },
+  "summary": {
+    "total_candidates": 266,
+    "recommended_action_counts": {
+      "INSTITUTIONAL_ONLY": 38,
+      "TOURISM_REVIEW": 193,
+      "HUMAN_REVIEW": 35
+    },
+    "relevance_counts": {
+      "LOW": 38,
+      "HIGH": 18,
+      "MEDIUM_HIGH": 175,
+      "MEDIUM": 35
+    },
+    "category_counts": {
+      "آبار وخزانات ومصادر مياه أخرى": 26,
+      "الأودية ومصباتها": 110,
+      "البحيرات الطبيعية والصحراوية": 7,
+      "البرك والبلطات والقلتات": 10,
+      "السبخات والأراضي الرطبة": 12,
+      "السدود": 12,
+      "العيون الطبيعية": 67,
+      "الفوارات والمياه الكبريتية والحمامات": 20,
+      "محميات وموائل الطيور المهاجرة": 2
+    }
+  },
+  "records": [
+    {
+      "source_feature_id": 1,
+      "name": "أطلال حصن بئر احكيم",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.4796,
+      "latitude": 31.5938533,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 2,
+      "name": "الفرارة موقع أثري مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.6313182,
+      "latitude": 32.9269457,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 6,
+      "name": "بئر أثري",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.7496418,
+      "latitude": 32.9302927,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 15,
+      "name": "بئر البلح",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.0444444444444,
+      "latitude": 32.7458333333333,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 30,
+      "name": "بئر النوارية",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.9918635,
+      "latitude": 32.8379603,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 33,
+      "name": "بئر بالتبن",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.8159294,
+      "latitude": 32.6497098,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 39,
+      "name": "بئر حكيم",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.4833333333333,
+      "latitude": 31.5994444444444,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 67,
+      "name": "خزانات النهر الصناعي",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 20.3274536,
+      "latitude": 31.8612298,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 68,
+      "name": "خزانات النهر الصناعي",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 20.2673721,
+      "latitude": 31.7299192,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 70,
+      "name": "خزانات مياه مكشوفة",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 20.9550304,
+      "latitude": 32.706964,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 79,
+      "name": "قنوات مياه أثرية",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.8636353,
+      "latitude": 32.816192,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 80,
+      "name": "كهف معطن الزيت",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.8179075891359,
+      "latitude": 32.8175464740302,
+      "locality_signals": [],
+      "tourism_signals": [
+        "كهف"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 81,
+      "name": "محطة تزود بالوقود",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 22.285,
+      "latitude": 31.3905555555556,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 86,
+      "name": "مقبرة معركة بئر احكيم",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.4965743,
+      "latitude": 31.6071738,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 89,
+      "name": "موقع أثري مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 22.17073,
+      "latitude": 32.903086,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 90,
+      "name": "موقع أثري مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.9673290000001,
+      "latitude": 32.904091,
+      "locality_signals": [
+        "سوسة"
+      ],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 92,
+      "name": "موقع أثري مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.439623,
+      "latitude": 32.179632,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 93,
+      "name": "موقع أثري مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.309165,
+      "latitude": 32.174346,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 94,
+      "name": "موقع أثري مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.084186,
+      "latitude": 32.348324,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 95,
+      "name": "موقع أثري مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.095134,
+      "latitude": 32.415048,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 96,
+      "name": "موقع أثري مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.109682,
+      "latitude": 32.526316,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 97,
+      "name": "موقع أثري مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.133193,
+      "latitude": 32.604064,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 98,
+      "name": "موقع تراث مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.8007598762117,
+      "latitude": 32.9156351310627,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 101,
+      "name": "موقع مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.340607,
+      "latitude": 32.775917,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 102,
+      "name": "موقع مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 21.428193,
+      "latitude": 32.800985,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 104,
+      "name": "موقع مغمور بالمياه",
+      "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+      "longitude": 23.6412270000001,
+      "latitude": 32.177705,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 111,
+      "name": "استراحة منتزه وادي الكوف",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.5634833333334,
+      "latitude": 32.7017888888889,
+      "locality_signals": [
+        "وادي الكوف",
+        "الكوف"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 123,
+      "name": "جسر وادي الكوف",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.5651463,
+      "latitude": 32.6969085,
+      "locality_signals": [
+        "وادي الكوف",
+        "الكوف"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 124,
+      "name": "جسر وادي الكوف القديم",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.5745439,
+      "latitude": 32.6985923,
+      "locality_signals": [
+        "وادي الكوف",
+        "الكوف"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 126,
+      "name": "حقفة وادي اعطية",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.5092,
+      "latitude": 31.6317,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 130,
+      "name": "شلال وادي مرقس",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.2109384,
+      "latitude": 32.8478912,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي",
+        "شلال"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 135,
+      "name": "قصر المقدم",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.5388888888889,
+      "latitude": 32.6702777777778,
+      "locality_signals": [
+        "وادي الكوف",
+        "الكوف"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 137,
+      "name": "قلعة وادي الباب",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.5283472,
+      "latitude": 31.5715241,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 140,
+      "name": "كهف مناخر العبد وادي الشويعر",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.2977803,
+      "latitude": 32.7737372,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي",
+        "كهف"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 152,
+      "name": "مصب وادي القطارة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.0315105,
+      "latitude": 32.055284,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 157,
+      "name": "مقابر أثرية",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.2933224,
+      "latitude": 32.8152321,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 158,
+      "name": "مقبرة المنيخرات",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.9201183,
+      "latitude": 32.4613738,
+      "locality_signals": [
+        "المرج"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 159,
+      "name": "منتجع الينابيع السياحي",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.19025,
+      "latitude": 32.8815,
+      "locality_signals": [
+        "شحات",
+        "رأس الهلال",
+        "الأثرون"
+      ],
+      "tourism_signals": [
+        "وادي",
+        "شلال",
+        "خليج",
+        "رأس"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 160,
+      "name": "منتجع وادي الكوف",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.562313,
+      "latitude": 32.70194,
+      "locality_signals": [
+        "البيضاء",
+        "وادي الكوف",
+        "الكوف"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 161,
+      "name": "منتجع وادي الكوف",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.563798,
+      "latitude": 32.702,
+      "locality_signals": [
+        "البيضاء",
+        "وادي الكوف",
+        "الكوف"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 187,
+      "name": "وادي ارفيد",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.470583,
+      "latitude": 32.773433,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 188,
+      "name": "وادي استوة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.6678071,
+      "latitude": 32.9288414,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 189,
+      "name": "وادي استوة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.1008873,
+      "latitude": 32.8663232,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 195,
+      "name": "وادي الأثرون",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.284597,
+      "latitude": 32.8719799,
+      "locality_signals": [
+        "الأثرون"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 197,
+      "name": "وادي الانجيل",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.4158442,
+      "latitude": 32.8384308,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 198,
+      "name": "وادي الباب",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.5284691,
+      "latitude": 31.5685539,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 199,
+      "name": "وادي الباكور",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.6174821,
+      "latitude": 32.5148211,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 200,
+      "name": "وادي البرك",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.426434,
+      "latitude": 32.6425168,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 201,
+      "name": "وادي البغار",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.3460886,
+      "latitude": 31.9182653,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 203,
+      "name": "وادي البنت",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.6859093,
+      "latitude": 32.74397,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 206,
+      "name": "وادي التميمي",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.0803871,
+      "latitude": 32.3429864,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 207,
+      "name": "وادي التميمي",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.036698,
+      "latitude": 32.3119974,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 212,
+      "name": "وادي الحاج",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.1804507,
+      "latitude": 32.8889071,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 220,
+      "name": "وادي الحصين",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.0717692,
+      "latitude": 32.9096222,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 221,
+      "name": "وادي الحلشوف",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.0553541,
+      "latitude": 32.9059111,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 225,
+      "name": "وادي الحنش",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.5514232,
+      "latitude": 32.8539098,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 228,
+      "name": "وادي الخبطة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.9255593,
+      "latitude": 32.6658331,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 230,
+      "name": "وادي الدبوسية",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.276111111111,
+      "latitude": 32.8477777777778,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 231,
+      "name": "وادي الدكيكين",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.5071416,
+      "latitude": 32.8064565,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 234,
+      "name": "وادي الذبان",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.0311194444445,
+      "latitude": 32.6497805555556,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 240,
+      "name": "وادي الرمان",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.1004721,
+      "latitude": 32.7665765,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 241,
+      "name": "وادي الرملة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.239418,
+      "latitude": 32.3795266,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 249,
+      "name": "وادي السوينات",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.6077983,
+      "latitude": 32.1731884,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 250,
+      "name": "وادي السوينيات",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.6118078,
+      "latitude": 32.1740505,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 251,
+      "name": "وادي السي موسى",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.720829,
+      "latitude": 32.9382963,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 252,
+      "name": "وادي الشبروق - المرصص",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.6716805555556,
+      "latitude": 32.0965305555556,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 253,
+      "name": "وادي الشفار",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.1102562,
+      "latitude": 32.5023786,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 256,
+      "name": "وادي الشقف",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.3317766,
+      "latitude": 32.7681976,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 257,
+      "name": "وادي الشويعر",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.2966666666666,
+      "latitude": 32.7733333333333,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 258,
+      "name": "وادي الشيصو",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.7689126,
+      "latitude": 32.7885215,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 259,
+      "name": "وادي الصخرة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.1615911,
+      "latitude": 32.9090817,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 261,
+      "name": "وادي الصنب",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.5685214,
+      "latitude": 32.7090278,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 262,
+      "name": "وادي الصنب",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.5586666666667,
+      "latitude": 32.702,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 263,
+      "name": "وادي الضحاك",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.465465,
+      "latitude": 32.6144255,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 266,
+      "name": "وادي العزامي",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.0821037,
+      "latitude": 32.4190951,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 267,
+      "name": "وادي العقر",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.7283333333334,
+      "latitude": 32.4994444444444,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 271,
+      "name": "وادي العين",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.0463419,
+      "latitude": 32.8818577,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي",
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 272,
+      "name": "وادي العين",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.7562157,
+      "latitude": 32.1338346,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي",
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 273,
+      "name": "وادي العين",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.22095,
+      "latitude": 32.8751,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي",
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 277,
+      "name": "وادي الفلقان",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.9536152,
+      "latitude": 32.6614165,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 278,
+      "name": "وادي الفلو",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.0752668,
+      "latitude": 32.911982,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 283,
+      "name": "وادي القصيبات وبردي القصيبية",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.0971241,
+      "latitude": 32.3177477,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 284,
+      "name": "وادي القطا",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.0431077,
+      "latitude": 32.7505216,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 285,
+      "name": "وادي القطارة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.7046336999999,
+      "latitude": 32.1731787,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 292,
+      "name": "وادي الكلابيش",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.9402418,
+      "latitude": 32.7077945,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 294,
+      "name": "وادي الماجار",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.1170368,
+      "latitude": 32.479791,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 296,
+      "name": "وادي المالح",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.0593667,
+      "latitude": 32.9018937,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 306,
+      "name": "وادي المعيقب",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.7932968,
+      "latitude": 32.1538516,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 308,
+      "name": "وادي الملاق",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.0796146,
+      "latitude": 32.3847091,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 309,
+      "name": "وادي الملكة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.1205993,
+      "latitude": 32.7601114,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 310,
+      "name": "وادي المملوح",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.7066669,
+      "latitude": 32.9377741,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 311,
+      "name": "وادي المهبول",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.0930767,
+      "latitude": 32.9191512,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 312,
+      "name": "وادي المويلح",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.5458723,
+      "latitude": 32.8427957,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 313,
+      "name": "وادي الناقة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.5439024,
+      "latitude": 32.7891506,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 314,
+      "name": "وادي الناقة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.5807522,
+      "latitude": 32.7741449,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 317,
+      "name": "وادي الهمسة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.0025000000001,
+      "latitude": 32.6508333,
+      "locality_signals": [
+        "مسة"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 322,
+      "name": "وادي الوسيطة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.287848,
+      "latitude": 32.8713154,
+      "locality_signals": [
+        "الوسيطة"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 341,
+      "name": "وادي بالحمام",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.5691071,
+      "latitude": 32.1708902,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 345,
+      "name": "وادي برور",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.867012,
+      "latitude": 32.6886538,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 348,
+      "name": "وادي بلعريض",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.3189608,
+      "latitude": 32.7718959,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 349,
+      "name": "وادي بلغدير",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.8517352,
+      "latitude": 32.8176855,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 357,
+      "name": "وادي بوالحنافيس",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.1897222222223,
+      "latitude": 32.77,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 361,
+      "name": "وادي بوالكف",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.9891117,
+      "latitude": 32.7314799,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 363,
+      "name": "وادي بوتركية",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.8545395,
+      "latitude": 32.8226821,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 365,
+      "name": "وادي بوحسنة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.5107422,
+      "latitude": 32.1654411,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 368,
+      "name": "وادي بوشماري",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.0249347,
+      "latitude": 32.7416569,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 369,
+      "name": "وادي بوشويبة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.6124564,
+      "latitude": 32.3827098,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 372,
+      "name": "وادي بوفراش",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.0432734,
+      "latitude": 32.8861644,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 374,
+      "name": "وادي بوقندول",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.0762968,
+      "latitude": 32.8972094,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 375,
+      "name": "وادي بومشفة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.9217024,
+      "latitude": 32.6952271,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 376,
+      "name": "وادي بونبح",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.8362284,
+      "latitude": 32.8202801,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 419,
+      "name": "وادي جرجار امه",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.4144086,
+      "latitude": 32.765094,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 422,
+      "name": "وادي حبون",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.1516081,
+      "latitude": 32.7646811,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 428,
+      "name": "وادي درنة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.6304847,
+      "latitude": 32.7505211,
+      "locality_signals": [
+        "درنة"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 429,
+      "name": "وادي درنة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.6438737,
+      "latitude": 32.7646686,
+      "locality_signals": [
+        "درنة"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 434,
+      "name": "وادي زازا",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.4775277777778,
+      "latitude": 32.4385833333333,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 438,
+      "name": "وادي زوانة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.957408,
+      "latitude": 32.7157024,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 440,
+      "name": "وادي سالموس",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.4047414,
+      "latitude": 32.2161551,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 443,
+      "name": "وادي سملوس",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.2532663,
+      "latitude": 32.375277,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 444,
+      "name": "وادي سوامة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 20.973587,
+      "latitude": 32.7235373,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 451,
+      "name": "وادي سيدي عامر",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.7522222222223,
+      "latitude": 32.9272222222222,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 452,
+      "name": "وادي سيدي عون",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.9131031,
+      "latitude": 32.6690033,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 457,
+      "name": "وادي طرطقو",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.4720413,
+      "latitude": 32.70459,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 474,
+      "name": "وادي فروة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.16667,
+      "latitude": 32.76667,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 476,
+      "name": "وادي قدرون",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 23.1360912,
+      "latitude": 32.3105664,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 477,
+      "name": "وادي قرا",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.8343004,
+      "latitude": 32.8378089,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 481,
+      "name": "وادي كرسة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.4164972,
+      "latitude": 32.8290803,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 482,
+      "name": "وادي كعب",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.1790051,
+      "latitude": 32.5983103,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 485,
+      "name": "وادي لامين",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.3139798,
+      "latitude": 32.7721384,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 487,
+      "name": "وادي لهيرا",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.0477099,
+      "latitude": 32.9065371,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 492,
+      "name": "وادي مرقس",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.2072581,
+      "latitude": 32.8472222,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 493,
+      "name": "وادي مرقس أو وادي الشواعر",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 22.228278,
+      "latitude": 32.860026,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 494,
+      "name": "وادي مسلقون",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.6444593,
+      "latitude": 32.8947508,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 498,
+      "name": "وادي مقيونس",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.20811,
+      "latitude": 32.7713,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 499,
+      "name": "وادي ملجة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.8361243,
+      "latitude": 32.8360343,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 500,
+      "name": "وادي ملجة",
+      "primary_category": "الأودية ومصباتها",
+      "longitude": 21.8432624,
+      "latitude": 32.828641,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 518,
+      "name": "أم المخالي أو اللبادية - بحيرة الغارق",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "longitude": 20.8980874,
+      "latitude": 32.5058984,
+      "locality_signals": [],
+      "tourism_signals": [
+        "بحيرة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 519,
+      "name": "البحيرة الكبيرة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "longitude": 20.0972986,
+      "latitude": 32.1424786,
+      "locality_signals": [],
+      "tourism_signals": [
+        "بحيرة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 543,
+      "name": "بحيرة المجدوب",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "longitude": 20.1287556,
+      "latitude": 32.1554139,
+      "locality_signals": [],
+      "tourism_signals": [
+        "بحيرة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 549,
+      "name": "بحيرة بوحميرة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "longitude": 20.1330471,
+      "latitude": 32.1569398,
+      "locality_signals": [],
+      "tourism_signals": [
+        "بحيرة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 550,
+      "name": "بحيرة بوقصيبة",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "longitude": 20.1408148,
+      "latitude": 32.1653684,
+      "locality_signals": [],
+      "tourism_signals": [
+        "بحيرة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 557,
+      "name": "بحيرة شمال بنغازي",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "longitude": 20.0969982,
+      "latitude": 32.1457126,
+      "locality_signals": [],
+      "tourism_signals": [
+        "بحيرة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 567,
+      "name": "حديقة بحيرة بنغازي",
+      "primary_category": "البحيرات الطبيعية والصحراوية",
+      "longitude": 20.0633097,
+      "latitude": 32.1118772,
+      "locality_signals": [],
+      "tourism_signals": [
+        "بحيرة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 573,
+      "name": "البرك",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 21.4254823,
+      "latitude": 32.6433046,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 575,
+      "name": "برك نوطة",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 21.8105328,
+      "latitude": 32.9088836,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 576,
+      "name": "برك نوطة",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 21.8085908,
+      "latitude": 32.9077036,
+      "locality_signals": [
+        "سوسة"
+      ],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 577,
+      "name": "بركة الحصان",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 22.2162000000001,
+      "latitude": 32.8456,
+      "locality_signals": [],
+      "tourism_signals": [
+        "بركة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 578,
+      "name": "بركة الغريق",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 20.9227044,
+      "latitude": 32.5170629,
+      "locality_signals": [
+        "المرج"
+      ],
+      "tourism_signals": [
+        "بركة"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 579,
+      "name": "بركة ناصر",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 22.173675666666668,
+      "latitude": 32.894777,
+      "locality_signals": [],
+      "tourism_signals": [
+        "بركة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 580,
+      "name": "بلط ازلاق",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 21.8932733,
+      "latitude": 31.8884807,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 581,
+      "name": "بلط الزمارير",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 21.2304769,
+      "latitude": 31.5423937,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 582,
+      "name": "بلط محرز",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 21.6165276,
+      "latitude": 31.8918771,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 586,
+      "name": "غدير بوشوشة",
+      "primary_category": "البرك والبلطات والقلتات",
+      "longitude": 20.5701494,
+      "latitude": 32.1594496,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 597,
+      "name": "سبخة أم سيد",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 21.5163889,
+      "latitude": 32.84,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 601,
+      "name": "سبخة الحنية",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 21.5163889,
+      "latitude": 32.84,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 602,
+      "name": "سبخة الدليسي",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 22.5247222,
+      "latitude": 32.8019444,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 604,
+      "name": "سبخة السلاوي",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 20.1027778,
+      "latitude": 32.1494444,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 608,
+      "name": "سبخة العين الزرقاء",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 21.4780709,
+      "latitude": 32.810937,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 609,
+      "name": "سبخة الغزايا",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 23.2078457,
+      "latitude": 32.2772549,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 611,
+      "name": "سبخة الكوز",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 20.4419519,
+      "latitude": 32.4366268,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 616,
+      "name": "سبخة المويلح",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 23.1222725,
+      "latitude": 32.6062661,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 620,
+      "name": "سبخة بوجيرة",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 20.4915619,
+      "latitude": 32.4834112,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 621,
+      "name": "سبخة جليانا",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 20.0589302,
+      "latitude": 32.0903784,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 623,
+      "name": "سبخة رأس التين",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 23.1213498,
+      "latitude": 32.6132973,
+      "locality_signals": [],
+      "tourism_signals": [
+        "رأس"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 630,
+      "name": "سبخة كركورة",
+      "primary_category": "السبخات والأراضي الرطبة",
+      "longitude": 20.0550000000001,
+      "latitude": 31.4011111,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 637,
+      "name": "سد",
+      "primary_category": "السدود",
+      "longitude": 22.6153457,
+      "latitude": 32.6336332,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 638,
+      "name": "سد الدرعاني",
+      "primary_category": "السدود",
+      "longitude": 20.685178,
+      "latitude": 32.3814655,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 640,
+      "name": "سد الهيشة",
+      "primary_category": "السدود",
+      "longitude": 22.3868383,
+      "latitude": 32.5718244,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 643,
+      "name": "سد وادي اسلان",
+      "primary_category": "السدود",
+      "longitude": 21.206283,
+      "latitude": 32.1949173,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 644,
+      "name": "سد وادي الشواعر",
+      "primary_category": "السدود",
+      "longitude": 22.2374798,
+      "latitude": 32.8691319,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 645,
+      "name": "سد وادي العقربان",
+      "primary_category": "السدود",
+      "longitude": 20.4835105,
+      "latitude": 32.1566925,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 646,
+      "name": "سد وادي القطارة",
+      "primary_category": "السدود",
+      "longitude": 20.405519,
+      "latitude": 32.0271363,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 647,
+      "name": "سد وادي القطارة",
+      "primary_category": "السدود",
+      "longitude": 20.3347278,
+      "latitude": 31.9954747,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 652,
+      "name": "سد وادي درنة",
+      "primary_category": "السدود",
+      "longitude": 22.5769444444445,
+      "latitude": 32.6594444444444,
+      "locality_signals": [
+        "درنة"
+      ],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 654,
+      "name": "سد وادي زازا",
+      "primary_category": "السدود",
+      "longitude": 20.5449765,
+      "latitude": 32.3755944,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 659,
+      "name": "سد وادي محجة",
+      "primary_category": "السدود",
+      "longitude": 21.9055576,
+      "latitude": 32.572164,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 661,
+      "name": "وادي جازا أو زازا",
+      "primary_category": "السدود",
+      "longitude": 20.5506604,
+      "latitude": 32.3691681,
+      "locality_signals": [],
+      "tourism_signals": [
+        "وادي",
+        "كهف"
+      ],
+      "tourism_relevance": "LOW",
+      "recommended_action": "INSTITUTIONAL_ONLY",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 662,
+      "name": "الكنيسة الايطالية",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.6280004,
+      "latitude": 32.75328,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 663,
+      "name": "بحيرة عين الزيانة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 20.1555876,
+      "latitude": 32.2149468,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين",
+        "بحيرة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 666,
+      "name": "حرم عين الحفرة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.8740209,
+      "latitude": 32.8257443,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 667,
+      "name": "خليج بمبة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 23.2208064,
+      "latitude": 32.3072999,
+      "locality_signals": [
+        "درنة",
+        "المرج"
+      ],
+      "tourism_signals": [
+        "عين",
+        "شاطئ",
+        "خليج",
+        "رأس"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 668,
+      "name": "رأس عين الغزالة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 23.3167648,
+      "latitude": 32.2117844,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين",
+        "رأس"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 669,
+      "name": "سبخة عين الحنية",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.52299,
+      "latitude": 32.845989,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 671,
+      "name": "عين أم اقبيبة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.6066501,
+      "latitude": 32.7663989,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 674,
+      "name": "عين أم الصفصاف",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.7434000000001,
+      "latitude": 32.7817,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 681,
+      "name": "عين استوة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.1061111111111,
+      "latitude": 32.8586111111111,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 684,
+      "name": "عين الانجيل",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.4023,
+      "latitude": 32.811,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 687,
+      "name": "عين البقة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.9883,
+      "latitude": 32.8489,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 688,
+      "name": "عين البقرة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.8961111111112,
+      "latitude": 32.8191666666667,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 689,
+      "name": "عين البلنج",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.6704436,
+      "latitude": 32.7658704,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 691,
+      "name": "عين البنت",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.6798046,
+      "latitude": 32.7327254,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 695,
+      "name": "عين التميمي",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 23.0729198,
+      "latitude": 32.3499476,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 697,
+      "name": "عين الجرم",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.528974,
+      "latitude": 32.716561,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 700,
+      "name": "عين الحاسة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.63735,
+      "latitude": 32.7307583333333,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 701,
+      "name": "عين الحدادية",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2666412,
+      "latitude": 32.8498354,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 702,
+      "name": "عين الحطيبة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2333333333333,
+      "latitude": 32.8588888888889,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 703,
+      "name": "عين الحفرة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.8728472,
+      "latitude": 32.8272329,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 704,
+      "name": "عين الحلوفة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.8766666666667,
+      "latitude": 32.8269444444445,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 705,
+      "name": "عين الحليب",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.1763888888888,
+      "latitude": 32.8508333333333,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 706,
+      "name": "عين الحمام",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2072222222222,
+      "latitude": 32.8433333333333,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 709,
+      "name": "عين الدبوسية",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2100905,
+      "latitude": 32.8470059,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 710,
+      "name": "عين الدبوسية",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2805961,
+      "latitude": 32.8335931,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 711,
+      "name": "عين الدرسية",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.1694612,
+      "latitude": 32.8896501,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 719,
+      "name": "عين الزرقاء أو عين أم اقديح",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.35,
+      "latitude": 32.7833333333333,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 720,
+      "name": "عين السمان",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2496121,
+      "latitude": 32.7474015,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 721,
+      "name": "عين السيبانة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.3856604,
+      "latitude": 32.7386427,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 725,
+      "name": "عين الشقيقة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.4603543,
+      "latitude": 32.8050414,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 726,
+      "name": "عين الشيصو",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.77,
+      "latitude": 32.7941666666667,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 727,
+      "name": "عين الطراطيش",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.1717513,
+      "latitude": 32.8975382,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 729,
+      "name": "عين العليمة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 23.356998,
+      "latitude": 32.1449132,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 734,
+      "name": "عين الغزال",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 23.264894684210528,
+      "latitude": 32.19976563157895,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 735,
+      "name": "عين الغزالة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 23.3061218,
+      "latitude": 32.1856375,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين",
+        "بحيرة"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 738,
+      "name": "عين الفروة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 20.9807324,
+      "latitude": 32.7225083,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 740,
+      "name": "عين القبة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2483146,
+      "latitude": 32.7632112,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 748,
+      "name": "عين المغموم",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2563247,
+      "latitude": 32.8588373,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 750,
+      "name": "عين الملكة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.1208618,
+      "latitude": 32.7638454,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 752,
+      "name": "عين الوحش",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 23.120323,
+      "latitude": 32.3028732,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 756,
+      "name": "عين ام الصيادة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.5222222222222,
+      "latitude": 32.845,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 757,
+      "name": "عين ام القبيبة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.7605555555556,
+      "latitude": 32.7988888888889,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 758,
+      "name": "عين ام الناموس",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2055555555555,
+      "latitude": 32.85,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 764,
+      "name": "عين بوشمال",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2645976,
+      "latitude": 32.7177929,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 774,
+      "name": "عين جبارة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 20.7516666666667,
+      "latitude": 32.1358333333333,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 775,
+      "name": "عين حبون",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.9172222222222,
+      "latitude": 32.8258333333333,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 782,
+      "name": "عين دريلة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.1588888888889,
+      "latitude": 32.8677777777778,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 787,
+      "name": "عين رأس الحليب",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.0717478,
+      "latitude": 32.9087394,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين",
+        "رأس"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 788,
+      "name": "عين رأس الهلال",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.1699277777777,
+      "latitude": 32.8660472222222,
+      "locality_signals": [
+        "رأس الهلال"
+      ],
+      "tourism_signals": [
+        "عين",
+        "رأس"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 792,
+      "name": "عين زيانة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 20.152961705202312,
+      "latitude": 32.22640404624278,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 793,
+      "name": "عين سباق",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.944176,
+      "latitude": 32.711681,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 794,
+      "name": "عين سرسرة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.3880636,
+      "latitude": 32.723921,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 797,
+      "name": "عين شعيب",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.37863,
+      "latitude": 32.7504912,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 798,
+      "name": "عين شوشان",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.6496388888888,
+      "latitude": 32.7287222222222,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 799,
+      "name": "عين صالحة أو عين الشلالة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.9072222222222,
+      "latitude": 32.8163888888889,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين",
+        "شلال"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 801,
+      "name": "عين غريبة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.3444444444444,
+      "latitude": 32.7888888888889,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 803,
+      "name": "عين فرانسا",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2470775,
+      "latitude": 32.7459486,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 807,
+      "name": "عين كرسة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.4166582,
+      "latitude": 32.831244,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 809,
+      "name": "عين لالي",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.9826984,
+      "latitude": 32.7219352,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 812,
+      "name": "عين مارا",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.3843861,
+      "latitude": 32.7519829,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 815,
+      "name": "عين مرزاق",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.0313473,
+      "latitude": 32.8178318,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 816,
+      "name": "عين مرقص",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2287028,
+      "latitude": 32.8488151,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 819,
+      "name": "عين مسة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.6180583333334,
+      "latitude": 32.7572222222222,
+      "locality_signals": [
+        "مسة"
+      ],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 822,
+      "name": "عين مقه",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.2677435,
+      "latitude": 32.7166248,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 827,
+      "name": "عين وردمة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.7849269,
+      "latitude": 32.8034697,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 834,
+      "name": "مستشفى عين مارة",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 22.3879812,
+      "latitude": 32.7494853,
+      "locality_signals": [],
+      "tourism_signals": [
+        "عين"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 837,
+      "name": "نبع أبولو",
+      "primary_category": "العيون الطبيعية",
+      "longitude": 21.8525,
+      "latitude": 32.82302,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 842,
+      "name": "الحمامات الأغريقية",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.8544831,
+      "latitude": 32.8222095,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 844,
+      "name": "الحمامات العامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 20.9515388,
+      "latitude": 32.709831,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 845,
+      "name": "الحمامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.6315222,
+      "latitude": 32.9076586,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 846,
+      "name": "الحمامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.631779108269395,
+      "latitude": 32.925385988917306,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 850,
+      "name": "حقفة الحمام",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 22.2012609,
+      "latitude": 32.8792628,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 852,
+      "name": "حقفة الحمام",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 22.1677227,
+      "latitude": 32.9089036,
+      "locality_signals": [],
+      "tourism_signals": [
+        "كهف"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 871,
+      "name": "رأس الحمام",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 23.4589005,
+      "latitude": 32.1761937,
+      "locality_signals": [],
+      "tourism_signals": [
+        "رأس"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 872,
+      "name": "رأس الحمامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.6313505,
+      "latitude": 32.9263198,
+      "locality_signals": [],
+      "tourism_signals": [
+        "رأس"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 914,
+      "name": "قصر الحمام",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.4831015,
+      "latitude": 32.8097767,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 918,
+      "name": "مسجد الحمامة العتيق",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.6344444444444,
+      "latitude": 32.9216666666667,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 919,
+      "name": "مصيف الحمامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.6207075,
+      "latitude": 32.9163412,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 920,
+      "name": "مصيف الحمامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.5969456,
+      "latitude": 32.9009913,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 921,
+      "name": "مصيف الحمامة 1",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.6059017,
+      "latitude": 32.9051545,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 924,
+      "name": "منتجع التلال الحمامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.617087,
+      "latitude": 32.911754,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 925,
+      "name": "منتجع التلال الحمامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.615861,
+      "latitude": 32.911311,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 926,
+      "name": "منتجع الجراري السياحي - للعائلات",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.604555,
+      "latitude": 32.905509,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 927,
+      "name": "منتجع الجراري السياحي - للعائلات",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.604209,
+      "latitude": 32.905579,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 928,
+      "name": "منتجع ومصيف الحمامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.620739,
+      "latitude": 32.917068,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 929,
+      "name": "منتجع ومصيف الحمامة",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.621093,
+      "latitude": 32.916555,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 935,
+      "name": "موقع مغمور بالمياه",
+      "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+      "longitude": 21.633695,
+      "latitude": 32.924585,
+      "locality_signals": [],
+      "tourism_signals": [],
+      "tourism_relevance": "MEDIUM",
+      "recommended_action": "HUMAN_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 939,
+      "name": "قلعة القيقب",
+      "primary_category": "محميات وموائل الطيور المهاجرة",
+      "longitude": 22.0215212,
+      "latitude": 32.7257113,
+      "locality_signals": [
+        "الجبل الأخضر",
+        "القيقب"
+      ],
+      "tourism_signals": [
+        "جبل"
+      ],
+      "tourism_relevance": "HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    },
+    {
+      "source_feature_id": 943,
+      "name": "محمية الشماري",
+      "primary_category": "محميات وموائل الطيور المهاجرة",
+      "longitude": 22.0975224,
+      "latitude": 32.7859765,
+      "locality_signals": [],
+      "tourism_signals": [
+        "محمية"
+      ],
+      "tourism_relevance": "MEDIUM_HIGH",
+      "recommended_action": "TOURISM_REVIEW",
+      "media_companion_found": true,
+      "review_status": "REVIEW_REQUIRED",
+      "publication_approved": false
+    }
+  ]
+}
