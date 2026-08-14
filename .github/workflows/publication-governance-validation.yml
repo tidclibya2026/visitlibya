@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -28,10 +30,20 @@ jobs:
         run: |
           python -m json.tool backend/data/governance/publication-policy.json > /dev/null
           python -m json.tool backend/data/governance/legacy-publication-baseline.json > /dev/null
+          python -m json.tool backend/data/governance/publication-generation-manifest.json > /dev/null
 
       - name: Validate publication governance
         run: python backend/scripts/publication_governance.py
 
-      - name: Run focused governance tests
+      - name: Validate generation manifest
+        run: python backend/scripts/publication_generation.py validate-manifest
+
+      - name: Generate supported artifacts outside repository
+        run: python backend/scripts/publication_generation.py generate --output-dir "$RUNNER_TEMP/publication-generation"
+
+      - name: Detect direct edits and verify protected artifacts
+        run: python backend/scripts/publication_generation.py verify
+
+      - name: Run focused governance and generation tests
         working-directory: backend
-        run: python -m pytest -q tests/unit/scripts/test_publication_governance.py
+        run: python -m pytest -q tests/unit/scripts/test_publication_governance.py tests/unit/scripts/test_publication_generation.py

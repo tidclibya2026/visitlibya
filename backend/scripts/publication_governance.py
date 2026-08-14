@@ -250,12 +250,21 @@ def parse_phase_1_ledger(raw: bytes) -> list[dict[str, Any]]:
     return events
 
 
-def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+def canonical_governed_bytes(path: Path) -> bytes:
+    """Return the exact LF Git representation of a governed UTF-8 text artifact."""
+    raw = path.read_bytes()
+    try:
+        raw.decode("utf-8")
+    except UnicodeDecodeError as exc:
+        raise GovernanceValidationError(f"governed artifact is not valid UTF-8: {path}") from exc
+    canonical = raw.replace(b"\r\n", b"\n")
+    if b"\r" in canonical:
+        raise GovernanceValidationError(f"governed artifact contains a lone carriage return: {path}")
+    return canonical
 
 
 def _measure_count(path: Path, semantics: str) -> int:
-    text = path.read_text(encoding="utf-8")
+    text = canonical_governed_bytes(path).decode("utf-8")
     if semantics == "NATURAL_FEATURES":
         count = len(re.findall(r'"sourceFeatureId"\s*:', text))
         declared = [int(value) for value in re.findall(r'"featureCount"\s*:\s*(\d+)', text)]
@@ -314,9 +323,10 @@ def validate_baseline(
         path = root / path_text
         if not path.is_file():
             raise GovernanceValidationError(f"baseline artifact is missing: {path_text}")
-        if item["byte_size"] != path.stat().st_size:
+        canonical = canonical_governed_bytes(path)
+        if item["byte_size"] != len(canonical):
             raise GovernanceValidationError(f"baseline byte-size mismatch: {path_text}")
-        if item["sha256"] != _sha256(path):
+        if item["sha256"] != hashlib.sha256(canonical).hexdigest():
             raise GovernanceValidationError(f"baseline SHA-256 mismatch: {path_text}")
         count = _measure_count(path, semantics)
         if item["record_count"] != count:
