@@ -25,7 +25,12 @@ from scripts.publication_generation import (
     validate_phase_2,
     verify_protected,
 )
-from scripts.publication_governance import BASELINE_CLASSIFICATION, BASELINE_PATH, POLICY_PATH
+from scripts.publication_governance import (
+    BASELINE_CLASSIFICATION,
+    BASELINE_PATH,
+    POLICY_PATH,
+    canonical_governed_bytes,
+)
 
 
 def read_json(path: Path) -> dict:
@@ -82,7 +87,7 @@ def test_manifest_schema_and_path_allowlist(repository: tuple[Path, set[str]]) -
 def test_deterministic_generation_is_byte_identical(repository: tuple[Path, set[str]]) -> None:
     root, tracked = repository
     manifest = validate_phase_2(root, tracked_paths=tracked)
-    assert generate_natural_bytes(root, manifest) == (root / NATURAL_OUTPUT).read_bytes()
+    assert generate_natural_bytes(root, manifest) == canonical_governed_bytes(root / NATURAL_OUTPUT)
 
 
 def test_repeat_generation_has_identical_hash(repository: tuple[Path, set[str]]) -> None:
@@ -226,8 +231,8 @@ def test_arabic_and_utf8_serialization_are_stable(repository: tuple[Path, set[st
     raw = generate_natural_bytes(root, validate_phase_2(root, tracked_paths=tracked))
     assert "الجبل الأخضر".encode("utf-8") in raw
     assert b"\\u0627" not in raw
-    assert raw.startswith(b"// Generated") and raw.endswith(b"\r\n")
-    assert raw.count(b"\r\n") == raw.count(b"\n")
+    assert raw.startswith(b"// Generated") and raw.endswith(b"\n")
+    assert b"\r\n" not in raw and b"\r" not in raw
 
 
 def test_generate_writes_only_to_external_output_directory(
@@ -236,7 +241,7 @@ def test_generate_writes_only_to_external_output_directory(
     root, tracked = repository
     before = snapshot(root)
     outputs = generate_to_directory(root, tmp_path / "generated", tracked_paths=tracked)
-    assert outputs[0].read_bytes() == (root / NATURAL_OUTPUT).read_bytes()
+    assert outputs[0].read_bytes() == canonical_governed_bytes(root / NATURAL_OUTPUT)
     assert snapshot(root) == before
 
 
@@ -245,3 +250,19 @@ def test_protected_artifacts_remain_byte_identical(repository: tuple[Path, set[s
     before = {path: (root / path).read_bytes() for path in PROTECTED_OUTPUTS}
     verify_protected(root, tracked_paths=tracked)
     assert {path: (root / path).read_bytes() for path in PROTECTED_OUTPUTS} == before
+
+
+def test_guarded_replacement_is_noop_for_git_crlf_checkout(repository: tuple[Path, set[str]]) -> None:
+    root, tracked = repository
+    path = root / NATURAL_OUTPUT
+    path.write_bytes(canonical_governed_bytes(path).replace(b"\n", b"\r\n"))
+    before = path.read_bytes()
+    assert replace_supported(root, allow_protected_replacement=True, tracked_paths=tracked) == []
+    assert path.read_bytes() == before
+
+
+def test_all_protected_counts_and_frozen_status(repository: tuple[Path, set[str]]) -> None:
+    root, tracked = repository
+    manifest = validate_phase_2(root, tracked_paths=tracked)
+    assert [item["expected_record_count"] for item in manifest["protected_outputs"]] == [249, 12, 13]
+    assert [item["deterministic_regeneration_supported"] for item in manifest["protected_outputs"]] == [True, False, False]

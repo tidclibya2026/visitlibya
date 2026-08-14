@@ -15,6 +15,7 @@ from scripts.publication_governance import (
     POLICY_PATH,
     REPOSITORY_ROOT,
     GovernanceValidationError,
+    canonical_governed_bytes,
     parse_phase_1_ledger,
     validate_repository,
 )
@@ -178,12 +179,67 @@ def test_frontend_publication_approved_true_is_rejected(foundation: tuple[Path, 
     path.write_text(text, encoding="utf-8")
     baseline = read_json(root / BASELINE_PATH)
     item = next(entry for entry in baseline["artifacts"] if entry["path"] == "assets/js/data/natural-tourism-layers.js")
-    raw = path.read_bytes()
+    raw = canonical_governed_bytes(path)
     item["sha256"] = hashlib.sha256(raw).hexdigest()
     item["byte_size"] = len(raw)
     write_json(root / BASELINE_PATH, baseline)
     with pytest.raises(GovernanceValidationError, match="publicationApproved"):
         validate(root, tracked)
+
+
+def test_lf_and_git_crlf_have_same_canonical_hash_and_size(tmp_path: Path) -> None:
+    lf = tmp_path / "lf.txt"
+    crlf = tmp_path / "crlf.txt"
+    lf.write_bytes("ليبيا\nline two\n".encode("utf-8"))
+    crlf.write_bytes("ليبيا\r\nline two\r\n".encode("utf-8"))
+    assert canonical_governed_bytes(lf) == canonical_governed_bytes(crlf)
+    assert hashlib.sha256(canonical_governed_bytes(lf)).digest() == hashlib.sha256(canonical_governed_bytes(crlf)).digest()
+
+
+@pytest.mark.parametrize("raw,error", [(b"valid\rlone", "lone carriage"), (b"invalid\xff", "valid UTF-8")])
+def test_invalid_governed_text_is_rejected(tmp_path: Path, raw: bytes, error: str) -> None:
+    path = tmp_path / "artifact.txt"
+    path.write_bytes(raw)
+    with pytest.raises(GovernanceValidationError, match=error):
+        canonical_governed_bytes(path)
+
+
+@pytest.mark.parametrize("change", [b" ", b"\n"])
+def test_non_newline_or_added_final_newline_change_fails(
+    foundation: tuple[Path, set[str]], change: bytes
+) -> None:
+    root, tracked = foundation
+    path = root / "assets/js/data/curated-destinations.js"
+    path.write_bytes(path.read_bytes() + change)
+    with pytest.raises(GovernanceValidationError, match="byte-size|SHA-256"):
+        validate(root, tracked)
+
+
+def test_missing_final_newline_fails(foundation: tuple[Path, set[str]]) -> None:
+    root, tracked = foundation
+    path = root / "assets/js/data/curated-destinations.js"
+    raw = path.read_bytes()
+    assert raw.endswith((b"\n", b"\r\n"))
+    path.write_bytes(raw[:-2] if raw.endswith(b"\r\n") else raw[:-1])
+    with pytest.raises(GovernanceValidationError, match="byte-size|SHA-256"):
+        validate(root, tracked)
+
+
+def test_git_crlf_checkout_passes(foundation: tuple[Path, set[str]]) -> None:
+    root, tracked = foundation
+    for relative in map(Path, BASELINE_ARTIFACTS):
+        path = root / relative
+        canonical = canonical_governed_bytes(path)
+        path.write_bytes(canonical.replace(b"\n", b"\r\n"))
+    validate(root, tracked)
+
+
+def test_lf_checkout_passes(foundation: tuple[Path, set[str]]) -> None:
+    root, tracked = foundation
+    for relative in map(Path, BASELINE_ARTIFACTS):
+        path = root / relative
+        path.write_bytes(canonical_governed_bytes(path))
+    validate(root, tracked)
 
 
 @pytest.mark.parametrize(

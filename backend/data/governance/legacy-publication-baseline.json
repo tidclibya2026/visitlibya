@@ -7,8 +7,8 @@
   "artifacts": [
     {
       "path": "assets/js/data/natural-tourism-layers.js",
-      "sha256": "7af880acbbd6a16cdf3bb1c6455c5515c9f5da3a018b0c5a79917f4809c94988",
-      "byte_size": 158981,
+      "sha256": "d6b74c62bb6d9da140eb0dee13dbe57734d1c04fd3d3902db80ddbaca60e853f",
+      "byte_size": 154711,
       "git_tracked": true,
       "semantic_role": "STATIC_NATURAL_TOURISM_FRONTEND_DATA",
       "record_count": 249,
@@ -17,8 +17,8 @@
     },
     {
       "path": "assets/js/data/curated-destinations.js",
-      "sha256": "ebd5025e153e5761c5752b4b235feb06fd1c9aad24fcb3003f9428fc43298e7f",
-      "byte_size": 9721,
+      "sha256": "e121f4d91e247fb27f0dacb9b089ea3debd4e41692463d6a8850c93cda414ff5",
+      "byte_size": 9551,
       "git_tracked": true,
       "semantic_role": "STATIC_CURATED_DESTINATION_FRONTEND_DATA",
       "record_count": 12,
@@ -27,8 +27,8 @@
     },
     {
       "path": "backend/data/dev/destinations.json",
-      "sha256": "f5756f58100b44b06ded35b795cc31a2262829133ae81e06016a54b0ac9f4aa9",
-      "byte_size": 9392,
+      "sha256": "1c07a53361f91f4c19e42389767a3df6d4d8c1b608f8032603302ff516b10e5f",
+      "byte_size": 9362,
       "git_tracked": true,
       "semantic_role": "DEVELOPMENT_BACKEND_DESTINATION_SEED_DATA",
       "record_count": 13,

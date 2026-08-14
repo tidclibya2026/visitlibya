@@ -21,6 +21,7 @@ from scripts.publication_governance import (
     REPOSITORY_ROOT,
     _measure_count,
     _tracked_paths,
+    canonical_governed_bytes,
     validate_repository,
 )
 
@@ -61,7 +62,7 @@ INPUT_KEYS = {"path", "record_count", "ordered_source_ids_sha256"}
 SERIALIZATION_CONTRACT = {
     "encoding": "UTF-8",
     "bom": False,
-    "newline": "CRLF",
+    "newline": "LF",
     "indent_spaces": 2,
     "key_order": "EXPLICIT_CONTRACT_ORDER",
     "record_order": "GOVERNED_INPUT_ORDER",
@@ -288,7 +289,7 @@ def _render_natural_bytes(root: Path, manifest: dict[str, Any]) -> tuple[bytes, 
         "  return getNaturalTourismLayer(layerId)?.features ?? [];\n"
         "}\n"
     )
-    raw = text.replace("\n", "\r\n").encode("utf-8")
+    raw = text.encode("utf-8")
     return raw, len(green) + len(sahara)
 
 
@@ -319,7 +320,7 @@ def verify_protected(root: Path = REPOSITORY_ROOT, *, tracked_paths: set[str] | 
     results: dict[str, str] = {}
     for contract in manifest["protected_outputs"]:
         path = contract["path"]
-        actual = (root / path).read_bytes()
+        actual = canonical_governed_bytes(root / path)
         if len(actual) != contract["expected_byte_size"] or _sha256_bytes(actual) != contract["expected_sha256"]:
             raise GenerationValidationError(f"direct edit or protected-byte mismatch detected: {path}")
         semantics = _baseline_by_path(root)[path]["count_semantics"]
@@ -348,13 +349,18 @@ def generate_to_directory(root: Path, output_dir: Path, *, tracked_paths: set[st
     return [destination]
 
 
-def replace_supported(root: Path, *, allow_protected_replacement: bool) -> list[Path]:
+def replace_supported(
+    root: Path,
+    *,
+    allow_protected_replacement: bool,
+    tracked_paths: set[str] | None = None,
+) -> list[Path]:
     if not allow_protected_replacement:
         raise GenerationValidationError("protected replacement requires --allow-protected-replacement")
-    manifest = validate_phase_2(root)
+    manifest = validate_phase_2(root, tracked_paths=tracked_paths)
     raw = generate_natural_bytes(root, manifest)
     destination = root / NATURAL_OUTPUT
-    current = destination.read_bytes()
+    current = canonical_governed_bytes(destination)
     if current == raw:
         return []
     if _sha256_bytes(current) != next(item["expected_sha256"] for item in manifest["protected_outputs"] if item["path"] == NATURAL_OUTPUT):
