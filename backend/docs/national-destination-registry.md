@@ -28,6 +28,24 @@ Complementary: Waddan, Hun, Sokna, Nafusa Mountains, Awjila, and Girza.
 
 The committed approval ledger is empty. Every registry record therefore sets `institutional_publication_approved` to `false`. Existing public or mentioned material uses `LEGACY_PUBLIC_BASELINE_NOT_INSTITUTIONAL_APPROVAL`; an absent future governed record is `GOVERNED_RECORD_INELIGIBLE`. Development priority never changes either result.
 
+Identity-model resolution is equally non-authoritative for publication. A regional relationship describes geography; a canonical identity describes a governed destination concept; a public runtime route is an implementation artifact; and institutional publication approval requires a separate effective governance decision. None implies another.
+
+## Resolved project identity models
+
+### قورينا – شحات / Cyrene (Shahat)
+
+The project model resolves Cyrene and Shahat as one unified destination, `UNIFIED_CYRENE_SHAHAT_DESTINATION`, within the Green Mountain region through `WITHIN_REGION`. Its proposed future slug is `cyrene`. The authoritative runtime dataset still has no `cyrene` record, so the current canonical slug remains `null`, the existing visitor link still routes through `green-mountain`, and runtime promotion is `NOT_PROMOTED`. Destination-level coordinates, archaeological GIS scope, Shahat service context, evidence completion, and institutional publication review remain required.
+
+### Ghadames and Old City of Ghadames
+
+`ghadames` remains the broader tourism destination. It contains the separately canonical `old-city-ghadames` historic and World Heritage core through `CONTAINS_HERITAGE_CORE`. The broader project model may encompass the modern city, Old City, oasis, surrounding desert, and cultural landscape, but it defines no GIS boundary. The Old City coordinate is not inherited by broader Ghadames, and each identity retains separate evidence and publication requirements.
+
+### Acacus
+
+Acacus is modeled as `COMPOSITE_CULTURAL_NATURAL_DESTINATION` with five governed dimensions: `ARCHAEOLOGY`, `ROCK_ART_AND_INSCRIPTIONS`, `CULTURAL_HERITAGE`, `NATURE_AND_DESERT_LANDSCAPE`, and `GEOLOGY_AND_GEOMORPHOLOGY`. Future GIS design must separate or explicitly relate archaeological features, rock-art features, natural landscapes, geology and geomorphology, and visitor routes and services.
+
+`المتحف العالمي المفتوح` / `Open-air world museum` is recorded only as a proposed promotional identity. The exact phrase was not found as an authoritative repository title, so it remains `SOURCE_VERIFICATION_REQUIRED`, is not an official UNESCO title, and grants no approval.
+
 ## Sources inspected
 
 The audit covered development and curated destination datasets, bilingual home and experience routes, detail galleries, responsive-image mappings, reviewed coordinate artifacts, both curated natural-tourism GIS reviews, heritage candidate review, the generated natural-tourism layer, and publication governance policy and ledger. Records cite stable relative repository paths without volatile line numbers.
@@ -38,9 +56,9 @@ The audit covered development and curated destination datasets, bilingual home a
 |---|---|---|---|---|---|---|---|
 | PRIMARY | Tripoli — طرابلس | `tripoli`; independent city | EN/AR detail; gallery and responsive media | Review required; candidates are sub-features | None | Canonical repository identity; governed provenance incomplete | False |
 | PRIMARY | Benghazi — بنغازي | `benghazi`; independent city | EN/AR detail; gallery and responsive media | Review required; candidates are sub-features | None | Canonical repository identity; governed provenance incomplete | False |
-| PRIMARY | Acacus — أكاكوس | `acacus`; independent natural/rock-art destination | EN/AR detail; gallery | Reviewed pair | None | Reviewed coordinate provenance | False |
-| PRIMARY | Shahat/Cyrene — شحات/قورينا | No independent slug; represented through `green-mountain` | EN/AR links use parent; responsive media | Identity-specific pair unresolved | No identity-specific layer | City/site/parent relationship unresolved | False |
-| PRIMARY | Ghadames — غدامس | `ghadames`; separate related `old-city-ghadames` record | EN/AR detail; gallery and responsive media | Broader record has no reviewed pair; old-city pair not borrowed | None | Institutional GIS review exists; relationship contract unresolved | False |
+| PRIMARY | Acacus — أكاكوس | `acacus`; composite cultural-natural destination | Existing EN/AR detail; no identity-model copy change | Reviewed pair preserved | None | Five-domain project model; promotional phrase needs source verification | False |
+| PRIMARY | Cyrene (Shahat) — قورينا – شحات | Future `cyrene`; currently represented through `green-mountain` | No dedicated route; existing parent link/media unchanged | Identity-specific pair unresolved | No identity-specific layer | Unified project model within Green Mountain; evidence completion required | False |
+| PRIMARY | Ghadames — غدامس | `ghadames` contains distinct `old-city-ghadames` heritage core | Existing EN/AR detail/gallery unchanged | Broader record has no reviewed pair; Old City pair not borrowed | None | Containment model resolved; boundaries and separate approvals pending | False |
 | PRIMARY | Sabratha — صبراتة | `sabratha`; independent heritage site | EN/AR detail; gallery | Reviewed pair | None | Reviewed coordinate provenance | False |
 | PRIMARY | Leptis Magna — لبدة الكبرى | `leptis-magna`; independent heritage site | EN/AR detail; gallery | Reviewed pair | None | Reviewed coordinate provenance | False |
 | PRIMARY | Green Mountain — الجبل الأخضر | `green-mountain`; aggregate region | EN/AR detail; gallery and responsive media | Aggregate representative point unresolved | 180 reviewed records | Governed review layer; not approval | False |
@@ -70,12 +88,14 @@ The audit covered development and curated destination datasets, bilingual home a
 
 Representation, priority, entity, coordinate, and identity vocabularies are enforced by the validator. Unknown values fail validation.
 
+Identity-model vocabularies add `PROJECT_MODEL_RESOLVED`, `REPOSITORY_EVIDENCE_ONLY`, and `INSTITUTIONAL_REVIEW_REQUIRED`; runtime states `NOT_PROMOTED` and `REVIEW_REQUIRED`; relationships `WITHIN_REGION` and `CONTAINS_HERITAGE_CORE`; controlled destination dimensions; and promotional verification states `SOURCE_VERIFICATION_REQUIRED` and `VERIFIED_IN_REPOSITORY`.
+
 ## Development gaps and institutional actions
 
 - **Tripoli and Benghazi:** approve representative geometry and define urban/historic GIS scope.
-- **Acacus:** distinguish archaeological and natural GIS responsibilities.
-- **Shahat/Cyrene:** decide whether the modern city and archaeological site are one entity, separate parent-child entities, or children of Green Mountain.
-- **Ghadames:** define the relationship between `ghadames` and `old-city-ghadames`; do not reuse the latter's coordinate implicitly.
+- **Acacus:** implement a multi-domain architecture separating or relating archaeology, rock art, natural landscapes, geology/geomorphology, routes, and visitor services; verify promotional wording before public use.
+- **Cyrene (Shahat):** retain the resolved unified project identity within Green Mountain while completing archaeological-site scope, Shahat service context, coordinates, evidence, and future runtime review.
+- **Ghadames:** define the broader destination boundary and Old City heritage-core containment without reusing the latter's coordinate or merging their publication requirements.
 - **Leptis Magna and Sabratha:** establish site boundaries, feature provenance, and detailed layers.
 - **Green Mountain:** complete institutional review and aggregate geometry decisions.
 - **Lakes:** retain as a Sahara sublayer unless institutional architecture authorizes another model.
@@ -94,9 +114,9 @@ Future additions require a unique stable ID and coverage key, relative evidence 
 
 1. Leptis Magna
 2. Sabratha
-3. Shahat/Cyrene, after identity resolution
-4. Ghadames, after resolving the broader-city/old-city relationship
-5. Acacus, with archaeological and natural scopes separated
+3. Cyrene archaeological-site scope with Shahat visitor-service context, using the resolved unified identity within Green Mountain
+4. Ghadames destination boundary with the separately canonical Old City heritage core
+5. Acacus multi-domain layers for archaeology, rock art, cultural heritage, natural landscape, geology/geomorphology, routes, and visitor services
 
 ### Phase B — Primary urban and regional destinations
 
@@ -127,4 +147,4 @@ node scripts/validate-frontend.mjs
 node scripts/smoke-test-static-site.mjs
 ```
 
-The registry remains descriptive and review-oriented. It does not publish, approve, or serve as a runtime destination source.
+The registry remains descriptive and review-oriented. This phase creates no route, GIS layer, runtime destination, or publication approval and does not serve as a runtime destination source.

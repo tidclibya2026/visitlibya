@@ -94,7 +94,7 @@ def test_ghadames_is_primary_and_preserves_canonical_relationship(registry: dict
     assert ghadames["current_canonical_slug"] == "ghadames"
     assert "Old Town of Ghadames" in ghadames["alternate_repository_names"]
     assert ghadames["related_canonical_destination_relationships"] == [
-        {"slug": "old-city-ghadames", "relationship": "INSTITUTIONAL_RELATIONSHIP_REVIEW_REQUIRED"}
+        {"slug": "old-city-ghadames", "relationship": "CONTAINS_HERITAGE_CORE"}
     ]
     assert ghadames["coordinates_present"] is False
 
@@ -178,10 +178,104 @@ def test_lakes_cannot_be_promoted_to_independent_destination(tmp_path: Path, reg
         validate_modified(tmp_path, registry)
 
 
-def test_shahat_cyrene_identity_cannot_be_marked_confirmed(tmp_path: Path, registry: dict) -> None:
-    record(registry, "shahat-cyrene")["identity_review_status"] = "REPOSITORY_IDENTITY_CONFIRMED"
-    with pytest.raises(RegistryValidationError, match="institutional identity review"):
+def test_cyrene_shahat_exact_bilingual_project_identity(registry: dict) -> None:
+    cyrene = record(registry, "shahat-cyrene")
+    assert cyrene["name_ar"] == "قورينا – شحات"
+    assert cyrene["name_en"] == "Cyrene (Shahat)"
+
+
+def test_cyrene_shahat_is_unified_with_future_slug_only(registry: dict) -> None:
+    cyrene = record(registry, "shahat-cyrene")
+    model = cyrene["identity_model"]
+    assert model["identity_model_status"] == "PROJECT_MODEL_RESOLVED"
+    assert model["project_identity_decision"] == "UNIFIED_CYRENE_SHAHAT_DESTINATION"
+    assert model["future_canonical_slug"] == "cyrene"
+    assert cyrene["current_canonical_slug"] is None
+
+
+def test_cyrene_remains_within_green_mountain_without_route_promotion(registry: dict) -> None:
+    model = record(registry, "shahat-cyrene")["identity_model"]
+    assert model["regional_relationships"] == [
+        {"relationship": "WITHIN_REGION", "destination_slug": "green-mountain"}
+    ]
+    assert model["current_repository_representation"]["dedicated_public_route_present"] is False
+    assert model["runtime_promotion_status"] == "NOT_PROMOTED"
+
+
+def test_cyrene_current_runtime_slug_cannot_be_promoted(tmp_path: Path, registry: dict) -> None:
+    record(registry, "shahat-cyrene")["current_canonical_slug"] = "cyrene"
+    with pytest.raises(RegistryValidationError, match="unknown canonical slug|must not claim a current runtime"):
         validate_modified(tmp_path, registry)
+
+
+def test_ghadames_contains_distinct_old_city_heritage_core(registry: dict) -> None:
+    ghadames = record(registry, "ghadames")
+    contained = ghadames["identity_model"]["contained_heritage_entities"]
+    assert contained == [{
+        "relationship": "CONTAINS_HERITAGE_CORE",
+        "canonical_slug": "old-city-ghadames",
+        "coordinate_inherited_by_destination": False,
+        "separate_evidence_and_publication_requirements": True,
+    }]
+    authoritative = json.loads((ROOT / "backend/data/dev/destinations.json").read_text(encoding="utf-8"))
+    slugs = {item["slug"] for item in authoritative["records"]}
+    assert {"ghadames", "old-city-ghadames"}.issubset(slugs)
+
+
+def test_old_city_coordinate_cannot_be_assigned_to_broader_ghadames(tmp_path: Path, registry: dict) -> None:
+    ghadames = record(registry, "ghadames")
+    ghadames["coordinates_present"] = True
+    ghadames["coordinate_source"] = "backend/data/dev/destination-coordinates.reviewed.json"
+    with pytest.raises(RegistryValidationError, match="no reviewed authoritative coordinate|must not be reused"):
+        validate_modified(tmp_path, registry)
+
+
+def test_acacus_composite_model_has_all_five_dimensions(registry: dict) -> None:
+    acacus = record(registry, "acacus")
+    assert acacus["entity_type"] == "COMPOSITE_CULTURAL_NATURAL_DESTINATION"
+    assert acacus["identity_model"]["project_identity_decision"] == "COMPOSITE_CULTURAL_NATURAL_DESTINATION"
+    assert acacus["identity_model"]["destination_dimensions"] == [
+        "ARCHAEOLOGY",
+        "ROCK_ART_AND_INSCRIPTIONS",
+        "CULTURAL_HERITAGE",
+        "NATURE_AND_DESERT_LANDSCAPE",
+        "GEOLOGY_AND_GEOMORPHOLOGY",
+    ]
+
+
+def test_missing_acacus_dimension_fails(tmp_path: Path, registry: dict) -> None:
+    record(registry, "acacus")["identity_model"]["destination_dimensions"].pop()
+    with pytest.raises(RegistryValidationError, match="all five controlled destination dimensions"):
+        validate_modified(tmp_path, registry)
+
+
+def test_unknown_acacus_dimension_fails(tmp_path: Path, registry: dict) -> None:
+    record(registry, "acacus")["identity_model"]["destination_dimensions"][0] = "UNKNOWN_DIMENSION"
+    with pytest.raises(RegistryValidationError, match="unknown destination dimension"):
+        validate_modified(tmp_path, registry)
+
+
+def test_acacus_promotional_identity_requires_source_verification(registry: dict) -> None:
+    promotional = record(registry, "acacus")["identity_model"]["promotional_identity"]
+    assert promotional["name_ar"] == "المتحف العالمي المفتوح"
+    assert promotional["name_en"] == "Open-air world museum"
+    assert promotional["verification_status"] == "SOURCE_VERIFICATION_REQUIRED"
+    assert promotional["official_title"] is False
+
+
+def test_promotional_identity_cannot_imply_approval(tmp_path: Path, registry: dict) -> None:
+    record(registry, "acacus")["identity_model"]["promotional_identity"]["grants_publication_approval"] = True
+    with pytest.raises(RegistryValidationError, match="non-official and source-verification-required"):
+        validate_modified(tmp_path, registry)
+
+
+def test_identity_model_resolution_cannot_grant_runtime_eligibility(registry: dict) -> None:
+    assert registry["policy"]["identity_model_resolution_grants_approval"] is False
+    assert registry["policy"]["identity_model_resolution_grants_runtime_eligibility"] is False
+    for key in ("shahat-cyrene", "ghadames", "acacus"):
+        item = record(registry, key)
+        assert item["identity_model"]["runtime_promotion_status"] == "NOT_PROMOTED"
+        assert item["institutional_publication_approved"] is False
 
 
 def test_legacy_visibility_cannot_be_marked_institutionally_approved(tmp_path: Path, registry: dict) -> None:
