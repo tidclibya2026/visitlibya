@@ -39,6 +39,7 @@ ENTITY_TYPES = {
     "GEOGRAPHIC_CITY",
     "GEOGRAPHIC_REGION",
     "NATURAL_DESTINATION",
+    "COMPOSITE_CULTURAL_NATURAL_DESTINATION",
     "THEMATIC_NESTED_COLLECTION",
 }
 REPRESENTATION_MODES = {
@@ -59,7 +60,30 @@ IDENTITY_STATUSES = {
     "REPOSITORY_IDENTITY_CONFIRMED",
     "INSTITUTIONAL_IDENTITY_REVIEW_REQUIRED",
     "PARENT_RELATIONSHIP_CONFIRMED_BY_REPOSITORY",
+    "PROJECT_IDENTITY_MODEL_RESOLVED",
 }
+IDENTITY_MODEL_STATUSES = {"PROJECT_MODEL_RESOLVED", "REPOSITORY_EVIDENCE_ONLY", "INSTITUTIONAL_REVIEW_REQUIRED"}
+PROJECT_IDENTITY_DECISIONS = {
+    "UNIFIED_CYRENE_SHAHAT_DESTINATION",
+    "BROADER_GHADAMES_DESTINATION_WITH_HERITAGE_CORE",
+    "COMPOSITE_CULTURAL_NATURAL_DESTINATION",
+}
+RUNTIME_PROMOTION_STATUSES = {"NOT_PROMOTED", "REVIEW_REQUIRED"}
+IDENTITY_RELATIONSHIPS = {"WITHIN_REGION", "CONTAINS_HERITAGE_CORE"}
+DESTINATION_DIMENSIONS = {
+    "ARCHAEOLOGICAL_HERITAGE",
+    "CITY_SERVICE_CONTEXT",
+    "MODERN_CITY",
+    "HISTORIC_HERITAGE_CORE",
+    "OASIS",
+    "DESERT_AND_CULTURAL_LANDSCAPE",
+    "ARCHAEOLOGY",
+    "ROCK_ART_AND_INSCRIPTIONS",
+    "CULTURAL_HERITAGE",
+    "NATURE_AND_DESERT_LANDSCAPE",
+    "GEOLOGY_AND_GEOMORPHOLOGY",
+}
+PROMOTIONAL_VERIFICATION_STATUSES = {"SOURCE_VERIFICATION_REQUIRED", "VERIFIED_IN_REPOSITORY"}
 COVERAGE_STATUSES = {
     "FULL_GOVERNED_GIS_COVERAGE",
     "PUBLIC_DESTINATION_WITHOUT_DETAILED_GIS",
@@ -150,6 +174,59 @@ def _ledger_has_approved_event(path: Path) -> bool:
     return False
 
 
+def _validate_identity_model(record: dict[str, Any], errors: list[str]) -> None:
+    label = f"record {record.get('coverage_unit_key')} identity_model"
+    model = record.get("identity_model")
+    required = {
+        "identity_model_status",
+        "project_identity_decision",
+        "current_repository_representation",
+        "future_canonical_slug",
+        "regional_relationships",
+        "contained_heritage_entities",
+        "destination_dimensions",
+        "promotional_identity",
+        "evidence_completion_required",
+        "runtime_promotion_status",
+    }
+    if not isinstance(model, dict) or set(model) != required:
+        errors.append(f"{label} must contain the deterministic identity-model fields")
+        return
+    _error(errors, model["identity_model_status"] in IDENTITY_MODEL_STATUSES, f"{label} has unsupported status")
+    _error(errors, model["project_identity_decision"] in PROJECT_IDENTITY_DECISIONS, f"{label} has unsupported project decision")
+    _error(errors, model["runtime_promotion_status"] in RUNTIME_PROMOTION_STATUSES, f"{label} has unsupported runtime promotion status")
+    _error(errors, isinstance(model["future_canonical_slug"], (str, type(None))), f"{label} future slug has invalid type")
+    current = model["current_repository_representation"]
+    _error(
+        errors,
+        isinstance(current, dict)
+        and set(current) == {"canonical_slug", "routed_via_slug", "dedicated_public_route_present"}
+        and isinstance(current.get("dedicated_public_route_present"), bool),
+        f"{label} current repository representation is invalid",
+    )
+    for field in ("regional_relationships", "contained_heritage_entities"):
+        _error(errors, isinstance(model[field], list), f"{label} {field} must be an array")
+        if isinstance(model[field], list):
+            for relationship in model[field]:
+                _error(errors, isinstance(relationship, dict) and relationship.get("relationship") in IDENTITY_RELATIONSHIPS, f"{label} contains an unsupported relationship")
+    dimensions = model["destination_dimensions"]
+    _error(errors, isinstance(dimensions, list) and all(item in DESTINATION_DIMENSIONS for item in dimensions), f"{label} contains an unknown destination dimension")
+    if isinstance(dimensions, list):
+        _error(errors, len(dimensions) == len(set(dimensions)), f"{label} destination dimensions must be unique")
+    _error(errors, isinstance(model["evidence_completion_required"], list) and all(isinstance(item, str) for item in model["evidence_completion_required"]), f"{label} evidence requirements must be strings")
+    promotional = model["promotional_identity"]
+    if promotional is not None:
+        _error(
+            errors,
+            isinstance(promotional, dict)
+            and set(promotional) == {"name_ar", "name_en", "verification_status", "official_title", "grants_publication_approval"}
+            and promotional.get("verification_status") in PROMOTIONAL_VERIFICATION_STATUSES
+            and isinstance(promotional.get("official_title"), bool)
+            and isinstance(promotional.get("grants_publication_approval"), bool),
+            f"{label} promotional identity is invalid",
+        )
+
+
 def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> dict[str, Any]:
     """Validate a registry against authoritative repository sources without writes."""
     root = root.resolve()
@@ -170,6 +247,8 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
     _error(errors, isinstance(policy, dict) and policy.get("grants_institutional_approval") is False, "registry must not grant approval")
     _error(errors, isinstance(policy, dict) and policy.get("development_priority_grants_approval") is False, "development priority must not grant approval")
     _error(errors, isinstance(policy, dict) and policy.get("development_priority_grants_runtime_eligibility") is False, "development priority must not grant runtime eligibility")
+    _error(errors, isinstance(policy, dict) and policy.get("identity_model_resolution_grants_approval") is False, "identity-model resolution must not grant approval")
+    _error(errors, isinstance(policy, dict) and policy.get("identity_model_resolution_grants_runtime_eligibility") is False, "identity-model resolution must not grant runtime eligibility")
     _error(
         errors,
         registry.get("summary") == {
@@ -246,6 +325,8 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
         _error(errors, record["identity_review_status"] in IDENTITY_STATUSES, f"{label} uses unsupported identity status")
         _error(errors, record["coverage_status"] in COVERAGE_STATUSES, f"{label} uses unsupported coverage status")
         _error(errors, record["publication_eligibility_classification"] in ELIGIBILITY_CLASSES, f"{label} conflicts with publication governance terminology")
+        if key in {"shahat-cyrene", "ghadames", "acacus"}:
+            _validate_identity_model(record, errors)
         _error(errors, all(isinstance(item, str) for item in record["alternate_repository_names"]), f"{label} alternate names must be strings")
         _error(errors, all(isinstance(item, str) for item in record["data_gaps"]), f"{label} data gaps must be strings")
         _error(errors, all(isinstance(item, str) for item in record["institutional_actions_required"]), f"{label} actions must be strings")
@@ -323,23 +404,49 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
     _error(errors, lakes.get("current_canonical_slug") is None, "natural/desert lakes must not be promoted to an independent canonical destination")
     _error(errors, lakes.get("representation_mode") == "NESTED_COLLECTION_WITHIN_PARENT" and lakes.get("parent_destination_slug") == "desert", "natural/desert lakes must remain nested under desert")
     shahat = by_key.get("shahat-cyrene", {})
-    _error(errors, shahat.get("current_canonical_slug") is None, "Shahat/Cyrene ambiguity must not be silently resolved")
-    _error(errors, shahat.get("identity_review_status") == "INSTITUTIONAL_IDENTITY_REVIEW_REQUIRED", "Shahat/Cyrene must remain under institutional identity review")
+    shahat_model = shahat.get("identity_model", {})
+    _error(errors, shahat.get("name_ar") == "قورينا – شحات", "Cyrene/Shahat Arabic project identity must be exact")
+    _error(errors, shahat.get("name_en") == "Cyrene (Shahat)", "Cyrene/Shahat English project identity must be exact")
+    _error(errors, shahat.get("current_canonical_slug") is None and "cyrene" not in destination_by_slug, "Cyrene must not claim a current runtime canonical slug")
+    _error(errors, shahat_model.get("identity_model_status") == "PROJECT_MODEL_RESOLVED", "Cyrene/Shahat project identity model must be resolved")
+    _error(errors, shahat_model.get("project_identity_decision") == "UNIFIED_CYRENE_SHAHAT_DESTINATION", "Cyrene/Shahat must be one unified project destination")
+    _error(errors, shahat_model.get("future_canonical_slug") == "cyrene", "Cyrene future canonical slug must be cyrene")
+    _error(errors, shahat_model.get("regional_relationships") == [{"relationship": "WITHIN_REGION", "destination_slug": "green-mountain"}], "Cyrene must remain within the Green Mountain region")
+    _error(errors, shahat_model.get("runtime_promotion_status") == "NOT_PROMOTED" and shahat_model.get("current_repository_representation", {}).get("dedicated_public_route_present") is False, "Cyrene runtime promotion must remain disabled")
+    _error(errors, not shahat.get("coordinates_present") and not shahat.get("gis_layer_present"), "Cyrene must not borrow coordinates or claim an identity-specific GIS layer")
     _error(errors, lakes.get("development_priority_tier") == "PRIMARY", "natural/desert lakes must remain PRIMARY development priority")
     _error(errors, by_key.get("ghadames", {}).get("current_canonical_slug") == "ghadames" and by_key.get("ghadames", {}).get("development_priority_tier") == "PRIMARY", "Ghadames must preserve its canonical record and PRIMARY priority")
+    ghadames = by_key.get("ghadames", {})
+    ghadames_model = ghadames.get("identity_model", {})
     _error(
         errors,
-        by_key.get("ghadames", {}).get("related_canonical_destination_relationships") == [
-            {"slug": "old-city-ghadames", "relationship": "INSTITUTIONAL_RELATIONSHIP_REVIEW_REQUIRED"}
+        ghadames.get("related_canonical_destination_relationships") == [
+            {"slug": "old-city-ghadames", "relationship": "CONTAINS_HERITAGE_CORE"}
         ],
-        "Ghadames must explicitly preserve the unresolved old-city-ghadames relationship",
+        "Ghadames must contain old-city-ghadames as its heritage core",
     )
+    _error(errors, {"ghadames", "old-city-ghadames"}.issubset(destination_by_slug), "Ghadames and Old City must remain distinct authoritative canonical identities")
+    _error(errors, ghadames_model.get("project_identity_decision") == "BROADER_GHADAMES_DESTINATION_WITH_HERITAGE_CORE", "Ghadames broader-destination model is invalid")
+    _error(errors, ghadames_model.get("contained_heritage_entities") == [{"relationship": "CONTAINS_HERITAGE_CORE", "canonical_slug": "old-city-ghadames", "coordinate_inherited_by_destination": False, "separate_evidence_and_publication_requirements": True}], "Ghadames heritage-core containment contract is invalid")
+    _error(errors, not ghadames.get("coordinates_present") and ghadames.get("coordinate_source") is None, "Old City coordinates must not be reused for broader Ghadames")
+
+    acacus = by_key.get("acacus", {})
+    acacus_model = acacus.get("identity_model", {})
+    required_acacus_dimensions = ["ARCHAEOLOGY", "ROCK_ART_AND_INSCRIPTIONS", "CULTURAL_HERITAGE", "NATURE_AND_DESERT_LANDSCAPE", "GEOLOGY_AND_GEOMORPHOLOGY"]
+    _error(errors, acacus.get("current_canonical_slug") == "acacus", "Acacus canonical slug must remain acacus")
+    _error(errors, acacus.get("entity_type") == "COMPOSITE_CULTURAL_NATURAL_DESTINATION" and acacus_model.get("project_identity_decision") == "COMPOSITE_CULTURAL_NATURAL_DESTINATION", "Acacus must use the composite cultural-natural model")
+    _error(errors, acacus_model.get("destination_dimensions") == required_acacus_dimensions, "Acacus must contain all five controlled destination dimensions in deterministic order")
+    promotion = acacus_model.get("promotional_identity", {})
+    _error(errors, promotion.get("name_ar") == "المتحف العالمي المفتوح" and promotion.get("name_en") == "Open-air world museum", "Acacus promotional identity wording must be exact")
+    _error(errors, promotion.get("verification_status") == "SOURCE_VERIFICATION_REQUIRED" and promotion.get("official_title") is False and promotion.get("grants_publication_approval") is False, "Acacus promotional identity must remain non-official and source-verification-required")
+    _error(errors, acacus_model.get("runtime_promotion_status") == "NOT_PROMOTED", "Acacus identity-model resolution must not promote runtime state")
     _error(errors, by_key.get("nafusa-mountains", {}).get("current_canonical_slug") == "nafusa" and by_key.get("nafusa-mountains", {}).get("development_priority_tier") == "COMPLEMENTARY", "Nafusa Mountains must preserve its canonical regional representation and COMPLEMENTARY priority")
     for unresolved_key in ("waddan", "hun", "sokna", "girza"):
         _error(errors, by_key.get(unresolved_key, {}).get("current_canonical_slug") is None, f"{unresolved_key} must not claim an unsupported canonical slug")
 
     claimed_slugs = [record["current_canonical_slug"] for record in records if record.get("current_canonical_slug")]
     _error(errors, len(claimed_slugs) == len(set(claimed_slugs)), "duplicate canonical identities require distinct records with explicit parent relationships")
+    _error(errors, sum(record["gis_record_count"] for record in records) == 214, "registry-scoped GIS total must remain 214")
 
     layer_text = (root / "assets/js/data/natural-tourism-layers.js").read_text(encoding="utf-8")
     _error(errors, not any(f"sourceFeatureId: {candidate}" in layer_text or f'"source_feature_id": {candidate}' in layer_text for candidate in (832, 913)), "heritage IDs 832 and 913 must remain outside the natural layer")
