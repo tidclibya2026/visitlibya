@@ -38,15 +38,15 @@ const copy = Object.freeze({
   view: isArabic ? "عرض الوجهة" : "View destination",
 });
 const localGalleries = Object.freeze({
-  tripoli: ["imges/oldtripoli.jpg", "imges/tripoliMarcus Arch.JPG", "imges/Museumtripoli.jpg"],
-  benghazi: ["imges/bengazi1.JPG", "imges/bengazi.JPG", "imges/bengazi3.JPG"],
-  ghadames: ["imges/Ghadames2.JPG", "imges/ghadames5.JPG", "imges/ghadames6.JPG"],
+  tripoli: ["imges/oldtripoli.jpg", "imges/optimized/tripoli-marcus-arch.webp", "imges/Museumtripoli.jpg"],
+  benghazi: ["imges/optimized/benghazi1.webp", "imges/optimized/benghazi.webp", "imges/optimized/benghazi3.webp"],
+  ghadames: ["imges/Ghadames2.JPG", "imges/ghadames5.JPG", "imges/optimized/ghadames6.webp"],
   acacus: ["imges/curated/acacus-rock-art-chariot.jpg", "imges/curated/acacus-rock-art-scene-2.jpg", "imges/curated/acacus-rock-art-scene-3.jpg"],
-  "green-mountain": ["imges/landscapes5.JPG", "imges/Cyrene2.JPG", "imges/landscapes7.jpg"],
-  desert: ["imges/The Sahara Desert.jpg", "imges/natural lakes.jpg", "imges/desert.jpg"],
-  nafusa: ["imges/destinations/temporary/nafusa-mountains.jpg", "imges/pottery.jpg", "imges/qaser aje.jpg"],
-  "bomba-bay": ["imges/destinations/temporary/bomba-bay.png", "imges/beaches.jpg", "imges/beaches1.JPG"],
-  awjila: ["imges/destinations/temporary/awjila-master.jpg", "imges/destinations/temporary/awjila-gallery-01.jpg", "imges/destinations/temporary/awjila-gallery-02.jpg", "imges/destinations/temporary/awjila-gallery-03.jpg", "imges/destinations/temporary/awjila-gallery-04.jpg"],
+  "green-mountain": ["imges/optimized/landscapes5.webp", "imges/optimized/cyrene2.webp", "imges/optimized/landscapes7.webp"],
+  desert: ["imges/The Sahara Desert.jpg", "imges/natural lakes.jpg", "imges/optimized/desert.webp"],
+  nafusa: ["imges/optimized/destinations/nafusa-1600.webp", "imges/pottery.jpg", "imges/qaser aje.jpg"],
+  "bomba-bay": ["imges/destinations/temporary/bomba-bay.png", "imges/beaches.jpg", "imges/optimized/beaches1.webp"],
+  awjila: ["imges/optimized/destinations/awjila-master-1600.webp", "imges/destinations/temporary/awjila-gallery-01.jpg", "imges/destinations/temporary/awjila-gallery-02.jpg", "imges/destinations/temporary/awjila-gallery-03.jpg", "imges/destinations/temporary/awjila-gallery-04.jpg"],
   sabratha: ["imges/Sabratha.jpg", "imges/Sabratha.jpeg"],
   "leptis-magna": ["imges/Leptis Magna3.jpeg", "imges/Leptis Magna1.jpg", "imges/Leptis Magna.jpeg"],
   "villa-sileen": ["imges/destinations/temporary/villa-sileen-columns.jpg"],
@@ -76,7 +76,7 @@ const localImageAlt = Object.freeze({
     en: "Ancient rock art in the Acacus region",
     ar: "فن صخري قديم في منطقة أكاكوس",
   },
-  "imges/destinations/temporary/awjila-master.jpg": {
+  "imges/optimized/destinations/awjila-master-1600.webp": {
     en: "Earthen mosque and palm oasis architecture in Awjila, Libya",
     ar: "العمارة الطينية والمسجد وواحة النخيل في أوجلة، ليبيا",
   },
@@ -96,7 +96,7 @@ const localImageAlt = Object.freeze({
     en: "Interior passage in Awjila's earthen architecture",
     ar: "ممر داخلي ضمن العمارة الطينية في أوجلة",
   },
-  "imges/destinations/temporary/nafusa-mountains.jpg": {
+  "imges/optimized/destinations/nafusa-1600.webp": {
     en: "Mountain settlement and heritage landscape in the Nafusa Mountains",
     ar: "تجمع جبلي ومشهد تراثي في جبل نفوسة",
   },

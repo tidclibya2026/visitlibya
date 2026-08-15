@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap');
-:root{--red:#8c2f22;--green:#2e7d5b;--ink:#111827;--muted:#5e6673;--white:#fff;--cream:#f8fafc;--gold:#c89b3c;--blue:#0b3a67;--navy:#061b2e;--border:#d8e0e8;--font-latin:"Inter",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;--font-arabic:"Cairo","Noto Sans Arabic",Tahoma,Arial,sans-serif;--text-sm:.875rem;--text-base:1rem;--text-lg:1.125rem;--leading-tight:1.15;--leading-normal:1.65;--leading-relaxed:1.85;--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem;--radius-sm:.5rem;--radius-md:.875rem;--radius-lg:1.5rem;--radius-xl:2rem;--shadow:0 18px 55px rgba(17,24,39,.1);--shadow-hover:0 26px 70px rgba(17,24,39,.16);--focus-ring:0 0 0 4px rgba(200,155,60,.28);--transition:220ms cubic-bezier(.2,0,0,1)}
+:root{--red:#8c2f22;--green:#2e7d5b;--ink:#111827;--muted:#5e6673;--white:#fff;--cream:#f8fafc;--gold:#c89b3c;--blue:#0b3a67;--navy:#061b2e;--border:#d8e0e8;--font-latin:"Segoe UI",Tahoma,Arial,sans-serif;--font-arabic:Tahoma,"Segoe UI",Arial,sans-serif;--text-sm:.875rem;--text-base:1rem;--text-lg:1.125rem;--leading-tight:1.15;--leading-normal:1.65;--leading-relaxed:1.85;--space-1:.25rem;--space-2:.5rem;--space-3:.75rem;--space-4:1rem;--space-6:1.5rem;--space-8:2rem;--space-12:3rem;--space-16:4rem;--radius-sm:.5rem;--radius-md:.875rem;--radius-lg:1.5rem;--radius-xl:2rem;--shadow:0 18px 55px rgba(17,24,39,.1);--shadow-hover:0 26px 70px rgba(17,24,39,.16);--focus-ring:0 0 0 4px rgba(200,155,60,.28);--transition:220ms cubic-bezier(.2,0,0,1)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:var(--font-latin);font-size:var(--text-base);line-height:var(--leading-normal);overflow-x:clip;text-rendering:optimizeLegibility}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}button{font:inherit}.site-skip-link{position:fixed;inset-block-start:12px;inset-inline-start:12px;z-index:1000;max-width:calc(100% - 24px);padding:10px 14px;border-radius:8px;background:var(--blue);color:#fff;font-weight:800;transform:translateY(-180%)}.site-skip-link:focus{transform:translateY(0)}.desktop-only{display:inline}
 .vl-topbar{width:100%;min-width:0;height:72px;background:#fff;display:grid;grid-template-columns:minmax(220px,260px) minmax(0,1fr) max-content;column-gap:clamp(16px,2vw,32px);align-items:center;padding:0 clamp(20px,3vw,38px);position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(0,0,0,.08)}
 .vl-logo{min-width:0;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;column-gap:10px;align-items:center;line-height:1}.vl-logo img{grid-row:1/3;width:clamp(46px,4vw,52px);height:auto;max-height:44px;object-fit:contain;flex-shrink:0}.vl-logo strong{font-size:21px;font-weight:900;letter-spacing:.2px}.vl-logo span{font-size:12px;font-weight:800;color:var(--green);margin-top:6px}
@@ -20,7 +19,7 @@ html[lang="ar"] {
 
 html[lang="ar"] body {
   text-align: right;
-  font-family: "Tajawal", "Cairo", "Noto Kufi Arabic", system-ui, sans-serif;
+  font-family: Tahoma, "Segoe UI", Arial, sans-serif;
 }
 
 html[lang="ar"] .hero-content,
@@ -366,7 +365,7 @@ html:not([lang="ar"]) .hero-destinations { --hero-image: url("imges/Ghadames.jpg
 html:not([lang="ar"]) .hero-heritage     { --hero-image: url("imges/Leptis Magna.jpg"); }
 html:not([lang="ar"]) .hero-culture      { --hero-image: url("imges/Bazin.jpg"); }
 html:not([lang="ar"]) .hero-experiences  { --hero-image: url("imges/Acacus.jpg"); }
-html:not([lang="ar"]) .hero-plan         { --hero-image: url("imges/desert.jpg"); --hero-image: image-set(url("imges/optimized/desert.webp") type("image/webp"), url("imges/desert.jpg") type("image/jpeg")); }
+html:not([lang="ar"]) .hero-plan         { --hero-image: url("imges/optimized/desert.webp"); }
 html:not([lang="ar"]) .hero-atlas        { --hero-image: url("panel/panel1.png"); }
 html:not([lang="ar"]) .hero-ai           { --hero-image: url("imges/tripolinow.jpg"); }
 
@@ -375,7 +374,7 @@ html[lang="ar"] .hero-destinations { --hero-image: url("imges/Ghadames.jpg"); }
 html[lang="ar"] .hero-heritage     { --hero-image: url("imges/Leptis Magna.jpg"); }
 html[lang="ar"] .hero-culture      { --hero-image: url("imges/Bazin.jpg"); }
 html[lang="ar"] .hero-experiences  { --hero-image: url("imges/Acacus.jpg"); }
-html[lang="ar"] .hero-plan         { --hero-image: url("imges/desert.jpg"); --hero-image: image-set(url("imges/optimized/desert.webp") type("image/webp"), url("imges/desert.jpg") type("image/jpeg")); }
+html[lang="ar"] .hero-plan         { --hero-image: url("imges/optimized/desert.webp"); }
 html[lang="ar"] .hero-atlas        { --hero-image: url("panel/panel1.png"); }
 html[lang="ar"] .hero-ai           { --hero-image: url("imges/tripolinow.jpg"); }
 
