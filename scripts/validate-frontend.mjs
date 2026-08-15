@@ -692,8 +692,12 @@ for (const [rel, content] of publicHtml) {
     recordImage(path.resolve(path.dirname(path.join(root, rel)), decoded), rel);
   }
 }
-for (const destination of curatedDestinations) recordImage(path.join(root, destination.image), `curated destination: ${destination.slug}`);
-for (const match of destinationController.matchAll(/["'](imges\/[^"']+)["']/gi)) recordImage(path.join(root, match[1]), "destination gallery data");
+function recordResponsiveDelivery(source, label) {
+  const delivery = responsiveImages[source];
+  recordImage(path.join(root, delivery?.webp ?? source), label);
+}
+for (const destination of curatedDestinations) recordResponsiveDelivery(destination.image, `curated destination: ${destination.slug}`);
+for (const match of destinationController.matchAll(/["'](imges\/[^"']+)["']/gi)) recordResponsiveDelivery(match[1], "destination gallery data");
 const responsiveOptimizedReferences = new Set();
 for (const [fallback, delivery] of Object.entries(responsiveImages)) {
   const fallbackStatus = exactPathStatus(path.join(root, fallback));
@@ -790,14 +794,9 @@ const visualCssFiles = [layoutCss, fs.readFileSync(path.join(root, "assets/css/d
 const visualCss = visualCssFiles.join("\n");
 if (!fs.existsSync(path.join(root, "visitlibyalogo.png"))) issue("Visual system", "approved visitlibyalogo.png is missing");
 if (!fs.existsSync(path.join(root, "favicon.png"))) issue("Visual system", "approved favicon.png is missing");
-if (!/--font-latin:[^;]+Inter[^;]+system-ui/i.test(visualCss) || !/--font-arabic:[^;]+Cairo[^;]+Noto Sans Arabic[^;]+Tahoma/i.test(visualCss)) issue("Visual system", "English and Arabic fallback font stacks are incomplete");
+if (!/--font-latin:[^;]+Segoe UI[^;]+Tahoma[^;]+Arial[^;]+sans-serif/i.test(visualCss) || !/--font-arabic:[^;]+Tahoma[^;]+Segoe UI[^;]+Arial[^;]+sans-serif/i.test(visualCss)) issue("Visual system", "English and Arabic system font stacks are incomplete");
 const fontImports = [...layoutCss.matchAll(/@import\s+url\([^)]*fonts\.googleapis\.com[^)]*\)/gi)];
-if (fontImports.length !== 1) issue("Visual system", `expected one Google Fonts import, found ${fontImports.length}`);
-else {
-  const fontImport = fontImports[0][0];
-  if (!/display=swap/i.test(fontImport)) issue("Visual system", "external font import must use display=swap");
-  if (!/family=Cairo:wght@400;700;800;900&family=Inter:wght@400;600;700;800;900/i.test(fontImport)) issue("Visual system", "external font import uses unapproved families or weights");
-}
+if (fontImports.length !== 0) issue("Visual system", `external Google Fonts imports are prohibited; found ${fontImports.length}`);
 if (!/\.media-natural,\.media-editorial,[^{]+\{width:100%;height:auto;max-height:none;object-fit:contain\}/i.test(layoutCss)) issue("Visual system", "editorial media must preserve natural ratio with contain");
 if (/\.media-(?:editorial|natural)[^{]*\{[^}]*(?:height:\s*\d|object-fit:\s*cover)/i.test(layoutCss)) issue("Visual system", "editorial media contains a fixed-height crop rule");
 if (!/\.media-(?:card|hero)[^{]*[\s\S]{0,220}object-fit:cover/i.test(layoutCss)) issue("Visual system", "controlled card and hero cover behavior is missing");if (!/\.vl-nav\{[^}]*min-width:0;[^}]*max-width:100%/i.test(layoutCss)) issue("Visual system", "legacy navigation must permit shrinking without overflow");
