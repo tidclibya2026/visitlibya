@@ -96,7 +96,7 @@ Identity-model vocabularies add `PROJECT_MODEL_RESOLVED`, `REPOSITORY_EVIDENCE_O
 - **Acacus:** implement a multi-domain architecture separating or relating archaeology, rock art, natural landscapes, geology/geomorphology, routes, and visitor services; verify promotional wording before public use.
 - **Cyrene (Shahat):** retain the resolved unified project identity within Green Mountain while completing archaeological-site scope, Shahat service context, coordinates, evidence, and future runtime review.
 - **Ghadames:** define the broader destination boundary and Old City heritage-core containment without reusing the latter's coordinate or merging their publication requirements.
-- **Leptis Magna and Sabratha:** establish site boundaries, feature provenance, and detailed layers.
+- **Leptis Magna and Sabratha:** review-only heritage GIS scope contracts now define anchor provenance, unresolved boundaries, future taxonomy, evidence gates, and separate institutionally sourced point inventories (51 and 39 records). The 90 points are non-public review evidence, not detailed or published layers, and do not change the registry-scoped GIS total; authoritative boundaries and verified feature promotion remain required.
 - **Green Mountain:** complete institutional review and aggregate geometry decisions.
 - **Lakes:** retain as a Sahara sublayer unless institutional architecture authorizes another model.
 - **Waddan, Hun, and Sokna:** supply canonical bilingual identities, provenance, reviewed coordinates, media rights, and GIS scopes.

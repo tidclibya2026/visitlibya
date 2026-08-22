@@ -317,3 +317,20 @@ def test_utf8_arabic_content_parses_correctly(registry: dict) -> None:
     raw = REGISTRY_PATH.read_bytes()
     assert not raw.startswith(b"\xef\xbb\xbf")
     assert raw.endswith(b"\n") and not raw.endswith(b"\n\n")
+
+
+def test_primary_heritage_scope_contracts_are_not_detailed_layers(registry: dict) -> None:
+    for key in ("leptis-magna", "sabratha"):
+        item = record(registry, key)
+        assert item["development_priority_tier"] == "PRIMARY"
+        assert item["gis_scope_contract_present"] is True
+        assert item["gis_scope_contract_path"] == f"backend/data/gis/{key}-heritage-scope.review.json"
+        assert item["gis_layer_present"] is False
+        assert item["gis_record_count"] == 0
+
+
+def test_scope_contract_cannot_claim_detailed_coverage(tmp_path: Path, registry: dict) -> None:
+    item = record(registry, "leptis-magna")
+    item["gis_layer_present"] = True
+    with pytest.raises(RegistryValidationError, match="GIS presence conflicts"):
+        validate_modified(tmp_path, registry)

@@ -1,0 +1,1517 @@
+{
+  "schema_version": 1,
+  "scope_id": "heritage-scope-sabratha-v1",
+  "canonical_destination_slug": "sabratha",
+  "registry_record_id": "ndr-sabratha",
+  "name_ar": "صبراتة",
+  "name_en": "Sabratha",
+  "entity_type": "ARCHAEOLOGICAL_HERITAGE_SITE",
+  "development_priority_tier": "PRIMARY",
+  "project_identity_status": "REPOSITORY_IDENTITY_CONFIRMED",
+  "source_policy": {
+    "status": "REVIEW_ONLY_NOT_PUBLICATION_APPROVAL",
+    "repository_evidence_only": true,
+    "external_inference_allowed": false,
+    "missing_evidence_behavior": "RECORD_GAP_AND_FAIL_CLOSED"
+  },
+  "provenance": {
+    "identity_sources": [
+      {
+        "path": "backend/data/destinations/national-destination-registry.review.json",
+        "evidence_identifier": "registry_record_id:ndr-sabratha"
+      },
+      {
+        "path": "backend/data/dev/destinations.json",
+        "evidence_identifier": "slug:sabratha"
+      }
+    ],
+    "coordinate_source": {
+      "path": "backend/data/dev/destination-coordinates.reviewed.json",
+      "evidence_identifier": "slug:sabratha",
+      "source_reference": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-2"
+    },
+    "coordinate_review_source": {
+      "path": "backend/data/gis/canonical-destination-coordinate-review.json",
+      "evidence_identifier": "source_feature_id:fp-e602be9583f488fb120439db"
+    },
+    "heritage_reference_sources": [
+      "heritage.html",
+      "ar/heritage.html"
+    ],
+    "provenance_complete_for_scope": true,
+    "provenance_complete_for_detailed_layer": false
+  },
+  "site_anchor": {
+    "anchor_id": "heritage-anchor-sabratha-reviewed-v1",
+    "anchor_role": "REVIEWED_CANONICAL_DESTINATION_SITE_ANCHOR",
+    "longitude": 12.484983,
+    "latitude": 32.805035,
+    "geometry_type": "Point",
+    "review_status": "REVIEWED_AUTHORITATIVE_PAIR",
+    "source_path": "backend/data/dev/destination-coordinates.reviewed.json",
+    "evidence_identifier": "slug:sabratha",
+    "source_reference": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-2",
+    "is_representative_display_point": false,
+    "is_boundary_centroid": false,
+    "is_entrance": false,
+    "is_visitor_facility": false,
+    "publication_approved": false
+  },
+  "boundary": {
+    "status": "AUTHORITATIVE_BOUNDARY_REQUIRED",
+    "geometry_present": false,
+    "geometry_type": null,
+    "source": null,
+    "review_required": true,
+    "notes": "No authoritative polygon or buffer-zone geometry was found in the audited repository evidence. The reviewed point must not be converted into a boundary or centroid."
+  },
+  "layer_taxonomy": [
+    {
+      "category": "ARCHAEOLOGICAL_MONUMENT",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "LineString",
+        "Polygon"
+      ],
+      "required_evidence": "Source identity, surveyed geometry, destination membership, and archaeological classification",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "ARCHAEOLOGICAL_STRUCTURE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "LineString",
+        "Polygon"
+      ],
+      "required_evidence": "Source identity, surveyed geometry, destination membership, and archaeological classification",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "MOSAIC_OR_ARTIFACT_CONTEXT",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "Polygon"
+      ],
+      "required_evidence": "Documented in-situ context, surveyed geometry, and archaeological classification",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "SITE_ENTRANCE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point"
+      ],
+      "required_evidence": "Authoritative entrance designation and surveyed coordinate",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "VISITOR_CENTER",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "Polygon"
+      ],
+      "required_evidence": "Facility identity, operational status, surveyed geometry, and destination membership",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "MUSEUM",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "Polygon"
+      ],
+      "required_evidence": "Museum identity, operational status, surveyed geometry, and destination membership",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "INTERPRETATION_POINT",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point"
+      ],
+      "required_evidence": "Documented interpretation function and surveyed coordinate",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "ACCESS_ROUTE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "LineString"
+      ],
+      "required_evidence": "Surveyed route, access status, and responsible-source evidence",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "VISITOR_SERVICE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "Polygon"
+      ],
+      "required_evidence": "Service identity, operational status, surveyed geometry, and destination membership",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "PROTECTION_OR_BUFFER_ZONE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Polygon",
+        "MultiPolygon"
+      ],
+      "required_evidence": "Authoritative legal or management geometry and source instrument",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "DOCUMENTED_VIEWPOINT",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point"
+      ],
+      "required_evidence": "Documented visitor role, surveyed coordinate, access review, and destination membership",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "OTHER_REVIEW_REQUIRED",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "LineString",
+        "Polygon",
+        "MultiPolygon"
+      ],
+      "required_evidence": "Explicit source classification, surveyed geometry, destination membership, and taxonomy review",
+      "human_review_required": true,
+      "institutional_review_required": true
+    }
+  ],
+  "candidate_features": [],
+  "media_evidence": [
+    {
+      "repository_path": "imges/Sabratha.jpg",
+      "evidence_role": "IDENTITY_AND_VISITOR_PRESENTATION_ONLY",
+      "grants_spatial_authority": false,
+      "grants_archaeological_classification": false
+    },
+    {
+      "repository_path": "imges/Sabratha.jpeg",
+      "evidence_role": "IDENTITY_AND_VISITOR_PRESENTATION_ONLY",
+      "grants_spatial_authority": false,
+      "grants_archaeological_classification": false
+    }
+  ],
+  "data_gaps": [
+    "No authoritative site, protection-zone, or buffer-zone boundary geometry is present.",
+    "No repository candidate has completed feature-level identity, geometry, destination-membership, heritage-classification, provenance, and institutional review gates.",
+    "Existing name-matched sub-features and nearby facilities remain review candidates and are not promoted by this scope contract."
+  ],
+  "institutional_actions_required": [
+    "The project governance owner must coordinate an authoritative site and applicable protection or buffer boundary source, followed by technical and subject-matter review.",
+    "Supply surveyed feature records with stable source identifiers, bilingual identity, classification, geometry method, accuracy, rights, and destination-membership evidence.",
+    "Record independent institutional decisions for identity, coordinate, destination membership, media rights, and publication before any runtime promotion."
+  ],
+  "publication_governance": {
+    "status": "REVIEW_ONLY_NOT_PUBLICATION_APPROVAL",
+    "runtime_source": false,
+    "runtime_eligible": false,
+    "grants_institutional_approval": false,
+    "grants_publication_eligibility": false,
+    "publication_approved": false,
+    "approval_event_reference": null,
+    "protected_public_artifacts_unchanged": true
+  },
+  "summary": {
+    "site_anchor_count": 1,
+    "candidate_feature_count": 0,
+    "authoritative_boundary_present": false,
+    "detailed_gis_layer_created": false,
+    "scope_contract_only": true,
+    "review_inventory_point_count": 39
+  },
+  "review_inventory": {
+    "status": "REVIEW_ONLY_POINT_INVENTORY_NOT_RUNTIME_SOURCE",
+    "source_provenance": {
+      "source_database": "points_world_heritage.gdb",
+      "source_layer": "sabratha_points_review",
+      "source_artifact_basename": "sabratha_points_review.esri.json",
+      "source_artifact_sha256": "ffb3612844670770fafedf559860827a37b2ee556ee28794c94a6d62652de5d3",
+      "source_record_count": 39,
+      "source_geometry_type": "esriGeometryPoint",
+      "source_wkid": 4326,
+      "source_field_names": [
+        "OBJECTID_1",
+        "OBJECTID",
+        "ID",
+        "اسم_ا",
+        "X",
+        "Y",
+        "الوصف"
+      ],
+      "extraction_date": "2026-08-22",
+      "absolute_source_path_recorded": false
+    },
+    "identity_policy": "Content-derived IDs bind source database and layer identity, all preserved source attributes, and coordinates; mutable ArcGIS OIDs are not sole identities.",
+    "classification_policy": "Review-only name-evidence routing; proximity and repeated names do not deduplicate, approve, or establish canonical identity.",
+    "media_policy": "Attachment references are preserved as source values only and grant no ownership, usage rights, identity, or publication authority.",
+    "boundary_authority": false,
+    "quality_summary": {
+      "record_count": 39,
+      "unique_nonblank_name_count": 36,
+      "unique_coordinate_count": 39,
+      "blank_description_count": 39,
+      "geometry_xy_match_within_tolerance_count": 39
+    },
+    "classification_counts": {
+      "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE": 33,
+      "LANDSCAPE_OR_NATURAL_CONTEXT": 0,
+      "UNRESOLVED_REVIEW_REQUIRED": 4,
+      "VISITOR_SERVICE_OR_FACILITY": 2
+    },
+    "records": [
+      {
+        "review_feature_id": "heritage-review-sabratha-eebaa310e047079c020ee20d",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 1,
+          "OBJECTID": 1,
+          "ID": 1,
+          "اسم_ا": "كنيسة جستنيان",
+          "X": 12.480574,
+          "Y": 32.807423,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.480574000190018,
+          "latitude": 32.80742299987162,
+          "wkid": 4326
+        },
+        "source_name": "كنيسة جستنيان",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-0d0b30b4d5df217cc91e17ac",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 2,
+          "OBJECTID": 2,
+          "ID": 2,
+          "اسم_ا": "كوريا (مجلس الشيوخ)",
+          "X": 12.480749,
+          "Y": 32.807138,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.48074900016627,
+          "latitude": 32.80713800021857,
+          "wkid": 4326
+        },
+        "source_name": "كوريا (مجلس الشيوخ)",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-b307445976717cafa5b7f75f",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 3,
+          "OBJECTID": 3,
+          "ID": 3,
+          "اسم_ا": "معبد سيرابيس",
+          "X": 12.480387,
+          "Y": 32.807019,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.480386999660368,
+          "latitude": 32.807019000126786,
+          "wkid": 4326
+        },
+        "source_name": "معبد سيرابيس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "REPEATED_NAME_DISTINCT_COORDINATES_REVIEW",
+          "SERAPAEUM_IDENTITY_NORMALIZATION_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-c395862f43fb7ef6a2b6b0a6",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 4,
+          "OBJECTID": 4,
+          "ID": 4,
+          "اسم_ا": "معبد ليبر باتر",
+          "X": 12.481582,
+          "Y": 32.807129,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.481581999909395,
+          "latitude": 32.807128999803524,
+          "wkid": 4326
+        },
+        "source_name": "معبد ليبر باتر",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-8c7aeecac695c894169a7637",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 5,
+          "OBJECTID": 5,
+          "ID": 5,
+          "اسم_ا": "معبد الفوروم الجنوبي",
+          "X": 12.481475,
+          "Y": 32.806311,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.481475000371006,
+          "latitude": 32.806310999852826,
+          "wkid": 4326
+        },
+        "source_name": "معبد الفوروم الجنوبي",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-ab49b2f9624632f127d9ac8f",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 6,
+          "OBJECTID": 6,
+          "ID": 6,
+          "اسم_ا": "حوض المعمودية",
+          "X": 12.480756,
+          "Y": 32.806595,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.480755999589746,
+          "latitude": 32.80659500035904,
+          "wkid": 4326
+        },
+        "source_name": "حوض المعمودية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "REPEATED_NAME_DISTINCT_COORDINATES_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-f4d621bf583082842ade072c",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 7,
+          "OBJECTID": 7,
+          "ID": 7,
+          "اسم_ا": "معبد سيرابيس",
+          "X": 12.480396,
+          "Y": 32.807041,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.480396000075416,
+          "latitude": 32.80704100024201,
+          "wkid": 4326
+        },
+        "source_name": "معبد سيرابيس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "REPEATED_NAME_DISTINCT_COORDINATES_REVIEW",
+          "SERAPAEUM_IDENTITY_NORMALIZATION_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-94a5f917cdb56dc32db3fbee",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 8,
+          "OBJECTID": 8,
+          "ID": 8,
+          "اسم_ا": "معبد الكابيتوليوم",
+          "X": 12.480606,
+          "Y": 32.806856,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.480605999867066,
+          "latitude": 32.80685599980461,
+          "wkid": 4326
+        },
+        "source_name": "معبد الكابيتوليوم",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-c73559a5acb2b5c37bfecb69",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 9,
+          "OBJECTID": 9,
+          "ID": 9,
+          "اسم_ا": "حوض المعمودية",
+          "X": 12.48075,
+          "Y": 32.806464,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.480750000212367,
+          "latitude": 32.806463999713856,
+          "wkid": 4326
+        },
+        "source_name": "حوض المعمودية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "REPEATED_NAME_DISTINCT_COORDINATES_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-63afc730a22c40092bccab17",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 10,
+          "OBJECTID": 10,
+          "ID": 10,
+          "اسم_ا": "Serapaeum (Sabratha",
+          "X": 12.480294,
+          "Y": 32.807014,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.480293999868252,
+          "latitude": 32.80701399989624,
+          "wkid": 4326
+        },
+        "source_name": "Serapaeum (Sabratha",
+        "proposed_normalized_name": "Serapaeum (Sabratha)",
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "INCOMPLETE_SOURCE_NAME_REVIEW",
+          "SERAPAEUM_IDENTITY_NORMALIZATION_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-c017648bbc010143e2a2c321",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 11,
+          "OBJECTID": 11,
+          "ID": 11,
+          "اسم_ا": "The Punic Tombs",
+          "X": 12.476555,
+          "Y": 32.806705,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.476555000113194,
+          "latitude": 32.80670500003578,
+          "wkid": 4326
+        },
+        "source_name": "The Punic Tombs",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-0ed301e58b67a337fe5bcc69",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 12,
+          "OBJECTID": 12,
+          "ID": 12,
+          "اسم_ا": "مسرح صبراته الأثري",
+          "X": 12.484923,
+          "Y": 32.80519,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.484923000196375,
+          "latitude": 32.805190000318305,
+          "wkid": 4326
+        },
+        "source_name": "مسرح صبراته الأثري",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-d7e1e93cc5f1c5e3c6cca651",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 13,
+          "OBJECTID": 13,
+          "ID": 13,
+          "اسم_ا": "معبد ايزيس وإيزوريس",
+          "X": 12.487884,
+          "Y": 32.80795,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.48788400004662,
+          "latitude": 32.80794999989263,
+          "wkid": 4326
+        },
+        "source_name": "معبد ايزيس وإيزوريس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "REPEATED_NAME_DISTINCT_COORDINATES_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-628bae8a91dd1a6a00d339cd",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 14,
+          "OBJECTID": 14,
+          "ID": 14,
+          "اسم_ا": "المراحيض العامة",
+          "X": 12.481082,
+          "Y": 32.807715,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.481082000234153,
+          "latitude": 32.807714999847406,
+          "wkid": 4326
+        },
+        "source_name": "المراحيض العامة",
+        "proposed_normalized_name": null,
+        "review_classification": "UNRESOLVED_REVIEW_REQUIRED",
+        "classification_basis": "Source name alone does not support a controlled review classification.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-cef8bc32c4190c2f86225087",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 15,
+          "OBJECTID": 15,
+          "ID": 15,
+          "اسم_ا": "حمامات بوسيدون",
+          "X": 12.486447,
+          "Y": 32.808004,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.486447000328837,
+          "latitude": 32.8080039996849,
+          "wkid": 4326
+        },
+        "source_name": "حمامات بوسيدون",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-773a5d3f85c5bb75079ed937",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 16,
+          "OBJECTID": 16,
+          "ID": 16,
+          "اسم_ا": "شارع الآثار",
+          "X": 12.486531,
+          "Y": 32.804815,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.486530999705906,
+          "latitude": 32.80481500011223,
+          "wkid": 4326
+        },
+        "source_name": "شارع الآثار",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-897fef3cec43d8cffdedd404",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 17,
+          "OBJECTID": 17,
+          "ID": 17,
+          "اسم_ا": "ريجيو السادس",
+          "X": 12.481679,
+          "Y": 32.805168,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.481678999885958,
+          "latitude": 32.80516800020308,
+          "wkid": 4326
+        },
+        "source_name": "ريجيو السادس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-405f73885f5182f5fa45ae28",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 18,
+          "OBJECTID": 18,
+          "ID": 18,
+          "اسم_ا": "البوابة البيزنطية الجنوبية",
+          "X": 12.482227,
+          "Y": 32.805809,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.482226999976092,
+          "latitude": 32.80580900008533,
+          "wkid": 4326
+        },
+        "source_name": "البوابة البيزنطية الجنوبية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-8b728ebb032620106918f70a",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 19,
+          "OBJECTID": 19,
+          "ID": 19,
+          "اسم_ا": "المعبد الإنطوائي",
+          "X": 12.482002,
+          "Y": 32.806823,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.482002000392072,
+          "latitude": 32.806823000081465,
+          "wkid": 4326
+        },
+        "source_name": "المعبد الإنطوائي",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-473127b9e296f644fd980013",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 20,
+          "OBJECTID": 20,
+          "ID": 20,
+          "اسم_ا": "نافورة فلافيوس تولوس",
+          "X": 12.481618,
+          "Y": 32.80675,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.481617999770947,
+          "latitude": 32.80675000031232,
+          "wkid": 4326
+        },
+        "source_name": "نافورة فلافيوس تولوس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-5bf21e2b4347bd98e9105ce1",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 21,
+          "OBJECTID": 21,
+          "ID": 21,
+          "اسم_ا": "الميدان الفورم",
+          "X": 12.481115,
+          "Y": 32.806902,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.481114999957356,
+          "latitude": 32.80690200012725,
+          "wkid": 4326
+        },
+        "source_name": "الميدان الفورم",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-ba39e03f3f8f763b5acc82f5",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 22,
+          "OBJECTID": 22,
+          "ID": 22,
+          "اسم_ا": "ديوان القضاء البازيليكا",
+          "X": 12.481239,
+          "Y": 32.806596,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.481239000279686,
+          "latitude": 32.806596000405136,
+          "wkid": 4326
+        },
+        "source_name": "ديوان القضاء البازيليكا",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-b657117492c107663de1e8cc",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 23,
+          "OBJECTID": 23,
+          "ID": 23,
+          "اسم_ا": "المبنى المصلب",
+          "X": 12.480786,
+          "Y": 32.806595,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.48078600007392,
+          "latitude": 32.80659500035904,
+          "wkid": 4326
+        },
+        "source_name": "المبنى المصلب",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-4e51c656412b2029d53620ad",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 24,
+          "OBJECTID": 24,
+          "ID": 24,
+          "اسم_ا": "مبنى المجلس كابيتيليوم",
+          "X": 12.480461,
+          "Y": 32.807005,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.48046100037493,
+          "latitude": 32.807005000380514,
+          "wkid": 4326
+        },
+        "source_name": "مبنى المجلس كابيتيليوم",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-4fe6497230c66b0d43d76c68",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 25,
+          "OBJECTID": 25,
+          "ID": 25,
+          "اسم_ا": "بازيليكا جستنينيان",
+          "X": 12.481746,
+          "Y": 32.806367,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.481746000277724,
+          "latitude": 32.80636699973729,
+          "wkid": 4326
+        },
+        "source_name": "بازيليكا جستنينيان",
+        "proposed_normalized_name": null,
+        "review_classification": "UNRESOLVED_REVIEW_REQUIRED",
+        "classification_basis": "Source name alone does not support a controlled review classification.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-6708470779a1dc60be4c8e83",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 26,
+          "OBJECTID": 26,
+          "ID": 26,
+          "اسم_ا": "منزل بروقان",
+          "X": 12.482457,
+          "Y": 32.806946,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.48245699979077,
+          "latitude": 32.8069460003577,
+          "wkid": 4326
+        },
+        "source_name": "منزل بروقان",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-45d8028c850d369924b6e257",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 27,
+          "OBJECTID": 27,
+          "ID": 27,
+          "اسم_ا": "البوابة البيزنطية الشرقية",
+          "X": 12.482634,
+          "Y": 32.807016,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.482633999859274,
+          "latitude": 32.80701599998844,
+          "wkid": 4326
+        },
+        "source_name": "البوابة البيزنطية الشرقية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-06830ac38b6316d28fbfdcfa",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 28,
+          "OBJECTID": 28,
+          "ID": 28,
+          "اسم_ا": "معبد هرقل",
+          "X": 12.484345,
+          "Y": 32.806313,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.484344999622067,
+          "latitude": 32.80631299994502,
+          "wkid": 4326
+        },
+        "source_name": "معبد هرقل",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-48c64da8dc700fa05e30d324",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 29,
+          "OBJECTID": 29,
+          "ID": 29,
+          "اسم_ا": "حمامات المسرح",
+          "X": 12.484042,
+          "Y": 32.80622,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.4840420000383,
+          "latitude": 32.80622000015296,
+          "wkid": 4326
+        },
+        "source_name": "حمامات المسرح",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-e103376d7d4bd3b446368eea",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 30,
+          "OBJECTID": 30,
+          "ID": 30,
+          "اسم_ا": "الكنائس",
+          "X": 12.484919,
+          "Y": 32.806906,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.484919000011871,
+          "latitude": 32.8069060003117,
+          "wkid": 4326
+        },
+        "source_name": "الكنائس",
+        "proposed_normalized_name": null,
+        "review_classification": "UNRESOLVED_REVIEW_REQUIRED",
+        "classification_basis": "Source name alone does not support a controlled review classification.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-5afeaa83c013c73b46567ab4",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 31,
+          "OBJECTID": 31,
+          "ID": 31,
+          "اسم_ا": "حمامات أوفانيوس",
+          "X": 12.486544,
+          "Y": 32.80774,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.4865440003054,
+          "latitude": 32.80774000010098,
+          "wkid": 4326
+        },
+        "source_name": "حمامات أوفانيوس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "NEARBY_DISTINCT_NAMES_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-2df605936ae4bf2f0a8f518d",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 32,
+          "OBJECTID": 32,
+          "ID": 32,
+          "اسم_ا": "معبد ايزيس وإيزوريس",
+          "X": 12.487944,
+          "Y": 32.807817,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.48794400011559,
+          "latitude": 32.80781700005457,
+          "wkid": 4326
+        },
+        "source_name": "معبد ايزيس وإيزوريس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "REPEATED_NAME_DISTINCT_COORDINATES_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-14ddfe714486298c8ee51e75",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 33,
+          "OBJECTID": 33,
+          "ID": 33,
+          "اسم_ا": "نصيب سيفران",
+          "X": 12.484007,
+          "Y": 32.805294,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.48400700022296,
+          "latitude": 32.805293999718344,
+          "wkid": 4326
+        },
+        "source_name": "نصيب سيفران",
+        "proposed_normalized_name": null,
+        "review_classification": "UNRESOLVED_REVIEW_REQUIRED",
+        "classification_basis": "Source name alone does not support a controlled review classification.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-8e1fdb5bbdd93da9b6e9d9e5",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 34,
+          "OBJECTID": 34,
+          "ID": 34,
+          "اسم_ا": "المسرح الروماني المدرج",
+          "X": 12.494113,
+          "Y": 32.803859,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.4941130004147,
+          "latitude": 32.803859000092814,
+          "wkid": 4326
+        },
+        "source_name": "المسرح الروماني المدرج",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-dcff1cdf75099cef61217b87",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 35,
+          "OBJECTID": 35,
+          "ID": 35,
+          "اسم_ا": "بيت بيريستايل",
+          "X": 12.484377,
+          "Y": 32.804791,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.484377000198435,
+          "latitude": 32.80479099990475,
+          "wkid": 4326
+        },
+        "source_name": "بيت بيريستايل",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-dcc3ec45bf327dbdb1e87839",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 36,
+          "OBJECTID": 36,
+          "ID": 36,
+          "اسم_ا": "حمامات ريجيو السابع",
+          "X": 12.486551,
+          "Y": 32.807736,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.486550999728877,
+          "latitude": 32.80773599991653,
+          "wkid": 4326
+        },
+        "source_name": "حمامات ريجيو السابع",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "NEARBY_DISTINCT_NAMES_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-4d9f4e417613239b451e1e65",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 37,
+          "OBJECTID": 37,
+          "ID": 37,
+          "اسم_ا": "مقابر مسيحية تحت الأرض",
+          "X": 12.487852,
+          "Y": 32.806093,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.487852000369571,
+          "latitude": 32.806092999692225,
+          "wkid": 4326
+        },
+        "source_name": "مقابر مسيحية تحت الأرض",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-eeba2aa67a3524421591b643",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 38,
+          "OBJECTID": 38,
+          "ID": 38,
+          "اسم_ا": "متحف روماني",
+          "X": 12.483055,
+          "Y": 32.803945,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.483055000387992,
+          "latitude": 32.803944999562134,
+          "wkid": 4326
+        },
+        "source_name": "متحف روماني",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-sabratha-1fd452a0472c865b1a167523",
+        "destination_slug": "sabratha",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "sabratha_points_review",
+        "source_artifact_basename": "sabratha_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_1": 39,
+          "OBJECTID": 39,
+          "ID": 39,
+          "اسم_ا": "المتحف البونيقي",
+          "X": 12.480308,
+          "Y": 32.804563,
+          "الوصف": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 12.480307999614524,
+          "latitude": 32.804563000182384,
+          "wkid": 4326
+        },
+        "source_name": "المتحف البونيقي",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      }
+    ]
+  }
+}
