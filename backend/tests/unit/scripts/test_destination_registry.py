@@ -358,3 +358,17 @@ def test_ghadames_source_reconciliation_is_review_evidence_not_detailed_gis(regi
     assert ghadames["gis_record_count"] == 0
     assert ghadames["coordinates_present"] is False
     assert sum(item["gis_record_count"] for item in registry["records"]) == 214
+
+
+def test_acacus_source_reconciliation_accounting_is_separate_from_detailed_gis(registry: dict) -> None:
+    acacus = record(registry, "acacus")
+    assert acacus["gis_source_reconciliation_present"] is True
+    assert acacus["gis_source_reconciliation_path"] == "backend/data/gis/acacus-source-reconciliation.review.json"
+    assert acacus["gis_source_record_count"] == 430
+    assert acacus["gis_reconciled_review_record_count"] == 364
+    assert acacus["gis_clean_representative_count"] == 360
+    assert acacus["gis_quarantined_cross_destination_count"] == 4
+    assert acacus["gis_safe_duplicate_member_count"] == 66
+    assert acacus["gis_layer_present"] is False
+    assert acacus["gis_record_count"] == 0
+    assert sum(item["gis_record_count"] for item in registry["records"]) == 214

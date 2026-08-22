@@ -48,6 +48,8 @@ The review-only Ghadames source reconciliation represents 770 unique primary-geo
 
 Acacus is modeled as `COMPOSITE_CULTURAL_NATURAL_DESTINATION` with five governed dimensions: `ARCHAEOLOGY`, `ROCK_ART_AND_INSCRIPTIONS`, `CULTURAL_HERITAGE`, `NATURE_AND_DESERT_LANDSCAPE`, and `GEOLOGY_AND_GEOMORPHOLOGY`. Future GIS design must separate or explicitly relate archaeological features, rock-art features, natural landscapes, geology and geomorphology, and visitor routes and services.
 
+The review-only Acacus source reconciliation accounts for 430 KML source ordinals as 360 clean representatives, 66 safe duplicate-member references, and four quarantined or cross-destination records. Clean plus quarantine produces 364 reconciled review records. These counters are separate from detailed/publication GIS coverage: `gis_layer_present` remains false, `gis_record_count` remains zero, and the national publication-oriented total remains 214.
+
 `المتحف العالمي المفتوح` / `Open-air world museum` is recorded only as a proposed promotional identity. The exact phrase was not found as an authoritative repository title, so it remains `SOURCE_VERIFICATION_REQUIRED`, is not an official UNESCO title, and grants no approval.
 
 ## Sources inspected
