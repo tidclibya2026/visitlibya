@@ -42,6 +42,8 @@ A self-contained source reconciliation now evaluates 3,083 raw records from 32 i
 
 `ghadames` remains the broader tourism destination. It contains the separately canonical `old-city-ghadames` historic and World Heritage core through `CONTAINS_HERITAGE_CORE`. The broader project model may encompass the modern city, Old City, oasis, surrounding desert, and cultural landscape, but it defines no GIS boundary. The Old City coordinate is not inherited by broader Ghadames, and each identity retains separate evidence and publication requirements.
 
+The review-only Ghadames source reconciliation represents 770 unique primary-geodatabase records plus three quarantined boundary-evidence records. It excludes 1,540 records from two byte-identical database copies, adds zero publication-oriented GIS records, and does not change the registry GIS total of 214. Its 773 evidence records are tracked separately from detailed GIS coverage; `gis_layer_present` remains false.
+
 ### Acacus
 
 Acacus is modeled as `COMPOSITE_CULTURAL_NATURAL_DESTINATION` with five governed dimensions: `ARCHAEOLOGY`, `ROCK_ART_AND_INSCRIPTIONS`, `CULTURAL_HERITAGE`, `NATURE_AND_DESERT_LANDSCAPE`, and `GEOLOGY_AND_GEOMORPHOLOGY`. Future GIS design must separate or explicitly relate archaeological features, rock-art features, natural landscapes, geology and geomorphology, and visitor routes and services.
