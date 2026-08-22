@@ -1,0 +1,1972 @@
+{
+  "schema_version": 1,
+  "scope_id": "heritage-scope-leptis-magna-v1",
+  "canonical_destination_slug": "leptis-magna",
+  "registry_record_id": "ndr-leptis-magna",
+  "name_ar": "لبدة الكبرى",
+  "name_en": "Leptis Magna",
+  "entity_type": "ARCHAEOLOGICAL_HERITAGE_SITE",
+  "development_priority_tier": "PRIMARY",
+  "project_identity_status": "REPOSITORY_IDENTITY_CONFIRMED",
+  "source_policy": {
+    "status": "REVIEW_ONLY_NOT_PUBLICATION_APPROVAL",
+    "repository_evidence_only": true,
+    "external_inference_allowed": false,
+    "missing_evidence_behavior": "RECORD_GAP_AND_FAIL_CLOSED"
+  },
+  "provenance": {
+    "identity_sources": [
+      {
+        "path": "backend/data/destinations/national-destination-registry.review.json",
+        "evidence_identifier": "registry_record_id:ndr-leptis-magna"
+      },
+      {
+        "path": "backend/data/dev/destinations.json",
+        "evidence_identifier": "slug:leptis-magna"
+      }
+    ],
+    "coordinate_source": {
+      "path": "backend/data/dev/destination-coordinates.reviewed.json",
+      "evidence_identifier": "slug:leptis-magna",
+      "source_reference": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-1"
+    },
+    "coordinate_review_source": {
+      "path": "backend/data/gis/canonical-destination-coordinate-review.json",
+      "evidence_identifier": "source_feature_id:fp-0ce1a2534b980be1145494f4"
+    },
+    "heritage_reference_sources": [
+      "heritage.html",
+      "ar/heritage.html"
+    ],
+    "provenance_complete_for_scope": true,
+    "provenance_complete_for_detailed_layer": false
+  },
+  "site_anchor": {
+    "anchor_id": "heritage-anchor-leptis-magna-reviewed-v1",
+    "anchor_role": "REVIEWED_CANONICAL_DESTINATION_SITE_ANCHOR",
+    "longitude": 14.2883012,
+    "latitude": 32.6389502,
+    "geometry_type": "Point",
+    "review_status": "REVIEWED_AUTHORITATIVE_PAIR",
+    "source_path": "backend/data/dev/destination-coordinates.reviewed.json",
+    "evidence_identifier": "slug:leptis-magna",
+    "source_reference": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-1",
+    "is_representative_display_point": false,
+    "is_boundary_centroid": false,
+    "is_entrance": false,
+    "is_visitor_facility": false,
+    "publication_approved": false
+  },
+  "boundary": {
+    "status": "AUTHORITATIVE_BOUNDARY_REQUIRED",
+    "geometry_present": false,
+    "geometry_type": null,
+    "source": null,
+    "review_required": true,
+    "notes": "No authoritative polygon or buffer-zone geometry was found in the audited repository evidence. The reviewed point must not be converted into a boundary or centroid."
+  },
+  "layer_taxonomy": [
+    {
+      "category": "ARCHAEOLOGICAL_MONUMENT",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "LineString",
+        "Polygon"
+      ],
+      "required_evidence": "Source identity, surveyed geometry, destination membership, and archaeological classification",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "ARCHAEOLOGICAL_STRUCTURE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "LineString",
+        "Polygon"
+      ],
+      "required_evidence": "Source identity, surveyed geometry, destination membership, and archaeological classification",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "MOSAIC_OR_ARTIFACT_CONTEXT",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "Polygon"
+      ],
+      "required_evidence": "Documented in-situ context, surveyed geometry, and archaeological classification",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "SITE_ENTRANCE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point"
+      ],
+      "required_evidence": "Authoritative entrance designation and surveyed coordinate",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "VISITOR_CENTER",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "Polygon"
+      ],
+      "required_evidence": "Facility identity, operational status, surveyed geometry, and destination membership",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "MUSEUM",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "Polygon"
+      ],
+      "required_evidence": "Museum identity, operational status, surveyed geometry, and destination membership",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "INTERPRETATION_POINT",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point"
+      ],
+      "required_evidence": "Documented interpretation function and surveyed coordinate",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "ACCESS_ROUTE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "LineString"
+      ],
+      "required_evidence": "Surveyed route, access status, and responsible-source evidence",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "VISITOR_SERVICE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "Polygon"
+      ],
+      "required_evidence": "Service identity, operational status, surveyed geometry, and destination membership",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "PROTECTION_OR_BUFFER_ZONE",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Polygon",
+        "MultiPolygon"
+      ],
+      "required_evidence": "Authoritative legal or management geometry and source instrument",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "DOCUMENTED_VIEWPOINT",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point"
+      ],
+      "required_evidence": "Documented visitor role, surveyed coordinate, access review, and destination membership",
+      "human_review_required": true,
+      "institutional_review_required": true
+    },
+    {
+      "category": "OTHER_REVIEW_REQUIRED",
+      "authoritative_features_present": false,
+      "allowable_geometry_types": [
+        "Point",
+        "LineString",
+        "Polygon",
+        "MultiPolygon"
+      ],
+      "required_evidence": "Explicit source classification, surveyed geometry, destination membership, and taxonomy review",
+      "human_review_required": true,
+      "institutional_review_required": true
+    }
+  ],
+  "candidate_features": [],
+  "media_evidence": [
+    {
+      "repository_path": "imges/Leptis Magna3.jpeg",
+      "evidence_role": "IDENTITY_AND_VISITOR_PRESENTATION_ONLY",
+      "grants_spatial_authority": false,
+      "grants_archaeological_classification": false
+    },
+    {
+      "repository_path": "imges/Leptis Magna1.jpg",
+      "evidence_role": "IDENTITY_AND_VISITOR_PRESENTATION_ONLY",
+      "grants_spatial_authority": false,
+      "grants_archaeological_classification": false
+    },
+    {
+      "repository_path": "imges/Leptis Magna.jpeg",
+      "evidence_role": "IDENTITY_AND_VISITOR_PRESENTATION_ONLY",
+      "grants_spatial_authority": false,
+      "grants_archaeological_classification": false
+    }
+  ],
+  "data_gaps": [
+    "No authoritative site, protection-zone, or buffer-zone boundary geometry is present.",
+    "No repository candidate has completed feature-level identity, geometry, destination-membership, heritage-classification, provenance, and institutional review gates.",
+    "Existing name-matched sub-features and nearby facilities remain review candidates and are not promoted by this scope contract."
+  ],
+  "institutional_actions_required": [
+    "The project governance owner must coordinate an authoritative site and applicable protection or buffer boundary source, followed by technical and subject-matter review.",
+    "Supply surveyed feature records with stable source identifiers, bilingual identity, classification, geometry method, accuracy, rights, and destination-membership evidence.",
+    "Record independent institutional decisions for identity, coordinate, destination membership, media rights, and publication before any runtime promotion."
+  ],
+  "publication_governance": {
+    "status": "REVIEW_ONLY_NOT_PUBLICATION_APPROVAL",
+    "runtime_source": false,
+    "runtime_eligible": false,
+    "grants_institutional_approval": false,
+    "grants_publication_eligibility": false,
+    "publication_approved": false,
+    "approval_event_reference": null,
+    "protected_public_artifacts_unchanged": true
+  },
+  "summary": {
+    "site_anchor_count": 1,
+    "candidate_feature_count": 0,
+    "authoritative_boundary_present": false,
+    "detailed_gis_layer_created": false,
+    "scope_contract_only": true,
+    "review_inventory_point_count": 51
+  },
+  "review_inventory": {
+    "status": "REVIEW_ONLY_POINT_INVENTORY_NOT_RUNTIME_SOURCE",
+    "source_provenance": {
+      "source_database": "points_world_heritage.gdb",
+      "source_layer": "leptis_points_review",
+      "source_artifact_basename": "leptis_points_review.esri.json",
+      "source_artifact_sha256": "51be7a822a221e3ff4170c2f0104a83a9a99fc3b3ea916ca3a57a7723fd6f281",
+      "source_record_count": 51,
+      "source_geometry_type": "esriGeometryPoint",
+      "source_wkid": 4326,
+      "source_field_names": [
+        "OBJECTID_12",
+        "OBJECTID_1",
+        "FID_1",
+        "objectid",
+        "name",
+        "popupinfo",
+        "en_name",
+        "photo"
+      ],
+      "extraction_date": "2026-08-22",
+      "absolute_source_path_recorded": false
+    },
+    "identity_policy": "Content-derived IDs bind source database and layer identity, all preserved source attributes, and coordinates; mutable ArcGIS OIDs are not sole identities.",
+    "classification_policy": "Review-only name-evidence routing; proximity and repeated names do not deduplicate, approve, or establish canonical identity.",
+    "media_policy": "Attachment references are preserved as source values only and grant no ownership, usage rights, identity, or publication authority.",
+    "boundary_authority": false,
+    "quality_summary": {
+      "record_count": 51,
+      "unique_nonblank_name_count": 49,
+      "unique_coordinate_count": 49,
+      "blank_popupinfo_count": 49,
+      "blank_en_name_count": 33,
+      "blank_photo_count": 42,
+      "parseable_photo_attachment_json_count": 4,
+      "truncated_photo_attachment_json_count": 5
+    },
+    "classification_counts": {
+      "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE": 39,
+      "LANDSCAPE_OR_NATURAL_CONTEXT": 1,
+      "UNRESOLVED_REVIEW_REQUIRED": 0,
+      "VISITOR_SERVICE_OR_FACILITY": 11
+    },
+    "records": [
+      {
+        "review_feature_id": "heritage-review-leptis-magna-ab8c82baca0d8b25b110e690",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 1,
+          "OBJECTID_1": 1,
+          "FID_1": 30,
+          "objectid": 30,
+          "name": "بوابة أويا",
+          "popupinfo": " ",
+          "en_name": "Oya Gate",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.286247199748516,
+          "latitude": 32.63852340023476,
+          "wkid": 4326
+        },
+        "source_name": "بوابة أويا",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-7d150b7f90c17fed172e6af6",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 2,
+          "OBJECTID_1": 2,
+          "FID_1": 11,
+          "objectid": 11,
+          "name": "حمامات الصيد",
+          "popupinfo": " ",
+          "en_name": "Hunting Baths",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.285997699933944,
+          "latitude": 32.64125400007208,
+          "wkid": 4326
+        },
+        "source_name": "حمامات الصيد",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-16e055afb43530ea98320648",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 3,
+          "OBJECTID_1": 3,
+          "FID_1": 7,
+          "objectid": 7,
+          "name": "مركز المعلومات ومحلات بيع التذكارات ",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.287907500230972,
+          "latitude": 32.63446900014429,
+          "wkid": 4326
+        },
+        "source_name": "مركز المعلومات ومحلات بيع التذكارات ",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-f564f7b1bcdb72f34ab96909",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 4,
+          "OBJECTID_1": 4,
+          "FID_1": 8,
+          "objectid": 8,
+          "name": "موقف سيارات ومركز خدمات",
+          "popupinfo": "يحتوي على مقاهي وحمامات، ومحلات بيع التذكارات",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.287220800399666,
+          "latitude": 32.634911700414705,
+          "wkid": 4326
+        },
+        "source_name": "موقف سيارات ومركز خدمات",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-17344b2781ec1d611ddee9a7",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 5,
+          "OBJECTID_1": 5,
+          "FID_1": 9,
+          "objectid": 9,
+          "name": "منتزه لبدة السياحي",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.285396899747184,
+          "latitude": 32.63609079975066,
+          "wkid": 4326
+        },
+        "source_name": "منتزه لبدة السياحي",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-a60e5c9ef669e26721cb1d82",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 6,
+          "OBJECTID_1": 6,
+          "FID_1": 10,
+          "objectid": 10,
+          "name": "استراحة تازويت",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.289881600255683,
+          "latitude": 32.63172229974441,
+          "wkid": 4326
+        },
+        "source_name": "استراحة تازويت",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-dcf44ca2c313776a0c238396",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 7,
+          "OBJECTID_1": 7,
+          "FID_1": 23,
+          "objectid": 23,
+          "name": "قوس تابريوس‎",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.29192269977284,
+          "latitude": 32.63776669987334,
+          "wkid": 4326
+        },
+        "source_name": "قوس تابريوس‎",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-a9b9d29ae3a8b8abba647ad0",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 8,
+          "OBJECTID_1": 8,
+          "FID_1": 14,
+          "objectid": 14,
+          "name": "معبد العائلة السيفيرية",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.293164599666568,
+          "latitude": 32.636860999835335,
+          "wkid": 4326
+        },
+        "source_name": "معبد العائلة السيفيرية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-9f7a0ec04c39b3b729243ea4",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 9,
+          "OBJECTID_1": 9,
+          "FID_1": 60,
+          "objectid": 0,
+          "name": "قوس أنطونيوس",
+          "popupinfo": " ",
+          "en_name": "Arch of Antonius pius",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.287236928841253,
+          "latitude": 32.637644739213385,
+          "wkid": 4326
+        },
+        "source_name": "قوس أنطونيوس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "NON_UNIQUE_MUTABLE_OBJECTID_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-289c7d6df9ba236ee8548aca",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 10,
+          "OBJECTID_1": 10,
+          "FID_1": 19,
+          "objectid": 19,
+          "name": "الميدان القديم",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/20141203_102836.jpg\",\"rid\":20812628,\"lid\":\"4128517\",\"fid\":19,\"field\":\"photo\",\"title\":\"20141203_102836.jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir\":false}]"
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.29510920012956,
+          "latitude": 32.63962560034122,
+          "wkid": 4326
+        },
+        "source_name": "الميدان القديم",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "PARSEABLE_ATTACHMENT_JSON",
+          "PHOTO_ATTACHMENT_REFERENCE_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-1af557dfa1c09a605ac6bbaf",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 11,
+          "OBJECTID_1": 11,
+          "FID_1": 21,
+          "objectid": 21,
+          "name": "حمامات غير مكتملة",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.291759099602814,
+          "latitude": 32.64003889997531,
+          "wkid": 4326
+        },
+        "source_name": "حمامات غير مكتملة",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-b35284959da7f180ac690135",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 12,
+          "OBJECTID_1": 12,
+          "FID_1": 22,
+          "objectid": 22,
+          "name": "المعبد الشرقي",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.292671100291102,
+          "latitude": 32.64034160008481,
+          "wkid": 4326
+        },
+        "source_name": "المعبد الشرقي",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-6947119362585d66f6ee865d",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 13,
+          "OBJECTID_1": 13,
+          "FID_1": 25,
+          "objectid": 25,
+          "name": "شرفة مبنى عام تطل على ميدان",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.291279000125826,
+          "latitude": 32.637500200174145,
+          "wkid": 4326
+        },
+        "source_name": "شرفة مبنى عام تطل على ميدان",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-6c26f169f1db35fadcdd4af3",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 14,
+          "OBJECTID_1": 14,
+          "FID_1": 26,
+          "objectid": 26,
+          "name": "شرفة خلفية",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.290970600113155,
+          "latitude": 32.63869049966689,
+          "wkid": 4326
+        },
+        "source_name": "شرفة خلفية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-7f9c245394d36864b27188f8",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 15,
+          "OBJECTID_1": 15,
+          "FID_1": 27,
+          "objectid": 27,
+          "name": "نصب لميسر",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.29094109965206,
+          "latitude": 32.63704390035576,
+          "wkid": 4326
+        },
+        "source_name": "نصب لميسر",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-9a381b866cff3553dd5c83ba",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 16,
+          "OBJECTID_1": 16,
+          "FID_1": 28,
+          "objectid": 28,
+          "name": "المدرسة",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.289017900355873,
+          "latitude": 32.63602299986161,
+          "wkid": 4326
+        },
+        "source_name": "المدرسة",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-b4328a6a3794dcf97f19ff46",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 17,
+          "OBJECTID_1": 17,
+          "FID_1": 29,
+          "objectid": 29,
+          "name": "معبد دوكيومانوس",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.28809790019801,
+          "latitude": 32.63694230034696,
+          "wkid": 4326
+        },
+        "source_name": "معبد دوكيومانوس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-5c7418e01051dde5b609eb59",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 18,
+          "OBJECTID_1": 18,
+          "FID_1": 17,
+          "objectid": 17,
+          "name": "معبد جوبيتير دوليكينوس",
+          "popupinfo": " ",
+          "en_name": "Temple of Jupiter Dolikinus",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.297520500171004,
+          "latitude": 32.63689489977986,
+          "wkid": 4326
+        },
+        "source_name": "معبد جوبيتير دوليكينوس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "EXACT_COORDINATE_IDENTITY_CONFLICT_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-1338d54b294fada47aeec56b",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 19,
+          "OBJECTID_1": 19,
+          "FID_1": 32,
+          "objectid": 32,
+          "name": "الميناء",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.298867000211942,
+          "latitude": 32.638227499899244,
+          "wkid": 4326
+        },
+        "source_name": "الميناء",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-85bc741d1007b1c18cecff9f",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 20,
+          "OBJECTID_1": 20,
+          "FID_1": 33,
+          "objectid": 33,
+          "name": "المعبد الفلافي",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.296227700448071,
+          "latitude": 32.63843529994921,
+          "wkid": 4326
+        },
+        "source_name": "المعبد الفلافي",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-b55b46c76d3a1bc704d27c0b",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 21,
+          "OBJECTID_1": 21,
+          "FID_1": 34,
+          "objectid": 34,
+          "name": "ساحة نيرون النيروتية",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.297566100295342,
+          "latitude": 32.63916490014009,
+          "wkid": 4326
+        },
+        "source_name": "ساحة نيرون النيروتية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-f70773fa1c2e3dd2da4bc070",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 22,
+          "OBJECTID_1": 22,
+          "FID_1": 35,
+          "objectid": 35,
+          "name": "مدخل الميناء في القرن الأول الميلادي",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.297531200304718,
+          "latitude": 32.63965040004598,
+          "wkid": 4326
+        },
+        "source_name": "مدخل الميناء في القرن الأول الميلادي",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-a63885fc47b51e4df6cee9be",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 23,
+          "OBJECTID_1": 23,
+          "FID_1": 36,
+          "objectid": 36,
+          "name": "المنارة",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.301487499648431,
+          "latitude": 32.640285100177266,
+          "wkid": 4326
+        },
+        "source_name": "المنارة",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-d90d035bb77042ce684889da",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 24,
+          "OBJECTID_1": 24,
+          "FID_1": 37,
+          "objectid": 37,
+          "name": "برج الاشارة",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.301055700060544,
+          "latitude": 32.63847139963542,
+          "wkid": 4326
+        },
+        "source_name": "برج الاشارة",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-bb2ad138ea57164fd44835c3",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 25,
+          "OBJECTID_1": 25,
+          "FID_1": 38,
+          "objectid": 38,
+          "name": "معبد دوري",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.301036899733162,
+          "latitude": 32.638164200217716,
+          "wkid": 4326
+        },
+        "source_name": "معبد دوري",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-7588c034cc9549d75d307642",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 26,
+          "OBJECTID_1": 26,
+          "FID_1": 39,
+          "objectid": 39,
+          "name": "الحمامات الشرقية",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.301079800092737,
+          "latitude": 32.63630979995736,
+          "wkid": 4326
+        },
+        "source_name": "الحمامات الشرقية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-64b26460a6b107da3dbb1e7e",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 27,
+          "OBJECTID_1": 27,
+          "FID_1": 15,
+          "objectid": 15,
+          "name": "المسرح",
+          "popupinfo": " ",
+          "en_name": "theatre of lebda",
+          "photo": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/theatre (1).jpg\",\"rid\":20811678,\"lid\":\"4128517\",\"fid\":\"15\",\"field\":\"photo\",\"title\":\"theatre (1).jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir\":false},{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_pho"
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.290536000036411,
+          "latitude": 32.6383471996636,
+          "wkid": 4326
+        },
+        "source_name": "المسرح",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "PHOTO_ATTACHMENT_REFERENCE_REVIEW",
+          "TRUNCATED_ATTACHMENT_JSON"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-ae50baf1c61fe9da5278776d",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 28,
+          "OBJECTID_1": 28,
+          "FID_1": 41,
+          "objectid": 41,
+          "name": "ضريح قصر شداد",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.30257109997632,
+          "latitude": 32.63146929976841,
+          "wkid": 4326
+        },
+        "source_name": "ضريح قصر شداد",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-4b5243aba4db9fa3350b9813",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 29,
+          "OBJECTID_1": 29,
+          "FID_1": 47,
+          "objectid": 47,
+          "name": "قوس سبتيموس سفيروس",
+          "popupinfo": " ",
+          "en_name": "Arch of Septimus severus",
+          "photo": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/قوس الإمبراطور تراجان.jpg\",\"rid\":20811883,\"lid\":\"4128517\",\"fid\":\"47\",\"field\":\"photo\",\"title\":\"قوس الإمبراطور تراجان.jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir"
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.28914666168913,
+          "latitude": 32.63563448824107,
+          "wkid": 4326
+        },
+        "source_name": "قوس سبتيموس سفيروس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "MEDIA_IDENTITY_CONFLICT_REVIEW",
+          "PHOTO_ATTACHMENT_REFERENCE_REVIEW",
+          "TRUNCATED_ATTACHMENT_JSON"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-9ac9cec213ba17b21942bed8",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 30,
+          "OBJECTID_1": 30,
+          "FID_1": 24,
+          "objectid": 24,
+          "name": "قوس الإمبراطور تراجان",
+          "popupinfo": " ",
+          "en_name": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/قوس الإمبراطور تراجان.jpg\",\"rid\":20811883,\"lid\":\"4128517\",\"fid\":24,\"field\":\"en_name\",\"title\":\"قوس الإمبراطور تراجان.jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.291635799852315,
+          "latitude": 32.637536299860415,
+          "wkid": 4326
+        },
+        "source_name": "قوس الإمبراطور تراجان",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "ATTACHMENT_JSON_IN_EN_NAME_FIELD_REVIEW",
+          "TRUNCATED_ATTACHMENT_JSON"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-dcafe8244d3e51b9119dd68e",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 31,
+          "OBJECTID_1": 31,
+          "FID_1": 44,
+          "objectid": 44,
+          "name": "ضريح زرجام‎",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.288183700017782,
+          "latitude": 32.634184399790286,
+          "wkid": 4326
+        },
+        "source_name": "ضريح زرجام‎",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-302b0c21cad15381e0e1d876",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 32,
+          "OBJECTID_1": 32,
+          "FID_1": 49,
+          "objectid": 49,
+          "name": "نيمافيوم",
+          "popupinfo": "نافورة ذات أحواض ومحاريب وتماثيل رخام.",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.292880299686146,
+          "latitude": 32.635679699858315,
+          "wkid": 4326
+        },
+        "source_name": "نيمافيوم",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-9cce025fa324995a89d1be6d",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 33,
+          "OBJECTID_1": 33,
+          "FID_1": 52,
+          "objectid": 52,
+          "name": "معبد جوبيتير",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.297520500171004,
+          "latitude": 32.63689489977986,
+          "wkid": 4326
+        },
+        "source_name": "معبد جوبيتير",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "EXACT_COORDINATE_IDENTITY_CONFLICT_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-761d6271d131934806db423a",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 34,
+          "OBJECTID_1": 34,
+          "FID_1": 53,
+          "objectid": 53,
+          "name": "الجدار البيزنطي",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.300723100190964,
+          "latitude": 32.63655149995179,
+          "wkid": 4326
+        },
+        "source_name": "الجدار البيزنطي",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-8ea16612c433f64939a249ae",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 35,
+          "OBJECTID_1": 35,
+          "FID_1": 55,
+          "objectid": 55,
+          "name": "ضريح الدويرات",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.28812210005492,
+          "latitude": 32.63417309980878,
+          "wkid": 4326
+        },
+        "source_name": "ضريح الدويرات",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-c32c651cf87247b8c0f243bc",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 36,
+          "OBJECTID_1": 36,
+          "FID_1": 56,
+          "objectid": 56,
+          "name": "متحف الفسيفساء",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.289361200359167,
+          "latitude": 32.6345502997566,
+          "wkid": 4326
+        },
+        "source_name": "متحف الفسيفساء",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [
+          "DUPLICATE_EXACT_NAME_AND_COORDINATE_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-bbff232a54af7b0eeb755eb3",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 37,
+          "OBJECTID_1": 37,
+          "FID_1": 57,
+          "objectid": 57,
+          "name": "مقاهي واستراحة وموقف سيارات",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.287151100243136,
+          "latitude": 32.635047200368035,
+          "wkid": 4326
+        },
+        "source_name": "مقاهي واستراحة وموقف سيارات",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-0561cc08d62f274497c2ea61",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 38,
+          "OBJECTID_1": 38,
+          "FID_1": 58,
+          "objectid": 58,
+          "name": "مطعم الجرة",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.289248599843063,
+          "latitude": 32.63231859972365,
+          "wkid": 4326
+        },
+        "source_name": "مطعم الجرة",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-c8ac7e46253a6abd6680941a",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 39,
+          "OBJECTID_1": 39,
+          "FID_1": 59,
+          "objectid": 59,
+          "name": "ساحة الرياضة (بالسترا)",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.291662599649328,
+          "latitude": 32.635602899554215,
+          "wkid": 4326
+        },
+        "source_name": "ساحة الرياضة (بالسترا)",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-688fcf3ab4a03398ad2df4e6",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 40,
+          "OBJECTID_1": 40,
+          "FID_1": 2,
+          "objectid": 2,
+          "name": "متحف الفسيفساء",
+          "popupinfo": " ",
+          "en_name": "Museum",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.289361200359167,
+          "latitude": 32.6345502997566,
+          "wkid": 4326
+        },
+        "source_name": "متحف الفسيفساء",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [
+          "DUPLICATE_EXACT_NAME_AND_COORDINATE_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-d99fe0a1118008e32bcae606",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 41,
+          "OBJECTID_1": 41,
+          "FID_1": 20,
+          "objectid": 20,
+          "name": "معبد سيرابيس",
+          "popupinfo": " ",
+          "en_name": "serapaeum",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.293443599942236,
+          "latitude": 32.639164800315314,
+          "wkid": 4326
+        },
+        "source_name": "معبد سيرابيس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-adbdf8817184356b0ba4ac54",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 42,
+          "OBJECTID_1": 42,
+          "FID_1": 6,
+          "objectid": 6,
+          "name": "وادي لبدة",
+          "popupinfo": " ",
+          "en_name": "Wadi Lubda",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.296731899957251,
+          "latitude": 32.63769439977676,
+          "wkid": 4326
+        },
+        "source_name": "وادي لبدة",
+        "proposed_normalized_name": null,
+        "review_classification": "LANDSCAPE_OR_NATURAL_CONTEXT",
+        "classification_basis": "Source name explicitly identifies landscape or natural context; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-81f0413b69d4ab2cf11f8ea5",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 43,
+          "OBJECTID_1": 43,
+          "FID_1": 61,
+          "objectid": 0,
+          "name": "مصيف الخمس",
+          "popupinfo": " ",
+          "en_name": " ",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.27753806073298,
+          "latitude": 32.645951791342156,
+          "wkid": 4326
+        },
+        "source_name": "مصيف الخمس",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [
+          "NON_UNIQUE_MUTABLE_OBJECTID_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-e9ab11d031e285615b99a415",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 44,
+          "OBJECTID_1": 44,
+          "FID_1": 1,
+          "objectid": 1,
+          "name": "متحف لبدة",
+          "popupinfo": " ",
+          "en_name": "\tleptis Magna Museum",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.288567300440604,
+          "latitude": 32.634432799733986,
+          "wkid": 4326
+        },
+        "source_name": "متحف لبدة",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-9dd081347b359dd05ab8539a",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 45,
+          "OBJECTID_1": 45,
+          "FID_1": 3,
+          "objectid": 3,
+          "name": "مطعم الجرة",
+          "popupinfo": " ",
+          "en_name": "al jarra restaurant",
+          "photo": " "
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.289168099728045,
+          "latitude": 32.63241349978324,
+          "wkid": 4326
+        },
+        "source_name": "مطعم الجرة",
+        "proposed_normalized_name": null,
+        "review_classification": "VISITOR_SERVICE_OR_FACILITY",
+        "classification_basis": "Source name explicitly identifies a visitor service or facility; classification remains review-only.",
+        "quality_flags": [],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-abab42dcef474e1f9cb4abce",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 46,
+          "OBJECTID_1": 46,
+          "FID_1": 31,
+          "objectid": 31,
+          "name": "قوس ماركوس أوروليوس",
+          "popupinfo": " ",
+          "en_name": "Arch of Marcus Aurilus",
+          "photo": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/marcus (1).jpg\",\"rid\":20811840,\"lid\":\"4128517\",\"fid\":\"31\",\"field\":\"photo\",\"title\":\"marcus (1).jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir\":false},{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo"
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.28608894335008,
+          "latitude": 32.63848948230384,
+          "wkid": 4326
+        },
+        "source_name": "قوس ماركوس أوروليوس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "PHOTO_ATTACHMENT_REFERENCE_REVIEW",
+          "TRUNCATED_ATTACHMENT_JSON"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-8464a6dbd9d8b8aa8ec8a6a2",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 47,
+          "OBJECTID_1": 47,
+          "FID_1": 48,
+          "objectid": 48,
+          "name": "حمامات هادريان",
+          "popupinfo": " ",
+          "en_name": "Hadrian's Baths",
+          "photo": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/حمامات هادريان2.jpg\",\"rid\":20812058,\"lid\":\"4128517\",\"fid\":\"48\",\"field\":\"photo\",\"title\":\"حمامات هادريان2.jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir\":false}]"
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.291496299714481,
+          "latitude": 32.63504499972703,
+          "wkid": 4326
+        },
+        "source_name": "حمامات هادريان",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "PARSEABLE_ATTACHMENT_JSON",
+          "PHOTO_ATTACHMENT_REFERENCE_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-b6907f7bb06313f51b9d2c41",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 48,
+          "OBJECTID_1": 48,
+          "FID_1": 13,
+          "objectid": 13,
+          "name": "الساحة السيفيرية‎",
+          "popupinfo": " ",
+          "en_name": "forum of severus",
+          "photo": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/Severan Forum.jpg\",\"rid\":20812278,\"lid\":\"4128517\",\"fid\":\"13\",\"field\":\"photo\",\"title\":\"Severan Forum.jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir\":false}]"
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.293730599687478,
+          "latitude": 32.63716589968658,
+          "wkid": 4326
+        },
+        "source_name": "الساحة السيفيرية‎",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "PARSEABLE_ATTACHMENT_JSON",
+          "PHOTO_ATTACHMENT_REFERENCE_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-c6a5bd9a2034ccb085efd99a",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 49,
+          "OBJECTID_1": 49,
+          "FID_1": 18,
+          "objectid": 18,
+          "name": "البوابة البيزنطية",
+          "popupinfo": " ",
+          "en_name": "Porta Bizantina",
+          "photo": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/Porta Bizantina.jpg\",\"rid\":20812319,\"lid\":\"4128517\",\"fid\":\"18\",\"field\":\"photo\",\"title\":\"Porta Bizantina.jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir\":false}]"
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.294167799704269,
+          "latitude": 32.638593399865556,
+          "wkid": 4326
+        },
+        "source_name": "البوابة البيزنطية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "PARSEABLE_ATTACHMENT_JSON",
+          "PHOTO_ATTACHMENT_REFERENCE_REVIEW"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-51bc9d650f54c119d1c09b0e",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 50,
+          "OBJECTID_1": 50,
+          "FID_1": 12,
+          "objectid": 12,
+          "name": "باسيلقا سيفيروس",
+          "popupinfo": " ",
+          "en_name": "Bacillca of SeverusSeveran Basilica",
+          "photo": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/Severan Basilica.jpg\",\"rid\":20812578,\"lid\":\"4128517\",\"fid\":\"12\",\"field\":\"photo\",\"title\":\"Severan Basilica.jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir\":false},{\"pathname\":\"/LIBYA/Leptis Magna/Leptis"
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.294342100007952,
+          "latitude": 32.63749569996662,
+          "wkid": 4326
+        },
+        "source_name": "باسيلقا سيفيروس",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "PHOTO_ATTACHMENT_REFERENCE_REVIEW",
+          "TRUNCATED_ATTACHMENT_JSON"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      },
+      {
+        "review_feature_id": "heritage-review-leptis-magna-179f8d32ed25d9e7d5dac8d8",
+        "destination_slug": "leptis-magna",
+        "source_database": "points_world_heritage.gdb",
+        "source_layer": "leptis_points_review",
+        "source_artifact_basename": "leptis_points_review.esri.json",
+        "source_attributes": {
+          "OBJECTID_12": 51,
+          "OBJECTID_1": 51,
+          "FID_1": 16,
+          "objectid": 16,
+          "name": "السوق الرومانية",
+          "popupinfo": " ",
+          "en_name": "Romanian Market",
+          "photo": "___json[{\"pathname\":\"/LIBYA/Leptis Magna/Leptis Magna_photo/4  مدينة لبدة الاثرية.jpg\",\"rid\":20812764,\"lid\":\"4128517\",\"fid\":\"16\",\"field\":\"photo\",\"title\":\"4  مدينة لبدة الاثرية.jpg\",\"ext\":\"jpg\",\"panorama\":false,\"isDir\":fals"
+        },
+        "source_geometry": {
+          "geometry_type": "Point",
+          "longitude": 14.29201130008147,
+          "latitude": 32.63824330008828,
+          "wkid": 4326
+        },
+        "source_name": "السوق الرومانية",
+        "proposed_normalized_name": null,
+        "review_classification": "ARCHAEOLOGICAL_OR_HERITAGE_FEATURE",
+        "classification_basis": "Source name contains an archaeological or heritage feature term; classification remains review-only.",
+        "quality_flags": [
+          "PHOTO_ATTACHMENT_REFERENCE_REVIEW",
+          "TRUNCATED_ATTACHMENT_JSON"
+        ],
+        "canonical_approval": false,
+        "publication_approved": false,
+        "public_visibility_enabled": false,
+        "institutional_review_status": "UNRESOLVED"
+      }
+    ]
+  }
+}

@@ -356,6 +356,19 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
         else:
             _error(errors, record["coordinate_source"] is None, f"{label} must not claim a coordinate source")
 
+        if key in {"leptis-magna", "sabratha"}:
+            expected_scope_path = f"backend/data/gis/{key}-heritage-scope.review.json"
+            _error(errors, record.get("gis_scope_contract_present") is True, f"{label} must reference its heritage GIS scope contract")
+            _error(errors, record.get("gis_scope_contract_path") == expected_scope_path, f"{label} scope-contract path is invalid")
+            scope_path = _repo_path(root, expected_scope_path, errors, f"{label} scope contract")
+            if scope_path is not None:
+                scope_doc = _load_json(scope_path)
+                _error(errors, scope_doc.get("canonical_destination_slug") == key, f"{label} scope-contract destination mismatch")
+                _error(errors, scope_doc.get("registry_record_id") == record["registry_record_id"], f"{label} scope-contract registry linkage mismatch")
+                _error(errors, scope_doc.get("summary", {}).get("detailed_gis_layer_created") is False, f"{label} scope contract must not claim a detailed GIS layer")
+        else:
+            _error(errors, "gis_scope_contract_present" not in record and "gis_scope_contract_path" not in record, f"{label} has an unsupported heritage scope contract")
+
         layer_ids = record["gis_layer_ids"]
         _error(errors, all(isinstance(item, str) for item in layer_ids), f"{label} GIS layer IDs must be strings")
         _error(errors, record["gis_layer_present"] == bool(layer_ids), f"{label} GIS presence conflicts with layer IDs")
