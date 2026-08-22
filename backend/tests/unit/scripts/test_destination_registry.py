@@ -347,3 +347,14 @@ def test_cyrene_source_reconciliation_is_not_detailed_gis(registry: dict) -> Non
 
 def test_cyrene_reconciliation_cannot_increase_registry_gis_count(registry: dict) -> None:
     assert sum(item["gis_record_count"] for item in registry["records"]) == 214
+
+
+def test_ghadames_source_reconciliation_is_review_evidence_not_detailed_gis(registry: dict) -> None:
+    ghadames = record(registry, "ghadames")
+    assert ghadames["gis_source_reconciliation_present"] is True
+    assert ghadames["gis_source_reconciliation_path"] == "backend/data/gis/ghadames-source-reconciliation.review.json"
+    assert ghadames["gis_review_evidence_record_count"] == 773
+    assert ghadames["gis_layer_present"] is False
+    assert ghadames["gis_record_count"] == 0
+    assert ghadames["coordinates_present"] is False
+    assert sum(item["gis_record_count"] for item in registry["records"]) == 214

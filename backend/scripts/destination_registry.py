@@ -369,8 +369,12 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
         else:
             _error(errors, "gis_scope_contract_present" not in record and "gis_scope_contract_path" not in record, f"{label} has an unsupported heritage scope contract")
 
-        if key == "shahat-cyrene":
-            reconciliation_path = "backend/data/gis/cyrene-source-reconciliation.review.json"
+        reconciliation_paths = {
+            "shahat-cyrene": "backend/data/gis/cyrene-source-reconciliation.review.json",
+            "ghadames": "backend/data/gis/ghadames-source-reconciliation.review.json",
+        }
+        if key in reconciliation_paths:
+            reconciliation_path = reconciliation_paths[key]
             _error(errors, record.get("gis_source_reconciliation_present") is True, f"{label} must reference its non-public source reconciliation")
             _error(errors, record.get("gis_source_reconciliation_path") == reconciliation_path, f"{label} reconciliation path is invalid")
             resolved_reconciliation = _repo_path(root, reconciliation_path, errors, f"{label} source reconciliation")
@@ -379,8 +383,11 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
                 _error(errors, reconciliation.get("registry_record_id") == record["registry_record_id"], f"{label} reconciliation registry linkage mismatch")
                 _error(errors, reconciliation.get("status") == "REVIEW_ONLY_NOT_RUNTIME_OR_PUBLICATION_SOURCE", f"{label} reconciliation must remain review-only")
                 _error(errors, reconciliation.get("summary", {}).get("publication_or_registry_gis_count_added") == 0, f"{label} reconciliation must not change GIS publication counts")
+                if key == "ghadames":
+                    _error(errors, record.get("gis_review_evidence_record_count") == 773, f"{label} review-evidence count is invalid")
+                    _error(errors, reconciliation.get("summary", {}).get("represented_evidence_record_count") == 773, f"{label} reconciliation evidence count mismatch")
         else:
-            _error(errors, "gis_source_reconciliation_present" not in record and "gis_source_reconciliation_path" not in record, f"{label} has an unsupported source reconciliation")
+            _error(errors, "gis_source_reconciliation_present" not in record and "gis_source_reconciliation_path" not in record and "gis_review_evidence_record_count" not in record, f"{label} has an unsupported source reconciliation")
 
         layer_ids = record["gis_layer_ids"]
         _error(errors, all(isinstance(item, str) for item in layer_ids), f"{label} GIS layer IDs must be strings")

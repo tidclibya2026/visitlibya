@@ -456,6 +456,9 @@
       "gis_layer_ids": [],
       "gis_record_count": 0,
       "gis_record_selector": null,
+      "gis_source_reconciliation_present": true,
+      "gis_source_reconciliation_path": "backend/data/gis/ghadames-source-reconciliation.review.json",
+      "gis_review_evidence_record_count": 773,
       "governed_provenance_present": true,
       "heritage_review_present": true,
       "legacy_public_visibility": true,
@@ -466,6 +469,7 @@
       "data_gaps": ["No governed boundary exists for the broader Ghadames destination or its contained modern city, Old City, oasis, desert, and cultural-landscape dimensions.", "The reviewed old-city-ghadames coordinate is not assigned to the broader ghadames record."],
       "institutional_actions_required": ["Define governed destination boundaries and a containment GIS model while preserving separate evidence and publication requirements for ghadames and old-city-ghadames."],
       "evidence": [
+        {"path": "backend/data/gis/ghadames-source-reconciliation.review.json", "identifiers": ["reconciliation_id:ghadames-source-reconciliation-v1", "represented_evidence_record_count:773", "publication_or_registry_gis_count_added:0"]},
         {"path": "backend/data/dev/destinations.json", "identifiers": ["slug:ghadames", "slug:old-city-ghadames"]},
         {"path": "backend/data/gis/canonical-destination-coordinate-review.json", "identifiers": ["slug:ghadames", "APPROVAL_READY_NOT_INSTITUTIONAL_APPROVAL"]},
         {"path": "backend/data/dev/destination-coordinates.reviewed.json", "identifiers": ["slug:old-city-ghadames"]},
