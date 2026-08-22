@@ -334,3 +334,16 @@ def test_scope_contract_cannot_claim_detailed_coverage(tmp_path: Path, registry:
     item["gis_layer_present"] = True
     with pytest.raises(RegistryValidationError, match="GIS presence conflicts"):
         validate_modified(tmp_path, registry)
+
+
+def test_cyrene_source_reconciliation_is_not_detailed_gis(registry: dict) -> None:
+    cyrene = record(registry, "shahat-cyrene")
+    assert cyrene["gis_source_reconciliation_present"] is True
+    assert cyrene["gis_source_reconciliation_path"] == "backend/data/gis/cyrene-source-reconciliation.review.json"
+    assert cyrene["gis_layer_present"] is False
+    assert cyrene["gis_record_count"] == 0
+    assert cyrene["identity_model"]["runtime_promotion_status"] == "NOT_PROMOTED"
+
+
+def test_cyrene_reconciliation_cannot_increase_registry_gis_count(registry: dict) -> None:
+    assert sum(item["gis_record_count"] for item in registry["records"]) == 214

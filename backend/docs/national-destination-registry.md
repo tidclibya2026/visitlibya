@@ -36,6 +36,8 @@ Identity-model resolution is equally non-authoritative for publication. A region
 
 The project model resolves Cyrene and Shahat as one unified destination, `UNIFIED_CYRENE_SHAHAT_DESTINATION`, within the Green Mountain region through `WITHIN_REGION`. Its proposed future slug is `cyrene`. The authoritative runtime dataset still has no `cyrene` record, so the current canonical slug remains `null`, the existing visitor link still routes through `green-mountain`, and runtime promotion is `NOT_PROMOTED`. Destination-level coordinates, archaeological GIS scope, Shahat service context, evidence completion, and institutional publication review remain required.
 
+A self-contained source reconciliation now evaluates 3,083 raw records from 32 institutional exports. It consolidates only 1,438 proven byte-identical second copies, preserves 1,637 clean thematic records, and quarantines 8 records. This is non-public review evidence, not a detailed GIS layer, runtime source, canonical coordinate, boundary, or approval, and it adds zero to the registry-scoped GIS count of 214.
+
 ### Ghadames and Old City of Ghadames
 
 `ghadames` remains the broader tourism destination. It contains the separately canonical `old-city-ghadames` historic and World Heritage core through `CONTAINS_HERITAGE_CORE`. The broader project model may encompass the modern city, Old City, oasis, surrounding desert, and cultural landscape, but it defines no GIS boundary. The Old City coordinate is not inherited by broader Ghadames, and each identity retains separate evidence and publication requirements.
