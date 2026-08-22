@@ -372,6 +372,7 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
         reconciliation_paths = {
             "shahat-cyrene": "backend/data/gis/cyrene-source-reconciliation.review.json",
             "ghadames": "backend/data/gis/ghadames-source-reconciliation.review.json",
+            "acacus": "backend/data/gis/acacus-source-reconciliation.review.json",
         }
         if key in reconciliation_paths:
             reconciliation_path = reconciliation_paths[key]
@@ -386,8 +387,20 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
                 if key == "ghadames":
                     _error(errors, record.get("gis_review_evidence_record_count") == 773, f"{label} review-evidence count is invalid")
                     _error(errors, reconciliation.get("summary", {}).get("represented_evidence_record_count") == 773, f"{label} reconciliation evidence count mismatch")
+                if key == "acacus":
+                    expected_review_counts = {
+                        "gis_source_record_count": 430,
+                        "gis_reconciled_review_record_count": 364,
+                        "gis_clean_representative_count": 360,
+                        "gis_quarantined_cross_destination_count": 4,
+                        "gis_safe_duplicate_member_count": 66,
+                    }
+                    _error(errors, all(record.get(field) == count for field, count in expected_review_counts.items()), f"{label} review accounting is invalid")
+                    summary = reconciliation.get("summary", {})
+                    _error(errors, summary.get("source_record_count") == 430 and summary.get("reconciled_review_record_count") == 364 and summary.get("clean_representative_count") == 360 and summary.get("quarantined_cross_destination_count") == 4 and summary.get("safe_duplicate_member_count") == 66, f"{label} reconciliation accounting mismatch")
         else:
-            _error(errors, "gis_source_reconciliation_present" not in record and "gis_source_reconciliation_path" not in record and "gis_review_evidence_record_count" not in record, f"{label} has an unsupported source reconciliation")
+            unsupported_fields = ("gis_source_reconciliation_present", "gis_source_reconciliation_path", "gis_review_evidence_record_count", "gis_source_record_count", "gis_reconciled_review_record_count", "gis_clean_representative_count", "gis_quarantined_cross_destination_count", "gis_safe_duplicate_member_count")
+            _error(errors, all(field not in record for field in unsupported_fields), f"{label} has an unsupported source reconciliation")
 
         layer_ids = record["gis_layer_ids"]
         _error(errors, all(isinstance(item, str) for item in layer_ids), f"{label} GIS layer IDs must be strings")
