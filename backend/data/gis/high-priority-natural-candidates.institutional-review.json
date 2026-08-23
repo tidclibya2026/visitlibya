@@ -1,0 +1,1267 @@
+{
+  "schema_version": "1.0.0",
+  "packet_id": "natural-high-priority-institutional-review-2026-08-23",
+  "status": "REVIEW_ONLY_NOT_PUBLICATION_APPROVAL",
+  "purpose": "EXTERNAL_INSTITUTIONAL_REVIEW_PREPARATION",
+  "source_provenance": {
+    "governed_input_path": "backend/data/gis/phase1-natural-editorial-candidates.review.json",
+    "governed_input_sha256": "a04e40ec70051e6fb19f2b1a4002cf6d0b161eb7071e8aa56d5ad82fa4e2ba07",
+    "selection_rule": "EDITORIAL_PRIORITY_BAND_EQUALS_HIGH_EDITORIAL_PRIORITY"
+  },
+  "record_count": 7,
+  "category_distribution": {
+    "NATURAL_SPRINGS": 2,
+    "DAMS_AND_RESERVOIRS_REVIEW": 1,
+    "CAVES_AND_ROCK_FORMATIONS": 1,
+    "ISLANDS": 2,
+    "VALLEYS_AND_WADIS": 1
+  },
+  "allowed_institutional_decisions": [
+    "ACCEPT_FOR_FIELD_VERIFICATION",
+    "RETURN_FOR_IDENTITY_REVIEW",
+    "RETURN_FOR_COORDINATE_REVIEW",
+    "RETURN_FOR_DESCRIPTION",
+    "RETURN_FOR_MEDIA_AND_RIGHTS",
+    "DEFER",
+    "REJECT_FROM_NATURAL_SCOPE"
+  ],
+  "packet_governance": {
+    "publication_approved": false,
+    "canonical_approval": false,
+    "public_visibility_enabled": false,
+    "publication_media_eligible": false,
+    "institutional_review_status": "UNRESOLVED",
+    "institutional_decision": "PENDING",
+    "canonical_destination": null,
+    "editorial_selection_is_approval": false
+  },
+  "candidates": [
+    {
+      "identity": {
+        "editorial_candidate_id": "nnr-phase1-d20d1ba8de32e3f480224e7a",
+        "governed_review_id": "nnr-011e980ad49873e71ac6a16f",
+        "source_ordinal": 770,
+        "raw_name_ar": "عين تاورغاء",
+        "proposed_normalized_name_ar": "عين تاورغاء",
+        "sourced_name_en": null,
+        "priority_category": "NATURAL_SPRINGS",
+        "geometry_type": "Point",
+        "coordinates": [
+          15.1072222,
+          32.0138889
+        ],
+        "sourced_region_ar": null,
+        "sourced_locality_ar": null
+      },
+      "source_evidence": {
+        "complete_source_description": "يروى أن عروساً جميلة كانت تسير على ظهر جمل محمل بجهازها من ذهب وحرير فضة ، توقفت على حوض عين المياه، لسقي الجمل، فسقط في المياه وغرق بحمله من الكنوز وهو يصدر غرغرة، فعرف المكان بصوت الجمل غرا غرا وحرف إلى تاورغاء، فيما عرفت القصة باسطورة العروس والجمل، تبرز رواية متداولة أخرى، بأن مسافراً توقف على العين للشرب وسقاية جمله، فمر بجانبه شخص وقال للمسافر لماذا يصرخ الجمل، فرد المسافر (توا رغاء)، أي بمعنى شرب الآن، فاستمد المكان الاسم من هذه الحادثة (عين تاورغاء) التي تبعد مسافة ستة كيلو مترات غرب مدينة تاورغاء. وبعيداً عن الأساطير والخرافات، فإن اسم تاورغاء يعني الواحة أو الخضراء ويلف العين سور، ويتفرع منها عدة وديان تغذي أهل المنطقة والقرى المجاورة لها بالمياه، كما يوجد بها جسران يفضيان إلى حوض العين، بالقرب منهما نبع العين، ونبع ىخر في الجهة المحاذية المعروفة بت (الركزة)، فيما تحيط بالعين بعض المواقع القديمة، بمافي ذلك الخزان القديم والمعروف بـ (الشنتراري)، وكذلك أضرحة (أمي عيشة)، وسيدى صالح، إلى جانب (جامع العين) الكبير، والزوايا العيساوية، والمدنية للمدائح والاذكار وتحفيظ القرآن الكريم. كما تعتبر العين ومحيطها الذي تتكاثر فيه نباتات الديس والبردي والقصبة، ملاذاً ونقطة توقف للطيور المهاجرة خلال موسم هجراتها السنوية.",
+        "source": "اطلس2026.xml",
+        "origin": "أطلس ليبيا السياحي 2026",
+        "source_status": "جاهز مبدئياً",
+        "source_type": "KML/XML",
+        "folders": "Untitled layer",
+        "primary_category": "العيون الطبيعية",
+        "all_categories": "العيون الطبيعية؛ محميات وموائل الطيور المهاجرة؛ آبار وخزانات ومصادر مياه أخرى",
+        "preserved_properties": {
+          "all_categories": "العيون الطبيعية؛ محميات وموائل الطيور المهاجرة؛ آبار وخزانات ومصادر مياه أخرى",
+          "coord_count": 1,
+          "description": "يروى أن عروساً جميلة كانت تسير على ظهر جمل محمل بجهازها من ذهب وحرير فضة ، توقفت على حوض عين المياه، لسقي الجمل، فسقط في المياه وغرق بحمله من الكنوز وهو يصدر غرغرة، فعرف المكان بصوت الجمل غرا غرا وحرف إلى تاورغاء، فيما عرفت القصة باسطورة العروس والجمل، تبرز رواية متداولة أخرى، بأن مسافراً توقف على العين للشرب وسقاية جمله، فمر بجانبه شخص وقال للمسافر لماذا يصرخ الجمل، فرد المسافر (توا رغاء)، أي بمعنى شرب الآن، فاستمد المكان الاسم من هذه الحادثة (عين تاورغاء) التي تبعد مسافة ستة كيلو مترات غرب مدينة تاورغاء. وبعيداً عن الأساطير والخرافات، فإن اسم تاورغاء يعني الواحة أو الخضراء ويلف العين سور، ويتفرع منها عدة وديان تغذي أهل المنطقة والقرى المجاورة لها بالمياه، كما يوجد بها جسران يفضيان إلى حوض العين، بالقرب منهما نبع العين، ونبع ىخر في الجهة المحاذية المعروفة بت (الركزة)، فيما تحيط بالعين بعض المواقع القديمة، بمافي ذلك الخزان القديم والمعروف بـ (الشنتراري)، وكذلك أضرحة (أمي عيشة)، وسيدى صالح، إلى جانب (جامع العين) الكبير، والزوايا العيساوية، والمدنية للمدائح والاذكار وتحفيظ القرآن الكريم. كما تعتبر العين ومحيطها الذي تتكاثر فيه نباتات الديس والبردي والقصبة، ملاذاً ونقطة توقف للطيور المهاجرة خلال موسم هجراتها السنوية.",
+          "folders": "Untitled layer",
+          "geometry_type": "Point",
+          "id": 770,
+          "name": "عين تاورغاء",
+          "origin": "أطلس ليبيا السياحي 2026",
+          "primary_category": "العيون الطبيعية",
+          "source": "اطلس2026.xml",
+          "source_type": "KML/XML",
+          "status": "جاهز مبدئياً"
+        },
+        "provenance_evidence": {
+          "governed_input_path": "backend/data/gis/phase1-natural-editorial-candidates.review.json",
+          "governed_input_sha256": "a04e40ec70051e6fb19f2b1a4002cf6d0b161eb7071e8aa56d5ad82fa4e2ba07",
+          "governed_review_collection": "WATER_RESOURCES_AND_SPRINGS",
+          "governed_resolution_bucket": "CLEAN_NATURAL_RESOURCE_REPRESENTATIVE",
+          "source_geometry_metadata_mismatch": false
+        },
+        "overlap_state": "NO_INSPECTED_GOVERNED_OVERLAP",
+        "existing_governed_overlaps": [],
+        "quality_flags": [
+          "DESCRIPTION_CONTAINS_NON_NATURAL_OR_MIXED_SCOPE_SIGNALS"
+        ]
+      },
+      "editorial_readiness": {
+        "score": 90,
+        "score_components": {
+          "coordinate_quality": 20,
+          "description_completeness": 20,
+          "duplicate_conflict_safety": 10,
+          "identity_clarity": 25,
+          "institutional_provenance": 15,
+          "media_readiness_and_rights": 0
+        },
+        "priority_band": "HIGH_EDITORIAL_PRIORITY",
+        "high_priority_reasons": [
+          "SCORE_AT_OR_ABOVE_HIGH_PRIORITY_THRESHOLD",
+          "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+          "VALID_LIBYA_PLAUSIBLE_POINT",
+          "COMPLETE_SOURCE_LINEAGE_FIELDS",
+          "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+          "SUBSTANTIVE_SOURCE_DESCRIPTION_PRESENT",
+          "MEDIA_RIGHTS_CONTRIBUTES_ZERO_AND_REMAINS_UNRESOLVED"
+        ],
+        "missing_description": false,
+        "identity_quality": "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+        "coordinate_quality": "VALID_LIBYA_PLAUSIBLE_POINT",
+        "duplicate_conflict_state": "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+        "media_availability": "NO_SOURCE_MEDIA_REFERENCE",
+        "media_rights_status": "NO_INDEPENDENT_RIGHTS_EVIDENCE",
+        "source_recommended_editorial_action": "ADVANCE_TO_INSTITUTIONAL_EDITORIAL_REVIEW",
+        "source_required_human_review_actions": [
+          "OBTAIN_RIGHTS_CLEARED_LOCAL_MEDIA"
+        ]
+      },
+      "institutional_review": {
+        "institutional_decision": "PENDING",
+        "allowed_decisions": [
+          "ACCEPT_FOR_FIELD_VERIFICATION",
+          "RETURN_FOR_IDENTITY_REVIEW",
+          "RETURN_FOR_COORDINATE_REVIEW",
+          "RETURN_FOR_DESCRIPTION",
+          "RETURN_FOR_MEDIA_AND_RIGHTS",
+          "DEFER",
+          "REJECT_FROM_NATURAL_SCOPE"
+        ],
+        "review_routing_action": "RETURN_FOR_DESCRIPTION",
+        "review_routing_is_final_approval": false,
+        "routing_requirements": {
+          "review_routing_action": "RETURN_FOR_DESCRIPTION",
+          "scope_review_required": true,
+          "reason": "DESCRIPTION_CONTAINS_NON_NATURAL_OR_MIXED_SCOPE_SIGNALS",
+          "natural_spring_identity_confirmation_required": true,
+          "field_acceptance_blocked_until_description_and_scope_resolved": true,
+          "publication_remains_prohibited": true
+        },
+        "recommended_action_is_approval": false,
+        "required_evidence_checklist": [
+          {
+            "evidence_item": "institutional_identity_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "municipality_locality_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "coordinate_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "field_verification",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "factual_description_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "environmental_sensitivity_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "accessibility_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "visitor_safety_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "managing_authority_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_availability_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_ownership_licensing_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "publication_recommendation",
+            "status": "PENDING_INSTITUTIONAL_DECISION"
+          }
+        ],
+        "category_specific_safeguards": [
+          "VERIFY_NATURAL_SPRING_IDENTITY",
+          "DISTINGUISH_FROM_WELL_TANK_FOUNTAIN_BATH_OR_INFRASTRUCTURE",
+          "VERIFY_WATER_CONDITION_AND_VISITOR_SAFETY"
+        ]
+      },
+      "governance": {
+        "publication_approved": false,
+        "canonical_approval": false,
+        "public_visibility_enabled": false,
+        "publication_media_eligible": false,
+        "institutional_review_status": "UNRESOLVED",
+        "institutional_decision": "PENDING",
+        "canonical_destination": null,
+        "editorial_selection_is_approval": false
+      }
+    },
+    {
+      "identity": {
+        "editorial_candidate_id": "nnr-phase1-057248f29519867919e64b2f",
+        "governed_review_id": "nnr-21386bc81074a2f8152ea4b8",
+        "source_ordinal": 817,
+        "raw_name_ar": "عين مزراق",
+        "proposed_normalized_name_ar": "عين مزراق",
+        "sourced_name_en": null,
+        "priority_category": "NATURAL_SPRINGS",
+        "geometry_type": "Point",
+        "coordinates": [
+          13.4572883,
+          31.2648783
+        ],
+        "sourced_region_ar": null,
+        "sourced_locality_ar": null
+      },
+      "source_evidence": {
+        "complete_source_description": "هبوط أرضي عمقه 120 متر، وعرضه 30 متراً مربعاً.. يوجد بها عين للماء، وكانت مقر تورد إليه القوافل للشرب وسقاية الحيوانات.",
+        "source": "اطلس2026.xml",
+        "origin": "أطلس ليبيا السياحي 2026",
+        "source_status": "جاهز مبدئياً",
+        "source_type": "KML/XML",
+        "folders": "Untitled layer",
+        "primary_category": "العيون الطبيعية",
+        "all_categories": "العيون الطبيعية؛ آبار وخزانات ومصادر مياه أخرى",
+        "preserved_properties": {
+          "all_categories": "العيون الطبيعية؛ آبار وخزانات ومصادر مياه أخرى",
+          "coord_count": 1,
+          "description": "هبوط أرضي عمقه 120 متر، وعرضه 30 متراً مربعاً.. يوجد بها عين للماء، وكانت مقر تورد إليه القوافل للشرب وسقاية الحيوانات.",
+          "folders": "Untitled layer",
+          "geometry_type": "Point",
+          "id": 817,
+          "name": "عين مزراق",
+          "origin": "أطلس ليبيا السياحي 2026",
+          "primary_category": "العيون الطبيعية",
+          "source": "اطلس2026.xml",
+          "source_type": "KML/XML",
+          "status": "جاهز مبدئياً"
+        },
+        "provenance_evidence": {
+          "governed_input_path": "backend/data/gis/phase1-natural-editorial-candidates.review.json",
+          "governed_input_sha256": "a04e40ec70051e6fb19f2b1a4002cf6d0b161eb7071e8aa56d5ad82fa4e2ba07",
+          "governed_review_collection": "WATER_RESOURCES_AND_SPRINGS",
+          "governed_resolution_bucket": "CLEAN_NATURAL_RESOURCE_REPRESENTATIVE",
+          "source_geometry_metadata_mismatch": false
+        },
+        "overlap_state": "NO_INSPECTED_GOVERNED_OVERLAP",
+        "existing_governed_overlaps": [],
+        "quality_flags": []
+      },
+      "editorial_readiness": {
+        "score": 90,
+        "score_components": {
+          "coordinate_quality": 20,
+          "description_completeness": 20,
+          "duplicate_conflict_safety": 10,
+          "identity_clarity": 25,
+          "institutional_provenance": 15,
+          "media_readiness_and_rights": 0
+        },
+        "priority_band": "HIGH_EDITORIAL_PRIORITY",
+        "high_priority_reasons": [
+          "SCORE_AT_OR_ABOVE_HIGH_PRIORITY_THRESHOLD",
+          "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+          "VALID_LIBYA_PLAUSIBLE_POINT",
+          "COMPLETE_SOURCE_LINEAGE_FIELDS",
+          "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+          "SUBSTANTIVE_SOURCE_DESCRIPTION_PRESENT",
+          "MEDIA_RIGHTS_CONTRIBUTES_ZERO_AND_REMAINS_UNRESOLVED"
+        ],
+        "missing_description": false,
+        "identity_quality": "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+        "coordinate_quality": "VALID_LIBYA_PLAUSIBLE_POINT",
+        "duplicate_conflict_state": "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+        "media_availability": "NO_SOURCE_MEDIA_REFERENCE",
+        "media_rights_status": "NO_INDEPENDENT_RIGHTS_EVIDENCE",
+        "source_recommended_editorial_action": "ADVANCE_TO_INSTITUTIONAL_EDITORIAL_REVIEW",
+        "source_required_human_review_actions": [
+          "OBTAIN_RIGHTS_CLEARED_LOCAL_MEDIA"
+        ]
+      },
+      "institutional_review": {
+        "institutional_decision": "PENDING",
+        "allowed_decisions": [
+          "ACCEPT_FOR_FIELD_VERIFICATION",
+          "RETURN_FOR_IDENTITY_REVIEW",
+          "RETURN_FOR_COORDINATE_REVIEW",
+          "RETURN_FOR_DESCRIPTION",
+          "RETURN_FOR_MEDIA_AND_RIGHTS",
+          "DEFER",
+          "REJECT_FROM_NATURAL_SCOPE"
+        ],
+        "review_routing_action": "ACCEPT_FOR_FIELD_VERIFICATION",
+        "review_routing_is_final_approval": false,
+        "routing_requirements": {
+          "review_routing_action": "ACCEPT_FOR_FIELD_VERIFICATION",
+          "field_verification_required": true,
+          "identity_confirmation_required": true,
+          "coordinate_confirmation_required": true,
+          "publication_remains_prohibited": true
+        },
+        "recommended_action_is_approval": false,
+        "required_evidence_checklist": [
+          {
+            "evidence_item": "institutional_identity_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "municipality_locality_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "coordinate_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "field_verification",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "factual_description_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "environmental_sensitivity_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "accessibility_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "visitor_safety_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "managing_authority_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_availability_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_ownership_licensing_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "publication_recommendation",
+            "status": "PENDING_INSTITUTIONAL_DECISION"
+          }
+        ],
+        "category_specific_safeguards": [
+          "VERIFY_NATURAL_SPRING_IDENTITY",
+          "DISTINGUISH_FROM_WELL_TANK_FOUNTAIN_BATH_OR_INFRASTRUCTURE",
+          "VERIFY_WATER_CONDITION_AND_VISITOR_SAFETY"
+        ]
+      },
+      "governance": {
+        "publication_approved": false,
+        "canonical_approval": false,
+        "public_visibility_enabled": false,
+        "publication_media_eligible": false,
+        "institutional_review_status": "UNRESOLVED",
+        "institutional_decision": "PENDING",
+        "canonical_destination": null,
+        "editorial_selection_is_approval": false
+      }
+    },
+    {
+      "identity": {
+        "editorial_candidate_id": "nnr-phase1-62b25272b1e98c1969170af9",
+        "governed_review_id": "nnr-92ccb0fb9bfa89ec26d48059",
+        "source_ordinal": 640,
+        "raw_name_ar": "سد الهيشة",
+        "proposed_normalized_name_ar": "سد الهيشه",
+        "sourced_name_en": null,
+        "priority_category": "DAMS_AND_RESERVOIRS_REVIEW",
+        "geometry_type": "Point",
+        "coordinates": [
+          22.3868383,
+          32.5718244
+        ],
+        "sourced_region_ar": null,
+        "sourced_locality_ar": null
+      },
+      "source_evidence": {
+        "complete_source_description": "موقع توقف طيور مهاجرة، وصيد الطيور المهاجرة",
+        "source": "اطلس2026.xml",
+        "origin": "أطلس ليبيا السياحي 2026",
+        "source_status": "جاهز مبدئياً",
+        "source_type": "KML/XML",
+        "folders": "Untitled layer",
+        "primary_category": "السدود",
+        "all_categories": "السدود؛ محميات وموائل الطيور المهاجرة",
+        "preserved_properties": {
+          "all_categories": "السدود؛ محميات وموائل الطيور المهاجرة",
+          "coord_count": 1,
+          "description": "موقع توقف طيور مهاجرة، وصيد الطيور المهاجرة",
+          "folders": "Untitled layer",
+          "geometry_type": "Point",
+          "id": 640,
+          "name": "سد الهيشة",
+          "origin": "أطلس ليبيا السياحي 2026",
+          "primary_category": "السدود",
+          "source": "اطلس2026.xml",
+          "source_type": "KML/XML",
+          "status": "جاهز مبدئياً"
+        },
+        "provenance_evidence": {
+          "governed_input_path": "backend/data/gis/phase1-natural-editorial-candidates.review.json",
+          "governed_input_sha256": "a04e40ec70051e6fb19f2b1a4002cf6d0b161eb7071e8aa56d5ad82fa4e2ba07",
+          "governed_review_collection": "WATER_RESOURCES_AND_SPRINGS",
+          "governed_resolution_bucket": "CLEAN_NATURAL_RESOURCE_REPRESENTATIVE",
+          "source_geometry_metadata_mismatch": false
+        },
+        "overlap_state": "NO_INSPECTED_GOVERNED_OVERLAP",
+        "existing_governed_overlaps": [],
+        "quality_flags": []
+      },
+      "editorial_readiness": {
+        "score": 84,
+        "score_components": {
+          "coordinate_quality": 20,
+          "description_completeness": 14,
+          "duplicate_conflict_safety": 10,
+          "identity_clarity": 25,
+          "institutional_provenance": 15,
+          "media_readiness_and_rights": 0
+        },
+        "priority_band": "HIGH_EDITORIAL_PRIORITY",
+        "high_priority_reasons": [
+          "SCORE_AT_OR_ABOVE_HIGH_PRIORITY_THRESHOLD",
+          "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+          "VALID_LIBYA_PLAUSIBLE_POINT",
+          "COMPLETE_SOURCE_LINEAGE_FIELDS",
+          "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+          "MEDIA_RIGHTS_CONTRIBUTES_ZERO_AND_REMAINS_UNRESOLVED"
+        ],
+        "missing_description": false,
+        "identity_quality": "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+        "coordinate_quality": "VALID_LIBYA_PLAUSIBLE_POINT",
+        "duplicate_conflict_state": "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+        "media_availability": "NO_SOURCE_MEDIA_REFERENCE",
+        "media_rights_status": "NO_INDEPENDENT_RIGHTS_EVIDENCE",
+        "source_recommended_editorial_action": "ADVANCE_TO_INSTITUTIONAL_EDITORIAL_REVIEW",
+        "source_required_human_review_actions": [
+          "OBTAIN_RIGHTS_CLEARED_LOCAL_MEDIA",
+          "VERIFY_DAM_SAFETY_AND_OPERATIONAL_AUTHORITY",
+          "VERIFY_INSTITUTIONAL_PRESENTATION_AUTHORITY",
+          "VERIFY_VISITOR_ACCESSIBILITY"
+        ]
+      },
+      "institutional_review": {
+        "institutional_decision": "PENDING",
+        "allowed_decisions": [
+          "ACCEPT_FOR_FIELD_VERIFICATION",
+          "RETURN_FOR_IDENTITY_REVIEW",
+          "RETURN_FOR_COORDINATE_REVIEW",
+          "RETURN_FOR_DESCRIPTION",
+          "RETURN_FOR_MEDIA_AND_RIGHTS",
+          "DEFER",
+          "REJECT_FROM_NATURAL_SCOPE"
+        ],
+        "review_routing_action": "ACCEPT_FOR_FIELD_VERIFICATION",
+        "review_routing_is_final_approval": false,
+        "routing_requirements": {
+          "review_routing_action": "ACCEPT_FOR_FIELD_VERIFICATION",
+          "acceptance_condition": "CONDITIONAL_DAM_VERIFICATION",
+          "dam_safety_verification_required": true,
+          "operational_authority_verification_required": true,
+          "visitor_accessibility_verification_required": true,
+          "institutional_presentation_authority_required": true,
+          "publication_remains_prohibited": true
+        },
+        "recommended_action_is_approval": false,
+        "required_evidence_checklist": [
+          {
+            "evidence_item": "institutional_identity_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "municipality_locality_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "coordinate_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "field_verification",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "factual_description_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "environmental_sensitivity_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "accessibility_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "visitor_safety_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "managing_authority_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_availability_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_ownership_licensing_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "publication_recommendation",
+            "status": "PENDING_INSTITUTIONAL_DECISION"
+          }
+        ],
+        "category_specific_safeguards": [
+          "TREAT_AS_INFRASTRUCTURE_ASSOCIATED_NATURAL_RESOURCE_REVIEW_EVIDENCE",
+          "DO_NOT_TREAT_AS_PURELY_NATURAL_FORMATION",
+          "VERIFY_SAFETY",
+          "VERIFY_OPERATIONAL_AUTHORITY",
+          "VERIFY_VISITOR_ACCESSIBILITY",
+          "VERIFY_PUBLIC_PRESENTATION_AUTHORITY"
+        ]
+      },
+      "governance": {
+        "publication_approved": false,
+        "canonical_approval": false,
+        "public_visibility_enabled": false,
+        "publication_media_eligible": false,
+        "institutional_review_status": "UNRESOLVED",
+        "institutional_decision": "PENDING",
+        "canonical_destination": null,
+        "editorial_selection_is_approval": false
+      }
+    },
+    {
+      "identity": {
+        "editorial_candidate_id": "nnr-phase1-72bd5e04169383adea33d6ef",
+        "governed_review_id": "nnr-34c4d6e1c577eba06bd13e79",
+        "source_ordinal": 80,
+        "raw_name_ar": "كهف معطن الزيت",
+        "proposed_normalized_name_ar": "كهف معطن الزيت",
+        "sourced_name_en": null,
+        "priority_category": "CAVES_AND_ROCK_FORMATIONS",
+        "geometry_type": "Point",
+        "coordinates": [
+          21.8179075891359,
+          32.8175464740302
+        ],
+        "sourced_region_ar": null,
+        "sourced_locality_ar": null
+      },
+      "source_evidence": {
+        "complete_source_description": "تبلغ مساحة الكهف حوالي 500 متر مربع، ويصل ارتفاع سقفه 15مترًا، ويصل إلى الكهف عبر سلم حجري، ويعتقد أن كان مخزنًا، في حين تشير بعض المصادر إلى أنه مخزن لتجميع المياه.",
+        "source": "اطلس2026.xml",
+        "origin": "أطلس ليبيا السياحي 2026",
+        "source_status": "جاهز مبدئياً",
+        "source_type": "KML/XML",
+        "folders": "Untitled layer",
+        "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+        "all_categories": "آبار وخزانات ومصادر مياه أخرى",
+        "preserved_properties": {
+          "all_categories": "آبار وخزانات ومصادر مياه أخرى",
+          "coord_count": 1,
+          "description": "تبلغ مساحة الكهف حوالي 500 متر مربع، ويصل ارتفاع سقفه 15مترًا، ويصل إلى الكهف عبر سلم حجري، ويعتقد أن كان مخزنًا، في حين تشير بعض المصادر إلى أنه مخزن لتجميع المياه.",
+          "folders": "Untitled layer",
+          "geometry_type": "Point",
+          "id": 80,
+          "name": "كهف معطن الزيت",
+          "origin": "أطلس ليبيا السياحي 2026",
+          "primary_category": "آبار وخزانات ومصادر مياه أخرى",
+          "source": "اطلس2026.xml",
+          "source_type": "KML/XML",
+          "status": "جاهز مبدئياً"
+        },
+        "provenance_evidence": {
+          "governed_input_path": "backend/data/gis/phase1-natural-editorial-candidates.review.json",
+          "governed_input_sha256": "a04e40ec70051e6fb19f2b1a4002cf6d0b161eb7071e8aa56d5ad82fa4e2ba07",
+          "governed_review_collection": "CAVES_AND_ROCK_FORMATIONS",
+          "governed_resolution_bucket": "CLEAN_NATURAL_RESOURCE_REPRESENTATIVE",
+          "source_geometry_metadata_mismatch": false
+        },
+        "overlap_state": "NO_INSPECTED_GOVERNED_OVERLAP",
+        "existing_governed_overlaps": [],
+        "quality_flags": []
+      },
+      "editorial_readiness": {
+        "score": 90,
+        "score_components": {
+          "coordinate_quality": 20,
+          "description_completeness": 20,
+          "duplicate_conflict_safety": 10,
+          "identity_clarity": 25,
+          "institutional_provenance": 15,
+          "media_readiness_and_rights": 0
+        },
+        "priority_band": "HIGH_EDITORIAL_PRIORITY",
+        "high_priority_reasons": [
+          "SCORE_AT_OR_ABOVE_HIGH_PRIORITY_THRESHOLD",
+          "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+          "VALID_LIBYA_PLAUSIBLE_POINT",
+          "COMPLETE_SOURCE_LINEAGE_FIELDS",
+          "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+          "SUBSTANTIVE_SOURCE_DESCRIPTION_PRESENT",
+          "MEDIA_RIGHTS_CONTRIBUTES_ZERO_AND_REMAINS_UNRESOLVED"
+        ],
+        "missing_description": false,
+        "identity_quality": "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+        "coordinate_quality": "VALID_LIBYA_PLAUSIBLE_POINT",
+        "duplicate_conflict_state": "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+        "media_availability": "NO_SOURCE_MEDIA_REFERENCE",
+        "media_rights_status": "NO_INDEPENDENT_RIGHTS_EVIDENCE",
+        "source_recommended_editorial_action": "ADVANCE_TO_INSTITUTIONAL_EDITORIAL_REVIEW",
+        "source_required_human_review_actions": [
+          "OBTAIN_RIGHTS_CLEARED_LOCAL_MEDIA"
+        ]
+      },
+      "institutional_review": {
+        "institutional_decision": "PENDING",
+        "allowed_decisions": [
+          "ACCEPT_FOR_FIELD_VERIFICATION",
+          "RETURN_FOR_IDENTITY_REVIEW",
+          "RETURN_FOR_COORDINATE_REVIEW",
+          "RETURN_FOR_DESCRIPTION",
+          "RETURN_FOR_MEDIA_AND_RIGHTS",
+          "DEFER",
+          "REJECT_FROM_NATURAL_SCOPE"
+        ],
+        "review_routing_action": "RETURN_FOR_IDENTITY_REVIEW",
+        "review_routing_is_final_approval": false,
+        "routing_requirements": {
+          "review_routing_action": "RETURN_FOR_IDENTITY_REVIEW",
+          "cave_identity_confirmation_required": true,
+          "archaeological_association_review_required": true,
+          "rock_art_association_review_required": true,
+          "mining_or_artificial_excavation_review_required": true,
+          "publication_remains_prohibited": true
+        },
+        "recommended_action_is_approval": false,
+        "required_evidence_checklist": [
+          {
+            "evidence_item": "institutional_identity_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "municipality_locality_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "coordinate_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "field_verification",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "factual_description_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "environmental_sensitivity_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "accessibility_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "visitor_safety_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "managing_authority_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_availability_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_ownership_licensing_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "publication_recommendation",
+            "status": "PENDING_INSTITUTIONAL_DECISION"
+          }
+        ],
+        "category_specific_safeguards": [
+          "VERIFY_NATURAL_CAVE_IDENTITY",
+          "CHECK_ARCHAEOLOGICAL_ASSOCIATION",
+          "CHECK_ROCK_ART_ASSOCIATION",
+          "CHECK_MINING_ASSOCIATION",
+          "CHECK_SHELTER_ASSOCIATION",
+          "CHECK_ARTIFICIAL_EXCAVATION_ASSOCIATION",
+          "DO_NOT_RESOLVE_MIXED_IDENTITY_AUTOMATICALLY"
+        ]
+      },
+      "governance": {
+        "publication_approved": false,
+        "canonical_approval": false,
+        "public_visibility_enabled": false,
+        "publication_media_eligible": false,
+        "institutional_review_status": "UNRESOLVED",
+        "institutional_decision": "PENDING",
+        "canonical_destination": null,
+        "editorial_selection_is_approval": false
+      }
+    },
+    {
+      "identity": {
+        "editorial_candidate_id": "nnr-phase1-426f7ae842bd9d056c68b6e5",
+        "governed_review_id": "nnr-fc4fa8315e7a9d08cfb22d2d",
+        "source_ordinal": 849,
+        "raw_name_ar": "جزيرة المعيقل أو الحمام - بسيس",
+        "proposed_normalized_name_ar": "جزيره المعيقل او الحمام بسيس",
+        "sourced_name_en": null,
+        "priority_category": "ISLANDS",
+        "geometry_type": "Point",
+        "coordinates": [
+          13.9948386,
+          32.7451385
+        ],
+        "sourced_region_ar": null,
+        "sourced_locality_ar": null
+      },
+      "source_evidence": {
+        "complete_source_description": "وهي عبارة عن صخرة مستطيلة الشكل، ترتفع عشرات الأمتار فوق مستوى سطح البحر، وتبلغ مساحتها نحو 600 متر مربع.",
+        "source": "اطلس2026.xml",
+        "origin": "أطلس ليبيا السياحي 2026",
+        "source_status": "جاهز مبدئياً",
+        "source_type": "KML/XML",
+        "folders": "Untitled layer",
+        "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+        "all_categories": "الفوارات والمياه الكبريتية والحمامات",
+        "preserved_properties": {
+          "all_categories": "الفوارات والمياه الكبريتية والحمامات",
+          "coord_count": 1,
+          "description": "وهي عبارة عن صخرة مستطيلة الشكل، ترتفع عشرات الأمتار فوق مستوى سطح البحر، وتبلغ مساحتها نحو 600 متر مربع.",
+          "folders": "Untitled layer",
+          "geometry_type": "Point",
+          "id": 849,
+          "name": "جزيرة المعيقل أو الحمام - بسيس",
+          "origin": "أطلس ليبيا السياحي 2026",
+          "primary_category": "الفوارات والمياه الكبريتية والحمامات",
+          "source": "اطلس2026.xml",
+          "source_type": "KML/XML",
+          "status": "جاهز مبدئياً"
+        },
+        "provenance_evidence": {
+          "governed_input_path": "backend/data/gis/phase1-natural-editorial-candidates.review.json",
+          "governed_input_sha256": "a04e40ec70051e6fb19f2b1a4002cf6d0b161eb7071e8aa56d5ad82fa4e2ba07",
+          "governed_review_collection": "COASTS_BEACHES_AND_ISLANDS",
+          "governed_resolution_bucket": "CLEAN_NATURAL_RESOURCE_REPRESENTATIVE",
+          "source_geometry_metadata_mismatch": false
+        },
+        "overlap_state": "NO_INSPECTED_GOVERNED_OVERLAP",
+        "existing_governed_overlaps": [],
+        "quality_flags": []
+      },
+      "editorial_readiness": {
+        "score": 90,
+        "score_components": {
+          "coordinate_quality": 20,
+          "description_completeness": 20,
+          "duplicate_conflict_safety": 10,
+          "identity_clarity": 25,
+          "institutional_provenance": 15,
+          "media_readiness_and_rights": 0
+        },
+        "priority_band": "HIGH_EDITORIAL_PRIORITY",
+        "high_priority_reasons": [
+          "SCORE_AT_OR_ABOVE_HIGH_PRIORITY_THRESHOLD",
+          "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+          "VALID_LIBYA_PLAUSIBLE_POINT",
+          "COMPLETE_SOURCE_LINEAGE_FIELDS",
+          "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+          "SUBSTANTIVE_SOURCE_DESCRIPTION_PRESENT",
+          "MEDIA_RIGHTS_CONTRIBUTES_ZERO_AND_REMAINS_UNRESOLVED"
+        ],
+        "missing_description": false,
+        "identity_quality": "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+        "coordinate_quality": "VALID_LIBYA_PLAUSIBLE_POINT",
+        "duplicate_conflict_state": "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+        "media_availability": "NO_SOURCE_MEDIA_REFERENCE",
+        "media_rights_status": "NO_INDEPENDENT_RIGHTS_EVIDENCE",
+        "source_recommended_editorial_action": "ADVANCE_TO_INSTITUTIONAL_EDITORIAL_REVIEW",
+        "source_required_human_review_actions": [
+          "OBTAIN_RIGHTS_CLEARED_LOCAL_MEDIA"
+        ]
+      },
+      "institutional_review": {
+        "institutional_decision": "PENDING",
+        "allowed_decisions": [
+          "ACCEPT_FOR_FIELD_VERIFICATION",
+          "RETURN_FOR_IDENTITY_REVIEW",
+          "RETURN_FOR_COORDINATE_REVIEW",
+          "RETURN_FOR_DESCRIPTION",
+          "RETURN_FOR_MEDIA_AND_RIGHTS",
+          "DEFER",
+          "REJECT_FROM_NATURAL_SCOPE"
+        ],
+        "review_routing_action": "ACCEPT_FOR_FIELD_VERIFICATION",
+        "review_routing_is_final_approval": false,
+        "routing_requirements": {
+          "review_routing_action": "ACCEPT_FOR_FIELD_VERIFICATION",
+          "island_identity_confirmation_required": true,
+          "coordinate_confirmation_required": true,
+          "access_verification_required": true,
+          "environmental_sensitivity_review_required": true,
+          "publication_remains_prohibited": true
+        },
+        "recommended_action_is_approval": false,
+        "required_evidence_checklist": [
+          {
+            "evidence_item": "institutional_identity_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "municipality_locality_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "coordinate_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "field_verification",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "factual_description_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "environmental_sensitivity_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "accessibility_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "visitor_safety_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "managing_authority_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_availability_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_ownership_licensing_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "publication_recommendation",
+            "status": "PENDING_INSTITUTIONAL_DECISION"
+          }
+        ],
+        "category_specific_safeguards": [
+          "VERIFY_EXPLICIT_ISLAND_IDENTITY",
+          "VERIFY_COORDINATES",
+          "ASSESS_ACCESS",
+          "ASSESS_ENVIRONMENTAL_SENSITIVITY",
+          "DO_NOT_INFER_VISITOR_ACCESSIBILITY"
+        ]
+      },
+      "governance": {
+        "publication_approved": false,
+        "canonical_approval": false,
+        "public_visibility_enabled": false,
+        "publication_media_eligible": false,
+        "institutional_review_status": "UNRESOLVED",
+        "institutional_decision": "PENDING",
+        "canonical_destination": null,
+        "editorial_selection_is_approval": false
+      }
+    },
+    {
+      "identity": {
+        "editorial_candidate_id": "nnr-phase1-8eeaa22ba153a1c84e7746e9",
+        "governed_review_id": "nnr-30989682397356c417a38c2a",
+        "source_ordinal": 938,
+        "raw_name_ar": "جزيرة الحبري أو قارة",
+        "proposed_normalized_name_ar": "جزيره الحبري او قاره",
+        "sourced_name_en": null,
+        "priority_category": "ISLANDS",
+        "geometry_type": "Point",
+        "coordinates": [
+          19.9023879,
+          30.7913593
+        ],
+        "sourced_region_ar": null,
+        "sourced_locality_ar": null
+      },
+      "source_evidence": {
+        "complete_source_description": "جزيرة صغيرة تبعد عن البر الرئيسي نحو 7 كيلومترات، وتبلغ مساحتها نحو 2.5 هكتار، تنمو بها بعض النباتات، وتحفها شواطىء رملية، وهي جزيرة صغيرة نسبياً، تتشكل أراضيها من الحجر الرملي ، مع المنحدرات الرملية المنخفضة، وبعض التلال المحيطة، و صخور متناثرة تتخللها بعض النباتات المحلية التي تنمو على الصخور الرملية، والحد الأقصى لارتفاع الجزيرة يبلغ 8 متر فوق مستوى سطح البحر.كما تعتبر الجزيرة من أهم مواقع استراحة الطيور المهاجرة. وصنفت الجزيرة كموطناً لطائر الخطاف المتوج، الذي يقصد الجزيرة في شهر أغسطس للتعشيش، وقد أُعلن أن جزيرة الحبري محمية بحرية طبيعية للأسماك والقشريات والرخويات والنباتات والطيور البحرية والطيور البحرية وخاصة الخطاف المتوج المهدد بالإنقراض.",
+        "source": "اطلس2026.xml",
+        "origin": "أطلس ليبيا السياحي 2026",
+        "source_status": "جاهز مبدئياً",
+        "source_type": "KML/XML",
+        "folders": "Untitled layer",
+        "primary_category": "محميات وموائل الطيور المهاجرة",
+        "all_categories": "محميات وموائل الطيور المهاجرة",
+        "preserved_properties": {
+          "all_categories": "محميات وموائل الطيور المهاجرة",
+          "coord_count": 1,
+          "description": "جزيرة صغيرة تبعد عن البر الرئيسي نحو 7 كيلومترات، وتبلغ مساحتها نحو 2.5 هكتار، تنمو بها بعض النباتات، وتحفها شواطىء رملية، وهي جزيرة صغيرة نسبياً، تتشكل أراضيها من الحجر الرملي ، مع المنحدرات الرملية المنخفضة، وبعض التلال المحيطة، و صخور متناثرة تتخللها بعض النباتات المحلية التي تنمو على الصخور الرملية، والحد الأقصى لارتفاع الجزيرة يبلغ 8 متر فوق مستوى سطح البحر.كما تعتبر الجزيرة من أهم مواقع استراحة الطيور المهاجرة. وصنفت الجزيرة كموطناً لطائر الخطاف المتوج، الذي يقصد الجزيرة في شهر أغسطس للتعشيش، وقد أُعلن أن جزيرة الحبري محمية بحرية طبيعية للأسماك والقشريات والرخويات والنباتات والطيور البحرية والطيور البحرية وخاصة الخطاف المتوج المهدد بالإنقراض.",
+          "folders": "Untitled layer",
+          "geometry_type": "Point",
+          "id": 938,
+          "name": "جزيرة الحبري أو قارة",
+          "origin": "أطلس ليبيا السياحي 2026",
+          "primary_category": "محميات وموائل الطيور المهاجرة",
+          "source": "اطلس2026.xml",
+          "source_type": "KML/XML",
+          "status": "جاهز مبدئياً"
+        },
+        "provenance_evidence": {
+          "governed_input_path": "backend/data/gis/phase1-natural-editorial-candidates.review.json",
+          "governed_input_sha256": "a04e40ec70051e6fb19f2b1a4002cf6d0b161eb7071e8aa56d5ad82fa4e2ba07",
+          "governed_review_collection": "COASTS_BEACHES_AND_ISLANDS",
+          "governed_resolution_bucket": "CLEAN_NATURAL_RESOURCE_REPRESENTATIVE",
+          "source_geometry_metadata_mismatch": false
+        },
+        "overlap_state": "NO_INSPECTED_GOVERNED_OVERLAP",
+        "existing_governed_overlaps": [],
+        "quality_flags": [
+          "DESCRIPTION_CONTAINS_NON_NATURAL_OR_MIXED_SCOPE_SIGNALS"
+        ]
+      },
+      "editorial_readiness": {
+        "score": 90,
+        "score_components": {
+          "coordinate_quality": 20,
+          "description_completeness": 20,
+          "duplicate_conflict_safety": 10,
+          "identity_clarity": 25,
+          "institutional_provenance": 15,
+          "media_readiness_and_rights": 0
+        },
+        "priority_band": "HIGH_EDITORIAL_PRIORITY",
+        "high_priority_reasons": [
+          "SCORE_AT_OR_ABOVE_HIGH_PRIORITY_THRESHOLD",
+          "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+          "VALID_LIBYA_PLAUSIBLE_POINT",
+          "COMPLETE_SOURCE_LINEAGE_FIELDS",
+          "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+          "SUBSTANTIVE_SOURCE_DESCRIPTION_PRESENT",
+          "MEDIA_RIGHTS_CONTRIBUTES_ZERO_AND_REMAINS_UNRESOLVED"
+        ],
+        "missing_description": false,
+        "identity_quality": "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+        "coordinate_quality": "VALID_LIBYA_PLAUSIBLE_POINT",
+        "duplicate_conflict_state": "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+        "media_availability": "NO_SOURCE_MEDIA_REFERENCE",
+        "media_rights_status": "NO_INDEPENDENT_RIGHTS_EVIDENCE",
+        "source_recommended_editorial_action": "ADVANCE_TO_INSTITUTIONAL_EDITORIAL_REVIEW",
+        "source_required_human_review_actions": [
+          "OBTAIN_RIGHTS_CLEARED_LOCAL_MEDIA"
+        ]
+      },
+      "institutional_review": {
+        "institutional_decision": "PENDING",
+        "allowed_decisions": [
+          "ACCEPT_FOR_FIELD_VERIFICATION",
+          "RETURN_FOR_IDENTITY_REVIEW",
+          "RETURN_FOR_COORDINATE_REVIEW",
+          "RETURN_FOR_DESCRIPTION",
+          "RETURN_FOR_MEDIA_AND_RIGHTS",
+          "DEFER",
+          "REJECT_FROM_NATURAL_SCOPE"
+        ],
+        "review_routing_action": "RETURN_FOR_DESCRIPTION",
+        "review_routing_is_final_approval": false,
+        "routing_requirements": {
+          "review_routing_action": "RETURN_FOR_DESCRIPTION",
+          "scope_review_required": true,
+          "reason": "DESCRIPTION_CONTAINS_NON_NATURAL_OR_MIXED_SCOPE_SIGNALS",
+          "island_identity_confirmation_required": true,
+          "field_acceptance_blocked_until_description_and_scope_resolved": true,
+          "publication_remains_prohibited": true
+        },
+        "recommended_action_is_approval": false,
+        "required_evidence_checklist": [
+          {
+            "evidence_item": "institutional_identity_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "municipality_locality_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "coordinate_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "field_verification",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "factual_description_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "environmental_sensitivity_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "accessibility_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "visitor_safety_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "managing_authority_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_availability_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_ownership_licensing_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "publication_recommendation",
+            "status": "PENDING_INSTITUTIONAL_DECISION"
+          }
+        ],
+        "category_specific_safeguards": [
+          "VERIFY_EXPLICIT_ISLAND_IDENTITY",
+          "VERIFY_COORDINATES",
+          "ASSESS_ACCESS",
+          "ASSESS_ENVIRONMENTAL_SENSITIVITY",
+          "DO_NOT_INFER_VISITOR_ACCESSIBILITY"
+        ]
+      },
+      "governance": {
+        "publication_approved": false,
+        "canonical_approval": false,
+        "public_visibility_enabled": false,
+        "publication_media_eligible": false,
+        "institutional_review_status": "UNRESOLVED",
+        "institutional_decision": "PENDING",
+        "canonical_destination": null,
+        "editorial_selection_is_approval": false
+      }
+    },
+    {
+      "identity": {
+        "editorial_candidate_id": "nnr-phase1-564c2aba3ce1caf20078af8b",
+        "governed_review_id": "nnr-408e0a086ca5328e730dd970",
+        "source_ordinal": 182,
+        "raw_name_ar": "وادي ادرار",
+        "proposed_normalized_name_ar": "وادي ادرار",
+        "sourced_name_en": null,
+        "priority_category": "VALLEYS_AND_WADIS",
+        "geometry_type": "Point",
+        "coordinates": [
+          13.7054443,
+          27.5615474
+        ],
+        "sourced_region_ar": null,
+        "sourced_locality_ar": null
+      },
+      "source_evidence": {
+        "complete_source_description": "يحتوي الوادي على نقوس من فترات ماقبل التاريخ",
+        "source": "اطلس2026.xml",
+        "origin": "أطلس ليبيا السياحي 2026",
+        "source_status": "جاهز مبدئياً",
+        "source_type": "KML/XML",
+        "folders": "Untitled layer",
+        "primary_category": "الأودية ومصباتها",
+        "all_categories": "الأودية ومصباتها",
+        "preserved_properties": {
+          "all_categories": "الأودية ومصباتها",
+          "coord_count": 1,
+          "description": "يحتوي الوادي على نقوس من فترات ماقبل التاريخ",
+          "folders": "Untitled layer",
+          "geometry_type": "Point",
+          "id": 182,
+          "name": "وادي ادرار",
+          "origin": "أطلس ليبيا السياحي 2026",
+          "primary_category": "الأودية ومصباتها",
+          "source": "اطلس2026.xml",
+          "source_type": "KML/XML",
+          "status": "جاهز مبدئياً"
+        },
+        "provenance_evidence": {
+          "governed_input_path": "backend/data/gis/phase1-natural-editorial-candidates.review.json",
+          "governed_input_sha256": "a04e40ec70051e6fb19f2b1a4002cf6d0b161eb7071e8aa56d5ad82fa4e2ba07",
+          "governed_review_collection": "VALLEYS_AND_WADIS",
+          "governed_resolution_bucket": "CLEAN_NATURAL_RESOURCE_REPRESENTATIVE",
+          "source_geometry_metadata_mismatch": false
+        },
+        "overlap_state": "NO_INSPECTED_GOVERNED_OVERLAP",
+        "existing_governed_overlaps": [],
+        "quality_flags": []
+      },
+      "editorial_readiness": {
+        "score": 84,
+        "score_components": {
+          "coordinate_quality": 20,
+          "description_completeness": 14,
+          "duplicate_conflict_safety": 10,
+          "identity_clarity": 25,
+          "institutional_provenance": 15,
+          "media_readiness_and_rights": 0
+        },
+        "priority_band": "HIGH_EDITORIAL_PRIORITY",
+        "high_priority_reasons": [
+          "SCORE_AT_OR_ABOVE_HIGH_PRIORITY_THRESHOLD",
+          "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+          "VALID_LIBYA_PLAUSIBLE_POINT",
+          "COMPLETE_SOURCE_LINEAGE_FIELDS",
+          "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+          "MEDIA_RIGHTS_CONTRIBUTES_ZERO_AND_REMAINS_UNRESOLVED"
+        ],
+        "missing_description": false,
+        "identity_quality": "CLEAR_SOURCE_IDENTITY_FOR_REVIEW",
+        "coordinate_quality": "VALID_LIBYA_PLAUSIBLE_POINT",
+        "duplicate_conflict_state": "NO_KNOWN_DUPLICATE_OR_CONFLICT",
+        "media_availability": "NO_SOURCE_MEDIA_REFERENCE",
+        "media_rights_status": "NO_INDEPENDENT_RIGHTS_EVIDENCE",
+        "source_recommended_editorial_action": "ADVANCE_TO_INSTITUTIONAL_EDITORIAL_REVIEW",
+        "source_required_human_review_actions": [
+          "OBTAIN_RIGHTS_CLEARED_LOCAL_MEDIA"
+        ]
+      },
+      "institutional_review": {
+        "institutional_decision": "PENDING",
+        "allowed_decisions": [
+          "ACCEPT_FOR_FIELD_VERIFICATION",
+          "RETURN_FOR_IDENTITY_REVIEW",
+          "RETURN_FOR_COORDINATE_REVIEW",
+          "RETURN_FOR_DESCRIPTION",
+          "RETURN_FOR_MEDIA_AND_RIGHTS",
+          "DEFER",
+          "REJECT_FROM_NATURAL_SCOPE"
+        ],
+        "review_routing_action": "RETURN_FOR_IDENTITY_REVIEW",
+        "review_routing_is_final_approval": false,
+        "routing_requirements": {
+          "review_routing_action": "RETURN_FOR_IDENTITY_REVIEW",
+          "valley_identity_confirmation_required": true,
+          "locality_confirmation_required": true,
+          "coordinate_confirmation_required": true,
+          "settlement_road_agriculture_infrastructure_review_required": true,
+          "publication_remains_prohibited": true
+        },
+        "recommended_action_is_approval": false,
+        "required_evidence_checklist": [
+          {
+            "evidence_item": "institutional_identity_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "municipality_locality_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "coordinate_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "field_verification",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "factual_description_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "environmental_sensitivity_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "accessibility_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "visitor_safety_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "managing_authority_confirmation",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_availability_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "media_ownership_licensing_review",
+            "status": "REQUIRED"
+          },
+          {
+            "evidence_item": "publication_recommendation",
+            "status": "PENDING_INSTITUTIONAL_DECISION"
+          }
+        ],
+        "category_specific_safeguards": [
+          "VERIFY_NATURAL_VALLEY_IDENTITY",
+          "DISTINGUISH_FROM_SETTLEMENT_ROAD_AGRICULTURAL_PROJECT_INFRASTRUCTURE_OR_REPEATED_HYDROLOGICAL_POINT",
+          "REVIEW_NATURAL_CULTURAL_SCOPE_SIGNALS_WITHOUT_AUTOMATIC_RESOLUTION"
+        ]
+      },
+      "governance": {
+        "publication_approved": false,
+        "canonical_approval": false,
+        "public_visibility_enabled": false,
+        "publication_media_eligible": false,
+        "institutional_review_status": "UNRESOLVED",
+        "institutional_decision": "PENDING",
+        "canonical_destination": null,
+        "editorial_selection_is_approval": false
+      }
+    }
+  ],
+  "summary": {
+    "review_routing_action_counts": {
+      "ACCEPT_FOR_FIELD_VERIFICATION": 3,
+      "RETURN_FOR_DESCRIPTION": 2,
+      "RETURN_FOR_IDENTITY_REVIEW": 2
+    },
+    "publication_approval_granted": false,
+    "canonical_approval_granted": false,
+    "public_visibility_granted": false,
+    "publication_media_eligibility_granted": false,
+    "institutional_decisions_pending": 7,
+    "repository_media_available": 0,
+    "media_rights_cleared": 0
+  }
+}
