@@ -371,6 +371,7 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
 
         reconciliation_paths = {
             "shahat-cyrene": "backend/data/gis/cyrene-source-reconciliation.review.json",
+            "tripoli": "backend/data/gis/old-tripoli-source-reconciliation.review.json",
             "ghadames": "backend/data/gis/ghadames-source-reconciliation.review.json",
             "acacus": "backend/data/gis/acacus-source-reconciliation.review.json",
         }
@@ -398,8 +399,29 @@ def validate_registry(root: Path = ROOT, registry_path: Path | None = None) -> d
                     _error(errors, all(record.get(field) == count for field, count in expected_review_counts.items()), f"{label} review accounting is invalid")
                     summary = reconciliation.get("summary", {})
                     _error(errors, summary.get("source_record_count") == 430 and summary.get("reconciled_review_record_count") == 364 and summary.get("clean_representative_count") == 360 and summary.get("quarantined_cross_destination_count") == 4 and summary.get("safe_duplicate_member_count") == 66, f"{label} reconciliation accounting mismatch")
+                if key == "tripoli":
+                    expected_review_counts = {
+                        "gis_source_record_count": 430,
+                        "gis_reconciled_review_record_count": 430,
+                        "gis_site_oriented_review_geometry_count": 145,
+                        "gis_contextual_network_geometry_count": 285,
+                        "gis_technical_quarantine_count": 0,
+                        "gis_safe_duplicate_member_count": 0,
+                    }
+                    _error(errors, all(record.get(field) == count for field, count in expected_review_counts.items()), f"{label} review accounting is invalid")
+                    summary = reconciliation.get("summary", {})
+                    _error(errors, all(summary.get(field) == count for field, count in {
+                        "source_record_count": 430,
+                        "reconciled_review_record_count": 430,
+                        "site_oriented_review_geometry_count": 145,
+                        "contextual_network_geometry_count": 285,
+                        "technical_quarantine_count": 0,
+                        "safe_duplicate_member_count": 0,
+                    }.items()), f"{label} reconciliation accounting mismatch")
+                    _error(errors, record.get("gis_layer_present") is False and record.get("gis_record_count") == 0, f"{label} review evidence must not become detailed GIS")
+                    _error(errors, record.get("related_canonical_destination_relationships") == [{"slug": "old-tripoli", "relationship": "CONTAINS_HERITAGE_DESTINATION", "status": "REVIEW_GOVERNANCE_METADATA_ONLY", "public_runtime_destination_created": False}], f"{label} nested Old Tripoli relationship mismatch")
         else:
-            unsupported_fields = ("gis_source_reconciliation_present", "gis_source_reconciliation_path", "gis_review_evidence_record_count", "gis_source_record_count", "gis_reconciled_review_record_count", "gis_clean_representative_count", "gis_quarantined_cross_destination_count", "gis_safe_duplicate_member_count")
+            unsupported_fields = ("gis_source_reconciliation_present", "gis_source_reconciliation_path", "gis_review_evidence_record_count", "gis_source_record_count", "gis_reconciled_review_record_count", "gis_clean_representative_count", "gis_quarantined_cross_destination_count", "gis_safe_duplicate_member_count", "gis_site_oriented_review_geometry_count", "gis_contextual_network_geometry_count", "gis_technical_quarantine_count")
             _error(errors, all(field not in record for field in unsupported_fields), f"{label} has an unsupported source reconciliation")
 
         layer_ids = record["gis_layer_ids"]

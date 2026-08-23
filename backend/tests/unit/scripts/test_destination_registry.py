@@ -372,3 +372,24 @@ def test_acacus_source_reconciliation_accounting_is_separate_from_detailed_gis(r
     assert acacus["gis_layer_present"] is False
     assert acacus["gis_record_count"] == 0
     assert sum(item["gis_record_count"] for item in registry["records"]) == 214
+
+
+def test_old_tripoli_reconciliation_is_review_evidence_not_detailed_gis(registry: dict) -> None:
+    tripoli = record(registry, "tripoli")
+    assert tripoli["gis_source_reconciliation_present"] is True
+    assert tripoli["gis_source_reconciliation_path"] == "backend/data/gis/old-tripoli-source-reconciliation.review.json"
+    assert tripoli["gis_source_record_count"] == 430
+    assert tripoli["gis_reconciled_review_record_count"] == 430
+    assert tripoli["gis_site_oriented_review_geometry_count"] == 145
+    assert tripoli["gis_contextual_network_geometry_count"] == 285
+    assert tripoli["gis_technical_quarantine_count"] == 0
+    assert tripoli["gis_safe_duplicate_member_count"] == 0
+    assert tripoli["related_canonical_destination_relationships"] == [{
+        "slug": "old-tripoli",
+        "relationship": "CONTAINS_HERITAGE_DESTINATION",
+        "status": "REVIEW_GOVERNANCE_METADATA_ONLY",
+        "public_runtime_destination_created": False,
+    }]
+    assert tripoli["gis_layer_present"] is False
+    assert tripoli["gis_record_count"] == 0
+    assert sum(item["gis_record_count"] for item in registry["records"]) == 214
