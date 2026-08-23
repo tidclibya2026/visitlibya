@@ -8,6 +8,7 @@ from app.core.exceptions import (
     DestinationUnavailableForTripError,
     InvalidTripDateRangeError,
     InvalidTripStatusTransitionError,
+    InvalidTripShareStateError,
     TripConcurrentModificationError,
     TripItemLimitExceededError,
     TripItemTimeConflictError,
@@ -86,6 +87,16 @@ class FakeTripService:
     def get_public_trip(self, trip_id): self._raise(); return self.trip
     def get_shared_trip(self, share_token): self._raise(); return self.trip
     def update_trip(self, user_id, trip_id, payload): self._raise(); return self.trip
+    def rotate_share_link(self, user_id, trip_id, payload):
+        self._raise()
+        self.trip.share_token = "n" * 43
+        return self.trip
+
+    def revoke_share_link(self, user_id, trip_id, payload):
+        self._raise()
+        self.trip.share_token = None
+        return self.trip
+
     def delete_trip(self, user_id, trip_id): self._raise()
     def add_trip_item(self, user_id, trip_id, payload): self._raise(); return self.trip.items[0]
     def update_trip_item(self, user_id, trip_id, item_id, payload): self._raise(); return self.trip.items[0]
@@ -253,7 +264,7 @@ def test_openapi_marks_owner_trip_operations_as_bearer_protected() -> None:
             else:
                 protected_operations.append(operation)
 
-    assert len(protected_operations) == 9
+    assert len(protected_operations) == 11
     assert len(public_operations) == 2
 
     assert all(
@@ -360,3 +371,74 @@ def test_shared_trip_token_length_is_validated(test_user) -> None:
     )
 
     assert response.status_code == 422
+
+def test_owner_can_rotate_unlisted_share_link(test_user) -> None:
+    service = FakeTripService()
+    service.trip.visibility = TripVisibility.UNLISTED
+    service.trip.share_token = "x" * 43
+
+    response = request(
+        service,
+        test_user,
+        "POST",
+        "/api/v1/trips/3/share/rotate",
+        json={"expected_version": 1},
+    )
+
+    assert response.status_code == 200
+    assert response.json()["share_token"] == "n" * 43
+
+
+def test_owner_can_revoke_unlisted_share_link(test_user) -> None:
+    service = FakeTripService()
+    service.trip.visibility = TripVisibility.UNLISTED
+    service.trip.share_token = "x" * 43
+
+    response = request(
+        service,
+        test_user,
+        "DELETE",
+        "/api/v1/trips/3/share?expected_version=1",
+    )
+
+    assert response.status_code == 200
+    assert response.json()["share_token"] is None
+
+
+def test_share_link_management_requires_authentication(test_user) -> None:
+    service = FakeTripService()
+
+    rotate = request(
+        service,
+        test_user,
+        "POST",
+        "/api/v1/trips/3/share/rotate",
+        authenticated=False,
+        json={"expected_version": 1},
+    )
+
+    revoke = request(
+        service,
+        test_user,
+        "DELETE",
+        "/api/v1/trips/3/share?expected_version=1",
+        authenticated=False,
+    )
+
+    assert rotate.status_code == 401
+    assert revoke.status_code == 401
+
+
+def test_invalid_trip_share_state_maps_to_conflict(test_user) -> None:
+    service = FakeTripService()
+    service.error = InvalidTripShareStateError()
+
+    response = request(
+        service,
+        test_user,
+        "POST",
+        "/api/v1/trips/3/share/rotate",
+        json={"expected_version": 1},
+    )
+
+    assert response.status_code == 409

@@ -152,5 +152,9 @@ class TripOwnerDetailResponse(TripDetailResponse):
     share_token: str | None = None
 
 
+class TripShareLinkRequest(BaseModel):
+    expected_version: int | None = Field(default=None, ge=1)
+
+
 class TripListResponse(PaginatedResponse[TripSummaryResponse]):
     pass

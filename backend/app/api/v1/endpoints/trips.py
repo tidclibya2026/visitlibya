@@ -10,6 +10,7 @@ from app.core.exceptions import (
     InvalidTripStatusTransitionError,
     InvalidTripDayError,
     InvalidTripItemOrderError,
+    InvalidTripShareStateError,
     TripConcurrentModificationError,
     TripError,
     TripItemDateOutOfRangeError,
@@ -28,6 +29,7 @@ from app.schemas.trip import (
     TripItemUpdate,
     TripListResponse,
     TripOwnerDetailResponse,
+    TripShareLinkRequest,
     TripUpdate,
 )
 
@@ -47,6 +49,7 @@ def raise_http_error(error: TripError) -> NoReturn:
             TripConcurrentModificationError,
             TripItemTimeConflictError,
             InvalidTripStatusTransitionError,
+            InvalidTripShareStateError,
         ),
     ):
         raise HTTPException(status_code=409, detail=str(error)) from error
@@ -54,7 +57,6 @@ def raise_http_error(error: TripError) -> NoReturn:
         error,
         (
             InvalidTripDateRangeError,
-    InvalidTripStatusTransitionError,
             InvalidTripDayError,
             TripItemDateOutOfRangeError,
             DestinationUnavailableForTripError,
@@ -139,6 +141,42 @@ def update_trip(
 ) -> TripDetailResponse:
     try:
         return service.update_trip(user.id, trip_id, payload)
+    except TripError as error:
+        raise_http_error(error)
+
+
+@router.post(
+    "/{trip_id}/share/rotate",
+    response_model=TripOwnerDetailResponse,
+)
+def rotate_trip_share_link(
+    trip_id: TripId,
+    payload: TripShareLinkRequest,
+    user: CurrentActiveUserDependency,
+    service: TripServiceDependency,
+) -> TripOwnerDetailResponse:
+    try:
+        return service.rotate_share_link(user.id, trip_id, payload)
+    except TripError as error:
+        raise_http_error(error)
+
+
+@router.delete(
+    "/{trip_id}/share",
+    response_model=TripOwnerDetailResponse,
+)
+def revoke_trip_share_link(
+    trip_id: TripId,
+    user: CurrentActiveUserDependency,
+    service: TripServiceDependency,
+    expected_version: Annotated[int | None, Query(ge=1)] = None,
+) -> TripOwnerDetailResponse:
+    try:
+        return service.revoke_share_link(
+            user.id,
+            trip_id,
+            TripShareLinkRequest(expected_version=expected_version),
+        )
     except TripError as error:
         raise_http_error(error)
 
