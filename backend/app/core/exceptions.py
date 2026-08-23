@@ -243,6 +243,11 @@ class TripItemLimitExceededError(TripError):
         super().__init__("Trip item limit has been reached")
 
 
+class InvalidTripShareStateError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Share link management requires an unlisted trip")
+
+
 class TripConcurrentModificationError(TripError):
     def __init__(self) -> None:
         super().__init__("Trip was modified by another request")

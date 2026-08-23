@@ -11,6 +11,7 @@ from app.core.exceptions import (
     InvalidTripStatusTransitionError,
     InvalidTripDayError,
     InvalidTripItemOrderError,
+    InvalidTripShareStateError,
     TripConcurrentModificationError,
     TripItemDateOutOfRangeError,
     TripItemLimitExceededError,
@@ -34,6 +35,7 @@ from app.schemas.trip import (
     TripItemUpdate,
     TripListResponse,
     TripOwnerDetailResponse,
+    TripShareLinkRequest,
     TripSummaryResponse,
     TripUpdate,
 )
@@ -129,6 +131,58 @@ class TripService:
             )
             for field, value in changes.items():
                 setattr(trip, field, value)
+            self.repository.flush()
+            self.session.commit()
+            trip.version = next_version
+            return self._owner_detail(trip)
+
+        return self._write(operation)
+
+    def rotate_share_link(
+        self,
+        user_id: int,
+        trip_id: int,
+        payload: TripShareLinkRequest,
+    ) -> TripOwnerDetailResponse:
+        trip = self._owned_trip(user_id, trip_id)
+        if trip.visibility != TripVisibility.UNLISTED:
+            raise InvalidTripShareStateError()
+
+        expected_version = payload.expected_version or trip.version
+
+        def operation() -> TripOwnerDetailResponse:
+            next_version = self._increment_version(
+                trip,
+                user_id,
+                expected_version,
+            )
+            trip.share_token = self._new_share_token()
+            self.repository.flush()
+            self.session.commit()
+            trip.version = next_version
+            return self._owner_detail(trip)
+
+        return self._write(operation)
+
+    def revoke_share_link(
+        self,
+        user_id: int,
+        trip_id: int,
+        payload: TripShareLinkRequest,
+    ) -> TripOwnerDetailResponse:
+        trip = self._owned_trip(user_id, trip_id)
+        if trip.visibility != TripVisibility.UNLISTED:
+            raise InvalidTripShareStateError()
+
+        expected_version = payload.expected_version or trip.version
+
+        def operation() -> TripOwnerDetailResponse:
+            next_version = self._increment_version(
+                trip,
+                user_id,
+                expected_version,
+            )
+            trip.share_token = None
             self.repository.flush()
             self.session.commit()
             trip.version = next_version

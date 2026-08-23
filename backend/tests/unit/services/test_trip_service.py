@@ -11,6 +11,7 @@ from app.core.exceptions import (
     InvalidTripStatusTransitionError,
     InvalidTripDayError,
     InvalidTripItemOrderError,
+    InvalidTripShareStateError,
     TripConcurrentModificationError,
     TripItemDateOutOfRangeError,
     TripItemLimitExceededError,
@@ -34,6 +35,7 @@ from app.schemas.trip import (
     TripItemReorderElement,
     TripItemReorderRequest,
     TripItemUpdate,
+    TripShareLinkRequest,
     TripUpdate,
 )
 from app.services.trip import TripService
@@ -1031,3 +1033,67 @@ def test_public_and_shared_missing_trip_returns_not_found() -> None:
     repository.get_unlisted_trip_by_token.return_value = None
     with pytest.raises(TripNotFoundError):
         subject.get_shared_trip("x" * 43)
+
+def test_rotate_share_link_replaces_token_and_increments_version() -> None:
+    subject, session, repository = service()
+    value = trip([])
+    old_token = "x" * 43
+    value.visibility = TripVisibility.UNLISTED
+    value.share_token = old_token
+    repository.get_owned_trip_by_id.return_value = value
+
+    result = subject.rotate_share_link(
+        1,
+        3,
+        TripShareLinkRequest(expected_version=1),
+    )
+
+    assert result.share_token
+    assert result.share_token != old_token
+    assert result.visibility == TripVisibility.UNLISTED
+    assert result.version == 2
+    session.commit.assert_called_once()
+
+
+def test_revoke_share_link_clears_token_and_keeps_unlisted() -> None:
+    subject, session, repository = service()
+    value = trip([])
+    value.visibility = TripVisibility.UNLISTED
+    value.share_token = "x" * 43
+    repository.get_owned_trip_by_id.return_value = value
+
+    result = subject.revoke_share_link(
+        1,
+        3,
+        TripShareLinkRequest(expected_version=1),
+    )
+
+    assert result.share_token is None
+    assert result.visibility == TripVisibility.UNLISTED
+    assert result.version == 2
+    session.commit.assert_called_once()
+
+
+@pytest.mark.parametrize(
+    "visibility",
+    [TripVisibility.PRIVATE, TripVisibility.PUBLIC],
+)
+def test_share_link_management_rejects_non_unlisted_trip(visibility) -> None:
+    subject, _, repository = service()
+    value = trip([])
+    value.visibility = visibility
+    repository.get_owned_trip_by_id.return_value = value
+
+    with pytest.raises(InvalidTripShareStateError):
+        subject.rotate_share_link(
+            1,
+            3,
+            TripShareLinkRequest(),
+        )
+
+    with pytest.raises(InvalidTripShareStateError):
+        subject.revoke_share_link(
+            1,
+            3,
+            TripShareLinkRequest(),
+        )
