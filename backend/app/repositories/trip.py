@@ -93,22 +93,6 @@ class TripRepository(BaseRepository[Trip]):
     def delete_trip_item(self, item: TripItem) -> None:
         self.session.delete(item)
 
-    def find_duplicate_trip_item(
-        self,
-        trip_id: int,
-        destination_id: int,
-        day_number: int,
-        exclude_item_id: int | None = None,
-    ) -> TripItem | None:
-        statement = select(TripItem).where(
-            TripItem.trip_id == trip_id,
-            TripItem.destination_id == destination_id,
-            TripItem.day_number == day_number,
-        )
-        if exclude_item_id is not None:
-            statement = statement.where(TripItem.id != exclude_item_id)
-        return self.session.scalar(statement)
-
     def get_public_destination(self, destination_id: int) -> Destination | None:
         return self.session.scalar(
             select(Destination)

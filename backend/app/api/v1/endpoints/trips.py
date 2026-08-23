@@ -6,7 +6,6 @@ from app.api.dependencies import CurrentActiveUserDependency, TripServiceDepende
 from app.api.pagination import LimitParameter, SkipParameter
 from app.core.exceptions import (
     DestinationUnavailableForTripError,
-    DuplicateTripDestinationError,
     InvalidTripDateRangeError,
     InvalidTripDayError,
     InvalidTripItemOrderError,
@@ -38,7 +37,7 @@ ItemId = Annotated[int, Path(ge=1)]
 def raise_http_error(error: TripError) -> NoReturn:
     if isinstance(error, (TripNotFoundError, TripItemNotFoundError)):
         raise HTTPException(status_code=404, detail=str(error)) from error
-    if isinstance(error, (DuplicateTripDestinationError, TripConcurrentModificationError)):
+    if isinstance(error, TripConcurrentModificationError):
         raise HTTPException(status_code=409, detail=str(error)) from error
     if isinstance(
         error,

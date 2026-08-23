@@ -6,7 +6,6 @@ from fastapi.testclient import TestClient
 from app.api.dependencies import get_current_active_user, get_current_user, get_trip_service
 from app.core.exceptions import (
     DestinationUnavailableForTripError,
-    DuplicateTripDestinationError,
     InvalidTripDateRangeError,
     TripConcurrentModificationError,
     TripItemLimitExceededError,
@@ -151,7 +150,6 @@ def test_trip_detail_exposes_authoritative_destination_coordinates(test_user) ->
     [
         (InvalidTripDateRangeError(), 422),
         (DestinationUnavailableForTripError(), 422),
-        (DuplicateTripDestinationError(), 409),
         (TripConcurrentModificationError(), 409),
         (TripItemLimitExceededError(), 422),
         (TripPersistenceError(), 500),

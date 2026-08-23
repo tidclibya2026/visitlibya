@@ -7,7 +7,6 @@ from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 
 from app.core.exceptions import (
     DestinationUnavailableForTripError,
-    DuplicateTripDestinationError,
     InvalidTripDateRangeError,
     InvalidTripDayError,
     InvalidTripItemOrderError,
@@ -212,7 +211,6 @@ def test_add_item_derives_date_and_order() -> None:
     repository.get_owned_trip_by_id.return_value = trip()
     repository.count_trip_items.return_value = 0
     repository.get_public_destination.return_value = destination()
-    repository.find_duplicate_trip_item.return_value = None
     repository.next_sort_order.return_value = 2
 
     def assign_item() -> None:
@@ -227,26 +225,63 @@ def test_add_item_derives_date_and_order() -> None:
     session.commit.assert_called_once()
 
 
-def test_add_item_rejects_unavailable_invalid_and_duplicate() -> None:
+
+def test_add_item_allows_duplicate_destination_on_same_day() -> None:
+    subject, session, repository = service()
+    existing = item(10, 1, 7)
+    repository.get_owned_trip_by_id.return_value = trip([existing])
+    repository.count_trip_items.return_value = 1
+    repository.get_public_destination.return_value = destination(7)
+    repository.next_sort_order.return_value = 1
+
+    def assign_item() -> None:
+        created = repository.add_trip_item.call_args.args[0]
+        created.id = 11
+        created.created_at = created.updated_at = NOW
+
+    repository.flush.side_effect = assign_item
+
+    result = subject.add_trip_item(
+        1,
+        3,
+        TripItemCreate(destination_id=7, day_number=1),
+    )
+
+    assert result.destination.id == 7
+    assert result.day_number == 1
+    assert result.sort_order == 1
+    session.commit.assert_called_once()
+
+
+
+def test_add_item_rejects_unavailable_and_invalid() -> None:
     subject, _, repository = service()
     repository.get_owned_trip_by_id.return_value = trip()
     repository.count_trip_items.return_value = 0
     repository.get_public_destination.return_value = None
+
     with pytest.raises(DestinationUnavailableForTripError):
         subject.add_trip_item(1, 3, TripItemCreate(destination_id=7))
 
     repository.get_public_destination.return_value = destination()
+
     with pytest.raises(InvalidTripDayError):
-        subject.add_trip_item(1, 3, TripItemCreate(destination_id=7, day_number=4))
+        subject.add_trip_item(
+            1,
+            3,
+            TripItemCreate(destination_id=7, day_number=4),
+        )
+
     with pytest.raises(TripItemDateOutOfRangeError):
         subject.add_trip_item(
             1,
             3,
-            TripItemCreate(destination_id=7, day_number=1, visit_date=date(2026, 9, 2)),
+            TripItemCreate(
+                destination_id=7,
+                day_number=1,
+                visit_date=date(2026, 9, 2),
+            ),
         )
-    repository.find_duplicate_trip_item.return_value = item()
-    with pytest.raises(DuplicateTripDestinationError):
-        subject.add_trip_item(1, 3, TripItemCreate(destination_id=7, day_number=1))
 
 
 def test_update_and_delete_item_are_owned() -> None:
@@ -255,7 +290,6 @@ def test_update_and_delete_item_are_owned() -> None:
     current = item()
     repository.get_owned_trip_by_id.return_value = value
     repository.get_trip_item_by_id.return_value = current
-    repository.find_duplicate_trip_item.return_value = None
     result = subject.update_trip_item(1, 3, 11, TripItemUpdate(day_number=2, notes="Museum"))
     assert result.day_number == 2 and result.notes == "Museum"
     subject.delete_trip_item(1, 3, 11)
@@ -272,7 +306,6 @@ def test_item_mutations_use_the_client_expected_version() -> None:
     repository.get_owned_trip_by_id.return_value = value
     repository.get_trip_item_by_id.return_value = current
     repository.get_public_destination.return_value = destination()
-    repository.find_duplicate_trip_item.return_value = None
     repository.count_trip_items.return_value = 0
     repository.next_sort_order.return_value = 0
 
@@ -311,7 +344,6 @@ def test_stale_item_mutation_rolls_back_without_applying_changes() -> None:
     original_notes = current.notes
     repository.get_owned_trip_by_id.return_value = trip([current])
     repository.get_trip_item_by_id.return_value = current
-    repository.find_duplicate_trip_item.return_value = None
     repository.increment_trip_version.side_effect = None
     repository.increment_trip_version.return_value = None
 
@@ -371,21 +403,7 @@ def test_writes_rollback_on_persistence_failure(error) -> None:
     session.rollback.assert_called_once()
 
 
-def test_duplicate_constraint_maps_to_domain_conflict() -> None:
-    subject, session, repository = service()
-    repository.get_owned_trip_by_id.return_value = trip()
-    repository.count_trip_items.return_value = 0
-    repository.get_public_destination.return_value = destination()
-    repository.find_duplicate_trip_item.return_value = None
-    repository.next_sort_order.return_value = 0
-    repository.flush.side_effect = IntegrityError(
-        "x",
-        {},
-        ConstraintViolation("uq_trip_items_trip_destination_day"),
-    )
-    with pytest.raises(DuplicateTripDestinationError):
-        subject.add_trip_item(1, 3, TripItemCreate(destination_id=7))
-    session.rollback.assert_called_once()
+
 
 
 def test_position_conflict_retries_with_a_new_candidate() -> None:
@@ -393,7 +411,6 @@ def test_position_conflict_retries_with_a_new_candidate() -> None:
     repository.get_owned_trip_by_id.return_value = trip()
     repository.count_trip_items.return_value = 0
     repository.get_public_destination.return_value = destination()
-    repository.find_duplicate_trip_item.return_value = None
     repository.next_sort_order.side_effect = [0, 1]
 
     position_conflict = IntegrityError(
@@ -427,7 +444,6 @@ def test_position_retry_exhaustion_and_unknown_integrity_are_safe() -> None:
     repository.get_owned_trip_by_id.return_value = trip()
     repository.count_trip_items.return_value = 0
     repository.get_public_destination.return_value = destination()
-    repository.find_duplicate_trip_item.return_value = None
     repository.next_sort_order.side_effect = [0, 1, 2]
     repository.flush.side_effect = IntegrityError(
         "x",
@@ -472,32 +488,43 @@ def test_list_and_item_reads_map_database_failures() -> None:
     assert session.rollback.call_count == 2
 
 
-def test_update_item_destination_and_duplicate_detection() -> None:
+def test_update_item_destination_and_date() -> None:
     subject, _, repository = service()
     current = item()
     repository.get_owned_trip_by_id.return_value = trip()
     repository.get_trip_item_by_id.return_value = current
     repository.get_public_destination.return_value = destination(8)
-    repository.find_duplicate_trip_item.return_value = None
+
     result = subject.update_trip_item(
-        1, 3, 11, TripItemUpdate(destination_id=8, visit_date=date(2026, 9, 2))
+        1,
+        3,
+        11,
+        TripItemUpdate(
+            destination_id=8,
+            visit_date=date(2026, 9, 2),
+        ),
     )
-    assert result.destination.id == 8 and result.day_number == 2
 
-    repository.find_duplicate_trip_item.return_value = item(12, 2, 8)
-    with pytest.raises(DuplicateTripDestinationError):
-        subject.update_trip_item(1, 3, 11, TripItemUpdate(day_number=2))
+    assert result.destination.id == 8
+    assert result.day_number == 2
 
 
-def test_reorder_rejects_foreign_items_invalid_days_and_new_duplicates() -> None:
+def test_reorder_rejects_foreign_items_and_invalid_days() -> None:
     subject, _, repository = service()
     first, second = item(11, 1, 7), item(12, 2, 8)
     repository.get_owned_trip_by_id.return_value = trip([first, second])
     repository.list_trip_items.return_value = [first, second]
+
     missing = TripItemReorderRequest(
         expected_version=1,
-        items=[TripItemReorderElement(item_id=11, day_number=1)]
+        items=[
+            TripItemReorderElement(
+                item_id=11,
+                day_number=1,
+            )
+        ],
     )
+
     with pytest.raises(InvalidTripItemOrderError):
         subject.reorder_trip_items(1, 3, missing)
 
@@ -506,21 +533,38 @@ def test_reorder_rejects_foreign_items_invalid_days_and_new_duplicates() -> None
         items=[
             TripItemReorderElement(item_id=11, day_number=4),
             TripItemReorderElement(item_id=12, day_number=1),
-        ]
+        ],
     )
+
     with pytest.raises(InvalidTripDayError):
         subject.reorder_trip_items(1, 3, invalid_day)
 
-    second.destination_id = 7
-    duplicate = TripItemReorderRequest(
+
+
+def test_reorder_allows_duplicate_destinations_on_same_day() -> None:
+    subject, session, repository = service()
+    first, second = item(11, 1, 7), item(12, 2, 7)
+
+    repository.get_owned_trip_by_id.return_value = trip([first, second])
+    repository.list_trip_items.return_value = [first, second]
+    repository.increment_trip_version.side_effect = None
+    repository.increment_trip_version.return_value = 2
+    repository.max_sort_order.return_value = 1
+
+    payload = TripItemReorderRequest(
         expected_version=1,
         items=[
             TripItemReorderElement(item_id=11, day_number=1),
             TripItemReorderElement(item_id=12, day_number=1),
-        ]
+        ],
     )
-    with pytest.raises(DuplicateTripDestinationError):
-        subject.reorder_trip_items(1, 3, duplicate)
+
+    result = subject.reorder_trip_items(1, 3, payload)
+
+    assert [entry.destination.id for entry in result.items] == [7, 7]
+    assert [entry.sort_order for entry in result.items] == [0, 1]
+    session.commit.assert_called_once()
+
 
 
 def test_reorder_list_failure_is_generic_and_rolls_back() -> None:
@@ -560,7 +604,6 @@ def test_trip_item_limit_allows_99_and_rejects_100() -> None:
     subject, session, repository = service()
     repository.get_owned_trip_by_id.return_value = trip()
     repository.get_public_destination.return_value = destination()
-    repository.find_duplicate_trip_item.return_value = None
     repository.next_sort_order.return_value = 99
     repository.count_trip_items.return_value = 99
 
