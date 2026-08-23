@@ -8,6 +8,7 @@ from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from app.core.exceptions import (
     DestinationUnavailableForTripError,
     InvalidTripDateRangeError,
+    InvalidTripStatusTransitionError,
     InvalidTripDayError,
     InvalidTripItemOrderError,
     TripConcurrentModificationError,
@@ -857,3 +858,88 @@ def test_reorder_rejects_time_overlap_created_by_day_move() -> None:
 
     with pytest.raises(TripItemTimeConflictError):
         subject.reorder_trip_items(1, 3, payload)
+
+def test_trip_creation_must_start_as_draft() -> None:
+    subject, _, _ = service()
+
+    with pytest.raises(InvalidTripStatusTransitionError):
+        subject.create_trip(
+            1,
+            TripCreate(
+                title="Invalid initial state",
+                status=TripStatus.ACTIVE,
+            ),
+        )
+
+
+def test_trip_status_transition_rules() -> None:
+    subject, _, repository = service()
+    value = trip([item()])
+    repository.get_owned_trip_by_id.return_value = value
+
+    # draft -> planned
+    result = subject.update_trip(
+        1,
+        3,
+        TripUpdate(status=TripStatus.PLANNED),
+    )
+    assert result.status == TripStatus.PLANNED
+
+    # planned -> active
+    value.status = TripStatus.PLANNED
+    result = subject.update_trip(
+        1,
+        3,
+        TripUpdate(status=TripStatus.ACTIVE),
+    )
+    assert result.status == TripStatus.ACTIVE
+
+    # active -> completed
+    value.status = TripStatus.ACTIVE
+    result = subject.update_trip(
+        1,
+        3,
+        TripUpdate(status=TripStatus.COMPLETED),
+    )
+    assert result.status == TripStatus.COMPLETED
+
+
+def test_invalid_trip_status_transition_is_rejected() -> None:
+    subject, _, repository = service()
+    value = trip([item()])
+    value.status = TripStatus.COMPLETED
+    repository.get_owned_trip_by_id.return_value = value
+
+    with pytest.raises(InvalidTripStatusTransitionError):
+        subject.update_trip(
+            1,
+            3,
+            TripUpdate(status=TripStatus.DRAFT),
+        )
+
+
+def test_planned_status_requires_at_least_one_trip_item() -> None:
+    subject, _, repository = service()
+    value = trip([])
+    repository.get_owned_trip_by_id.return_value = value
+
+    with pytest.raises(InvalidTripStatusTransitionError):
+        subject.update_trip(
+            1,
+            3,
+            TripUpdate(status=TripStatus.PLANNED),
+        )
+
+
+def test_same_trip_status_is_allowed() -> None:
+    subject, _, repository = service()
+    value = trip([])
+    repository.get_owned_trip_by_id.return_value = value
+
+    result = subject.update_trip(
+        1,
+        3,
+        TripUpdate(status=TripStatus.DRAFT),
+    )
+
+    assert result.status == TripStatus.DRAFT

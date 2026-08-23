@@ -7,6 +7,7 @@ from sqlalchemy.orm import Session
 from app.core.exceptions import (
     DestinationUnavailableForTripError,
     InvalidTripDateRangeError,
+    InvalidTripStatusTransitionError,
     InvalidTripDayError,
     InvalidTripItemOrderError,
     TripConcurrentModificationError,
@@ -19,7 +20,7 @@ from app.core.exceptions import (
 )
 from app.core.trip_constants import MAX_TRIP_ITEMS, TRIP_POSITION_RETRY_LIMIT
 from app.models.destination import DestinationTranslation
-from app.models.trip import Trip
+from app.models.trip import Trip, TripStatus
 from app.models.trip_item import TripItem
 from app.repositories.trip import TripRepository
 from app.schemas.trip import (
@@ -43,6 +44,8 @@ class TripService:
 
     def create_trip(self, user_id: int, payload: TripCreate) -> TripDetailResponse:
         self._validate_date_range(payload.start_date, payload.end_date)
+        if payload.status != TripStatus.DRAFT:
+            raise InvalidTripStatusTransitionError()
         trip = Trip(user_id=user_id, **payload.model_dump())
         return self._write(lambda: self._create(trip))
 
@@ -81,6 +84,10 @@ class TripService:
         end_date = changes.get("end_date", trip.end_date)
         self._validate_date_range(start_date, end_date)
         self._validate_existing_items(trip.items, start_date, end_date)
+
+        new_status = changes.get("status")
+        if new_status is not None:
+            self._validate_status_transition(trip, new_status)
 
         def operation() -> TripDetailResponse:
             next_version = self._increment_version(
@@ -338,6 +345,41 @@ class TripService:
         if destination is None:
             raise DestinationUnavailableForTripError()
         return destination
+
+    @staticmethod
+    def _validate_status_transition(trip: Trip, new_status: TripStatus) -> None:
+        current = trip.status
+
+        if new_status == current:
+            return
+
+        allowed = {
+            TripStatus.DRAFT: {
+                TripStatus.PLANNED,
+                TripStatus.CANCELLED,
+            },
+            TripStatus.PLANNED: {
+                TripStatus.DRAFT,
+                TripStatus.ACTIVE,
+                TripStatus.CANCELLED,
+            },
+            TripStatus.ACTIVE: {
+                TripStatus.COMPLETED,
+                TripStatus.CANCELLED,
+            },
+            TripStatus.COMPLETED: {
+                TripStatus.PLANNED,
+            },
+            TripStatus.CANCELLED: {
+                TripStatus.DRAFT,
+            },
+        }
+
+        if new_status not in allowed[current]:
+            raise InvalidTripStatusTransitionError()
+
+        if new_status == TripStatus.PLANNED and not trip.items:
+            raise InvalidTripStatusTransitionError()
 
     @staticmethod
     def _validate_date_range(start_date: date | None, end_date: date | None) -> None:
