@@ -1,5 +1,5 @@
 from collections.abc import Sequence
-from datetime import date
+from datetime import date, time
 
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
@@ -13,6 +13,7 @@ from app.core.exceptions import (
     TripItemDateOutOfRangeError,
     TripItemLimitExceededError,
     TripItemNotFoundError,
+    TripItemTimeConflictError,
     TripNotFoundError,
     TripPersistenceError,
 )
@@ -119,6 +120,12 @@ class TripService:
             day_number, visit_date = self._resolve_item_date(
                 trip, payload.day_number, payload.visit_date
             )
+            self._assert_no_time_conflict(
+                trip.items,
+                day_number,
+                payload.start_time,
+                payload.duration_minutes,
+            )
             attempts = TRIP_POSITION_RETRY_LIMIT if payload.sort_order is None else 1
             next_version = self._increment_version(
                 trip,
@@ -190,6 +197,16 @@ class TripService:
             candidate_day,
             candidate_date,
         )
+        candidate_start_time = changes.get("start_time", item.start_time)
+        candidate_duration = changes.get("duration_minutes", item.duration_minutes)
+        self._assert_no_time_conflict(
+            trip.items,
+            day_number,
+            candidate_start_time,
+            candidate_duration,
+            exclude_item_id=item.id,
+        )
+
         def operation() -> TripItemResponse:
             next_version = self._increment_version(
                 trip,
@@ -264,6 +281,8 @@ class TripService:
                 item.visit_date = self._date_for_day(trip, entry.day_number)
                 item.sort_order = day_positions.get(entry.day_number, 0)
                 day_positions[entry.day_number] = item.sort_order + 1
+
+            self._assert_no_time_conflicts(items)
             self.repository.flush()
             self.session.commit()
             trip.version = next_version
@@ -379,6 +398,55 @@ class TripService:
         from datetime import timedelta
 
         return trip.start_date + timedelta(days=day_number - 1)
+
+    @staticmethod
+    def _time_seconds(value: time) -> float:
+        return (
+            value.hour * 3600
+            + value.minute * 60
+            + value.second
+            + value.microsecond / 1_000_000
+        )
+
+    @classmethod
+    def _assert_no_time_conflict(
+        cls,
+        items: Sequence[TripItem],
+        day_number: int,
+        start_time: time | None,
+        duration_minutes: int | None,
+        exclude_item_id: int | None = None,
+    ) -> None:
+        if start_time is None or duration_minutes is None:
+            return
+
+        candidate_start = cls._time_seconds(start_time)
+        candidate_end = candidate_start + duration_minutes * 60
+
+        for existing in items:
+            if existing.day_number != day_number:
+                continue
+            if exclude_item_id is not None and existing.id == exclude_item_id:
+                continue
+            if existing.start_time is None or existing.duration_minutes is None:
+                continue
+
+            existing_start = cls._time_seconds(existing.start_time)
+            existing_end = existing_start + existing.duration_minutes * 60
+
+            if candidate_start < existing_end and existing_start < candidate_end:
+                raise TripItemTimeConflictError()
+
+    @classmethod
+    def _assert_no_time_conflicts(cls, items: Sequence[TripItem]) -> None:
+        for item in items:
+            cls._assert_no_time_conflict(
+                items,
+                item.day_number,
+                item.start_time,
+                item.duration_minutes,
+                exclude_item_id=item.id,
+            )
 
     def _write(self, operation):
         try:

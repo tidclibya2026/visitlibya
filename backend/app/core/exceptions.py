@@ -218,6 +218,11 @@ class TripItemDateOutOfRangeError(TripError):
         super().__init__("Trip item visit date is outside the trip date range")
 
 
+class TripItemTimeConflictError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip item time overlaps another scheduled item on the same day")
+
+
 class DestinationUnavailableForTripError(TripError):
     def __init__(self) -> None:
         super().__init__("Destination is unavailable for trip planning")

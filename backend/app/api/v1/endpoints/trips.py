@@ -13,6 +13,7 @@ from app.core.exceptions import (
     TripError,
     TripItemDateOutOfRangeError,
     TripItemNotFoundError,
+    TripItemTimeConflictError,
     TripItemLimitExceededError,
     TripNotFoundError,
     TripPersistenceError,
@@ -37,7 +38,10 @@ ItemId = Annotated[int, Path(ge=1)]
 def raise_http_error(error: TripError) -> NoReturn:
     if isinstance(error, (TripNotFoundError, TripItemNotFoundError)):
         raise HTTPException(status_code=404, detail=str(error)) from error
-    if isinstance(error, TripConcurrentModificationError):
+    if isinstance(
+        error,
+        (TripConcurrentModificationError, TripItemTimeConflictError),
+    ):
         raise HTTPException(status_code=409, detail=str(error)) from error
     if isinstance(
         error,
