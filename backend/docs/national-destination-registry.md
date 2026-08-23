@@ -52,6 +52,12 @@ The review-only Acacus source reconciliation accounts for 430 KML source ordinal
 
 `المتحف العالمي المفتوح` / `Open-air world museum` is recorded only as a proposed promotional identity. The exact phrase was not found as an authoritative repository title, so it remains `SOURCE_VERIFICATION_REQUIRED`, is not an official UNESCO title, and grants no approval.
 
+### Tripoli and Old Tripoli
+
+`tripoli` remains the modern city and broad public destination. `old-tripoli` is recorded only as a proposed distinct nested historic urban heritage identity through `CONTAINS_HERITAGE_DESTINATION`; this relationship is review-governance metadata and creates no new public runtime destination, route, anchor, or boundary.
+
+The review-only Old Tripoli source reconciliation preserves all 430 KML source records: 145 site-oriented point or polygon review geometries and 285 contextual urban-network LineStrings. The 236 unnamed and 49 named LineStrings remain contextual evidence rather than proven historic, heritage, canonical, official, or visitor routes. All ten polygons remain non-authoritative review areas. The reconciliation adds zero publication-oriented GIS records, leaves `gis_layer_present` false and `gis_record_count` zero, and does not change the national total of 214.
+
 ## Sources inspected
 
 The audit covered development and curated destination datasets, bilingual home and experience routes, detail galleries, responsive-image mappings, reviewed coordinate artifacts, both curated natural-tourism GIS reviews, heritage candidate review, the generated natural-tourism layer, and publication governance policy and ledger. Records cite stable relative repository paths without volatile line numbers.

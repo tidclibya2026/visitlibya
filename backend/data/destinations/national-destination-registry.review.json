@@ -204,6 +204,14 @@
       "name_en": "Tripoli",
       "current_canonical_slug": "tripoli",
       "alternate_repository_names": ["Tripoli Old City"],
+      "related_canonical_destination_relationships": [
+        {
+          "slug": "old-tripoli",
+          "relationship": "CONTAINS_HERITAGE_DESTINATION",
+          "status": "REVIEW_GOVERNANCE_METADATA_ONLY",
+          "public_runtime_destination_created": false
+        }
+      ],
       "entity_type": "GEOGRAPHIC_CITY",
       "representation_mode": "INDEPENDENT_CANONICAL_DESTINATION",
       "parent_destination_slug": null,
@@ -220,16 +228,40 @@
       "gis_layer_ids": [],
       "gis_record_count": 0,
       "gis_record_selector": null,
-      "governed_provenance_present": false,
-      "heritage_review_present": false,
+      "gis_source_reconciliation_present": true,
+      "gis_source_reconciliation_path": "backend/data/gis/old-tripoli-source-reconciliation.review.json",
+      "gis_source_record_count": 430,
+      "gis_reconciled_review_record_count": 430,
+      "gis_site_oriented_review_geometry_count": 145,
+      "gis_contextual_network_geometry_count": 285,
+      "gis_technical_quarantine_count": 0,
+      "gis_safe_duplicate_member_count": 0,
+      "governed_provenance_present": true,
+      "heritage_review_present": true,
       "legacy_public_visibility": true,
       "institutional_publication_approved": false,
       "publication_eligibility_classification": "LEGACY_PUBLIC_BASELINE_NOT_INSTITUTIONAL_APPROVAL",
       "identity_review_status": "REPOSITORY_IDENTITY_CONFIRMED",
       "coverage_status": "PUBLIC_DESTINATION_WITHOUT_DETAILED_GIS",
-      "data_gaps": ["No reviewed canonical coordinate pair or destination-specific curated GIS layer is present."],
-      "institutional_actions_required": ["Review a representative coordinate and historic-city GIS boundary or layer."],
+      "data_gaps": [
+        "No reviewed canonical coordinate pair or destination-specific curated GIS layer is present.",
+        "The Old Tripoli source reconciliation is review-only: its polygons are not authoritative boundaries or footprints, and its contextual LineStrings are not proven historic or official visitor routes."
+      ],
+      "institutional_actions_required": [
+        "Review a representative Tripoli coordinate independently from Old Tripoli evidence.",
+        "Resolve the nested Old Tripoli identity, site features, contextual networks, polygon semantics, and institutional publication requirements without deriving a boundary from source geometry."
+      ],
       "evidence": [
+        {
+          "path": "backend/data/gis/old-tripoli-source-reconciliation.review.json",
+          "identifiers": [
+            "reconciliation_id:old-tripoli-source-reconciliation-v1",
+            "source_record_count:430",
+            "site_oriented_review_geometry_count:145",
+            "contextual_network_geometry_count:285",
+            "publication_or_registry_gis_count_added:0"
+          ]
+        },
         {"path": "backend/data/dev/destinations.json", "identifiers": ["slug:tripoli"]},
         {"path": "backend/data/gis/canonical-destination-coordinate-review.json", "identifiers": ["slug:tripoli", "REVIEW_REQUIRED"]},
         {"path": "assets/js/pages/destination-details.js", "identifiers": ["gallery:tripoli"]},
