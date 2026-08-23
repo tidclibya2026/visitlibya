@@ -5,7 +5,7 @@ from sqlalchemy import func, select, update
 from sqlalchemy.orm import joinedload, noload, selectinload
 
 from app.models.destination import Destination, DestinationStatus
-from app.models.trip import Trip
+from app.models.trip import Trip, TripVisibility
 from app.models.trip_item import TripItem
 from app.repositories.base import BaseRepository
 
@@ -33,6 +33,26 @@ class TripRepository(BaseRepository[Trip]):
             select(Trip)
             .options(*self._detail_options())
             .where(Trip.id == trip_id, Trip.user_id == user_id)
+        )
+
+    def get_public_trip_by_id(self, trip_id: int) -> Trip | None:
+        return self.session.scalar(
+            select(Trip)
+            .options(*self._detail_options())
+            .where(
+                Trip.id == trip_id,
+                Trip.visibility == TripVisibility.PUBLIC,
+            )
+        )
+
+    def get_unlisted_trip_by_token(self, share_token: str) -> Trip | None:
+        return self.session.scalar(
+            select(Trip)
+            .options(*self._detail_options())
+            .where(
+                Trip.share_token == share_token,
+                Trip.visibility == TripVisibility.UNLISTED,
+            )
         )
 
     def list_user_trips(

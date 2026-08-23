@@ -21,6 +21,7 @@ from app.schemas.trip import (
     TripDestinationSummary,
     TripItemResponse,
     TripListResponse,
+    TripOwnerDetailResponse,
     TripSummaryResponse,
 )
 
@@ -28,7 +29,7 @@ from app.schemas.trip import (
 NOW = datetime.now(UTC)
 
 
-def detail() -> TripDetailResponse:
+def detail() -> TripOwnerDetailResponse:
     item = TripItemResponse(
         id=11,
         destination=TripDestinationSummary(id=7, slug="leptis", name_ar=None, name_en="Leptis", latitude=32.6389, longitude=14.2906),
@@ -41,7 +42,7 @@ def detail() -> TripDetailResponse:
         created_at=NOW,
         updated_at=NOW,
     )
-    return TripDetailResponse(
+    return TripOwnerDetailResponse(
         id=3,
         title="Libya",
         description=None,
@@ -53,6 +54,7 @@ def detail() -> TripDetailResponse:
         duration_days=3,
         item_count=1,
         items=[item],
+        share_token=None,
         created_at=NOW,
         updated_at=NOW,
     )
@@ -81,6 +83,8 @@ class FakeTripService:
         summary = TripSummaryResponse(**self.trip.model_dump(exclude={"items"}))
         return TripListResponse(items=[summary], total=1, skip=skip, limit=limit)
     def get_trip(self, user_id, trip_id): self._raise(); return self.trip
+    def get_public_trip(self, trip_id): self._raise(); return self.trip
+    def get_shared_trip(self, share_token): self._raise(); return self.trip
     def update_trip(self, user_id, trip_id, payload): self._raise(); return self.trip
     def delete_trip(self, user_id, trip_id): self._raise()
     def add_trip_item(self, user_id, trip_id, payload): self._raise(); return self.trip.items[0]
@@ -225,17 +229,42 @@ def test_mutation_expected_version_must_be_positive(
     assert response.status_code == 422
 
 
-def test_openapi_marks_every_trip_operation_as_bearer_protected() -> None:
+def test_openapi_marks_owner_trip_operations_as_bearer_protected() -> None:
     schema = app.openapi()
-    operations = [
-        operation
-        for path, path_data in schema["paths"].items()
-        if path.startswith("/api/v1/trips")
-        for operation in path_data.values()
-        if isinstance(operation, dict) and "responses" in operation
-    ]
-    assert len(operations) == 9
-    assert all(operation.get("security") for operation in operations)
+
+    public_paths = {
+        "/api/v1/trips/public/{trip_id}",
+        "/api/v1/trips/shared/{share_token}",
+    }
+
+    protected_operations = []
+    public_operations = []
+
+    for path, path_data in schema["paths"].items():
+        if not path.startswith("/api/v1/trips"):
+            continue
+
+        for operation in path_data.values():
+            if not isinstance(operation, dict) or "responses" not in operation:
+                continue
+
+            if path in public_paths:
+                public_operations.append(operation)
+            else:
+                protected_operations.append(operation)
+
+    assert len(protected_operations) == 9
+    assert len(public_operations) == 2
+
+    assert all(
+        operation.get("security") == [{"OAuth2PasswordBearer": []}]
+        for operation in protected_operations
+    )
+
+    assert all(
+        not operation.get("security")
+        for operation in public_operations
+    )
 
 
 @pytest.mark.parametrize(
@@ -248,7 +277,14 @@ def test_openapi_marks_every_trip_operation_as_bearer_protected() -> None:
         ("POST", "/api/v1/trips/3/items", {"destination_id": 7}),
         ("PATCH", "/api/v1/trips/3/items/11", {"notes": "x"}),
         ("DELETE", "/api/v1/trips/3/items/11", None),
-        ("PUT", "/api/v1/trips/3/items/reorder", {"expected_version": 1, "items": [{"item_id": 11, "day_number": 1}]}),
+        (
+            "PUT",
+            "/api/v1/trips/3/items/reorder",
+            {
+                "expected_version": 1,
+                "items": [{"item_id": 11, "day_number": 1}],
+            },
+        ),
     ],
 )
 def test_persistence_failure_is_generic_for_every_operation(test_user, method, path, body) -> None:
@@ -257,3 +293,70 @@ def test_persistence_failure_is_generic_for_every_operation(test_user, method, p
     response = request(service, test_user, method, path, json=body)
     assert response.status_code == 500
     assert response.json()["detail"] == "Trip service could not complete the request"
+
+def test_public_trip_route_does_not_require_authentication_or_expose_token(
+    test_user,
+) -> None:
+    service = FakeTripService()
+    service.trip.visibility = TripVisibility.PUBLIC
+    service.trip.share_token = "x" * 43
+
+    response = request(
+        service,
+        test_user,
+        "GET",
+        "/api/v1/trips/public/3",
+        authenticated=False,
+    )
+
+    assert response.status_code == 200
+    assert response.json()["visibility"] == "public"
+    assert "share_token" not in response.json()
+
+
+def test_shared_trip_route_does_not_require_authentication_or_expose_token(
+    test_user,
+) -> None:
+    service = FakeTripService()
+    service.trip.visibility = TripVisibility.UNLISTED
+    service.trip.share_token = "x" * 43
+
+    response = request(
+        service,
+        test_user,
+        "GET",
+        f"/api/v1/trips/shared/{'x' * 43}",
+        authenticated=False,
+    )
+
+    assert response.status_code == 200
+    assert response.json()["visibility"] == "unlisted"
+    assert "share_token" not in response.json()
+
+
+def test_owner_trip_detail_exposes_share_token(test_user) -> None:
+    service = FakeTripService()
+    service.trip.visibility = TripVisibility.UNLISTED
+    service.trip.share_token = "x" * 43
+
+    response = request(
+        service,
+        test_user,
+        "GET",
+        "/api/v1/trips/3",
+    )
+
+    assert response.status_code == 200
+    assert response.json()["share_token"] == "x" * 43
+
+
+def test_shared_trip_token_length_is_validated(test_user) -> None:
+    response = request(
+        FakeTripService(),
+        test_user,
+        "GET",
+        "/api/v1/trips/shared/short",
+        authenticated=False,
+    )
+
+    assert response.status_code == 422

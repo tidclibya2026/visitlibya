@@ -148,5 +148,9 @@ class TripDetailResponse(TripSummaryResponse):
     items: list[TripItemResponse]
 
 
+class TripOwnerDetailResponse(TripDetailResponse):
+    share_token: str | None = None
+
+
 class TripListResponse(PaginatedResponse[TripSummaryResponse]):
     pass
