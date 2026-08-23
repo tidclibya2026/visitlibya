@@ -203,6 +203,11 @@ class TripItemNotFoundError(TripError):
         super().__init__("Trip item not found")
 
 
+class InvalidTripStatusTransitionError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Trip status transition is not allowed")
+
+
 class InvalidTripDateRangeError(TripError):
     def __init__(self) -> None:
         super().__init__("Trip end date must not be before its start date")

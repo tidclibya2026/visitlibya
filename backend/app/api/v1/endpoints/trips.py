@@ -7,6 +7,7 @@ from app.api.pagination import LimitParameter, SkipParameter
 from app.core.exceptions import (
     DestinationUnavailableForTripError,
     InvalidTripDateRangeError,
+    InvalidTripStatusTransitionError,
     InvalidTripDayError,
     InvalidTripItemOrderError,
     TripConcurrentModificationError,
@@ -40,13 +41,18 @@ def raise_http_error(error: TripError) -> NoReturn:
         raise HTTPException(status_code=404, detail=str(error)) from error
     if isinstance(
         error,
-        (TripConcurrentModificationError, TripItemTimeConflictError),
+        (
+            TripConcurrentModificationError,
+            TripItemTimeConflictError,
+            InvalidTripStatusTransitionError,
+        ),
     ):
         raise HTTPException(status_code=409, detail=str(error)) from error
     if isinstance(
         error,
         (
             InvalidTripDateRangeError,
+    InvalidTripStatusTransitionError,
             InvalidTripDayError,
             TripItemDateOutOfRangeError,
             DestinationUnavailableForTripError,

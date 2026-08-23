@@ -7,6 +7,7 @@ from app.api.dependencies import get_current_active_user, get_current_user, get_
 from app.core.exceptions import (
     DestinationUnavailableForTripError,
     InvalidTripDateRangeError,
+    InvalidTripStatusTransitionError,
     TripConcurrentModificationError,
     TripItemLimitExceededError,
     TripItemTimeConflictError,
@@ -150,6 +151,7 @@ def test_trip_detail_exposes_authoritative_destination_coordinates(test_user) ->
     ("error", "status_code"),
     [
         (InvalidTripDateRangeError(), 422),
+        (InvalidTripStatusTransitionError(), 409),
         (DestinationUnavailableForTripError(), 422),
         (TripConcurrentModificationError(), 409),
         (TripItemTimeConflictError(), 409),
