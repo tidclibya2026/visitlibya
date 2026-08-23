@@ -9,6 +9,7 @@ from app.core.exceptions import (
     InvalidTripDateRangeError,
     TripConcurrentModificationError,
     TripItemLimitExceededError,
+    TripItemTimeConflictError,
     TripNotFoundError,
     TripPersistenceError,
 )
@@ -151,6 +152,7 @@ def test_trip_detail_exposes_authoritative_destination_coordinates(test_user) ->
         (InvalidTripDateRangeError(), 422),
         (DestinationUnavailableForTripError(), 422),
         (TripConcurrentModificationError(), 409),
+        (TripItemTimeConflictError(), 409),
         (TripItemLimitExceededError(), 422),
         (TripPersistenceError(), 500),
     ],

@@ -1,4 +1,4 @@
-from datetime import UTC, date, datetime
+from datetime import UTC, date, datetime, time
 from unittest.mock import MagicMock
 
 import pytest
@@ -14,6 +14,7 @@ from app.core.exceptions import (
     TripItemDateOutOfRangeError,
     TripItemLimitExceededError,
     TripItemNotFoundError,
+    TripItemTimeConflictError,
     TripNotFoundError,
     TripPersistenceError,
 )
@@ -716,3 +717,143 @@ def test_same_reorder_version_only_succeeds_once() -> None:
         subject.reorder_trip_items(1, 3, payload)
     assert session.commit.call_count == 1
     assert session.rollback.call_count == 1
+
+def test_add_item_rejects_overlapping_time_and_allows_touching_boundary() -> None:
+    subject, session, repository = service()
+
+    existing = item(10, 1, 7)
+    existing.start_time = time(10, 0)
+    existing.duration_minutes = 120
+
+    value = trip([existing])
+    repository.get_owned_trip_by_id.return_value = value
+    repository.count_trip_items.return_value = 1
+    repository.get_public_destination.return_value = destination(8)
+    repository.next_sort_order.return_value = 1
+
+    with pytest.raises(TripItemTimeConflictError):
+        subject.add_trip_item(
+            1,
+            3,
+            TripItemCreate(
+                destination_id=8,
+                day_number=1,
+                start_time=time(11, 0),
+                duration_minutes=60,
+            ),
+        )
+
+    repository.increment_trip_version.reset_mock()
+
+    def assign_item() -> None:
+        created = repository.add_trip_item.call_args.args[0]
+        created.id = 12
+        created.created_at = created.updated_at = NOW
+
+    repository.flush.side_effect = assign_item
+
+    result = subject.add_trip_item(
+        1,
+        3,
+        TripItemCreate(
+            destination_id=8,
+            day_number=1,
+            start_time=time(12, 0),
+            duration_minutes=60,
+        ),
+    )
+
+    assert result.start_time == time(12, 0)
+    assert result.duration_minutes == 60
+    session.commit.assert_called_once()
+
+
+def test_update_item_rejects_time_overlap() -> None:
+    subject, _, repository = service()
+
+    first = item(11, 1, 7)
+    first.start_time = time(10, 0)
+    first.duration_minutes = 120
+
+    second = item(12, 1, 8)
+    second.start_time = time(13, 0)
+    second.duration_minutes = 60
+
+    value = trip([first, second])
+    repository.get_owned_trip_by_id.return_value = value
+    repository.get_trip_item_by_id.return_value = second
+
+    with pytest.raises(TripItemTimeConflictError):
+        subject.update_trip_item(
+            1,
+            3,
+            12,
+            TripItemUpdate(
+                start_time=time(11, 30),
+                duration_minutes=60,
+            ),
+        )
+
+
+def test_partial_schedule_does_not_trigger_time_conflict() -> None:
+    subject, session, repository = service()
+
+    existing = item(10, 1, 7)
+    existing.start_time = time(10, 0)
+    existing.duration_minutes = 120
+
+    repository.get_owned_trip_by_id.return_value = trip([existing])
+    repository.count_trip_items.return_value = 1
+    repository.get_public_destination.return_value = destination(8)
+    repository.next_sort_order.return_value = 1
+
+    def assign_item() -> None:
+        created = repository.add_trip_item.call_args.args[0]
+        created.id = 12
+        created.created_at = created.updated_at = NOW
+
+    repository.flush.side_effect = assign_item
+
+    result = subject.add_trip_item(
+        1,
+        3,
+        TripItemCreate(
+            destination_id=8,
+            day_number=1,
+            start_time=time(11, 0),
+            duration_minutes=None,
+        ),
+    )
+
+    assert result.start_time == time(11, 0)
+    assert result.duration_minutes is None
+    session.commit.assert_called_once()
+
+
+def test_reorder_rejects_time_overlap_created_by_day_move() -> None:
+    subject, _, repository = service()
+
+    first = item(11, 1, 7)
+    first.start_time = time(10, 0)
+    first.duration_minutes = 120
+
+    second = item(12, 2, 8)
+    second.start_time = time(11, 0)
+    second.duration_minutes = 60
+
+    repository.get_owned_trip_by_id.return_value = trip([first, second])
+    repository.list_trip_items.return_value = [first, second]
+    repository.increment_trip_version.side_effect = None
+    repository.increment_trip_version.return_value = 2
+    repository.max_sort_order.return_value = 1
+
+    payload = TripItemReorderRequest(
+        expected_version=1,
+        items=[
+            TripItemReorderElement(item_id=11, day_number=1),
+            TripItemReorderElement(item_id=12, day_number=1),
+        ],
+    )
+
+    with pytest.raises(TripItemTimeConflictError):
+        subject.reorder_trip_items(1, 3, payload)
