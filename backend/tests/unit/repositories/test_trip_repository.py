@@ -16,8 +16,8 @@ def test_trip_model_constraints_relationships_and_cascades() -> None:
     assert Trip.user.property.mapper.class_.trips.property.passive_deletes is True
     assert Trip.items.property.passive_deletes is True
     assert TripItem.destination.property.mapper.class_.trip_items.property.passive_deletes is True
-    assert any(
-        constraint.name == "uq_trip_items_trip_destination_day"
+    assert all(
+        constraint.name != "uq_trip_items_trip_destination_day"
         for constraint in TripItem.__table__.constraints
     )
     assert any(
@@ -50,22 +50,19 @@ def test_trip_queries_are_owned_paginated_and_deterministic() -> None:
     assert "trips.user_id" in count_sql
 
 
-def test_item_queries_duplicate_destination_and_next_order() -> None:
+def test_item_queries_public_destination_and_next_order() -> None:
     session = MagicMock()
-    session.scalar.side_effect = [MagicMock(), MagicMock(), MagicMock(), 4]
+    session.scalar.side_effect = [MagicMock(), MagicMock(), 4]
     session.scalars.return_value.all.return_value = [MagicMock()]
     repository = TripRepository(session)
 
     assert repository.get_trip_item_by_id(1, 2) is not None
     assert repository.list_trip_items(1)
-    assert repository.find_duplicate_trip_item(1, 7, 2, exclude_item_id=9)
     assert repository.get_public_destination(7)
     assert repository.next_sort_order(1, 2) == 5
 
-    duplicate_sql = str(session.scalar.call_args_list[1].args[0])
-    destination_statement = session.scalar.call_args_list[2].args[0]
+    destination_statement = session.scalar.call_args_list[1].args[0]
     destination_sql = str(destination_statement)
-    assert "trip_items.id !=" in duplicate_sql
     assert "destinations.status" in destination_sql
     assert DestinationStatus.PUBLISHED in destination_statement.compile().params.values()
 

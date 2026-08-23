@@ -33,12 +33,6 @@ class TripItem(TimestampMixin, Base):
         ),
         UniqueConstraint(
             "trip_id",
-            "destination_id",
-            "day_number",
-            name="uq_trip_items_trip_destination_day",
-        ),
-        UniqueConstraint(
-            "trip_id",
             "day_number",
             "sort_order",
             name="uq_trip_items_trip_day_position",

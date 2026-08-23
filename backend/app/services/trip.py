@@ -6,7 +6,6 @@ from sqlalchemy.orm import Session
 
 from app.core.exceptions import (
     DestinationUnavailableForTripError,
-    DuplicateTripDestinationError,
     InvalidTripDateRangeError,
     InvalidTripDayError,
     InvalidTripItemOrderError,
@@ -120,11 +119,6 @@ class TripService:
             day_number, visit_date = self._resolve_item_date(
                 trip, payload.day_number, payload.visit_date
             )
-            if self.repository.find_duplicate_trip_item(
-                trip.id, destination.id, day_number
-            ) is not None:
-                raise DuplicateTripDestinationError()
-
             attempts = TRIP_POSITION_RETRY_LIMIT if payload.sort_order is None else 1
             next_version = self._increment_version(
                 trip,
@@ -153,8 +147,6 @@ class TripService:
                         self.repository.add_trip_item(item)
                         self.repository.flush()
                 except IntegrityError as exc:
-                    if self._is_destination_duplicate(exc):
-                        raise DuplicateTripDestinationError() from exc
                     if self._is_position_conflict(exc) and attempt + 1 < attempts:
                         continue
                     if self._is_position_conflict(exc):
@@ -198,11 +190,6 @@ class TripService:
             candidate_day,
             candidate_date,
         )
-        if self.repository.find_duplicate_trip_item(
-            trip.id, destination_id, day_number, exclude_item_id=item.id
-        ) is not None:
-            raise DuplicateTripDestinationError()
-
         def operation() -> TripItemResponse:
             next_version = self._increment_version(
                 trip,
@@ -277,7 +264,6 @@ class TripService:
                 item.visit_date = self._date_for_day(trip, entry.day_number)
                 item.sort_order = day_positions.get(entry.day_number, 0)
                 day_positions[entry.day_number] = item.sort_order + 1
-            self._assert_no_duplicate_destinations(items)
             self.repository.flush()
             self.session.commit()
             trip.version = next_version
@@ -394,19 +380,11 @@ class TripService:
 
         return trip.start_date + timedelta(days=day_number - 1)
 
-    @staticmethod
-    def _assert_no_duplicate_destinations(items: Sequence[TripItem]) -> None:
-        keys = [(item.destination_id, item.day_number) for item in items]
-        if len(keys) != len(set(keys)):
-            raise DuplicateTripDestinationError()
-
     def _write(self, operation):
         try:
             return operation()
         except IntegrityError as exc:
             self.session.rollback()
-            if self._is_destination_duplicate(exc):
-                raise DuplicateTripDestinationError() from exc
             if self._is_position_conflict(exc):
                 raise TripConcurrentModificationError() from exc
             raise TripPersistenceError() from exc
@@ -425,15 +403,6 @@ class TripService:
     def _constraint_name(error: IntegrityError) -> str | None:
         diagnostic = getattr(error.orig, "diag", None)
         return getattr(diagnostic, "constraint_name", None)
-
-    @classmethod
-    def _is_destination_duplicate(cls, error: IntegrityError) -> bool:
-        name = cls._constraint_name(error)
-        return name == "uq_trip_items_trip_destination_day" or (
-            name is None
-            and "trip_items.trip_id, trip_items.destination_id, trip_items.day_number"
-            in str(error.orig)
-        )
 
     @classmethod
     def _is_position_conflict(cls, error: IntegrityError) -> bool:

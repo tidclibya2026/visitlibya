@@ -12,7 +12,7 @@ from sqlalchemy.exc import IntegrityError
 
 
 PREVIOUS_REVISION = "d3a8f6c41b29"
-TRIP_REVISION = "f6b2c9d41a73"
+TRIP_REVISION = "a1c7e4f92b10"
 BACKEND_DIR = Path(__file__).resolve().parents[3]
 
 
@@ -59,7 +59,7 @@ def test_trip_migration_upgrade_downgrade_upgrade() -> None:
             "ix_trip_items_trip_day_order",
         }.issubset(indexes)
         uniques = {item["name"] for item in inspector.get_unique_constraints("trip_items")}
-        assert "uq_trip_items_trip_destination_day" in uniques
+        assert "uq_trip_items_trip_destination_day" not in uniques
         assert "uq_trip_items_trip_day_position" in uniques
         foreign_keys = {fk["constrained_columns"][0]: fk for fk in inspector.get_foreign_keys("trip_items")}
         assert foreign_keys["trip_id"]["options"].get("ondelete") == "CASCADE"
@@ -98,12 +98,23 @@ def test_trip_migration_upgrade_downgrade_upgrade() -> None:
                 INSERT INTO trip_items (trip_id, destination_id, day_number)
                 VALUES (:trip_id, :destination_id, 1)
             """), {"trip_id": trip_id, "destination_id": destination_id})
-            with pytest.raises(IntegrityError):
-                with connection.begin_nested():
-                    connection.execute(text("""
-                        INSERT INTO trip_items (trip_id, destination_id, day_number)
-                        VALUES (:trip_id, :destination_id, 1)
-                    """), {"trip_id": trip_id, "destination_id": destination_id})
+            connection.execute(text("""
+                INSERT INTO trip_items (
+                    trip_id,
+                    destination_id,
+                    day_number,
+                    sort_order
+                )
+                VALUES (
+                    :trip_id,
+                    :destination_id,
+                    1,
+                    1
+                )
+            """), {
+                "trip_id": trip_id,
+                "destination_id": destination_id,
+            })
             with pytest.raises(IntegrityError):
                 with connection.begin_nested():
                     connection.execute(text("""
