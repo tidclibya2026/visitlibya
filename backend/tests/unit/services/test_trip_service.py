@@ -943,3 +943,91 @@ def test_same_trip_status_is_allowed() -> None:
     )
 
     assert result.status == TripStatus.DRAFT
+
+def test_unlisted_trip_creation_generates_share_token_for_owner() -> None:
+    subject, session, repository = service()
+
+    def assign_trip() -> None:
+        created = repository.create_trip.call_args.args[0]
+        created.id = 3
+        created.version = 1
+        created.created_at = created.updated_at = NOW
+        created.items = []
+
+    repository.flush.side_effect = assign_trip
+
+    result = subject.create_trip(
+        1,
+        TripCreate(
+            title="Shared itinerary",
+            visibility=TripVisibility.UNLISTED,
+        ),
+    )
+
+    assert result.visibility == TripVisibility.UNLISTED
+    assert result.share_token
+    assert len(result.share_token) >= 32
+    session.commit.assert_called_once()
+
+
+def test_visibility_transition_manages_share_token() -> None:
+    subject, _, repository = service()
+    value = trip([])
+    repository.get_owned_trip_by_id.return_value = value
+
+    unlisted = subject.update_trip(
+        1,
+        3,
+        TripUpdate(visibility=TripVisibility.UNLISTED),
+    )
+
+    assert unlisted.visibility == TripVisibility.UNLISTED
+    assert unlisted.share_token
+
+    value.visibility = TripVisibility.UNLISTED
+    value.share_token = unlisted.share_token
+
+    public = subject.update_trip(
+        1,
+        3,
+        TripUpdate(visibility=TripVisibility.PUBLIC),
+    )
+
+    assert public.visibility == TripVisibility.PUBLIC
+    assert public.share_token is None
+
+
+def test_public_and_shared_reads_never_expose_share_token() -> None:
+    subject, _, repository = service()
+
+    public_trip = trip([item()])
+    public_trip.visibility = TripVisibility.PUBLIC
+    public_trip.share_token = None
+    repository.get_public_trip_by_id.return_value = public_trip
+
+    public_result = subject.get_public_trip(3)
+
+    assert public_result.visibility == TripVisibility.PUBLIC
+    assert "share_token" not in public_result.model_dump()
+
+    shared_trip = trip([item()])
+    shared_trip.visibility = TripVisibility.UNLISTED
+    shared_trip.share_token = "x" * 43
+    repository.get_unlisted_trip_by_token.return_value = shared_trip
+
+    shared_result = subject.get_shared_trip("x" * 43)
+
+    assert shared_result.visibility == TripVisibility.UNLISTED
+    assert "share_token" not in shared_result.model_dump()
+
+
+def test_public_and_shared_missing_trip_returns_not_found() -> None:
+    subject, _, repository = service()
+
+    repository.get_public_trip_by_id.return_value = None
+    with pytest.raises(TripNotFoundError):
+        subject.get_public_trip(999)
+
+    repository.get_unlisted_trip_by_token.return_value = None
+    with pytest.raises(TripNotFoundError):
+        subject.get_shared_trip("x" * 43)

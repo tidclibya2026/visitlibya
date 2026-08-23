@@ -37,6 +37,7 @@ class Trip(TimestampMixin, Base):
         ),
         Index("ix_trips_user_created_at", "user_id", "created_at"),
         Index("ix_trips_user_start_date", "user_id", "start_date"),
+        Index("ux_trips_share_token", "share_token", unique=True),
     )
 
     id: Mapped[int] = mapped_column(primary_key=True)
@@ -70,6 +71,10 @@ class Trip(TimestampMixin, Base):
         default=TripVisibility.PRIVATE,
         server_default=TripVisibility.PRIVATE.value,
         nullable=False,
+    )
+    share_token: Mapped[str | None] = mapped_column(
+        String(64),
+        nullable=True,
     )
     version: Mapped[int] = mapped_column(
         Integer,

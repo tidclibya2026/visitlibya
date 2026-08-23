@@ -1,5 +1,6 @@
 from collections.abc import Sequence
 from datetime import date, time
+import secrets
 
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
@@ -20,7 +21,7 @@ from app.core.exceptions import (
 )
 from app.core.trip_constants import MAX_TRIP_ITEMS, TRIP_POSITION_RETRY_LIMIT
 from app.models.destination import DestinationTranslation
-from app.models.trip import Trip, TripStatus
+from app.models.trip import Trip, TripStatus, TripVisibility
 from app.models.trip_item import TripItem
 from app.repositories.trip import TripRepository
 from app.schemas.trip import (
@@ -32,6 +33,7 @@ from app.schemas.trip import (
     TripItemResponse,
     TripItemUpdate,
     TripListResponse,
+    TripOwnerDetailResponse,
     TripSummaryResponse,
     TripUpdate,
 )
@@ -46,14 +48,17 @@ class TripService:
         self._validate_date_range(payload.start_date, payload.end_date)
         if payload.status != TripStatus.DRAFT:
             raise InvalidTripStatusTransitionError()
-        trip = Trip(user_id=user_id, **payload.model_dump())
+        values = payload.model_dump()
+        if payload.visibility == TripVisibility.UNLISTED:
+            values["share_token"] = self._new_share_token()
+        trip = Trip(user_id=user_id, **values)
         return self._write(lambda: self._create(trip))
 
-    def _create(self, trip: Trip) -> TripDetailResponse:
+    def _create(self, trip: Trip) -> TripOwnerDetailResponse:
         self.repository.create_trip(trip)
         self.repository.flush()
         self.session.commit()
-        return self._detail(trip)
+        return self._owner_detail(trip)
 
     def list_user_trips(self, user_id: int, skip: int, limit: int) -> TripListResponse:
         if user_id < 1 or skip < 0 or not 1 <= limit <= 100:
@@ -71,8 +76,28 @@ class TripService:
             limit=limit,
         )
 
-    def get_trip(self, user_id: int, trip_id: int) -> TripDetailResponse:
-        return self._detail(self._owned_trip(user_id, trip_id))
+    def get_trip(self, user_id: int, trip_id: int) -> TripOwnerDetailResponse:
+        return self._owner_detail(self._owned_trip(user_id, trip_id))
+
+    def get_public_trip(self, trip_id: int) -> TripDetailResponse:
+        try:
+            trip = self.repository.get_public_trip_by_id(trip_id)
+        except SQLAlchemyError as exc:
+            self._rollback_failed_read()
+            raise TripPersistenceError() from exc
+        if trip is None:
+            raise TripNotFoundError()
+        return self._detail(trip)
+
+    def get_shared_trip(self, share_token: str) -> TripDetailResponse:
+        try:
+            trip = self.repository.get_unlisted_trip_by_token(share_token)
+        except SQLAlchemyError as exc:
+            self._rollback_failed_read()
+            raise TripPersistenceError() from exc
+        if trip is None:
+            raise TripNotFoundError()
+        return self._detail(trip)
 
     def update_trip(
         self, user_id: int, trip_id: int, payload: TripUpdate
@@ -89,7 +114,14 @@ class TripService:
         if new_status is not None:
             self._validate_status_transition(trip, new_status)
 
-        def operation() -> TripDetailResponse:
+        new_visibility = changes.get("visibility")
+        if new_visibility is not None:
+            if new_visibility == TripVisibility.UNLISTED:
+                changes["share_token"] = trip.share_token or self._new_share_token()
+            else:
+                changes["share_token"] = None
+
+        def operation() -> TripOwnerDetailResponse:
             next_version = self._increment_version(
                 trip,
                 user_id,
@@ -100,7 +132,7 @@ class TripService:
             self.repository.flush()
             self.session.commit()
             trip.version = next_version
-            return self._detail(trip)
+            return self._owner_detail(trip)
 
         return self._write(operation)
 
@@ -490,6 +522,10 @@ class TripService:
                 exclude_item_id=item.id,
             )
 
+    @staticmethod
+    def _new_share_token() -> str:
+        return secrets.token_urlsafe(32)
+
     def _write(self, operation):
         try:
             return operation()
@@ -581,4 +617,12 @@ class TripService:
         return TripDetailResponse(
             **summary.model_dump(),
             items=[cls._item(item) for item in trip.items],
+        )
+
+    @classmethod
+    def _owner_detail(cls, trip: Trip) -> TripOwnerDetailResponse:
+        detail = cls._detail(trip)
+        return TripOwnerDetailResponse(
+            **detail.model_dump(),
+            share_token=trip.share_token,
         )

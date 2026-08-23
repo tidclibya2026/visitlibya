@@ -12,7 +12,7 @@ from sqlalchemy.exc import IntegrityError
 
 
 PREVIOUS_REVISION = "d3a8f6c41b29"
-TRIP_REVISION = "a1c7e4f92b10"
+TRIP_REVISION = "c6e2a9b47f31"
 BACKEND_DIR = Path(__file__).resolve().parents[3]
 
 
@@ -46,12 +46,15 @@ def test_trip_migration_upgrade_downgrade_upgrade() -> None:
         alembic("upgrade", "head")
         inspector = inspect(engine)
         assert {"trips", "trip_items"}.issubset(inspector.get_table_names())
-        assert {"user_id", "title", "start_date", "end_date", "status", "visibility", "version"}.issubset(
+        assert {"user_id", "title", "start_date", "end_date", "status", "visibility", "share_token", "version"}.issubset(
             column["name"] for column in inspector.get_columns("trips")
         )
         assert {"trip_id", "destination_id", "day_number", "sort_order"}.issubset(
             column["name"] for column in inspector.get_columns("trip_items")
         )
+        trip_indexes = {index["name"] for index in inspector.get_indexes("trips")}
+        assert "ux_trips_share_token" in trip_indexes
+
         indexes = {index["name"] for index in inspector.get_indexes("trip_items")}
         assert {
             "ix_trip_items_destination_id",

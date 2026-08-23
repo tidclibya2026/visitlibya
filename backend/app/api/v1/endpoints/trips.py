@@ -27,6 +27,7 @@ from app.schemas.trip import (
     TripItemResponse,
     TripItemUpdate,
     TripListResponse,
+    TripOwnerDetailResponse,
     TripUpdate,
 )
 
@@ -34,6 +35,7 @@ from app.schemas.trip import (
 router = APIRouter(prefix="/trips", tags=["Trips"])
 TripId = Annotated[int, Path(ge=1)]
 ItemId = Annotated[int, Path(ge=1)]
+ShareToken = Annotated[str, Path(min_length=32, max_length=64)]
 
 
 def raise_http_error(error: TripError) -> NoReturn:
@@ -69,7 +71,7 @@ def raise_http_error(error: TripError) -> NoReturn:
     raise HTTPException(status_code=500, detail="Trip request failed") from error
 
 
-@router.post("", response_model=TripDetailResponse, status_code=status.HTTP_201_CREATED)
+@router.post("", response_model=TripOwnerDetailResponse, status_code=status.HTTP_201_CREATED)
 def create_trip(
     payload: TripCreate,
     user: CurrentActiveUserDependency,
@@ -94,7 +96,29 @@ def list_trips(
         raise_http_error(error)
 
 
-@router.get("/{trip_id}", response_model=TripDetailResponse)
+@router.get("/public/{trip_id}", response_model=TripDetailResponse)
+def get_public_trip(
+    trip_id: TripId,
+    service: TripServiceDependency,
+) -> TripDetailResponse:
+    try:
+        return service.get_public_trip(trip_id)
+    except TripError as error:
+        raise_http_error(error)
+
+
+@router.get("/shared/{share_token}", response_model=TripDetailResponse)
+def get_shared_trip(
+    share_token: ShareToken,
+    service: TripServiceDependency,
+) -> TripDetailResponse:
+    try:
+        return service.get_shared_trip(share_token)
+    except TripError as error:
+        raise_http_error(error)
+
+
+@router.get("/{trip_id}", response_model=TripOwnerDetailResponse)
 def get_trip(
     trip_id: TripId,
     user: CurrentActiveUserDependency,
@@ -106,7 +130,7 @@ def get_trip(
         raise_http_error(error)
 
 
-@router.patch("/{trip_id}", response_model=TripDetailResponse)
+@router.patch("/{trip_id}", response_model=TripOwnerDetailResponse)
 def update_trip(
     trip_id: TripId,
     payload: TripUpdate,
@@ -181,7 +205,7 @@ def delete_trip_item(
         raise_http_error(error)
 
 
-@router.put("/{trip_id}/items/reorder", response_model=TripDetailResponse)
+@router.put("/{trip_id}/items/reorder", response_model=TripOwnerDetailResponse)
 def reorder_trip_items(
     trip_id: TripId,
     payload: TripItemReorderRequest,
