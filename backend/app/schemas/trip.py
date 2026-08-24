@@ -156,5 +156,19 @@ class TripShareLinkRequest(BaseModel):
     expected_version: int | None = Field(default=None, ge=1)
 
 
+class TripCloneRequest(BaseModel):
+    title: str | None = Field(default=None, max_length=200)
+
+    @field_validator("title")
+    @classmethod
+    def validate_clone_title(cls, value: str | None) -> str | None:
+        if value is None:
+            return None
+        value = value.strip()
+        if not value:
+            raise ValueError("title must not be empty")
+        return value
+
+
 class TripListResponse(PaginatedResponse[TripSummaryResponse]):
     pass

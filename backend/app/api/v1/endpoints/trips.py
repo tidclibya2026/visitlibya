@@ -21,6 +21,7 @@ from app.core.exceptions import (
     TripPersistenceError,
 )
 from app.schemas.trip import (
+    TripCloneRequest,
     TripCreate,
     TripDetailResponse,
     TripItemCreate,
@@ -177,6 +178,23 @@ def revoke_trip_share_link(
             trip_id,
             TripShareLinkRequest(expected_version=expected_version),
         )
+    except TripError as error:
+        raise_http_error(error)
+
+
+@router.post(
+    "/{trip_id}/clone",
+    response_model=TripOwnerDetailResponse,
+    status_code=status.HTTP_201_CREATED,
+)
+def clone_trip(
+    trip_id: TripId,
+    payload: TripCloneRequest,
+    user: CurrentActiveUserDependency,
+    service: TripServiceDependency,
+) -> TripOwnerDetailResponse:
+    try:
+        return service.clone_trip(user.id, trip_id, payload)
     except TripError as error:
         raise_http_error(error)
 

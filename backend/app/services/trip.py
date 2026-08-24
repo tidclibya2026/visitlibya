@@ -26,6 +26,7 @@ from app.models.trip import Trip, TripStatus, TripVisibility
 from app.models.trip_item import TripItem
 from app.repositories.trip import TripRepository
 from app.schemas.trip import (
+    TripCloneRequest,
     TripCreate,
     TripDestinationSummary,
     TripDetailResponse,
@@ -187,6 +188,48 @@ class TripService:
             self.session.commit()
             trip.version = next_version
             return self._owner_detail(trip)
+
+        return self._write(operation)
+
+    def clone_trip(
+        self,
+        user_id: int,
+        trip_id: int,
+        payload: TripCloneRequest,
+    ) -> TripOwnerDetailResponse:
+        source = self._owned_trip(user_id, trip_id)
+
+        cloned = Trip(
+            user_id=user_id,
+            title=payload.title or f"{source.title} (Copy)",
+            description=source.description,
+            start_date=source.start_date,
+            end_date=source.end_date,
+            status=TripStatus.DRAFT,
+            visibility=TripVisibility.PRIVATE,
+            share_token=None,
+            version=1,
+        )
+
+        cloned.items = [
+            TripItem(
+                destination_id=item.destination_id,
+                destination=item.destination,
+                day_number=item.day_number,
+                visit_date=item.visit_date,
+                start_time=item.start_time,
+                duration_minutes=item.duration_minutes,
+                sort_order=item.sort_order,
+                notes=item.notes,
+            )
+            for item in source.items
+        ]
+
+        def operation() -> TripOwnerDetailResponse:
+            self.repository.create_trip(cloned)
+            self.repository.flush()
+            self.session.commit()
+            return self._owner_detail(cloned)
 
         return self._write(operation)
 

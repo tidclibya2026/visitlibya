@@ -30,6 +30,7 @@ from app.models.trip import Trip, TripStatus, TripVisibility
 from app.models.trip_item import TripItem
 from app.repositories.trip import TripListEntry
 from app.schemas.trip import (
+    TripCloneRequest,
     TripCreate,
     TripItemCreate,
     TripItemReorderElement,
@@ -1096,4 +1097,87 @@ def test_share_link_management_rejects_non_unlisted_trip(visibility) -> None:
             1,
             3,
             TripShareLinkRequest(),
+        )
+
+def test_clone_trip_copies_itinerary_as_private_draft() -> None:
+    subject, session, repository = service()
+
+    source_item = item(11, 1, 7)
+    source_item.start_time = time(10, 0)
+    source_item.duration_minutes = 90
+    source_item.notes = "Morning visit"
+
+    source = trip([source_item])
+    source.status = TripStatus.COMPLETED
+    source.visibility = TripVisibility.UNLISTED
+    source.share_token = "x" * 43
+
+    repository.get_owned_trip_by_id.return_value = source
+
+    def assign_clone() -> None:
+        cloned = repository.create_trip.call_args.args[0]
+        cloned.id = 44
+        cloned.created_at = cloned.updated_at = NOW
+        cloned.version = 1
+        for index, cloned_item in enumerate(cloned.items, start=100):
+            cloned_item.id = index
+            cloned_item.trip_id = cloned.id
+            cloned_item.created_at = cloned_item.updated_at = NOW
+
+    repository.flush.side_effect = assign_clone
+
+    result = subject.clone_trip(
+        1,
+        3,
+        TripCloneRequest(),
+    )
+
+    assert result.id == 44
+    assert result.status == TripStatus.DRAFT
+    assert result.visibility == TripVisibility.PRIVATE
+    assert result.share_token is None
+    assert result.version == 1
+    assert len(result.items) == 1
+
+    cloned_item = result.items[0]
+    assert cloned_item.destination.id == 7
+    assert cloned_item.day_number == 1
+    assert cloned_item.start_time == time(10, 0)
+    assert cloned_item.duration_minutes == 90
+    assert cloned_item.notes == "Morning visit"
+
+    session.commit.assert_called_once()
+
+
+def test_clone_trip_accepts_custom_title() -> None:
+    subject, _, repository = service()
+    source = trip([])
+    repository.get_owned_trip_by_id.return_value = source
+
+    def assign_clone() -> None:
+        cloned = repository.create_trip.call_args.args[0]
+        cloned.id = 44
+        cloned.created_at = cloned.updated_at = NOW
+        cloned.version = 1
+
+    repository.flush.side_effect = assign_clone
+
+    result = subject.clone_trip(
+        1,
+        3,
+        TripCloneRequest(title="My Libya Journey"),
+    )
+
+    assert result.title == "My Libya Journey"
+
+
+def test_clone_trip_requires_owned_source() -> None:
+    subject, _, repository = service()
+    repository.get_owned_trip_by_id.return_value = None
+
+    with pytest.raises(TripNotFoundError):
+        subject.clone_trip(
+            1,
+            999,
+            TripCloneRequest(),
         )
