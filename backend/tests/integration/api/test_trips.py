@@ -97,6 +97,10 @@ class FakeTripService:
         self.trip.share_token = None
         return self.trip
 
+    def clone_trip(self, user_id, trip_id, payload):
+        self._raise()
+        return self.trip
+
     def delete_trip(self, user_id, trip_id): self._raise()
     def add_trip_item(self, user_id, trip_id, payload): self._raise(); return self.trip.items[0]
     def update_trip_item(self, user_id, trip_id, item_id, payload): self._raise(); return self.trip.items[0]
@@ -264,7 +268,7 @@ def test_openapi_marks_owner_trip_operations_as_bearer_protected() -> None:
             else:
                 protected_operations.append(operation)
 
-    assert len(protected_operations) == 11
+    assert len(protected_operations) == 12
     assert len(public_operations) == 2
 
     assert all(
@@ -439,6 +443,112 @@ def test_invalid_trip_share_state_maps_to_conflict(test_user) -> None:
         "POST",
         "/api/v1/trips/3/share/rotate",
         json={"expected_version": 1},
+    )
+
+    assert response.status_code == 409
+
+def test_owner_can_clone_trip(test_user) -> None:
+    response = request(
+        FakeTripService(),
+        test_user,
+        "POST",
+        "/api/v1/trips/3/clone",
+        json={"title": "Copied Journey"},
+    )
+
+    assert response.status_code == 201
+
+
+def test_trip_clone_requires_authentication(test_user) -> None:
+    response = request(
+        FakeTripService(),
+        test_user,
+        "POST",
+        "/api/v1/trips/3/clone",
+        authenticated=False,
+        json={},
+    )
+
+    assert response.status_code == 401
+
+
+def test_trip_clone_title_validation(test_user) -> None:
+    response = request(
+        FakeTripService(),
+        test_user,
+        "POST",
+        "/api/v1/trips/3/clone",
+        json={"title": "   "},
+    )
+
+    assert response.status_code == 422
+
+def test_clone_trip_not_found_maps_to_404(test_user) -> None:
+    service = FakeTripService()
+    service.error = TripNotFoundError()
+
+    response = request(
+        service,
+        test_user,
+        "POST",
+        "/api/v1/trips/999/clone",
+        json={},
+    )
+
+    assert response.status_code == 404
+
+
+def test_clone_trip_persistence_failure_maps_to_500(test_user) -> None:
+    service = FakeTripService()
+    service.error = TripPersistenceError()
+
+    response = request(
+        service,
+        test_user,
+        "POST",
+        "/api/v1/trips/3/clone",
+        json={},
+    )
+
+    assert response.status_code == 500
+    assert response.json()["detail"] == "Trip service could not complete the request"
+
+
+def test_clone_trip_rejects_title_over_limit(test_user) -> None:
+    response = request(
+        FakeTripService(),
+        test_user,
+        "POST",
+        "/api/v1/trips/3/clone",
+        json={"title": "x" * 201},
+    )
+
+    assert response.status_code == 422
+
+def test_shared_trip_error_is_mapped_through_trip_error_handler(test_user) -> None:
+    service = FakeTripService()
+    service.error = TripNotFoundError()
+
+    response = request(
+        service,
+        test_user,
+        "GET",
+        f"/api/v1/trips/shared/{'x' * 43}",
+        authenticated=False,
+    )
+
+    assert response.status_code == 404
+
+
+def test_revoke_share_link_error_is_mapped_through_trip_error_handler(test_user) -> None:
+    service = FakeTripService()
+    service.error = TripConcurrentModificationError()
+
+    response = request(
+        service,
+        test_user,
+        "DELETE",
+        "/api/v1/trips/3/share?expected_version=1",
     )
 
     assert response.status_code == 409
