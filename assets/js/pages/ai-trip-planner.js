@@ -17,6 +17,10 @@ import {
 } from "../app/ai/trip-planner-trip-creator.js";
 
 import {
+  enrichPlannerDestinationsWithCoordinates,
+} from "../app/ai/coordinate-enrichment.js";
+
+import {
   curatedDestinations,
 } from "../data/curated-destinations.js";
 
@@ -382,7 +386,7 @@ function initializePlanner() {
       ? "ar"
       : "en";
 
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = new FormData(form);
@@ -411,9 +415,32 @@ function initializePlanner() {
         ),
     };
 
+    let plannerDestinations =
+      curatedDestinations;
+
+    try {
+      const context = await bootstrap();
+
+      if (context?.config?.apiEnabled) {
+        plannerDestinations =
+          await enrichPlannerDestinationsWithCoordinates(
+            curatedDestinations,
+            {
+              listDestinationCatalogue:
+                listTripDestinationCatalogue,
+            },
+          );
+      }
+    } catch (error) {
+      console.warn(
+        "AI Planner coordinate enrichment unavailable; using regional fallback.",
+        error,
+      );
+    }
+
     const itinerary =
       buildSuggestedItinerary(
-        curatedDestinations,
+        plannerDestinations,
         preferences,
       );
 
