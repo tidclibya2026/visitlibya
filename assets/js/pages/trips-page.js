@@ -1,5 +1,10 @@
 import { login } from "../app/api/auth-api.js";
-import { createTrip, deleteTrip, listTrips } from "../app/api/trips-api.js";
+import {
+  cloneTrip,
+  createTrip,
+  deleteTrip,
+  listTrips,
+} from "../app/api/trips-api.js";
 import { clearSession } from "../app/auth/session.js";
 import { bootstrap } from "../app/bootstrap.js";
 import { getLocalizedErrorMessage } from "../app/errors/error-messages.js";
@@ -167,6 +172,7 @@ async function initializeTripsPage() {
           locale,
           t,
           onOpen: openTrip,
+          onClone: (trip) => void cloneExistingTrip(trip),
           onDelete: (trip) => openDeleteConfirmation(trip),
         });
       }
@@ -212,6 +218,22 @@ async function initializeTripsPage() {
         void loadTripsPage(1, { focus: true });
       },
     });
+  };
+
+  const cloneExistingTrip = async (trip) => {
+    try {
+      const cloned = await cloneTrip(trip.id);
+      toast.success(t("trips.cloned"), { closeLabel: t("common.close") });
+      announce(t("trips.cloned"), { force: true });
+      globalThis.location.assign(
+        `trip.html?id=${encodeURIComponent(cloned.id)}`,
+      );
+    } catch (error) {
+      if (error.status === 401) return;
+      const message = publicErrorMessage(error, t);
+      toast.error(message, { closeLabel: t("common.close") });
+      announce(message, { priority: "assertive", force: true });
+    }
   };
 
   const openDeleteConfirmation = (trip) => {

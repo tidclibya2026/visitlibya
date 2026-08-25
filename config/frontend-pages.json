@@ -101,6 +101,15 @@
       "indexable": false,
       "sitemap": false,
       "alternate": "ar/trip.html"
+    },
+    {
+      "page": "shared-trip.html",
+      "classification": "live-backend-required",
+      "controller": "assets/js/pages/shared-trip.js",
+      "runtime": "shared-trip-unavailable",
+      "indexable": false,
+      "sitemap": false,
+      "alternate": "ar/shared-trip.html"
     }
   ],
   "apiDependentPages": [
@@ -108,7 +117,8 @@
     "destination.html",
     "register.html",
     "trips.html",
-    "trip.html"
+    "trip.html",
+    "shared-trip.html"
   ],
   "criticalUrls": [
     "index.html",
@@ -122,7 +132,9 @@
     "trips.html",
     "ar/trips.html",
     "trip.html?id=1",
-    "ar/trip.html?id=1"
+    "ar/trip.html?id=1",
+    "shared-trip.html?id=1",
+    "ar/shared-trip.html?id=1"
   ],
   "socialImage": "imges/Leptis Magna3.jpeg",
   "curatedDestinationSitemap": {

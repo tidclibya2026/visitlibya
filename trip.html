@@ -131,6 +131,38 @@
         </form>
       </div>
 
+      <section class="trip-insight-card trip-share-panel"
+        data-trip-share-panel
+        aria-labelledby="tripShareTitle">
+        <span class="kicker">Sharing and privacy</span>
+        <h2 id="tripShareTitle">Trip sharing</h2>
+        <p data-trip-share-status>Share settings will appear here.</p>
+        <code class="trip-share-token" data-trip-share-token hidden></code>
+        <div class="trips-toolbar-actions">
+          <button
+            class="trips-primary-button"
+            type="button"
+            data-trip-share-rotate
+            disabled>
+            Create share link
+          </button>
+          <button
+            class="trips-secondary-button"
+            type="button"
+            data-trip-share-copy
+            disabled>
+            Copy trip link
+          </button>
+          <button
+            class="trips-danger-button"
+            type="button"
+            data-trip-share-revoke
+            disabled>
+            Revoke link
+          </button>
+        </div>
+      </section>
+
       <section class="trip-map" data-trip-map aria-labelledby="tripMapTitle">
         <div class="trip-map__heading"><div><span class="kicker">Your itinerary geography</span><h2 id="tripMapTitle">Trip Map</h2><p>See where your planned destinations are located. The day-by-day itinerary remains the complete trip record.</p></div><span class="trip-map__legend">Itinerary sequence</span></div>
         <p class="trip-map__status" data-trip-map-status role="status" aria-live="polite">Your trip map will appear here</p>

@@ -80,7 +80,11 @@ export function renderTripsError(container, message, retryLabel, onRetry) {
   container.appendChild(panel);
 }
 
-export function renderTrips(container, trips, { locale, t, onOpen, onDelete }) {
+export function renderTrips(
+  container,
+  trips,
+  { locale, t, onOpen, onClone, onDelete },
+) {
   clearChildren(container);
   container.setAttribute("aria-busy", "false");
   const grid = createElement("div", { className: "trips-grid" });
@@ -138,14 +142,20 @@ export function renderTrips(container, trips, { locale, t, onOpen, onDelete }) {
       text: t("trips.open"),
       attributes: { type: "button" },
     });
+    const clone = createElement("button", {
+      className: "trips-secondary-button",
+      text: t("trips.clone"),
+      attributes: { type: "button" },
+    });
     const remove = createElement("button", {
       className: "trips-danger-button",
       text: t("common.delete"),
       attributes: { type: "button" },
     });
     open.addEventListener("click", () => onOpen(trip));
+    clone.addEventListener("click", () => onClone(trip));
     remove.addEventListener("click", () => onDelete(trip));
-    actions.append(open, remove);
+    actions.append(open, clone, remove);
     article.appendChild(actions);
     grid.appendChild(article);
   });

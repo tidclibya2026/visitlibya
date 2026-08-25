@@ -54,6 +54,33 @@ export function getTrip(tripId, options = {}) {
   return apiClient.get(tripPath(tripId), options);
 }
 
+/** @returns {Promise<TripDetailResponse>} */
+export function getPublicTrip(tripId, options = {}) {
+  return apiClient.get(
+    `/trips/public/${encodeURIComponent(tripId)}`,
+    options,
+  );
+}
+
+/** @returns {Promise<TripDetailResponse>} */
+export function getSharedTrip(shareToken, options = {}) {
+  return apiClient.get(
+    `/trips/shared/${encodeURIComponent(shareToken)}`,
+    options,
+  );
+}
+
+/**
+ * Clone an owned itinerary. The backend always creates the clone as
+ * draft/private with a fresh identity and no share token.
+ *
+ * @param {{title?: string|null}} payload
+ * @returns {Promise<TripDetailResponse>}
+ */
+export function cloneTrip(tripId, payload = {}, options = {}) {
+  return apiClient.post(`${tripPath(tripId)}/clone`, payload, options);
+}
+
 /**
  * @param {{title: string, description?: string|null, start_date?: string|null,
  * end_date?: string|null, status?: string, visibility?: string}} payload
@@ -74,6 +101,43 @@ export function updateTrip(tripId, payload, options = {}) {
 
 export function deleteTrip(tripId, options = {}) {
   return apiClient.delete(tripPath(tripId), options);
+}
+
+/**
+ * Rotate or create the secure link for an unlisted owned trip.
+ *
+ * @returns {Promise<TripDetailResponse>}
+ */
+export function rotateTripShareLink(
+  tripId,
+  expectedVersion = null,
+  options = {},
+) {
+  return apiClient.post(
+    `${tripPath(tripId)}/share/rotate`,
+    {
+      expected_version: expectedVersion,
+    },
+    options,
+  );
+}
+
+/**
+ * Revoke the secure link while keeping the trip visibility unlisted.
+ *
+ * @returns {Promise<TripDetailResponse>}
+ */
+export function revokeTripShareLink(
+  tripId,
+  expectedVersion = null,
+  options = {},
+) {
+  return apiClient.delete(
+    `${tripPath(tripId)}/share${buildQueryString({
+      expected_version: expectedVersion,
+    })}`,
+    options,
+  );
 }
 
 /**
