@@ -1,3 +1,18 @@
+import {
+  destinationRegion,
+  geographicPenalty,
+  maxMajorRegionsForDays,
+  startingRegion,
+} from "./geographic-intelligence.js";
+
+import {
+  orderDestinationsWithinRegion,
+} from "./route-sequencing.js";
+
+import {
+  requiresTravelDay,
+} from "./travel-day-planner.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -195,36 +210,49 @@ function scoreTravelerType(destination, travelerType) {
 function scoreDestination(destination, preferences) {
   const interests = normalizeList(preferences.interests);
 
-  const interestScore = scoreInterestMatch(
-    destination,
-    interests,
-  );
+  const interestScore =
+    scoreInterestMatch(destination, interests);
 
-  const startingRegionScore = scoreStartingRegion(
-    destination,
-    preferences.startingPoint,
-  );
+  const startingRegionScore =
+    scoreStartingRegion(
+      destination,
+      preferences.startingPoint,
+    );
 
-  const travelerScore = scoreTravelerType(
-    destination,
-    preferences.travelerType,
-  );
+  const travelerScore =
+    scoreTravelerType(
+      destination,
+      preferences.travelerType,
+    );
 
   const contentScore =
-    destination.description_en || destination.description_ar
+    destination.description_en ||
+    destination.description_ar
       ? 5
       : 0;
 
+  const geoPenalty = geographicPenalty({
+    destination,
+    startingPoint: preferences.startingPoint,
+    days: preferences.days,
+  });
+
+  const tourismScore =
+    interestScore +
+    startingRegionScore +
+    travelerScore +
+    contentScore;
+
   return {
-    total:
-      interestScore +
-      startingRegionScore +
-      travelerScore +
-      contentScore,
+    total: tourismScore - geoPenalty,
+    tourismScore,
     interestScore,
     startingRegionScore,
     travelerScore,
     contentScore,
+    geographicPenalty: geoPenalty,
+    geographicRegion:
+      destinationRegion(destination),
   };
 }
 
@@ -280,6 +308,210 @@ function safeDayCount(days) {
   );
 }
 
+function selectGeographicallyCoherentDestinations(
+  ranked,
+  preferences,
+  maximumStops,
+) {
+  const days = safeDayCount(preferences.days);
+
+  const maximumRegions =
+    maxMajorRegionsForDays(days);
+
+  const originRegion =
+    startingRegion(preferences.startingPoint);
+
+  const selectedRegions = new Set();
+
+  if (originRegion !== "unknown") {
+    selectedRegions.add(originRegion);
+  }
+
+  const selected = [];
+
+  for (const entry of ranked) {
+    if (selected.length >= maximumStops) {
+      break;
+    }
+
+    if (entry.score.total <= 0) {
+      continue;
+    }
+
+    const region =
+      destinationRegion(entry.destination);
+
+    if (
+      region !== "unknown" &&
+      !selectedRegions.has(region) &&
+      selectedRegions.size >= maximumRegions
+    ) {
+      continue;
+    }
+
+    selected.push(entry);
+
+    if (region !== "unknown") {
+      selectedRegions.add(region);
+    }
+  }
+
+  return selected;
+}
+
+
+function orderSelectedDestinationsByRoute(
+  selected,
+  preferences,
+) {
+  const originRegion =
+    startingRegion(preferences.startingPoint);
+
+  const grouped = new Map();
+
+  for (const entry of selected) {
+    const region =
+      destinationRegion(entry.destination);
+
+    if (!grouped.has(region)) {
+      grouped.set(region, []);
+    }
+
+    grouped.get(region).push(entry);
+  }
+
+  const orderedRegions = [
+    originRegion,
+    ...[...grouped.keys()].filter(
+      (region) => region !== originRegion,
+    ),
+  ];
+
+  const ordered = [];
+
+  for (const region of orderedRegions) {
+    const entries = grouped.get(region);
+
+    if (!entries?.length) {
+      continue;
+    }
+
+    const orderedDestinations =
+      orderDestinationsWithinRegion(
+        entries.map(
+          (entry) => entry.destination,
+        ),
+        region,
+      );
+
+    const entryBySlug = new Map(
+      entries.map((entry) => [
+        String(entry.destination.slug)
+          .trim()
+          .toLowerCase(),
+        entry,
+      ]),
+    );
+
+    for (const destination of orderedDestinations) {
+      const slug =
+        String(destination.slug)
+          .trim()
+          .toLowerCase();
+
+      const entry = entryBySlug.get(slug);
+
+      if (entry) {
+        ordered.push(entry);
+      }
+    }
+  }
+
+  return ordered;
+}
+
+
+function allocateTravelAwareDays(
+  selected,
+  days,
+  dailyCapacity,
+) {
+  const itineraryDays = Array.from(
+    { length: days },
+    (_, index) => ({
+      dayNumber: index + 1,
+      type: "visit",
+      destinations: [],
+    }),
+  );
+
+  let dayIndex = 0;
+  let stopsToday = 0;
+  let previousDestination = null;
+
+  for (const entry of selected) {
+    const destination = entry.destination;
+
+    if (
+      previousDestination &&
+      requiresTravelDay(
+        previousDestination,
+        destination,
+      )
+    ) {
+      if (stopsToday > 0) {
+        dayIndex += 1;
+        stopsToday = 0;
+      }
+
+      if (dayIndex >= days) {
+        break;
+      }
+
+      itineraryDays[dayIndex] = {
+        dayNumber: dayIndex + 1,
+        type: "travel",
+        fromRegion:
+          destinationRegion(
+            previousDestination,
+          ),
+        toRegion:
+          destinationRegion(
+            destination,
+          ),
+        destinations: [],
+      };
+
+      dayIndex += 1;
+      stopsToday = 0;
+
+      if (dayIndex >= days) {
+        break;
+      }
+    }
+
+    if (stopsToday >= dailyCapacity) {
+      dayIndex += 1;
+      stopsToday = 0;
+    }
+
+    if (dayIndex >= days) {
+      break;
+    }
+
+    itineraryDays[dayIndex].destinations.push({
+      ...destination,
+      planner_score: entry.score,
+    });
+
+    previousDestination = destination;
+    stopsToday += 1;
+  }
+
+  return itineraryDays;
+}
+
+
 export function buildSuggestedItinerary(
   destinations,
   preferences = {},
@@ -294,34 +526,36 @@ export function buildSuggestedItinerary(
 
   const maximumStops = days * dailyCapacity;
 
-  const selected = ranked
-    .filter((entry) => entry.score.total > 0)
-    .slice(0, maximumStops);
-
-  const itineraryDays = Array.from(
-    { length: days },
-    (_, index) => ({
-      dayNumber: index + 1,
-      destinations: [],
-    }),
-  );
-
-  selected.forEach((entry, index) => {
-    const dayIndex = Math.floor(
-      index / dailyCapacity,
+  const selected =
+    selectGeographicallyCoherentDestinations(
+      ranked,
+      preferences,
+      maximumStops,
     );
 
-    if (itineraryDays[dayIndex]) {
-      itineraryDays[dayIndex].destinations.push({
-        ...entry.destination,
-        planner_score: entry.score,
-      });
-    }
-  });
+  const routeOrderedSelected =
+    orderSelectedDestinationsByRoute(
+      selected,
+      preferences,
+    );
+
+  const itineraryDays =
+    allocateTravelAwareDays(
+      routeOrderedSelected,
+      days,
+      dailyCapacity,
+    );
+
+  const actualSelectedCount =
+    itineraryDays.reduce(
+      (total, day) =>
+        total + day.destinations.length,
+      0,
+    );
 
   return {
     days: itineraryDays,
-    selectedCount: selected.length,
+    selectedCount: actualSelectedCount,
     requestedDays: days,
     pace: normalizeValue(preferences.pace) || "balanced",
     preferences: {
