@@ -47,6 +47,10 @@ import {
   insertMealAndRestStops,
 } from "./meal-rest-intelligence.js";
 
+import {
+  unifiedDailyTimeline,
+} from "./unified-daily-timeline.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -861,7 +865,7 @@ export function buildSuggestedItinerary(
         }),
       );
 
-    day.timeline =
+    const mealRestTimeline =
       insertMealAndRestStops({
         scheduledItems:
           scheduledDestinations,
@@ -872,19 +876,7 @@ export function buildSuggestedItinerary(
           item?.type === "meal" ||
           item?.type === "rest"
         ) {
-          return {
-            ...item,
-
-            startsAtLabel:
-              formatClockMinutes(
-                item.startsAt,
-              ),
-
-            endsAtLabel:
-              formatClockMinutes(
-                item.endsAt,
-              ),
-          };
+          return item;
         }
 
         return {
@@ -901,22 +893,13 @@ export function buildSuggestedItinerary(
             item.startsAt,
           endsAt:
             item.endsAt,
-
-          startsAtLabel:
-            item.startsAt === null
-              ? null
-              : formatClockMinutes(
-                  item.startsAt,
-                ),
-
-          endsAtLabel:
-            item.endsAt === null
-              ? null
-              : formatClockMinutes(
-                  item.endsAt,
-                ),
         };
       });
+
+    day.timeline =
+      unifiedDailyTimeline(
+        mealRestTimeline,
+      );
   }
 
   const actualSelectedCount =

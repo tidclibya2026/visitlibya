@@ -1211,3 +1211,152 @@ test("planner timeline can include meal stop", () => {
       ),
   );
 });
+
+test("planner unified timeline inserts travel between destinations", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+        {
+          slug: "sabratha",
+          category_key: "archaeology",
+          description_en: "Sabratha",
+          latitude: 32.7933,
+          longitude: 12.4885,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+          "heritage",
+        ],
+        travelerType: "solo",
+        pace: "active",
+      },
+    );
+
+  assert.ok(
+    result.days[0]
+      .timeline.some(
+        (entry) =>
+          entry.type === "travel",
+      ),
+  );
+});
+
+
+test("planner unified timeline exposes travel duration", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+        {
+          slug: "sabratha",
+          category_key: "archaeology",
+          description_en: "Sabratha",
+          latitude: 32.7933,
+          longitude: 12.4885,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+          "heritage",
+        ],
+        travelerType: "solo",
+        pace: "active",
+      },
+    );
+
+  const travel =
+    result.days[0]
+      .timeline.find(
+        (entry) =>
+          entry.type === "travel",
+      );
+
+  assert.ok(
+    travel.durationMinutes > 0,
+  );
+
+  assert.equal(
+    travel.fromDestination.slug,
+    "tripoli",
+  );
+
+  assert.equal(
+    travel.toDestination.slug,
+    "sabratha",
+  );
+});
+
+
+test("planner unified timeline remains chronological", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+        {
+          slug: "sabratha",
+          category_key: "archaeology",
+          description_en: "Sabratha",
+          latitude: 32.7933,
+          longitude: 12.4885,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+          "heritage",
+        ],
+        travelerType: "solo",
+        pace: "active",
+      },
+    );
+
+  const starts =
+    result.days[0]
+      .timeline
+      .map(
+        (item) =>
+          item.startsAt,
+      )
+      .filter(
+        (value) =>
+          Number.isFinite(value),
+      );
+
+  const sorted =
+    [...starts].sort(
+      (a, b) => a - b,
+    );
+
+  assert.deepEqual(
+    starts,
+    sorted,
+  );
+});
