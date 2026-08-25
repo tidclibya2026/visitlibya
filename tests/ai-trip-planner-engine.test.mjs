@@ -594,7 +594,7 @@ test("planner exposes coordinate routing evidence when available", () => {
 
   assert.equal(
     ranked[0].score.routingMode,
-    "coordinates",
+    "travel-time",
   );
 
   assert.equal(
@@ -630,5 +630,124 @@ test("planner falls back to region routing without coordinates", () => {
   assert.equal(
     ranked[0].score.coordinatePenalty,
     null,
+  );
+});
+
+test("planner exposes travel time routing evidence when coordinates exist", () => {
+  const ranked =
+    rankPlannerDestinations(
+      [
+        {
+          slug: "benghazi",
+          category_key: "historic-cities",
+          description_en: "Benghazi",
+          latitude: 32.1167,
+          longitude: 20.0667,
+        },
+      ],
+      {
+        days: 3,
+        startingPoint: "benghazi",
+        interests: ["history"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.equal(
+    ranked[0].score.routingMode,
+    "travel-time",
+  );
+
+  assert.equal(
+    ranked[0].score.travelTimeMinutes,
+    0,
+  );
+
+  assert.equal(
+    ranked[0].score.exceedsDailyTravelBudget,
+    false,
+  );
+});
+
+
+test("planner falls back to regional routing without coordinate evidence", () => {
+  const ranked =
+    rankPlannerDestinations(
+      [
+        {
+          slug: "green-mountain",
+          category_key: "mountains-nature",
+          description_en: "Green Mountain",
+        },
+      ],
+      {
+        days: 3,
+        startingPoint: "benghazi",
+        interests: ["nature"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.equal(
+    ranked[0].score.routingMode,
+    "region",
+  );
+
+  assert.equal(
+    ranked[0].score.travelTimeMinutes,
+    null,
+  );
+});
+
+
+test("relaxed itinerary reserves travel day when coordinate travel budget is exceeded", () => {
+  const destinations = [
+    {
+      slug: "tripoli",
+      category_key: "historic-cities",
+      description_en: "Tripoli",
+      latitude: 32.8872,
+      longitude: 13.1913,
+    },
+    {
+      slug: "sabratha",
+      category_key: "archaeology",
+      description_en: "Sabratha",
+      latitude: 32.7933,
+      longitude: 12.4885,
+    },
+    {
+      slug: "benghazi",
+      category_key: "historic-cities",
+      description_en: "Benghazi",
+      latitude: 32.1167,
+      longitude: 20.0667,
+    },
+  ];
+
+  const result =
+    buildSuggestedItinerary(
+      destinations,
+      {
+        days: 7,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+          "heritage",
+        ],
+        travelerType: "solo",
+        pace: "relaxed",
+      },
+    );
+
+  const travelDays =
+    result.days.filter(
+      (day) => day.type === "travel",
+    );
+
+  assert.ok(
+    travelDays.length >= 1,
   );
 });

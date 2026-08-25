@@ -20,6 +20,11 @@ import {
   validCoordinates,
 } from "./coordinate-routing.js";
 
+import {
+  requiresTravelTimeDay,
+  travelTimePenalty,
+} from "./travel-time-intelligence.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -257,13 +262,26 @@ function scoreDestination(destination, preferences) {
       pace: preferences.pace,
     });
 
+  const travelTimeResult =
+    travelTimePenalty({
+      source: originCoordinates,
+      target: destination,
+      days: preferences.days,
+      pace: preferences.pace,
+    });
+
+  const hasTravelTimeEvidence =
+    travelTimeResult.minutes !== null;
+
   const hasCoordinateEvidence =
     coordinateResult.distanceKm !== null;
 
   const travelPenalty =
-    hasCoordinateEvidence
-      ? coordinateResult.penalty
-      : regionalPenalty;
+    hasTravelTimeEvidence
+      ? travelTimeResult.penalty
+      : hasCoordinateEvidence
+        ? coordinateResult.penalty
+        : regionalPenalty;
 
   const tourismScore =
     interestScore +
@@ -293,10 +311,28 @@ function scoreDestination(destination, preferences) {
     distanceBand:
       coordinateResult.band,
 
+    travelTimeMinutes:
+      travelTimeResult.minutes,
+
+    travelTimeBand:
+      travelTimeResult.band,
+
+    travelTimePenalty:
+      hasTravelTimeEvidence
+        ? travelTimeResult.penalty
+        : null,
+
+    exceedsDailyTravelBudget:
+      hasTravelTimeEvidence
+        ? travelTimeResult.exceedsDailyBudget
+        : null,
+
     routingMode:
-      hasCoordinateEvidence
-        ? "coordinates"
-        : "region",
+      hasTravelTimeEvidence
+        ? "travel-time"
+        : hasCoordinateEvidence
+          ? "coordinates"
+          : "region",
 
     geographicRegion:
       destinationRegion(destination),
@@ -509,10 +545,34 @@ function orderSelectedDestinationsByRoute(
 }
 
 
+function shouldReserveTravelDay(
+  previousDestination,
+  nextDestination,
+  preferences,
+) {
+  const travelTimeDecision =
+    requiresTravelTimeDay({
+      source: previousDestination,
+      target: nextDestination,
+      pace: preferences.pace,
+    });
+
+  if (travelTimeDecision !== null) {
+    return travelTimeDecision;
+  }
+
+  return requiresTravelDay(
+    previousDestination,
+    nextDestination,
+  );
+}
+
+
 function allocateTravelAwareDays(
   selected,
   days,
   dailyCapacity,
+  preferences,
 ) {
   const itineraryDays = Array.from(
     { length: days },
@@ -532,9 +592,10 @@ function allocateTravelAwareDays(
 
     if (
       previousDestination &&
-      requiresTravelDay(
+      shouldReserveTravelDay(
         previousDestination,
         destination,
+        preferences,
       )
     ) {
       if (stopsToday > 0) {
@@ -622,6 +683,7 @@ export function buildSuggestedItinerary(
       routeOrderedSelected,
       days,
       dailyCapacity,
+      preferences,
     );
 
   const actualSelectedCount =
