@@ -1360,3 +1360,141 @@ test("planner unified timeline remains chronological", () => {
     sorted,
   );
 });
+
+test("planner day exposes daily summary", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+        {
+          slug: "sabratha",
+          category_key: "archaeology",
+          description_en: "Sabratha",
+          latitude: 32.7933,
+          longitude: 12.4885,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+          "heritage",
+        ],
+        travelerType: "solo",
+        pace: "active",
+      },
+    );
+
+  assert.ok(
+    result.days[0].summary,
+  );
+
+  assert.equal(
+    typeof result.days[0]
+      .summary.stopCount,
+    "number",
+  );
+
+  assert.equal(
+    typeof result.days[0]
+      .summary.visitMinutes,
+    "number",
+  );
+
+  assert.equal(
+    typeof result.days[0]
+      .summary.travelMinutes,
+    "number",
+  );
+});
+
+
+test("planner daily summary matches timeline destinations", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+        {
+          slug: "sabratha",
+          category_key: "archaeology",
+          description_en: "Sabratha",
+          latitude: 32.7933,
+          longitude: 12.4885,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+          "heritage",
+        ],
+        travelerType: "solo",
+        pace: "active",
+      },
+    );
+
+  const destinationCount =
+    result.days[0]
+      .timeline.filter(
+        (item) =>
+          item.type ===
+          "destination",
+      ).length;
+
+  assert.equal(
+    result.days[0]
+      .summary.stopCount,
+    destinationCount,
+  );
+});
+
+
+test("planner daily summary exposes intensity", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.ok(
+    [
+      "light",
+      "moderate",
+      "high",
+      "unknown",
+    ].includes(
+      result.days[0]
+        .summary.intensity,
+    ),
+  );
+});

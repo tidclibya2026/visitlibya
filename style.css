@@ -1041,3 +1041,61 @@ body.lightbox-open {
     inset-inline-start: 14px;
   }
 }
+
+.ai-planner-day-summary {
+  margin-top: 22px;
+  padding: 16px;
+  border: 1px solid rgba(21, 45, 70, .12);
+  border-radius: 14px;
+  background: rgba(21, 45, 70, .025);
+}
+
+.ai-planner-day-summary-heading {
+  margin: 0 0 14px;
+  font-size: 1rem;
+}
+
+.ai-planner-day-summary-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ai-planner-day-summary-card {
+  display: grid;
+  gap: 3px;
+  padding: 11px 12px;
+  border: 1px solid rgba(21, 45, 70, .10);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .78);
+}
+
+.ai-planner-day-summary-value {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.ai-planner-day-summary-label {
+  font-size: .76rem;
+  opacity: .68;
+}
+
+.ai-planner-day-summary-timing {
+  margin: 12px 0 0;
+  font-size: .82rem;
+  opacity: .72;
+}
+
+@media (max-width: 760px) {
+  .ai-planner-day-summary-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 420px) {
+  .ai-planner-day-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}

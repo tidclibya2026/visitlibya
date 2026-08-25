@@ -51,6 +51,11 @@ import {
   unifiedDailyTimeline,
 } from "./unified-daily-timeline.js";
 
+import {
+  dailySummary,
+  dayIntensity,
+} from "./daily-summary-intelligence.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -900,6 +905,20 @@ export function buildSuggestedItinerary(
       unifiedDailyTimeline(
         mealRestTimeline,
       );
+
+    const summary =
+      dailySummary(
+        day.timeline,
+      );
+
+    day.summary = {
+      ...summary,
+
+      intensity:
+        dayIntensity(
+          summary,
+        ),
+    };
   }
 
   const actualSelectedCount =
