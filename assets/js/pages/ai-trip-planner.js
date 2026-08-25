@@ -363,6 +363,18 @@ function renderItinerary(root, itinerary, locale) {
     }
 
     section.append(grid);
+    const timeline =
+      renderDayTimeline(
+        day,
+        locale,
+      );
+
+    if (timeline) {
+      section.append(
+        timeline,
+      );
+    }
+
     root.append(section);
   }
 }
