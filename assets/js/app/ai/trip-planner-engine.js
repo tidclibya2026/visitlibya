@@ -56,6 +56,10 @@ import {
   dayIntensity,
 } from "./daily-summary-intelligence.js";
 
+import {
+  tripFeasibility,
+} from "./trip-feasibility-score.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -928,8 +932,14 @@ export function buildSuggestedItinerary(
       0,
     );
 
+  const feasibility =
+    tripFeasibility({
+      days: itineraryDays,
+    });
+
   return {
     days: itineraryDays,
+    feasibility,
     selectedCount: actualSelectedCount,
     requestedDays: days,
     pace: normalizeValue(preferences.pace) || "balanced",

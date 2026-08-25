@@ -1498,3 +1498,120 @@ test("planner daily summary exposes intensity", () => {
     ),
   );
 });
+
+test("planner exposes trip feasibility score", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.ok(
+    result.feasibility,
+  );
+
+  assert.equal(
+    typeof result.feasibility.score,
+    "number",
+  );
+
+  assert.ok(
+    result.feasibility.score >= 0 &&
+    result.feasibility.score <= 100,
+  );
+});
+
+
+test("planner feasibility exposes rating", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.ok(
+    [
+      "excellent",
+      "good",
+      "fair",
+      "needs-review",
+    ].includes(
+      result.feasibility.rating,
+    ),
+  );
+});
+
+
+test("planner feasibility exposes explainable evidence", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.equal(
+    typeof result.feasibility
+      .evidence.dayCount,
+    "number",
+  );
+
+  assert.ok(
+    Array.isArray(
+      result.feasibility.warnings,
+    ),
+  );
+
+  assert.ok(
+    Array.isArray(
+      result.feasibility.strengths,
+    ),
+  );
+});
