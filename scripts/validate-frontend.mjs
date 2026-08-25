@@ -343,7 +343,10 @@ if (/\b(?:innerHTML|outerHTML|insertAdjacentHTML|eval|document\.write)\b/.test(d
 }
 
 const tripEditorController = fs.readFileSync(path.join(root, "assets/js/pages/trip-editor.js"), "utf8");
-const destinationEnrichmentController = tripEditorController;
+const destinationEnrichmentController = fs.readFileSync(
+  path.join(root, "assets/js/app/trips/destination-enrichment.js"),
+  "utf8",
+);
 for (const requirement of [
   /enrichTripDestinations\(destinations, locale,/,
   /\.catch\(\(\) => \{[\s\S]{0,180}Enrichment is optional/,
@@ -356,8 +359,8 @@ for (const requirement of [
   /let destinationPageRequest = null/,
   /Number\(bySlug\?\.id\) === identity\.id/,
   /resolveResponsiveImage\(imageSource, pathPrefix\)/,
-]) if (!requirement.test(destinationEnrichmentController)) issue("Trip enrichment", `trip-editor.js: missing cache/media guard ${requirement}`);
-if (/\b(?:localStorage|sessionStorage|innerHTML|outerHTML|insertAdjacentHTML|eval|document\.write)\b/.test(destinationEnrichmentController)) issue("Trip enrichment", "trip-editor.js: unsafe storage or DOM API found");
+]) if (!requirement.test(destinationEnrichmentController)) issue("Trip enrichment", `destination-enrichment.js: missing cache/media guard ${requirement}`);
+if (/\b(?:localStorage|sessionStorage|innerHTML|outerHTML|insertAdjacentHTML|eval|document\.write)\b/.test(destinationEnrichmentController)) issue("Trip enrichment", "destination-enrichment.js: unsafe storage or DOM API found");
 for (const rel of ["trip.html", "ar/trip.html", "trips.html", "ar/trips.html", "register.html", "ar/register.html"]) {
   if (!(htmlByRelative.get(rel) ?? "").includes("trips.css?v=trip-map-01")) issue("Trip enrichment", `${rel}: shared trips stylesheet cache key is stale`);
 }
@@ -810,7 +813,17 @@ if (fs.existsSync(allowlistPath)) {
   for (const asset of ["visitlibyalogo.png", "favicon.png"]) if (!iconAllowlist.includes(asset)) issue("Visual system", `artifact allowlist omits ${asset}`);
 }const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
 const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Trip map", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Media delivery", "Visual system", "Image size audit"];
-for (const name of orderedSections) {
+
+const extraSections = [...sections.keys()]
+  .filter((name) => !orderedSections.includes(name))
+  .sort();
+
+const displayedSections = [
+  ...orderedSections,
+  ...extraSections,
+];
+
+for (const name of displayedSections) {
   const items = sections.get(name) ?? [];
   if (items.length) {
     console.error(`FAIL ${name} (${items.length})`);
@@ -822,5 +835,5 @@ if (failures) {
   console.error(`Frontend validation failed: ${failures} violation(s), ${warnings.length} warning(s).`);
   process.exitCode = 1;
 } else {
-  console.log(`Frontend validation passed: ${orderedSections.length} sections, ${actualPages.length} pages, ${warnings.length} warning(s).`);
+  console.log(`Frontend validation passed: ${displayedSections.length} sections, ${actualPages.length} pages, ${warnings.length} warning(s).`);
 }

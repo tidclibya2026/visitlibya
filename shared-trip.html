@@ -62,11 +62,30 @@
 </header>
 
 <main id="tripsMain" class="trips-app">
-  <section class="trips-hero">
-    <div>
-      <span class="kicker">Shared itinerary</span>
-      <h1>Shared Trip</h1>
-      <p>Explore a trip itinerary shared through Visit Libya.</p>
+  <section class="trips-hero shared-trip-hero" data-shared-trip-hero>
+    <picture
+      class="shared-trip-hero__media"
+      data-shared-trip-hero-media
+      hidden>
+      <source
+        data-shared-trip-hero-source
+        type="image/webp">
+      <img
+        data-shared-trip-hero-image
+        src="imges/beaches.jpg"
+        alt="Shared Visit Libya trip"
+        width="1600"
+        height="900"
+        decoding="async"
+        fetchpriority="high">
+    </picture>
+
+    <div class="shared-trip-hero__content">
+      <span class="kicker">Shared trip itinerary</span>
+      <h1 data-shared-trip-hero-title>Shared Trip</h1>
+      <p data-shared-trip-hero-description>
+        Explore a trip itinerary shared through Visit Libya.
+      </p>
     </div>
   </section>
 
@@ -94,7 +113,60 @@
           <h2 data-shared-trip-title></h2>
           <p data-shared-trip-description hidden></p>
         </div>
+        <div class="trips-toolbar-actions shared-trip-print-actions">
+          <button
+            class="trips-secondary-button"
+            type="button"
+            data-shared-trip-print>
+            Print / Save PDF
+          </button>
+        </div>
       </div>
+    </section>
+
+    <section class="trip-map"
+      data-shared-trip-map
+      aria-labelledby="sharedTripMapTitle">
+      <div class="trip-map__heading">
+        <div>
+          <span class="kicker">Trip geography</span>
+          <h2 id="sharedTripMapTitle">Trip Map</h2>
+          <p>See the geographic sequence of the destinations included in this shared itinerary.</p>
+        </div>
+        <span class="trip-map__legend">Itinerary sequence</span>
+      </div>
+
+      <p
+        class="trip-map__status"
+        data-trip-map-status
+        role="status"
+        aria-live="polite">
+        Trip map will appear here
+      </p>
+
+      <div
+        class="trip-map__plot"
+        data-trip-map-plot
+        aria-label="Mapped shared itinerary stops">
+      </div>
+
+      <div
+        class="trip-map__context"
+        data-trip-map-context
+        hidden>
+      </div>
+
+      <p class="trip-map__disclaimer">
+        Lines indicate itinerary sequence only and do not represent driving routes.
+      </p>
+
+      <p
+        class="trip-map__failure"
+        data-shared-trip-map-failure
+        role="status"
+        hidden>
+        Trip map is temporarily unavailable.
+      </p>
     </section>
 
     <section class="trip-itinerary">
