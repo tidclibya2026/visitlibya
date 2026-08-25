@@ -43,6 +43,10 @@ import {
   scheduleDestinationSequence,
 } from "./opening-hours-intelligence.js";
 
+import {
+  insertMealAndRestStops,
+} from "./meal-rest-intelligence.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -856,6 +860,63 @@ export function buildSuggestedItinerary(
           },
         }),
       );
+
+    day.timeline =
+      insertMealAndRestStops({
+        scheduledItems:
+          scheduledDestinations,
+        pace:
+          preferences.pace,
+      }).map((item) => {
+        if (
+          item?.type === "meal" ||
+          item?.type === "rest"
+        ) {
+          return {
+            ...item,
+
+            startsAtLabel:
+              formatClockMinutes(
+                item.startsAt,
+              ),
+
+            endsAtLabel:
+              formatClockMinutes(
+                item.endsAt,
+              ),
+          };
+        }
+
+        return {
+          type: "destination",
+          destination:
+            item.destination,
+          scheduled:
+            item.scheduled,
+          reason:
+            item.reason,
+          openingStatus:
+            item.openingStatus,
+          startsAt:
+            item.startsAt,
+          endsAt:
+            item.endsAt,
+
+          startsAtLabel:
+            item.startsAt === null
+              ? null
+              : formatClockMinutes(
+                  item.startsAt,
+                ),
+
+          endsAtLabel:
+            item.endsAt === null
+              ? null
+              : formatClockMinutes(
+                  item.endsAt,
+                ),
+        };
+      });
   }
 
   const actualSelectedCount =
