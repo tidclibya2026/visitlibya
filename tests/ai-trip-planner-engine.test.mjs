@@ -850,3 +850,117 @@ test("standard road keeps travel estimate unchanged", () => {
     score.travelTimeMinutes,
   );
 });
+
+test("planner exposes estimated visit duration", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "leptis-magna",
+          category_key: "archaeology",
+          description_en: "Leptis Magna",
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: ["history"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const destination =
+    result.days[0]
+      .destinations[0];
+
+  assert.equal(
+    destination
+      .planner_score
+      .estimatedVisitMinutes,
+    180,
+  );
+});
+
+
+test("daily itinerary exposes visit budget evidence", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "leptis-magna",
+          category_key: "archaeology",
+          description_en: "Leptis Magna",
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: ["history"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const budget =
+    result.days[0]
+      .visitBudget;
+
+  assert.equal(
+    budget.usedMinutes,
+    180,
+  );
+
+  assert.equal(
+    budget.budgetMinutes,
+    450,
+  );
+
+  assert.equal(
+    budget.exceedsBudget,
+    false,
+  );
+});
+
+
+test("visit duration prevents overloaded day", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "acacus",
+          category_key:
+            "desert-expedition",
+          description_en: "Acacus",
+        },
+        {
+          slug: "leptis-magna",
+          category_key:
+            "archaeology",
+          description_en:
+            "Leptis Magna",
+        },
+      ],
+      {
+        days: 2,
+        startingPoint: "sebha",
+        interests: [
+          "desert",
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  for (const day of result.days) {
+    if (day.type === "travel") {
+      continue;
+    }
+
+    assert.equal(
+      day.visitBudget.exceedsBudget,
+      false,
+    );
+  }
+});
