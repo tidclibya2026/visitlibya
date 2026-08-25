@@ -1207,3 +1207,86 @@ body.lightbox-open {
     grid-template-columns: 1fr;
   }
 }
+
+.ai-planner-recommendations {
+  margin: 0 0 24px;
+}
+
+.ai-planner-recommendations-header {
+  margin-bottom: 14px;
+}
+
+.ai-planner-recommendations-header h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.ai-planner-recommendations-header p {
+  margin: 6px 0 0;
+  font-size: .82rem;
+  line-height: 1.55;
+  opacity: .68;
+}
+
+.ai-planner-recommendations-list {
+  display: grid;
+  gap: 10px;
+}
+
+.ai-planner-recommendation {
+  padding: 14px 15px;
+  border: 1px solid rgba(21, 45, 70, .12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .76);
+}
+
+.ai-planner-recommendation-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.ai-planner-recommendation h4 {
+  margin: 0;
+  font-size: .92rem;
+}
+
+.ai-planner-recommendation p {
+  margin: 7px 0 0;
+  font-size: .82rem;
+  line-height: 1.55;
+  opacity: .76;
+}
+
+.ai-planner-recommendation-priority {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: .7rem;
+  font-weight: 700;
+  opacity: .74;
+}
+
+.ai-planner-recommendation--high {
+  border-width: 2px;
+}
+
+.ai-planner-recommendation--medium {
+  border-style: solid;
+}
+
+.ai-planner-recommendation--info {
+  border-style: dashed;
+}
+
+@media (max-width: 560px) {
+  .ai-planner-recommendation-top {
+    display: grid;
+  }
+
+  .ai-planner-recommendation-priority {
+    justify-self: start;
+  }
+}
