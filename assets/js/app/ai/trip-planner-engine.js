@@ -13,6 +13,13 @@ import {
   requiresTravelDay,
 } from "./travel-day-planner.js";
 
+import {
+  coordinateTravelPenalty,
+  orderByNearestCoordinate,
+  startingPointCoordinates,
+  validCoordinates,
+} from "./coordinate-routing.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -231,11 +238,32 @@ function scoreDestination(destination, preferences) {
       ? 5
       : 0;
 
-  const geoPenalty = geographicPenalty({
+  const regionalPenalty = geographicPenalty({
     destination,
     startingPoint: preferences.startingPoint,
     days: preferences.days,
   });
+
+  const originCoordinates =
+    startingPointCoordinates(
+      preferences.startingPoint,
+    );
+
+  const coordinateResult =
+    coordinateTravelPenalty({
+      source: originCoordinates,
+      target: destination,
+      days: preferences.days,
+      pace: preferences.pace,
+    });
+
+  const hasCoordinateEvidence =
+    coordinateResult.distanceKm !== null;
+
+  const travelPenalty =
+    hasCoordinateEvidence
+      ? coordinateResult.penalty
+      : regionalPenalty;
 
   const tourismScore =
     interestScore +
@@ -244,13 +272,32 @@ function scoreDestination(destination, preferences) {
     contentScore;
 
   return {
-    total: tourismScore - geoPenalty,
+    total: tourismScore - travelPenalty,
     tourismScore,
     interestScore,
     startingRegionScore,
     travelerScore,
     contentScore,
-    geographicPenalty: geoPenalty,
+
+    geographicPenalty:
+      regionalPenalty,
+
+    coordinatePenalty:
+      hasCoordinateEvidence
+        ? coordinateResult.penalty
+        : null,
+
+    distanceKm:
+      coordinateResult.distanceKm,
+
+    distanceBand:
+      coordinateResult.band,
+
+    routingMode:
+      hasCoordinateEvidence
+        ? "coordinates"
+        : "region",
+
     geographicRegion:
       destinationRegion(destination),
   };
@@ -389,6 +436,11 @@ function orderSelectedDestinationsByRoute(
 
   const ordered = [];
 
+  let currentCoordinates =
+    startingPointCoordinates(
+      preferences.startingPoint,
+    );
+
   for (const region of orderedRegions) {
     const entries = grouped.get(region);
 
@@ -396,15 +448,30 @@ function orderSelectedDestinationsByRoute(
       continue;
     }
 
-    const orderedDestinations =
-      orderDestinationsWithinRegion(
-        entries.map(
-          (entry) => entry.destination,
-        ),
-        region,
+    const destinations =
+      entries.map(
+        (entry) => entry.destination,
       );
 
-    const entryBySlug = new Map(
+    const hasCoordinateData =
+      Boolean(currentCoordinates) &&
+      destinations.some(
+        (destination) =>
+          validCoordinates(destination),
+      );
+
+    const orderedDestinations =
+      hasCoordinateData
+        ? orderByNearestCoordinate(
+            destinations,
+            currentCoordinates,
+          )
+        : orderDestinationsWithinRegion(
+            destinations,
+            region,
+          );
+
+    const entriesBySlug = new Map(
       entries.map((entry) => [
         String(entry.destination.slug)
           .trim()
@@ -419,10 +486,21 @@ function orderSelectedDestinationsByRoute(
           .trim()
           .toLowerCase();
 
-      const entry = entryBySlug.get(slug);
+      const entry =
+        entriesBySlug.get(slug);
 
-      if (entry) {
-        ordered.push(entry);
+      if (!entry) {
+        continue;
+      }
+
+      ordered.push(entry);
+
+      const coordinates =
+        validCoordinates(destination);
+
+      if (coordinates) {
+        currentCoordinates =
+          coordinates;
       }
     }
   }

@@ -513,3 +513,122 @@ test("three day eastern itinerary has no unnecessary travel day", () => {
   );
 });
 
+
+test("coordinate data overrides static regional route order", () => {
+  const destinations = [
+    {
+      slug: "benghazi",
+      category_key: "historic-cities",
+      description_en: "Benghazi",
+      latitude: 32.1167,
+      longitude: 20.0667,
+    },
+    {
+      slug: "green-mountain",
+      category_key: "mountains-nature",
+      description_en: "Green Mountain",
+      latitude: 32.3,
+      longitude: 20.3,
+    },
+    {
+      slug: "bomba-bay",
+      category_key: "mediterranean-coast",
+      description_en: "Bomba Bay",
+      latitude: 32.2,
+      longitude: 20.15,
+    },
+  ];
+
+  const result = buildSuggestedItinerary(
+    destinations,
+    {
+      days: 3,
+      startingPoint: "benghazi",
+      interests: [
+        "history",
+        "nature",
+        "coast",
+      ],
+      travelerType: "solo",
+      pace: "relaxed",
+    },
+  );
+
+  const slugs = result.days.flatMap(
+    (day) =>
+      day.destinations.map(
+        (destination) => destination.slug,
+      ),
+  );
+
+  assert.deepEqual(
+    slugs,
+    [
+      "benghazi",
+      "bomba-bay",
+      "green-mountain",
+    ],
+  );
+});
+
+
+test("planner exposes coordinate routing evidence when available", () => {
+  const ranked = rankPlannerDestinations(
+    [
+      {
+        slug: "benghazi",
+        category_key: "historic-cities",
+        description_en: "Benghazi",
+        latitude: 32.1167,
+        longitude: 20.0667,
+      },
+    ],
+    {
+      days: 3,
+      startingPoint: "benghazi",
+      interests: ["history"],
+      travelerType: "solo",
+      pace: "balanced",
+    },
+  );
+
+  assert.equal(
+    ranked[0].score.routingMode,
+    "coordinates",
+  );
+
+  assert.equal(
+    ranked[0].score.distanceKm,
+    0,
+  );
+});
+
+
+test("planner falls back to region routing without coordinates", () => {
+  const ranked = rankPlannerDestinations(
+    [
+      {
+        slug: "green-mountain",
+        category_key: "mountains-nature",
+        description_en: "Green Mountain",
+      },
+    ],
+    {
+      days: 3,
+      startingPoint: "benghazi",
+      interests: ["nature"],
+      travelerType: "solo",
+      pace: "balanced",
+    },
+  );
+
+  assert.equal(
+    ranked[0].score.routingMode,
+    "region",
+  );
+
+  assert.equal(
+    ranked[0].score.coordinatePenalty,
+    null,
+  );
+});
