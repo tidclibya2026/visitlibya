@@ -60,6 +60,11 @@ import {
   tripFeasibility,
 } from "./trip-feasibility-score.js";
 
+import {
+  buildTripRecommendations,
+  sortTripRecommendations,
+} from "./trip-recommendation-insights.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -937,9 +942,26 @@ export function buildSuggestedItinerary(
       days: itineraryDays,
     });
 
+  const recommendationResult =
+    buildTripRecommendations({
+      days: itineraryDays,
+      feasibility,
+    });
+
+  const recommendations = {
+    ...recommendationResult,
+
+    recommendations:
+      sortTripRecommendations(
+        recommendationResult
+          .recommendations,
+      ),
+  };
+
   return {
     days: itineraryDays,
     feasibility,
+    recommendations,
     selectedCount: actualSelectedCount,
     requestedDays: days,
     pace: normalizeValue(preferences.pace) || "balanced",

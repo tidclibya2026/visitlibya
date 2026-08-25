@@ -1615,3 +1615,119 @@ test("planner feasibility exposes explainable evidence", () => {
     ),
   );
 });
+
+test("planner exposes trip recommendations", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.ok(
+    result.recommendations,
+  );
+
+  assert.ok(
+    Array.isArray(
+      result.recommendations
+        .recommendations,
+    ),
+  );
+});
+
+
+test("planner recommendations expose evidence", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.equal(
+    typeof result.recommendations
+      .evidence.feasibilityScore,
+    "number",
+  );
+});
+
+
+test("planner recommendations are priority ordered", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const ranks = {
+    high: 1,
+    medium: 2,
+    low: 3,
+    info: 4,
+  };
+
+  const values =
+    result.recommendations
+      .recommendations
+      .map(
+        (item) =>
+          ranks[item.priority] ?? 99,
+      );
+
+  const sorted =
+    [...values].sort(
+      (a, b) => a - b,
+    );
+
+  assert.deepEqual(
+    values,
+    sorted,
+  );
+});
