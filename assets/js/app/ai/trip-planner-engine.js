@@ -31,6 +31,13 @@ import {
   roadFeasibilityPenalty,
 } from "./road-feasibility.js";
 
+import {
+  canAddDestinationToDay,
+  dailyVisitBudgetMinutes,
+  visitBudgetStatus,
+  visitDurationMinutes,
+} from "./visit-duration-intelligence.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -725,6 +732,67 @@ export function buildSuggestedItinerary(
       dailyCapacity,
       preferences,
     );
+
+  for (const day of itineraryDays) {
+    if (day.type === "travel") {
+      day.visitBudget = {
+        usedMinutes: 0,
+        budgetMinutes:
+          dailyVisitBudgetMinutes(
+            preferences.pace,
+          ),
+        remainingMinutes:
+          dailyVisitBudgetMinutes(
+            preferences.pace,
+          ),
+        exceedsBudget: false,
+      };
+
+      continue;
+    }
+
+    day.destinations =
+      day.destinations.map(
+        (destination) => ({
+          ...destination,
+
+          planner_score: {
+            ...(destination.planner_score ?? {}),
+
+            estimatedVisitMinutes:
+              visitDurationMinutes(
+                destination,
+                preferences.pace,
+              ),
+          },
+        }),
+      );
+
+    day.destinations =
+      day.destinations.map(
+        (destination) => ({
+          ...destination,
+
+          planner_score: {
+            ...(destination.planner_score ?? {}),
+
+            estimatedVisitMinutes:
+              visitDurationMinutes(
+                destination,
+                preferences.pace,
+              ),
+          },
+        }),
+      );
+
+    day.visitBudget =
+      visitBudgetStatus({
+        destinations:
+          day.destinations,
+        pace:
+          preferences.pace,
+      });
+  }
 
   const actualSelectedCount =
     itineraryDays.reduce(
