@@ -163,6 +163,18 @@ function buildDestinationCard(destination, locale) {
 function renderItinerary(root, itinerary, locale) {
   root.replaceChildren();
 
+  const feasibility =
+    renderTripFeasibility(
+      itinerary,
+      locale,
+    );
+
+  if (feasibility) {
+    root.append(
+      feasibility,
+    );
+  }
+
   const summary = document.createElement("div");
   summary.className = "ai-planner-result-summary";
 
