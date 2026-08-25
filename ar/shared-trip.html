@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>رحلة مشتركة | Visit Libya</title>
+  <meta name="description" content="استعرض برنامج رحلة سياحية تمت مشاركته عبر منصة Visit Libya.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="robots" content="noindex,follow">
+
+  <meta property="og:title" content="رحلة مشتركة | Visit Libya">
+  <meta property="og:description" content="استعرض برنامج رحلة سياحية تمت مشاركته عبر منصة Visit Libya.">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="رحلة مشتركة | Visit Libya">
+  <meta name="twitter:description" content="استعرض برنامج رحلة سياحية تمت مشاركته عبر منصة Visit Libya.">
+
+  <link rel="alternate" hreflang="en" href="../shared-trip.html">
+  <link rel="alternate" hreflang="ar" href="shared-trip.html">
+  <link rel="alternate" hreflang="x-default" href="../shared-trip.html">
+
+  <link rel="icon" href="../favicon.png" type="image/png">
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../assets/css/trips.css">
+  <link rel="stylesheet" href="../assets/css/design-system.css">
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+</head>
+
+<body>
+<a class="trips-skip-link" href="#tripsMain">انتقل إلى الرحلة المشتركة</a>
+
+<header class="vl-topbar">
+  <a class="vl-logo" href="index.html" aria-label="Visit Libya">
+    <img
+      class="media-logo"
+      src="../visitlibyalogo.png"
+      alt=""
+      width="544"
+      height="459"
+      aria-hidden="true">
+    <strong>Visit Libya</strong>
+    <span>زور ليبيا</span>
+  </a>
+
+  <nav class="vl-nav" aria-label="التنقل الرئيسي">
+    <a href="index.html">الرئيسية</a>
+    <a href="destinations.html">الوجهات</a>
+    <a href="plan.html">خطط رحلتك</a>
+  </nav>
+
+  <a
+    class="vl-language"
+    href="../shared-trip.html"
+    data-shared-trip-language-link>
+    English
+  </a>
+</header>
+
+<main id="tripsMain" class="trips-app">
+  <section class="trips-hero">
+    <div>
+      <span class="kicker">برنامج رحلة مشترك</span>
+      <h1>رحلة مشتركة</h1>
+      <p>استعرض برنامج رحلة تمت مشاركته عبر منصة Visit Libya.</p>
+    </div>
+  </section>
+
+  <section class="trips-shell" data-shared-trip-loading>
+    <p role="status">جارٍ تحميل الرحلة المشتركة…</p>
+  </section>
+
+  <section
+    class="trips-shell trips-error-state"
+    data-shared-trip-error
+    hidden>
+    <h2>الرحلة غير متاحة</h2>
+    <p data-shared-trip-error-message></p>
+  </section>
+
+  <section
+    class="trips-shell"
+    data-shared-trip-content
+    hidden>
+
+    <section class="trip-overview">
+      <div class="trip-overview__heading">
+        <div>
+          <span class="kicker">نظرة عامة على الرحلة</span>
+          <h2 data-shared-trip-title></h2>
+          <p data-shared-trip-description hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trip-itinerary">
+      <div class="trips-toolbar">
+        <div>
+          <span class="kicker">يومًا بيوم</span>
+          <h2>برنامج الرحلة</h2>
+          <p>هذه نسخة للعرض فقط من برنامج الرحلة.</p>
+        </div>
+      </div>
+
+      <div data-shared-trip-itinerary></div>
+    </section>
+  </section>
+</main>
+
+<footer class="vl-footer">
+  <div class="vl-footer-grid">
+    <div>
+      <h2>Visit Libya | زور ليبيا</h2>
+      <p>دليلك السياحي الوطني الرسمي.</p>
+    </div>
+
+    <div>
+      <h3>استكشف</h3>
+      <a href="destinations.html">الوجهات</a>
+      <a href="plan.html">خطط رحلتك</a>
+    </div>
+
+    <div>
+      <h3>الجهة الرسمية</h3>
+      <p class="official">
+        وزارة السياحة والصناعات التقليدية<br>
+        مركز المعلومات والتوثيق السياحي
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="../config/frontend-config.js"></script>
+<script src="../main.js"></script>
+<script type="module" src="../assets/js/app/ui/site-shell.js"></script>
+<script type="module" src="../assets/js/pages/shared-trip.js"></script>
+</body>
+</html>

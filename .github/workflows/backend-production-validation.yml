@@ -2,7 +2,6 @@ name: Backend production validation
 
 on:
   pull_request:
-    paths: ["backend/**", "docker-compose*.yml", ".github/workflows/backend-production-validation.yml"]
   push:
     branches: ["feature/backend-*"]
 

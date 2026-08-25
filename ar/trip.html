@@ -131,6 +131,38 @@
         </form>
       </div>
 
+      <section class="trip-insight-card trip-share-panel"
+        data-trip-share-panel
+        aria-labelledby="tripShareTitle">
+        <span class="kicker">المشاركة والخصوصية</span>
+        <h2 id="tripShareTitle">مشاركة الرحلة</h2>
+        <p data-trip-share-status>ستظهر إعدادات المشاركة هنا.</p>
+        <code class="trip-share-token" data-trip-share-token hidden></code>
+        <div class="trips-toolbar-actions">
+          <button
+            class="trips-primary-button"
+            type="button"
+            data-trip-share-rotate
+            disabled>
+            إنشاء رابط مشاركة
+          </button>
+          <button
+            class="trips-secondary-button"
+            type="button"
+            data-trip-share-copy
+            disabled>
+            نسخ رابط الرحلة
+          </button>
+          <button
+            class="trips-danger-button"
+            type="button"
+            data-trip-share-revoke
+            disabled>
+            إلغاء الرابط
+          </button>
+        </div>
+      </section>
+
       <section class="trip-map" data-trip-map aria-labelledby="tripMapTitle">
         <div class="trip-map__heading"><div><span class="kicker">جغرافية برنامجك</span><h2 id="tripMapTitle">خريطة الرحلة</h2><p>تعرّف على مواقع وجهاتك المخططة. يظل البرنامج اليومي السجل الكامل للرحلة.</p></div><span class="trip-map__legend">تسلسل محطات الرحلة</span></div>
         <p class="trip-map__status" data-trip-map-status role="status" aria-live="polite">ستظهر خريطة رحلتك هنا</p>

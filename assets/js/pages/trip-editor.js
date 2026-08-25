@@ -4,6 +4,8 @@ import {
   getTrip,
   listTripDestinationCatalogue,
   reorderTripItems,
+  revokeTripShareLink,
+  rotateTripShareLink,
   searchTripDestinations,
   updateTrip,
   updateTripItem,
@@ -412,6 +414,14 @@ export async function initializeTripEditor(documentRef = document) {
   const tripMapRoot = queryRequired("[data-trip-map]", documentRef);
   const tripMapFailure = queryRequired("[data-trip-map-failure]", documentRef);
   const tripAtlasLink = queryRequired("[data-trip-atlas-link]", documentRef);
+
+  const sharePanel = queryRequired("[data-trip-share-panel]", documentRef);
+  const shareStatus = queryRequired("[data-trip-share-status]", documentRef);
+  const shareToken = queryRequired("[data-trip-share-token]", documentRef);
+  const shareRotate = queryRequired("[data-trip-share-rotate]", documentRef);
+  const shareRevoke = queryRequired("[data-trip-share-revoke]", documentRef);
+  const shareCopy = queryRequired("[data-trip-share-copy]", documentRef);
+
   configureAtlasExternalLink(tripAtlasLink, { locale });
 
   if (!context.config.apiEnabled) {
@@ -533,6 +543,53 @@ export async function initializeTripEditor(documentRef = document) {
     save.disabled = activeMutation || !dirtyMetadata;
   };
 
+  const renderSharePanel = () => {
+    if (!trip) return;
+
+    const isUnlisted = trip.visibility === "unlisted";
+    const hasToken = isUnlisted && Boolean(trip.share_token);
+
+    sharePanel.dataset.visibility = trip.visibility;
+
+    if (!isUnlisted) {
+      setText(
+        shareStatus,
+        trip.visibility === "public"
+          ? t("trips.sharePublic")
+          : t("trips.sharePrivate"),
+      );
+      setText(shareToken, "");
+      setVisible(shareToken, false);
+
+      shareRotate.disabled = true;
+      shareRevoke.disabled = true;
+      shareCopy.disabled =
+        activeMutation || trip.visibility !== "public";
+      return;
+    }
+
+    if (!hasToken) {
+      setText(shareStatus, t("trips.shareUnlistedNoLink"));
+      setText(shareToken, "");
+      setVisible(shareToken, false);
+
+      setText(shareRotate, t("trips.shareCreate"));
+      shareRotate.disabled = activeMutation;
+      shareRevoke.disabled = true;
+      shareCopy.disabled = true;
+      return;
+    }
+
+    setText(shareStatus, t("trips.shareUnlistedActive"));
+    setText(shareToken, trip.share_token);
+    setVisible(shareToken, true);
+
+    setText(shareRotate, t("trips.shareRotate"));
+    shareRotate.disabled = activeMutation;
+    shareRevoke.disabled = activeMutation;
+    shareCopy.disabled = activeMutation;
+  };
+
   const clearFieldErrors = () => {
     form.querySelectorAll("[aria-invalid]").forEach((field) => {
       field.removeAttribute("aria-invalid");
@@ -613,7 +670,9 @@ export async function initializeTripEditor(documentRef = document) {
     });
     addStop.disabled =
       activeMutation || trip.items.length >= TRIP_LIMITS.items;
+
     updateMetadataButtons();
+    renderSharePanel();
   };
 
   const renderItinerary = () => {
@@ -1535,6 +1594,140 @@ export async function initializeTripEditor(documentRef = document) {
       setLoading(save, false, { disable: true });
       setText(save, t("trips.saveChanges"));
       mutationControls();
+    }
+  });
+
+  shareRotate.addEventListener("click", async () => {
+    if (
+      activeMutation ||
+      !trip ||
+      trip.visibility !== "unlisted"
+    ) {
+      return;
+    }
+
+    activeMutation = true;
+    mutationControls();
+
+    try {
+      const updated = await rotateTripShareLink(
+        tripId,
+        trip.version,
+      );
+
+      populate(updated);
+
+      toast.success(
+        t("trips.shareRotated"),
+        { closeLabel: t("common.close") },
+      );
+      announce(t("trips.shareRotated"), { force: true });
+    } catch (error) {
+      if (error.status === 401) {
+        showAuthRequired();
+      } else if (isVersionConflict(error)) {
+        showConflict();
+      } else {
+        const message = publicErrorMessage(error, t);
+        toast.error(message, {
+          closeLabel: t("common.close"),
+        });
+        announce(message, {
+          priority: "assertive",
+          force: true,
+        });
+      }
+    } finally {
+      activeMutation = false;
+      mutationControls();
+    }
+  });
+
+  shareRevoke.addEventListener("click", async () => {
+    if (
+      activeMutation ||
+      !trip ||
+      trip.visibility !== "unlisted" ||
+      !trip.share_token
+    ) {
+      return;
+    }
+
+    activeMutation = true;
+    mutationControls();
+
+    try {
+      const updated = await revokeTripShareLink(
+        tripId,
+        trip.version,
+      );
+
+      populate(updated);
+
+      toast.success(
+        t("trips.shareRevoked"),
+        { closeLabel: t("common.close") },
+      );
+      announce(t("trips.shareRevoked"), { force: true });
+    } catch (error) {
+      if (error.status === 401) {
+        showAuthRequired();
+      } else if (isVersionConflict(error)) {
+        showConflict();
+      } else {
+        const message = publicErrorMessage(error, t);
+        toast.error(message, {
+          closeLabel: t("common.close"),
+        });
+        announce(message, {
+          priority: "assertive",
+          force: true,
+        });
+      }
+    } finally {
+      activeMutation = false;
+      mutationControls();
+    }
+  });
+
+  shareCopy.addEventListener("click", async () => {
+    if (!trip) return;
+
+    const sharedPage = new URL(
+      "shared-trip.html",
+      globalThis.location.href,
+    );
+
+    if (trip.visibility === "public") {
+      sharedPage.searchParams.set("id", String(trip.id));
+    } else if (
+      trip.visibility === "unlisted" &&
+      trip.share_token
+    ) {
+      sharedPage.searchParams.set("token", trip.share_token);
+    } else {
+      return;
+    }
+
+    try {
+      if (!globalThis.navigator?.clipboard?.writeText) {
+        throw new Error("Clipboard unavailable");
+      }
+
+      await globalThis.navigator.clipboard.writeText(
+        sharedPage.href,
+      );
+
+      toast.success(
+        t("trips.shareCopied"),
+        { closeLabel: t("common.close") },
+      );
+      announce(t("trips.shareCopied"), { force: true });
+    } catch {
+      toast.error(
+        t("trips.shareCopyFailed"),
+        { closeLabel: t("common.close") },
+      );
     }
   });
 
