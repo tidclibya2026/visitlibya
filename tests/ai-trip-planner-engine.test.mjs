@@ -964,3 +964,129 @@ test("visit duration prevents overloaded day", () => {
     );
   }
 });
+
+test("planner exposes scheduled visit times", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "leptis-magna",
+          category_key: "archaeology",
+          description_en: "Leptis Magna",
+          opening_time: "09:00",
+          closing_time: "17:00",
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: ["history"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const score =
+    result.days[0]
+      .destinations[0]
+      .planner_score;
+
+  assert.equal(
+    score.scheduled,
+    true,
+  );
+
+  assert.equal(
+    score.scheduledStart,
+    "09:00",
+  );
+
+  assert.equal(
+    score.scheduledEnd,
+    "12:00",
+  );
+
+  assert.equal(
+    score.openingHoursStatus,
+    "known",
+  );
+});
+
+
+test("unknown opening hours remain schedulable but explicit", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "leptis-magna",
+          category_key: "archaeology",
+          description_en: "Leptis Magna",
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: ["history"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const score =
+    result.days[0]
+      .destinations[0]
+      .planner_score;
+
+  assert.equal(
+    score.scheduled,
+    true,
+  );
+
+  assert.equal(
+    score.openingHoursStatus,
+    "unknown",
+  );
+
+  assert.equal(
+    score.scheduleReason,
+    "opening-hours-unknown",
+  );
+});
+
+
+test("planner marks destination unscheduled when opening window is insufficient", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "leptis-magna",
+          category_key: "archaeology",
+          description_en: "Leptis Magna",
+          opening_time: "09:00",
+          closing_time: "10:00",
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: ["history"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const score =
+    result.days[0]
+      .destinations[0]
+      .planner_score;
+
+  assert.equal(
+    score.scheduled,
+    false,
+  );
+
+  assert.equal(
+    score.scheduleReason,
+    "insufficient-opening-window",
+  );
+});
