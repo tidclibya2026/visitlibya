@@ -912,3 +912,18 @@ body.lightbox-open {
 .ai-planner-create-status[hidden] {
   display: none;
 }
+
+.ai-planner-travel-day {
+  padding: 20px;
+  border: 1px dashed rgba(11, 58, 103, .28);
+  border-radius: 14px;
+  background: rgba(11, 58, 103, .045);
+}
+
+.ai-planner-travel-day h4 {
+  margin-top: 0;
+}
+
+.ai-planner-travel-day p {
+  margin-bottom: 0;
+}

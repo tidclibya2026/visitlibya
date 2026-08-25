@@ -268,6 +268,72 @@ function renderItinerary(root, itinerary, locale) {
 
     section.append(heading);
 
+    if (day.type === "travel") {
+      const travelCard = document.createElement("div");
+      travelCard.className = "ai-planner-travel-day";
+
+      const travelTitle = document.createElement("h4");
+      travelTitle.textContent = locale === "ar"
+        ? "يوم انتقال"
+        : "Travel day";
+
+      const travelText = document.createElement("p");
+
+      const fromRegion = String(
+        day.fromRegion ?? "",
+      );
+
+      const toRegion = String(
+        day.toRegion ?? "",
+      );
+
+      travelText.textContent = locale === "ar"
+        ? `الانتقال من ${fromRegion} إلى ${toRegion}. تم تخصيص هذا اليوم للانتقال لتجنب برنامج سياحي مرهق أو غير واقعي.`
+        : `Transfer from ${fromRegion} to ${toRegion}. This day is reserved for travel to avoid an unrealistic or exhausting itinerary.`;
+
+      travelCard.append(
+        travelTitle,
+        travelText,
+      );
+
+      section.append(travelCard);
+      root.append(section);
+      continue;
+    }
+
+    if (day.type === "travel") {
+      const travelCard = document.createElement("div");
+      travelCard.className = "ai-planner-travel-day";
+
+      const travelTitle = document.createElement("h4");
+      travelTitle.textContent = locale === "ar"
+        ? "يوم انتقال"
+        : "Travel day";
+
+      const travelText = document.createElement("p");
+
+      const fromRegion = String(
+        day.fromRegion ?? "",
+      );
+
+      const toRegion = String(
+        day.toRegion ?? "",
+      );
+
+      travelText.textContent = locale === "ar"
+        ? `الانتقال من ${fromRegion} إلى ${toRegion}. تم تخصيص هذا اليوم للانتقال لتجنب برنامج سياحي مرهق أو غير واقعي.`
+        : `Transfer from ${fromRegion} to ${toRegion}. This day is reserved for travel to avoid an unrealistic or exhausting itinerary.`;
+
+      travelCard.append(
+        travelTitle,
+        travelText,
+      );
+
+      section.append(travelCard);
+      root.append(section);
+      continue;
+    }
+
     if (!day.destinations.length) {
       const empty = document.createElement("p");
 

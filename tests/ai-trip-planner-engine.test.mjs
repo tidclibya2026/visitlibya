@@ -172,3 +172,344 @@ test("score details are exposed", () => {
   assert.equal(typeof ranked[0].score.travelerScore, "number");
   assert.equal(typeof ranked[0].score.contentScore, "number");
 });
+
+test("three day Benghazi trip stays in eastern region", () => {
+  const destinations = [
+    {
+      slug: "benghazi",
+      category_key: "historic-cities",
+      region_en: "Benghazi · Eastern Libya",
+      description_en: "Benghazi",
+    },
+    {
+      slug: "green-mountain",
+      category_key: "mountains-nature",
+      region_en: "Cyrenaica · Northeast Libya",
+      description_en: "Green Mountain",
+    },
+    {
+      slug: "bomba-bay",
+      category_key: "mediterranean-coast",
+      region_en: "Derna District · Northeast Coast",
+      description_en: "Bomba Bay",
+    },
+    {
+      slug: "ghadames",
+      category_key: "oases-heritage",
+      region_en: "Ghadames · Western Desert",
+      description_en: "Ghadames",
+    },
+    {
+      slug: "acacus",
+      category_key: "sahara-rock-art",
+      region_en: "Fezzan · Southwest Libya",
+      description_en: "Acacus",
+    },
+  ];
+
+  const result = buildSuggestedItinerary(
+    destinations,
+    {
+      days: 3,
+      startingPoint: "benghazi",
+      interests: [
+        "history",
+        "nature",
+        "heritage",
+        "desert",
+      ],
+      travelerType: "solo",
+      pace: "balanced",
+    },
+  );
+
+  const slugs = result.days.flatMap(
+    (day) =>
+      day.destinations.map(
+        (destination) => destination.slug,
+      ),
+  );
+
+  assert.ok(slugs.includes("benghazi"));
+  assert.ok(slugs.includes("green-mountain"));
+
+  assert.equal(
+    slugs.includes("ghadames"),
+    false,
+  );
+
+  assert.equal(
+    slugs.includes("acacus"),
+    false,
+  );
+});
+
+
+test("short eastern trip applies strong penalty to Ghadames", () => {
+  const ranked = rankPlannerDestinations(
+    [
+      {
+        slug: "benghazi",
+        category_key: "historic-cities",
+        description_en: "Benghazi",
+        region_en: "Eastern Libya",
+      },
+      {
+        slug: "ghadames",
+        category_key: "oases-heritage",
+        description_en: "Ghadames",
+        region_en: "Western Desert",
+      },
+    ],
+    {
+      days: 3,
+      startingPoint: "benghazi",
+      interests: [
+        "history",
+        "heritage",
+      ],
+      travelerType: "solo",
+    },
+  );
+
+  const ghadames = ranked.find(
+    (entry) =>
+      entry.destination.slug === "ghadames",
+  );
+
+  assert.equal(
+    ghadames.score.geographicPenalty,
+    70,
+  );
+
+  assert.ok(
+    ghadames.score.total <
+    ghadames.score.tourismScore,
+  );
+});
+
+
+test("week trip may include a second distant tourism region", () => {
+  const destinations = [
+    {
+      slug: "benghazi",
+      category_key: "historic-cities",
+      description_en: "Benghazi",
+      region_en: "Eastern Libya",
+    },
+    {
+      slug: "green-mountain",
+      category_key: "mountains-nature",
+      description_en: "Green Mountain",
+      region_en: "Cyrenaica",
+    },
+    {
+      slug: "awjila",
+      category_key: "oases-nature",
+      description_en: "Awjila",
+      region_en: "Eastern Libya",
+    },
+    {
+      slug: "ghadames",
+      category_key: "oases-heritage",
+      description_en: "Ghadames",
+      region_en: "Western Desert",
+    },
+  ];
+
+  const result = buildSuggestedItinerary(
+    destinations,
+    {
+      days: 7,
+      startingPoint: "benghazi",
+      interests: [
+        "history",
+        "heritage",
+        "nature",
+      ],
+      travelerType: "solo",
+      pace: "balanced",
+    },
+  );
+
+  const slugs = result.days.flatMap(
+    (day) =>
+      day.destinations.map(
+        (destination) => destination.slug,
+      ),
+  );
+
+  assert.ok(
+    slugs.includes("benghazi"),
+  );
+
+  assert.ok(
+    slugs.includes("ghadames") ||
+    slugs.includes("awjila"),
+  );
+});
+
+test("eastern itinerary follows route sequence", () => {
+  const destinations = [
+    {
+      slug: "bomba-bay",
+      category_key: "mediterranean-coast",
+      description_en: "Bomba Bay",
+      region_en: "Northeast Coast",
+    },
+    {
+      slug: "green-mountain",
+      category_key: "mountains-nature",
+      description_en: "Green Mountain",
+      region_en: "Cyrenaica",
+    },
+    {
+      slug: "benghazi",
+      category_key: "historic-cities",
+      description_en: "Benghazi",
+      region_en: "Eastern Libya",
+    },
+  ];
+
+  const result = buildSuggestedItinerary(
+    destinations,
+    {
+      days: 3,
+      startingPoint: "benghazi",
+      interests: [
+        "history",
+        "nature",
+        "coast",
+      ],
+      travelerType: "solo",
+      pace: "relaxed",
+    },
+  );
+
+  const slugs = result.days.flatMap(
+    (day) =>
+      day.destinations.map(
+        (destination) => destination.slug,
+      ),
+  );
+
+  assert.deepEqual(
+    slugs,
+    [
+      "benghazi",
+      "green-mountain",
+      "bomba-bay",
+    ],
+  );
+});
+
+test("distant region transition consumes a dedicated travel day", () => {
+  const destinations = [
+    {
+      slug: "benghazi",
+      category_key: "historic-cities",
+      description_en: "Benghazi",
+      region_en: "Eastern Libya",
+    },
+    {
+      slug: "green-mountain",
+      category_key: "mountains-nature",
+      description_en: "Green Mountain",
+      region_en: "Cyrenaica",
+    },
+    {
+      slug: "ghadames",
+      category_key: "oases-heritage",
+      description_en: "Ghadames",
+      region_en: "Western Desert",
+    },
+  ];
+
+  const result = buildSuggestedItinerary(
+    destinations,
+    {
+      days: 7,
+      startingPoint: "benghazi",
+      interests: [
+        "history",
+        "heritage",
+        "nature",
+      ],
+      travelerType: "solo",
+      pace: "relaxed",
+    },
+  );
+
+  const travelDayIndex =
+    result.days.findIndex(
+      (day) => day.type === "travel",
+    );
+
+  assert.ok(travelDayIndex >= 0);
+
+  assert.equal(
+    result.days[travelDayIndex]
+      .destinations.length,
+    0,
+  );
+
+  const ghadamesDayIndex =
+    result.days.findIndex(
+      (day) =>
+        day.destinations.some(
+          (destination) =>
+            destination.slug === "ghadames",
+        ),
+    );
+
+  assert.ok(
+    ghadamesDayIndex > travelDayIndex,
+  );
+});
+
+
+test("three day eastern itinerary has no unnecessary travel day", () => {
+  const destinations = [
+    {
+      slug: "benghazi",
+      category_key: "historic-cities",
+      description_en: "Benghazi",
+      region_en: "Eastern Libya",
+    },
+    {
+      slug: "green-mountain",
+      category_key: "mountains-nature",
+      description_en: "Green Mountain",
+      region_en: "Cyrenaica",
+    },
+    {
+      slug: "bomba-bay",
+      category_key: "mediterranean-coast",
+      description_en: "Bomba Bay",
+      region_en: "Northeast Coast",
+    },
+  ];
+
+  const result = buildSuggestedItinerary(
+    destinations,
+    {
+      days: 3,
+      startingPoint: "benghazi",
+      interests: [
+        "history",
+        "nature",
+        "coast",
+      ],
+      travelerType: "solo",
+      pace: "relaxed",
+    },
+  );
+
+  assert.equal(
+    result.days.some(
+      (day) => day.type === "travel",
+    ),
+    false,
+  );
+});
+
