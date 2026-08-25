@@ -927,3 +927,117 @@ body.lightbox-open {
 .ai-planner-travel-day p {
   margin-bottom: 0;
 }
+
+.ai-planner-timeline {
+  margin-top: 24px;
+}
+
+.ai-planner-timeline-heading {
+  margin: 0 0 16px;
+  font-size: 1rem;
+}
+
+.ai-planner-timeline-list {
+  position: relative;
+  display: grid;
+  gap: 12px;
+}
+
+.ai-planner-timeline-list::before {
+  content: "";
+  position: absolute;
+  inset-block: 16px;
+  inset-inline-start: 17px;
+  width: 1px;
+  background: rgba(21, 45, 70, .18);
+}
+
+.ai-planner-timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.ai-planner-timeline-marker {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(21, 45, 70, .18);
+  border-radius: 999px;
+  background: #fff;
+  font-size: .9rem;
+  font-weight: 700;
+}
+
+.ai-planner-timeline-body {
+  padding: 12px 14px;
+  border: 1px solid rgba(21, 45, 70, .12);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .7);
+}
+
+.ai-planner-timeline-time {
+  margin-bottom: 4px;
+  font-size: .78rem;
+  font-weight: 700;
+  opacity: .72;
+}
+
+.ai-planner-timeline-title {
+  margin: 0;
+  font-size: .98rem;
+}
+
+.ai-planner-timeline-meta {
+  margin: 6px 0 0;
+  font-size: .82rem;
+  line-height: 1.55;
+  opacity: .78;
+}
+
+.ai-planner-timeline-item--travel
+  .ai-planner-timeline-body {
+  border-style: dashed;
+}
+
+.ai-planner-timeline-item--meal
+  .ai-planner-timeline-body,
+.ai-planner-timeline-item--rest
+  .ai-planner-timeline-body {
+  background: rgba(21, 45, 70, .035);
+}
+
+.ai-planner-timeline-item--adjusted
+  .ai-planner-timeline-body {
+  box-shadow:
+    inset 3px 0 0 rgba(21, 45, 70, .28);
+}
+
+[dir="rtl"]
+.ai-planner-timeline-item--adjusted
+  .ai-planner-timeline-body {
+  box-shadow:
+    inset -3px 0 0 rgba(21, 45, 70, .28);
+}
+
+@media (max-width: 640px) {
+  .ai-planner-timeline-item {
+    grid-template-columns:
+      30px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .ai-planner-timeline-marker {
+    width: 28px;
+    height: 28px;
+  }
+
+  .ai-planner-timeline-list::before {
+    inset-inline-start: 14px;
+  }
+}
