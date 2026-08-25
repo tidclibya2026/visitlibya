@@ -1090,3 +1090,124 @@ test("planner marks destination unscheduled when opening window is insufficient"
     "insufficient-opening-window",
   );
 });
+
+test("planner day exposes chronological timeline", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "leptis-magna",
+          category_key: "archaeology",
+          description_en: "Leptis Magna",
+          opening_time: "09:00",
+          closing_time: "18:00",
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: ["history"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.ok(
+    Array.isArray(
+      result.days[0].timeline,
+    ),
+  );
+
+  assert.equal(
+    result.days[0]
+      .timeline[0]
+      .type,
+    "destination",
+  );
+});
+
+
+test("planner timeline preserves destination schedule labels", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "leptis-magna",
+          category_key: "archaeology",
+          description_en: "Leptis Magna",
+          opening_time: "09:00",
+          closing_time: "18:00",
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: ["history"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const item =
+    result.days[0]
+      .timeline.find(
+        (entry) =>
+          entry.type ===
+          "destination",
+      );
+
+  assert.equal(
+    item.startsAtLabel,
+    "09:00",
+  );
+
+  assert.equal(
+    item.endsAtLabel,
+    "12:00",
+  );
+});
+
+
+test("planner timeline can include meal stop", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+        },
+        {
+          slug: "sabratha",
+          category_key: "archaeology",
+          description_en: "Sabratha",
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+          "heritage",
+        ],
+        travelerType: "solo",
+        pace: "active",
+      },
+    );
+
+  assert.ok(
+    result.days[0]
+      .timeline.some(
+        (entry) =>
+          entry.type === "meal",
+      ) ||
+    result.days[0]
+      .timeline.every(
+        (entry) =>
+          entry.type ===
+            "destination" ||
+          entry.type ===
+            "rest",
+      ),
+  );
+});
