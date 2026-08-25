@@ -52,7 +52,81 @@
 </header>
 <main id="mainContent">
   <section class="sub-hero page-hero-with-image" style="--hero-image:url('imges/Museumtripoli.jpg')"><span class="page-hero-bg"><img src="imges/Museumtripoli.jpg" alt="Travel assistant page visual for VisitLibya AI" loading="eager"></span><span class="page-hero-overlay"></span><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">VisitLibya AI</span><h1>Ask before you explore</h1><p>A guided interface that will later connect visitors to destinations, routes, culture, atlas layers, and travel planning.</p></div></section>
-  <section class="section"><div class="chat-box"><span class="kicker">Demo Assistant</span><h2>What would you like to discover?</h2><p>Ask about destinations, heritage, travel services, eVisa, entry requirements, currency, and the Libya Tourism Atlas.</p><div class="ai-question-grid ar-ai-grid"><button type="button" data-question="How do I know if I am eligible for the tourist eVisa?">eVisa Eligibility</button><button type="button" data-question="How much does the tourist eVisa cost?">eVisa Fees</button><button type="button" data-question="Can I obtain a tourist visa on arrival in Libya?">Visa on Arrival</button><button type="button" data-question="Can I enter Libya as a tourist?">Tourist Entry</button><button type="button" data-question="What are Libya entry requirements?">Entry Requirements</button><button type="button" data-question="What is the national currency of Libya?">National Currency</button><button type="button" data-question="Do I need to declare currency when entering or leaving Libya?">Currency Declaration</button></div><div class="chat-messages" id="chat-messages" aria-live="polite"><div class="message bot">Hello, ask me about destinations, eVisa, entry requirements, currency, or the tourism atlas.</div></div><form class="chat-form" id="chat-form"><input id="chat-input" type="text" name="message" placeholder="Ask about Libya..." autocomplete="off"><button type="submit">Ask</button></form></div></section>
+
+<section class="section ai-trip-planner">
+  <div class="section-heading">
+    <span class="kicker">AI Trip Planner</span>
+    <h2>Build your Libya itinerary</h2>
+    <p>
+      Choose your travel preferences and receive a suggested itinerary
+      built from Visit Libya destination data.
+    </p>
+  </div>
+
+  <form class="ai-planner-form" data-ai-trip-planner-form>
+    <div class="ai-planner-field">
+      <label for="plannerDays">Number of days</label>
+      <select id="plannerDays" name="days">
+        <option value="3">3 days</option>
+        <option value="5">5 days</option>
+        <option value="7">7 days</option>
+        <option value="10">10 days</option>
+      </select>
+    </div>
+
+    <div class="ai-planner-field">
+      <label for="plannerStart">Starting point</label>
+      <select id="plannerStart" name="startingPoint">
+        <option value="tripoli">Tripoli</option>
+        <option value="benghazi">Benghazi</option>
+        <option value="sebha">Sebha</option>
+      </select>
+    </div>
+
+    <div class="ai-planner-field">
+      <label for="plannerTraveler">Traveler type</label>
+      <select id="plannerTraveler" name="travelerType">
+        <option value="solo">Solo traveler</option>
+        <option value="couple">Couple</option>
+        <option value="family">Family</option>
+        <option value="group">Group</option>
+      </select>
+    </div>
+
+    <div class="ai-planner-field">
+      <label for="plannerPace">Travel pace</label>
+      <select id="plannerPace" name="pace">
+        <option value="relaxed">Relaxed</option>
+        <option value="balanced" selected>Balanced</option>
+        <option value="active">Active</option>
+      </select>
+    </div>
+
+    <fieldset class="ai-planner-interests">
+      <legend>Interests</legend>
+
+      <label><input type="checkbox" name="interests" value="history"> History</label>
+      <label><input type="checkbox" name="interests" value="heritage"> Heritage</label>
+      <label><input type="checkbox" name="interests" value="archaeology"> Archaeology</label>
+      <label><input type="checkbox" name="interests" value="desert"> Desert</label>
+      <label><input type="checkbox" name="interests" value="nature"> Nature</label>
+      <label><input type="checkbox" name="interests" value="coast"> Coast</label>
+      <label><input type="checkbox" name="interests" value="culture"> Culture</label>
+    </fieldset>
+
+    <button type="submit" class="primary-action">
+      Generate my trip
+    </button>
+  </form>
+
+  <div
+    class="ai-planner-result"
+    data-ai-trip-planner-result
+    hidden>
+  </div>
+</section>
+
+<section class="section"><div class="chat-box"><span class="kicker">Demo Assistant</span><h2>What would you like to discover?</h2><p>Ask about destinations, heritage, travel services, eVisa, entry requirements, currency, and the Libya Tourism Atlas.</p><div class="ai-question-grid ar-ai-grid"><button type="button" data-question="How do I know if I am eligible for the tourist eVisa?">eVisa Eligibility</button><button type="button" data-question="How much does the tourist eVisa cost?">eVisa Fees</button><button type="button" data-question="Can I obtain a tourist visa on arrival in Libya?">Visa on Arrival</button><button type="button" data-question="Can I enter Libya as a tourist?">Tourist Entry</button><button type="button" data-question="What are Libya entry requirements?">Entry Requirements</button><button type="button" data-question="What is the national currency of Libya?">National Currency</button><button type="button" data-question="Do I need to declare currency when entering or leaving Libya?">Currency Declaration</button></div><div class="chat-messages" id="chat-messages" aria-live="polite"><div class="message bot">Hello, ask me about destinations, eVisa, entry requirements, currency, or the tourism atlas.</div></div><form class="chat-form" id="chat-form"><input id="chat-input" type="text" name="message" placeholder="Ask about Libya..." autocomplete="off"><button type="submit">Ask</button></form></div></section>
 </main>
 <footer class="vl-footer">
   <div class="vl-footer-grid">
@@ -77,5 +151,6 @@
 </footer>
 <script src="main.js?v=stabilization-sprint-01"></script>
 <script src="assets/js/pages/ai.js?v=runtime-performance-01" defer></script>
+<script type="module" src="assets/js/pages/ai-trip-planner.js?v=ai-planner-v1"></script>
 </body>
 </html>

@@ -52,7 +52,81 @@
   <a class="vl-language" href="../ai.html" aria-label="English language"><span>◉</span> English</a>
 </header>
 <main id="mainContent">
-<section class="sub-hero page-hero-with-image" style="--hero-image:url('../imges/Museumtripoli.jpg')"><span class="page-hero-bg"><img src="../imges/Museumtripoli.jpg" alt="صورة سياقية لصفحة المساعد VisitLibya AI" loading="eager"></span><span class="page-hero-overlay"></span><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">المساعد الذكي</span><h1>VisitLibya AI</h1><p>مساعد ذكي يساعد الزائر على اكتشاف الوجهات، اقتراح مسارات الرحلة، شرح التراث، والتعرف على الثقافة والمطبخ الليبي.</p></div></section><section class="section"><div class="chat-box"><span class="kicker">دردشة تجريبية</span><h2>اسأل VisitLibya AI</h2><p>اختر سؤالًا جاهزًا أو اكتب سؤالك عن ليبيا.</p><div class="ai-question-grid ar-ai-grid"><button type="button" data-ai-question="ماذا أزور في طرابلس؟">ماذا أزور في طرابلس؟</button><button type="button" data-ai-question="حدثني عن غدامس.">حدثني عن غدامس.</button><button type="button" data-ai-question="كيف أزور أكاكوس؟">كيف أزور أكاكوس؟</button><button type="button" data-ai-question="ما أشهر الأكلات الليبية؟">ما أشهر الأكلات الليبية؟</button><button type="button" data-ai-question="ما أفضل مسار للصحراء؟">ما أفضل مسار للصحراء؟</button><button type="button" data-ai-question="ما أهم مواقع التراث العالمي؟">ما أهم مواقع التراث العالمي؟</button><button type="button" data-ai-question="ماذا أعرف عن الجبل الأخضر؟">ماذا أعرف عن الجبل الأخضر؟</button><button type="button" data-ai-question="كيف أخطط لرحلة إلى ليبيا؟">كيف أخطط لرحلة إلى ليبيا؟</button><button type="button" data-question="كيف أعرف ما إذا كنت مؤهلاً للتقديم على التأشيرة السياحية الإلكترونية؟">هل أنا مؤهل للتأشيرة الإلكترونية؟</button><button type="button" data-question="كم تكلفة التأشيرة الإلكترونية السياحية؟">كم تكلفة التأشيرة؟</button><button type="button" data-question="هل يمكنني الحصول على التأشيرة عند الوصول إلى ليبيا؟">التأشيرة عند الوصول</button><button type="button" data-question="هل يمكنني دخول ليبيا كسائح؟">دخول ليبيا كسائح</button><button type="button" data-question="ما هي متطلبات الدخول إلى ليبيا؟">متطلبات الدخول</button><button type="button" data-question="ما هي العملة الوطنية في ليبيا؟">العملة الوطنية</button><button type="button" data-question="هل يجب الإفصاح عن العملة عند الدخول أو الخروج؟">الإفصاح عن العملة</button></div><div class="chat-messages" id="chat-messages" aria-live="polite"><div class="message bot">مرحبًا، اسألني عن طرابلس أو غدامس أو أكاكوس أو التراث أو الأطلس.</div></div><form class="chat-form" id="chat-form"><input id="chat-input" type="text" name="message" placeholder="اكتب سؤالك هنا..." autocomplete="off"><button type="submit">إرسال</button></form></div></section>
+<section class="sub-hero page-hero-with-image" style="--hero-image:url('../imges/Museumtripoli.jpg')"><span class="page-hero-bg"><img src="../imges/Museumtripoli.jpg" alt="صورة سياقية لصفحة المساعد VisitLibya AI" loading="eager"></span><span class="page-hero-overlay"></span><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">المساعد الذكي</span><h1>VisitLibya AI</h1><p>مساعد ذكي يساعد الزائر على اكتشاف الوجهات، اقتراح مسارات الرحلة، شرح التراث، والتعرف على الثقافة والمطبخ الليبي.</p></div></section>
+<section class="section ai-trip-planner">
+  <div class="section-heading">
+    <span class="kicker">مخطط الرحلات الذكي</span>
+    <h2>أنشئ برنامج رحلتك إلى ليبيا</h2>
+    <p>
+      اختر تفضيلاتك السياحية وسيقترح النظام برنامج رحلة
+      مبنيًا على بيانات وجهات Visit Libya.
+    </p>
+  </div>
+
+  <form class="ai-planner-form" data-ai-trip-planner-form>
+    <div class="ai-planner-field">
+      <label for="plannerDaysAr">عدد الأيام</label>
+      <select id="plannerDaysAr" name="days">
+        <option value="3">3 أيام</option>
+        <option value="5">5 أيام</option>
+        <option value="7">7 أيام</option>
+        <option value="10">10 أيام</option>
+      </select>
+    </div>
+
+    <div class="ai-planner-field">
+      <label for="plannerStartAr">نقطة البداية</label>
+      <select id="plannerStartAr" name="startingPoint">
+        <option value="tripoli">طرابلس</option>
+        <option value="benghazi">بنغازي</option>
+        <option value="sebha">سبها</option>
+      </select>
+    </div>
+
+    <div class="ai-planner-field">
+      <label for="plannerTravelerAr">نوع المسافر</label>
+      <select id="plannerTravelerAr" name="travelerType">
+        <option value="solo">فرد</option>
+        <option value="couple">زوجان</option>
+        <option value="family">عائلة</option>
+        <option value="group">مجموعة</option>
+      </select>
+    </div>
+
+    <div class="ai-planner-field">
+      <label for="plannerPaceAr">إيقاع الرحلة</label>
+      <select id="plannerPaceAr" name="pace">
+        <option value="relaxed">هادئ</option>
+        <option value="balanced" selected>متوازن</option>
+        <option value="active">نشط</option>
+      </select>
+    </div>
+
+    <fieldset class="ai-planner-interests">
+      <legend>الاهتمامات</legend>
+
+      <label><input type="checkbox" name="interests" value="history"> التاريخ</label>
+      <label><input type="checkbox" name="interests" value="heritage"> التراث</label>
+      <label><input type="checkbox" name="interests" value="archaeology"> الآثار</label>
+      <label><input type="checkbox" name="interests" value="desert"> الصحراء</label>
+      <label><input type="checkbox" name="interests" value="nature"> الطبيعة</label>
+      <label><input type="checkbox" name="interests" value="coast"> الساحل</label>
+      <label><input type="checkbox" name="interests" value="culture"> الثقافة</label>
+    </fieldset>
+
+    <button type="submit" class="primary-action">
+      أنشئ رحلتي
+    </button>
+  </form>
+
+  <div
+    class="ai-planner-result"
+    data-ai-trip-planner-result
+    hidden>
+  </div>
+</section>
+
+<section class="section"><div class="chat-box"><span class="kicker">دردشة تجريبية</span><h2>اسأل VisitLibya AI</h2><p>اختر سؤالًا جاهزًا أو اكتب سؤالك عن ليبيا.</p><div class="ai-question-grid ar-ai-grid"><button type="button" data-ai-question="ماذا أزور في طرابلس؟">ماذا أزور في طرابلس؟</button><button type="button" data-ai-question="حدثني عن غدامس.">حدثني عن غدامس.</button><button type="button" data-ai-question="كيف أزور أكاكوس؟">كيف أزور أكاكوس؟</button><button type="button" data-ai-question="ما أشهر الأكلات الليبية؟">ما أشهر الأكلات الليبية؟</button><button type="button" data-ai-question="ما أفضل مسار للصحراء؟">ما أفضل مسار للصحراء؟</button><button type="button" data-ai-question="ما أهم مواقع التراث العالمي؟">ما أهم مواقع التراث العالمي؟</button><button type="button" data-ai-question="ماذا أعرف عن الجبل الأخضر؟">ماذا أعرف عن الجبل الأخضر؟</button><button type="button" data-ai-question="كيف أخطط لرحلة إلى ليبيا؟">كيف أخطط لرحلة إلى ليبيا؟</button><button type="button" data-question="كيف أعرف ما إذا كنت مؤهلاً للتقديم على التأشيرة السياحية الإلكترونية؟">هل أنا مؤهل للتأشيرة الإلكترونية؟</button><button type="button" data-question="كم تكلفة التأشيرة الإلكترونية السياحية؟">كم تكلفة التأشيرة؟</button><button type="button" data-question="هل يمكنني الحصول على التأشيرة عند الوصول إلى ليبيا؟">التأشيرة عند الوصول</button><button type="button" data-question="هل يمكنني دخول ليبيا كسائح؟">دخول ليبيا كسائح</button><button type="button" data-question="ما هي متطلبات الدخول إلى ليبيا؟">متطلبات الدخول</button><button type="button" data-question="ما هي العملة الوطنية في ليبيا؟">العملة الوطنية</button><button type="button" data-question="هل يجب الإفصاح عن العملة عند الدخول أو الخروج؟">الإفصاح عن العملة</button></div><div class="chat-messages" id="chat-messages" aria-live="polite"><div class="message bot">مرحبًا، اسألني عن طرابلس أو غدامس أو أكاكوس أو التراث أو الأطلس.</div></div><form class="chat-form" id="chat-form"><input id="chat-input" type="text" name="message" placeholder="اكتب سؤالك هنا..." autocomplete="off"><button type="submit">إرسال</button></form></div></section>
 </main>
 
 <footer class="vl-footer">
@@ -64,5 +138,6 @@
 </footer>
 <script src="../main.js?v=stabilization-sprint-01"></script>
 <script src="../assets/js/pages/ai.js?v=runtime-performance-01" defer></script>
+<script type="module" src="../assets/js/pages/ai-trip-planner.js?v=ai-planner-v1"></script>
 </body>
 </html>

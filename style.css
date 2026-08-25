@@ -784,3 +784,131 @@ body.lightbox-open {
 
 /* Responsive WebP wrappers preserve the original image box in existing layouts. */
 .responsive-picture { display: contents; }
+
+/* AI Trip Planner V1 */
+.ai-trip-planner {
+  display: grid;
+  gap: 28px;
+}
+
+.ai-planner-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding: 28px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 34px rgba(7, 29, 52, .08);
+}
+
+.ai-planner-field {
+  display: grid;
+  gap: 8px;
+}
+
+.ai-planner-field label,
+.ai-planner-interests legend {
+  font-weight: 700;
+}
+
+.ai-planner-field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid rgba(11, 58, 103, .18);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.ai-planner-interests {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px;
+  border: 1px solid rgba(11, 58, 103, .14);
+  border-radius: 14px;
+}
+
+.ai-planner-interests legend {
+  padding-inline: 8px;
+}
+
+.ai-planner-interests label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.ai-planner-form .primary-action {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.ai-planner-result {
+  display: grid;
+  gap: 22px;
+}
+
+.ai-planner-result-summary {
+  padding: 20px;
+  border-radius: 14px;
+  background: rgba(11, 58, 103, .06);
+}
+
+.ai-planner-day {
+  display: grid;
+  gap: 14px;
+}
+
+.ai-planner-stops {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.ai-planner-stop {
+  padding: 20px;
+  border: 1px solid rgba(11, 58, 103, .12);
+  border-radius: 14px;
+  background: #fff;
+}
+
+.ai-planner-stop__meta {
+  font-weight: 700;
+  opacity: .72;
+}
+
+.ai-planner-stop__score {
+  font-size: .92rem;
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .ai-planner-form,
+  .ai-planner-stops {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-planner-form .primary-action,
+  .ai-planner-interests {
+    grid-column: 1;
+  }
+}
+
+.ai-planner-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.ai-planner-create-status {
+  margin: 0;
+  font-weight: 700;
+}
+
+.ai-planner-create-status[hidden] {
+  display: none;
+}
