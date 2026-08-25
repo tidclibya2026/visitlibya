@@ -751,3 +751,102 @@ test("relaxed itinerary reserves travel day when coordinate travel budget is exc
     travelDays.length >= 1,
   );
 });
+
+test("Acacus exposes special road access requirements", () => {
+  const ranked =
+    rankPlannerDestinations(
+      [
+        {
+          slug: "acacus",
+          category_key: "desert",
+          description_en: "Acacus",
+          latitude: 24.8333,
+          longitude: 10.3333,
+        },
+      ],
+      {
+        days: 7,
+        startingPoint: "sebha",
+        interests: ["desert"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const score = ranked[0].score;
+
+  assert.equal(
+    score.requires4x4,
+    true,
+  );
+
+  assert.equal(
+    score.requiresGuide,
+    true,
+  );
+
+  assert.equal(
+    score.roadAccessClass,
+    "desert-expedition",
+  );
+});
+
+
+test("road adjustment increases remote travel estimate", () => {
+  const ranked =
+    rankPlannerDestinations(
+      [
+        {
+          slug: "awjila",
+          category_key: "oases",
+          description_en: "Awjila",
+          latitude: 29.1081,
+          longitude: 21.2869,
+        },
+      ],
+      {
+        days: 7,
+        startingPoint: "benghazi",
+        interests: ["heritage"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const score = ranked[0].score;
+
+  assert.ok(
+    score.adjustedRoadTravelMinutes >
+    score.travelTimeMinutes,
+  );
+});
+
+
+test("standard road keeps travel estimate unchanged", () => {
+  const ranked =
+    rankPlannerDestinations(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 3,
+        startingPoint: "tripoli",
+        interests: ["history"],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  const score = ranked[0].score;
+
+  assert.equal(
+    score.adjustedRoadTravelMinutes,
+    score.travelTimeMinutes,
+  );
+});

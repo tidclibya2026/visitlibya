@@ -25,6 +25,12 @@ import {
   travelTimePenalty,
 } from "./travel-time-intelligence.js";
 
+import {
+  adjustedRoadTravelMinutes,
+  roadFeasibilityEvidence,
+  roadFeasibilityPenalty,
+} from "./road-feasibility.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -270,6 +276,22 @@ function scoreDestination(destination, preferences) {
       pace: preferences.pace,
     });
 
+  const roadEvidence =
+    roadFeasibilityEvidence(
+      destination,
+    );
+
+  const adjustedTravelMinutes =
+    adjustedRoadTravelMinutes(
+      travelTimeResult.minutes,
+      destination,
+    );
+
+  const roadPenalty =
+    roadFeasibilityPenalty(
+      destination,
+    );
+
   const hasTravelTimeEvidence =
     travelTimeResult.minutes !== null;
 
@@ -278,10 +300,10 @@ function scoreDestination(destination, preferences) {
 
   const travelPenalty =
     hasTravelTimeEvidence
-      ? travelTimeResult.penalty
+      ? travelTimeResult.penalty + roadPenalty
       : hasCoordinateEvidence
-        ? coordinateResult.penalty
-        : regionalPenalty;
+        ? coordinateResult.penalty + roadPenalty
+        : regionalPenalty + roadPenalty;
 
   const tourismScore =
     interestScore +
@@ -314,6 +336,9 @@ function scoreDestination(destination, preferences) {
     travelTimeMinutes:
       travelTimeResult.minutes,
 
+    adjustedRoadTravelMinutes:
+      adjustedTravelMinutes,
+
     travelTimeBand:
       travelTimeResult.band,
 
@@ -321,6 +346,21 @@ function scoreDestination(destination, preferences) {
       hasTravelTimeEvidence
         ? travelTimeResult.penalty
         : null,
+
+    roadFeasibilityPenalty:
+      roadPenalty,
+
+    roadAccessClass:
+      roadEvidence.accessClass,
+
+    roadFactor:
+      roadEvidence.roadFactor,
+
+    requires4x4:
+      roadEvidence.requires4x4,
+
+    requiresGuide:
+      roadEvidence.requiresGuide,
 
     exceedsDailyTravelBudget:
       hasTravelTimeEvidence
