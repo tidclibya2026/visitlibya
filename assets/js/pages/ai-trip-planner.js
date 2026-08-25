@@ -187,6 +187,18 @@ function renderItinerary(root, itinerary, locale) {
     );
   }
 
+  const optimization =
+    renderTripOptimization(
+      itinerary,
+      locale,
+    );
+
+  if (optimization) {
+    root.append(
+      optimization,
+    );
+  }
+
   const summary = document.createElement("div");
   summary.className = "ai-planner-result-summary";
 

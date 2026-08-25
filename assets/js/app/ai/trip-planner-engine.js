@@ -65,6 +65,15 @@ import {
   sortTripRecommendations,
 } from "./trip-recommendation-insights.js";
 
+import {
+  optimizeItineraryStructure,
+  optimizationSummary,
+} from "./trip-auto-optimization.js";
+
+import {
+  evaluateOptimization,
+} from "./trip-optimization-evaluation.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -958,10 +967,67 @@ export function buildSuggestedItinerary(
       ),
   };
 
+  const optimizationStructure =
+    optimizeItineraryStructure({
+      days: itineraryDays,
+      feasibility,
+      recommendations,
+    });
+
+  const optimizationEvaluation =
+    evaluateOptimization({
+      originalDays:
+        optimizationStructure
+          .originalDays,
+
+      optimizedDays:
+        optimizationStructure
+          .optimizedDays,
+
+      preferences: {
+        pace:
+          normalizeValue(
+            preferences.pace,
+          ) || "balanced",
+      },
+    });
+
+  const optimization = {
+    actions:
+      optimizationStructure.actions,
+
+    evidence:
+      optimizationStructure.evidence,
+
+    summary:
+      optimizationSummary(
+        optimizationStructure,
+      ),
+
+    before:
+      optimizationEvaluation.before,
+
+    after:
+      optimizationEvaluation.after,
+
+    improvement:
+      optimizationEvaluation
+        .improvement,
+
+    safeToApply:
+      !optimizationEvaluation
+        .improvement.worsened,
+
+    recommended:
+      optimizationEvaluation
+        .improvement.improved,
+  };
+
   return {
     days: itineraryDays,
     feasibility,
     recommendations,
+    optimization,
     selectedCount: actualSelectedCount,
     requestedDays: days,
     pace: normalizeValue(preferences.pace) || "balanced",
