@@ -38,6 +38,11 @@ import {
   visitDurationMinutes,
 } from "./visit-duration-intelligence.js";
 
+import {
+  formatClockMinutes,
+  scheduleDestinationSequence,
+} from "./opening-hours-intelligence.js";
+
 const INTEREST_CATEGORY_WEIGHTS = {
   history: new Set([
     "historic-cities",
@@ -792,6 +797,65 @@ export function buildSuggestedItinerary(
         pace:
           preferences.pace,
       });
+
+    const scheduledDestinations =
+      scheduleDestinationSequence({
+        destinations:
+          day.destinations,
+        pace:
+          preferences.pace,
+
+        visitDurationResolver:
+          (destination) =>
+            visitDurationMinutes(
+              destination,
+              preferences.pace,
+            ),
+      });
+
+    day.destinations =
+      scheduledDestinations.map(
+        (scheduledItem) => ({
+          ...scheduledItem.destination,
+
+          planner_score: {
+            ...(
+              scheduledItem
+                .destination
+                .planner_score ?? {}
+            ),
+
+            scheduled:
+              scheduledItem.scheduled,
+
+            scheduledStartMinutes:
+              scheduledItem.startsAt,
+
+            scheduledEndMinutes:
+              scheduledItem.endsAt,
+
+            scheduledStart:
+              scheduledItem.startsAt === null
+                ? null
+                : formatClockMinutes(
+                    scheduledItem.startsAt,
+                  ),
+
+            scheduledEnd:
+              scheduledItem.endsAt === null
+                ? null
+                : formatClockMinutes(
+                    scheduledItem.endsAt,
+                  ),
+
+            openingHoursStatus:
+              scheduledItem.openingStatus,
+
+            scheduleReason:
+              scheduledItem.reason,
+          },
+        }),
+      );
   }
 
   const actualSelectedCount =
