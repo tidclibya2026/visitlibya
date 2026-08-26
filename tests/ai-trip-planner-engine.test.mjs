@@ -1731,3 +1731,147 @@ test("planner recommendations are priority ordered", () => {
     sorted,
   );
 });
+
+test("planner exposes auto optimization result", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.ok(
+    result.optimization,
+  );
+
+  assert.equal(
+    typeof result.optimization
+      .safeToApply,
+    "boolean",
+  );
+
+  assert.equal(
+    typeof result.optimization
+      .recommended,
+    "boolean",
+  );
+});
+
+
+test("planner optimization exposes before and after feasibility", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.equal(
+    typeof result.optimization
+      .before.feasibility.score,
+    "number",
+  );
+
+  assert.equal(
+    typeof result.optimization
+      .after.feasibility.score,
+    "number",
+  );
+});
+
+
+test("planner optimization exposes score delta", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  assert.equal(
+    typeof result.optimization
+      .improvement.scoreDelta,
+    "number",
+  );
+});
+
+
+test("worsened optimization is never safe to apply", () => {
+  const result =
+    buildSuggestedItinerary(
+      [
+        {
+          slug: "tripoli",
+          category_key: "historic-cities",
+          description_en: "Tripoli",
+          latitude: 32.8872,
+          longitude: 13.1913,
+        },
+      ],
+      {
+        days: 1,
+        startingPoint: "tripoli",
+        interests: [
+          "history",
+        ],
+        travelerType: "solo",
+        pace: "balanced",
+      },
+    );
+
+  if (
+    result.optimization
+      .improvement.worsened
+  ) {
+    assert.equal(
+      result.optimization
+        .safeToApply,
+      false,
+    );
+  }
+});
