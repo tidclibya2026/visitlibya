@@ -3,6 +3,7 @@ from collections.abc import Sequence
 from sqlalchemy.orm import Session
 
 from app.models.planner_run import PlannerRun, PlannerRunStatus
+from app.core.exceptions import TripNotFoundError
 from app.repositories.planner_run import PlannerRunRepository
 
 
@@ -30,6 +31,9 @@ class PlannerRunService:
         engine_version: str = "visitlibya-ai-planner-v1",
     ) -> PlannerRun:
         self._validate_feasibility_score(feasibility_score)
+        self._validate_positive_id(user_id, "user_id")
+        if trip_id is not None:
+            self._require_owned_trip(trip_id=trip_id, user_id=user_id)
 
         planner_run = PlannerRun(
             user_id=user_id,
@@ -90,13 +94,14 @@ class PlannerRunService:
         skip: int = 0,
         limit: int = 50,
     ) -> Sequence[PlannerRun]:
-        if trip_id < 1 or user_id < 1:
-            raise ValueError("trip_id and user_id must be positive")
+        self._validate_positive_id(trip_id, "trip_id")
+        self._validate_positive_id(user_id, "user_id")
         if skip < 0:
             raise ValueError("skip must be zero or greater")
         if not 1 <= limit <= 100:
             raise ValueError("limit must be between 1 and 100")
 
+        self._require_owned_trip(trip_id=trip_id, user_id=user_id)
         return self.repository.list_trip_planner_runs(
             trip_id=trip_id,
             user_id=user_id,
@@ -110,6 +115,7 @@ class PlannerRunService:
         trip_id: int,
         user_id: int,
     ) -> PlannerRun | None:
+        self._require_owned_trip(trip_id=trip_id, user_id=user_id)
         return self.repository.get_latest_for_trip(
             trip_id=trip_id,
             user_id=user_id,
@@ -121,6 +127,7 @@ class PlannerRunService:
         trip_id: int,
         user_id: int,
     ) -> PlannerRun | None:
+        self._require_owned_trip(trip_id=trip_id, user_id=user_id)
         return self.repository.get_latest_accepted_for_trip(
             trip_id=trip_id,
             user_id=user_id,
@@ -148,6 +155,13 @@ class PlannerRunService:
 
         if planner_run.status == PlannerRunStatus.SUPERSEDED:
             raise ValueError("superseded planner run cannot be accepted")
+
+        if planner_run.trip_id is not None:
+            if not self.repository.lock_owned_trip(
+                trip_id=planner_run.trip_id,
+                user_id=user_id,
+            ):
+                raise TripNotFoundError()
 
         updated = self.repository.update_status(
             planner_run_id=planner_run_id,
@@ -228,12 +242,12 @@ class PlannerRunService:
             return None
 
         if planner_run.status in {
+            PlannerRunStatus.ACCEPTED,
             PlannerRunStatus.REJECTED,
             PlannerRunStatus.SUPERSEDED,
         }:
             raise ValueError(
-                "evidence cannot be updated for "
-                "rejected or superseded planner runs"
+                "evidence can only be updated for generated planner runs"
             )
 
         updated = self.repository.update_evidence(
@@ -267,3 +281,14 @@ class PlannerRunService:
 
     def rollback(self) -> None:
         self.session.rollback()
+
+    def _require_owned_trip(self, *, trip_id: int, user_id: int) -> None:
+        self._validate_positive_id(trip_id, "trip_id")
+        self._validate_positive_id(user_id, "user_id")
+        if not self.repository.owned_trip_exists(trip_id, user_id):
+            raise TripNotFoundError()
+
+    @staticmethod
+    def _validate_positive_id(value: int, name: str) -> None:
+        if value < 1:
+            raise ValueError(f"{name} must be positive")

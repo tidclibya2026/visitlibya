@@ -27,6 +27,17 @@ def test_create_planner_run_adds_model():
     session.add.assert_called_once_with(planner_run)
 
 
+def test_owned_trip_exists_is_scoped_to_trip_and_user():
+    session = MagicMock()
+    session.scalar.return_value = 9
+    repository = PlannerRunRepository(session)
+
+    assert repository.owned_trip_exists(9, 4) is True
+    statement = session.scalar.call_args.args[0]
+    assert "trips.id" in str(statement)
+    assert "trips.user_id" in str(statement)
+
+
 def test_get_owned_planner_run_by_id_returns_owned_run():
     session = MagicMock()
     repository = PlannerRunRepository(session)

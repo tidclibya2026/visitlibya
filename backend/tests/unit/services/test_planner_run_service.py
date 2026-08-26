@@ -2,6 +2,7 @@ from unittest.mock import MagicMock
 
 import pytest
 
+from app.core.exceptions import TripNotFoundError
 from app.models.planner_run import PlannerRun, PlannerRunStatus
 from app.services.planner_run import PlannerRunService
 
@@ -25,6 +26,7 @@ def make_run(**overrides):
 def test_create_run_adds_generated_run():
     session = MagicMock()
     repository = MagicMock()
+    repository.owned_trip_exists.return_value = True
     service = PlannerRunService(
         session=session,
         repository=repository,
@@ -46,6 +48,25 @@ def test_create_run_adds_generated_run():
     assert result.status == PlannerRunStatus.GENERATED
     assert result.feasibility_score == 84
     repository.create_planner_run.assert_called_once_with(result)
+
+
+def test_create_run_rejects_trip_not_owned_by_user():
+    session = MagicMock()
+    repository = MagicMock()
+    repository.owned_trip_exists.return_value = False
+    service = PlannerRunService(session=session, repository=repository)
+
+    with pytest.raises(TripNotFoundError):
+        service.create_run(
+            user_id=7,
+            trip_id=22,
+            input_snapshot={},
+            itinerary_snapshot={},
+            feasibility_snapshot={},
+            recommendations_snapshot={},
+            optimization_snapshot={},
+        )
+    repository.create_planner_run.assert_not_called()
 
 
 @pytest.mark.parametrize("score", [-1, 101])
@@ -301,6 +322,7 @@ def test_update_evidence_rejects_invalid_score(score):
 @pytest.mark.parametrize(
     "status",
     [
+        PlannerRunStatus.ACCEPTED,
         PlannerRunStatus.REJECTED,
         PlannerRunStatus.SUPERSEDED,
     ],
