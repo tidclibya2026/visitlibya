@@ -11,7 +11,11 @@ def liveness() -> dict[str, str]:
 
 @router.get("/ready")
 def readiness(response: Response) -> dict[str, str]:
-    if not check_database_connection() or not migration_is_current():
+    if (
+        not check_database_connection()
+        or not check_postgis()
+        or not migration_is_current()
+    ):
         response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
         return {"status": "not_ready"}
     return {"status": "ready"}

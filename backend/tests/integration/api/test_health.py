@@ -33,7 +33,18 @@ def test_database_health_success_and_postgis_failure(monkeypatch) -> None:
 
 def test_readiness_requires_current_migration(monkeypatch) -> None:
     monkeypatch.setattr("app.api.health.check_database_connection", lambda: True)
+    monkeypatch.setattr("app.api.health.check_postgis", lambda: True)
     monkeypatch.setattr("app.api.health.migration_is_current", lambda: False)
     with TestClient(app) as client:
         response = client.get("/health/ready")
     assert response.status_code == 503
+
+
+def test_readiness_requires_postgis(monkeypatch) -> None:
+    monkeypatch.setattr("app.api.health.check_database_connection", lambda: True)
+    monkeypatch.setattr("app.api.health.check_postgis", lambda: False)
+    monkeypatch.setattr("app.api.health.migration_is_current", lambda: True)
+    with TestClient(app) as client:
+        response = client.get("/health/ready")
+    assert response.status_code == 503
+    assert response.json() == {"status": "not_ready"}
