@@ -257,6 +257,11 @@ class TripPersistenceError(TripError):
     def __init__(self) -> None:
         super().__init__("Trip request could not be completed")
 
+
+class PlannerExecutionError(TripError):
+    def __init__(self) -> None:
+        super().__init__("Planner execution failed")
+
 class DestinationPlannerProfileError(Exception):
     """Base class for destination planner profile domain errors."""
 

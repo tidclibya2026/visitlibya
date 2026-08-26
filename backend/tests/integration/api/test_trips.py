@@ -268,7 +268,7 @@ def test_openapi_marks_owner_trip_operations_as_bearer_protected() -> None:
             else:
                 protected_operations.append(operation)
 
-    assert len(protected_operations) == 15
+    assert len(protected_operations) == 16
     assert len(public_operations) == 2
 
     assert all(

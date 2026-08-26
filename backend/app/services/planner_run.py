@@ -282,6 +282,10 @@ class PlannerRunService:
     def rollback(self) -> None:
         self.session.rollback()
 
+    def require_owned_trip(self, *, trip_id: int, user_id: int) -> None:
+        """Expose the existing owner check to trusted orchestration services."""
+        self._require_owned_trip(trip_id=trip_id, user_id=user_id)
+
     def _require_owned_trip(self, *, trip_id: int, user_id: int) -> None:
         self._validate_positive_id(trip_id, "trip_id")
         self._validate_positive_id(user_id, "user_id")
