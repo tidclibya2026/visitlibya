@@ -73,6 +73,11 @@ export async function enrichPlannerDestinationsWithCoordinates(
           : Number(rawLongitude);
 
       catalogueBySlug.set(slug, {
+        destinationId:
+          Number.isSafeInteger(Number(item?.id)) &&
+          Number(item.id) > 0
+            ? Number(item.id)
+            : null,
         latitude:
           Number.isFinite(latitude)
             ? latitude
@@ -110,6 +115,11 @@ export async function enrichPlannerDestinationsWithCoordinates(
 
     return {
       ...destination,
+
+      destination_id:
+        catalogue.destinationId ??
+        destination.destination_id ??
+        null,
 
       latitude:
         catalogue.latitude ??

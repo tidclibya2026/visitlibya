@@ -103,6 +103,19 @@ function normalize(value) {
 export function destinationAccessProfile(
   destination,
 ) {
+  const roadAccess = normalize(destination?.planner_road_access);
+  const roadCondition = normalize(destination?.planner_road_condition);
+  if (roadAccess && roadAccess !== "unknown") {
+    const requires4x4 = roadAccess === "four_wheel_drive";
+    const requiresGuide = roadAccess === "guided_only";
+    const difficult = roadCondition === "difficult" || roadCondition === "very_difficult";
+    return {
+      accessClass: requiresGuide ? "desert-expedition" : requires4x4 ? "desert" : difficult ? "remote" : "standard",
+      roadFactor: requiresGuide ? 1.9 : requires4x4 ? 1.65 : difficult ? 1.35 : 1,
+      requires4x4,
+      requiresGuide,
+    };
+  }
   const slug =
     normalize(destination?.slug);
 

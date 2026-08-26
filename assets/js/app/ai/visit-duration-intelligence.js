@@ -51,6 +51,10 @@ function normalizePace(value) {
 export function baseVisitDurationMinutes(
   destination,
 ) {
+  const authoritative = Number(destination?.recommended_visit_minutes);
+  if (Number.isFinite(authoritative) && authoritative > 0) {
+    return authoritative;
+  }
   const category =
     normalize(
       destination?.category_key,
