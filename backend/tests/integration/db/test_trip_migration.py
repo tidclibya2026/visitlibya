@@ -13,6 +13,7 @@ from sqlalchemy.exc import IntegrityError
 
 PREVIOUS_REVISION = "d3a8f6c41b29"
 TRIP_REVISION = "c6e2a9b47f31"
+HEAD_REVISION = "a4902527f045"
 BACKEND_DIR = Path(__file__).resolve().parents[3]
 
 
@@ -142,7 +143,7 @@ def test_trip_migration_upgrade_downgrade_upgrade() -> None:
             connection.execute(text("DELETE FROM users WHERE id = :id"), {"id": user_id})
 
         with engine.connect() as connection:
-            assert connection.scalar(text("SELECT version_num FROM alembic_version")) == TRIP_REVISION
+            assert connection.scalar(text("SELECT version_num FROM alembic_version")) == HEAD_REVISION
 
         alembic("downgrade", PREVIOUS_REVISION)
         inspector = inspect(engine)
@@ -150,6 +151,6 @@ def test_trip_migration_upgrade_downgrade_upgrade() -> None:
         assert "trips" not in inspector.get_table_names()
         alembic("upgrade", "head")
         with engine.connect() as connection:
-            assert connection.scalar(text("SELECT version_num FROM alembic_version")) == TRIP_REVISION
+            assert connection.scalar(text("SELECT version_num FROM alembic_version")) == HEAD_REVISION
     finally:
         engine.dispose()
