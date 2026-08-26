@@ -22,6 +22,7 @@ from app.models.base import Base, TimestampMixin
 if TYPE_CHECKING:
     from app.models.category import Category
     from app.models.media import DestinationMedia
+    from app.models.destination_planner_profile import DestinationPlannerProfile
     from app.models.review import Review
     from app.models.favorite import Favorite
     from app.models.trip_item import TripItem
@@ -159,6 +160,15 @@ class Destination(TimestampMixin, Base):
         cascade="all, delete-orphan",
         passive_deletes=True,
         lazy="raise",
+    )
+
+
+    planner_profile: Mapped["DestinationPlannerProfile | None"] = relationship(
+        back_populates="destination",
+        cascade="all, delete-orphan",
+        passive_deletes=True,
+        uselist=False,
+        lazy="selectin",
     )
 
 
