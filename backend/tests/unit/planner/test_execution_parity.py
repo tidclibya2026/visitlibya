@@ -54,10 +54,10 @@ def test_unverified_authority_is_not_promoted_to_verified():
 
 def test_execute_planner_builds_requested_multi_day_result():
     destinations = [
-        {"slug": f"stop-{index}", "category_key": "heritage", "planner_priority": 100 - index}
+        {"slug": f"stop-{index}", "category_key": "historic-cities", "description_en": "Historic stop"}
         for index in range(4)
     ]
-    result = execute_planner(destinations, {"days": 2, "pace": "balanced"})
+    result = execute_planner(destinations, {"days": 2, "pace": "balanced", "interests": ["history"]})
     assert result["requestedDays"] == 2
     assert result["selectedCount"] == 4
     assert [len(day["destinations"]) for day in result["days"]] == [2, 2]

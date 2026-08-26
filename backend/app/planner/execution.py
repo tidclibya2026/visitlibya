@@ -58,6 +58,45 @@ ROAD_PROFILES = {
     "desert": ("desert", 1.65, True, True),
     "acacus": ("desert-expedition", 1.9, True, True),
 }
+REGION_DESTINATIONS = {
+    "northwest": {"tripoli", "sabratha", "leptis-magna", "villa-sileen", "nafusa"},
+    "east": {"benghazi", "green-mountain", "bomba-bay"},
+    "easternOases": {"awjila"}, "westernDesert": {"ghadames"},
+    "southwest": {"acacus", "desert"},
+}
+START_REGIONS = {"tripoli": "northwest", "benghazi": "east", "sebha": "southwest"}
+REGION_NEIGHBORS = {
+    "northwest": {"westernDesert"}, "east": {"easternOases"},
+    "easternOases": {"east", "southwest"},
+    "westernDesert": {"northwest", "southwest"},
+    "southwest": {"westernDesert", "easternOases"},
+}
+ROUTE_ORDER = {
+    "northwest": ["tripoli", "leptis-magna", "villa-sileen", "sabratha", "nafusa"],
+    "east": ["benghazi", "green-mountain", "bomba-bay"],
+    "easternOases": ["awjila"], "westernDesert": ["ghadames"],
+    "southwest": ["desert", "acacus"],
+}
+INTEREST_CATEGORIES = {
+    "history": {"historic-cities", "archaeological-sites", "oases-heritage", "mountains-heritage"},
+    "heritage": {"historic-cities", "archaeological-sites", "oases-heritage", "mountains-heritage", "sahara-rock-art"},
+    "archaeology": {"archaeological-sites", "sahara-rock-art"},
+    "desert": {"sahara-desert", "sahara-rock-art", "oases-heritage", "oases-nature"},
+    "nature": {"mountains-nature", "mediterranean-coast", "oases-nature", "sahara-desert"},
+    "coast": {"mediterranean-coast"},
+    "culture": {"historic-cities", "oases-heritage", "mountains-heritage"},
+}
+START_KEYWORDS = {
+    "tripoli": ["tripoli", "northwest", "western", "طرابلس", "شمال غرب", "الغربية"],
+    "benghazi": ["benghazi", "eastern", "northeast", "cyrenaica", "بنغازي", "شرق", "برقة"],
+    "sebha": ["fezzan", "southern", "southwest", "sahara", "فزان", "جنوب", "الصحراء"],
+}
+TRAVELER_CATEGORIES = {
+    "family": {"historic-cities", "archaeological-sites", "mountains-nature", "mediterranean-coast", "oases-nature"},
+    "couple": {"historic-cities", "mountains-nature", "mediterranean-coast", "oases-heritage"},
+    "solo": {"historic-cities", "archaeological-sites", "mountains-heritage", "sahara-rock-art", "sahara-desert"},
+    "group": {"archaeological-sites", "sahara-rock-art", "sahara-desert", "mountains-nature"},
+}
 
 
 def _pace(value: Any) -> str:
@@ -137,6 +176,126 @@ def estimated_travel_minutes(source: Mapping[str, Any] | None, target: Mapping[s
     return None if distance is None else distance / 65 * 60
 
 
+def destination_region(destination: Mapping[str, Any]) -> str:
+    slug = str(destination.get("slug") or "").strip().lower()
+    return next((region for region, slugs in REGION_DESTINATIONS.items() if slug in slugs), "unknown")
+
+
+def region_relationship(source: str, target: str) -> str:
+    if not source or not target or "unknown" in {source, target}:
+        return "unknown"
+    if source == target:
+        return "same"
+    return "adjacent" if target in REGION_NEIGHBORS.get(source, set()) else "distant"
+
+
+def max_major_regions(days: Any) -> int:
+    try:
+        value = float(days)
+    except (TypeError, ValueError):
+        return 1
+    return 1 if value <= 3 else 2 if value <= 6 else 3
+
+
+def geographic_penalty(destination: Mapping[str, Any], starting_point: Any, days: Any) -> int:
+    relationship = region_relationship(
+        START_REGIONS.get(str(starting_point or "").strip().lower(), "unknown"),
+        destination_region(destination),
+    )
+    if relationship == "same": return 0
+    if relationship == "adjacent": return 30 if max_major_regions(days) == 1 else 8
+    if relationship == "distant": return 70 if float(days or 0) <= 3 else 40 if float(days or 0) <= 6 else 15
+    return 10
+
+
+def travel_time_penalty(source: Mapping[str, Any] | None, target: Mapping[str, Any], days: Any, pace: str) -> dict[str, Any]:
+    minutes = estimated_travel_minutes(source, target)
+    if minutes is None:
+        return {"minutes": None, "band": "unknown", "penalty": 0, "exceedsDailyBudget": False}
+    band = "short" if minutes <= 90 else "moderate" if minutes <= 180 else "long" if minutes <= 360 else "very-long"
+    exceeds = minutes > TRAVEL_BUDGET[_pace(pace)]
+    penalty = 5 if band == "moderate" else (35 if float(days or 1) <= 3 else 15) if band == "long" else (90 if float(days or 1) <= 3 else 55 if float(days or 1) <= 6 else 25) if band == "very-long" else 0
+    return {"minutes": minutes, "band": band, "penalty": penalty + (15 if exceeds else 0), "exceedsDailyBudget": exceeds}
+
+
+def score_destination(destination: Mapping[str, Any], preferences: Mapping[str, Any]) -> dict[str, Any]:
+    interests = [str(value).strip().lower() for value in preferences.get("interests", []) if str(value).strip()]
+    category = str(destination.get("category_key") or "").strip().lower()
+    matches = sum(category in INTEREST_CATEGORIES.get(interest, set()) for interest in interests)
+    interest_score = min(40, _js_round(matches / len(interests) * 40)) if matches and interests else 0
+    searchable = " ".join(str(destination.get(key) or "") for key in ("slug", "name_en", "name_ar", "description_en", "description_ar", "region_en", "region_ar", "category_en", "category_ar", "category_key")).lower()
+    start = str(preferences.get("startingPoint") or "").strip().lower()
+    starting_score = 25 if any(keyword.lower() in searchable for keyword in START_KEYWORDS.get(start, [])) else 0
+    traveler = str(preferences.get("travelerType") or "").strip().lower()
+    traveler_score = 10 if category in TRAVELER_CATEGORIES.get(traveler, set()) else 0
+    content_score = 5 if destination.get("description_en") or destination.get("description_ar") else 0
+    regional = geographic_penalty(destination, start, preferences.get("days", 1))
+    origin_coordinates = START_COORDINATES.get(start)
+    origin = {"latitude": origin_coordinates[0], "longitude": origin_coordinates[1]} if origin_coordinates else None
+    travel = travel_time_penalty(origin, destination, preferences.get("days", 1), str(preferences.get("pace") or "balanced"))
+    road = road_profile(destination)
+    road_penalties = {"standard": 0, "regional": 3, "long-distance": 5, "remote": 10, "desert": 18, "desert-expedition": 25}
+    road_penalty = road_penalties.get(road["accessClass"], 0)
+    distance = distance_km(origin, destination)
+    travel_penalty = travel["penalty"] + road_penalty if travel["minutes"] is not None else regional + road_penalty
+    tourism = interest_score + starting_score + traveler_score + content_score
+    return {
+        "total": tourism - travel_penalty, "tourismScore": tourism,
+        "interestScore": interest_score, "startingRegionScore": starting_score,
+        "travelerScore": traveler_score, "contentScore": content_score,
+        "geographicPenalty": regional, "coordinatePenalty": None if distance is None else 0,
+        "distanceKm": distance, "travelTimeMinutes": travel["minutes"],
+        "adjustedRoadTravelMinutes": None if travel["minutes"] is None else travel["minutes"] * road["roadFactor"],
+        "travelTimeBand": travel["band"], "travelTimePenalty": None if travel["minutes"] is None else travel["penalty"],
+        "roadFeasibilityPenalty": road_penalty, "roadAccessClass": road["accessClass"],
+        "roadFactor": road["roadFactor"], "requires4x4": road["requires4x4"],
+        "requiresGuide": road["requiresGuide"], "exceedsDailyTravelBudget": None if travel["minutes"] is None else travel["exceedsDailyBudget"],
+        "routingMode": "travel-time" if travel["minutes"] is not None else "region",
+        "geographicRegion": destination_region(destination),
+    }
+
+
+def rank_destinations(destinations: Iterable[Mapping[str, Any]], preferences: Mapping[str, Any]) -> list[dict[str, Any]]:
+    entries = [{"destination": dict(item), "score": score_destination(item, preferences)} for item in destinations if item.get("slug") and item.get("category_key")]
+    return sorted(entries, key=lambda item: (-item["score"]["total"], str(item["destination"]["slug"])))
+
+
+def order_nearest(destinations: Sequence[Mapping[str, Any]], start: Mapping[str, Any] | None) -> list[Mapping[str, Any]]:
+    remaining, ordered, current = list(destinations), [], start
+    if valid_coordinates(current) is None: return remaining
+    while remaining:
+        candidates = [(distance_km(current, item), index) for index, item in enumerate(remaining) if valid_coordinates(item)]
+        candidates = [(distance, index) for distance, index in candidates if distance is not None]
+        if not candidates: ordered.extend(remaining); break
+        _, index = min(candidates, key=lambda value: value[0])
+        item = remaining.pop(index); ordered.append(item); current = item
+    return ordered
+
+
+def route_order(entries: Sequence[Mapping[str, Any]], preferences: Mapping[str, Any]) -> list[dict[str, Any]]:
+    origin_region = START_REGIONS.get(str(preferences.get("startingPoint") or "").lower(), "unknown")
+    grouped: dict[str, list[Mapping[str, Any]]] = {}
+    for entry in entries: grouped.setdefault(destination_region(entry["destination"]), []).append(entry)
+    regions = [origin_region] + [region for region in grouped if region != origin_region]
+    coordinates = START_COORDINATES.get(str(preferences.get("startingPoint") or "").lower())
+    current = {"latitude": coordinates[0], "longitude": coordinates[1]} if coordinates else None
+    result = []
+    for region in regions:
+        group = grouped.get(region, [])
+        if not group: continue
+        destinations = [entry["destination"] for entry in group]
+        if current and any(valid_coordinates(item) for item in destinations):
+            destinations = order_nearest(destinations, current)
+        else:
+            route = ROUTE_ORDER.get(region, [])
+            destinations = sorted(destinations, key=lambda item: (route.index(item["slug"]) if item["slug"] in route else float("inf"), str(item["slug"])))
+        lookup = {str(entry["destination"]["slug"]).lower(): entry for entry in group}
+        for destination in destinations:
+            result.append(dict(lookup[str(destination["slug"]).lower()]))
+            if valid_coordinates(destination): current = destination
+    return result
+
+
 def road_profile(destination: Mapping[str, Any]) -> dict[str, Any]:
     access = str(destination.get("planner_road_access") or "").lower()
     condition = str(destination.get("planner_road_condition") or "").lower()
@@ -212,96 +371,204 @@ def insert_meal_rest(items: Sequence[Mapping[str, Any]], pace: str) -> list[dict
     return result
 
 
-def build_timeline(items: Sequence[Mapping[str, Any]], previous: Mapping[str, Any] | None = None) -> list[dict[str, Any]]:
-    result: list[dict[str, Any]] = []
-    prior = previous
-    for item in items:
-        destination = item.get("destination")
-        if destination and prior:
-            minutes = estimated_travel_minutes(prior, destination)
-            if minutes is not None:
-                factor = road_profile(destination)["roadFactor"]
-                duration = _js_round(minutes * factor)
-                result.append({"type": "travel", "durationMinutes": duration, "fromSlug": prior.get("slug"), "toSlug": destination.get("slug")})
-        if destination:
-            result.append({"type": "destination", "slug": destination.get("slug"), "scheduled": item.get("scheduled"), "startsAt": item.get("startsAt"), "endsAt": item.get("endsAt"), "durationMinutes": item.get("visitMinutes")})
-            prior = destination
-        else:
-            result.append(dict(item))
+def timeline_duration(item: Mapping[str, Any]) -> float | None:
+    explicit = item.get("durationMinutes")
+    if isinstance(explicit, (int, float)) and explicit >= 0: return explicit
+    start, end = item.get("startsAt"), item.get("endsAt")
+    return end - start if isinstance(start, (int, float)) and isinstance(end, (int, float)) and end >= start else None
+
+
+def resolve_timeline_conflicts(timeline: Sequence[Mapping[str, Any]]) -> list[dict[str, Any]]:
+    result, cursor = [], None
+    for raw in timeline:
+        if not raw: continue
+        item = deepcopy(dict(raw)); start, end = item.get("startsAt"), item.get("endsAt")
+        if not isinstance(start, (int, float)) or not isinstance(end, (int, float)):
+            result.append(item); continue
+        if cursor is not None and start < cursor:
+            duration = timeline_duration(item)
+            if duration is not None:
+                start, end = cursor, cursor + duration
+                item.update({"startsAt": start, "endsAt": end, "conflictAdjusted": True})
+        else: item["conflictAdjusted"] = False
+        item["startsAtLabel"], item["endsAtLabel"] = format_clock_minutes(start), format_clock_minutes(end)
+        result.append(item); cursor = end
     return result
 
 
+def build_timeline(items: Sequence[Mapping[str, Any]], previous: Mapping[str, Any] | None = None) -> list[dict[str, Any]]:
+    normalized = [deepcopy(dict(item)) for item in items if item]
+    result, prior = [], previous
+    for item in normalized:
+        destination = item.get("destination")
+        if destination and prior:
+            minutes = estimated_travel_minutes(prior, destination)
+            if minutes is not None and isinstance(item.get("startsAt"), (int, float)):
+                duration = max(0, _js_round(minutes * road_profile(destination)["roadFactor"]))
+                start = result[-1].get("endsAt") if result else item["startsAt"]
+                if not isinstance(start, (int, float)): start = item["startsAt"]
+                result.append({"type": "travel", "fromDestination": prior, "toDestination": destination, "startsAt": start, "endsAt": start + duration, "durationMinutes": duration, "startsAtLabel": format_clock_minutes(start), "endsAtLabel": format_clock_minutes(start + duration)})
+        if destination:
+            item.setdefault("type", "destination"); prior = destination
+        result.append(item)
+    priority = {"travel": 1, "meal": 2, "rest": 3, "destination": 4}
+    result.sort(key=lambda item: (item.get("startsAt") if isinstance(item.get("startsAt"), (int, float)) else float("inf"), priority.get(item.get("type"), 99)))
+    return resolve_timeline_conflicts(result)
+
+
 def daily_summary(timeline: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
-    visit = sum(int(item.get("durationMinutes") or 0) for item in timeline if item.get("type") == "destination" and item.get("scheduled") is not False)
-    travel = sum(int(item.get("durationMinutes") or 0) for item in timeline if item.get("type") == "travel")
-    recovery = sum(int(item.get("durationMinutes") or 0) for item in timeline if item.get("type") in {"meal", "rest"})
-    stop_count = sum(1 for item in timeline if item.get("type") == "destination" and item.get("scheduled") is not False)
-    total = visit + travel + recovery
-    intensity = "high" if total > 540 or stop_count >= 3 else "moderate" if total > 300 or stop_count == 2 else "low"
-    return {"stopCount": stop_count, "visitMinutes": visit, "travelMinutes": travel, "recoveryMinutes": recovery, "totalPlannedMinutes": total, "intensity": intensity}
+    values = lambda kind: sum(timeline_duration(item) or 0 for item in timeline if item.get("type") == kind)
+    timed_start = [item.get("startsAt") for item in timeline if isinstance(item.get("startsAt"), (int, float))]
+    timed_end = [item.get("endsAt") for item in timeline if isinstance(item.get("endsAt"), (int, float))]
+    visit, travel, meal, rest = values("destination"), values("travel"), values("meal"), values("rest")
+    starts, ends = (timed_start[0] if timed_start else None), (timed_end[-1] if timed_end else None)
+    total = ends - starts if starts is not None and ends is not None and ends >= starts else 0
+    activity, recovery = visit + travel, meal + rest
+    intensity = "unknown" if total <= 0 else "high" if activity >= 480 and recovery < 60 else "moderate" if activity >= 330 else "light"
+    return {"stopCount": sum(item.get("type") == "destination" for item in timeline), "visitMinutes": visit, "travelMinutes": travel, "mealMinutes": meal, "restMinutes": rest, "startsAt": starts, "endsAt": ends, "totalDayMinutes": total, "activityMinutes": activity, "recoveryMinutes": recovery, "intensity": intensity}
 
 
 def trip_feasibility(days: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
-    unscheduled = sum(1 for day in days for destination in day.get("destinations", []) if destination.get("planner_score", {}).get("scheduled") is False)
-    overloaded = sum(1 for day in days if day.get("summary", {}).get("intensity") == "high")
-    score = max(0, 100 - unscheduled * 20 - overloaded * 15)
-    rating = "excellent" if score >= 85 else "good" if score >= 70 else "challenging" if score >= 50 else "not-feasible"
-    return {"score": score, "rating": rating, "evidence": {"unscheduledStopCount": unscheduled, "overloadedDayCount": overloaded}}
+    destinations = [item for day in days for item in day.get("destinations", [])]
+    evidence = {
+        "dayCount": len(days), "destinationCount": len(destinations),
+        "unscheduledStops": sum(item.get("type") == "destination" and item.get("scheduled") is False for day in days for item in day.get("timeline", [])),
+        "highIntensityDays": sum(day.get("summary", {}).get("intensity") == "high" for day in days),
+        "moderateIntensityDays": sum(day.get("summary", {}).get("intensity") == "moderate" for day in days),
+        "longTravelDays": sum(float(day.get("summary", {}).get("travelMinutes") or 0) >= 360 for day in days),
+        "specialAccessStops": sum(bool(item.get("planner_score", {}).get("requires4x4") or item.get("planner_score", {}).get("requiresGuide")) for item in destinations),
+        "conflictAdjustedItems": sum(bool(item.get("conflictAdjusted")) for day in days for item in day.get("timeline", [])),
+        "totalTravelMinutes": sum(float(day.get("summary", {}).get("travelMinutes") or 0) for day in days),
+        "totalVisitMinutes": sum(float(day.get("summary", {}).get("visitMinutes") or 0) for day in days),
+        "totalRecoveryMinutes": sum(float(day.get("summary", {}).get("recoveryMinutes") or 0) for day in days),
+    }
+    penalty = evidence["unscheduledStops"] * 18 + evidence["highIntensityDays"] * 8 + evidence["longTravelDays"] * 7 + evidence["specialAccessStops"] * 3 + min(evidence["conflictAdjustedItems"] * 2, 8)
+    if evidence["totalTravelMinutes"] > 0 and evidence["totalVisitMinutes"] > 0 and evidence["totalTravelMinutes"] > evidence["totalVisitMinutes"] * .9: penalty += 8
+    if evidence["totalRecoveryMinutes"] / max(1, evidence["dayCount"]) < 30: penalty += 5
+    penalty, score = min(100, _js_round(penalty)), max(0, 100 - min(100, _js_round(penalty)))
+    rating = "excellent" if score >= 90 else "good" if score >= 75 else "fair" if score >= 60 else "needs-review"
+    warnings, strengths = [], []
+    (warnings if evidence["unscheduledStops"] else strengths).append("unscheduled-stops" if evidence["unscheduledStops"] else "all-stops-scheduled")
+    (warnings if evidence["highIntensityDays"] else strengths).append("high-intensity-days" if evidence["highIntensityDays"] else "balanced-daily-intensity")
+    if evidence["longTravelDays"]: warnings.append("long-travel-days")
+    if evidence["specialAccessStops"]: warnings.append("special-access-required")
+    if not evidence["conflictAdjustedItems"]: strengths.append("no-timeline-conflicts")
+    if evidence["totalRecoveryMinutes"] > 0: strengths.append("recovery-time-included")
+    return {"score": score, "rating": rating, "penalty": penalty, "warnings": warnings, "strengths": strengths, "evidence": evidence}
 
 
 def recommendations(days: Sequence[Mapping[str, Any]], feasibility: Mapping[str, Any]) -> dict[str, Any]:
+    high = [{"dayNumber": day.get("dayNumber"), "activityMinutes": float(day.get("summary", {}).get("activityMinutes") or 0), "recoveryMinutes": float(day.get("summary", {}).get("recoveryMinutes") or 0)} for day in days if day.get("summary", {}).get("intensity") == "high"]
+    long = [{"dayNumber": day.get("dayNumber"), "travelMinutes": float(day.get("summary", {}).get("travelMinutes") or 0)} for day in days if float(day.get("summary", {}).get("travelMinutes") or 0) >= 360]
+    unscheduled = [{"dayNumber": day.get("dayNumber"), "slug": (item.get("destination") or {}).get("slug"), "reason": item.get("reason")} for day in days for item in day.get("timeline", []) if item.get("type") == "destination" and item.get("scheduled") is False]
+    special = [{"dayNumber": day.get("dayNumber"), "slug": item.get("slug"), "requires4x4": bool(item.get("planner_score", {}).get("requires4x4")), "requiresGuide": bool(item.get("planner_score", {}).get("requiresGuide"))} for day in days for item in day.get("destinations", []) if item.get("planner_score", {}).get("requires4x4") or item.get("planner_score", {}).get("requiresGuide")]
+    average = sum(float(day.get("summary", {}).get("recoveryMinutes") or 0) for day in days) / len(days) if days else 0
+    evidence = {"feasibilityScore": float(feasibility.get("score") or 0), "feasibilityRating": feasibility.get("rating", "unknown"), "highIntensityDays": high, "longTravelDays": long, "unscheduledStops": unscheduled, "specialAccessStops": special, "averageRecoveryMinutes": average}
     items = []
-    if feasibility["evidence"]["unscheduledStopCount"]:
-        items.append({"type": "schedule", "priority": "high", "message": "Remove or reschedule stops outside operating windows."})
-    if feasibility["evidence"]["overloadedDayCount"]:
-        items.append({"type": "pace", "priority": "high", "message": "Reduce high-intensity days."})
-    return {"recommendations": items, "count": len(items)}
+    if unscheduled: items.append({"code": "review-unscheduled-stops", "priority": "high", "evidence": {"stops": unscheduled}})
+    if long: items.append({"code": "separate-long-travel", "priority": "high", "evidence": {"days": long}})
+    if high: items.append({"code": "reduce-day-intensity", "priority": "medium", "evidence": {"days": high}})
+    if average < 30: items.append({"code": "increase-recovery-time", "priority": "medium", "evidence": {"averageRecoveryMinutes": _js_round(average)}})
+    if special: items.append({"code": "prepare-special-access", "priority": "medium", "evidence": {"stops": special}})
+    if evidence["feasibilityScore"] >= 90 and not any(item["priority"] == "high" for item in items): items.append({"code": "itinerary-well-balanced", "priority": "info", "evidence": {"score": evidence["feasibilityScore"]}})
+    return {"evidence": evidence, "recommendations": items}
 
 
 def optimize(days: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
-    optimized = deepcopy(list(days)); actions: list[str] = []
+    original, optimized = deepcopy(list(days)), deepcopy(list(days)); actions: list[str] = []
+    overloaded = [day.get("dayNumber") for day in original if day.get("summary", {}).get("intensity") == "high"]
+    unscheduled_evidence = [{"dayNumber": day.get("dayNumber"), "slug": (item.get("destination") or {}).get("slug")} for day in original for item in day.get("timeline", []) if item.get("type") == "destination" and item.get("scheduled") is False]
+    long_travel = [{"dayNumber": day.get("dayNumber"), "travelMinutes": float(day.get("summary", {}).get("travelMinutes") or 0)} for day in original if float(day.get("summary", {}).get("travelMinutes") or 0) >= 360]
     for day in optimized:
-        scheduled_slugs = {
-            item.get("slug") or (item.get("destination") or {}).get("slug")
-            for item in day.get("timeline", [])
-            if item.get("type") == "destination" and item.get("scheduled") is not False
-        }
-        filtered = [item for item in day.get("destinations", []) if item.get("slug") in scheduled_slugs]
+        unscheduled_slugs = {(item.get("destination") or {}).get("slug") for item in day.get("timeline", []) if item.get("type") == "destination" and item.get("scheduled") is False}
+        filtered = [item for item in day.get("destinations", []) if item.get("slug") not in unscheduled_slugs]
         if len(filtered) != len(day.get("destinations", [])):
             day["destinations"] = filtered
             if "remove-unscheduled-stops" not in actions: actions.append("remove-unscheduled-stops")
         if day.get("summary", {}).get("intensity") == "high" and len(day.get("destinations", [])) > 1:
-            day["destinations"].sort(key=lambda item: (-float(item.get("planner_score", {}).get("total", 0)), str(item.get("slug", ""))))
-            day["destinations"] = day["destinations"][:-1]
+            lowest = min(day["destinations"], key=lambda item: float(item.get("planner_score", {}).get("total", 0)))
+            day["destinations"] = [item for item in day["destinations"] if str(item.get("slug", "")).lower() != str(lowest.get("slug", "")).lower()]
             if "reduce-high-intensity-days" not in actions: actions.append("reduce-high-intensity-days")
+    if long_travel: actions.append("review-long-travel-days")
     before = sum(len(day.get("destinations", [])) for day in days)
     after = sum(len(day.get("destinations", [])) for day in optimized)
-    return {"actions": actions, "optimizedDays": optimized, "summary": {"changed": before != after, "originalDestinationCount": before, "optimizedDestinationCount": after, "removedDestinationCount": before - after, "actionCount": len(actions)}, "recommended": bool(actions)}
+    return {"originalDays": original, "actions": actions, "evidence": {"overloadedDays": overloaded, "unscheduledStops": unscheduled_evidence, "longTravelDays": long_travel}, "optimizedDays": optimized, "summary": {"changed": original != optimized, "originalDestinationCount": before, "optimizedDestinationCount": after, "removedDestinationCount": max(0, before - after), "actionCount": len(actions)}}
+
+
+def rebuild_visit_day(day: Mapping[str, Any], pace: str) -> dict[str, Any]:
+    copy = deepcopy(dict(day)); destinations = list(copy.get("destinations", []))
+    scheduled = schedule_destinations(destinations, pace); enriched = []
+    for item in scheduled:
+        destination = deepcopy(dict(item["destination"])); score = dict(destination.get("planner_score", {}))
+        score.update({"estimatedVisitMinutes": item["visitMinutes"], "scheduled": item["scheduled"], "scheduledStartMinutes": item["startsAt"], "scheduledEndMinutes": item["endsAt"], "scheduledStart": format_clock_minutes(item["startsAt"]), "scheduledEnd": format_clock_minutes(item["endsAt"]), "openingHoursStatus": item["openingStatus"], "scheduleReason": item["reason"]})
+        destination["planner_score"] = score; enriched.append(destination)
+    copy["destinations"] = enriched
+    used, budget = sum(visit_duration_minutes(item, pace) for item in destinations), VISIT_BUDGET[_pace(pace)]
+    copy["visitBudget"] = {"usedMinutes": used, "budgetMinutes": budget, "remainingMinutes": max(0, budget - used), "exceedsBudget": used > budget}
+    timeline_items = []
+    for item in insert_meal_rest(scheduled, pace):
+        if item.get("type") in {"meal", "rest"}: timeline_items.append(item)
+        else: timeline_items.append({"type": "destination", "destination": item["destination"], "scheduled": item["scheduled"], "reason": item["reason"], "openingStatus": item["openingStatus"], "startsAt": item["startsAt"], "endsAt": item["endsAt"]})
+    copy["timeline"] = build_timeline(timeline_items); copy["summary"] = daily_summary(copy["timeline"])
+    return copy
+
+
+def rebuild_days(days: Sequence[Mapping[str, Any]], pace: str) -> list[dict[str, Any]]:
+    result = []
+    for raw in days:
+        if raw.get("type") != "travel": result.append(rebuild_visit_day(raw, pace)); continue
+        day = deepcopy(dict(raw)); budget = VISIT_BUDGET[_pace(pace)]
+        day["visitBudget"] = {"usedMinutes": 0, "budgetMinutes": budget, "remainingMinutes": budget, "exceedsBudget": False}
+        day.setdefault("timeline", []); day.setdefault("summary", {"stopCount": 0, "visitMinutes": 0, "travelMinutes": 0, "mealMinutes": 0, "restMinutes": 0, "startsAt": None, "endsAt": None, "totalDayMinutes": 0, "activityMinutes": 0, "recoveryMinutes": 0, "intensity": "unknown"})
+        result.append(day)
+    return result
+
+
+def evaluate_optimization(original: Sequence[Mapping[str, Any]], optimized: Sequence[Mapping[str, Any]], pace: str) -> dict[str, Any]:
+    after_days = rebuild_days(optimized, pace); before_feasibility, after_feasibility = trip_feasibility(original), trip_feasibility(after_days)
+    delta = after_feasibility["score"] - before_feasibility["score"]
+    count = lambda days: sum(len(day.get("destinations", [])) for day in days)
+    return {"before": {"days": deepcopy(list(original)), "feasibility": before_feasibility, "destinationCount": count(original)}, "after": {"days": after_days, "feasibility": after_feasibility, "destinationCount": count(after_days)}, "improvement": {"scoreDelta": delta, "improved": delta > 0, "unchanged": delta == 0, "worsened": delta < 0}}
 
 
 def execute_planner(destinations: Iterable[Mapping[str, Any]], preferences: PlannerPreferences | None = None) -> PlannerResult:
-    """Execute the minimum deterministic backend planner pipeline."""
+    """Execute the deterministic backend equivalent of buildSuggestedItinerary."""
     prefs = preferences or {}
     pace = _pace(prefs.get("pace")); raw_days = prefs.get("days", 3)
     days_count = max(1, min(14, raw_days if isinstance(raw_days, int) else 3))
     normalized = [normalize_destination(item) if "operational_data" in item else dict(item) for item in destinations]
-    normalized = [item for item in normalized if item.get("slug") and item.get("category_key")]
-    normalized.sort(key=lambda item: (-float(item.get("planner_priority") or 0), str(item["slug"])))
-    selected = normalized[:days_count * PACE_STOPS[pace]]
-    days: list[dict[str, Any]] = []
-    for index in range(days_count):
-        batch = selected[index * PACE_STOPS[pace]:(index + 1) * PACE_STOPS[pace]]
-        scheduled = schedule_destinations(batch, pace)
-        enriched = []
-        for item in scheduled:
-            destination = deepcopy(dict(item["destination"]))
-            destination["planner_score"] = {"estimatedVisitMinutes": item["visitMinutes"], "scheduled": item["scheduled"], "scheduledStartMinutes": item["startsAt"], "scheduledEndMinutes": item["endsAt"], "scheduledStart": format_clock_minutes(item["startsAt"]), "scheduledEnd": format_clock_minutes(item["endsAt"]), "openingHoursStatus": item["openingStatus"], "scheduleReason": item["reason"], "total": float(destination.get("planner_priority") or 0)}
-            enriched.append(destination)
-        timeline = build_timeline(insert_meal_rest(scheduled, pace))
-        summary = daily_summary(timeline)
-        used = sum(visit_duration_minutes(item, pace) for item in batch)
-        days.append({"dayNumber": index + 1, "type": "visit", "destinations": enriched, "visitBudget": {"usedMinutes": used, "budgetMinutes": VISIT_BUDGET[pace], "remainingMinutes": max(0, VISIT_BUDGET[pace] - used), "exceedsBudget": used > VISIT_BUDGET[pace]}, "timeline": timeline, "summary": summary})
+    execution_prefs = {**prefs, "days": days_count, "pace": pace}
+    ranked = rank_destinations(normalized, execution_prefs)
+    maximum, origin_region, selected_regions, selected = days_count * PACE_STOPS[pace], START_REGIONS.get(str(prefs.get("startingPoint") or "").lower(), "unknown"), set(), []
+    if origin_region != "unknown": selected_regions.add(origin_region)
+    for entry in ranked:
+        if len(selected) >= maximum: break
+        if entry["score"]["total"] <= 0: continue
+        region = destination_region(entry["destination"])
+        if region != "unknown" and region not in selected_regions and len(selected_regions) >= max_major_regions(days_count): continue
+        selected.append(entry)
+        if region != "unknown": selected_regions.add(region)
+    ordered = route_order(selected, execution_prefs)
+    days = [{"dayNumber": index + 1, "type": "visit", "destinations": []} for index in range(days_count)]
+    index = stops = 0; previous = None
+    for entry in ordered:
+        destination = entry["destination"]
+        if previous:
+            minutes = estimated_travel_minutes(previous, destination)
+            reserve = minutes > TRAVEL_BUDGET[pace] if minutes is not None else region_relationship(destination_region(previous), destination_region(destination)) == "distant"
+            if reserve:
+                if stops > 0: index += 1; stops = 0
+                if index >= days_count: break
+                days[index] = {"dayNumber": index + 1, "type": "travel", "fromRegion": destination_region(previous), "toRegion": destination_region(destination), "destinations": []}
+                index += 1; stops = 0
+                if index >= days_count: break
+        if stops >= PACE_STOPS[pace]: index += 1; stops = 0
+        if index >= days_count: break
+        enriched = deepcopy(destination); enriched["planner_score"] = deepcopy(entry["score"])
+        days[index]["destinations"].append(enriched); previous = destination; stops += 1
+    days = rebuild_days(days, pace)
     feasibility = trip_feasibility(days)
     recommendation_result = recommendations(days, feasibility)
-    optimization = optimize(days)
-    return {"days": days, "feasibility": feasibility, "recommendations": recommendation_result, "optimization": optimization, "selectedCount": len(selected), "requestedDays": days_count, "pace": pace}
+    structure = optimize(days); evaluation = evaluate_optimization(structure["originalDays"], structure["optimizedDays"], pace)
+    optimization = {"actions": structure["actions"], "evidence": structure["evidence"], "summary": structure["summary"], "before": evaluation["before"], "after": evaluation["after"], "improvement": evaluation["improvement"], "safeToApply": not evaluation["improvement"]["worsened"], "recommended": evaluation["improvement"]["improved"]}
+    return {"days": days, "feasibility": feasibility, "recommendations": recommendation_result, "optimization": optimization, "selectedCount": sum(len(day["destinations"]) for day in days), "requestedDays": days_count, "pace": pace}
