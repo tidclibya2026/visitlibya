@@ -3,13 +3,25 @@ from typing import Annotated, NoReturn
 from fastapi import APIRouter, HTTPException, Path, Query, Request, status
 from sqlalchemy.exc import SQLAlchemyError
 
-from app.api.dependencies import CurrentActiveUserDependency, PlannerRunServiceDependency
-from app.core.exceptions import TripNotFoundError
+from app.api.dependencies import (
+    CurrentActiveUserDependency,
+    PlannerExecutionServiceDependency,
+    PlannerRunServiceDependency,
+)
+from app.core.exceptions import (
+    DestinationNotFoundError,
+    DestinationPersistenceError,
+    DestinationUnavailableForTripError,
+    PlannerExecutionError,
+    TripNotFoundError,
+)
 from app.models.planner_run import PlannerRun
 from app.core.planner_audit import log_planner_event
 from app.schemas.planner_run import (
     PlannerRunCreate,
     PlannerRunEvidenceUpdate,
+    PlannerExecutionRequest,
+    PlannerExecutionResponse,
     PlannerRunResponse,
     PlannerRunSummaryResponse,
 )
@@ -40,6 +52,64 @@ def require_run(run: PlannerRun | None) -> PlannerRun:
     if run is None:
         raise HTTPException(status_code=404, detail="Planner run not found")
     return run
+
+
+def raise_execution_http_error(
+    error: Exception,
+    service: PlannerExecutionServiceDependency,
+) -> NoReturn:
+    if isinstance(error, (TripNotFoundError, DestinationNotFoundError)):
+        raise HTTPException(status_code=404, detail=str(error)) from error
+    if isinstance(error, (DestinationUnavailableForTripError, ValueError)):
+        raise HTTPException(status_code=409, detail=str(error)) from error
+    if isinstance(error, (DestinationPersistenceError, SQLAlchemyError)):
+        service.rollback()
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Planner execution service is unavailable",
+        ) from error
+    if isinstance(error, PlannerExecutionError):
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(error),
+        ) from error
+    raise HTTPException(status_code=500, detail="Planner execution failed") from error
+
+
+@router.post(
+    "/trips/{trip_id}/planner-runs/execute",
+    response_model=PlannerExecutionResponse,
+    status_code=status.HTTP_201_CREATED,
+)
+def execute_trip_planner(
+    trip_id: TripId,
+    payload: PlannerExecutionRequest,
+    request: Request,
+    user: CurrentActiveUserDependency,
+    service: PlannerExecutionServiceDependency,
+) -> dict:
+    try:
+        planner_run, result, authority = service.execute(
+            actor_id=user.id,
+            trip_id=trip_id,
+            payload=payload,
+            request_id=getattr(request.state, "request_id", None),
+        )
+        return {
+            "planner_run": planner_run,
+            "result": result,
+            "authority": authority,
+        }
+    except (
+        TripNotFoundError,
+        DestinationNotFoundError,
+        DestinationPersistenceError,
+        DestinationUnavailableForTripError,
+        PlannerExecutionError,
+        ValueError,
+        SQLAlchemyError,
+    ) as error:
+        raise_execution_http_error(error, service)
 
 
 @router.post("/planner-runs", response_model=PlannerRunResponse, status_code=201)

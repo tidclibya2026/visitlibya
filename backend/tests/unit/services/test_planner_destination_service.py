@@ -115,3 +115,23 @@ def test_get_authority_maps_missing_and_database_failures() -> None:
 def test_get_authority_rejects_invalid_id() -> None:
     with pytest.raises(ValueError):
         PlannerDestinationAuthorityService(MagicMock()).get_authority(0)
+
+
+def test_get_authority_by_slug_uses_authority_repository_path() -> None:
+    repository = MagicMock()
+    repository.get_planner_authority_by_slug.return_value = make_destination(None)
+    service = PlannerDestinationAuthorityService(MagicMock(), repository)
+
+    result = service.get_authority_by_slug(" LEPTIS-MAGNA ")
+
+    assert result.destination_id == 7
+    repository.get_planner_authority_by_slug.assert_called_once_with("leptis-magna")
+
+
+def test_get_authority_by_slug_rejects_unknown_destination() -> None:
+    repository = MagicMock()
+    repository.get_planner_authority_by_slug.return_value = None
+    service = PlannerDestinationAuthorityService(MagicMock(), repository)
+
+    with pytest.raises(DestinationNotFoundError):
+        service.get_authority_by_slug("unknown")

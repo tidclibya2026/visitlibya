@@ -37,6 +37,20 @@ class PlannerDestinationAuthorityService:
             raise DestinationNotFoundError()
         return self.assemble(destination)
 
+    def get_authority_by_slug(self, slug: str) -> PlannerDestinationAuthority:
+        normalized = slug.strip().lower()
+        if not normalized:
+            raise ValueError("destination slug must not be empty")
+        try:
+            destination = self.repository.get_planner_authority_by_slug(normalized)
+        except SQLAlchemyError as exc:
+            if not self.session.is_active:
+                self.session.rollback()
+            raise DestinationPersistenceError() from exc
+        if destination is None:
+            raise DestinationNotFoundError()
+        return self.assemble(destination)
+
     @classmethod
     def assemble(cls, destination: Destination) -> PlannerDestinationAuthority:
         profile = destination.planner_profile
