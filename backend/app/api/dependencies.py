@@ -17,6 +17,7 @@ from app.repositories.destination_planner_profile import (
     DestinationPlannerProfileRepository,
 )
 from app.repositories.trip import TripRepository
+from app.repositories.planner_run import PlannerRunRepository
 from app.services.auth import AuthService
 from app.services.category import CategoryService
 from app.services.destination import DestinationService
@@ -28,6 +29,7 @@ from app.services.review import ReviewService
 from app.services.search import SearchService
 from app.services.favorite import FavoriteService
 from app.services.trip import TripService
+from app.services.planner_run import PlannerRunService
 
 
 DatabaseSession = Annotated[Session, Depends(get_db)]
@@ -141,6 +143,29 @@ def get_trip_service(
 
 
 TripServiceDependency = Annotated[TripService, Depends(get_trip_service)]
+
+
+def get_planner_run_repository(db: DatabaseSession) -> PlannerRunRepository:
+    return PlannerRunRepository(db)
+
+
+PlannerRunRepositoryDependency = Annotated[
+    PlannerRunRepository,
+    Depends(get_planner_run_repository),
+]
+
+
+def get_planner_run_service(
+    db: DatabaseSession,
+    repository: PlannerRunRepositoryDependency,
+) -> PlannerRunService:
+    return PlannerRunService(db, repository)
+
+
+PlannerRunServiceDependency = Annotated[
+    PlannerRunService,
+    Depends(get_planner_run_service),
+]
 
 
 def get_category_service(db: DatabaseSession) -> CategoryService:

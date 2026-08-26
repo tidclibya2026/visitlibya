@@ -3,10 +3,25 @@ from collections.abc import Sequence
 from sqlalchemy import select, update
 
 from app.models.planner_run import PlannerRun, PlannerRunStatus
+from app.models.trip import Trip
 from app.repositories.base import BaseRepository
 
 
 class PlannerRunRepository(BaseRepository[PlannerRun]):
+    def owned_trip_exists(self, trip_id: int, user_id: int) -> bool:
+        return self.session.scalar(
+            select(Trip.id)
+            .where(Trip.id == trip_id, Trip.user_id == user_id)
+            .limit(1)
+        ) is not None
+
+    def lock_owned_trip(self, trip_id: int, user_id: int) -> bool:
+        return self.session.scalar(
+            select(Trip.id)
+            .where(Trip.id == trip_id, Trip.user_id == user_id)
+            .with_for_update()
+        ) is not None
+
     def create_planner_run(self, planner_run: PlannerRun) -> None:
         self.add(planner_run)
 
