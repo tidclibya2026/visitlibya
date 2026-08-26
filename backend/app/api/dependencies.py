@@ -13,10 +13,16 @@ from app.core.security import decode_access_token, oauth2_scheme
 from app.models.user import User
 from app.repositories.user import UserRepository
 from app.repositories.favorite import FavoriteRepository
+from app.repositories.destination_planner_profile import (
+    DestinationPlannerProfileRepository,
+)
 from app.repositories.trip import TripRepository
 from app.services.auth import AuthService
 from app.services.category import CategoryService
 from app.services.destination import DestinationService
+from app.services.destination_planner_profile import (
+    DestinationPlannerProfileService,
+)
 from app.services.media import MediaService
 from app.services.review import ReviewService
 from app.services.search import SearchService
@@ -154,6 +160,31 @@ def get_destination_service(db: DatabaseSession) -> DestinationService:
 DestinationServiceDependency = Annotated[
     DestinationService,
     Depends(get_destination_service),
+]
+
+
+def get_destination_planner_profile_repository(
+    db: DatabaseSession,
+) -> DestinationPlannerProfileRepository:
+    return DestinationPlannerProfileRepository(db)
+
+
+DestinationPlannerProfileRepositoryDependency = Annotated[
+    DestinationPlannerProfileRepository,
+    Depends(get_destination_planner_profile_repository),
+]
+
+
+def get_destination_planner_profile_service(
+    db: DatabaseSession,
+    repository: DestinationPlannerProfileRepositoryDependency,
+) -> DestinationPlannerProfileService:
+    return DestinationPlannerProfileService(db, repository)
+
+
+DestinationPlannerProfileServiceDependency = Annotated[
+    DestinationPlannerProfileService,
+    Depends(get_destination_planner_profile_service),
 ]
 
 
