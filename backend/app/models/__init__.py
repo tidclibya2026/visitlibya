@@ -5,6 +5,14 @@ from app.models.destination import (
     DestinationStatus,
     DestinationTranslation,
 )
+from app.models.destination_planner_profile import (
+    DestinationPlannerProfile,
+    PlannerAccessStatus,
+    PlannerRoadAccess,
+    PlannerRoadCondition,
+    PlannerRoadSurface,
+    PlannerVerificationStatus,
+)
 from app.models.favorite import Favorite
 from app.models.media import DestinationMedia, MediaAsset
 from app.models.planner_run import (
@@ -28,6 +36,12 @@ __all__ = [
     "Destination",
     "DestinationStatus",
     "DestinationTranslation",
+    "PlannerVerificationStatus",
+    "PlannerRoadSurface",
+    "PlannerRoadCondition",
+    "PlannerRoadAccess",
+    "PlannerAccessStatus",
+    "DestinationPlannerProfile",
     "DestinationMedia",
     "MediaAsset",
     "Favorite",
