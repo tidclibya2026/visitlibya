@@ -1,11 +1,12 @@
 from typing import Annotated, NoReturn
 
-from fastapi import APIRouter, HTTPException, Path, Query, status
+from fastapi import APIRouter, HTTPException, Path, Query, Request, status
 from sqlalchemy.exc import SQLAlchemyError
 
 from app.api.dependencies import CurrentActiveUserDependency, PlannerRunServiceDependency
 from app.core.exceptions import TripNotFoundError
 from app.models.planner_run import PlannerRun
+from app.core.planner_audit import log_planner_event
 from app.schemas.planner_run import (
     PlannerRunCreate,
     PlannerRunEvidenceUpdate,
@@ -44,11 +45,21 @@ def require_run(run: PlannerRun | None) -> PlannerRun:
 @router.post("/planner-runs", response_model=PlannerRunResponse, status_code=201)
 def create_planner_run(
     payload: PlannerRunCreate,
+    request: Request,
     user: CurrentActiveUserDependency,
     service: PlannerRunServiceDependency,
 ) -> PlannerRun:
     try:
-        return service.create_run(user_id=user.id, **payload.model_dump())
+        planner_run = service.create_run(user_id=user.id, **payload.model_dump())
+        log_planner_event(
+            "planner_run_created",
+            actor_id=user.id,
+            request_id=getattr(request.state, "request_id", None),
+            planner_run_id=planner_run.id,
+            trip_id=planner_run.trip_id,
+            status=planner_run.status.value,
+        )
+        return planner_run
     except (TripNotFoundError, ValueError, SQLAlchemyError) as error:
         raise_http_error(error, service)
 
@@ -81,11 +92,21 @@ def get_planner_run(
 @router.post("/planner-runs/{planner_run_id}/accept", response_model=PlannerRunResponse)
 def accept_planner_run(
     planner_run_id: RunId,
+    request: Request,
     user: CurrentActiveUserDependency,
     service: PlannerRunServiceDependency,
 ) -> PlannerRun:
     try:
-        return require_run(service.accept_run(planner_run_id=planner_run_id, user_id=user.id))
+        planner_run = require_run(service.accept_run(planner_run_id=planner_run_id, user_id=user.id))
+        log_planner_event(
+            "planner_run_accepted",
+            actor_id=user.id,
+            request_id=getattr(request.state, "request_id", None),
+            planner_run_id=planner_run.id,
+            trip_id=planner_run.trip_id,
+            status=planner_run.status.value,
+        )
+        return planner_run
     except (TripNotFoundError, ValueError, SQLAlchemyError) as error:
         raise_http_error(error, service)
 
@@ -93,11 +114,21 @@ def accept_planner_run(
 @router.post("/planner-runs/{planner_run_id}/reject", response_model=PlannerRunResponse)
 def reject_planner_run(
     planner_run_id: RunId,
+    request: Request,
     user: CurrentActiveUserDependency,
     service: PlannerRunServiceDependency,
 ) -> PlannerRun:
     try:
-        return require_run(service.reject_run(planner_run_id=planner_run_id, user_id=user.id))
+        planner_run = require_run(service.reject_run(planner_run_id=planner_run_id, user_id=user.id))
+        log_planner_event(
+            "planner_run_rejected",
+            actor_id=user.id,
+            request_id=getattr(request.state, "request_id", None),
+            planner_run_id=planner_run.id,
+            trip_id=planner_run.trip_id,
+            status=planner_run.status.value,
+        )
+        return planner_run
     except (ValueError, SQLAlchemyError) as error:
         raise_http_error(error, service)
 
