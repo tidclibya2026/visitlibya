@@ -1,6 +1,4 @@
 from datetime import UTC, datetime
-from typing import Any
-
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
 from sqlalchemy.orm import Session
 
@@ -23,6 +21,10 @@ from app.models.destination_planner_profile import (
 )
 from app.repositories.destination_planner_profile import (
     DestinationPlannerProfileRepository,
+)
+from app.schemas.destination_planner_profile import (
+    DestinationPlannerProfileCreate,
+    DestinationPlannerProfileUpdate,
 )
 
 
@@ -59,67 +61,36 @@ class DestinationPlannerProfileService:
 
     def create_profile(
         self,
-        *,
-        destination_id: int,
-        recommended_visit_minutes: int | None = None,
-        minimum_visit_minutes: int | None = None,
-        maximum_visit_minutes: int | None = None,
-        opening_hours: dict[str, Any] | None = None,
-        opening_hours_timezone: str = "Africa/Tripoli",
-        access_status: PlannerAccessStatus = PlannerAccessStatus.UNKNOWN,
-        road_access: PlannerRoadAccess = PlannerRoadAccess.UNKNOWN,
-        road_surface: PlannerRoadSurface = PlannerRoadSurface.UNKNOWN,
-        road_condition: PlannerRoadCondition = PlannerRoadCondition.UNKNOWN,
-        planner_priority: int = 50,
-        meal_suitability: int = 0,
-        rest_suitability: int = 0,
-        data_source: str | None = None,
-        verification_status: PlannerVerificationStatus = (
-            PlannerVerificationStatus.UNVERIFIED
-        ),
+        payload: DestinationPlannerProfileCreate,
     ) -> DestinationPlannerProfile:
         self._validate_profile_values(
-            destination_id=destination_id,
-            recommended_visit_minutes=recommended_visit_minutes,
-            minimum_visit_minutes=minimum_visit_minutes,
-            maximum_visit_minutes=maximum_visit_minutes,
-            planner_priority=planner_priority,
-            meal_suitability=meal_suitability,
-            rest_suitability=rest_suitability,
+            destination_id=payload.destination_id,
+            recommended_visit_minutes=payload.recommended_visit_minutes,
+            minimum_visit_minutes=payload.minimum_visit_minutes,
+            maximum_visit_minutes=payload.maximum_visit_minutes,
+            planner_priority=payload.planner_priority,
+            meal_suitability=payload.meal_suitability,
+            rest_suitability=payload.rest_suitability,
         )
 
         try:
-            if not self.repository.destination_exists(destination_id):
+            if not self.repository.destination_exists(
+                payload.destination_id
+            ):
                 raise DestinationNotFoundError()
 
             if self.repository.profile_exists_for_destination(
-                destination_id
+                payload.destination_id
             ):
                 raise DestinationPlannerProfileConflictError()
 
-            verified_at = self._verified_at_for_status(
-                verification_status,
+            values = payload.model_dump()
+            values["verified_at"] = self._verified_at_for_status(
+                payload.verification_status,
                 current=None,
             )
 
-            profile = DestinationPlannerProfile(
-                destination_id=destination_id,
-                recommended_visit_minutes=recommended_visit_minutes,
-                minimum_visit_minutes=minimum_visit_minutes,
-                maximum_visit_minutes=maximum_visit_minutes,
-                opening_hours=opening_hours or {},
-                opening_hours_timezone=opening_hours_timezone,
-                access_status=access_status,
-                road_access=road_access,
-                road_surface=road_surface,
-                road_condition=road_condition,
-                planner_priority=planner_priority,
-                meal_suitability=meal_suitability,
-                rest_suitability=rest_suitability,
-                data_source=data_source,
-                verification_status=verification_status,
-                verified_at=verified_at,
-            )
+            profile = DestinationPlannerProfile(**values)
 
             self.repository.create_profile(profile)
             self.repository.flush()
@@ -148,33 +119,12 @@ class DestinationPlannerProfileService:
         self,
         *,
         destination_id: int,
-        values: dict[str, Any],
+        payload: DestinationPlannerProfileUpdate,
     ) -> DestinationPlannerProfile:
-        self._validate_positive_id(destination_id, "destination_id")
-
-        allowed_fields = {
-            "recommended_visit_minutes",
-            "minimum_visit_minutes",
-            "maximum_visit_minutes",
-            "opening_hours",
-            "opening_hours_timezone",
-            "access_status",
-            "road_access",
-            "road_surface",
-            "road_condition",
-            "planner_priority",
-            "meal_suitability",
-            "rest_suitability",
-            "data_source",
-            "verification_status",
-        }
-
-        unknown_fields = set(values) - allowed_fields
-        if unknown_fields:
-            raise DestinationPlannerProfileValidationError(
-                "Unsupported planner profile fields: "
-                + ", ".join(sorted(unknown_fields))
-            )
+        self._validate_positive_id(
+            destination_id,
+            "destination_id",
+        )
 
         try:
             profile = self.repository.get_by_destination_id(
@@ -184,37 +134,33 @@ class DestinationPlannerProfileService:
             if profile is None:
                 raise DestinationPlannerProfileNotFoundError()
 
+            values = payload.model_dump(exclude_unset=True)
+
             candidate = {
-                "recommended_visit_minutes":
-                    values.get(
-                        "recommended_visit_minutes",
-                        profile.recommended_visit_minutes,
-                    ),
-                "minimum_visit_minutes":
-                    values.get(
-                        "minimum_visit_minutes",
-                        profile.minimum_visit_minutes,
-                    ),
-                "maximum_visit_minutes":
-                    values.get(
-                        "maximum_visit_minutes",
-                        profile.maximum_visit_minutes,
-                    ),
-                "planner_priority":
-                    values.get(
-                        "planner_priority",
-                        profile.planner_priority,
-                    ),
-                "meal_suitability":
-                    values.get(
-                        "meal_suitability",
-                        profile.meal_suitability,
-                    ),
-                "rest_suitability":
-                    values.get(
-                        "rest_suitability",
-                        profile.rest_suitability,
-                    ),
+                "recommended_visit_minutes": values.get(
+                    "recommended_visit_minutes",
+                    profile.recommended_visit_minutes,
+                ),
+                "minimum_visit_minutes": values.get(
+                    "minimum_visit_minutes",
+                    profile.minimum_visit_minutes,
+                ),
+                "maximum_visit_minutes": values.get(
+                    "maximum_visit_minutes",
+                    profile.maximum_visit_minutes,
+                ),
+                "planner_priority": values.get(
+                    "planner_priority",
+                    profile.planner_priority,
+                ),
+                "meal_suitability": values.get(
+                    "meal_suitability",
+                    profile.meal_suitability,
+                ),
+                "rest_suitability": values.get(
+                    "rest_suitability",
+                    profile.rest_suitability,
+                ),
             }
 
             self._validate_profile_values(
@@ -230,10 +176,14 @@ class DestinationPlannerProfileService:
                 setattr(profile, field, value)
 
             if "verification_status" in values:
-                profile.verified_at = self._verified_at_for_status(
-                    profile.verification_status,
-                    current=profile.verified_at,
-                    previous_status=previous_verification_status,
+                profile.verified_at = (
+                    self._verified_at_for_status(
+                        profile.verification_status,
+                        current=profile.verified_at,
+                        previous_status=(
+                            previous_verification_status
+                        ),
+                    )
                 )
 
             self.repository.flush()
