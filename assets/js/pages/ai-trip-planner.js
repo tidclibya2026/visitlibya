@@ -17,8 +17,14 @@ import {
 } from "../app/ai/trip-planner-trip-creator.js";
 
 import {
-  enrichPlannerDestinationsWithCoordinates,
-} from "../app/ai/coordinate-enrichment.js";
+  enrichPlannerDestinationsWithAuthority,
+  plannerRunPayload,
+} from "../app/ai/planner-authority-adapter.js";
+
+import {
+  createPlannerRun,
+  getDestinationPlannerProfile,
+} from "../app/api/planner-api.js";
 
 import {
   curatedDestinations,
@@ -478,16 +484,20 @@ function initializePlanner() {
     let plannerDestinations =
       curatedDestinations;
 
+    let plannerContext = null;
+
     try {
       const context = await bootstrap();
+      plannerContext = context;
 
       if (context?.config?.apiEnabled) {
         plannerDestinations =
-          await enrichPlannerDestinationsWithCoordinates(
+          await enrichPlannerDestinationsWithAuthority(
             curatedDestinations,
             {
               listDestinationCatalogue:
                 listTripDestinationCatalogue,
+              getDestinationPlannerProfile,
             },
           );
       }
@@ -503,6 +513,17 @@ function initializePlanner() {
         plannerDestinations,
         preferences,
       );
+
+    if (
+      plannerContext?.config?.apiEnabled &&
+      plannerContext?.session?.currentUser
+    ) {
+      createPlannerRun(plannerRunPayload(itinerary)).catch((error) => {
+        if (plannerContext.config.debug) {
+          console.warn("AI Planner run persistence unavailable; continuing locally.", error);
+        }
+      });
+    }
 
     renderItinerary(
       resultRoot,
