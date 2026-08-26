@@ -1,4 +1,5 @@
 from datetime import UTC, datetime
+from types import SimpleNamespace
 
 from fastapi.testclient import TestClient
 
@@ -89,7 +90,7 @@ class FakeDestinationPlannerProfileService:
 
 def install_overrides(service: FakeDestinationPlannerProfileService) -> None:
     app.dependency_overrides[get_destination_planner_profile_service] = lambda: service
-    app.dependency_overrides[require_content_admin] = lambda: object()
+    app.dependency_overrides[require_content_admin] = lambda: SimpleNamespace(id=99)
 
 
 def test_profile_routes_require_authentication() -> None:
