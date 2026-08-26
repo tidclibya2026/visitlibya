@@ -110,6 +110,12 @@ class DestinationPlannerProfileCreate(
     destination_id: int = Field(gt=0)
 
 
+class DestinationPlannerProfileCreateRequest(
+    DestinationPlannerProfileBase
+):
+    """HTTP payload for a destination-scoped planner profile route."""
+
+
 class DestinationPlannerProfileUpdate(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
