@@ -51,6 +51,20 @@ class DestinationRepository(BaseRepository[Destination]):
         )
         return self.session.scalar(statement)
 
+    def get_planner_authority_by_id(
+        self,
+        destination_id: int,
+    ) -> Destination | None:
+        statement = (
+            select(Destination)
+            .options(
+                *self._load_options(),
+                selectinload(Destination.planner_profile),
+            )
+            .where(Destination.id == destination_id)
+        )
+        return self.session.scalar(statement)
+
     def get_by_slug(self, slug: str) -> Destination | None:
         statement = (
             select(Destination)
