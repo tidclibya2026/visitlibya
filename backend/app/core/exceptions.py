@@ -256,3 +256,31 @@ class TripConcurrentModificationError(TripError):
 class TripPersistenceError(TripError):
     def __init__(self) -> None:
         super().__init__("Trip request could not be completed")
+
+class DestinationPlannerProfileError(Exception):
+    """Base class for destination planner profile domain errors."""
+
+
+class DestinationPlannerProfileNotFoundError(DestinationPlannerProfileError):
+    def __init__(self) -> None:
+        super().__init__("Destination planner profile not found")
+
+
+class DestinationPlannerProfileConflictError(DestinationPlannerProfileError):
+    def __init__(self) -> None:
+        super().__init__("Destination planner profile already exists")
+
+
+class DestinationPlannerProfileValidationError(DestinationPlannerProfileError):
+    def __init__(self, message: str) -> None:
+        super().__init__(message)
+
+
+class DestinationPlannerProfileIntegrityError(DestinationPlannerProfileError):
+    def __init__(self) -> None:
+        super().__init__("Destination planner profile conflicts with existing data")
+
+
+class DestinationPlannerProfilePersistenceError(DestinationPlannerProfileError):
+    def __init__(self) -> None:
+        super().__init__("Destination planner profile could not be persisted")
