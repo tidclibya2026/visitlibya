@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "candidate_id": "libya-national-boundary",
+  "name_ar": "حدود ليبيا",
+  "name_en": "Libya National Boundary",
+  "intended_role": "national_base_boundary",
+  "publication_status": "BLOCKED",
+  "review_status": "SOURCE_RESOLUTION_REQUIRED",
+  "authority_status": "NOT_AUTHORITATIVE",
+  "geometry_status": "NOT_AVAILABLE",
+  "crs": null,
+  "source_id": null,
+  "source_file": null,
+  "source_sha256": null,
+  "institutional_source_reference": null,
+  "evidence": {
+    "taxonomy_crosswalk": {
+      "source_category": "حدود ليبيا",
+      "feature_count": 1,
+      "visit_libya_category": null,
+      "mapping_status": "REVIEW_REQUIRED"
+    },
+    "institutional_audit_sources_checked": 13,
+    "national_scale_boundary_found": false
+  },
+  "polygon_sources_reviewed": [
+    {
+      "source_id": "tripoli-old-city",
+      "file_name": "المدينة القديمة _طرابلس.kml",
+      "geometry_types": {
+        "LineString": 285,
+        "Point": 135,
+        "Polygon": 10
+      },
+      "bbox": [
+        13.1664521,
+        32.8912251,
+        13.1858333,
+        32.9022222
+      ],
+      "decision": "REJECT_AS_NATIONAL_BOUNDARY",
+      "reason": "Local Old Tripoli geometry only."
+    },
+    {
+      "source_id": "acacus-features",
+      "file_name": "اكاكوس.kml",
+      "geometry_types": {
+        "Point": 427,
+        "Polygon": 1
+      },
+      "bbox": [
+        9.42254,
+        23.49846,
+        13.5070249,
+        26.526341
+      ],
+      "decision": "REJECT_AS_NATIONAL_BOUNDARY",
+      "reason": "Regional Acacus geometry only."
+    },
+    {
+      "source_id": "unesco-five-sites-ly",
+      "file_name": "مواقع التراث العالمي الخمسة_LY.kml",
+      "geometry_types": {
+        "Point": 284,
+        "Polygon": 61
+      },
+      "bbox": [
+        9.4677947,
+        24.535272,
+        22.2794312,
+        32.9265836
+      ],
+      "decision": "REJECT_AS_NATIONAL_BOUNDARY",
+      "reason": "World Heritage site geometry, not a national administrative boundary."
+    }
+  ],
+  "publication_requirements": [
+    "Identifiable authoritative source",
+    "Original source file or governed spatial dataset",
+    "Documented provenance",
+    "Source checksum or immutable version identifier",
+    "Polygon or MultiPolygon national geometry",
+    "Declared CRS",
+    "Geometry validity verification",
+    "National coverage verification",
+    "Institutional review",
+    "Explicit publication approval"
+  ],
+  "prohibited_actions": [
+    "Do not manually draw Libya borders.",
+    "Do not infer Libya borders from tourism feature extents.",
+    "Do not use heritage, natural, destination, or municipal polygons as national borders.",
+    "Do not publish an external boundary without provenance and institutional review."
+  ],
+  "notes": "The institutional GIS audit contains one taxonomy value named حدود ليبيا, but no traceable authoritative geometry or source file was resolved. Publication remains blocked."
+}
