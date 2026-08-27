@@ -61,7 +61,11 @@
         <div class="layer-chips"><span>UNESCO World Heritage</span><span>Archaeology</span><span>Nature</span><span>Sahara &amp; Oases</span><span>Coast &amp; Beaches</span><span>Accommodation</span><span>Food</span><span>Routes</span></div>
         <a class="btn btn-red" data-atlas-external href="#">Open Libya Tourist Atlas →</a>
       </div>
-      <div class="map-placeholder"><div>ACCURATE LIBYA MAP<br><small>Insert verified SVG / GeoJSON boundaries only</small></div></div>
+      <div class="map-placeholder atlas-governed-map" data-governed-gis-map data-map-state="loading">
+  <div class="atlas-gis-status" data-gis-map-status>Loading published geographic destinations…</div>
+  <div class="atlas-gis-plot" data-gis-map-plot aria-label="Published tourism destinations"></div>
+  <div class="atlas-gis-context" data-gis-map-context hidden></div>
+</div>
     </div>
   </section>
 </main>
@@ -88,5 +92,6 @@
 </footer>
 <script src="main.js?v=stabilization-sprint-01"></script>
 <script type="module" src="assets/js/app/ui/site-shell.js?v=atlas-integration-01"></script>
+<script type="module" src="assets/js/pages/atlas.js?v=postgis-atlas-01"></script>
 </body>
 </html>
