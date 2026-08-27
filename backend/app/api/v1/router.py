@@ -2,6 +2,7 @@ from fastapi import APIRouter
 
 from app.api.v1.endpoints.categories import router as categories_router
 from app.api.v1.endpoints.boundaries import router as boundaries_router
+from app.api.v1.endpoints.governed_gis import router as governed_gis_router
 from app.api.v1.endpoints.destinations import router as destinations_router
 from app.api.v1.endpoints.destination_planner_profiles import (
     router as destination_planner_profiles_router,
@@ -22,6 +23,7 @@ api_router.include_router(trips_router)
 api_router.include_router(planner_runs_router)
 api_router.include_router(categories_router)
 api_router.include_router(boundaries_router)
+api_router.include_router(governed_gis_router)
 api_router.include_router(destinations_router)
 api_router.include_router(destination_planner_profiles_router)
 api_router.include_router(media_router)
