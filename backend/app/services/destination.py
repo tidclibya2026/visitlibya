@@ -26,6 +26,12 @@ from app.schemas.destination import (
     DestinationTranslationCreate,
     DestinationUpdate,
 )
+from app.schemas.destination_gis import (
+    DestinationGISFeature,
+    DestinationGISFeatureCollection,
+    DestinationGISProperties,
+    GeoJSONPoint,
+)
 from app.publication.governance import LegacyDestinationCatalog
 from pathlib import Path
 
@@ -100,6 +106,63 @@ class DestinationService:
         eligible = [item for item in items if self._is_legacy_compatible(item)]
         return eligible, len(eligible)
 
+    def list_public_gis_bbox(
+        self,
+        *,
+        min_longitude: float,
+        min_latitude: float,
+        max_longitude: float,
+        max_latitude: float,
+        skip: int,
+        limit: int,
+    ) -> DestinationGISFeatureCollection:
+        try:
+            destinations = self.repository.list_public_in_bbox(
+                min_longitude=min_longitude,
+                min_latitude=min_latitude,
+                max_longitude=max_longitude,
+                max_latitude=max_latitude,
+                skip=skip,
+                limit=limit,
+            )
+        except SQLAlchemyError as exc:
+            self._rollback_failed_read()
+            raise DestinationPersistenceError() from exc
+
+        return DestinationGISFeatureCollection(
+            features=[
+                self._to_public_gis_feature(destination)
+                for destination in destinations
+                if self._is_legacy_compatible(destination)
+            ]
+        )
+
+    def list_public_gis_nearby(
+        self,
+        *,
+        longitude: float,
+        latitude: float,
+        radius_meters: float,
+        limit: int,
+    ) -> DestinationGISFeatureCollection:
+        try:
+            destinations = self.repository.list_public_nearby(
+                longitude=longitude,
+                latitude=latitude,
+                radius_meters=radius_meters,
+                limit=limit,
+            )
+        except SQLAlchemyError as exc:
+            self._rollback_failed_read()
+            raise DestinationPersistenceError() from exc
+
+        return DestinationGISFeatureCollection(
+            features=[
+                self._to_public_gis_feature(destination)
+                for destination in destinations
+                if self._is_legacy_compatible(destination)
+            ]
+        )
     def get_public_destination_by_slug(self, slug: str) -> Destination:
         try:
             destination = self.repository.get_public_by_slug(slug)
@@ -299,6 +362,49 @@ class DestinationService:
             for item in incoming.values()
         )
 
+    @staticmethod
+    def _translation_name(
+        destination: Destination,
+        language_code: str,
+    ) -> str | None:
+        normalized = language_code.strip().lower()
+        for translation in destination.translations:
+            if translation.language_code.strip().lower() == normalized:
+                return translation.name
+        return None
+
+    @classmethod
+    def _to_public_gis_feature(
+        cls,
+        destination: Destination,
+    ) -> DestinationGISFeature:
+        if destination.longitude is None or destination.latitude is None:
+            raise DestinationCoordinatesError()
+
+        category = (
+            destination.category.code
+            if destination.category is not None
+            else None
+        )
+
+        return DestinationGISFeature(
+            geometry=GeoJSONPoint(
+                coordinates=(
+                    destination.longitude,
+                    destination.latitude,
+                )
+            ),
+            properties=DestinationGISProperties(
+                id=destination.id,
+                slug=destination.slug,
+                name_ar=cls._translation_name(destination, "ar"),
+                name_en=cls._translation_name(destination, "en"),
+                category=category,
+                municipality=destination.municipality,
+                region=destination.region,
+                is_featured=destination.is_featured,
+            ),
+        )
     def _rollback_failed_read(self) -> None:
         if not self.session.is_active:
             self.session.rollback()

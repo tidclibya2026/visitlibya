@@ -18,6 +18,12 @@ from app.models.destination import (
     DestinationTranslation,
 )
 from app.schemas.destination import DestinationCreate, DestinationUpdate
+from app.schemas.destination_gis import (
+    DestinationGISFeature,
+    DestinationGISFeatureCollection,
+    DestinationGISProperties,
+    GeoJSONPoint,
+)
 
 
 def make_destination(
@@ -72,6 +78,51 @@ class FakeDestinationService:
             return [self.destination], 1
         return [], 0
 
+    def _gis_collection(self) -> DestinationGISFeatureCollection:
+        destination = self.destination
+
+        if (
+            destination.status != DestinationStatus.PUBLISHED
+            or not destination.is_active
+            or destination.latitude is None
+            or destination.longitude is None
+        ):
+            return DestinationGISFeatureCollection()
+
+        return DestinationGISFeatureCollection(
+            features=[
+                DestinationGISFeature(
+                    geometry=GeoJSONPoint(
+                        coordinates=(
+                            destination.longitude,
+                            destination.latitude,
+                        )
+                    ),
+                    properties=DestinationGISProperties(
+                        id=destination.id,
+                        slug=destination.slug,
+                        name_ar=destination.translations[0].name,
+                        municipality=destination.municipality,
+                        region=destination.region,
+                        is_featured=destination.is_featured,
+                    ),
+                )
+            ]
+        )
+
+    def list_public_gis_bbox(
+        self,
+        **arguments: object,
+    ) -> DestinationGISFeatureCollection:
+        self.list_arguments = arguments
+        return self._gis_collection()
+
+    def list_public_gis_nearby(
+        self,
+        **arguments: object,
+    ) -> DestinationGISFeatureCollection:
+        self.list_arguments = arguments
+        return self._gis_collection()
     def get_destination_by_slug(self, slug: str) -> Destination:
         if slug == "missing":
             raise DestinationNotFoundError()
@@ -381,3 +432,151 @@ def test_client_approval_fields_are_rejected_and_never_projected_publicly() -> N
     assert direct.status_code == 422 and decision.status_code == 422
     assert public.status_code == 200
     assert not ({"publication_approved", "institutional_decision", "evidence_reference", "actor_id"} & public.json().keys())
+
+def test_public_gis_bbox_returns_geojson_feature_collection() -> None:
+    service = FakeDestinationService()
+    service.destination.status = DestinationStatus.PUBLISHED
+
+    app.dependency_overrides[get_destination_service] = lambda: service
+    try:
+        with TestClient(app) as client:
+            response = client.get(
+                "/api/v1/destinations/spatial/bbox",
+                params={
+                    "min_longitude": 12,
+                    "min_latitude": 22,
+                    "max_longitude": 25,
+                    "max_latitude": 34,
+                    "limit": 100,
+                },
+            )
+    finally:
+        app.dependency_overrides.clear()
+
+    assert response.status_code == 200
+
+    payload = response.json()
+
+    assert payload["type"] == "FeatureCollection"
+    assert len(payload["features"]) == 1
+    assert payload["features"][0]["type"] == "Feature"
+    assert payload["features"][0]["geometry"] == {
+        "type": "Point",
+        "coordinates": [14.2906, 32.6389],
+    }
+    assert payload["features"][0]["properties"]["slug"] == "leptis-magna"
+
+    assert service.list_arguments["min_longitude"] == 12.0
+    assert service.list_arguments["max_latitude"] == 34.0
+
+
+def test_public_gis_bbox_rejects_invalid_bounds() -> None:
+    service = FakeDestinationService()
+
+    app.dependency_overrides[get_destination_service] = lambda: service
+    try:
+        with TestClient(app) as client:
+            response = client.get(
+                "/api/v1/destinations/spatial/bbox",
+                params={
+                    "min_longitude": 25,
+                    "min_latitude": 22,
+                    "max_longitude": 12,
+                    "max_latitude": 34,
+                },
+            )
+    finally:
+        app.dependency_overrides.clear()
+
+    assert response.status_code == 422
+
+
+def test_public_gis_nearby_uses_meter_radius_contract() -> None:
+    service = FakeDestinationService()
+    service.destination.status = DestinationStatus.PUBLISHED
+
+    app.dependency_overrides[get_destination_service] = lambda: service
+    try:
+        with TestClient(app) as client:
+            response = client.get(
+                "/api/v1/destinations/spatial/nearby",
+                params={
+                    "longitude": 13.1913,
+                    "latitude": 32.8872,
+                    "radius_meters": 5000,
+                    "limit": 20,
+                },
+            )
+    finally:
+        app.dependency_overrides.clear()
+
+    assert response.status_code == 200
+    assert response.json()["type"] == "FeatureCollection"
+    assert service.list_arguments["radius_meters"] == 5000.0
+    assert service.list_arguments["limit"] == 20
+
+
+def test_public_gis_nearby_rejects_invalid_coordinates_and_radius() -> None:
+    service = FakeDestinationService()
+
+    app.dependency_overrides[get_destination_service] = lambda: service
+    try:
+        with TestClient(app) as client:
+            invalid_coordinates = client.get(
+                "/api/v1/destinations/spatial/nearby",
+                params={
+                    "longitude": 181,
+                    "latitude": 32,
+                    "radius_meters": 5000,
+                },
+            )
+            invalid_radius = client.get(
+                "/api/v1/destinations/spatial/nearby",
+                params={
+                    "longitude": 13,
+                    "latitude": 32,
+                    "radius_meters": 0,
+                },
+            )
+    finally:
+        app.dependency_overrides.clear()
+
+    assert invalid_coordinates.status_code == 422
+    assert invalid_radius.status_code == 422
+
+
+def test_public_gis_projection_does_not_expose_governance_fields() -> None:
+    service = FakeDestinationService()
+    service.destination.status = DestinationStatus.PUBLISHED
+
+    app.dependency_overrides[get_destination_service] = lambda: service
+    try:
+        with TestClient(app) as client:
+            response = client.get(
+                "/api/v1/destinations/spatial/bbox",
+                params={
+                    "min_longitude": 12,
+                    "min_latitude": 22,
+                    "max_longitude": 25,
+                    "max_latitude": 34,
+                },
+            )
+    finally:
+        app.dependency_overrides.clear()
+
+    assert response.status_code == 200
+
+    properties = response.json()["features"][0]["properties"]
+
+    assert not (
+        {
+            "status",
+            "publication_approved",
+            "institutional_decision",
+            "evidence_reference",
+            "actor_id",
+            "created_at",
+            "updated_at",
+        }
+        & properties.keys()
+    )
