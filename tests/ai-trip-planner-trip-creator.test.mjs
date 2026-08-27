@@ -301,3 +301,194 @@ test("trip items preserve itinerary day and sort order", async () => {
     ],
   );
 });
+
+test("uses backend planner execution result when available", async () => {
+  const localItinerary = {
+    requestedDays: 1,
+    preferences: {
+      days: 1,
+      pace: "balanced",
+      startingPoint: "tripoli",
+      interests: ["history"],
+      travelerType: "solo",
+    },
+    days: [
+      {
+        dayNumber: 1,
+        destinations: [{ slug: "tripoli" }],
+      },
+    ],
+  };
+
+  const backendItinerary = {
+    ...localItinerary,
+    days: [
+      {
+        dayNumber: 1,
+        destinations: [{ slug: "leptis-magna" }],
+      },
+    ],
+  };
+
+  const added = [];
+
+  const trip = await createTripFromSuggestedItinerary({
+    itinerary: localItinerary,
+    locale: "en",
+    apiEnabled: true,
+    authenticatedUser: { id: 7 },
+    listDestinationCatalogue: async () => ({
+      items: [
+        { id: 1, slug: "tripoli" },
+        { id: 2, slug: "leptis-magna" },
+      ],
+      pages: 1,
+    }),
+    createTrip: async () => ({ id: 22 }),
+    addTripItem: async (tripId, payload) => {
+      added.push({ tripId, payload });
+    },
+    executeTripPlanner: async () => ({
+      planner_run: { id: 9, status: "generated" },
+      result: backendItinerary,
+      authority: [],
+    }),
+    plannerExecutionPayload: () => ({
+      destination_ids: [],
+      destination_slugs: ["tripoli"],
+      days: 1,
+      pace: "balanced",
+      starting_point: "tripoli",
+      interests: ["history"],
+      traveler_type: "solo",
+    }),
+  });
+
+  assert.equal(trip.id, 22);
+  assert.equal(added.length, 1);
+  assert.equal(added[0].payload.destination_id, 2);
+});
+
+
+test("falls back to local itinerary only for backend availability failures", async () => {
+  const itinerary = {
+    requestedDays: 1,
+    preferences: {
+      days: 1,
+      pace: "balanced",
+      startingPoint: "tripoli",
+      interests: ["history"],
+      travelerType: "solo",
+    },
+    days: [
+      {
+        dayNumber: 1,
+        destinations: [{ slug: "tripoli" }],
+      },
+    ],
+  };
+
+  for (const code of [
+    "API_UNAVAILABLE",
+    "NETWORK_ERROR",
+    "TIMEOUT",
+    "SERVER_ERROR",
+  ]) {
+    const added = [];
+
+    await createTripFromSuggestedItinerary({
+      itinerary,
+      locale: "en",
+      apiEnabled: true,
+      authenticatedUser: { id: 7 },
+      listDestinationCatalogue: async () => ({
+        items: [{ id: 1, slug: "tripoli" }],
+        pages: 1,
+      }),
+      createTrip: async () => ({ id: 22 }),
+      addTripItem: async (tripId, payload) => {
+        added.push({ tripId, payload });
+      },
+      executeTripPlanner: async () => {
+        const error = new Error(code);
+        error.code = code;
+        throw error;
+      },
+      plannerExecutionPayload: () => ({
+        destination_ids: [],
+        destination_slugs: ["tripoli"],
+        days: 1,
+        pace: "balanced",
+        starting_point: "tripoli",
+        interests: ["history"],
+        traveler_type: "solo",
+      }),
+    });
+
+    assert.equal(added.length, 1);
+    assert.equal(added[0].payload.destination_id, 1);
+  }
+});
+
+
+test("does not fall back for governance or ownership failures", async () => {
+  const itinerary = {
+    requestedDays: 1,
+    preferences: {
+      days: 1,
+      pace: "balanced",
+      startingPoint: "tripoli",
+      interests: ["history"],
+      travelerType: "solo",
+    },
+    days: [
+      {
+        dayNumber: 1,
+        destinations: [{ slug: "tripoli" }],
+      },
+    ],
+  };
+
+  for (const code of [
+    "UNAUTHORIZED",
+    "FORBIDDEN",
+    "NOT_FOUND",
+    "CONFLICT",
+    "VALIDATION_ERROR",
+  ]) {
+    let addCalled = false;
+
+    await assert.rejects(
+      createTripFromSuggestedItinerary({
+        itinerary,
+        locale: "en",
+        apiEnabled: true,
+        authenticatedUser: { id: 7 },
+        listDestinationCatalogue: async () => ({
+          items: [{ id: 1, slug: "tripoli" }],
+          pages: 1,
+        }),
+        createTrip: async () => ({ id: 22 }),
+        addTripItem: async () => {
+          addCalled = true;
+        },
+        executeTripPlanner: async () => {
+          const error = new Error(code);
+          error.code = code;
+          throw error;
+        },
+        plannerExecutionPayload: () => ({
+          destination_ids: [],
+          destination_slugs: ["tripoli"],
+          days: 1,
+          pace: "balanced",
+          starting_point: "tripoli",
+          interests: ["history"],
+          traveler_type: "solo",
+        }),
+      }),
+    );
+
+    assert.equal(addCalled, false);
+  }
+});
