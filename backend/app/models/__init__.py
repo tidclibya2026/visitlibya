@@ -57,3 +57,4 @@ __all__ = [
     "User",
     "user_roles",
 ]
+from app.models.national_boundary import NationalBoundary
