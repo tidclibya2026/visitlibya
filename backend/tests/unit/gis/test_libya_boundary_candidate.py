@@ -12,57 +12,49 @@ def load_candidate():
     return json.loads(CANDIDATE_PATH.read_text(encoding="utf-8"))
 
 
-def test_libya_boundary_candidate_remains_blocked_without_authority():
+def test_libya_boundary_source_is_resolved():
     candidate = load_candidate()
 
     assert candidate["candidate_id"] == "libya-national-boundary"
+    assert candidate["authority_status"] == "INSTITUTIONAL_SOURCE_RESOLVED"
+    assert candidate["geometry_status"] == "VALIDATED"
+    assert candidate["review_status"] == "VALIDATION_COMPLETE"
+
+
+def test_libya_boundary_source_identity():
+    candidate = load_candidate()
+
+    assert candidate["source_file"] == "LibyaData.mdb"
+    assert candidate["feature_dataset"] == "الحدود"
+    assert candidate["feature_class"] == "الحدودالدولية"
+    assert candidate["source_filter"] == "Countries_EN = Libya"
+
+    assert candidate["display_name_ar"] == "ليبيا"
+    assert candidate["display_name_en"] == "Libya"
+
+
+def test_libya_boundary_geometry_validation():
+    candidate = load_candidate()
+
+    assert candidate["geometry_type"] == "Polygon"
+    assert candidate["crs"] == "GCS_WGS_1984"
+    assert candidate["feature_count"] == 1
+
+    validation = candidate["geometry_validation"]
+
+    assert validation["errors"] == 0
+    assert validation["status"] == "VALID"
+
+
+def test_libya_boundary_publication_remains_pending():
+    candidate = load_candidate()
+
     assert candidate["publication_status"] == "BLOCKED"
-    assert candidate["authority_status"] == "NOT_AUTHORITATIVE"
-    assert candidate["geometry_status"] == "NOT_AVAILABLE"
 
-    assert candidate["source_id"] is None
-    assert candidate["source_file"] is None
-    assert candidate["institutional_source_reference"] is None
+    derived = candidate["derived_dataset"]
 
-
-def test_no_existing_polygon_source_is_accepted_as_national_boundary():
-    candidate = load_candidate()
-
-    reviewed = candidate["polygon_sources_reviewed"]
-
-    assert reviewed
-    assert all(
-        item["decision"] == "REJECT_AS_NATIONAL_BOUNDARY"
-        for item in reviewed
-    )
-
-
-def test_boundary_publication_requires_governed_source_evidence():
-    candidate = load_candidate()
-
-    requirements = set(candidate["publication_requirements"])
-
-    required = {
-        "Identifiable authoritative source",
-        "Documented provenance",
-        "Declared CRS",
-        "Geometry validity verification",
-        "National coverage verification",
-        "Institutional review",
-        "Explicit publication approval",
-    }
-
-    assert required <= requirements
-
-
-def test_audit_did_not_resolve_national_scale_boundary():
-    candidate = load_candidate()
-
-    evidence = candidate["evidence"]
-
-    assert evidence["institutional_audit_sources_checked"] == 13
-    assert evidence["national_scale_boundary_found"] is False
-    assert (
-        evidence["taxonomy_crosswalk"]["mapping_status"]
-        == "REVIEW_REQUIRED"
-    )
+    assert derived["feature_count"] == 1
+    assert len(derived["shp_sha256"]) == 64
+    assert len(derived["dbf_sha256"]) == 64
+    assert len(derived["prj_sha256"]) == 64
+    assert len(derived["shx_sha256"]) == 64

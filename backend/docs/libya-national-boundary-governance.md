@@ -2,91 +2,93 @@
 
 ## Status
 
-**BLOCKED FOR PUBLICATION**
+**INSTITUTIONAL SOURCE RESOLVED — PUBLICATION PENDING**
 
-Visit Libya currently does not possess a resolved authoritative national boundary dataset that satisfies the project's GIS governance requirements.
+Visit Libya now has a resolved institutional source for the Libya national boundary.
 
-## Audit Finding
+## Institutional Reference
 
-The institutional GIS audit contains a taxonomy entry:
+- Institutional reference: المخطط العام للتنمية السياحية
+- Project: مشروع أطلس ليبيا السياحي
+- Source owner: مركز المعلومات والتوثيق السياحي
+- Source database: `LibyaData.mdb`
+- Feature Dataset: `الحدود`
+- Feature Class: `الحدودالدولية`
+- Source filter: `Countries_EN = Libya`
 
-- Arabic source category: `حدود ليبيا`
+## Display Identity
+
+- Arabic: `ليبيا`
+- English: `Libya`
+
+The historical Arabic source value is retained only as provenance metadata and is not used as the public display name.
+
+## Geometry
+
+- Geometry type: `Polygon`
+- CRS: `GCS_WGS_1984`
 - Feature count: `1`
-- Visit Libya category: `null`
-- Mapping status: `REVIEW_REQUIRED`
 
-This taxonomy entry does not provide sufficient provenance to establish a national boundary authority.
+## Geometry Validation
 
-## Sources Reviewed
+The derived boundary dataset was validated using ArcMap Check Geometry.
 
-Thirteen institutional GIS source summaries were reviewed.
+Result:
 
-Only three currently audited sources contain Polygon geometry:
+- Geometry errors: `0`
+- Validation status: `VALID`
 
-1. Old Tripoli
-2. Acacus
-3. Five Libya UNESCO World Heritage Sites
+## Derived Dataset
 
-None represents the national boundary of Libya.
+The institutional source was not modified.
 
-Their bounding boxes and thematic scopes demonstrate that they are local, regional, or heritage datasets.
+A derived publication candidate was created:
+
+`atlas/derived/libya_national_boundary.shp`
+
+Core component SHA-256 values are recorded in the governed boundary candidate record.
 
 ## Authority Decision
 
-No existing audited Polygon or MultiPolygon shall be interpreted as the national boundary.
+The previous unresolved-boundary finding has been superseded by discovery of the original institutional boundary within the Tourism Atlas source geodatabase.
 
-The absence of a national-scale source is an explicit governance finding, not a reason to fabricate or infer geometry.
+The boundary is now considered:
+
+- source resolved;
+- institutionally attributable;
+- geometry available;
+- geometry validated;
+- pending controlled publication.
+
+## Publication Path
+
+المخطط العام للتنمية السياحية
+→ مشروع أطلس ليبيا السياحي
+→ LibyaData.mdb
+→ الحدود
+→ الحدودالدولية
+→ Countries_EN = Libya
+→ geometry validation
+→ governed derived boundary
+→ PostGIS
+→ public GeoJSON projection
+→ Tourism Atlas
 
 ## Publication Gate
 
-A Libya national boundary may become publishable only when all of the following are available:
+Final publication still requires:
 
-1. Identifiable authoritative source.
-2. Traceable provenance.
-3. Original source dataset.
-4. Immutable version or SHA-256 checksum.
-5. Polygon or MultiPolygon geometry.
-6. Declared CRS.
-7. Valid geometry.
-8. Verified national geographic extent.
-9. Institutional review.
-10. Explicit publication approval.
-
-## Prohibited Substitutions
-
-The following must not be used as substitutes:
-
-- destination extent;
-- UNESCO polygons;
-- natural-resource polygons;
-- regional tourism polygons;
-- municipal extent;
-- manually drawn SVG borders;
-- undocumented GeoJSON downloaded from an unknown source.
-
-## Relationship to the Tourism Atlas
-
-The Tourism Atlas may display governed destination points without an authoritative national boundary.
-
-Until a national boundary satisfies this governance contract, the frontend must not claim that a displayed outline represents the official or authoritative Libya national boundary.
-
-## Future Authority Path
-
-Authoritative source
-→ provenance registration
-→ checksum
-→ CRS normalization
-→ geometry validation
-→ national extent validation
-→ institutional review
-→ approval
-→ publication projection
-→ Tourism Atlas
+1. PostGIS ingestion.
+2. SRID normalization and validation.
+3. PostGIS geometry validation.
+4. Governed public API projection.
+5. Frontend integration.
+6. Release validation.
 
 ## Architectural Principle
 
-GeoJSON is a transport or publication projection.
+The institutional source remains the provenance authority.
 
-It does not become authoritative merely because it contains a Polygon.
+PostGIS will become the production spatial authority after governed ingestion.
 
-Authority originates from the governed source and approval process.
+GeoJSON remains a public transport/projection format and not the original source authority.

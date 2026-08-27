@@ -5,14 +5,14 @@
   "name_en": "Libya National Boundary",
   "intended_role": "national_base_boundary",
   "publication_status": "BLOCKED",
-  "review_status": "SOURCE_RESOLUTION_REQUIRED",
-  "authority_status": "NOT_AUTHORITATIVE",
-  "geometry_status": "NOT_AVAILABLE",
-  "crs": null,
-  "source_id": null,
-  "source_file": null,
+  "review_status": "VALIDATION_COMPLETE",
+  "authority_status": "INSTITUTIONAL_SOURCE_RESOLVED",
+  "geometry_status": "VALIDATED",
+  "crs": "GCS_WGS_1984",
+  "source_id": "tidc-tourism-atlas-libya-boundary",
+  "source_file": "LibyaData.mdb",
   "source_sha256": null,
-  "institutional_source_reference": null,
+  "institutional_source_reference": "المخطط العام للتنمية السياحية",
   "evidence": {
     "taxonomy_crosswalk": {
       "source_category": "حدود ليبيا",
@@ -92,5 +92,29 @@
     "Do not use heritage, natural, destination, or municipal polygons as national borders.",
     "Do not publish an external boundary without provenance and institutional review."
   ],
-  "notes": "The institutional GIS audit contains one taxonomy value named حدود ليبيا, but no traceable authoritative geometry or source file was resolved. Publication remains blocked."
+  "notes": "The institutional GIS audit contains one taxonomy value named حدود ليبيا, but no traceable authoritative geometry or source file was resolved. Publication remains blocked.",
+  "project_name_ar": "مشروع أطلس ليبيا السياحي",
+  "source_owner_ar": "مركز المعلومات والتوثيق السياحي",
+  "feature_dataset": "الحدود",
+  "feature_class": "الحدودالدولية",
+  "source_filter": "Countries_EN = Libya",
+  "display_name_ar": "ليبيا",
+  "display_name_en": "Libya",
+  "source_name_en": "Libya",
+  "source_name_ar": "الجماهيرية العربية الليبية",
+  "geometry_type": "Polygon",
+  "feature_count": 1,
+  "geometry_validation": {
+    "tool": "ArcMap Check Geometry",
+    "errors": 0,
+    "status": "VALID"
+  },
+  "derived_dataset": {
+    "file": "libya_national_boundary.shp",
+    "feature_count": 1,
+    "shp_sha256": "0AF26F1911C5FE964E5B2B78D3A46401B93550AEF1ECC8AE342652A4C247B5E0",
+    "dbf_sha256": "2570F2B881144FAC23333303CC0FDDE9E7F0EAFE9C43CEDB86177B5152013580",
+    "prj_sha256": "A02A27B1D1982C8516D83398E85A3C8B1AEF1713C13EF4D84D7BDE17430C07C4",
+    "shx_sha256": "67163D3504B9EA37CC08A69A5921199182F0FCD73CDCA7D7E976CC8E657E892A"
+  }
 }
