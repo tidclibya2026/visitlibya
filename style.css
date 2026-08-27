@@ -1394,3 +1394,55 @@ body.lightbox-open {
     grid-column: 1 / -1;
   }
 }
+/* Governed destination GIS projection */
+.atlas-governed-map {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+
+.atlas-gis-plot {
+  position: relative;
+  min-height: 380px;
+  width: 100%;
+}
+
+.atlas-gis-marker {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .28);
+}
+
+.atlas-gis-marker.is-active {
+  width: 22px;
+  height: 22px;
+}
+
+.atlas-gis-status {
+  position: absolute;
+  z-index: 2;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+}
+
+.atlas-gis-context {
+  position: absolute;
+  z-index: 3;
+  right: 1rem;
+  bottom: 1rem;
+  max-width: 280px;
+  padding: .85rem 1rem;
+  background: rgba(255,255,255,.96);
+  border-radius: 12px;
+}
+
+.atlas-gis-context strong,
+.atlas-gis-context span {
+  display: block;
+}
