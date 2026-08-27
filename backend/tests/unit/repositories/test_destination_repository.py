@@ -92,3 +92,114 @@ def test_repository_write_helpers_do_not_manage_transactions() -> None:
     session.delete.assert_called_once_with(destination)
     session.commit.assert_not_called()
     session.rollback.assert_not_called()
+
+def test_public_bbox_query_requires_governed_spatial_destination() -> None:
+    scalar_result = MagicMock()
+    scalar_result.all.return_value = []
+    session = MagicMock()
+    session.scalars.return_value = scalar_result
+    repository = DestinationRepository(session)
+
+    repository.list_public_in_bbox(
+        min_longitude=12.0,
+        min_latitude=22.0,
+        max_longitude=25.0,
+        max_latitude=34.0,
+        skip=0,
+        limit=100,
+    )
+
+    statement = str(session.scalars.call_args.args[0])
+
+    assert "ST_Intersects" in statement
+    assert "ST_MakeEnvelope" in statement
+    assert "destinations.geometry IS NOT NULL" in statement
+    assert "destinations.status" in statement
+    assert "destinations.is_active" in statement
+    assert "LIMIT" in statement
+    assert "OFFSET" in statement
+
+
+def test_public_bbox_count_uses_same_spatial_governance() -> None:
+    session = MagicMock()
+    session.scalar.return_value = 4
+    repository = DestinationRepository(session)
+
+    total = repository.count_public_in_bbox(
+        min_longitude=12.0,
+        min_latitude=22.0,
+        max_longitude=25.0,
+        max_latitude=34.0,
+    )
+
+    assert total == 4
+
+    statement = str(session.scalar.call_args.args[0])
+
+    assert "count(destinations.id)" in statement
+    assert "ST_Intersects" in statement
+    assert "ST_MakeEnvelope" in statement
+    assert "destinations.geometry IS NOT NULL" in statement
+    assert "destinations.status" in statement
+    assert "destinations.is_active" in statement
+
+
+def test_public_nearby_query_uses_geography_meter_distance() -> None:
+    scalar_result = MagicMock()
+    scalar_result.all.return_value = []
+    session = MagicMock()
+    session.scalars.return_value = scalar_result
+    repository = DestinationRepository(session)
+
+    repository.list_public_nearby(
+        longitude=13.1913,
+        latitude=32.8872,
+        radius_meters=5000,
+        limit=20,
+    )
+
+    statement = str(session.scalars.call_args.args[0])
+
+    assert "ST_DWithin" in statement
+    assert "ST_MakePoint" in statement
+    assert "ST_SetSRID" in statement
+    assert "ST_Distance" in statement
+    assert "geography" in statement.lower()
+    assert "destinations.geometry IS NOT NULL" in statement
+    assert "destinations.status" in statement
+    assert "destinations.is_active" in statement
+    assert "ORDER BY" in statement
+    assert "LIMIT" in statement
+
+
+def test_public_spatial_repository_does_not_manage_transactions() -> None:
+    scalar_result = MagicMock()
+    scalar_result.all.return_value = []
+    session = MagicMock()
+    session.scalars.return_value = scalar_result
+    session.scalar.return_value = 0
+    repository = DestinationRepository(session)
+
+    repository.list_public_in_bbox(
+        min_longitude=12.0,
+        min_latitude=22.0,
+        max_longitude=25.0,
+        max_latitude=34.0,
+        skip=0,
+        limit=50,
+    )
+    repository.count_public_in_bbox(
+        min_longitude=12.0,
+        min_latitude=22.0,
+        max_longitude=25.0,
+        max_latitude=34.0,
+    )
+    repository.list_public_nearby(
+        longitude=13.1913,
+        latitude=32.8872,
+        radius_meters=10000,
+        limit=20,
+    )
+
+    session.commit.assert_not_called()
+    session.rollback.assert_not_called()
