@@ -1,6 +1,7 @@
 from collections.abc import Sequence
 
-from sqlalchemy import Select, func, select
+from geoalchemy2 import Geography, Geometry
+from sqlalchemy import Select, cast, func, select
 from sqlalchemy.orm import Load, joinedload, selectinload
 from sqlalchemy.sql.elements import ColumnElement
 
@@ -165,6 +166,116 @@ class DestinationRepository(BaseRepository[Destination]):
             *filters
         )
         return self.session.scalar(statement) or 0
+
+    @staticmethod
+    def _public_spatial_filters() -> Sequence[ColumnElement[bool]]:
+        return [
+            Destination.status == DestinationStatus.PUBLISHED,
+            Destination.is_active.is_(True),
+            Destination.geometry.is_not(None),
+        ]
+
+    def list_public_in_bbox(
+        self,
+        *,
+        min_longitude: float,
+        min_latitude: float,
+        max_longitude: float,
+        max_latitude: float,
+        skip: int,
+        limit: int,
+    ) -> Sequence[Destination]:
+        envelope = func.ST_MakeEnvelope(
+            min_longitude,
+            min_latitude,
+            max_longitude,
+            max_latitude,
+            4326,
+            type_=Geometry(geometry_type="POLYGON", srid=4326),
+        )
+
+        statement = (
+            select(Destination)
+            .options(*self._load_options())
+            .where(
+                *self._public_spatial_filters(),
+                func.ST_Intersects(Destination.geometry, envelope),
+            )
+            .order_by(Destination.priority_order, Destination.id)
+            .offset(skip)
+            .limit(limit)
+        )
+        return self.session.scalars(statement).all()
+
+    def count_public_in_bbox(
+        self,
+        *,
+        min_longitude: float,
+        min_latitude: float,
+        max_longitude: float,
+        max_latitude: float,
+    ) -> int:
+        envelope = func.ST_MakeEnvelope(
+            min_longitude,
+            min_latitude,
+            max_longitude,
+            max_latitude,
+            4326,
+            type_=Geometry(geometry_type="POLYGON", srid=4326),
+        )
+
+        statement: Select[tuple[int]] = (
+            select(func.count(Destination.id))
+            .where(
+                *self._public_spatial_filters(),
+                func.ST_Intersects(Destination.geometry, envelope),
+            )
+        )
+        return self.session.scalar(statement) or 0
+
+    def list_public_nearby(
+        self,
+        *,
+        longitude: float,
+        latitude: float,
+        radius_meters: float,
+        limit: int,
+    ) -> Sequence[Destination]:
+        point = func.ST_SetSRID(
+            func.ST_MakePoint(longitude, latitude),
+            4326,
+            type_=Geometry(geometry_type="POINT", srid=4326),
+        )
+
+        destination_geography = cast(
+            Destination.geometry,
+            Geography(geometry_type="POINT", srid=4326),
+        )
+        point_geography = cast(
+            point,
+            Geography(geometry_type="POINT", srid=4326),
+        )
+
+        distance = func.ST_Distance(
+            destination_geography,
+            point_geography,
+        )
+
+        statement = (
+            select(Destination)
+            .options(*self._load_options())
+            .where(
+                *self._public_spatial_filters(),
+                func.ST_DWithin(
+                    destination_geography,
+                    point_geography,
+                    radius_meters,
+                ),
+            )
+            .order_by(distance, Destination.priority_order, Destination.id)
+            .limit(limit)
+        )
+        return self.session.scalars(statement).all()
 
     def refresh(self, destination: Destination) -> None:
         self.session.refresh(
