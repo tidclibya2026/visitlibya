@@ -13,7 +13,7 @@ from sqlalchemy.exc import IntegrityError
 
 PREVIOUS_REVISION = "d3a8f6c41b29"
 TRIP_REVISION = "c6e2a9b47f31"
-HEAD_REVISION = "16af7df9200c"
+HEAD_REVISION = "3ce91b819d4a"
 BACKEND_DIR = Path(__file__).resolve().parents[3]
 
 
