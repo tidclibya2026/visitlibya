@@ -18,11 +18,11 @@ import {
 
 import {
   enrichPlannerDestinationsWithAuthority,
-  plannerRunPayload,
+  plannerExecutionPayload,
 } from "../app/ai/planner-authority-adapter.js";
 
 import {
-  createPlannerRun,
+  executeTripPlanner,
   getDestinationPlannerProfile,
 } from "../app/api/planner-api.js";
 
@@ -271,6 +271,8 @@ function renderItinerary(root, itinerary, locale) {
           listTripDestinationCatalogue,
         createTrip,
         addTripItem,
+        executeTripPlanner,
+        plannerExecutionPayload,
       });
 
       const target =
@@ -514,16 +516,6 @@ function initializePlanner() {
         preferences,
       );
 
-    if (
-      plannerContext?.config?.apiEnabled &&
-      plannerContext?.session?.currentUser
-    ) {
-      createPlannerRun(plannerRunPayload(itinerary)).catch((error) => {
-        if (plannerContext.config.debug) {
-          console.warn("AI Planner run persistence unavailable; continuing locally.", error);
-        }
-      });
-    }
 
     renderItinerary(
       resultRoot,

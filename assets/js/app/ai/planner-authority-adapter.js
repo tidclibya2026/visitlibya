@@ -69,3 +69,39 @@ export function plannerRunPayload(itinerary) {
       : null,
   };
 }
+
+export function plannerExecutionPayload(itinerary) {
+  const slugs = [];
+
+  for (const day of itinerary?.days ?? []) {
+    for (const destination of day?.destinations ?? []) {
+      const slug = String(destination?.slug ?? "")
+        .trim()
+        .toLowerCase();
+
+      if (slug && !slugs.includes(slug)) {
+        slugs.push(slug);
+      }
+    }
+  }
+
+  const preferences = itinerary?.preferences ?? {};
+
+  return {
+    destination_ids: [],
+    destination_slugs: slugs,
+    days: Number(itinerary?.requestedDays ?? preferences.days ?? 3),
+    pace: String(preferences.pace ?? "balanced").trim().toLowerCase(),
+    starting_point: String(
+      preferences.startingPoint ?? "tripoli",
+    ).trim().toLowerCase(),
+    interests: Array.isArray(preferences.interests)
+      ? preferences.interests
+          .map((value) => String(value).trim().toLowerCase())
+          .filter(Boolean)
+      : [],
+    traveler_type: String(
+      preferences.travelerType ?? "",
+    ).trim().toLowerCase(),
+  };
+}

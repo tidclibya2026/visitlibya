@@ -115,6 +115,15 @@ export async function resolveSuggestedDestinationIds(
 }
 
 
+function canFallbackToLocalPlanner(error) {
+  return [
+    "API_UNAVAILABLE",
+    "NETWORK_ERROR",
+    "TIMEOUT",
+    "SERVER_ERROR",
+  ].includes(error?.code);
+}
+
 export async function createTripFromSuggestedItinerary({
   itinerary,
   locale = "en",
@@ -123,6 +132,8 @@ export async function createTripFromSuggestedItinerary({
   listDestinationCatalogue,
   createTrip,
   addTripItem,
+  executeTripPlanner,
+  plannerExecutionPayload,
 }) {
   if (!apiEnabled) {
     const error = new Error("API_UNAVAILABLE");
@@ -136,7 +147,7 @@ export async function createTripFromSuggestedItinerary({
     throw error;
   }
 
-  const selected =
+  let selected =
     flattenSuggestedItinerary(itinerary);
 
   if (!selected.length) {
@@ -154,7 +165,7 @@ export async function createTripFromSuggestedItinerary({
     );
   }
 
-  const catalogue =
+  let catalogue =
     await resolveSuggestedDestinationIds(
       selected.map((entry) => entry.destination),
       {
@@ -187,6 +198,42 @@ export async function createTripFromSuggestedItinerary({
       "Invalid trip creation response",
     );
   }
+
+  let authoritativeItinerary = itinerary;
+
+  if (
+    typeof executeTripPlanner === "function" &&
+    typeof plannerExecutionPayload === "function"
+  ) {
+    try {
+      const execution = await executeTripPlanner(
+        trip.id,
+        plannerExecutionPayload(itinerary),
+      );
+
+      if (
+        execution?.result &&
+        Array.isArray(execution.result.days)
+      ) {
+        authoritativeItinerary = execution.result;
+      }
+    } catch (error) {
+      if (!canFallbackToLocalPlanner(error)) {
+        throw error;
+      }
+    }
+  }
+
+  selected =
+    flattenSuggestedItinerary(authoritativeItinerary);
+
+  catalogue =
+    await resolveSuggestedDestinationIds(
+      selected.map((entry) => entry.destination),
+      {
+        listDestinationCatalogue,
+      },
+    );
 
   for (
     let index = 0;
