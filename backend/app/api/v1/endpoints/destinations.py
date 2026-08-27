@@ -22,6 +22,7 @@ from app.schemas.destination import (
     DestinationRead,
     DestinationUpdate,
 )
+from app.schemas.destination_gis import DestinationGISFeatureCollection
 
 
 router = APIRouter(prefix="/destinations", tags=["Destinations"])
@@ -75,6 +76,67 @@ def list_destinations(
         raise_http_error(error)
     return DestinationListResponse(items=list(items), total=total, skip=skip, limit=limit)
 
+
+@router.get(
+    "/spatial/bbox",
+    response_model=DestinationGISFeatureCollection,
+    tags=["Destinations GIS"],
+)
+def list_destinations_in_bbox(
+    service: DestinationServiceDependency,
+    min_longitude: Annotated[float, Query(ge=-180, le=180)],
+    min_latitude: Annotated[float, Query(ge=-90, le=90)],
+    max_longitude: Annotated[float, Query(ge=-180, le=180)],
+    max_latitude: Annotated[float, Query(ge=-90, le=90)],
+    skip: SkipParameter = 0,
+    limit: LimitParameter = 100,
+) -> DestinationGISFeatureCollection:
+    if min_longitude >= max_longitude or min_latitude >= max_latitude:
+        raise HTTPException(
+            status_code=422,
+            detail="Bounding box minimums must be lower than maximums",
+        )
+
+    try:
+        return service.list_public_gis_bbox(
+            min_longitude=min_longitude,
+            min_latitude=min_latitude,
+            max_longitude=max_longitude,
+            max_latitude=max_latitude,
+            skip=skip,
+            limit=limit,
+        )
+    except DestinationError as error:
+        raise_http_error(error)
+
+
+@router.get(
+    "/spatial/nearby",
+    response_model=DestinationGISFeatureCollection,
+    tags=["Destinations GIS"],
+)
+def list_destinations_nearby(
+    service: DestinationServiceDependency,
+    longitude: Annotated[float, Query(ge=-180, le=180)],
+    latitude: Annotated[float, Query(ge=-90, le=90)],
+    radius_meters: Annotated[
+        float,
+        Query(gt=0, le=200000),
+    ] = 25000,
+    limit: Annotated[
+        int,
+        Query(ge=1, le=200),
+    ] = 50,
+) -> DestinationGISFeatureCollection:
+    try:
+        return service.list_public_gis_nearby(
+            longitude=longitude,
+            latitude=latitude,
+            radius_meters=radius_meters,
+            limit=limit,
+        )
+    except DestinationError as error:
+        raise_http_error(error)
 
 @router.get("/admin", response_model=DestinationListResponse, tags=["Destinations Admin"], dependencies=[Depends(require_content_admin)])
 def list_destinations_admin(
