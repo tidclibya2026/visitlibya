@@ -4,6 +4,12 @@ from scripts import ingest_governed_gis as ingestion
 from scripts import old_tripoli_governed_layer as layer
 
 
+def test_reconciliation_fingerprint_is_line_ending_independent():
+    lf = b'{\n  "records": [1, 2],\n  "status": "review"\n}\n'
+    crlf = lf.replace(b"\n", b"\r\n")
+    assert layer.reconciliation_fingerprint(lf) == layer.reconciliation_fingerprint(crlf)
+
+
 def test_artifacts_are_deterministic_complete_and_fail_closed():
     imported, blocked = layer.validate()
     assert imported["evidence_count"] == 430

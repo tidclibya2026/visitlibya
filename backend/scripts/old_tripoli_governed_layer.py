@@ -40,6 +40,15 @@ def _canonical_bytes(payload: dict) -> bytes:
     return (json.dumps(payload, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
 
 
+def reconciliation_fingerprint(raw: bytes) -> str:
+    """Hash reconciliation JSON semantics, independent of checkout line endings."""
+    payload = json.loads(raw.decode("utf-8"))
+    canonical = json.dumps(
+        payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False
+    ).encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
+
+
 def _all_records(source: dict) -> list[dict]:
     records = [item for collection in source["collections"].values() for item in collection]
     return sorted(records, key=lambda item: item["source_ordinal"])
@@ -162,7 +171,9 @@ def build() -> tuple[dict, dict]:
         "authoritative_boundary_claimed": False,
         "historic_or_visitor_route_claimed": False,
         "source_reconciliation_id": source["reconciliation_id"],
-        "source_reconciliation_sha256": hashlib.sha256(RECONCILIATION_PATH.read_bytes()).hexdigest(),
+        "source_reconciliation_sha256": reconciliation_fingerprint(
+            RECONCILIATION_PATH.read_bytes()
+        ),
         "evidence_count": len(records),
         "category_counts": {name: counts[name] for name in CATEGORIES},
         "geometry_counts_by_status": geometry_counts,
