@@ -1,0 +1,40 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "blocked_feature_count": 0,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "SAFE_FORTIFICATION_POINT": 12
+  },
+  "evidence_semantic_sha256": {
+    "archaeology_cross_layer": "ddc1d6288e82b6e473d437c2cd036aaba369a362b67b7dfe0f8fa210b6ecf3bc",
+    "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+    "source": "044941d45db9aaedac57c34768239130b376e0ec74c7e3b798b42b388bc14cbf"
+  },
+  "inventory_id": "fortifications-governed-blocked-v1",
+  "layer_code": "FORTIFICATIONS",
+  "master_registry_version": "v2",
+  "publication_approved": false,
+  "records": [],
+  "safe_ingestible_feature_count": 12,
+  "schema_version": 1,
+  "source_database": "Libya ATLAS Project.gdb",
+  "source_feature_count": 12,
+  "source_layer": "القلاع_والحصون",
+  "unresolved_cross_layer_reference_count": 1,
+  "unresolved_cross_layer_references": [
+    {
+      "geometry": {
+        "coordinates": [
+          21.861942800000065,
+          32.82716350000004
+        ],
+        "type": "Point"
+      },
+      "name_ar": "قلعة",
+      "review_classification": "UNRESOLVED_CROSS_LAYER_REFERENCE",
+      "source_feature_id": "5",
+      "source_layer": "ARCHAEOLOGICAL_SITES"
+    }
+  ]
+}
