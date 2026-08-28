@@ -1,0 +1,25 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "CROSS_LAYER_REFERENCE_FORTIFICATIONS": 1,
+    "SOURCE_IDENTITY_REVIEW": 10
+  },
+  "evidence_semantic_sha256": {
+    "authority_map": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+    "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+    "source_extract": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+    "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+  },
+  "features": [],
+  "layer_code": "ARCHAEOLOGICAL_SITES",
+  "master_registry_version": "v2",
+  "name": "ARCHAEOLOGICAL_SITES governed review import",
+  "publication_approved": false,
+  "source_database": "Libya ATLAS Project.gdb",
+  "source_feature_count": 11,
+  "source_layer": "اثري",
+  "type": "FeatureCollection",
+  "world_heritage_authority_duplicated": false
+}
