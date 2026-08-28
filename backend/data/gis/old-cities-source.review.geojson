@@ -1,0 +1,909 @@
+{
+  "artifact_status": "SOURCE_REVIEW_ONLY_NOT_PUBLICATION_APPROVAL", 
+  "authoritative_boundary_claimed": false, 
+  "canonical_identity_approved": false, 
+  "extracted_feature_count": 27, 
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          11.552859306000073, 
+          31.887655258000052
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 0, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة الحرابة القديمة", 
+          "OBJECTID": 3.0, 
+          "PopupInfo": " ", 
+          "x": 11.552859, 
+          "y": 31.887655
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "1", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.342984200000046, 
+          32.001934052000024
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 1, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة الريايانة الغربية القديمة‎", 
+          "OBJECTID": 5.0, 
+          "PopupInfo": "المدينة القديمة أولاد حسين", 
+          "x": 12.342984, 
+          "y": 32.001934
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "2", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          10.546388626000066, 
+          30.978332520000038
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 2, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة الشعواء القديمة", 
+          "OBJECTID": 7.0, 
+          "PopupInfo": " ", 
+          "x": 10.546389, 
+          "y": 30.978333
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "3", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.570833206000032, 
+          32.05194473300003
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 3, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة القلعة القديمة", 
+          "OBJECTID": 8.0, 
+          "PopupInfo": " ", 
+          "x": 12.570833, 
+          "y": 32.051945
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "4", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.29055595400007, 
+          31.989721298000063
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 4, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة أولاد ريان القديمة", 
+          "OBJECTID": 11.0, 
+          "PopupInfo": " ", 
+          "x": 12.290556, 
+          "y": 31.989721
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "5", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.332635880000055, 
+          31.99795341500004
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 5, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة أولاد علي القديمة‎", 
+          "OBJECTID": 12.0, 
+          "PopupInfo": " ", 
+          "x": 12.332636, 
+          "y": 31.997953
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "6", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          14.070476532000043, 
+          31.79584884600007
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 6, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة بن تليس الأثرية‎", 
+          "OBJECTID": 14.0, 
+          "PopupInfo": "<img src=\"https://lh6.googleusercontent.com/URGdytqba7DGbb98DRhej1roQoqgty8FNY5TXEVo_uzGgwS0gmbX9MyGn1C8goD2SxEVQcQl4NKV4i1Sb-kjxi-6DeYgmJUWn9qEVdQa-31Bea81ppsEYp4xJBIWrCBW\" height=\"200\" width=\"auto\" /><br><br>", 
+          "x": 14.070477, 
+          "y": 31.795849
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "7", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          15.055689812000026, 
+          32.01258850100004
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 7, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة تاورغاء", 
+          "OBJECTID": 16.0, 
+          "PopupInfo": " ", 
+          "x": 15.05569, 
+          "y": 32.012589
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "8", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          11.35325431800004, 
+          32.01142501800007
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 8, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة تيجي", 
+          "OBJECTID": 20.0, 
+          "PopupInfo": " ", 
+          "x": 11.353254, 
+          "y": 32.011425
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "9", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.017222404000051, 
+          31.957777023000062
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 9, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة جادو القديمة", 
+          "OBJECTID": 21.0, 
+          "PopupInfo": " ", 
+          "x": 12.017222, 
+          "y": 31.957777
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "10", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          10.456742287000054, 
+          30.16533279400005
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 10, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة درج القديمة", 
+          "OBJECTID": 24.0, 
+          "PopupInfo": " ", 
+          "x": 10.456742, 
+          "y": 30.165333
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "11", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.080551147000051, 
+          32.93664932300004
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 11, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة زوارة القديمة", 
+          "OBJECTID": 26.0, 
+          "PopupInfo": " ", 
+          "x": 12.080551, 
+          "y": 32.936649
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "12", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          9.497242928000048, 
+          30.132366180000076
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 12, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة غدامس القديمة", 
+          "OBJECTID": 33.0, 
+          "PopupInfo": " ", 
+          "x": 9.497243, 
+          "y": 30.132366
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "13", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.018055916000037, 
+          31.962778091000075
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 13, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة قديمة", 
+          "OBJECTID": 34.0, 
+          "PopupInfo": " ", 
+          "x": 12.018056, 
+          "y": 31.962778
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "14", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          14.553494453000042, 
+          30.948127747000058
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 14, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة قرزة", 
+          "OBJECTID": 35.0, 
+          "PopupInfo": " ", 
+          "x": 14.553494, 
+          "y": 30.948128
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "15", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          11.326257706000035, 
+          31.84549903900006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 15, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة كباو القديمة", 
+          "OBJECTID": 36.0, 
+          "PopupInfo": " ", 
+          "x": 11.326258, 
+          "y": 31.845499
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "16", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.980517387000077, 
+          31.445056915000066
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 16, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة مزدة القديمة‎", 
+          "OBJECTID": 37.0, 
+          "PopupInfo": "حي التير", 
+          "x": 12.980517, 
+          "y": 31.445057
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "17", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.983694077000052, 
+          31.443794250000053
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 17, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة مزدة القديمة", 
+          "OBJECTID": 38.0, 
+          "PopupInfo": "حي المنناعة", 
+          "x": 12.983694, 
+          "y": 31.443794
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "18", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.620985031000032, 
+          32.46391296400003
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 18, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة ملاهي", 
+          "OBJECTID": 39.0, 
+          "PopupInfo": " ", 
+          "x": 13.620985, 
+          "y": 32.463913
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "19", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          10.986430168000027, 
+          31.867488861000027
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 19, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة نالوت القديمة", 
+          "OBJECTID": 40.0, 
+          "PopupInfo": " ", 
+          "x": 10.98643, 
+          "y": 31.867489
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "20", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          11.952454567000075, 
+          31.93840980500005
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 20, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "مدينة ويفات القديمة", 
+          "OBJECTID": 44.0, 
+          "PopupInfo": " ", 
+          "x": 11.952455, 
+          "y": 31.93841
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "21", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.235861778000071, 
+          31.933471680000025
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 21, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "البلاد القديم بالزنتان", 
+          "OBJECTID": 45.0, 
+          "PopupInfo": " ", 
+          "x": 12.235862, 
+          "y": 31.933472
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "22", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          10.366316795000046, 
+          30.19221305800005
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 22, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "البلدة القديمة", 
+          "OBJECTID": 48.0, 
+          "PopupInfo": " ", 
+          "x": 10.366317, 
+          "y": 30.192213
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "23", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          11.421911240000043, 
+          31.854415894000056
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 23, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "طمزين القديمة", 
+          "OBJECTID": 49.0, 
+          "PopupInfo": " ", 
+          "x": 11.421911, 
+          "y": 31.854416
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "24", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.506111145000034, 
+          32.020278931000064
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 24, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "بلدة الزرقان القديمة", 
+          "OBJECTID": 50.0, 
+          "PopupInfo": " ", 
+          "x": 12.506111, 
+          "y": 32.020279
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "25", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.533383369000035, 
+          32.07401275600006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 25, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "بلدة الشقارنة القديمة‎", 
+          "OBJECTID": 51.0, 
+          "PopupInfo": " ", 
+          "x": 12.533383, 
+          "y": 32.074013
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "26", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.266219181000054, 
+          32.87226468800003
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 26, 
+          "FolderPath": " ", 
+          "Name": " ", 
+          "OBJECTID": 0.0, 
+          "PopupInfo": " ", 
+          "x": 0.0, 
+          "y": 0.0
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "27", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مدن_قديمة", 
+        "target_layer": "OLD_CITIES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }
+  ], 
+  "layer_code": "OLD_CITIES", 
+  "master_registry_version": "v2", 
+  "output_crs": "EPSG:4326", 
+  "publication_approved": false, 
+  "schema_version": 1, 
+  "source_database": "Libya ATLAS Project.gdb", 
+  "source_feature_count": 27, 
+  "source_geometry_type": "Point Z", 
+  "source_layer": "مدن_قديمة", 
+  "type": "FeatureCollection"
+}

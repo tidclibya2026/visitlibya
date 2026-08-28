@@ -1,0 +1,888 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "CROSS_LAYER_REFERENCE_WORLD_HERITAGE": 1,
+    "IDENTITY_RECONCILIATION_REVIEW": 2,
+    "SAFE_OLD_CITY_POINT": 20,
+    "SOURCE_IDENTITY_REVIEW": 3,
+    "WRONG_LAYER_SEMANTICS": 1
+  },
+  "evidence_semantic_sha256": {
+    "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+    "old_tripoli": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+    "source": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+    "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+  },
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          11.552859306000073,
+          31.887655258000052
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-1",
+        "institutional_id": "atlas-old-city-1",
+        "name_ar": "مدينة الحرابة القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "1",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-1",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 0,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة الحرابة القديمة",
+            "OBJECTID": 3.0,
+            "PopupInfo": " ",
+            "x": 11.552859,
+            "y": 31.887655
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "1",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.342984200000046,
+          32.001934052000024
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-2",
+        "institutional_id": "atlas-old-city-2",
+        "name_ar": "مدينة الريايانة الغربية القديمة‎",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "2",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-2",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 1,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة الريايانة الغربية القديمة‎",
+            "OBJECTID": 5.0,
+            "PopupInfo": "المدينة القديمة أولاد حسين",
+            "x": 12.342984,
+            "y": 32.001934
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "2",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          10.546388626000066,
+          30.978332520000038
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-3",
+        "institutional_id": "atlas-old-city-3",
+        "name_ar": "مدينة الشعواء القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "3",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-3",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 2,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة الشعواء القديمة",
+            "OBJECTID": 7.0,
+            "PopupInfo": " ",
+            "x": 10.546389,
+            "y": 30.978333
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "3",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.570833206000032,
+          32.05194473300003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-4",
+        "institutional_id": "atlas-old-city-4",
+        "name_ar": "مدينة القلعة القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "4",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-4",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 3,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة القلعة القديمة",
+            "OBJECTID": 8.0,
+            "PopupInfo": " ",
+            "x": 12.570833,
+            "y": 32.051945
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "4",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.29055595400007,
+          31.989721298000063
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-5",
+        "institutional_id": "atlas-old-city-5",
+        "name_ar": "مدينة أولاد ريان القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "5",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-5",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 4,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة أولاد ريان القديمة",
+            "OBJECTID": 11.0,
+            "PopupInfo": " ",
+            "x": 12.290556,
+            "y": 31.989721
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "5",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.332635880000055,
+          31.99795341500004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-6",
+        "institutional_id": "atlas-old-city-6",
+        "name_ar": "مدينة أولاد علي القديمة‎",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "6",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-6",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 5,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة أولاد علي القديمة‎",
+            "OBJECTID": 12.0,
+            "PopupInfo": " ",
+            "x": 12.332636,
+            "y": 31.997953
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "6",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.070476532000043,
+          31.79584884600007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-7",
+        "institutional_id": "atlas-old-city-7",
+        "name_ar": "مدينة بن تليس الأثرية‎",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "7",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-7",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 6,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة بن تليس الأثرية‎",
+            "OBJECTID": 14.0,
+            "PopupInfo": "<img src=\"https://lh6.googleusercontent.com/URGdytqba7DGbb98DRhej1roQoqgty8FNY5TXEVo_uzGgwS0gmbX9MyGn1C8goD2SxEVQcQl4NKV4i1Sb-kjxi-6DeYgmJUWn9qEVdQa-31Bea81ppsEYp4xJBIWrCBW\" height=\"200\" width=\"auto\" /><br><br>",
+            "x": 14.070477,
+            "y": 31.795849
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "7",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.055689812000026,
+          32.01258850100004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-8",
+        "institutional_id": "atlas-old-city-8",
+        "name_ar": "مدينة تاورغاء",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "8",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-8",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 7,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة تاورغاء",
+            "OBJECTID": 16.0,
+            "PopupInfo": " ",
+            "x": 15.05569,
+            "y": 32.012589
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "8",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          11.35325431800004,
+          32.01142501800007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-9",
+        "institutional_id": "atlas-old-city-9",
+        "name_ar": "مدينة تيجي",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "9",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-9",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 8,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة تيجي",
+            "OBJECTID": 20.0,
+            "PopupInfo": " ",
+            "x": 11.353254,
+            "y": 32.011425
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "9",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.017222404000051,
+          31.957777023000062
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-10",
+        "institutional_id": "atlas-old-city-10",
+        "name_ar": "مدينة جادو القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "10",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-10",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 9,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة جادو القديمة",
+            "OBJECTID": 21.0,
+            "PopupInfo": " ",
+            "x": 12.017222,
+            "y": 31.957777
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "10",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          10.456742287000054,
+          30.16533279400005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-11",
+        "institutional_id": "atlas-old-city-11",
+        "name_ar": "مدينة درج القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "11",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-11",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 10,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة درج القديمة",
+            "OBJECTID": 24.0,
+            "PopupInfo": " ",
+            "x": 10.456742,
+            "y": 30.165333
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "11",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.080551147000051,
+          32.93664932300004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-12",
+        "institutional_id": "atlas-old-city-12",
+        "name_ar": "مدينة زوارة القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "12",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-12",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 11,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة زوارة القديمة",
+            "OBJECTID": 26.0,
+            "PopupInfo": " ",
+            "x": 12.080551,
+            "y": 32.936649
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "12",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.553494453000042,
+          30.948127747000058
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-15",
+        "institutional_id": "atlas-old-city-15",
+        "name_ar": "مدينة قرزة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "15",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-15",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 14,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة قرزة",
+            "OBJECTID": 35.0,
+            "PopupInfo": " ",
+            "x": 14.553494,
+            "y": 30.948128
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "15",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          11.326257706000035,
+          31.84549903900006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-16",
+        "institutional_id": "atlas-old-city-16",
+        "name_ar": "مدينة كباو القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "16",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-16",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 15,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة كباو القديمة",
+            "OBJECTID": 36.0,
+            "PopupInfo": " ",
+            "x": 11.326258,
+            "y": 31.845499
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "16",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          10.986430168000027,
+          31.867488861000027
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-20",
+        "institutional_id": "atlas-old-city-20",
+        "name_ar": "مدينة نالوت القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "20",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-20",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 19,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة نالوت القديمة",
+            "OBJECTID": 40.0,
+            "PopupInfo": " ",
+            "x": 10.98643,
+            "y": 31.867489
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "20",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          11.952454567000075,
+          31.93840980500005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-21",
+        "institutional_id": "atlas-old-city-21",
+        "name_ar": "مدينة ويفات القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "21",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-21",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 20,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "مدينة ويفات القديمة",
+            "OBJECTID": 44.0,
+            "PopupInfo": " ",
+            "x": 11.952455,
+            "y": 31.93841
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "21",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.235861778000071,
+          31.933471680000025
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-22",
+        "institutional_id": "atlas-old-city-22",
+        "name_ar": "البلاد القديم بالزنتان",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "22",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-22",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 21,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "البلاد القديم بالزنتان",
+            "OBJECTID": 45.0,
+            "PopupInfo": " ",
+            "x": 12.235862,
+            "y": 31.933472
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "22",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          11.421911240000043,
+          31.854415894000056
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-24",
+        "institutional_id": "atlas-old-city-24",
+        "name_ar": "طمزين القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "24",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-24",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 23,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "طمزين القديمة",
+            "OBJECTID": 49.0,
+            "PopupInfo": " ",
+            "x": 11.421911,
+            "y": 31.854416
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "24",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.506111145000034,
+          32.020278931000064
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-25",
+        "institutional_id": "atlas-old-city-25",
+        "name_ar": "بلدة الزرقان القديمة",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "25",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-25",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 24,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "بلدة الزرقان القديمة",
+            "OBJECTID": 50.0,
+            "PopupInfo": " ",
+            "x": 12.506111,
+            "y": 32.020279
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "25",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.533383369000035,
+          32.07401275600006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "old_city",
+        "feature_code": "old-city-atlas-26",
+        "institutional_id": "atlas-old-city-26",
+        "name_ar": "بلدة الشقارنة القديمة‎",
+        "name_en": null,
+        "review_classification": "SAFE_OLD_CITY_POINT",
+        "source_feature_id": "26",
+        "source_identity": "Libya ATLAS Project.gdb#مدن_قديمة-26",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "old_tripoli_authority_created": false,
+          "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+          "review_classification": "SAFE_OLD_CITY_POINT",
+          "source_attributes": {
+            "FID_1": 25,
+            "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+            "Name": "بلدة الشقارنة القديمة‎",
+            "OBJECTID": 51.0,
+            "PopupInfo": " ",
+            "x": 12.533383,
+            "y": 32.074013
+          },
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "26",
+          "source_layer": "مدن_قديمة",
+          "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+          "world_heritage_authority_created": false,
+          "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        }
+      },
+      "type": "Feature"
+    }
+  ],
+  "layer_code": "OLD_CITIES",
+  "master_registry_version": "v2",
+  "name": "OLD_CITIES governed review import",
+  "publication_approved": false,
+  "source_database": "Libya ATLAS Project.gdb",
+  "source_feature_count": 27,
+  "source_layer": "مدن_قديمة",
+  "type": "FeatureCollection"
+}
