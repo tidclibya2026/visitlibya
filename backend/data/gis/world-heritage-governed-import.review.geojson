@@ -1,0 +1,121 @@
+{
+  "type": "FeatureCollection",
+  "name": "WORLD_HERITAGE governed review import",
+  "artifact_status": "REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "layer_code": "WORLD_HERITAGE",
+  "publication_approved": false,
+  "source_database": "institutional-kml-review",
+  "source_layer": "unesco-five-sites-ly",
+  "excluded_sites": [
+    {
+      "site": "cyrene",
+      "reason": "REVIEW_REQUIRED_AGGREGATE_NO_REVIEWED_CANONICAL_SITE_ANCHOR"
+    }
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_code": "world-heritage-leptis-magna",
+        "institutional_id": "ndr-leptis-magna",
+        "source_feature_id": "Placemark-1",
+        "name_ar": "لبدة الكبرى",
+        "name_en": "Leptis Magna",
+        "category": "heritage",
+        "source_identity": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-1",
+        "source_metadata": {
+          "artifact_status": "REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "coordinate_review_status": "reviewed",
+          "destination_registry_id": "ndr-leptis-magna",
+          "source_file": "مواقع التراث العالمي الخمسة_LY.kml",
+          "source_sha256": "07f88ae5fbcad07d7d653d3a4a8ca6c6f1c77772b4fe6adba6aabfc7f4def555"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.2883012,
+          32.6389502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_code": "world-heritage-sabratha",
+        "institutional_id": "ndr-sabratha",
+        "source_feature_id": "Placemark-2",
+        "name_ar": "صبراتة",
+        "name_en": "Sabratha",
+        "category": "heritage",
+        "source_identity": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-2",
+        "source_metadata": {
+          "artifact_status": "REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "coordinate_review_status": "reviewed",
+          "destination_registry_id": "ndr-sabratha",
+          "source_file": "مواقع التراث العالمي الخمسة_LY.kml",
+          "source_sha256": "07f88ae5fbcad07d7d653d3a4a8ca6c6f1c77772b4fe6adba6aabfc7f4def555"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.484983,
+          32.805035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_code": "world-heritage-acacus",
+        "institutional_id": "ndr-acacus",
+        "source_feature_id": "Placemark-4",
+        "name_ar": "تادرارت أكاكوس",
+        "name_en": "Tadrart Acacus",
+        "category": "heritage",
+        "source_identity": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-4",
+        "source_metadata": {
+          "artifact_status": "REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "coordinate_review_status": "reviewed",
+          "destination_registry_id": "ndr-acacus",
+          "source_file": "مواقع التراث العالمي الخمسة_LY.kml",
+          "source_sha256": "07f88ae5fbcad07d7d653d3a4a8ca6c6f1c77772b4fe6adba6aabfc7f4def555"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.568242,
+          24.812882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "feature_code": "world-heritage-old-city-ghadames",
+        "institutional_id": "ndr-ghadames",
+        "source_feature_id": "Placemark-5",
+        "name_ar": "مدينة غدامس القديمة",
+        "name_en": "Old Town of Ghadames",
+        "category": "heritage",
+        "source_identity": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-5",
+        "source_metadata": {
+          "artifact_status": "REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "coordinate_review_status": "reviewed",
+          "destination_registry_id": "ndr-ghadames",
+          "source_file": "مواقع التراث العالمي الخمسة_LY.kml",
+          "source_sha256": "07f88ae5fbcad07d7d653d3a4a8ca6c6f1c77772b4fe6adba6aabfc7f4def555"
+        }
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          9.496486,
+          30.133674
+        ]
+      }
+    }
+  ]
+}
