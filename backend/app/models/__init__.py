@@ -14,6 +14,12 @@ from app.models.destination_planner_profile import (
     PlannerVerificationStatus,
 )
 from app.models.favorite import Favorite
+from app.models.governed_gis_feature import (
+    GISAuthorityStatus,
+    GISReviewStatus,
+    GISValidationStatus,
+    GovernedGISFeature,
+)
 from app.models.media import DestinationMedia, MediaAsset
 from app.models.planner_run import (
     PlannerRun,
@@ -45,6 +51,10 @@ __all__ = [
     "DestinationMedia",
     "MediaAsset",
     "Favorite",
+    "GovernedGISFeature",
+    "GISReviewStatus",
+    "GISAuthorityStatus",
+    "GISValidationStatus",
     "PlannerRun",
     "PlannerRunStatus",
     "Review",
