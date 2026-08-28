@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "review_id": "cyrene-world-heritage-anchor-v1",
+  "layer_code": "WORLD_HERITAGE",
+  "canonical_property_identity": {
+    "name_en": "Archaeological Site of Cyrene",
+    "name_ar_source": "موقع شحات (قورينة) الأثري",
+    "modern_locality": "شحات",
+    "regional_context": "الجبل الأخضر",
+    "identity_decision": "UNESCO_PROPERTY_DISTINCT_FROM_MODERN_SHAHAT_AND_REGIONAL_CONTEXT"
+  },
+  "destination_identity": {
+    "registry_record_id": "ndr-shahat-cyrene",
+    "project_name_en": "Cyrene (Shahat)",
+    "project_name_ar": "قورينا – شحات",
+    "current_canonical_slug": null,
+    "classification": "IDENTITY_REVIEW_REQUIRED",
+    "reason": "The project destination model is unified, but it is not a runtime canonical destination and must not replace the separately evidenced UNESCO property identity."
+  },
+  "institutional_property_evidence": {
+    "source_id": "unesco-five-sites-ly",
+    "source_file": "مواقع التراث العالمي الخمسة_LY.kml",
+    "source_sha256": "07f88ae5fbcad07d7d653d3a4a8ca6c6f1c77772b4fe6adba6aabfc7f4def555",
+    "source_feature_id": "fp-caa2546c80c0e7ccaa628e57",
+    "source_reference": "مواقع التراث العالمي الخمسة_LY.kml#Placemark-3",
+    "folder_document_path": [
+      "مواقع التراث العالمي الخمسة_LY",
+      "مواقع التراث العالمي الخمسة"
+    ],
+    "source_name": "موقع شحات (قورينة) الأثري",
+    "source_name_en": "Archaeological Site of Cyrene",
+    "unesco_flag": "نعم",
+    "unesco_year": 1982,
+    "municipality": "شحات",
+    "region": "الجبل الأخضر",
+    "classification": "COORDINATE_REVIEW_REQUIRED"
+  },
+  "coordinate_evidence": [
+    {
+      "evidence_id": "kml-placemark-geometry",
+      "longitude": 21.8532586,
+      "latitude": 32.8125333,
+      "crs": "EPSG:4326",
+      "source_semantics": "KML_POINT_GEOMETRY",
+      "classification": "COORDINATE_REVIEW_REQUIRED"
+    },
+    {
+      "evidence_id": "kml-description-coordinate-fields",
+      "longitude": 21.858,
+      "latitude": 32.825,
+      "crs": "EPSG:4326",
+      "source_semantics": "DESCRIPTION_LATITUDE_LONGITUDE_FIELDS",
+      "classification": "COORDINATE_REVIEW_REQUIRED"
+    }
+  ],
+  "coordinate_conflict": {
+    "distance_m": 1455.322,
+    "resolution": "UNRESOLVED_NO_AUTOMATIC_SELECTION",
+    "reason": "The same institutional property Placemark carries two materially different WGS84 point positions and contains no reviewed rule establishing which is the canonical site anchor."
+  },
+  "supporting_evidence": [
+    {
+      "source_id": "points_world_heritage",
+      "source_database": "points_world_heritage.gdb",
+      "relative_layer": "points_world_heritage\\مدينة_شحات_قورينا",
+      "examples": [
+        "أثار قورينا",
+        "معبد أبولو",
+        "معبد زيوس",
+        "مسرح شحات الاثري"
+      ],
+      "classification": "REGIONAL_CONTEXT_ONLY",
+      "reason": "These are archaeological sub-feature and locality records; none is explicitly the canonical UNESCO property anchor."
+    },
+    {
+      "source_id": "cyrene_shahhat",
+      "source_database": "Cyrene_shahhat.gdb",
+      "relative_layers": [
+        "شحات_ليبيا\\معبد_temple",
+        "شحات_ليبيا\\اماكن",
+        "شحات_ليبيا\\استخدامات_الاراضي"
+      ],
+      "classification": "BOUNDARY_SEMANTICS_UNRESOLVED",
+      "reason": "The polygon layers do not explicitly identify UNESCO property or buffer-zone boundaries."
+    },
+    {
+      "source_id": "qurina_cy",
+      "source_database": "Qurina_Cy.gdb",
+      "relative_layer": "cyrene\\اثار_شحات",
+      "classification": "COORDINATE_REVIEW_REQUIRED",
+      "reason": "The archaeological layer has a recorded CRS metadata/geometry conflict and supplies sub-feature context rather than a proven property anchor."
+    }
+  ],
+  "geometry_decision": {
+    "classification": "NO_SAFE_GEOMETRY",
+    "canonical_site_anchor_ready": false,
+    "world_heritage_ingestion_eligible": false,
+    "ingestion_feature": null,
+    "polygon_claimed_as_unesco_boundary": false
+  },
+  "governance": {
+    "review_status": "blocked",
+    "authority_status": "unapproved",
+    "is_published": false,
+    "institutional_approval": false,
+    "publication_approval": false,
+    "runtime_mutation": false,
+    "postgis_ingestion_performed": false
+  },
+  "blockers": [
+    "Institutional confirmation is required to choose between the Placemark geometry and its embedded coordinate fields.",
+    "No reviewed institutional record designates an archaeological sub-feature point as the canonical UNESCO property anchor.",
+    "No inspected polygon has explicit UNESCO property-boundary or buffer-zone semantics."
+  ]
+}
