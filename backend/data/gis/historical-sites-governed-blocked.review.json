@@ -1,0 +1,767 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "blocked_feature_count": 18,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "DUPLICATE_GEOMETRY_IDENTITY_REVIEW": 1,
+    "IDENTITY_RECONCILIATION_REVIEW": 1,
+    "SAFE_HISTORICAL_SITE_POINT": 118,
+    "SOURCE_IDENTITY_REVIEW": 16
+  },
+  "evidence_semantic_sha256": {
+    "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+    "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+    "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+    "source": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+    "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+  },
+  "inventory_id": "historical-sites-governed-blocked-v1",
+  "layer_code": "HISTORICAL_SITES",
+  "master_registry_version": "v2",
+  "publication_approved": false,
+  "records": [
+    {
+      "blocked_reason": "IDENTITY_RECONCILIATION_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.553105354000024,
+          31.75493812600007
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "palace",
+      "institutional_id": "atlas-historical-palace-9",
+      "name_ar": "قصر الجنان",
+      "review_classification": "IDENTITY_RECONCILIATION_REVIEW",
+      "source_feature_id": "9",
+      "source_layer": "القصور",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "IDENTITY_RECONCILIATION_REVIEW",
+        "source_attributes": {
+          "FID_1": 8,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "قصر الجنان",
+          "OBJECTID_1": 16.0,
+          "PopupInfo": " ",
+          "x": 13.553105,
+          "y": 31.754938
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "9",
+        "source_layer": "القصور",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "palace",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "DUPLICATE_GEOMETRY_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.553105354000024,
+          31.75493812600007
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "palace",
+      "institutional_id": "atlas-historical-palace-10",
+      "name_ar": "قصر الجنان",
+      "review_classification": "DUPLICATE_GEOMETRY_IDENTITY_REVIEW",
+      "source_feature_id": "10",
+      "source_layer": "القصور",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "DUPLICATE_GEOMETRY_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 9,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "قصر الجنان",
+          "OBJECTID_1": 17.0,
+          "PopupInfo": " ",
+          "x": 13.553105,
+          "y": 31.754938
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "10",
+        "source_layer": "القصور",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "palace",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.264644623000038,
+          31.08062934900005
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-1",
+      "name_ar": "مزارع محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "1",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 0,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزارع محصنة",
+          "OBJECTID_1": 1.0,
+          "PopupInfo": " ",
+          "x": 13.264645,
+          "y": 31.080629
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "1",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          14.555173874000047,
+          30.947971344000052
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-2",
+      "name_ar": "مزارع محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "2",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 1,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزارع محصنة",
+          "OBJECTID_1": 2.0,
+          "PopupInfo": " ",
+          "x": 14.555174,
+          "y": 30.947971
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "2",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          14.130569458000025,
+          31.59299469000007
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-7",
+      "name_ar": "مزرعة محصنة‎",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "7",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 6,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة‎",
+          "OBJECTID_1": 8.0,
+          "PopupInfo": "قصر سويكر",
+          "x": 14.130569,
+          "y": 31.592995
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "7",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          14.61417675000007,
+          31.364704132000043
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-8",
+      "name_ar": "مزرعة محصنة‎",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "8",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 7,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة‎",
+          "OBJECTID_1": 9.0,
+          "PopupInfo": "<img src=\"https://lh3.googleusercontent.com/p6oFPpCkcwSENKh0aw_Glb0ldcAFTY_avAgcvke32PtvBz-fHnNzhQTZakoJRLfzA5sAC9zA1OB0SBK4i0AI8waH-g0K2lJgIgjFx8nuQBYcRREFbNSP0pn13_IiTcU\" height=\"200\" width=\"auto\" /><br><br>",
+          "x": 14.614177,
+          "y": 31.364704
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "8",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.584978104000072,
+          31.70948028600003
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-9",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "9",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 8,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 10.0,
+          "PopupInfo": " ",
+          "x": 13.584978,
+          "y": 31.70948
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "9",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.657980919000067,
+          31.809722900000054
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-10",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "10",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 9,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 11.0,
+          "PopupInfo": "تعرف محلياً باسم قصر ميلاد.",
+          "x": 13.657981,
+          "y": 31.809723
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "10",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.73173046100004,
+          31.632579803000056
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-11",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "11",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 10,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 12.0,
+          "PopupInfo": " ",
+          "x": 13.73173,
+          "y": 31.63258
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "11",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.73914432500004,
+          31.698038101000066
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-12",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "12",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 11,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 13.0,
+          "PopupInfo": " ",
+          "x": 13.739144,
+          "y": 31.698038
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "12",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.84420585600003,
+          32.44647979700005
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-13",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "13",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 12,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 14.0,
+          "PopupInfo": " ",
+          "x": 13.844206,
+          "y": 32.44648
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "13",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.395756721000055,
+          31.324176788000045
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-14",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "14",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 13,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 15.0,
+          "PopupInfo": " ",
+          "x": 13.395757,
+          "y": 31.324177
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "14",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.416988373000038,
+          31.29171180700007
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-15",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "15",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 14,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 16.0,
+          "PopupInfo": " ",
+          "x": 13.416988,
+          "y": 31.291712
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "15",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.362158775000069,
+          31.316450119000024
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-16",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "16",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 15,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 17.0,
+          "PopupInfo": " ",
+          "x": 13.362159,
+          "y": 31.31645
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "16",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.395238876000064,
+          31.28668975800008
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-17",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "17",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 16,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 18.0,
+          "PopupInfo": " ",
+          "x": 13.395239,
+          "y": 31.28669
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "17",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.413105011000027,
+          31.30011558500007
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-18",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "18",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 17,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 19.0,
+          "PopupInfo": " ",
+          "x": 13.413105,
+          "y": 31.300116
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "18",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.409961700000053,
+          31.285678864000033
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-19",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "19",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 18,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة",
+          "OBJECTID_1": 20.0,
+          "PopupInfo": " ",
+          "x": 13.409962,
+          "y": 31.285679
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "19",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.735914230000049,
+          31.726707458000078
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "historical_subtype": "historic_farm",
+      "institutional_id": "atlas-historical-historic_farm-20",
+      "name_ar": "مزرعة محصنة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "20",
+      "source_layer": "مزارع_قديمة",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "cross_layer_authority_created": false,
+        "fortifications_semantic_sha256": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_cities_semantic_sha256": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 19,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مزرعة محصنة ",
+          "OBJECTID_1": 21.0,
+          "PopupInfo": "معروفة محلياً باسم قصر شلياط ",
+          "x": 13.735914,
+          "y": 31.726707
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "20",
+        "source_layer": "مزارع_قديمة",
+        "source_semantic_sha256": "fbf558063be5f7afb76ff5fdc4c99e465f19beb4e3956f6003100a9ec9b3b98a",
+        "source_subtype": "historic_farm",
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    }
+  ],
+  "safe_ingestible_feature_count": 118,
+  "schema_version": 1,
+  "source_database": "Libya ATLAS Project.gdb",
+  "source_feature_count": 136
+}
