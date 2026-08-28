@@ -1,0 +1,150 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "comparison_layers": [
+    "NATURAL_SITES",
+    "WORLD_HERITAGE",
+    "OLD_CITIES",
+    "HISTORICAL_SITES",
+    "FORTIFICATIONS"
+  ],
+  "coordinate_review_excluded_count": 12,
+  "coordinate_review_excluded_records": [
+    {
+      "coordinate": [
+        518636.18710000004,
+        3632371.9986000005
+      ],
+      "park_institutional_id": "atlas-park-national_park-1",
+      "park_source_feature_id": "1",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        535861.3756,
+        3632330.8474000003
+      ],
+      "park_institutional_id": "atlas-park-national_park-2",
+      "park_source_feature_id": "2",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        515157.97280000005,
+        3621124.9762999993
+      ],
+      "park_institutional_id": "atlas-park-national_park-3",
+      "park_source_feature_id": "3",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        515994.71930000006,
+        3619799.4112000004
+      ],
+      "park_institutional_id": "atlas-park-national_park-4",
+      "park_source_feature_id": "4",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        513875.4025000001,
+        3630600.2535999995
+      ],
+      "park_institutional_id": "atlas-park-national_park-5",
+      "park_source_feature_id": "5",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        521328.0961000001,
+        3635635.9550000005
+      ],
+      "park_institutional_id": "atlas-park-national_park-6",
+      "park_source_feature_id": "6",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        520912.54060000007,
+        3635960.7714000014
+      ],
+      "park_institutional_id": "atlas-park-national_park-7",
+      "park_source_feature_id": "7",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        520232.91070000007,
+        3636371.3989000004
+      ],
+      "park_institutional_id": "atlas-park-national_park-8",
+      "park_source_feature_id": "8",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        517261.0827000001,
+        3635980.7761000004
+      ],
+      "park_institutional_id": "atlas-park-national_park-9",
+      "park_source_feature_id": "9",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        506641.48020000005,
+        3634359.1416
+      ],
+      "park_institutional_id": "atlas-park-national_park-10",
+      "park_source_feature_id": "10",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        505549.0996000001,
+        3633463.9396000006
+      ],
+      "park_institutional_id": "atlas-park-national_park-11",
+      "park_source_feature_id": "11",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    },
+    {
+      "coordinate": [
+        545338.0679,
+        3632934.4503000006
+      ],
+      "park_institutional_id": "atlas-park-national_park-12",
+      "park_source_feature_id": "12",
+      "park_source_layer": "المنتزهات_الوطنية_1",
+      "reason": "SOURCE_GEOMETRY_CRS_REVIEW"
+    }
+  ],
+  "cross_layer_reference_count": 0,
+  "evidence_semantic_sha256": {
+    "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+    "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+    "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+    "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+    "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+    "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+    "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+  },
+  "inventory_id": "parks-cross-layer-review-v1",
+  "layer_code": "PARKS",
+  "publication_approved": false,
+  "records": [],
+  "schema_version": 1
+}

@@ -143,6 +143,11 @@ LAYER_REGISTRY: dict[str, GovernedGISLayer] = {
             "Reserved for institutionally resolved historical features.",
         ),
         _layer(
+            "PARKS", "المنتزهات", "Parks",
+            "park", GeometryFamily.MIXED,
+            "Reserved for institutionally resolved parks, national parks, protected recreation areas, and related governed tourism park features; no boundaries are inferred.",
+        ),
+        _layer(
             "ROCK_ART", "الفنون الصخرية", "Rock Art",
             "rock_art", GeometryFamily.MIXED,
             "Reserved for reviewed rock-art features and sites.",

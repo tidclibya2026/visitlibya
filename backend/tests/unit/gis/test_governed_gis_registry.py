@@ -5,7 +5,7 @@ from app.gis.layer_registry import LAYER_REGISTRY, get_layer, require_layer
 
 EXPECTED_LAYERS = {
     "LIBYA_BOUNDARY", "WORLD_HERITAGE", "OLD_TRIPOLI", "NATURAL_SITES",
-    "ARCHAEOLOGICAL_SITES", "HISTORICAL_SITES", "ROCK_ART",
+    "ARCHAEOLOGICAL_SITES", "HISTORICAL_SITES", "PARKS", "ROCK_ART",
 }
 
 
@@ -26,6 +26,15 @@ def test_invalid_layer_code_fails_closed():
 
 def test_national_boundary_remains_specialized():
     assert require_layer("LIBYA_BOUNDARY").specialized_authority is True
+
+
+def test_parks_is_mixed_and_unpublished():
+    parks = require_layer("PARKS")
+    assert parks.name_ar == "المنتزهات"
+    assert parks.name_en == "Parks"
+    assert parks.category == "park"
+    assert parks.geometry_family.value == "mixed"
+    assert parks.default_is_published is False
 
 
 def test_layer_geometry_policy_is_specific():
