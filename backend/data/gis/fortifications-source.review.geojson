@@ -1,0 +1,414 @@
+{
+  "artifact_status": "SOURCE_REVIEW_ONLY_NOT_PUBLICATION_APPROVAL", 
+  "authoritative_boundary_claimed": false, 
+  "canonical_identity_approved": false, 
+  "extracted_feature_count": 12, 
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          11.734764099000074, 
+          33.07881927500006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 0, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "قلعة ابوكماش", 
+          "OBJECTID_1": 4.0, 
+          "PopupInfo": " ", 
+          "x": 11.734764, 
+          "y": 33.078819
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "1", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.227131844000041, 
+          32.438796997000054
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 1, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "قلعة الجيلاني‎‎", 
+          "OBJECTID_1": 5.0, 
+          "PopupInfo": "كانت مقر لمديرية سوق الخميس بعد الاحتلال الأيطالي، وتعرف ايضا باسم السفريتا‎", 
+          "x": 13.227132, 
+          "y": 32.438797
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "2", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          11.586400032000029, 
+          31.85849952700005
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 2, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "قلعة الحرابة الأثرية", 
+          "OBJECTID_1": 6.0, 
+          "PopupInfo": " ", 
+          "x": 11.5864, 
+          "y": 31.8585
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "3", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.180213928000057, 
+          32.89597702000003
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 3, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "قلعة السرايا الحمراء", 
+          "OBJECTID_1": 8.0, 
+          "PopupInfo": " ", 
+          "x": 13.180214, 
+          "y": 32.895977
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "4", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.590280533000055, 
+          30.391324997000027
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 4, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "قلعة القريات الشرقية", 
+          "OBJECTID_1": 13.0, 
+          "PopupInfo": " ", 
+          "x": 13.590281, 
+          "y": 30.391325
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "5", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.229564667000034, 
+          31.934499741000025
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 5, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "قلعة الكردون", 
+          "OBJECTID_1": 16.0, 
+          "PopupInfo": " ", 
+          "x": 12.229565, 
+          "y": 31.9345
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "6", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.393055916000037, 
+          31.66027832000003
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 6, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "قلعة تارسين", 
+          "OBJECTID_1": 26.0, 
+          "PopupInfo": " ", 
+          "x": 13.393056, 
+          "y": 31.660278
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "7", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          12.234207153000057, 
+          31.957666397000025
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 7, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "قلعة كمون", 
+          "OBJECTID_1": 40.0, 
+          "PopupInfo": " ", 
+          "x": 12.234207, 
+          "y": 31.957666
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "8", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.310226440000065, 
+          32.864299774000074
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 8, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "قلعة وسجن ايطالي", 
+          "OBJECTID_1": 43.0, 
+          "PopupInfo": " ", 
+          "x": 13.310226, 
+          "y": 32.8643
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "9", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.984539032000043, 
+          31.398723602000075
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 9, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "القلعة (الفورتي)", 
+          "OBJECTID_1": 48.0, 
+          "PopupInfo": "الحامية الايطالية", 
+          "x": 13.984539, 
+          "y": 31.398724
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "10", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          14.047671318000027, 
+          32.57817840600006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 10, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "القلعة الاسبانية", 
+          "OBJECTID_1": 49.0, 
+          "PopupInfo": " ", 
+          "x": 14.047671, 
+          "y": 32.578178
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "11", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          14.268237114000044, 
+          29.983741760000044
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authority_status": "UNAPPROVED", 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "FID_1": 11, 
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer", 
+          "Name": "القلعة الشويرف", 
+          "OBJECTID_1": 54.0, 
+          "PopupInfo": " ", 
+          "x": 14.268237, 
+          "y": 29.983742
+        }, 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "12", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "القلاع_والحصون", 
+        "target_layer": "FORTIFICATIONS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }
+  ], 
+  "layer_code": "FORTIFICATIONS", 
+  "master_registry_version": "v2", 
+  "output_crs": "EPSG:4326", 
+  "publication_approved": false, 
+  "schema_version": 1, 
+  "source_database": "Libya ATLAS Project.gdb", 
+  "source_feature_count": 12, 
+  "source_geometry_type": "Point Z", 
+  "source_layer": "القلاع_والحصون", 
+  "type": "FeatureCollection"
+}
