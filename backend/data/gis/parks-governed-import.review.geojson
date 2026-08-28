@@ -1,0 +1,2732 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "GENERIC_NAME_IDENTITY_REVIEW": 2,
+    "SAFE_PARK_POINT": 53,
+    "SAME_NAME_DIFFERENT_COORDINATES_REVIEW": 4,
+    "SOURCE_GEOMETRY_CRS_REVIEW": 12
+  },
+  "evidence_semantic_sha256": {
+    "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+    "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+    "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+    "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+    "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+    "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+    "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+  },
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          20.13274670000004,
+          32.168783200000064
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-1",
+        "institutional_id": "atlas-park-park-1",
+        "name_ar": "منتزه بودزيرة",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "1",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-1",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه بودزيرة",
+            "PopupInfo": " ",
+            "x": 20.1327467,
+            "y": 32.1687832
+          },
+          "source_composite_id": "منتزهات:1",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "1",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.16483690000007,
+          29.142566200000033
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-2",
+        "institutional_id": "atlas-park-park-2",
+        "name_ar": "منتزه ودان‎‎",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "2",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-2",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه ودان‎‎",
+            "PopupInfo": "<img src=\"https://doc-0k-5s-mymaps.googleusercontent.com/untrusted/hostedimage/lb1pcqi1jcr5bj8ruc3le7r7bc/niskg6k33riue16tvmos1a8lpg/1650375649000/MrQRtaHDRxRuw0q1emfWzzPo2wqkZrkF/02158043800681411861/5AIsG_vb3c-4OyLrngHM_kRSt6x91fTVHrTgQLcjZrznWxNP2g__7",
+            "x": 16.1648369,
+            "y": 29.1425662
+          },
+          "source_composite_id": "منتزهات:2",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "2",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.619785300000046,
+          32.47113820000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-3",
+        "institutional_id": "atlas-park-park-3",
+        "name_ar": "منتزه الشرشارة الوطني‎",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "3",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-3",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الشرشارة الوطني‎",
+            "PopupInfo": "يتربع منتزه عين الشرشارة على مساحة 128 هكتار، ويحتوي الموقع على عين ومجري للمياه، وموقع أثري، يشمل مبنى محصن، وفرن للفخار، إلى جانب غطاء نبا",
+            "x": 13.6197853,
+            "y": 32.4711382
+          },
+          "source_composite_id": "منتزهات:3",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "3",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.285396900000023,
+          32.636090800000034
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-4",
+        "institutional_id": "atlas-park-park-4",
+        "name_ar": "منتزه لبدة السياحي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "4",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-4",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه لبدة السياحي",
+            "PopupInfo": " ",
+            "x": 14.2853969,
+            "y": 32.6360908
+          },
+          "source_composite_id": "منتزهات:4",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "4",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.090432600000042,
+          32.935378900000046
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-5",
+        "institutional_id": "atlas-park-park-5",
+        "name_ar": "منتزه الشاطىء",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "5",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-5",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الشاطىء",
+            "PopupInfo": " ",
+            "x": 12.0904326,
+            "y": 32.9353789
+          },
+          "source_composite_id": "منتزهات:5",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "5",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.56000000000006,
+          32.71500000000003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-6",
+        "institutional_id": "atlas-park-park-6",
+        "name_ar": "منتزه صرمان الوطني",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "6",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-6",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه صرمان الوطني",
+            "PopupInfo": "تنتشر بالمنتزه البالغة مساحته 1100 هكتار، أشجار الكازورينا، والايوكلبتس، والطلح، والسنط الحقيقي، والسدر، والرتم إضافة إلي الشجيرات البرية",
+            "x": 12.56,
+            "y": 32.715
+          },
+          "source_composite_id": "منتزهات:6",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "6",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          21.734916000000055,
+          32.75969740000005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-7",
+        "institutional_id": "atlas-park-park-7",
+        "name_ar": "منتزه الزهور العائلي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "7",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-7",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الزهور العائلي",
+            "PopupInfo": " ",
+            "x": 21.734916,
+            "y": 32.7596974
+          },
+          "source_composite_id": "منتزهات:7",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "7",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.572677600000077,
+          32.46465710000007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-8",
+        "institutional_id": "atlas-park-park-8",
+        "name_ar": "منتزه زليتن",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "8",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-8",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه زليتن",
+            "PopupInfo": " ",
+            "x": 14.5726776,
+            "y": 32.4646571
+          },
+          "source_composite_id": "منتزهات:8",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "8",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.434549200000049,
+          32.54692170000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-9",
+        "institutional_id": "atlas-park-park-9",
+        "name_ar": "منتزه للاطفال",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "9",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-9",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه للاطفال",
+            "PopupInfo": " ",
+            "x": 14.4345492,
+            "y": 32.5469217
+          },
+          "source_composite_id": "منتزهات:9",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "9",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.04416180000004,
+          32.83823860000007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-10",
+        "institutional_id": "atlas-park-park-10",
+        "name_ar": "منتزه جنزور",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "10",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-10",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه جنزور",
+            "PopupInfo": " ",
+            "x": 13.0441618,
+            "y": 32.8382386
+          },
+          "source_composite_id": "منتزهات:10",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "10",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.059654200000068,
+          32.84025790000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-11",
+        "institutional_id": "atlas-park-park-11",
+        "name_ar": "منتزه الغيران",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "11",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-11",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الغيران",
+            "PopupInfo": " ",
+            "x": 13.0596542,
+            "y": 32.8402579
+          },
+          "source_composite_id": "منتزهات:11",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "11",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          20.181798900000047,
+          30.735860200000047
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-12",
+        "institutional_id": "atlas-park-park-12",
+        "name_ar": "منتزه اجدابيا",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "12",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-12",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه اجدابيا",
+            "PopupInfo": " ",
+            "x": 20.1817989,
+            "y": 30.7358602
+          },
+          "source_composite_id": "منتزهات:12",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "12",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          20.09704110000007,
+          32.08232000000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-13",
+        "institutional_id": "atlas-park-park-13",
+        "name_ar": "منتزه بنغازي (البوسكو)",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "13",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-13",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه بنغازي (البوسكو)",
+            "PopupInfo": " ",
+            "x": 20.0970411,
+            "y": 32.08232
+          },
+          "source_composite_id": "منتزهات:13",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "13",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.159807800000067,
+          32.35959310000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-14",
+        "institutional_id": "atlas-park-park-14",
+        "name_ar": "منتزه الثقة العائلي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "14",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-14",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الثقة العائلي",
+            "PopupInfo": " ",
+            "x": 15.1598078,
+            "y": 32.3595931
+          },
+          "source_composite_id": "منتزهات:14",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "14",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.150414700000056,
+          32.37357350000008
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-15",
+        "institutional_id": "atlas-park-park-15",
+        "name_ar": "منتزه الزروق",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "15",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-15",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الزروق",
+            "PopupInfo": " ",
+            "x": 15.1504147,
+            "y": 32.3735735
+          },
+          "source_composite_id": "منتزهات:15",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "15",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.254681700000049,
+          26.567031300000053
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-16",
+        "institutional_id": "atlas-park-park-16",
+        "name_ar": "منتزه تكركيبة",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "16",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-16",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه تكركيبة",
+            "PopupInfo": " ",
+            "x": 13.2546817,
+            "y": 26.5670313
+          },
+          "source_composite_id": "منتزهات:16",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "16",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.063214300000027,
+          26.539519400000074
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-17",
+        "institutional_id": "atlas-park-park-17",
+        "name_ar": "منتزه المدينة القديمة",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "17",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-17",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه المدينة القديمة",
+            "PopupInfo": " ",
+            "x": 13.0632143,
+            "y": 26.5395194
+          },
+          "source_composite_id": "منتزهات:17",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "17",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.587856300000055,
+          27.560177800000076
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-18",
+        "institutional_id": "atlas-park-park-18",
+        "name_ar": "منتزه سياحي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "18",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-18",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه سياحي",
+            "PopupInfo": " ",
+            "x": 13.5878563,
+            "y": 27.5601778
+          },
+          "source_composite_id": "منتزهات:18",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "18",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.590836100000047,
+          31.20475390000007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-19",
+        "institutional_id": "atlas-park-park-19",
+        "name_ar": "منتزه سرت العائلي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "19",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-19",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه سرت العائلي",
+            "PopupInfo": " ",
+            "x": 16.5908361,
+            "y": 31.2047539
+          },
+          "source_composite_id": "منتزهات:19",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "19",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          22.650278900000046,
+          32.767509000000075
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-20",
+        "institutional_id": "atlas-park-park-20",
+        "name_ar": "منتزه الساحل",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "20",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-20",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الساحل",
+            "PopupInfo": " ",
+            "x": 22.6502789,
+            "y": 32.767509
+          },
+          "source_composite_id": "منتزهات:20",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "20",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.096454400000027,
+          32.37036530000006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-21",
+        "institutional_id": "atlas-park-park-21",
+        "name_ar": "منتزه الجوهرة العائلي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "21",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-21",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الجوهرة العائلي",
+            "PopupInfo": " ",
+            "x": 15.0964544,
+            "y": 32.3703653
+          },
+          "source_composite_id": "منتزهات:21",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "21",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          20.059058400000026,
+          32.11466470000005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-22",
+        "institutional_id": "atlas-park-park-22",
+        "name_ar": "منتزه قصر الجزيرة",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "22",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-22",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه قصر الجزيرة",
+            "PopupInfo": " ",
+            "x": 20.0590584,
+            "y": 32.1146647
+          },
+          "source_composite_id": "منتزهات:22",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "22",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.255037100000038,
+          32.807841300000064
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-24",
+        "institutional_id": "atlas-park-park-24",
+        "name_ar": "منتزه هابي لاند",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "24",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-24",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه هابي لاند",
+            "PopupInfo": " ",
+            "x": 13.2550371,
+            "y": 32.8078413
+          },
+          "source_composite_id": "منتزهات:24",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "24",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.306623600000023,
+          32.85150440000007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-25",
+        "institutional_id": "atlas-park-park-25",
+        "name_ar": "منتزه التلة الخضراء العائلي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "25",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-25",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه التلة الخضراء العائلي",
+            "PopupInfo": " ",
+            "x": 13.3066236,
+            "y": 32.8515044
+          },
+          "source_composite_id": "منتزهات:25",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "25",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.403880800000024,
+          27.063465800000074
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-26",
+        "institutional_id": "atlas-park-park-26",
+        "name_ar": "منتزه شمس الغد",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "26",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-26",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه شمس الغد",
+            "PopupInfo": " ",
+            "x": 14.4038808,
+            "y": 27.0634658
+          },
+          "source_composite_id": "منتزهات:26",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "26",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.309995400000048,
+          32.86997270000006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-27",
+        "institutional_id": "atlas-park-park-27",
+        "name_ar": "منتزه أكوا بارك",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "27",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-27",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه أكوا بارك",
+            "PopupInfo": " ",
+            "x": 13.3099954,
+            "y": 32.8699727
+          },
+          "source_composite_id": "منتزهات:27",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "27",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.056810000000041,
+          32.812756000000036
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-28",
+        "institutional_id": "atlas-park-park-28",
+        "name_ar": "منتزه جيمس لاند",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "28",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-28",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه جيمس لاند",
+            "PopupInfo": " ",
+            "x": 13.05681,
+            "y": 32.812756
+          },
+          "source_composite_id": "منتزهات:28",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "28",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          20.842695200000037,
+          32.49338400000005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-29",
+        "institutional_id": "atlas-park-park-29",
+        "name_ar": "منتزه المرج",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "29",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-29",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه المرج",
+            "PopupInfo": " ",
+            "x": 20.8426952,
+            "y": 32.493384
+          },
+          "source_composite_id": "منتزهات:29",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "29",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          20.097070100000053,
+          32.06569700000006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-30",
+        "institutional_id": "atlas-park-park-30",
+        "name_ar": "منتزه لونا",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "30",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-30",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه لونا",
+            "PopupInfo": " ",
+            "x": 20.0970701,
+            "y": 32.065697
+          },
+          "source_composite_id": "منتزهات:30",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "30",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.28660190000005,
+          32.614601400000026
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-31",
+        "institutional_id": "atlas-park-park-31",
+        "name_ar": "منتزه المرح العائلي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "31",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-31",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه المرح العائلي",
+            "PopupInfo": " ",
+            "x": 14.2866019,
+            "y": 32.6146014
+          },
+          "source_composite_id": "منتزهات:31",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "31",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.452085500000067,
+          25.934022500000026
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-32",
+        "institutional_id": "atlas-park-park-32",
+        "name_ar": "منتزه جنات العائلي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "32",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-32",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه جنات العائلي",
+            "PopupInfo": " ",
+            "x": 14.4520855,
+            "y": 25.9340225
+          },
+          "source_composite_id": "منتزهات:32",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "32",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.521528400000022,
+          26.08065270000003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-33",
+        "institutional_id": "atlas-park-park-33",
+        "name_ar": "منتزه كرمي العائلي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "33",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-33",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه كرمي العائلي",
+            "PopupInfo": " ",
+            "x": 13.5215284,
+            "y": 26.0806527
+          },
+          "source_composite_id": "منتزهات:33",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "33",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          9.50025560000006,
+          30.128685500000074
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-36",
+        "institutional_id": "atlas-park-park-36",
+        "name_ar": "منتزه وحديقة",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "36",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-36",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه وحديقة",
+            "PopupInfo": " ",
+            "x": 9.5002556,
+            "y": 30.1286855
+          },
+          "source_composite_id": "منتزهات:36",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "36",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.553923700000041,
+          32.07524740000002
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-37",
+        "institutional_id": "atlas-park-park-37",
+        "name_ar": "منتزه زاكنان",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "37",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-37",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه زاكنان",
+            "PopupInfo": " ",
+            "x": 12.5539237,
+            "y": 32.0752474
+          },
+          "source_composite_id": "منتزهات:37",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "37",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          21.29435660000007,
+          29.16966610000003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-38",
+        "institutional_id": "atlas-park-park-38",
+        "name_ar": "منتزه أوجلة السياحي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "38",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-38",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه أوجلة السياحي",
+            "PopupInfo": " ",
+            "x": 21.2943566,
+            "y": 29.1696661
+          },
+          "source_composite_id": "منتزهات:38",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "38",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          21.863399100000038,
+          32.83017070000005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-39",
+        "institutional_id": "atlas-park-park-39",
+        "name_ar": "منتزه الأطفال",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "39",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-39",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الأطفال",
+            "PopupInfo": " ",
+            "x": 21.8633991,
+            "y": 32.8301707
+          },
+          "source_composite_id": "منتزهات:39",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "39",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.579136000000062,
+          32.72506100000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-40",
+        "institutional_id": "atlas-park-park-40",
+        "name_ar": "منتزه الأرض الخضراء",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "40",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-40",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الأرض الخضراء",
+            "PopupInfo": " ",
+            "x": 12.579136,
+            "y": 32.725061
+          },
+          "source_composite_id": "منتزهات:40",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "40",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.126652200000024,
+          32.35292640000006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-41",
+        "institutional_id": "atlas-park-park-41",
+        "name_ar": "منتزه الفوار الترفيهي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "41",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-41",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الفوار الترفيهي",
+            "PopupInfo": " ",
+            "x": 15.1266522,
+            "y": 32.3529264
+          },
+          "source_composite_id": "منتزهات:41",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "41",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.278661900000031,
+          32.86482240000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-42",
+        "institutional_id": "atlas-park-park-42",
+        "name_ar": "منتزه أرض الأدغال",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "42",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-42",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه أرض الأدغال",
+            "PopupInfo": " ",
+            "x": 13.2786619,
+            "y": 32.8648224
+          },
+          "source_composite_id": "منتزهات:42",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "42",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.550980719000052,
+          32.076106062000065
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-43",
+        "institutional_id": "atlas-park-park-43",
+        "name_ar": "منتزه رينبوبلاند‎",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "43",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-43",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه رينبوبلاند‎",
+            "PopupInfo": " ",
+            "x": 12.550980719,
+            "y": 32.076106062
+          },
+          "source_composite_id": "منتزهات:43",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "43",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          15.592861200000073,
+          28.82674600000007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-44",
+        "institutional_id": "atlas-park-park-44",
+        "name_ar": "منتزه القطيفة",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "44",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-44",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه القطيفة",
+            "PopupInfo": " ",
+            "x": 15.5928612,
+            "y": 28.826746
+          },
+          "source_composite_id": "منتزهات:44",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "44",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.350952900000038,
+          32.79991910000007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-45",
+        "institutional_id": "atlas-park-park-45",
+        "name_ar": "منتزه مدهش لاند",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "45",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-45",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه مدهش لاند",
+            "PopupInfo": " ",
+            "x": 13.3509529,
+            "y": 32.7999191
+          },
+          "source_composite_id": "منتزهات:45",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "45",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.143296200000066,
+          32.87951510000005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-46",
+        "institutional_id": "atlas-park-park-46",
+        "name_ar": "منتزه هيا نلعب",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "46",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-46",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه هيا نلعب",
+            "PopupInfo": " ",
+            "x": 13.1432962,
+            "y": 32.8795151
+          },
+          "source_composite_id": "منتزهات:46",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "46",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.203388500000074,
+          32.89781750000003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-48",
+        "institutional_id": "atlas-park-park-48",
+        "name_ar": "منتزه طريق الشط",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "48",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-48",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه طريق الشط",
+            "PopupInfo": " ",
+            "x": 13.2033885,
+            "y": 32.8978175
+          },
+          "source_composite_id": "منتزهات:48",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "48",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.21632210000007,
+          32.88571390000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-50",
+        "institutional_id": "atlas-park-park-50",
+        "name_ar": "منتزه فاميلي تايم",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "50",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-50",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه فاميلي تايم",
+            "PopupInfo": " ",
+            "x": 13.2163221,
+            "y": 32.8857139
+          },
+          "source_composite_id": "منتزهات:50",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "50",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.246190800000022,
+          32.84963200000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-51",
+        "institutional_id": "atlas-park-park-51",
+        "name_ar": "منتزه نادي الضواحي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "51",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-51",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه نادي الضواحي",
+            "PopupInfo": " ",
+            "x": 13.2461908,
+            "y": 32.849632
+          },
+          "source_composite_id": "منتزهات:51",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "51",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.414164500000027,
+          32.81220120000006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-52",
+        "institutional_id": "atlas-park-park-52",
+        "name_ar": "منتزه صبراتة",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "52",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-52",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه صبراتة",
+            "PopupInfo": "أقيم منتزه صبراتة وسط غابة صناعية من أشجار الصنوبر الحلبي، وأشجار السرول، والكازورينا وكذلك اشجار السنط الحقيقي وسنط السايكلوب والسنط الم",
+            "x": 12.4141645,
+            "y": 32.8122012
+          },
+          "source_composite_id": "منتزهات:52",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "52",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          14.933338200000037,
+          32.38916660000007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-53",
+        "institutional_id": "atlas-park-park-53",
+        "name_ar": "منتزه بوروية",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "53",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-53",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه بوروية",
+            "PopupInfo": "مشروع اقامة منتزه على مساحة 35 هكتاراً.",
+            "x": 14.9333382,
+            "y": 32.3891666
+          },
+          "source_composite_id": "منتزهات:53",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "53",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.233579400000053,
+          32.83660700000007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-55",
+        "institutional_id": "atlas-park-park-55",
+        "name_ar": "منتزه الدقروني العائلي",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "55",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-55",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه الدقروني العائلي",
+            "PopupInfo": " ",
+            "x": 13.2335794,
+            "y": 32.836607
+          },
+          "source_composite_id": "منتزهات:55",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "55",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.222512600000073,
+          32.83422940000003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-56",
+        "institutional_id": "atlas-park-park-56",
+        "name_ar": "منتزه فان لاند",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "56",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-56",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه فان لاند",
+            "PopupInfo": " ",
+            "x": 13.2225126,
+            "y": 32.8342294
+          },
+          "source_composite_id": "منتزهات:56",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "56",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.223462100000063,
+          32.90020020000003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-57",
+        "institutional_id": "atlas-park-park-57",
+        "name_ar": "منتزه ابوستة",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "57",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-57",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه ابوستة",
+            "PopupInfo": " ",
+            "x": 13.2234621,
+            "y": 32.9002002
+          },
+          "source_composite_id": "منتزهات:57",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "57",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.211531600000058,
+          32.899984000000075
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-58",
+        "institutional_id": "atlas-park-park-58",
+        "name_ar": "منتزه طريق الشط العليا",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "58",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-58",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه طريق الشط العليا",
+            "PopupInfo": " ",
+            "x": 13.2115316,
+            "y": 32.899984
+          },
+          "source_composite_id": "منتزهات:58",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "58",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.165161600000033,
+          32.89575000000008
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "category": "park",
+        "feature_code": "park-park-59",
+        "institutional_id": "atlas-park-park-59",
+        "name_ar": "منتزه باب البحر",
+        "name_en": null,
+        "park_subtype": "park",
+        "review_classification": "SAFE_PARK_POINT",
+        "source_feature_id": "59",
+        "source_identity": "Libya ATLAS Project.gdb#منتزهات-59",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "cross_layer_authority_created": false,
+          "evidence_semantic_sha256": {
+            "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+            "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+            "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+            "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+            "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+            "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+            "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+          },
+          "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "publication_approved": false,
+          "review_classification": "SAFE_PARK_POINT",
+          "source_attributes": {
+            "Name": "منتزه باب البحر",
+            "PopupInfo": " ",
+            "x": 13.1651616,
+            "y": 32.89575
+          },
+          "source_composite_id": "منتزهات:59",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "59",
+          "source_layer": "منتزهات",
+          "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "source_subtype": "park"
+        }
+      },
+      "type": "Feature"
+    }
+  ],
+  "layer_code": "PARKS",
+  "master_registry_version": "v2",
+  "name": "PARKS governed review import",
+  "publication_approved": false,
+  "source_database": "Libya ATLAS Project.gdb",
+  "source_feature_count": 71,
+  "type": "FeatureCollection"
+}

@@ -1,0 +1,937 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "blocked_feature_count": 18,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "GENERIC_NAME_IDENTITY_REVIEW": 2,
+    "SAFE_PARK_POINT": 53,
+    "SAME_NAME_DIFFERENT_COORDINATES_REVIEW": 4,
+    "SOURCE_GEOMETRY_CRS_REVIEW": 12
+  },
+  "evidence_semantic_sha256": {
+    "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+    "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+    "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+    "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+    "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+    "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+    "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+  },
+  "inventory_id": "parks-governed-blocked-v1",
+  "layer_code": "PARKS",
+  "master_registry_version": "v2",
+  "publication_approved": false,
+  "records": [
+    {
+      "blocked_reason": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+      "geometry": {
+        "coordinates": [
+          12.10325800000004,
+          32.931620000000066
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-park-23",
+      "name_ar": "منتزه سيتي بارك",
+      "park_subtype": "park",
+      "review_classification": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+      "source_feature_id": "23",
+      "source_layer": "منتزهات",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+        "source_attributes": {
+          "Name": "منتزه سيتي بارك",
+          "PopupInfo": "مطعم شيلي هاوس ومطعم ليز",
+          "x": 12.103258,
+          "y": 32.93162
+        },
+        "source_composite_id": "منتزهات:23",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "23",
+        "source_layer": "منتزهات",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "park"
+      }
+    },
+    {
+      "blocked_reason": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+      "geometry": {
+        "coordinates": [
+          15.938844700000061,
+          29.12782500000003
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-park-34",
+      "name_ar": "منتزه عائلي",
+      "park_subtype": "park",
+      "review_classification": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+      "source_feature_id": "34",
+      "source_layer": "منتزهات",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+        "source_attributes": {
+          "Name": "منتزه عائلي",
+          "PopupInfo": " ",
+          "x": 15.9388447,
+          "y": 29.127825
+        },
+        "source_composite_id": "منتزهات:34",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "34",
+        "source_layer": "منتزهات",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "park"
+      }
+    },
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          14.24997030000003,
+          32.64437990000005
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-park-35",
+      "name_ar": "منتزه",
+      "park_subtype": "park",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "35",
+      "source_layer": "منتزهات",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "منتزه",
+          "PopupInfo": " ",
+          "x": 14.2499703,
+          "y": 32.6443799
+        },
+        "source_composite_id": "منتزهات:35",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "35",
+        "source_layer": "منتزهات",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "park"
+      }
+    },
+    {
+      "blocked_reason": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+      "geometry": {
+        "coordinates": [
+          16.572446800000023,
+          31.201661400000035
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-park-47",
+      "name_ar": "منتزه عائلي",
+      "park_subtype": "park",
+      "review_classification": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+      "source_feature_id": "47",
+      "source_layer": "منتزهات",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+        "source_attributes": {
+          "Name": "منتزه عائلي",
+          "PopupInfo": " ",
+          "x": 16.5724468,
+          "y": 31.2016614
+        },
+        "source_composite_id": "منتزهات:47",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "47",
+        "source_layer": "منتزهات",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "park"
+      }
+    },
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.229102800000021,
+          32.907280300000025
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-park-49",
+      "name_ar": "منتزه",
+      "park_subtype": "park",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "49",
+      "source_layer": "منتزهات",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "منتزه",
+          "PopupInfo": " ",
+          "x": 13.2291028,
+          "y": 32.9072803
+        },
+        "source_composite_id": "منتزهات:49",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "49",
+        "source_layer": "منتزهات",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "park"
+      }
+    },
+    {
+      "blocked_reason": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.220962300000053,
+          32.81760220000007
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-park-54",
+      "name_ar": "منتزه سيتي بارك",
+      "park_subtype": "park",
+      "review_classification": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+      "source_feature_id": "54",
+      "source_layer": "منتزهات",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SAME_NAME_DIFFERENT_COORDINATES_REVIEW",
+        "source_attributes": {
+          "Name": "منتزه سيتي بارك",
+          "PopupInfo": " ",
+          "x": 13.2209623,
+          "y": 32.8176022
+        },
+        "source_composite_id": "منتزهات:54",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "54",
+        "source_layer": "منتزهات",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          518636.18710000004,
+          3632371.9986000005
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-1",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "1",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "أملاك خاصة، و",
+          "الحد_2": "أملاك خاصة، ط",
+          "الحد_3": "أملاك خاصة، ط",
+          "الحدو": "أملاك خاصة",
+          "اللوح": "خارج المخط",
+          "المال": "الدولة الليبية",
+          "المخط": "/",
+          "المسا": 258.0,
+          "الموق": "طرابلس"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:1",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "1",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          535861.3756,
+          3632330.8474000003
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-2",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "2",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "أملاك خاصة، و",
+          "الحد_2": "أملاك خاصة",
+          "الحد_3": "أملاك خاصة، ط",
+          "الحدو": "أملاك خاصة، و",
+          "اللوح": "خارج المخط",
+          "المال": "الدولة الليبية",
+          "المخط": "/",
+          "المسا": 612.0,
+          "الموق": "طرابلس_بئر الأسطى ميلاد"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:2",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "2",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          515157.97280000005,
+          3621124.9762999993
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-3",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "3",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "أملاك عامة",
+          "الحد_2": "طريق معبد",
+          "الحد_3": "طريق معبد، وت",
+          "الحدو": "أملاك عامة",
+          "اللوح": "خارج المخط",
+          "المال": "الدولة الليبية",
+          "المخط": "/",
+          "المسا": 26.0,
+          "الموق": "طرابلس"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:3",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "3",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          515994.71930000006,
+          3619799.4112000004
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-4",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "4",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "طريق معبد، وا",
+          "الحد_2": "أملاك خاصة",
+          "الحد_3": "أملاك خاصة، ط",
+          "الحدو": "أملاك خاصة، ط",
+          "اللوح": "خارج المخط",
+          "المال": "الدولة الليبية",
+          "المخط": "/",
+          "المسا": 451.0,
+          "الموق": "طرابلس_طريق المطار"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:4",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "4",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          513875.4025000001,
+          3630600.2535999995
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-5",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "5",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "طريق معبد",
+          "الحد_2": "طريق معبد",
+          "الحد_3": "طريق معبد",
+          "الحدو": "أملاك عامة وخ",
+          "اللوح": "خارج المخط",
+          "المال": "الدولة الليبية",
+          "المخط": "/",
+          "المسا": 192.0,
+          "الموق": "طرابلس_طريق المطار"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:5",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "5",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          521328.0961000001,
+          3635635.9550000005
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-6",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "6",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "كما بالمخطط",
+          "الحد_2": "كما بالمخطط",
+          "الحد_3": "كما بالمخطط",
+          "الحدو": "كما بالمخطط",
+          "اللوح": "7E-55-14-16_26+17_27",
+          "المال": "الدولة الليبية",
+          "المخط": "2000",
+          "المسا": 10.0,
+          "الموق": "طرابلس"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:6",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "6",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          520912.54060000007,
+          3635960.7714000014
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-7",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "7",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "كما بالمخطط",
+          "الحد_2": "كما بالمخطط",
+          "الحد_3": "كما بالمخطط",
+          "الحدو": "كما بالمخطط",
+          "اللوح": "7E-55-14-16_26+17_27",
+          "المال": "الدولة الليبية",
+          "المخط": "2000",
+          "المسا": 30.0,
+          "الموق": "طرابلس"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:7",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "7",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          520232.91070000007,
+          3636371.3989000004
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-8",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "8",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "كما بالمخطط",
+          "الحد_2": "كما بالمخطط",
+          "الحد_3": "كما بالمخطط",
+          "الحدو": "كما بالمخطط",
+          "اللوح": "7E-55-14-3_14+4_15",
+          "المال": "الدولة الليبية",
+          "المخط": "2000",
+          "المسا": 53.0,
+          "الموق": "طرابلس"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:8",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "8",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          517261.0827000001,
+          3635980.7761000004
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-9",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "9",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "كما بالمخطط",
+          "الحد_2": "كما بالمخطط",
+          "الحد_3": "كما بالمخطط",
+          "الحدو": "كما بالمخطط",
+          "اللوح": "7E-55-14-1_11_21",
+          "المال": "الدولة الليبية",
+          "المخط": "2000",
+          "المسا": 195.0,
+          "الموق": "طرابلس"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:9",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "9",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          506641.48020000005,
+          3634359.1416
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-10",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "10",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "كما بالمخطط",
+          "الحد_2": "كما بالمخطط",
+          "الحد_3": "كما بالمخطط",
+          "الحدو": "كما بالمخطط",
+          "اللوح": "7E-55-12-31_32+41_42",
+          "المال": "الدولة الليبية",
+          "المخط": "2000",
+          "المسا": 18.0,
+          "الموق": "طرابلس"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:10",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "10",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          505549.0996000001,
+          3633463.9396000006
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-11",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "11",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "كما بالمخطط",
+          "الحد_2": "كما بالمخطط",
+          "الحد_3": "كما بالمخطط",
+          "الحدو": "كما بالمخطط",
+          "اللوح": "7E-55-11-50_70+60_51",
+          "المال": "الدولة الليبية",
+          "المخط": "2000",
+          "المسا": 50.0,
+          "الموق": "الجفارة"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:11",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "11",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "geometry": {
+        "coordinates": [
+          545338.0679,
+          3632934.4503000006
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-park-national_park-12",
+      "name_ar": null,
+      "park_subtype": "national_park",
+      "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+      "source_feature_id": "12",
+      "source_layer": "المنتزهات_الوطنية_1",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "evidence_semantic_sha256": {
+          "fortifications": "ea5820b0fc904ae446752a2d9aa6d99c640cf3fa6519f7119508c96e493abbeb",
+          "historical_sites": "4f7820191793aa146959e26b916d09bcb4ff9b7ed52152915c8f89a71121dbbe",
+          "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+          "natural_sites": "cf287698ddfb9d1e207bb1958bb92cead8c0c74753f53baea6b7b999c3f8d565",
+          "old_cities": "1237c1cb03d3cc95dbc60c79e9d695663662a1a69b0f97313ec3d320c8c42158",
+          "source": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+          "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+        },
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "publication_approved": false,
+        "review_classification": "SOURCE_GEOMETRY_CRS_REVIEW",
+        "source_attributes": {
+          "الحد_1": "أملاك عامة",
+          "الحد_2": "أملاك عامة",
+          "الحد_3": "أملاك خاصة",
+          "الحدو": "طريق معبد",
+          "اللوح": "خارج المخط",
+          "المال": "الدولة الليبية",
+          "المخط": "/",
+          "المسا": 36.0,
+          "الموق": "تاجوراء"
+        },
+        "source_composite_id": "المنتزهات_الوطنية_1:12",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "12",
+        "source_layer": "المنتزهات_الوطنية_1",
+        "source_semantic_sha256": "709f6af696699853dc1f942dfdc860728a226c275be1b1033430b7bf69ba4215",
+        "source_subtype": "national_park"
+      }
+    }
+  ],
+  "safe_ingestible_feature_count": 53,
+  "schema_version": 1,
+  "source_database": "Libya ATLAS Project.gdb",
+  "source_feature_count": 71
+}
