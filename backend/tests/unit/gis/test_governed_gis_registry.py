@@ -7,7 +7,7 @@ EXPECTED_LAYERS = {
     "LIBYA_BOUNDARY", "WORLD_HERITAGE", "OLD_TRIPOLI", "NATURAL_SITES",
     "ARCHAEOLOGICAL_SITES", "HISTORICAL_SITES", "PARKS",
     "TOURISM_INVESTMENT", "HOTELS", "TOURISM_RESORTS", "RESTAURANTS",
-    "ROCK_ART",
+    "CAFES", "ROCK_ART",
 }
 
 
@@ -65,6 +65,14 @@ def test_restaurants_is_point_and_unpublished():
     layer = require_layer("RESTAURANTS")
     assert layer.name_ar == "المطاعم"
     assert layer.category == "restaurant"
+    assert layer.geometry_family.value == "point"
+    assert layer.default_is_published is False
+
+
+def test_cafes_is_point_and_unpublished():
+    layer = require_layer("CAFES")
+    assert layer.name_ar == "المقاهي"
+    assert layer.category == "cafe"
     assert layer.geometry_family.value == "point"
     assert layer.default_is_published is False
 
