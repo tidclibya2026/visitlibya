@@ -133,6 +133,11 @@ LAYER_REGISTRY: dict[str, GovernedGISLayer] = {
             "Reserved for institutionally resolved castles, forts, fortresses, and defensive structures.",
         ),
         _layer(
+            "OLD_CITIES", "المدن القديمة", "Old Cities",
+            "old_city", GeometryFamily.MIXED,
+            "Reserved for institutionally resolved old-city and historic urban-settlement features.",
+        ),
+        _layer(
             "HISTORICAL_SITES", "المواقع التاريخية", "Historical Sites",
             "history", GeometryFamily.MIXED,
             "Reserved for institutionally resolved historical features.",

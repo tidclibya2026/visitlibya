@@ -1,0 +1,296 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "blocked_feature_count": 7,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "CROSS_LAYER_REFERENCE_WORLD_HERITAGE": 1,
+    "IDENTITY_RECONCILIATION_REVIEW": 2,
+    "SAFE_OLD_CITY_POINT": 20,
+    "SOURCE_IDENTITY_REVIEW": 3,
+    "WRONG_LAYER_SEMANTICS": 1
+  },
+  "evidence_semantic_sha256": {
+    "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+    "old_tripoli": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+    "source": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+    "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+  },
+  "inventory_id": "old-cities-governed-blocked-v1",
+  "layer_code": "OLD_CITIES",
+  "master_registry_version": "v2",
+  "publication_approved": false,
+  "records": [
+    {
+      "blocked_reason": "CROSS_LAYER_REFERENCE_WORLD_HERITAGE",
+      "geometry": {
+        "coordinates": [
+          9.497242928000048,
+          30.132366180000076
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-old-city-13",
+      "name_ar": "مدينة غدامس القديمة",
+      "review_classification": "CROSS_LAYER_REFERENCE_WORLD_HERITAGE",
+      "source_feature_id": "13",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_tripoli_authority_created": false,
+        "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+        "review_classification": "CROSS_LAYER_REFERENCE_WORLD_HERITAGE",
+        "source_attributes": {
+          "FID_1": 12,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مدينة غدامس القديمة",
+          "OBJECTID": 33.0,
+          "PopupInfo": " ",
+          "x": 9.497243,
+          "y": 30.132366
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "13",
+        "source_layer": "مدن_قديمة",
+        "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          12.018055916000037,
+          31.962778091000075
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-old-city-14",
+      "name_ar": "مدينة قديمة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "14",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_tripoli_authority_created": false,
+        "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 13,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مدينة قديمة",
+          "OBJECTID": 34.0,
+          "PopupInfo": " ",
+          "x": 12.018056,
+          "y": 31.962778
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "14",
+        "source_layer": "مدن_قديمة",
+        "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "IDENTITY_RECONCILIATION_REVIEW",
+      "geometry": {
+        "coordinates": [
+          12.980517387000077,
+          31.445056915000066
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-old-city-17",
+      "name_ar": "مدينة مزدة القديمة‎",
+      "review_classification": "IDENTITY_RECONCILIATION_REVIEW",
+      "source_feature_id": "17",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_tripoli_authority_created": false,
+        "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+        "review_classification": "IDENTITY_RECONCILIATION_REVIEW",
+        "source_attributes": {
+          "FID_1": 16,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مدينة مزدة القديمة‎",
+          "OBJECTID": 37.0,
+          "PopupInfo": "حي التير",
+          "x": 12.980517,
+          "y": 31.445057
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "17",
+        "source_layer": "مدن_قديمة",
+        "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "IDENTITY_RECONCILIATION_REVIEW",
+      "geometry": {
+        "coordinates": [
+          12.983694077000052,
+          31.443794250000053
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-old-city-18",
+      "name_ar": "مدينة مزدة القديمة",
+      "review_classification": "IDENTITY_RECONCILIATION_REVIEW",
+      "source_feature_id": "18",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_tripoli_authority_created": false,
+        "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+        "review_classification": "IDENTITY_RECONCILIATION_REVIEW",
+        "source_attributes": {
+          "FID_1": 17,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مدينة مزدة القديمة",
+          "OBJECTID": 38.0,
+          "PopupInfo": "حي المنناعة",
+          "x": 12.983694,
+          "y": 31.443794
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "18",
+        "source_layer": "مدن_قديمة",
+        "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "WRONG_LAYER_SEMANTICS",
+      "geometry": {
+        "coordinates": [
+          13.620985031000032,
+          32.46391296400003
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-old-city-19",
+      "name_ar": "مدينة ملاهي",
+      "review_classification": "WRONG_LAYER_SEMANTICS",
+      "source_feature_id": "19",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_tripoli_authority_created": false,
+        "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+        "review_classification": "WRONG_LAYER_SEMANTICS",
+        "source_attributes": {
+          "FID_1": 18,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "مدينة ملاهي",
+          "OBJECTID": 39.0,
+          "PopupInfo": " ",
+          "x": 13.620985,
+          "y": 32.463913
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "19",
+        "source_layer": "مدن_قديمة",
+        "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          10.366316795000046,
+          30.19221305800005
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-old-city-23",
+      "name_ar": "البلدة القديمة",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "23",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_tripoli_authority_created": false,
+        "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 22,
+          "FolderPath": "Copy of Copy of بحيرات رملة الدوادة/Untitled layer",
+          "Name": "البلدة القديمة",
+          "OBJECTID": 48.0,
+          "PopupInfo": " ",
+          "x": 10.366317,
+          "y": 30.192213
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "23",
+        "source_layer": "مدن_قديمة",
+        "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.266219181000054,
+          32.87226468800003
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-old-city-27",
+      "name_ar": "",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "27",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "old_tripoli_authority_created": false,
+        "old_tripoli_semantic_sha256": "38217fd4615ab79f316f43fb10cef8ad80f6444f9d80bc15707be66c1f9307b4",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "FID_1": 26,
+          "FolderPath": " ",
+          "Name": " ",
+          "OBJECTID": 0.0,
+          "PopupInfo": " ",
+          "x": 0.0,
+          "y": 0.0
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "27",
+        "source_layer": "مدن_قديمة",
+        "source_semantic_sha256": "cbee8c94cbcb271355a17569f85b29239f2d92a5a0d57dae3e10ea1b1f29b560",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    }
+  ],
+  "safe_ingestible_feature_count": 20,
+  "schema_version": 1,
+  "source_database": "Libya ATLAS Project.gdb",
+  "source_feature_count": 27,
+  "source_layer": "مدن_قديمة"
+}
