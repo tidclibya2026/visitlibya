@@ -1,0 +1,158 @@
+{
+  "schema_version": 2,
+  "registry_id": "master-atlas-source-registry-v2",
+  "as_of": "2026-08-28",
+  "authority_model": {
+    "raw_source": "Libya ATLAS Project.gdb + latest supplied institutional KML snapshots",
+    "source_version_rule": "Latest supplied snapshot replaces older same-source snapshot in active master; older copies are archive/provenance only.",
+    "governance_baseline": "Previously governed layers remain authoritative in their own governed layer and are never recreated as new authority.",
+    "deduplication": "Raw sources are immutable. Exact same-target duplicates are suppressed only in the master projection. Cross-layer overlaps remain relationships.",
+    "production_authority": "PostgreSQL/PostGIS only after separate review, approval and publication."
+  },
+  "world_heritage_libya_exactly_five": [
+    {
+      "code": "CYRENE",
+      "name_ar": "شحات / قورينا",
+      "name_en": "Archaeological Site of Cyrene",
+      "authority_layer": "WORLD_HERITAGE"
+    },
+    {
+      "code": "LEPTIS_MAGNA",
+      "name_ar": "لبدة الكبرى",
+      "name_en": "Archaeological Site of Leptis Magna",
+      "authority_layer": "WORLD_HERITAGE"
+    },
+    {
+      "code": "SABRATHA",
+      "name_ar": "صبراتة",
+      "name_en": "Archaeological Site of Sabratha",
+      "authority_layer": "WORLD_HERITAGE"
+    },
+    {
+      "code": "GHADAMES",
+      "name_ar": "غدامس",
+      "name_en": "Old Town of Ghadamès",
+      "authority_layer": "WORLD_HERITAGE"
+    },
+    {
+      "code": "ACACUS",
+      "name_ar": "أكاكوس",
+      "name_en": "Rock-Art Sites of Tadrart Acacus",
+      "authority_layer": "WORLD_HERITAGE"
+    }
+  ],
+  "superseded_snapshots": [
+    {
+      "current": "الفنادق_LY(1).kml",
+      "superseded": "الفنادق_LY.kml"
+    },
+    {
+      "current": "القرى_والمنتجعات السياحية_LY(1).kml",
+      "superseded": "القرى_والمنتجعات السياحية_LY.kml"
+    },
+    {
+      "current": "المشاريع وفرص الاستثمار السياحي(1).kml",
+      "superseded": "المشاريع وفرص الاستثمار السياحي.kml"
+    },
+    {
+      "current": "المطاعم في طرابلس(1).kml",
+      "superseded": "المطاعم في طرابلس.kml"
+    },
+    {
+      "current": "المقاهي_طرابلس(1).kml",
+      "superseded": "المقاهي_طرابلس.kml"
+    },
+    {
+      "current": "مواقع التراث العالمي الخمسة_LY(2).kml",
+      "superseded": "مواقع التراث العالمي الخمسة_LY(1).kml"
+    },
+    {
+      "current": "اكاكوس(1).kml",
+      "superseded": "اكاكوس.kml"
+    }
+  ],
+  "active_source_count": 74,
+  "gdb_layer_count": 65,
+  "latest_kml_source_count": 9,
+  "raw_feature_count": 13547,
+  "record_projection_count": 13362,
+  "canonical_projection_count": 13172,
+  "exact_duplicates_suppressed": 190,
+  "cross_layer_reference_count": 429,
+  "same_name_different_geometry_review_count": 4054,
+  "same_geometry_different_name_review_count": 35,
+  "net_new_review_projection_count": 2880,
+  "dedup_status_counts": {
+    "UNIQUE": 8475,
+    "SAME_NAME_DIFFERENT_GEOMETRY_REVIEW": 4054,
+    "CROSS_LAYER_REFERENCE": 429,
+    "EXACT_DUPLICATE_SUPPRESSED_IN_MASTER": 190,
+    "CANONICAL_EXACT_DUPLICATE_GROUP": 179,
+    "SAME_GEOMETRY_DIFFERENT_NAME_REVIEW": 35
+  },
+  "target_layer_counts_raw": {
+    "SPATIAL_CONTEXT": 8760,
+    "WORLD_HERITAGE": 951,
+    "HOTELS": 801,
+    "TOURISM_INVESTMENT": 691,
+    "TOURISM_RESORTS": 433,
+    "OLD_TRIPOLI": 430,
+    "CAFES": 416,
+    "VISITOR_SERVICES": 176,
+    "ATTRACTIONS": 143,
+    "HISTORICAL_SITES": 136,
+    "RESTAURANTS": 110,
+    "NATURAL_SITES": 93,
+    "PARKS": 71,
+    "MUSEUMS": 49,
+    "MARKETS": 47,
+    "OLD_CITIES": 27,
+    "FORTIFICATIONS": 12,
+    "ARCHAEOLOGICAL_SITES": 11,
+    "UNASSIGNED_REVIEW": 5
+  },
+  "target_layer_counts_canonical": {
+    "SPATIAL_CONTEXT": 8759,
+    "WORLD_HERITAGE": 833,
+    "HOTELS": 775,
+    "TOURISM_INVESTMENT": 666,
+    "TOURISM_RESORTS": 431,
+    "OLD_TRIPOLI": 430,
+    "CAFES": 416,
+    "VISITOR_SERVICES": 173,
+    "ATTRACTIONS": 143,
+    "HISTORICAL_SITES": 135,
+    "RESTAURANTS": 110,
+    "NATURAL_SITES": 92,
+    "PARKS": 71,
+    "MARKETS": 47,
+    "MUSEUMS": 36,
+    "OLD_CITIES": 27,
+    "FORTIFICATIONS": 12,
+    "ARCHAEOLOGICAL_SITES": 11,
+    "UNASSIGNED_REVIEW": 5
+  },
+  "net_new_target_layer_counts": {
+    "HOTELS": 775,
+    "TOURISM_INVESTMENT": 666,
+    "TOURISM_RESORTS": 431,
+    "CAFES": 416,
+    "ATTRACTIONS": 143,
+    "HISTORICAL_SITES": 135,
+    "RESTAURANTS": 110,
+    "PARKS": 71,
+    "MARKETS": 47,
+    "MUSEUMS": 36,
+    "OLD_CITIES": 27,
+    "FORTIFICATIONS": 12,
+    "ARCHAEOLOGICAL_SITES": 11
+  },
+  "guardrails": [
+    "WORLD_HERITAGE authority is exactly five parent sites: Cyrene/Shahat, Leptis Magna, Sabratha, Ghadames and Acacus.",
+    "Old Tripoli KML is reference/subfeature context because OLD_TRIPOLI is already governed.",
+    "Acacus detailed KML is subfeature context under the already governed ACACUS World Heritage parent; it is not hundreds of new World Heritage sites.",
+    "The World Heritage detailed KML contains five parent site references plus subfeatures; subfeatures do not create new World Heritage authority.",
+    "No polygon is treated as an authoritative heritage, park, development, archaeological or protected-area boundary without explicit reviewed semantics.",
+    "Raw source records are never deleted by deduplication."
+  ]
+}

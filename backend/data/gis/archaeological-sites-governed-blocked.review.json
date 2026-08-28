@@ -1,0 +1,413 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "blocked_feature_count": 11,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "CROSS_LAYER_REFERENCE_FORTIFICATIONS": 1,
+    "SOURCE_IDENTITY_REVIEW": 10
+  },
+  "evidence_semantic_sha256": {
+    "authority_map": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+    "master_registry": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+    "source_extract": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+    "world_heritage": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+  },
+  "inventory_id": "archaeological-sites-governed-blocked-v1",
+  "layer_code": "ARCHAEOLOGICAL_SITES",
+  "master_registry_version": "v2",
+  "publication_approved": false,
+  "records": [
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.857096400000046,
+          32.822326900000064
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-1",
+      "name_ar": "اطلال",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "1",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "اطلال",
+          "historic": "ruins",
+          "x": 21.8570964,
+          "y": 32.8223269
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "1",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.850823000000048,
+          32.79477280000003
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-2",
+      "name_ar": "اطلال",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "2",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "اطلال",
+          "historic": "ruins",
+          "x": 21.850823,
+          "y": 32.7947728
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "2",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.836201001000063,
+          32.84526850000003
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-3",
+      "name_ar": "اطلال",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "3",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "اطلال",
+          "historic": "ruins",
+          "x": 21.836201,
+          "y": 32.8452685
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "3",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.864142900000047,
+          32.82221080000005
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-4",
+      "name_ar": "موقع اثري",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "4",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "موقع اثري",
+          "historic": "archaeological_site",
+          "x": 21.8641429,
+          "y": 32.8222108
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "4",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "CROSS_LAYER_REFERENCE_FORTIFICATIONS",
+      "geometry": {
+        "coordinates": [
+          21.861942800000065,
+          32.82716350000004
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-5",
+      "name_ar": "قلعة",
+      "review_classification": "CROSS_LAYER_REFERENCE_FORTIFICATIONS",
+      "source_feature_id": "5",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "CROSS_LAYER_REFERENCE_FORTIFICATIONS",
+        "source_attributes": {
+          "ar_name": "قلعة",
+          "historic": "castle",
+          "x": 21.8619428,
+          "y": 32.8271635
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "5",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.86352610000006,
+          32.82914370000003
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-6",
+      "name_ar": "اثري",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "6",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "اثري",
+          "historic": "monument",
+          "x": 21.8635261,
+          "y": 32.8291437
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "6",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.85915650000004,
+          32.82718120000004
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-7",
+      "name_ar": "اثري",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "7",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "اثري",
+          "historic": "monument",
+          "x": 21.8591565,
+          "y": 32.8271812
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "7",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.858963300000028,
+          32.81181280000004
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-8",
+      "name_ar": "اثري",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "8",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "اثري",
+          "historic": "monument",
+          "x": 21.8589633,
+          "y": 32.8118128
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "8",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.876427999000043,
+          32.82449920000005
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-9",
+      "name_ar": "اثري",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "9",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "اثري",
+          "historic": "monument",
+          "x": 21.876428,
+          "y": 32.8244992
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "9",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.857805400000075,
+          32.81803430000008
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-10",
+      "name_ar": "اثري",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "10",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "اثري",
+          "historic": "monument",
+          "x": 21.8578054,
+          "y": 32.8180343
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "10",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    },
+    {
+      "blocked_reason": "SOURCE_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.84582750000004,
+          32.82165290000006
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-archaeological-11",
+      "name_ar": "اثري",
+      "review_classification": "SOURCE_IDENTITY_REVIEW",
+      "source_feature_id": "11",
+      "source_metadata": {
+        "archaeological_boundary_claimed": false,
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authority_map_semantic_sha256": "74ad023ae918740f692a9a75e4371254f9deb44d5cfe30e03e2660d079e4d164",
+        "cross_layer_authority_created": false,
+        "master_registry_semantic_sha256": "9a23d3846bf589c8c80b50a8c9c7775c2063c5b8b0438b9e00c524da96693581",
+        "review_classification": "SOURCE_IDENTITY_REVIEW",
+        "source_attributes": {
+          "ar_name": "اثري",
+          "historic": "monument",
+          "x": 21.8458275,
+          "y": 32.8216529
+        },
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "11",
+        "source_layer": "اثري",
+        "source_semantic_sha256": "f0e38ab2d01306d46b10dbb1d33b6ea9a51e7b90982f21758531ecdcabc52295",
+        "world_heritage_authority_created": false,
+        "world_heritage_semantic_sha256": "b48fa422f89f3ccb21825566901f0842e72c9101ab152594d68e0ea38fcf67f5"
+      }
+    }
+  ],
+  "safe_ingestible_feature_count": 0,
+  "schema_version": 1,
+  "source_database": "Libya ATLAS Project.gdb",
+  "source_feature_count": 11,
+  "source_layer": "اثري",
+  "world_heritage_authority_duplicated": false
+}

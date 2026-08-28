@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "manifest_id": "master-atlas-source-manifest-v2",
+  "as_of": "2026-08-28",
+  "baseline": {
+    "type": "FileGDB",
+    "name": "Libya ATLAS Project.gdb",
+    "status": "CURRENT_BASELINE"
+  },
+  "latest_snapshots": [
+    "الفنادق_LY(1).kml",
+    "القرى_والمنتجعات السياحية_LY(1).kml",
+    "المشاريع وفرص الاستثمار السياحي(1).kml",
+    "المطاعم في طرابلس(1).kml",
+    "المقاهي_طرابلس(1).kml",
+    "مواقع التراث العالمي الخمسة_LY(2).kml",
+    "اكاكوس(1).kml",
+    "المتاحف.kml",
+    "المدينة القديمة _طرابلس.kml"
+  ],
+  "superseded_snapshots": [
+    {
+      "current": "الفنادق_LY(1).kml",
+      "superseded": "الفنادق_LY.kml"
+    },
+    {
+      "current": "القرى_والمنتجعات السياحية_LY(1).kml",
+      "superseded": "القرى_والمنتجعات السياحية_LY.kml"
+    },
+    {
+      "current": "المشاريع وفرص الاستثمار السياحي(1).kml",
+      "superseded": "المشاريع وفرص الاستثمار السياحي.kml"
+    },
+    {
+      "current": "المطاعم في طرابلس(1).kml",
+      "superseded": "المطاعم في طرابلس.kml"
+    },
+    {
+      "current": "المقاهي_طرابلس(1).kml",
+      "superseded": "المقاهي_طرابلس.kml"
+    },
+    {
+      "current": "مواقع التراث العالمي الخمسة_LY(2).kml",
+      "superseded": "مواقع التراث العالمي الخمسة_LY(1).kml"
+    },
+    {
+      "current": "اكاكوس(1).kml",
+      "superseded": "اكاكوس.kml"
+    }
+  ],
+  "authority_rule": "Latest same-source snapshot replaces older snapshot in active master; raw sources are immutable and remain provenance/archive.",
+  "world_heritage_parent_count": 5,
+  "world_heritage_parent_sites": [
+    "CYRENE",
+    "LEPTIS_MAGNA",
+    "SABRATHA",
+    "GHADAMES",
+    "ACACUS"
+  ]
+}

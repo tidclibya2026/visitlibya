@@ -1,0 +1,55 @@
+{
+  "schema_version": 2,
+  "as_of": "2026-08-28",
+  "world_heritage": [
+    {
+      "code": "CYRENE",
+      "name_ar": "شحات / قورينا",
+      "name_en": "Archaeological Site of Cyrene",
+      "authority_layer": "WORLD_HERITAGE"
+    },
+    {
+      "code": "LEPTIS_MAGNA",
+      "name_ar": "لبدة الكبرى",
+      "name_en": "Archaeological Site of Leptis Magna",
+      "authority_layer": "WORLD_HERITAGE"
+    },
+    {
+      "code": "SABRATHA",
+      "name_ar": "صبراتة",
+      "name_en": "Archaeological Site of Sabratha",
+      "authority_layer": "WORLD_HERITAGE"
+    },
+    {
+      "code": "GHADAMES",
+      "name_ar": "غدامس",
+      "name_en": "Old Town of Ghadamès",
+      "authority_layer": "WORLD_HERITAGE"
+    },
+    {
+      "code": "ACACUS",
+      "name_ar": "أكاكوس",
+      "name_en": "Rock-Art Sites of Tadrart Acacus",
+      "authority_layer": "WORLD_HERITAGE"
+    }
+  ],
+  "already_governed_layers": [
+    "WORLD_HERITAGE",
+    "OLD_TRIPOLI",
+    "NATURAL_SITES"
+  ],
+  "next_governed_layers": [
+    "ARCHAEOLOGICAL_SITES",
+    "FORTIFICATIONS",
+    "OLD_CITIES",
+    "HISTORICAL_SITES",
+    "PARKS",
+    "MUSEUMS",
+    "TOURISM_INVESTMENT",
+    "HOTELS",
+    "TOURISM_RESORTS",
+    "RESTAURANTS",
+    "CAFES"
+  ],
+  "rule": "Previously governed authority is reference-only when encountered in new source material; no duplicate authority is created."
+}
