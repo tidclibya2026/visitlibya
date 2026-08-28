@@ -153,6 +153,11 @@ LAYER_REGISTRY: dict[str, GovernedGISLayer] = {
             "Reserved for institutionally resolved tourism investment sites, projects, and opportunities; no parcel or site boundaries are inferred.",
         ),
         _layer(
+            "HOTELS", "الفنادق", "Hotels",
+            "hotel", GeometryFamily.MIXED,
+            "Reserved for institutionally resolved hotel properties and branches; names alone do not establish duplicate identity.",
+        ),
+        _layer(
             "ROCK_ART", "الفنون الصخرية", "Rock Art",
             "rock_art", GeometryFamily.MIXED,
             "Reserved for reviewed rock-art features and sites.",

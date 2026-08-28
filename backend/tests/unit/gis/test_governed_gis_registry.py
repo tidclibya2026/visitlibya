@@ -6,7 +6,7 @@ from app.gis.layer_registry import LAYER_REGISTRY, get_layer, require_layer
 EXPECTED_LAYERS = {
     "LIBYA_BOUNDARY", "WORLD_HERITAGE", "OLD_TRIPOLI", "NATURAL_SITES",
     "ARCHAEOLOGICAL_SITES", "HISTORICAL_SITES", "PARKS",
-    "TOURISM_INVESTMENT", "ROCK_ART",
+    "TOURISM_INVESTMENT", "HOTELS", "ROCK_ART",
 }
 
 
@@ -41,6 +41,13 @@ def test_parks_is_mixed_and_unpublished():
 def test_tourism_investment_is_mixed_and_unpublished():
     layer = require_layer("TOURISM_INVESTMENT")
     assert layer.category == "tourism_investment"
+    assert layer.geometry_family.value == "mixed"
+    assert layer.default_is_published is False
+
+
+def test_hotels_is_mixed_and_unpublished():
+    layer = require_layer("HOTELS")
+    assert layer.category == "hotel"
     assert layer.geometry_family.value == "mixed"
     assert layer.default_is_published is False
 
