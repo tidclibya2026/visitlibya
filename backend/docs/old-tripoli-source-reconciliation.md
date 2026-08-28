@@ -100,3 +100,22 @@ Offline regeneration from the governed external evidence is intentionally separa
 ```powershell
 python backend/scripts/old_tripoli_source_reconciliation.py build <audit-directory> <source-kml>
 ```
+
+## Governed review layer
+
+The committed reconciliation is the sole input to the deterministic governed-layer builder. It produces:
+
+- `old-tripoli-governed-import.review.geojson`, containing only unconflicted, valid point candidates from the heritage, historic-building, archaeological, traditional-market, museum, and cultural-facility review collections.
+- `old-tripoli-governed-blocked.review.json`, retaining every contextual, unresolved, duplicate/identity-review, line, and polygon record with its geometry and provenance.
+
+All imported rows remain `under_review`, `unapproved`, valid and validated, and unpublished under the shared governed GIS ingestion contract. The artifacts grant no destination identity approval, feature identity approval, media rights, public visibility, or publication authority.
+
+LineStrings remain blocked as contextual networks or unresolved route semantics. Polygons remain unresolved, and the recorded overlap candidates are explicitly non-authoritative. Nothing in this workflow establishes an Old Tripoli boundary, city wall, UNESCO-style property boundary, buffer zone, historic route, or visitor route.
+
+Build and validate with:
+
+```powershell
+python backend/scripts/old_tripoli_governed_layer.py --write
+python backend/scripts/old_tripoli_governed_layer.py
+python backend/scripts/ingest_governed_gis.py --geojson backend/data/gis/old-tripoli-governed-import.review.geojson --layer-code OLD_TRIPOLI --source-layer tripoli-old-city --source-database institutional-kml-review --dry-run
+```
