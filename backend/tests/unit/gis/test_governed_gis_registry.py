@@ -45,8 +45,10 @@ def test_tourism_investment_is_mixed_and_unpublished():
     assert layer.name_en == "Tourism Development and Investment Areas"
     assert layer.category == "tourism_investment"
     assert layer.geometry_family.value == "mixed"
+    assert layer.allowed_geometry_types == frozenset({"POLYGON", "MULTIPOLYGON"})
     assert layer.default_is_published is False
-    assert "individual investment projects are excluded" in layer.notes
+    assert "individual investment projects" in layer.notes
+    assert "141-area Excel/KML" in layer.notes
 
 
 def test_hotels_is_mixed_and_unpublished():
