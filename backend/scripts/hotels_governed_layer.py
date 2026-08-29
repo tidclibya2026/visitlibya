@@ -68,6 +68,8 @@ def comparison_coords():
     coords=defaultdict(list)
     specs=[('TOURISM_INVESTMENT',GIS/'tourism-investment-gdb-source.review.geojson'),('TOURISM_RESORTS',GIS/'tourism-resorts-gdb-source.review.geojson')]
     for code,path in specs:
+        if not path.is_file():
+            continue
         for f in load(path).get('features',[]):
             g=f.get('geometry') or {}
             if g.get('type')=='Point' and valid(g):coords[pkey(g)].append({'layer_code':code,'source_layer':f.get('properties',{}).get('source_layer'),'source_feature_id':f.get('properties',{}).get('source_feature_id')})
