@@ -73,8 +73,11 @@ def comparison_coords():
             if g.get('type')=='Point' and valid(g):coords[pkey(g)].append({'layer_code':code,'source_layer':f.get('properties',{}).get('source_layer'),'source_feature_id':f.get('properties',{}).get('source_feature_id')})
     return coords
 
-def build():
-    src=combined(); rows=[]; identities=Counter(); coord_names=defaultdict(set)
+def build(source=None):
+    src=source or load(SOURCE)
+    if len(src.get('features',[]))!=801 or src.get('source_kml_sha256')!=EXPECTED_HASH:
+        raise HotelsGovernedLayerError('Combined HOTELS source accounting or KML identity mismatch')
+    rows=[]; identities=Counter(); coord_names=defaultdict(set)
     for f in src['features']:
         p=f['properties']; name=attrs_name(p.get('source_attributes') or {}); n=norm(name); g=f.get('geometry') or {}; key=pkey(g) if g.get('type')=='Point' and valid(g) else None
         if n and key:identities[(n,key)]+=1;coord_names[key].add(n)
@@ -112,6 +115,7 @@ def validate():
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--write',action='store_true');a=ap.parse_args()
     if a.write:
-        for p,x in zip((SOURCE,IMPORT,BLOCKED,CROSS),build()):p.write_bytes(canon(x))
+        source=combined(); SOURCE.write_bytes(canon(source))
+        for p,x in zip((IMPORT,BLOCKED,CROSS),build(source)[1:]):p.write_bytes(canon(x))
     _,i,b,c=validate();print('HOTELS GOVERNED REVIEW ARTIFACTS VALID');print('SOURCE COUNT:',i['source_feature_count']);print('SAFE:',len(i['features']));print('BLOCKED:',len(b['records']));print('CROSS:',len(c['records']));print('COUNTS:',json.dumps(i['category_counts'],ensure_ascii=False,sort_keys=True))
 if __name__=='__main__':main()
