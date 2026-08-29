@@ -1,0 +1,2874 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "excel_only": [
+    {
+      "area_name": "أبوزاهية",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "ابوزاهية",
+      "representative_coordinate": [
+        16.759614,
+        31.209771
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-2",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-2",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "زعفران",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "زعفران",
+      "representative_coordinate": [
+        16.420665,
+        31.214105
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-3",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-3",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "القبيبة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "القبيبة",
+      "representative_coordinate": [
+        16.331144,
+        31.221424
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-4",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-4",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "سلطان",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "سلطان",
+      "representative_coordinate": [
+        17.145257,
+        31.121479
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-5",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-5",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "النقازة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "النقازة",
+      "representative_coordinate": [
+        14.108146,
+        32.715036
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-6",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-6",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "غنيمة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "غنيمة",
+      "representative_coordinate": [
+        14.066933,
+        32.720905
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-7",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-7",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "فلفول",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "فلفول",
+      "representative_coordinate": [
+        14.081778,
+        32.718111
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-8",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-8",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "فيللا سيلين",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "فيللاسيلين",
+      "representative_coordinate": [
+        14.157454,
+        32.708991
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-9",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-9",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "قريم",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "قريم",
+      "representative_coordinate": [
+        14.00711,
+        32.729372
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-10",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-10",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الطويبية",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الطويبية",
+      "representative_coordinate": [
+        14.438333,
+        32.544139
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-11",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-11",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "هانيبال",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "هانيبال",
+      "representative_coordinate": [
+        14.280521,
+        32.643746
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-12",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-12",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "ماتشوك",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "ماتشوك",
+      "representative_coordinate": [
+        12.029083,
+        32.970431
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-13",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-13",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "ملليتة-2",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "ملليتة2",
+      "representative_coordinate": [
+        12.345144,
+        32.821984
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-14",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-14",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "ملليتة-1",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "ملليتة1",
+      "representative_coordinate": [
+        12.332265,
+        32.812647
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-15",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-15",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "تلليل-غرب",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "تلليلغرب",
+      "representative_coordinate": [
+        12.361076,
+        32.819238
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-16",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-16",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "تلليل-شرق",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "تلليلشرق",
+      "representative_coordinate": [
+        12.393534,
+        32.81071
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-17",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-17",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الجرف",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الجرف",
+      "representative_coordinate": [
+        12.40899,
+        32.814164
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-18",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-18",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "صرمان",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "صرمان",
+      "representative_coordinate": [
+        12.566598,
+        32.793975
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-19",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-19",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "المطرد",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "المطرد",
+      "representative_coordinate": [
+        12.620939,
+        32.792477
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-20",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-20",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "أوياء",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "اوياء",
+      "representative_coordinate": [
+        13.017107,
+        32.839481
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-22",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-22",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "شاطيء النخيل",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "شاطيءالنخيل",
+      "representative_coordinate": [
+        13.24294,
+        32.909641
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-41",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-41",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الفوار",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الفوار",
+      "representative_coordinate": [
+        13.313186,
+        32.898976
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-44",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-44",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "السليسلة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "السليسلة",
+      "representative_coordinate": [
+        13.572903,
+        32.800818
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-54",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-54",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "العطايا",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "العطايا",
+      "representative_coordinate": [
+        13.699979,
+        32.789735
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-55",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-55",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الكراوة-3",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الكراوة3",
+      "representative_coordinate": [
+        13.72103,
+        32.79113
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-56",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-56",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الكراوة-1",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الكراوة1",
+      "representative_coordinate": [
+        13.807036,
+        32.783993
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-57",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-57",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الكراوة-2",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الكراوة2",
+      "representative_coordinate": [
+        13.77886,
+        32.78708
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-58",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-58",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "سيدي عمير-1",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "سيديعمير1",
+      "representative_coordinate": [
+        13.83543,
+        32.784327
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-59",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-59",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "سيدي عمير-2",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "سيديعمير2",
+      "representative_coordinate": [
+        13.892323,
+        32.777303
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-60",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-60",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "المثلث الرملي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "المثلثالرملي",
+      "representative_coordinate": [
+        13.74331,
+        32.785818
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-61",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-61",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الشعاب",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الشعاب",
+      "representative_coordinate": [
+        13.212295,
+        32.89987
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-62",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-62",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "ملليتة 3",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "ملليتة3",
+      "representative_coordinate": [
+        12.31818,
+        32.828955
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-64",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-64",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "البريقاء",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "البريقاء",
+      "representative_coordinate": [
+        11.629658,
+        33.107751
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-65",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-65",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "أبوكشفة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "ابوكشفة",
+      "representative_coordinate": [
+        11.943873,
+        33.020221
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-66",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-66",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "مصيف بياض",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "مصيفبياض",
+      "representative_coordinate": [
+        24.025137,
+        32.043598
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-67",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-67",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "البردي-1",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "البردي1",
+      "representative_coordinate": [
+        25.098963,
+        31.748425
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-68",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-68",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "العزلية",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "العزلية",
+      "representative_coordinate": [
+        22.236611,
+        32.87365
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-69",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-69",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "دليس",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "دليس",
+      "representative_coordinate": [
+        22.516674,
+        32.804374
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-70",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-70",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "راس التين",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "راسالتين",
+      "representative_coordinate": [
+        23.093353,
+        32.398395
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-71",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-71",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الاترون",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الاترون",
+      "representative_coordinate": [
+        22.325595,
+        32.871618
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-72",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-72",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "قاريونس",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "قاريونس",
+      "representative_coordinate": [
+        20.043748,
+        32.071336
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-73",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-73",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "عين زيانة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "عينزيانة",
+      "representative_coordinate": [
+        20.156994,
+        32.228546
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-74",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-74",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "سيدي خليفة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "سيديخليفة",
+      "representative_coordinate": [
+        20.200601,
+        32.270868
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-75",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-75",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "أبوترابة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "ابوترابة",
+      "representative_coordinate": [
+        20.764773,
+        32.620128
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-76",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-76",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "مصيف طلميثة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "مصيفطلميثة",
+      "representative_coordinate": [
+        20.953452,
+        32.715029
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-77",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-77",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "طلميثة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "طلميثة",
+      "representative_coordinate": [
+        20.918224,
+        32.692483
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-78",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-78",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "جرجارامه",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "جرجارامه",
+      "representative_coordinate": [
+        21.442553,
+        32.799602
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-79",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-79",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "مويلح",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "مويلح",
+      "representative_coordinate": [
+        21.535437,
+        32.855457
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-80",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-80",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الحمامة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الحمامة",
+      "representative_coordinate": [
+        21.630709,
+        32.92457
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-81",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-81",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "أبوشيبة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "ابوشيبة",
+      "representative_coordinate": [
+        19.951056,
+        31.974647
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-82",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-82",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "المريسة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "المريسة",
+      "representative_coordinate": [
+        19.945928,
+        31.95551
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-83",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-83",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "ترية",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "ترية",
+      "representative_coordinate": [
+        19.935201,
+        31.845706
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-84",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-84",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "قمينس",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "قمينس",
+      "representative_coordinate": [
+        19.955248,
+        31.670132
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-85",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-85",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "جاروتة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "جاروتة",
+      "representative_coordinate": [
+        19.932287,
+        31.812666
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-86",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-86",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الساحل الغربي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الساحلالغربي",
+      "representative_coordinate": [
+        20.137538,
+        31.258641
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-87",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-87",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "حبيب",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "حبيب",
+      "representative_coordinate": [
+        20.02073,
+        31.454218
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-88",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-88",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "كركورة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "كركورة",
+      "representative_coordinate": [
+        19.965136,
+        31.61397
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-89",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-89",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الحليسي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الحليسي",
+      "representative_coordinate": [
+        19.95392,
+        31.923746
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-90",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-90",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "سيدي علي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "سيديعلي",
+      "representative_coordinate": [
+        20.258453,
+        32.318727
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-91",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-91",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "دريانة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "دريانة",
+      "representative_coordinate": [
+        20.320037,
+        32.366999
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-92",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-92",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "مبنى",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "مبني",
+      "representative_coordinate": [
+        20.405195,
+        32.433125
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-93",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-93",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "البرسس",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "البرسس",
+      "representative_coordinate": [
+        20.468685,
+        32.475222
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-94",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-94",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "العقورية",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "العقورية",
+      "representative_coordinate": [
+        20.576157,
+        32.539022
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-95",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-95",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "بابا طلميثة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "باباطلميثة",
+      "representative_coordinate": [
+        20.937473,
+        32.707218
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-96",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-96",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "عقلة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "عقلة",
+      "representative_coordinate": [
+        21.345011,
+        32.773607
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-97",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-97",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "نوطة سوسة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "نوطةسوسة",
+      "representative_coordinate": [
+        21.819191,
+        32.909991
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-98",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-98",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "مهبول",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "مهبول",
+      "representative_coordinate": [
+        22.144328,
+        32.926154
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-99",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-99",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "بركة ناصر",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "بركةناصر",
+      "representative_coordinate": [
+        22.173802,
+        32.893832
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-100",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-100",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "كرسة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "كرسة",
+      "representative_coordinate": [
+        22.423613,
+        32.848881
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-101",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-101",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الناقة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الناقة",
+      "representative_coordinate": [
+        22.558491,
+        32.800559
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-102",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-102",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "بومسافر",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "بومسافر",
+      "representative_coordinate": [
+        22.567702,
+        32.787615
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-103",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-103",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الشاطيء",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الشاطيء",
+      "representative_coordinate": [
+        22.613842,
+        32.773055
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-104",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-104",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": null,
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "",
+      "representative_coordinate": [
+        22.924983,
+        32.666034
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-105",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-105",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "المقرون",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "المقرون",
+      "representative_coordinate": [
+        20.082091,
+        31.345656
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-106",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-106",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "البردي-3",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "البردي3",
+      "representative_coordinate": [
+        25.116401,
+        31.716436
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-107",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-107",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "البردي-2",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "البردي2",
+      "representative_coordinate": [
+        25.041811,
+        31.856827
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-108",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-108",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "عزاز",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "عزاز",
+      "representative_coordinate": [
+        24.994701,
+        31.953789
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-109",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-109",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الجدي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الجدي",
+      "representative_coordinate": [
+        24.932314,
+        31.969713
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-110",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-110",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "شويمر",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "شويمر",
+      "representative_coordinate": [
+        24.853361,
+        31.983817
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-111",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-111",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "مرسة دفنة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "مرسةدفنة",
+      "representative_coordinate": [
+        24.769971,
+        32.007771
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-112",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-112",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "بئرالأشهب",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "بئرالاشهب",
+      "representative_coordinate": [
+        24.612591,
+        31.999305
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-113",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-113",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "قابس",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "قابس",
+      "representative_coordinate": [
+        24.574523,
+        31.9877
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-114",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-114",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "كمبوت",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "كمبوت",
+      "representative_coordinate": [
+        24.532444,
+        31.976517
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-115",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-115",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "العقلة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "العقلة",
+      "representative_coordinate": [
+        24.261454,
+        32.002232
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-116",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-116",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "العودا",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "العودا",
+      "representative_coordinate": [
+        23.880382,
+        32.119584
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-117",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-117",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "المرصص",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "المرصص",
+      "representative_coordinate": [
+        23.706914,
+        32.161449
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-118",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-118",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "بلخاتر",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "بلخاتر",
+      "representative_coordinate": [
+        23.530626,
+        32.169754
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-119",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-119",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "عين الغزال",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "عينالغزال",
+      "representative_coordinate": [
+        23.272275,
+        32.197508
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-120",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-120",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "التميمي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "التميمي",
+      "representative_coordinate": [
+        23.227629,
+        32.24076
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-121",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-121",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "بالقردان",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "بالقردان",
+      "representative_coordinate": [
+        23.145583,
+        32.304895
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-122",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-122",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "راس التين-2",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "راسالتين2",
+      "representative_coordinate": [
+        23.112896,
+        32.511195
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-123",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-123",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "خبطة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "خبطة",
+      "representative_coordinate": [
+        23.036497,
+        32.638648
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-124",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-124",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "بوهريشيمة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "بوهريشيمة",
+      "representative_coordinate": [
+        20.171544,
+        31.112802
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-125",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-125",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الزويتينة الشمالي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الزويتينةالشمالي",
+      "representative_coordinate": [
+        20.137567,
+        30.99746
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-126",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-126",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الزويتينة الجنوبي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الزويتينةالجنوبي",
+      "representative_coordinate": [
+        20.10164,
+        30.93416
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-127",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-127",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "مرير قابس",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "مريرقابس",
+      "representative_coordinate": [
+        19.914163,
+        30.667001
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-128",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-128",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "بشر",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "بشر",
+      "representative_coordinate": [
+        19.393654,
+        30.32453
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-129",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-129",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "العقيلة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "العقيلة",
+      "representative_coordinate": [
+        19.16117,
+        30.268153
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-130",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-130",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "راس لانوف",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "راسلانوف",
+      "representative_coordinate": [
+        18.495838,
+        30.545546
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-131",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-131",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "السدرة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "السدرة",
+      "representative_coordinate": [
+        18.437855,
+        30.580976
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-132",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-132",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "بن جواد",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "بنجواد",
+      "representative_coordinate": [
+        18.19787,
+        30.773122
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-133",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-133",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "عسيلة الغربي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "عسيلةالغربي",
+      "representative_coordinate": [
+        17.442653,
+        31.041371
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-134",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-134",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "هراوة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "هراوة",
+      "representative_coordinate": [
+        17.292271,
+        31.086428
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-135",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-135",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "السميدة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "السميدة",
+      "representative_coordinate": [
+        15.350278,
+        32.04111
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-136",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-136",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "قصر أحمد",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "قصراحمد",
+      "representative_coordinate": [
+        15.334328,
+        32.189878
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-137",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-137",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "الدافنية",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "الدافنية",
+      "representative_coordinate": [
+        14.970994,
+        32.417743
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-138",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-138",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "العويجة",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "العويجة",
+      "representative_coordinate": [
+        17.863476,
+        30.910906
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-139",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-139",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "أم الخنفس",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "امالخنفس",
+      "representative_coordinate": [
+        17.742907,
+        30.937303
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-140",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-140",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "عسيلة الشرقي",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "عسيلةالشرقي",
+      "representative_coordinate": [
+        17.50987,
+        31.008659
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-141",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-141",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    },
+    {
+      "area_name": "القرضابية",
+      "geometry_status": "NO_AUTHORITATIVE_GDB_GEOMETRY_MATCH",
+      "normalized_area_name": "القرضابية",
+      "representative_coordinate": [
+        16.850778,
+        31.187342
+      ],
+      "review_reason": "NO_NORMALIZED_EXACT_GDB_IDENTITY_MATCH",
+      "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-142",
+      "source_database": "مناطق تنمية والاستثمار.xlsx",
+      "source_feature_id": "Sheet1:row-142",
+      "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+      "source_layer": "Sheet1"
+    }
+  ],
+  "excel_only_count": 110,
+  "excel_record_count": 141,
+  "gdb_area_record_count": 36,
+  "gdb_geometry_inventory": {
+    "Point": 36,
+    "Polygon": 0,
+    "authoritative_boundary_claimed_count": 0,
+    "valid_wgs84_reference_point_count": 36
+  },
+  "gdb_only": [
+    {
+      "area_name": "مشروع السليسلة",
+      "geometry": {
+        "coordinates": [
+          13.572968314000036,
+          32.80070580000006
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "السليسلة",
+        "distance_km": 0.013905,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-54"
+      },
+      "normalized_area_name": "مشروعالسليسلة",
+      "review_reason": "NO_NORMALIZED_EXACT_EXCEL_IDENTITY_MATCH",
+      "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:1",
+      "source_database": "Libya ATLAS Project.gdb",
+      "source_feature_id": "1",
+      "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+      "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+    },
+    {
+      "area_name": "الفوارتاجوراء",
+      "geometry": {
+        "coordinates": [
+          13.313755461000028,
+          32.899325350000026
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "الفوار",
+        "distance_km": 0.06592,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-44"
+      },
+      "normalized_area_name": "الفوارتاجوراء",
+      "review_reason": "NO_NORMALIZED_EXACT_EXCEL_IDENTITY_MATCH",
+      "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:14",
+      "source_database": "Libya ATLAS Project.gdb",
+      "source_feature_id": "14",
+      "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+      "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+    },
+    {
+      "area_name": "شاطئ النخيل",
+      "geometry": {
+        "coordinates": [
+          13.243072492000067,
+          32.90995000300006
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "شاطيء النخيل",
+        "distance_km": 0.036559,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-41"
+      },
+      "normalized_area_name": "شاطئالنخيل",
+      "review_reason": "NO_NORMALIZED_EXACT_EXCEL_IDENTITY_MATCH",
+      "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:16",
+      "source_database": "Libya ATLAS Project.gdb",
+      "source_feature_id": "16",
+      "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+      "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+    },
+    {
+      "area_name": "ميناء الشعاب",
+      "geometry": {
+        "coordinates": [
+          13.212170126000046,
+          32.89998802100007
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "الشعاب",
+        "distance_km": 0.017574,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-62"
+      },
+      "normalized_area_name": "ميناءالشعاب",
+      "review_reason": "NO_NORMALIZED_EXACT_EXCEL_IDENTITY_MATCH",
+      "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:18",
+      "source_database": "Libya ATLAS Project.gdb",
+      "source_feature_id": "18",
+      "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+      "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+    },
+    {
+      "area_name": "اويا",
+      "geometry": {
+        "coordinates": [
+          13.017079696000053,
+          32.839589559000046
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "أوياء",
+        "distance_km": 0.012352,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-22"
+      },
+      "normalized_area_name": "اويا",
+      "review_reason": "NO_NORMALIZED_EXACT_EXCEL_IDENTITY_MATCH",
+      "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:30",
+      "source_database": "Libya ATLAS Project.gdb",
+      "source_feature_id": "30",
+      "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+      "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+    }
+  ],
+  "gdb_only_count": 5,
+  "inventory_id": "tourism-investment-areas-reconciliation-v1",
+  "layer_code": "TOURISM_INVESTMENT",
+  "matched_count": 31,
+  "matches": [
+    {
+      "coordinate_distance_km": 0.046968,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-63",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-63",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.462935,
+        32.847415
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:4",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "4",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.462433203000046,
+        32.84739780600006
+      ],
+      "match_id": "excel-Sheet1:row-63__gdb-4",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "ابيارالسبابيل"
+    },
+    {
+      "coordinate_distance_km": 0.058057,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-51",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-51",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.361881,
+        32.895216
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:10",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "10",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.362416082000038,
+        32.89548082500005
+      ],
+      "match_id": "excel-Sheet1:row-51__gdb-10",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "الاندلسي"
+    },
+    {
+      "coordinate_distance_km": 0.074542,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-45",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-45",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.325811,
+        32.895249
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:13",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "13",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.325601280000058,
+        32.89589505200007
+      ],
+      "match_id": "excel-Sheet1:row-45__gdb-13",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "الجولف"
+    },
+    {
+      "coordinate_distance_km": 0.025862,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-46",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-46",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.342192,
+        32.895167
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:12",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "12",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.341984738000065,
+        32.895013101000075
+      ],
+      "match_id": "excel-Sheet1:row-46__gdb-12",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "الحرية"
+    },
+    {
+      "coordinate_distance_km": 0.104378,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-48",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-48",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.399701,
+        32.882612
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:7",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "7",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.400639714000022,
+        32.88210433900008
+      ],
+      "match_id": "excel-Sheet1:row-48__gdb-7",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "الحميدية"
+    },
+    {
+      "coordinate_distance_km": 0.051466,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-43",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-43",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.393326,
+        32.891321
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:8",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "8",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.392954502000066,
+        32.890979781000055
+      ],
+      "match_id": "excel-Sheet1:row-43__gdb-8",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "الدخلةالجنوبية"
+    },
+    {
+      "coordinate_distance_km": 0.069821,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-42",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-42",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.389956,
+        32.894582
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:9",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "9",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.390575952000063,
+        32.89423212200006
+      ],
+      "match_id": "excel-Sheet1:row-42__gdb-9",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "الدخلةالشمالية"
+    },
+    {
+      "coordinate_distance_km": 0.018284,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-39",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-39",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.275305,
+        32.908861
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:15",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "15",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.275439035000034,
+        32.90874135200005
+      ],
+      "match_id": "excel-Sheet1:row-39__gdb-15",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "الدلفين"
+    },
+    {
+      "coordinate_distance_km": 0.025871,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-21",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-21",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.004388,
+        32.835609
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:31",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "31",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.00412351400007,
+        32.83567700000003
+      ],
+      "match_id": "excel-Sheet1:row-21__gdb-31",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "السياحية"
+    },
+    {
+      "coordinate_distance_km": 0.079498,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-36",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-36",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.052798,
+        32.847199
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:21",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "21",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.052899465000053,
+        32.84790803300007
+      ],
+      "match_id": "excel-Sheet1:row-36__gdb-21",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "الغيران"
+    },
+    {
+      "coordinate_distance_km": 0.033965,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-47",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-47",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.383068,
+        32.895849
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:11",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "11",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.383143443000051,
+        32.896147461000055
+      ],
+      "match_id": "excel-Sheet1:row-47__gdb-11",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "المنارة"
+    },
+    {
+      "coordinate_distance_km": 0.011527,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-40",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-40",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.236903,
+        32.909816
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:17",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "17",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.237011873000029,
+        32.90986466100003
+      ],
+      "match_id": "excel-Sheet1:row-40__gdb-17",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "الناديالبحري"
+    },
+    {
+      "coordinate_distance_km": 0.084322,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-52",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-52",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.55205,
+        32.811
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:2",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "2",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.552700507000054,
+        32.81047573700005
+      ],
+      "match_id": "excel-Sheet1:row-52__gdb-2",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "النشيع"
+    },
+    {
+      "coordinate_distance_km": 2.151776,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-50",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-50",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.442089,
+        32.856428
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:5",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "5",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.462433203000046,
+        32.84739780600006
+      ],
+      "match_id": "excel-Sheet1:row-50__gdb-5",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "النصر"
+    },
+    {
+      "coordinate_distance_km": 0.019606,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-23",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-23",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.00119,
+        32.835018
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:32",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "32",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.000986075000071,
+        32.835058755000034
+      ],
+      "match_id": "excel-Sheet1:row-23__gdb-32",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "جنزور1"
+    },
+    {
+      "coordinate_distance_km": 0.01418,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-24",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-24",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        12.997586,
+        32.834192
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:33",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "33",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        12.997438300000056,
+        32.834163310000065
+      ],
+      "match_id": "excel-Sheet1:row-24__gdb-33",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "جنزور2"
+    },
+    {
+      "coordinate_distance_km": 0.036978,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-25",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-25",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        12.994218,
+        32.832761
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:34",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "34",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        12.99456056400004,
+        32.832926798000074
+      ],
+      "match_id": "excel-Sheet1:row-25__gdb-34",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "جنزور3"
+    },
+    {
+      "coordinate_distance_km": 0.065352,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-38",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-38",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.150047,
+        32.880753
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:19",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "19",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.150717800000052,
+        32.880587794000064
+      ],
+      "match_id": "excel-Sheet1:row-38__gdb-19",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "حيالاندلس1"
+    },
+    {
+      "coordinate_distance_km": 0.018865,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-37",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-37",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.145649,
+        32.880812
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:20",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "20",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.145794145000025,
+        32.88092973600004
+      ],
+      "match_id": "excel-Sheet1:row-37__gdb-20",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "حيالاندلس2"
+    },
+    {
+      "coordinate_distance_km": 0.020026,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-26",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-26",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.03602,
+        32.847718
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:22",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "22",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.036216882000076,
+        32.84764725200006
+      ],
+      "match_id": "excel-Sheet1:row-26__gdb-22",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "سيديعبدالجليل1"
+    },
+    {
+      "coordinate_distance_km": 0.008608,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-27",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-27",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.03452,
+        32.847372
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:23",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "23",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.034428176000063,
+        32.84736663900003
+      ],
+      "match_id": "excel-Sheet1:row-27__gdb-23",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "سيديعبدالجليل2"
+    },
+    {
+      "coordinate_distance_km": 0.016591,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-28",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-28",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.033337,
+        32.846922
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:24",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "24",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.033355646000075,
+        32.84707021500003
+      ],
+      "match_id": "excel-Sheet1:row-28__gdb-24",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "سيديعبدالجليل3"
+    },
+    {
+      "coordinate_distance_km": 0.010474,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-29",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-29",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.030821,
+        32.84616
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:25",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "25",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.030714834000037,
+        32.846189957000036
+      ],
+      "match_id": "excel-Sheet1:row-29__gdb-25",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "سيديعبدالجليل4"
+    },
+    {
+      "coordinate_distance_km": 0.006059,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-30",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-30",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.028258,
+        32.845015
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:26",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "26",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.028252723000037,
+        32.84496075000004
+      ],
+      "match_id": "excel-Sheet1:row-30__gdb-26",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "سيديعبدالجليل5"
+    },
+    {
+      "coordinate_distance_km": 0.030121,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-31",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-31",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.026221,
+        32.843839
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:27",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "27",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.02635979300004,
+        32.844083169000044
+      ],
+      "match_id": "excel-Sheet1:row-31__gdb-27",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "سيديعبدالجليل6"
+    },
+    {
+      "coordinate_distance_km": 0.059231,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-53",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-53",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.502958,
+        32.830496
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:3",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "3",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.502335126000048,
+        32.830591767000044
+      ],
+      "match_id": "excel-Sheet1:row-53__gdb-3",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "غوطالرمان"
+    },
+    {
+      "coordinate_distance_km": 0.031354,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-32",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-32",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        12.98391,
+        32.830294
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:36",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "36",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        12.983574826000051,
+        32.83029725700004
+      ],
+      "match_id": "excel-Sheet1:row-32__gdb-36",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "محطةغربطرابلس"
+    },
+    {
+      "coordinate_distance_km": 0.096867,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-49",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-49",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.414295,
+        32.870435
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:6",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "6",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.413282149000054,
+        32.87025193000005
+      ],
+      "match_id": "excel-Sheet1:row-49__gdb-6",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "مصيفتاجوراء"
+    },
+    {
+      "coordinate_distance_km": 0.004564,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-33",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-33",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        12.990141,
+        32.831549
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:35",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "35",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        12.990105806000031,
+        32.83152060800006
+      ],
+      "match_id": "excel-Sheet1:row-33__gdb-35",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "مصيفجربة"
+    },
+    {
+      "coordinate_distance_km": 0.034023,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-34",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-34",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.024687,
+        32.842224
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:28",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "28",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.024567723000075,
+        32.842512740000075
+      ],
+      "match_id": "excel-Sheet1:row-34__gdb-28",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "مصيفجنزور1"
+    },
+    {
+      "coordinate_distance_km": 0.02068,
+      "coordinate_role": "CORROBORATING_EVIDENCE_ONLY_NOT_BOUNDARY",
+      "excel": {
+        "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-35",
+        "source_database": "مناطق تنمية والاستثمار.xlsx",
+        "source_feature_id": "Sheet1:row-35",
+        "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+        "source_layer": "Sheet1"
+      },
+      "excel_representative_coordinate": [
+        13.022323,
+        32.841025
+      ],
+      "fid_compatibility": "INCOMPATIBLE_SOURCE_NAMESPACES",
+      "fid_match_used": false,
+      "gdb": {
+        "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:29",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "29",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+      },
+      "gdb_reference_geometry_coordinate": [
+        13.022110406000024,
+        32.84107606200007
+      ],
+      "match_id": "excel-Sheet1:row-35__gdb-29",
+      "match_method": "NORMALIZED_EXACT_AREA_NAME",
+      "normalized_area_name": "مصيفجنزور2"
+    }
+  ],
+  "matching_policy": {
+    "approximate_name_matching": false,
+    "area_values": "CORROBORATING_EVIDENCE_ONLY_NOT_A_MATCH_KEY",
+    "coordinates": "CORROBORATING_EVIDENCE_ONLY_NOT_A_MATCH_KEY_OR_BOUNDARY",
+    "fid": "NOT_USED_INCOMPATIBLE_SOURCE_NAMESPACES",
+    "identity": "NORMALIZED_EXACT_AREA_NAME_ONLY"
+  },
+  "publication_approved": false,
+  "reconciled_candidate_count": 146,
+  "schema_version": 1,
+  "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+  "workbook_quality": {
+    "area_hectare_coverage_count": 141,
+    "area_value_inconsistencies": [
+      {
+        "area_name": "العزلية",
+        "difference_square_kilometres": 1.3,
+        "source_calculated_square_kilometres": 1.3,
+        "source_feature_id": "Sheet1:row-69",
+        "source_hectares": 0.0,
+        "source_values_repaired": false
+      },
+      {
+        "area_name": "دليس",
+        "difference_square_kilometres": 1.049,
+        "source_calculated_square_kilometres": 1.049,
+        "source_feature_id": "Sheet1:row-70",
+        "source_hectares": 0.0,
+        "source_values_repaired": false
+      },
+      {
+        "area_name": "راس التين",
+        "difference_square_kilometres": 3.273,
+        "source_calculated_square_kilometres": 3.273,
+        "source_feature_id": "Sheet1:row-71",
+        "source_hectares": 0.0,
+        "source_values_repaired": false
+      },
+      {
+        "area_name": "الاترون",
+        "difference_square_kilometres": 1.652,
+        "source_calculated_square_kilometres": 1.652,
+        "source_feature_id": "Sheet1:row-72",
+        "source_hectares": 0.0,
+        "source_values_repaired": false
+      },
+      {
+        "area_name": "مبنى",
+        "difference_square_kilometres": 0.048,
+        "source_calculated_square_kilometres": 4.841,
+        "source_feature_id": "Sheet1:row-93",
+        "source_hectares": 479.3,
+        "source_values_repaired": false
+      },
+      {
+        "area_name": "العقورية",
+        "difference_square_kilometres": 0.171,
+        "source_calculated_square_kilometres": 13.21,
+        "source_feature_id": "Sheet1:row-95",
+        "source_hectares": 1303.9,
+        "source_values_repaired": false
+      },
+      {
+        "area_name": "بشر",
+        "difference_square_kilometres": 0.098,
+        "source_calculated_square_kilometres": 9.77,
+        "source_feature_id": "Sheet1:row-129",
+        "source_hectares": 967.2,
+        "source_values_repaired": false
+      },
+      {
+        "area_name": "العقيلة",
+        "difference_square_kilometres": 0.182,
+        "source_calculated_square_kilometres": 16.339,
+        "source_feature_id": "Sheet1:row-130",
+        "source_hectares": 1615.7,
+        "source_values_repaired": false
+      },
+      {
+        "area_name": "راس لانوف",
+        "difference_square_kilometres": -0.277,
+        "source_calculated_square_kilometres": 0.0,
+        "source_feature_id": "Sheet1:row-131",
+        "source_hectares": 27.7,
+        "source_values_repaired": false
+      },
+      {
+        "area_name": "قصر أحمد",
+        "difference_square_kilometres": 0.036,
+        "source_calculated_square_kilometres": 3.623,
+        "source_feature_id": "Sheet1:row-137",
+        "source_hectares": 358.7,
+        "source_values_repaired": false
+      }
+    ],
+    "area_value_inconsistency_count": 10,
+    "boundary_point_count_metadata_coverage_count": 141,
+    "calculated_square_kilometre_coverage_count": 141,
+    "column_names": [
+      "المجلد",
+      "الاسم",
+      "FID",
+      "المساحة (هكتار)",
+      "محيط الشكل (Shape_Length)",
+      "الوصف",
+      "X (خط الطول - Longitude)",
+      "Y (خط العرض - Latitude)",
+      "المساحة المحسوبة (كم2)",
+      "عدد نقاط الحدود"
+    ],
+    "duplicate_name_group_count": 0,
+    "duplicate_name_record_count": 0,
+    "fid_coverage_count": 133,
+    "fid_missing_count": 8,
+    "fid_unique_count": 133,
+    "missing_name_count": 1,
+    "shape_length_metadata_coverage_count": 134,
+    "sheet_names": [
+      "Sheet1"
+    ],
+    "source_values_repaired": false,
+    "unique_area_name_count": 140,
+    "xy_coverage_count": 141
+  }
+}

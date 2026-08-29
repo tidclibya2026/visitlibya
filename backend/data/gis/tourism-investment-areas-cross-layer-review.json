@@ -1,0 +1,19 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "comparison_layers": [
+    "HOTELS",
+    "TOURISM_RESORTS",
+    "PARKS"
+  ],
+  "cross_layer_reference_count": 0,
+  "inventory_id": "tourism-investment-areas-cross-layer-review-v1",
+  "layer_code": "TOURISM_INVESTMENT",
+  "polygon_containment_reason": "SOURCE_GDB_AREA_LAYER_CONTAINS_POINTS_ONLY",
+  "polygon_containment_relationship_count": 0,
+  "publication_approved": false,
+  "records": [],
+  "schema_version": 1,
+  "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+}
