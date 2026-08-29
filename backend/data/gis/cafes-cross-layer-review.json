@@ -1,0 +1,100 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "comparison_layers": [
+    "RESTAURANTS"
+  ],
+  "cross_layer_reference_count": 5,
+  "inventory_id": "cafes-cross-layer-review-v1",
+  "layer_code": "CAFES",
+  "publication_approved": false,
+  "records": [
+    {
+      "cafe_institutional_id": "atlas-cafe-944cc6646d09c9ccb3d5",
+      "cafe_name_ar": "إيّلا كافي",
+      "coordinate": [
+        13.193842,
+        32.887823
+      ],
+      "matches": [
+        {
+          "layer_code": "RESTAURANTS",
+          "source_feature_id": "Placemark-32",
+          "source_layer": null
+        }
+      ],
+      "publication_approved": false,
+      "relationship": "CROSS_LAYER_REFERENCE"
+    },
+    {
+      "cafe_institutional_id": "atlas-cafe-084e16e18af170cfedf1",
+      "cafe_name_ar": "حلويات شهرزاد",
+      "coordinate": [
+        13.187186,
+        32.887711
+      ],
+      "matches": [
+        {
+          "layer_code": "RESTAURANTS",
+          "source_feature_id": "Placemark-57",
+          "source_layer": null
+        }
+      ],
+      "publication_approved": false,
+      "relationship": "CROSS_LAYER_REFERENCE"
+    },
+    {
+      "cafe_institutional_id": "atlas-cafe-08460bdc504a20ad2c5a",
+      "cafe_name_ar": "كافي716",
+      "coordinate": [
+        13.187186,
+        32.887711
+      ],
+      "matches": [
+        {
+          "layer_code": "RESTAURANTS",
+          "source_feature_id": "Placemark-57",
+          "source_layer": null
+        }
+      ],
+      "publication_approved": false,
+      "relationship": "CROSS_LAYER_REFERENCE"
+    },
+    {
+      "cafe_institutional_id": "atlas-cafe-c4c3127275f51708fb11",
+      "cafe_name_ar": "البيك للحلويات والعصائر",
+      "coordinate": [
+        13.187186,
+        32.887711
+      ],
+      "matches": [
+        {
+          "layer_code": "RESTAURANTS",
+          "source_feature_id": "Placemark-57",
+          "source_layer": null
+        }
+      ],
+      "publication_approved": false,
+      "relationship": "CROSS_LAYER_REFERENCE"
+    },
+    {
+      "cafe_institutional_id": "atlas-cafe-7403c39562d3d11cb925",
+      "cafe_name_ar": "THE MEATHOUSE",
+      "coordinate": [
+        13.2032859,
+        32.8758394
+      ],
+      "matches": [
+        {
+          "layer_code": "RESTAURANTS",
+          "source_feature_id": "Placemark-11",
+          "source_layer": null
+        }
+      ],
+      "publication_approved": false,
+      "relationship": "CROSS_LAYER_REFERENCE"
+    }
+  ],
+  "schema_version": 1
+}

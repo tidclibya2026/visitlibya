@@ -1,0 +1,537 @@
+{
+  "artifact_status": "SOURCE_REVIEW_ONLY_NOT_PUBLICATION_APPROVAL", 
+  "authoritative_boundary_claimed": false, 
+  "canonical_identity_approved": false, 
+  "extracted_feature_count": 12, 
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          13.202839350000033, 
+          32.89396123000006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهى الفوانيس", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "00218", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "الظهرة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقهى  سياحي", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:1", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "1", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.197951426000031, 
+          32.890744374000064
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهى فروه الظهره", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "00218", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "الظهرة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقهى مركزي", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:2", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "2", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.186526238000056, 
+          32.89145671500006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي الفجر -جالاريا الاروراء", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقاهي سياحية", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:3", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "3", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.182671551000055, 
+          32.894442567000056
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي السرايا", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقهى ومطعم سياحي", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:4", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "4", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.177419754000027, 
+          32.898779982000065
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي ياحزاركم", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقاهي سياحية", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:5", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "5", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.175872238000068, 
+          32.90020999700005
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي قوس ماركوس السياحي", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "00218", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقاهي سياحية", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:6", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "6", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.186623978000057, 
+          32.89142940900007
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي كافيه كازا", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "00218", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع البلدية", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقاهي سياحية", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:7", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "7", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.178209503000062, 
+          32.898616048000065
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي كافيه دا روما", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقاهي سياحية", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:8", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "8", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.14233215300004, 
+          32.878100732000064
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي كافيه كازا حي الاندلس", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "00218", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقاهي سياحية", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:9", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "9", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.133149243000048, 
+          32.874998007000045
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي هافانا", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "00218", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقاهي سياحية", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:10", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "10", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.179117732000066, 
+          32.896129862000066
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي كافيه كازا- برج الساعة", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "00218", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقاهي سياحية", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:11", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "11", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.093618452000044, 
+          32.86241120300008
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Coffee Shops & Suchlike", 
+          "الاسم_العربي_للمرفق": "مقهي لاينوز", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "00218", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مقاهي سياحية", 
+          "نوع_المأكولات": "مشروبات ساخنة"
+        }, 
+        "source_composite_id": "المقاهي_السياحية:12", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "12", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المقاهي_السياحية", 
+        "target_layer": "CAFES", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }
+  ], 
+  "layer_code": "CAFES", 
+  "master_registry_version": "v2", 
+  "publication_approved": false, 
+  "schema_version": 1, 
+  "source_database": "Libya ATLAS Project.gdb", 
+  "source_feature_count": 12, 
+  "source_summary": {
+    "المقاهي_السياحية": {
+      "feature_count": 12, 
+      "geometry_type": "Point"
+    }
+  }, 
+  "type": "FeatureCollection"
+}
