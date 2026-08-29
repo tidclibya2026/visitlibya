@@ -1,0 +1,357 @@
+{
+  "layer_code": "ROCK_ART",
+  "source_file": "اكاكوس.kml",
+  "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+  "source_placemark_count": 430,
+  "rock_art_candidate_count": 46,
+  "canonical_unique_count": 23,
+  "duplicate_count": 23,
+  "duplicate_rule": "Same normalized source name and distance <= 2 metres",
+  "records": [
+    {
+      "canonical_source_position": 113,
+      "duplicate_source_position": 346,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.515549,
+        24.95715
+      ],
+      "duplicate_coordinates": [
+        10.51554,
+        24.95715
+      ],
+      "distance_metres": 0.907,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 114,
+      "duplicate_source_position": 347,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.503531,
+        24.959418
+      ],
+      "duplicate_coordinates": [
+        10.50353,
+        24.95941
+      ],
+      "distance_metres": 0.895,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 115,
+      "duplicate_source_position": 348,
+      "name": "موقع فن صخري أويس",
+      "canonical_coordinates": [
+        10.6007,
+        25.522422
+      ],
+      "duplicate_coordinates": [
+        10.6007,
+        25.52242
+      ],
+      "distance_metres": 0.222,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 116,
+      "duplicate_source_position": 349,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.537751,
+        25.325897
+      ],
+      "duplicate_coordinates": [
+        10.53775,
+        25.32589
+      ],
+      "distance_metres": 0.785,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 118,
+      "duplicate_source_position": 351,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.477319,
+        24.98241
+      ],
+      "duplicate_coordinates": [
+        10.47731,
+        24.98241
+      ],
+      "distance_metres": 0.907,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 119,
+      "duplicate_source_position": 352,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.535949,
+        25.326587
+      ],
+      "duplicate_coordinates": [
+        10.53594,
+        25.32658
+      ],
+      "distance_metres": 1.193,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 120,
+      "duplicate_source_position": 353,
+      "name": "رسوم فن صخري - تاهوين",
+      "canonical_coordinates": [
+        10.60012,
+        25.42324
+      ],
+      "duplicate_coordinates": [
+        10.60012,
+        25.42324
+      ],
+      "distance_metres": 0.0,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 121,
+      "duplicate_source_position": 354,
+      "name": "موقع فن صخري أويس",
+      "canonical_coordinates": [
+        10.600959,
+        25.521704
+      ],
+      "duplicate_coordinates": [
+        10.60095,
+        25.5217
+      ],
+      "distance_metres": 1.007,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 122,
+      "duplicate_source_position": 355,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.329763,
+        25.015363
+      ],
+      "duplicate_coordinates": [
+        10.32976,
+        25.01536
+      ],
+      "distance_metres": 0.45,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 123,
+      "duplicate_source_position": 356,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.595863,
+        25.266652
+      ],
+      "duplicate_coordinates": [
+        10.59586,
+        25.26665
+      ],
+      "distance_metres": 0.375,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 124,
+      "duplicate_source_position": 357,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.581232,
+        25.286949
+      ],
+      "duplicate_coordinates": [
+        10.58123,
+        25.28694
+      ],
+      "distance_metres": 1.021,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 125,
+      "duplicate_source_position": 358,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.526397,
+        25.334942
+      ],
+      "duplicate_coordinates": [
+        10.52639,
+        25.33494
+      ],
+      "distance_metres": 0.738,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 126,
+      "duplicate_source_position": 359,
+      "name": "موقع فن صخري تين الشيخ",
+      "canonical_coordinates": [
+        10.51573,
+        24.958082
+      ],
+      "duplicate_coordinates": [
+        10.51573,
+        24.95808
+      ],
+      "distance_metres": 0.222,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 127,
+      "duplicate_source_position": 360,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.645977,
+        24.919298
+      ],
+      "duplicate_coordinates": [
+        10.64597,
+        24.91929
+      ],
+      "distance_metres": 1.136,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 129,
+      "duplicate_source_position": 362,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.536291,
+        25.3266
+      ],
+      "duplicate_coordinates": [
+        10.53629,
+        25.3266
+      ],
+      "distance_metres": 0.101,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 130,
+      "duplicate_source_position": 363,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.48327,
+        24.981842
+      ],
+      "duplicate_coordinates": [
+        10.48326,
+        24.98184
+      ],
+      "distance_metres": 1.032,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 131,
+      "duplicate_source_position": 364,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.549325,
+        25.023916
+      ],
+      "duplicate_coordinates": [
+        10.54932,
+        25.02391
+      ],
+      "distance_metres": 0.836,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 132,
+      "duplicate_source_position": 365,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.603027,
+        25.520186
+      ],
+      "duplicate_coordinates": [
+        10.60302,
+        25.52018
+      ],
+      "distance_metres": 0.969,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 133,
+      "duplicate_source_position": 366,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.603824,
+        25.520984
+      ],
+      "duplicate_coordinates": [
+        10.60382,
+        25.52098
+      ],
+      "distance_metres": 0.599,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 134,
+      "duplicate_source_position": 367,
+      "name": "موقع فن صخري وادي تيسبت",
+      "canonical_coordinates": [
+        10.522067,
+        25.333376
+      ],
+      "duplicate_coordinates": [
+        10.52206,
+        25.33337
+      ],
+      "distance_metres": 0.97,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 135,
+      "duplicate_source_position": 368,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.476111,
+        24.982528
+      ],
+      "duplicate_coordinates": [
+        10.47611,
+        24.98252
+      ],
+      "distance_metres": 0.895,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 136,
+      "duplicate_source_position": 369,
+      "name": "موقع فن صخري",
+      "canonical_coordinates": [
+        10.515686,
+        25.355281
+      ],
+      "duplicate_coordinates": [
+        10.51568,
+        25.35528
+      ],
+      "distance_metres": 0.613,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    },
+    {
+      "canonical_source_position": 194,
+      "duplicate_source_position": 384,
+      "name": "نقش صخري",
+      "canonical_coordinates": [
+        10.51905,
+        24.852067
+      ],
+      "duplicate_coordinates": [
+        10.51905,
+        24.85206
+      ],
+      "distance_metres": 0.778,
+      "classification": "NEAR_DUPLICATE_SOURCE_COPY"
+    }
+  ]
+}

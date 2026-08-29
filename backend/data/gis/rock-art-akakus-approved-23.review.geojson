@@ -1,0 +1,636 @@
+{
+  "type": "FeatureCollection",
+  "name": "ROCK_ART_AKAKUS_APPROVED_23",
+  "layer_code": "ROCK_ART",
+  "source_file": "اكاكوس.kml",
+  "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+  "source_placemark_count": 430,
+  "rock_art_candidate_count": 46,
+  "approved_unique_count": 23,
+  "duplicate_source_copy_count": 23,
+  "duplicate_distance_threshold_metres": 2.0,
+  "publication_approved": false,
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.515549,
+          24.95715
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-f19e2bd4cb016f15",
+        "institutional_id": "rock-art-f19e2bd4cb016f15",
+        "source_feature_id": "KML:Placemark-113",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 113,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.503531,
+          24.959418
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-216ae0b7ceb11c59",
+        "institutional_id": "rock-art-216ae0b7ceb11c59",
+        "source_feature_id": "KML:Placemark-114",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 114,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.6007,
+          25.522422
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-8e59cf4abe7d6da1",
+        "institutional_id": "rock-art-8e59cf4abe7d6da1",
+        "source_feature_id": "KML:Placemark-115",
+        "name_ar": "موقع فن صخري أويس",
+        "name_original": "موقع فن صخري أويس",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 115,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.537751,
+          25.325897
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-4fdb99f006e32f08",
+        "institutional_id": "rock-art-4fdb99f006e32f08",
+        "source_feature_id": "KML:Placemark-116",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 116,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.477319,
+          24.98241
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-e50f3393b1c8046c",
+        "institutional_id": "rock-art-e50f3393b1c8046c",
+        "source_feature_id": "KML:Placemark-118",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 118,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.535949,
+          25.326587
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-f86a9db38b829772",
+        "institutional_id": "rock-art-f86a9db38b829772",
+        "source_feature_id": "KML:Placemark-119",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 119,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.60012,
+          25.42324
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-76cbdcba1cab687d",
+        "institutional_id": "rock-art-76cbdcba1cab687d",
+        "source_feature_id": "KML:Placemark-120",
+        "name_ar": "رسوم فن صخري - تاهوين",
+        "name_original": "رسوم فن صخري - تاهوين",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 120,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.600959,
+          25.521704
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-aa67b4c1977360ca",
+        "institutional_id": "rock-art-aa67b4c1977360ca",
+        "source_feature_id": "KML:Placemark-121",
+        "name_ar": "موقع فن صخري أويس",
+        "name_original": "موقع فن صخري أويس",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 121,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.329763,
+          25.015363
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-d820ac859864b104",
+        "institutional_id": "rock-art-d820ac859864b104",
+        "source_feature_id": "KML:Placemark-122",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 122,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.595863,
+          25.266652
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-25e2257d5d37ff29",
+        "institutional_id": "rock-art-25e2257d5d37ff29",
+        "source_feature_id": "KML:Placemark-123",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 123,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.581232,
+          25.286949
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-b59ddcb056b58fe5",
+        "institutional_id": "rock-art-b59ddcb056b58fe5",
+        "source_feature_id": "KML:Placemark-124",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 124,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.526397,
+          25.334942
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-22139fc981daf172",
+        "institutional_id": "rock-art-22139fc981daf172",
+        "source_feature_id": "KML:Placemark-125",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 125,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.51573,
+          24.958082
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-cf0ab7f452828be2",
+        "institutional_id": "rock-art-cf0ab7f452828be2",
+        "source_feature_id": "KML:Placemark-126",
+        "name_ar": "موقع فن صخري تين الشيخ",
+        "name_original": "موقع فن صخري تين الشيخ",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 126,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.645977,
+          24.919298
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-4d9264304c277370",
+        "institutional_id": "rock-art-4d9264304c277370",
+        "source_feature_id": "KML:Placemark-127",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 127,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.536291,
+          25.3266
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-2634a6960f605419",
+        "institutional_id": "rock-art-2634a6960f605419",
+        "source_feature_id": "KML:Placemark-129",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 129,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.48327,
+          24.981842
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-ca747d6809327177",
+        "institutional_id": "rock-art-ca747d6809327177",
+        "source_feature_id": "KML:Placemark-130",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 130,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.549325,
+          25.023916
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-60335379c8155b8b",
+        "institutional_id": "rock-art-60335379c8155b8b",
+        "source_feature_id": "KML:Placemark-131",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 131,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.603027,
+          25.520186
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-9a1ce6d53b395d71",
+        "institutional_id": "rock-art-9a1ce6d53b395d71",
+        "source_feature_id": "KML:Placemark-132",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 132,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.603824,
+          25.520984
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-bc891500edb14919",
+        "institutional_id": "rock-art-bc891500edb14919",
+        "source_feature_id": "KML:Placemark-133",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 133,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.522067,
+          25.333376
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-622c77b905f25fa9",
+        "institutional_id": "rock-art-622c77b905f25fa9",
+        "source_feature_id": "KML:Placemark-134",
+        "name_ar": "موقع فن صخري وادي تيسبت",
+        "name_original": "موقع فن صخري وادي تيسبت",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 134,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.476111,
+          24.982528
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-7b57fb59a63fd741",
+        "institutional_id": "rock-art-7b57fb59a63fd741",
+        "source_feature_id": "KML:Placemark-135",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 135,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.515686,
+          25.355281
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-5c442f9cad02e236",
+        "institutional_id": "rock-art-5c442f9cad02e236",
+        "source_feature_id": "KML:Placemark-136",
+        "name_ar": "موقع فن صخري",
+        "name_original": "موقع فن صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 136,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.51905,
+          24.852067
+        ]
+      },
+      "properties": {
+        "feature_code": "rock-art-428ae7c2a13553ee",
+        "institutional_id": "rock-art-428ae7c2a13553ee",
+        "source_feature_id": "KML:Placemark-194",
+        "name_ar": "نقش صخري",
+        "name_original": "نقش صخري",
+        "category": "rock_art",
+        "layer_code": "ROCK_ART",
+        "source_file": "اكاكوس.kml",
+        "source_placemark_position": 194,
+        "source_sha256": "9A245F4F60E6DDCB425D04D7875BFB382DF337A56D48892F12ED3B300CE55832",
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false
+      }
+    }
+  ]
+}
