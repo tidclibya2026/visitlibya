@@ -104,6 +104,46 @@ def test_default_ingestion_is_validated_but_unapproved_and_unpublished(tmp_path:
     assert session.commits == 1
 
 
+def test_institutionally_approved_ingestion_remains_unpublished(tmp_path: Path):
+    approved = feature()
+    approved["properties"].update({
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": True,
+        "publication_approved": False,
+        "is_published": False,
+    })
+    path = write_geojson(tmp_path / "approved.geojson", [approved])
+    session = FakeSession()
+    ingestion.ingest(
+        geojson_path=path,
+        layer_code="NATURAL_SITES",
+        source_layer="approved-synthetic-test",
+        institutionally_approved=True,
+        session_factory=lambda: session,
+    )
+    entity = session.added[0]
+    assert entity.review_status.value == "approved"
+    assert entity.authority_status.value == "approved"
+    assert entity.is_validated is True
+    assert entity.is_published is False
+    assert session.commits == 1
+
+
+def test_approved_ingestion_fails_closed_without_exact_governance_fields(tmp_path: Path):
+    path = write_geojson(tmp_path / "not-approved.geojson", [feature()])
+    with pytest.raises(
+        ingestion.GovernedGISIngestionError,
+        match="Institutionally approved ingestion requires",
+    ):
+        ingestion.ingest(
+            geojson_path=path,
+            layer_code="NATURAL_SITES",
+            source_layer="synthetic-test",
+            institutionally_approved=True,
+        )
+
+
 def test_idempotent_update_does_not_duplicate(tmp_path: Path):
     path = write_geojson(tmp_path / "input.geojson", [feature()])
     existing = GovernedGISFeature(

@@ -22,6 +22,7 @@ class GISReviewStatus(str, enum.Enum):
     DRAFT = "draft"
     UNDER_REVIEW = "under_review"
     REVIEWED = "reviewed"
+    APPROVED = "approved"
 
 
 class GISAuthorityStatus(str, enum.Enum):

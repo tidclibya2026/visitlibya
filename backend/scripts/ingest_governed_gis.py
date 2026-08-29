@@ -163,6 +163,7 @@ def _apply_feature(
     *,
     source_layer: str,
     source_database: str | None,
+    institutionally_approved: bool = False,
 ) -> None:
     properties = feature.properties
     entity.institutional_id = feature.institutional_id
@@ -184,8 +185,14 @@ def _apply_feature(
     entity.source_identity = properties.get("source_identity")
     entity.source_geometry_sha256 = feature.geometry_sha256
     entity.source_metadata = dict(properties.get("source_metadata") or {})
-    entity.review_status = GISReviewStatus.UNDER_REVIEW
-    entity.authority_status = GISAuthorityStatus.UNAPPROVED
+    entity.review_status = (
+        GISReviewStatus.APPROVED
+        if institutionally_approved else GISReviewStatus.UNDER_REVIEW
+    )
+    entity.authority_status = (
+        GISAuthorityStatus.APPROVED
+        if institutionally_approved else GISAuthorityStatus.UNAPPROVED
+    )
     entity.validation_status = GISValidationStatus.VALID
     entity.is_validated = True
     entity.is_published = False
@@ -193,13 +200,24 @@ def _apply_feature(
     entity.published_at = None
 
 
-def print_report(validated: ValidatedGISInput, *, dry_run: bool) -> None:
+def print_report(
+    validated: ValidatedGISInput, *, dry_run: bool,
+    institutionally_approved: bool = False,
+) -> None:
     print("GOVERNED GIS INGESTION DRY RUN" if dry_run else "GOVERNED GIS INGESTION COMPLETE")
     print("LAYER:", validated.layer.layer_code)
     print("FEATURE COUNT:", len(validated.features))
     print("GEOMETRY TYPES:", ",".join(sorted({f.geometry_type for f in validated.features})))
-    print("REVIEW STATUS:", GISReviewStatus.UNDER_REVIEW.value)
-    print("AUTHORITY STATUS:", GISAuthorityStatus.UNAPPROVED.value)
+    print(
+        "REVIEW STATUS:",
+        GISReviewStatus.APPROVED.value
+        if institutionally_approved else GISReviewStatus.UNDER_REVIEW.value,
+    )
+    print(
+        "AUTHORITY STATUS:",
+        GISAuthorityStatus.APPROVED.value
+        if institutionally_approved else GISAuthorityStatus.UNAPPROVED.value,
+    )
     print("VALIDATION STATUS:", GISValidationStatus.VALID.value)
     print("VALIDATED:", True)
     print("PUBLISHED:", False)
@@ -212,13 +230,31 @@ def ingest(
     source_layer: str,
     source_database: str | None = None,
     dry_run: bool = False,
+    institutionally_approved: bool = False,
     session_factory: Callable[[], Session] = SessionLocal,
 ) -> ValidatedGISInput:
     if not source_layer.strip():
         raise GovernedGISIngestionError("source_layer is required")
     validated = validate_geojson(geojson_path, layer_code)
+    if institutionally_approved:
+        for feature in validated.features:
+            properties = feature.properties
+            if (
+                properties.get("authority_status") != "APPROVED"
+                or properties.get("review_status") != "APPROVED"
+                or properties.get("canonical_identity_approved") is not True
+                or properties.get("publication_approved") is not False
+                or properties.get("is_published") is not False
+            ):
+                raise GovernedGISIngestionError(
+                    "Institutionally approved ingestion requires approved authority/review, "
+                    "canonical identity approval, and separate unpublished publication state"
+                )
     if dry_run:
-        print_report(validated, dry_run=True)
+        print_report(
+            validated, dry_run=True,
+            institutionally_approved=institutionally_approved,
+        )
         return validated
     session = session_factory()
     try:
@@ -258,6 +294,7 @@ def ingest(
                 entity, feature, validated,
                 source_layer=source_layer.strip(),
                 source_database=source_database,
+                institutionally_approved=institutionally_approved,
             )
         session.commit()
     except Exception:
@@ -265,7 +302,10 @@ def ingest(
         raise
     finally:
         session.close()
-    print_report(validated, dry_run=False)
+    print_report(
+        validated, dry_run=False,
+        institutionally_approved=institutionally_approved,
+    )
     return validated
 
 
@@ -276,6 +316,10 @@ def main() -> int:
     parser.add_argument("--source-layer", required=True)
     parser.add_argument("--source-database")
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument(
+        "--institutionally-approved", action="store_true",
+        help="Ingest an explicitly approved governed artifact without publishing it",
+    )
     args = parser.parse_args()
     try:
         ingest(
@@ -284,6 +328,7 @@ def main() -> int:
             source_layer=args.source_layer,
             source_database=args.source_database,
             dry_run=args.dry_run,
+            institutionally_approved=args.institutionally_approved,
         )
     except Exception as exc:
         print(f"GOVERNED GIS INGESTION FAILED: {exc}")

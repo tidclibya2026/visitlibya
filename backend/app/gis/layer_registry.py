@@ -150,7 +150,8 @@ LAYER_REGISTRY: dict[str, GovernedGISLayer] = {
         _layer(
             "TOURISM_INVESTMENT", "مناطق التنمية والاستثمار السياحي", "Tourism Development and Investment Areas",
             "tourism_investment", GeometryFamily.MIXED,
-            "Stable API code for TOURISM_DEVELOPMENT_INVESTMENT_AREAS. Reserved only for institutionally reconciled tourism development and investment areas; individual investment projects are excluded, representative points do not establish boundaries, and no boundary is inferred.",
+            "Stable API code for TOURISM_DEVELOPMENT_INVESTMENT_AREAS. Authority is the institutionally reconciled 141-area Excel/KML source pair; individual investment projects and the deprecated mixed investment KML are excluded.",
+            allowed_geometry_types=frozenset({"POLYGON", "MULTIPOLYGON"}),
         ),
         _layer(
             "HOTELS", "الفنادق", "Hotels",
