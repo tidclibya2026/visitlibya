@@ -174,6 +174,12 @@ LAYER_REGISTRY: dict[str, GovernedGISLayer] = {
             "Reserved for institutionally resolved cafe locations and branches; matching names alone do not establish duplicate identity.",
         ),
         _layer(
+            "MUSEUMS", "المتاحف", "Museums",
+            "museum", GeometryFamily.POINT,
+            "Institutionally approved museum locations from atlas/المتاحف.kml; exactly 15 unique museum records are approved for governed ingestion. Exact duplicates and non-museum semantic records are excluded.",
+            allowed_geometry_types=frozenset({"POINT"}),
+        ),
+        _layer(
             "ROCK_ART", "الفنون الصخرية", "Rock Art",
             "rock_art", GeometryFamily.MIXED,
             "Reserved for reviewed rock-art features and sites.",

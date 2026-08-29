@@ -1,0 +1,401 @@
+{
+  "type": "FeatureCollection",
+  "layer_code": "MUSEUMS",
+  "source_record_count": 33,
+  "approved_feature_count": 15,
+  "duplicate_excluded_count": 12,
+  "semantic_excluded_count": 6,
+  "publication_approved": false,
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-001",
+        "name_ar": "متحف الملك ادريس السنوسي",
+        "name_original": "متحف الملك ادريس السنوسي",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 1,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-001",
+        "source_feature_id": "KML:Placemark-1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          24.518,
+          29.747
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-002",
+        "name_ar": "متحف سلطان الاثري",
+        "name_original": "متحف سلطان الاثري",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 2,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-002",
+        "source_feature_id": "KML:Placemark-2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.101,
+          31.123
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-003",
+        "name_ar": null,
+        "name_original": "Museo Púnico (Cartago)",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 3,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-003",
+        "source_feature_id": "KML:Placemark-3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.482,
+          32.804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-004",
+        "name_ar": "المتحف الإسلامي",
+        "name_original": "المتحف الإسلامي",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 4,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-004",
+        "source_feature_id": "KML:Placemark-4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.183,
+          32.877
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-005",
+        "name_ar": "المتحف التاريخي",
+        "name_original": "المتحف التاريخي",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 5,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-005",
+        "source_feature_id": "KML:Placemark-5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          15.091,
+          32.375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-006",
+        "name_ar": "المتحف الحربي اجدابيا",
+        "name_original": "المتحف الحربي اجدابيا",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 6,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-006",
+        "source_feature_id": "KML:Placemark-6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.199,
+          30.718
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-007",
+        "name_ar": "المتحف الوطني",
+        "name_original": "المتحف الوطني",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 7,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-007",
+        "source_feature_id": "KML:Placemark-7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          23.977,
+          32.082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-008",
+        "name_ar": "متحف اجدابيا",
+        "name_original": "متحف اجدابيا",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 10,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-008",
+        "source_feature_id": "KML:Placemark-10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          20.224,
+          30.758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-009",
+        "name_ar": "متحف السرايا الحمراء",
+        "name_original": "متحف السرايا الحمراء",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 11,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-009",
+        "source_feature_id": "KML:Placemark-11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.181,
+          32.896
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-010",
+        "name_ar": "متحف الغزالات",
+        "name_original": "متحف الغزالات",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 12,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-010",
+        "source_feature_id": "KML:Placemark-12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.567,
+          32.474
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-011",
+        "name_ar": "متحف جنزور",
+        "name_original": "متحف جنزور",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 13,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-011",
+        "source_feature_id": "KML:Placemark-13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.028,
+          32.828
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-012",
+        "name_ar": "متحف سليمان باشا الباروني الاثري",
+        "name_original": "متحف سليمان باشا الباروني الاثري",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 14,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-012",
+        "source_feature_id": "KML:Placemark-14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.026,
+          31.96
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-013",
+        "name_ar": "متحف صرمان البلدي",
+        "name_original": "متحف صرمان البلدي",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 15,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-013",
+        "source_feature_id": "KML:Placemark-15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          12.575,
+          32.755
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-014",
+        "name_ar": "متحف قصر ليبيا",
+        "name_original": "متحف قصر ليبيا",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 16,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-014",
+        "source_feature_id": "KML:Placemark-16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          21.397,
+          32.631
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "institutional_id": "museum-015",
+        "name_ar": "متحف نالوت للديناصورات",
+        "name_original": "متحف نالوت للديناصورات",
+        "category": "museum",
+        "layer_code": "MUSEUMS",
+        "source_file": "المتاحف.kml",
+        "source_placemark_position": 17,
+        "authority_status": "APPROVED",
+        "review_status": "APPROVED",
+        "canonical_identity_approved": true,
+        "publication_approved": false,
+        "is_published": false,
+        "feature_code": "museum-015",
+        "source_feature_id": "KML:Placemark-17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          10.983,
+          31.865
+        ]
+      }
+    }
+  ]
+}
