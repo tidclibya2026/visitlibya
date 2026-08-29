@@ -1,0 +1,2319 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "blocked_feature_count": 117,
+  "canonical_identity_approved": false,
+  "classification_counts": {
+    "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW": 109,
+    "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW": 5,
+    "MISSING_IDENTITY_REVIEW": 1,
+    "SAFE_INVESTMENT_AREA_REFERENCE_POINT": 29,
+    "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW": 2
+  },
+  "excel_only_count": 110,
+  "excel_record_count": 141,
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          13.362416082000038,
+          32.89548082500005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "24.01",
+        "calculated_square_kilometres_source": "0.24099999999999999",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-11338246b39ed9519d46",
+        "institutional_id": "atlas-investment-area-11338246b39ed9519d46",
+        "name_ar": "الأندلسي",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "10",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-51|مناطق_التنمية_والاستثمار_السياحي_1:10",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.058057,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.361881,
+            32.895216
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-51",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-51",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "49",
+            "X (خط الطول - Longitude)": "13.361881",
+            "Y (خط العرض - Latitude)": "32.895215999999998",
+            "الاسم": "الأندلسي",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "24.01",
+            "المساحة المحسوبة (كم2)": "0.24099999999999999",
+            "الوصف": "الأندلسي | | FID 49 | إسم_ا الأندلسي | AREA 24.01 | المسا المساحة=24.00هكتار | Shape_Leng 3205.244994",
+            "عدد نقاط الحدود": "159",
+            "محيط الشكل (Shape_Length)": "3205.2449940000001"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:10",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "10",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 346835.0,
+            "Y": 3640889.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "الاندلسي",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "المشاي",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.325601280000058,
+          32.89589505200007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "42.61",
+        "calculated_square_kilometres_source": "0.42699999999999999",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-8b97e41088cc0de457cb",
+        "institutional_id": "atlas-investment-area-8b97e41088cc0de457cb",
+        "name_ar": "الجولف",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "13",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-45|مناطق_التنمية_والاستثمار_السياحي_1:13",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.074542,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.325811,
+            32.895249
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-45",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-45",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "43",
+            "X (خط الطول - Longitude)": "13.325811",
+            "Y (خط العرض - Latitude)": "32.895249",
+            "الاسم": "الجولف",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "42.61",
+            "المساحة المحسوبة (كم2)": "0.42699999999999999",
+            "الوصف": "الجولف | | FID 43 | إسم_ا الجولف | AREA 42.61 | المسا المساحة=42.61هكتار | Shape_Leng 3569.688965",
+            "عدد نقاط الحدود": "624",
+            "محيط الشكل (Shape_Length)": "3569.6889649999998"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:13",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "13",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 343392.0,
+            "Y": 3640989.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "الجولف",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "البرهانية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.341984738000065,
+          32.895013101000075
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "13.97",
+        "calculated_square_kilometres_source": "0.14000000000000001",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-d4c6156651bc358ca8ff",
+        "institutional_id": "atlas-investment-area-d4c6156651bc358ca8ff",
+        "name_ar": "الحرية",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "12",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-46|مناطق_التنمية_والاستثمار_السياحي_1:12",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.025862,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.342192,
+            32.895167
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-46",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-46",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "44",
+            "X (خط الطول - Longitude)": "13.342192000000001",
+            "Y (خط العرض - Latitude)": "32.895167000000001",
+            "الاسم": "الحرية",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "13.97",
+            "المساحة المحسوبة (كم2)": "0.14000000000000001",
+            "الوصف": "الحرية | | FID 44 | إسم_ا الحرية | AREA 13.97 | المسا المساحة=13.97هكتار | Shape_Leng 2640.610467",
+            "عدد نقاط الحدود": "169",
+            "محيط الشكل (Shape_Length)": "2640.610467"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:12",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "12",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 344923.0,
+            "Y": 3640867.0,
+            "الاس_1": "Al Huriya",
+            "الاسم": "الحرية",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الحرية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.400639714000022,
+          32.88210433900008
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "15.09",
+        "calculated_square_kilometres_source": "0.151",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-8c401894fcaf32974ab9",
+        "institutional_id": "atlas-investment-area-8c401894fcaf32974ab9",
+        "name_ar": "الحميدية",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "7",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-48|مناطق_التنمية_والاستثمار_السياحي_1:7",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.104378,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.399701,
+            32.882612
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-48",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-48",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "46",
+            "X (خط الطول - Longitude)": "13.399701",
+            "Y (خط العرض - Latitude)": "32.882612000000002",
+            "الاسم": "الحميدية",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "15.09",
+            "المساحة المحسوبة (كم2)": "0.151",
+            "الوصف": "الحميدية | | FID 46 | إسم_ا الحميدية | AREA 15.09 | المسا المساحة=15.09هكتار | Shape_Leng 3680.239824",
+            "عدد نقاط الحدود": "187",
+            "محيط الشكل (Shape_Length)": "3680.2398240000002"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:7",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "7",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 350388.0,
+            "Y": 3639351.0,
+            "الاس_1": "Al Hmidiya",
+            "الاسم": "الحميدية",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الحميدية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.392954502000066,
+          32.890979781000055
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "5.47",
+        "calculated_square_kilometres_source": "5.5E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-89a53016b4ac26f9bcd9",
+        "institutional_id": "atlas-investment-area-89a53016b4ac26f9bcd9",
+        "name_ar": "الدخلة الجنوبية",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "8",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-43|مناطق_التنمية_والاستثمار_السياحي_1:8",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.051466,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.393326,
+            32.891321
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-43",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-43",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "41",
+            "X (خط الطول - Longitude)": "13.393326",
+            "Y (خط العرض - Latitude)": "32.891320999999998",
+            "الاسم": "الدخلة الجنوبية",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "5.47",
+            "المساحة المحسوبة (كم2)": "5.5E-2",
+            "الوصف": "الدخلة الجنوبية | | FID 41 | إسم_ا الدخلة الجنوبية | AREA 5.47 | المسا المساحة=5.465هكتار | Shape_Leng 1097.861342",
+            "عدد نقاط الحدود": "211",
+            "محيط الشكل (Shape_Length)": "1097.8613419999999"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:8",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "8",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 349684.0,
+            "Y": 3640346.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "الدخلة الجنوبية",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الحميدية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.390575952000063,
+          32.89423212200006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "11.4",
+        "calculated_square_kilometres_source": "0.114",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-b1293a2f08672fc61d56",
+        "institutional_id": "atlas-investment-area-b1293a2f08672fc61d56",
+        "name_ar": "الدخلة الشمالية",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "9",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-42|مناطق_التنمية_والاستثمار_السياحي_1:9",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.069821,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.389956,
+            32.894582
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-42",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-42",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "40",
+            "X (خط الطول - Longitude)": "13.389956",
+            "Y (خط العرض - Latitude)": "32.894582",
+            "الاسم": "الدخلة الشمالية",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "11.4",
+            "المساحة المحسوبة (كم2)": "0.114",
+            "الوصف": "الدخلة الشمالية | | FID 40 | إسم_ا الدخلة الشمالية | AREA 11.4 | المسا المساحة=11.39هكتار | Shape_Leng 1883.88275",
+            "عدد نقاط الحدود": "455",
+            "محيط الشكل (Shape_Length)": "1883.88275"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:9",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "9",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 349467.0,
+            "Y": 3640710.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "الدخلة الشمالية",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الحميدية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.275439035000034,
+          32.90874135200005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "1.5",
+        "calculated_square_kilometres_source": "1.4999999999999999E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-610813958f3a5aa629ab",
+        "institutional_id": "atlas-investment-area-610813958f3a5aa629ab",
+        "name_ar": "الدلفين",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "15",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-39|مناطق_التنمية_والاستثمار_السياحي_1:15",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.018284,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.275305,
+            32.908861
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-39",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-39",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "37",
+            "X (خط الطول - Longitude)": "13.275304999999999",
+            "Y (خط العرض - Latitude)": "32.908861000000002",
+            "الاسم": "الدلفين",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "1.5",
+            "المساحة المحسوبة (كم2)": "1.4999999999999999E-2",
+            "الوصف": "الدلفين | | FID 37 | إسم_ا الدلفين | AREA 1.5 | المسا المساحة=1.500هكتار | Shape_Leng 507.121211",
+            "عدد نقاط الحدود": "38",
+            "محيط الشكل (Shape_Length)": "507.12121100000002"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:15",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "15",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 338723.0,
+            "Y": 3642489.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "الدلفين",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "مطار معيتيقة",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.00412351400007,
+          32.83567700000003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "5.16",
+        "calculated_square_kilometres_source": "5.1999999999999998E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-1bd976ecd3f6ff239ca0",
+        "institutional_id": "atlas-investment-area-1bd976ecd3f6ff239ca0",
+        "name_ar": "السياحية",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "31",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-21|مناطق_التنمية_والاستثمار_السياحي_1:31",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.025871,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.004388,
+            32.835609
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-21",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-21",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "19",
+            "X (خط الطول - Longitude)": "13.004388000000001",
+            "Y (خط العرض - Latitude)": "32.835608999999998",
+            "الاسم": "السياحية",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "5.16",
+            "المساحة المحسوبة (كم2)": "5.1999999999999998E-2",
+            "الوصف": "السياحية | | FID 19 | إسم_ا السياحية | AREA 5.16 | المسا المساحة=5.163هكتار | Shape_Leng 964.080689",
+            "عدد نقاط الحدود": "36",
+            "محيط الشكل (Shape_Length)": "964.08068900000001"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:31",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "31",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 313193.0,
+            "Y": 3634835.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "السياحية",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "سيدي عبد اللط",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.052899465000053,
+          32.84790803300007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "71.900000000000006",
+        "calculated_square_kilometres_source": "0.72099999999999997",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-e7c5f04e9f88f3487e6b",
+        "institutional_id": "atlas-investment-area-e7c5f04e9f88f3487e6b",
+        "name_ar": "الغيران",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "21",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-36|مناطق_التنمية_والاستثمار_السياحي_1:21",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.079498,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.052798,
+            32.847199
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-36",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-36",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "34",
+            "X (خط الطول - Longitude)": "13.052797999999999",
+            "Y (خط العرض - Latitude)": "32.847199000000003",
+            "الاسم": "الغيران",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "71.900000000000006",
+            "المساحة المحسوبة (كم2)": "0.72099999999999997",
+            "الوصف": "الغيران | | FID 34 | إسم_ا الغيران | AREA 71.9 | المسا المساحة=71.90هكتار | Shape_Leng 5249.3576",
+            "عدد نقاط الحدود": "1102",
+            "محيط الشكل (Shape_Length)": "5249.3576000000003"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:21",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "21",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 317784.0,
+            "Y": 3636106.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "الغيران",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الشرقية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.383143443000051,
+          32.896147461000055
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "17.54",
+        "calculated_square_kilometres_source": "0.17599999999999999",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-3a904058c00222a3a4f2",
+        "institutional_id": "atlas-investment-area-3a904058c00222a3a4f2",
+        "name_ar": "المنارة",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "11",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-47|مناطق_التنمية_والاستثمار_السياحي_1:11",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.033965,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.383068,
+            32.895849
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-47",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-47",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "45",
+            "X (خط الطول - Longitude)": "13.383068",
+            "Y (خط العرض - Latitude)": "32.895848999999998",
+            "الاسم": "المنارة",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "17.54",
+            "المساحة المحسوبة (كم2)": "0.17599999999999999",
+            "الوصف": "المنارة | | FID 45 | إسم_ا المنارة | AREA 17.54 | المسا المساحة=17.53هكتار | Shape_Leng 2051.104484",
+            "عدد نقاط الحدود": "362",
+            "محيط الشكل (Shape_Length)": "2051.104484"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:11",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "11",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 348775.0,
+            "Y": 3640933.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "المنارة",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الحميدية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.237011873000029,
+          32.90986466100003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "4.32",
+        "calculated_square_kilometres_source": "4.2999999999999997E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-81846e88daeaf17a8570",
+        "institutional_id": "atlas-investment-area-81846e88daeaf17a8570",
+        "name_ar": "النادي البحري",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "17",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-40|مناطق_التنمية_والاستثمار_السياحي_1:17",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.011527,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.236903,
+            32.909816
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-40",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-40",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "38",
+            "X (خط الطول - Longitude)": "13.236903",
+            "Y (خط العرض - Latitude)": "32.909815999999999",
+            "الاسم": "النادي البحري",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "4.32",
+            "المساحة المحسوبة (كم2)": "4.2999999999999997E-2",
+            "الوصف": "النادي البحري | | FID 38 | إسم_ا النادي البحري | AREA 4.32 | المسا المساحة=4.315هكتار | Shape_Leng 899.904046",
+            "عدد نقاط الحدود": "24",
+            "محيط الشكل (Shape_Length)": "899.90404599999999"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:17",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "17",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 335131.0,
+            "Y": 3642673.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "النادي البحري",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الساحل",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.552700507000054,
+          32.81047573700005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "31.13",
+        "calculated_square_kilometres_source": "0.312",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-0ee9de2cd76d54a9d028",
+        "institutional_id": "atlas-investment-area-0ee9de2cd76d54a9d028",
+        "name_ar": "النشيع",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "2",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-52|مناطق_التنمية_والاستثمار_السياحي_1:2",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.084322,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.55205,
+            32.811
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-52",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-52",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "50",
+            "X (خط الطول - Longitude)": "13.552049999999999",
+            "Y (خط العرض - Latitude)": "32.811",
+            "الاسم": "النشيع",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "31.13",
+            "المساحة المحسوبة (كم2)": "0.312",
+            "الوصف": "النشيع | | FID 50 | إسم_ا النشيع | AREA 31.13 | المسا المساحة=31.12هكتار | Shape_Leng 3541.574484",
+            "عدد نقاط الحدود": "310",
+            "محيط الشكل (Shape_Length)": "3541.5744840000002"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:2",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "2",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 364505.0,
+            "Y": 3631204.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "النشيع",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الوادي الشرقي",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.000986075000071,
+          32.835058755000034
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "4.79",
+        "calculated_square_kilometres_source": "4.8000000000000001E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-66f64834193cf2c31df5",
+        "institutional_id": "atlas-investment-area-66f64834193cf2c31df5",
+        "name_ar": "جنزور-1",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "32",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-23|مناطق_التنمية_والاستثمار_السياحي_1:32",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.019606,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.00119,
+            32.835018
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-23",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-23",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "21",
+            "X (خط الطول - Longitude)": "13.001189999999999",
+            "Y (خط العرض - Latitude)": "32.835017999999998",
+            "الاسم": "جنزور-1",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "4.79",
+            "المساحة المحسوبة (كم2)": "4.8000000000000001E-2",
+            "الوصف": "جنزور-1 | | FID 21 | إسم_ا جنزور-1 | AREA 4.79 | المسا المساحة=4.785هكتار | Shape_Leng 958.622813",
+            "عدد نقاط الحدود": "56",
+            "محيط الشكل (Shape_Length)": "958.62281299999995"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:32",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "32",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 312898.0,
+            "Y": 3634772.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "جنزور 1",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "سيدي عبد اللط",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.997438300000056,
+          32.834163310000065
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "6.05",
+        "calculated_square_kilometres_source": "6.0999999999999999E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-2dd3fd8c8b3281f04f78",
+        "institutional_id": "atlas-investment-area-2dd3fd8c8b3281f04f78",
+        "name_ar": "جنزور-2",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "33",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-24|مناطق_التنمية_والاستثمار_السياحي_1:33",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.01418,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            12.997586,
+            32.834192
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-24",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-24",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "22",
+            "X (خط الطول - Longitude)": "12.997586",
+            "Y (خط العرض - Latitude)": "32.834192000000002",
+            "الاسم": "جنزور-2",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "6.05",
+            "المساحة المحسوبة (كم2)": "6.0999999999999999E-2",
+            "الوصف": "جنزور-2 | | FID 22 | إسم_ا جنزور-2 | AREA 6.05 | المسا المساحة=6.054هكتار | Shape_Leng 1173.40131",
+            "عدد نقاط الحدود": "533",
+            "محيط الشكل (Shape_Length)": "1173.40131"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:33",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "33",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 312564.0,
+            "Y": 3634679.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "جنزور 2",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "سيدي عبد اللط",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.99456056400004,
+          32.832926798000074
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "5.12",
+        "calculated_square_kilometres_source": "5.0999999999999997E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-0803914e7306715995e7",
+        "institutional_id": "atlas-investment-area-0803914e7306715995e7",
+        "name_ar": "جنزور-3",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "34",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-25|مناطق_التنمية_والاستثمار_السياحي_1:34",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.036978,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            12.994218,
+            32.832761
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-25",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-25",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "23",
+            "X (خط الطول - Longitude)": "12.994218",
+            "Y (خط العرض - Latitude)": "32.832760999999998",
+            "الاسم": "جنزور-3",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "5.12",
+            "المساحة المحسوبة (كم2)": "5.0999999999999997E-2",
+            "الوصف": "جنزور-3 | | FID 23 | إسم_ا جنزور-3 | AREA 5.12 | المسا المساحة=5.122هكتار | Shape_Leng 1134.028582",
+            "عدد نقاط الحدود": "151",
+            "محيط الشكل (Shape_Length)": "1134.0285819999999"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:34",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "34",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 312292.0,
+            "Y": 3634547.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "جنزور 3",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "سيدي عبد اللط",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.150717800000052,
+          32.880587794000064
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "4.9000000000000004",
+        "calculated_square_kilometres_source": "4.9000000000000002E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-da992b79fa7dfb057e28",
+        "institutional_id": "atlas-investment-area-da992b79fa7dfb057e28",
+        "name_ar": "حي الأندلس-1",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "19",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-38|مناطق_التنمية_والاستثمار_السياحي_1:19",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.065352,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.150047,
+            32.880753
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-38",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-38",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "36",
+            "X (خط الطول - Longitude)": "13.150047000000001",
+            "Y (خط العرض - Latitude)": "32.880752999999999",
+            "الاسم": "حي الأندلس-1",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "4.9000000000000004",
+            "المساحة المحسوبة (كم2)": "4.9000000000000002E-2",
+            "الوصف": "حي الأندلس-1 | | FID 36 | إسم_ا حي الأندلس-1 | AREA 4.9 | المسا المساحة=4.902هكتار | Shape_Leng 1424.418549",
+            "عدد نقاط الحدود": "44",
+            "محيط الشكل (Shape_Length)": "1424.418549"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:19",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "19",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 327003.0,
+            "Y": 3639565.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "حي الاندلس1",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "قرقارش",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.145794145000025,
+          32.88092973600004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "4.16",
+        "calculated_square_kilometres_source": "4.2000000000000003E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-be13f3164133e65bfd02",
+        "institutional_id": "atlas-investment-area-be13f3164133e65bfd02",
+        "name_ar": "حي الأندلس-2",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "20",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-37|مناطق_التنمية_والاستثمار_السياحي_1:20",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.018865,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.145649,
+            32.880812
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-37",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-37",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "35",
+            "X (خط الطول - Longitude)": "13.145649000000001",
+            "Y (خط العرض - Latitude)": "32.880811999999999",
+            "الاسم": "حي الأندلس-2",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "4.16",
+            "المساحة المحسوبة (كم2)": "4.2000000000000003E-2",
+            "الوصف": "حي الأندلس-2 | | FID 35 | إسم_ا حي الأندلس-2 | AREA 4.16 | المسا المساحة=4.161هكتار | Shape_Leng 901.829485",
+            "عدد نقاط الحدود": "39",
+            "محيط الشكل (Shape_Length)": "901.82948499999998"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:20",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "20",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 326543.0,
+            "Y": 3639611.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "حي الاندلس2",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "قرقارش",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.036216882000076,
+          32.84764725200006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "3.75",
+        "calculated_square_kilometres_source": "3.7999999999999999E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-51bb1bec673e678efc55",
+        "institutional_id": "atlas-investment-area-51bb1bec673e678efc55",
+        "name_ar": "سيدي عبدالجليل-1",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "22",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-26|مناطق_التنمية_والاستثمار_السياحي_1:22",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.020026,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.03602,
+            32.847718
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-26",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-26",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "24",
+            "X (خط الطول - Longitude)": "13.036020000000001",
+            "Y (خط العرض - Latitude)": "32.847718",
+            "الاسم": "سيدي عبدالجليل-1",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "3.75",
+            "المساحة المحسوبة (كم2)": "3.7999999999999999E-2",
+            "الوصف": "سيدي عبدالجليل-1 | | FID 24 | إسم_ا سيدي عبدالجليل-1 | AREA 3.75 | المسا المساحة=3.752هكتار | Shape_Leng 928.096022",
+            "عدد نقاط الحدود": "190",
+            "محيط الشكل (Shape_Length)": "928.09602199999995"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:22",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "22",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 316222.0,
+            "Y": 3636106.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "سيدي عبدالجليل1",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الشرقية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.034428176000063,
+          32.84736663900003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "1.85",
+        "calculated_square_kilometres_source": "1.9E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-82b9125b6640972b0b40",
+        "institutional_id": "atlas-investment-area-82b9125b6640972b0b40",
+        "name_ar": "سيدي عبدالجليل-2",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "23",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-27|مناطق_التنمية_والاستثمار_السياحي_1:23",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.008608,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.03452,
+            32.847372
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-27",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-27",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "25",
+            "X (خط الطول - Longitude)": "13.034520000000001",
+            "Y (خط العرض - Latitude)": "32.847372",
+            "الاسم": "سيدي عبدالجليل-2",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "1.85",
+            "المساحة المحسوبة (كم2)": "1.9E-2",
+            "الوصف": "سيدي عبدالجليل-2 | | FID 25 | إسم_ا سيدي عبدالجليل-2 | AREA 1.85 | المسا المساحة=1.847هكتار | Shape_Leng 659.537489",
+            "عدد نقاط الحدود": "36",
+            "محيط الشكل (Shape_Length)": "659.53748900000005"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:23",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "23",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 316054.0,
+            "Y": 3636078.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "سيدي عبدالجليل2",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الشرقية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.033355646000075,
+          32.84707021500003
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "2.85",
+        "calculated_square_kilometres_source": "2.9000000000000001E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-c515861dd5d9f27c5b2c",
+        "institutional_id": "atlas-investment-area-c515861dd5d9f27c5b2c",
+        "name_ar": "سيدي عبدالجليل-3",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "24",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-28|مناطق_التنمية_والاستثمار_السياحي_1:24",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.016591,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.033337,
+            32.846922
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-28",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-28",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "26",
+            "X (خط الطول - Longitude)": "13.033337",
+            "Y (خط العرض - Latitude)": "32.846921999999999",
+            "الاسم": "سيدي عبدالجليل-3",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "2.85",
+            "المساحة المحسوبة (كم2)": "2.9000000000000001E-2",
+            "الوصف": "سيدي عبدالجليل-3 | | FID 26 | إسم_ا سيدي عبدالجليل-3 | AREA 2.85 | المسا المساحة=2.847هكتار | Shape_Leng 752.831102",
+            "عدد نقاط الحدود": "205",
+            "محيط الشكل (Shape_Length)": "752.83110199999999"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:24",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "24",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 315953.0,
+            "Y": 3636047.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "سيدي عبدالجليل3",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الشرقية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.030714834000037,
+          32.846189957000036
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "6.11",
+        "calculated_square_kilometres_source": "6.0999999999999999E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-72c55d00df4b5d48bd3d",
+        "institutional_id": "atlas-investment-area-72c55d00df4b5d48bd3d",
+        "name_ar": "سيدي عبدالجليل-4",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "25",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-29|مناطق_التنمية_والاستثمار_السياحي_1:25",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.010474,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.030821,
+            32.84616
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-29",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-29",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "27",
+            "X (خط الطول - Longitude)": "13.030821",
+            "Y (خط العرض - Latitude)": "32.846159999999998",
+            "الاسم": "سيدي عبدالجليل-4",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "6.11",
+            "المساحة المحسوبة (كم2)": "6.0999999999999999E-2",
+            "الوصف": "سيدي عبدالجليل-4 | | FID 27 | إسم_ا سيدي عبدالجليل-4 | AREA 6.11 | المسا المساحة=6.107هكتار | Shape_Leng 1099.299147",
+            "عدد نقاط الحدود": "149",
+            "محيط الشكل (Shape_Length)": "1099.2991469999999"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:25",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "25",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 315704.0,
+            "Y": 3635954.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "سيدي عبدالجليل4",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الشرقية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.028252723000037,
+          32.84496075000004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "6.65",
+        "calculated_square_kilometres_source": "6.7000000000000004E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-9ecaf916d5a4c5bcadc5",
+        "institutional_id": "atlas-investment-area-9ecaf916d5a4c5bcadc5",
+        "name_ar": "سيدي عبدالجليل-5",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "26",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-30|مناطق_التنمية_والاستثمار_السياحي_1:26",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.006059,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.028258,
+            32.845015
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-30",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-30",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "28",
+            "X (خط الطول - Longitude)": "13.028257999999999",
+            "Y (خط العرض - Latitude)": "32.845014999999997",
+            "الاسم": "سيدي عبدالجليل-5",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "6.65",
+            "المساحة المحسوبة (كم2)": "6.7000000000000004E-2",
+            "الوصف": "سيدي عبدالجليل-5 | | FID 28 | إسم_ا سيدي عبدالجليل-5 | AREA 6.65 | المسا المساحة=6.653هكتار | Shape_Leng 1226.189613",
+            "عدد نقاط الحدود": "145",
+            "محيط الشكل (Shape_Length)": "1226.189613"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:26",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "26",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 315471.0,
+            "Y": 3635822.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "سيدي عبدالجليل5",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الشرقية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.02635979300004,
+          32.844083169000044
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "9.17",
+        "calculated_square_kilometres_source": "9.1999999999999998E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-cc1ca7105e29d3790e3b",
+        "institutional_id": "atlas-investment-area-cc1ca7105e29d3790e3b",
+        "name_ar": "سيدي عبدالجليل-6",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "27",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-31|مناطق_التنمية_والاستثمار_السياحي_1:27",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.030121,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.026221,
+            32.843839
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-31",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-31",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "29",
+            "X (خط الطول - Longitude)": "13.026221",
+            "Y (خط العرض - Latitude)": "32.843839000000003",
+            "الاسم": "سيدي عبدالجليل-6",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "9.17",
+            "المساحة المحسوبة (كم2)": "9.1999999999999998E-2",
+            "الوصف": "سيدي عبدالجليل-6 | | FID 29 | إسم_ا سيدي عبدالجليل-6 | AREA 9.17 | المسا المساحة=9.170هكتار | Shape_Leng 1533.413654",
+            "عدد نقاط الحدود": "154",
+            "محيط الشكل (Shape_Length)": "1533.413654"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:27",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "27",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 315292.0,
+            "Y": 3635728.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "سيدي عبدالجليل6",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الشرقية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.502335126000048,
+          32.830591767000044
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "34.76",
+        "calculated_square_kilometres_source": "0.34899999999999998",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-d11c56d3a0497ba9cc8e",
+        "institutional_id": "atlas-investment-area-d11c56d3a0497ba9cc8e",
+        "name_ar": "غوط الرمان",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "3",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-53|مناطق_التنمية_والاستثمار_السياحي_1:3",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.059231,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.502958,
+            32.830496
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-53",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-53",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "51",
+            "X (خط الطول - Longitude)": "13.502958",
+            "Y (خط العرض - Latitude)": "32.830495999999997",
+            "الاسم": "غوط الرمان",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "34.76",
+            "المساحة المحسوبة (كم2)": "0.34899999999999998",
+            "الوصف": "غوط الرمان | | FID 51 | إسم_ا غوط الرمان | AREA 34.76 | المسا المساحة=34.76هكتار | Shape_Leng 4423.700464",
+            "عدد نقاط الحدود": "472",
+            "محيط الشكل (Shape_Length)": "4423.7004639999996"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:3",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "3",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 359821.0,
+            "Y": 3633500.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "غوط الرمان",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الوادي الشرقي",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.983574826000051,
+          32.83029725700004
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "14.32",
+        "calculated_square_kilometres_source": "0.14399999999999999",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-f47a33378c90079fd147",
+        "institutional_id": "atlas-investment-area-f47a33378c90079fd147",
+        "name_ar": "محطة غرب طرابلس",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "36",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-32|مناطق_التنمية_والاستثمار_السياحي_1:36",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.031354,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            12.98391,
+            32.830294
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-32",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-32",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "30",
+            "X (خط الطول - Longitude)": "12.98391",
+            "Y (خط العرض - Latitude)": "32.830294000000002",
+            "الاسم": "محطة غرب طرابلس",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "14.32",
+            "المساحة المحسوبة (كم2)": "0.14399999999999999",
+            "الوصف": "محطة غرب طرابلس | | FID 30 | إسم_ا محطة غرب طرابلس | AREA 14.32 | المسا المساحة=14.32هكتار | Shape_Leng 2265.621665",
+            "عدد نقاط الحدود": "171",
+            "محيط الشكل (Shape_Length)": "2265.6216650000001"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:36",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "36",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 311258.0,
+            "Y": 3634275.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "محطة غرب طرابلس",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "سيدي عبد اللط",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.413282149000054,
+          32.87025193000005
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "26.62",
+        "calculated_square_kilometres_source": "0.26700000000000002",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-2a8e97eb43d4b716618a",
+        "institutional_id": "atlas-investment-area-2a8e97eb43d4b716618a",
+        "name_ar": "مصيف تاجوراء",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "6",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-49|مناطق_التنمية_والاستثمار_السياحي_1:6",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.096867,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.414295,
+            32.870435
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-49",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-49",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "47",
+            "X (خط الطول - Longitude)": "13.414294999999999",
+            "Y (خط العرض - Latitude)": "32.870435000000001",
+            "الاسم": "مصيف تاجوراء",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "26.62",
+            "المساحة المحسوبة (كم2)": "0.26700000000000002",
+            "الوصف": "مصيف تاجوراء | | FID 47 | إسم_ا مصيف تاجوراء | AREA 26.62 | المسا المساحة=26.61هكتار | Shape_Leng 5089.251788",
+            "عدد نقاط الحدود": "239",
+            "محيط الشكل (Shape_Length)": "5089.2517879999996"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:6",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "6",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 351551.0,
+            "Y": 3638019.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "مصيف تاجوراء",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الحميدية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          12.990105806000031,
+          32.83152060800006
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "7.71",
+        "calculated_square_kilometres_source": "7.6999999999999999E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-b422dd8ccd2f67ba60dc",
+        "institutional_id": "atlas-investment-area-b422dd8ccd2f67ba60dc",
+        "name_ar": "مصيف جربة",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "35",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-33|مناطق_التنمية_والاستثمار_السياحي_1:35",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.004564,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            12.990141,
+            32.831549
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-33",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-33",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "31",
+            "X (خط الطول - Longitude)": "12.990140999999999",
+            "Y (خط العرض - Latitude)": "32.831549000000003",
+            "الاسم": "مصيف جربة",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "7.71",
+            "المساحة المحسوبة (كم2)": "7.6999999999999999E-2",
+            "الوصف": "مصيف جربة | | FID 31 | إسم_ا مصيف جربة | AREA 7.71 | المسا المساحة=7.707هكتار | Shape_Leng 1403.667032",
+            "عدد نقاط الحدود": "59",
+            "محيط الشكل (Shape_Length)": "1403.6670320000001"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:35",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "35",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 311872.0,
+            "Y": 3634399.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "مصيف جربة",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "سيدي عبد اللط",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.024567723000075,
+          32.842512740000075
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "9.73",
+        "calculated_square_kilometres_source": "9.8000000000000004E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-22b482aebb6c676fffde",
+        "institutional_id": "atlas-investment-area-22b482aebb6c676fffde",
+        "name_ar": "مصيف جنزور-1",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "28",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-34|مناطق_التنمية_والاستثمار_السياحي_1:28",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.034023,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.024687,
+            32.842224
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-34",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-34",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "32",
+            "X (خط الطول - Longitude)": "13.024687",
+            "Y (خط العرض - Latitude)": "32.842224000000002",
+            "الاسم": "مصيف جنزور-1",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "9.73",
+            "المساحة المحسوبة (كم2)": "9.8000000000000004E-2",
+            "الوصف": "مصيف جنزور-1 | | FID 32 | إسم_ا مصيف جنزور-1 | AREA 9.73 | المسا المساحة=9.734هكتار | Shape_Leng 1485.43099",
+            "عدد نقاط الحدود": "109",
+            "محيط الشكل (Shape_Length)": "1485.4309900000001"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:28",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "28",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 315121.0,
+            "Y": 3635557.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "مصيف جنزور1",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الشرقية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          13.022110406000024,
+          32.84107606200007
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "area_hectares_source": "5.65",
+        "calculated_square_kilometres_source": "5.7000000000000002E-2",
+        "category": "tourism_investment",
+        "feature_code": "atlas-investment-area-43ebcec695b50d599283",
+        "institutional_id": "atlas-investment-area-43ebcec695b50d599283",
+        "name_ar": "مصيف جنزور-2",
+        "name_en": null,
+        "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "source_feature_id": "29",
+        "source_identity": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-35|مناطق_التنمية_والاستثمار_السياحي_1:29",
+        "source_metadata": {
+          "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+          "authoritative_boundary_claimed": false,
+          "canonical_identity_approved": false,
+          "coordinate_distance_km": 0.02068,
+          "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+          "excel_representative_coordinate": [
+            13.022323,
+            32.841025
+          ],
+          "excel_source": {
+            "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-35",
+            "source_database": "مناطق تنمية والاستثمار.xlsx",
+            "source_feature_id": "Sheet1:row-35",
+            "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+            "source_layer": "Sheet1"
+          },
+          "excel_source_attributes": {
+            "FID": "33",
+            "X (خط الطول - Longitude)": "13.022323",
+            "Y (خط العرض - Latitude)": "32.841025000000002",
+            "الاسم": "مصيف جنزور-2",
+            "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+            "المساحة (هكتار)": "5.65",
+            "المساحة المحسوبة (كم2)": "5.7000000000000002E-2",
+            "الوصف": "مصيف جنزور-2 | | FID 33 | إسم_ا مصيف جنزور-2 | AREA 5.65 | المسا المساحة=5.649هكتار | Shape_Leng 1025.386969",
+            "عدد نقاط الحدود": "50",
+            "محيط الشكل (Shape_Length)": "1025.3869689999999"
+          },
+          "gdb_source": {
+            "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:29",
+            "source_database": "Libya ATLAS Project.gdb",
+            "source_feature_id": "29",
+            "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+            "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+          },
+          "gdb_source_attributes": {
+            "X": 314888.0,
+            "Y": 3635402.0,
+            "الاس_1": "غير متوفر حسب المراجع",
+            "الاسم": "مصيف جنزور2",
+            "البري": "غير متوفر",
+            "المحا": "طرابلس",
+            "المحل": "الشرقية",
+            "المدي": "طرابلس",
+            "حالة_": "2104",
+            "ملاحظ": "موقع تم تخريطه واستهدافه"
+          },
+          "match_method": "NORMALIZED_EXACT_AREA_NAME",
+          "publication_approved": false,
+          "review_classification": "SAFE_INVESTMENT_AREA_REFERENCE_POINT",
+          "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+          "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+          "semantic_name_en": "Tourism Development and Investment Areas",
+          "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+        }
+      },
+      "type": "Feature"
+    }
+  ],
+  "gdb_area_record_count": 36,
+  "gdb_only_count": 5,
+  "layer_code": "TOURISM_INVESTMENT",
+  "matched_count": 31,
+  "name": "TOURISM DEVELOPMENT AND INVESTMENT AREAS governed review import",
+  "publication_approved": false,
+  "safe_ingestible_feature_count": 29,
+  "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+  "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+  "semantic_name_en": "Tourism Development and Investment Areas",
+  "type": "FeatureCollection"
+}

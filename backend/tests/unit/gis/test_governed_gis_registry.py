@@ -41,9 +41,12 @@ def test_parks_is_mixed_and_unpublished():
 
 def test_tourism_investment_is_mixed_and_unpublished():
     layer = require_layer("TOURISM_INVESTMENT")
+    assert layer.name_ar == "مناطق التنمية والاستثمار السياحي"
+    assert layer.name_en == "Tourism Development and Investment Areas"
     assert layer.category == "tourism_investment"
     assert layer.geometry_family.value == "mixed"
     assert layer.default_is_published is False
+    assert "individual investment projects are excluded" in layer.notes
 
 
 def test_hotels_is_mixed_and_unpublished():

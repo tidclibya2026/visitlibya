@@ -1,0 +1,4456 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "blocked_feature_count": 117,
+  "canonical_identity_approved": false,
+  "classification_counts": {
+    "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW": 109,
+    "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW": 5,
+    "MISSING_IDENTITY_REVIEW": 1,
+    "SAFE_INVESTMENT_AREA_REFERENCE_POINT": 29,
+    "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW": 2
+  },
+  "excel_only_count": 110,
+  "excel_record_count": 141,
+  "gdb_area_record_count": 36,
+  "gdb_only_count": 5,
+  "inventory_id": "tourism-investment-areas-governed-blocked-v1",
+  "layer_code": "TOURISM_INVESTMENT",
+  "matched_count": 31,
+  "publication_approved": false,
+  "records": [
+    {
+      "area_name": "أبيار السبابيل",
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.462433203000046,
+          32.84739780600006
+        ],
+        "type": "Point"
+      },
+      "institutional_id": "atlas-investment-area-431d49f7c969a7e9dd4a",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "coordinate_distance_km": 0.046968,
+        "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+        "excel_representative_coordinate": [
+          13.462935,
+          32.847415
+        ],
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-63",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-63",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "61",
+          "X (خط الطول - Longitude)": "13.462935",
+          "Y (خط العرض - Latitude)": "32.847414999999998",
+          "الاسم": "أبيار السبابيل",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "31.51",
+          "المساحة المحسوبة (كم2)": "0.316",
+          "الوصف": "أبيار السبابيل | | FID 61 | إسم_ا أبيار السبابيل | AREA 31.51 | المسا المساحة=31.51هكتار | Shape_Leng 2437.693393",
+          "عدد نقاط الحدود": "120",
+          "محيط الشكل (Shape_Length)": "2437.693393"
+        },
+        "gdb_source": {
+          "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:4",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "4",
+          "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+          "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+        },
+        "gdb_source_attributes": {
+          "X": 356113.0,
+          "Y": 3635417.0,
+          "الاس_1": "غير متوفر حسب المراجع",
+          "الاسم": "ابيار السبابيل",
+          "البري": "غير متوفر",
+          "المحا": "طرابلس",
+          "المحل": "الوادي الشرقي",
+          "المدي": "طرابلس",
+          "حالة_": "2104",
+          "ملاحظ": "موقع تم تخريطه واستهدافه"
+        },
+        "match_method": "NORMALIZED_EXACT_AREA_NAME",
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+        "semantic_name_en": "Tourism Development and Investment Areas",
+        "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+      }
+    },
+    {
+      "area_name": "النصر",
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.462433203000046,
+          32.84739780600006
+        ],
+        "type": "Point"
+      },
+      "institutional_id": "atlas-investment-area-3cc4aa52819740a693d9",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "coordinate_distance_km": 2.151776,
+        "coordinate_role": "REPRESENTATIVE_REFERENCE_ONLY_NOT_BOUNDARY",
+        "excel_representative_coordinate": [
+          13.442089,
+          32.856428
+        ],
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-50",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-50",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": null,
+          "X (خط الطول - Longitude)": "13.442088999999999",
+          "Y (خط العرض - Latitude)": "32.856428000000001",
+          "الاسم": "النصر",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "32.619999999999997",
+          "المساحة المحسوبة (كم2)": "0.32700000000000001",
+          "الوصف": "النصر | | إسم_ا النصر | AREA 32.62 | المسا المساحة=32.61هكتار | Shape_Leng 4823.629043 ‏",
+          "عدد نقاط الحدود": "241",
+          "محيط الشكل (Shape_Length)": "4823.6290429999999"
+        },
+        "gdb_source": {
+          "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:5",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "5",
+          "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+          "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+        },
+        "gdb_source_attributes": {
+          "X": 356113.0,
+          "Y": 3635417.0,
+          "الاس_1": "غير متوفر حسب المراجع",
+          "الاسم": "النصر",
+          "البري": "غير متوفر",
+          "المحا": "طرابلس",
+          "المحل": "الوادي الشرقي",
+          "المدي": "طرابلس",
+          "حالة_": "2104",
+          "ملاحظ": "موقع تم تخريطه واستهدافه"
+        },
+        "match_method": "NORMALIZED_EXACT_AREA_NAME",
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+        "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+        "semantic_name_en": "Tourism Development and Investment Areas",
+        "source_geometry_role": "GDB_REFERENCE_POINT_NOT_AREA_BOUNDARY"
+      }
+    },
+    {
+      "area_name": "أبوزاهية",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        16.759614,
+        31.209771
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-2",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-2",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": null,
+          "X (خط الطول - Longitude)": "16.759613999999999",
+          "Y (خط العرض - Latitude)": "31.209771",
+          "الاسم": "أبوزاهية",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "30.65",
+          "المساحة المحسوبة (كم2)": "0.308",
+          "الوصف": "أبوزاهية | | أبوزاهية | AREA 30.65 | المسا المساحة=30.65هكتار",
+          "عدد نقاط الحدود": "46",
+          "محيط الشكل (Shape_Length)": null
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "زعفران",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        16.420665,
+        31.214105
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-3",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-3",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": null,
+          "X (خط الطول - Longitude)": "16.420665",
+          "Y (خط العرض - Latitude)": "31.214105",
+          "الاسم": "زعفران",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "298.06",
+          "المساحة المحسوبة (كم2)": "2.9910000000000001",
+          "الوصف": "زعفران | | إسم_ا زعفران | AREA 298.06 | المسا المساحة=298.0هكتار",
+          "عدد نقاط الحدود": "416",
+          "محيط الشكل (Shape_Length)": null
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "القبيبة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        16.331144,
+        31.221424
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-4",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-4",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": null,
+          "X (خط الطول - Longitude)": "16.331143999999998",
+          "Y (خط العرض - Latitude)": "31.221423999999999",
+          "الاسم": "القبيبة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "500.25",
+          "المساحة المحسوبة (كم2)": "5.0190000000000001",
+          "الوصف": "القبيبة | القبيبة | AREA 500.25 | المسا المساحة=500.2هكتار",
+          "عدد نقاط الحدود": "5001",
+          "محيط الشكل (Shape_Length)": null
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "سلطان",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        17.145257,
+        31.121479
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-5",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-5",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": null,
+          "X (خط الطول - Longitude)": "17.145257000000001",
+          "Y (خط العرض - Latitude)": "31.121479000000001",
+          "الاسم": "سلطان",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "149.88999999999999",
+          "المساحة المحسوبة (كم2)": "1.504",
+          "الوصف": "سلطان | سلطان | AREA 149.89 | المسا المساحة=149.8هكتار",
+          "عدد نقاط الحدود": "3143",
+          "محيط الشكل (Shape_Length)": null
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "النقازة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        14.108146,
+        32.715036
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-6",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-6",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": null,
+          "X (خط الطول - Longitude)": "14.108146",
+          "Y (خط العرض - Latitude)": "32.715035999999998",
+          "الاسم": "النقازة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "64.48",
+          "المساحة المحسوبة (كم2)": "0.64700000000000002",
+          "الوصف": "النقازة | النقازة | AREA 64.48 | المسا المساحة=64.48هكتار",
+          "عدد نقاط الحدود": "737",
+          "محيط الشكل (Shape_Length)": null
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "غنيمة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        14.066933,
+        32.720905
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-7",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-7",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": null,
+          "X (خط الطول - Longitude)": "14.066933000000001",
+          "Y (خط العرض - Latitude)": "32.720905000000002",
+          "الاسم": "غنيمة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "72.209999999999994",
+          "المساحة المحسوبة (كم2)": "0.72399999999999998",
+          "الوصف": "غنيمة | غنيمة | AREA 72.21 | المسا المساحة=72.21هكتار",
+          "عدد نقاط الحدود": "223",
+          "محيط الشكل (Shape_Length)": null
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "فلفول",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        14.081778,
+        32.718111
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-8",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-8",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": null,
+          "X (خط الطول - Longitude)": "14.081778",
+          "Y (خط العرض - Latitude)": "32.718111",
+          "الاسم": "فلفول",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "51.61",
+          "المساحة المحسوبة (كم2)": "0.51800000000000002",
+          "الوصف": "فلفول | فلفول | AREA 51.61 | المسا المساحة=51.61هكتار",
+          "عدد نقاط الحدود": "437",
+          "محيط الشكل (Shape_Length)": null
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "فيللا سيلين",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        14.157454,
+        32.708991
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-9",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-9",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "7",
+          "X (خط الطول - Longitude)": "14.157454",
+          "Y (خط العرض - Latitude)": "32.708990999999997",
+          "الاسم": "فيللا سيلين",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "148.46",
+          "المساحة المحسوبة (كم2)": "1.4890000000000001",
+          "الوصف": "فيللا سيلين | | FID 7 | إسم_ا فيللا سيلين | AREA 148.46 | المسا المساحة=148.46هكتار | Shape_Leng 7502.161755",
+          "عدد نقاط الحدود": "565",
+          "محيط الشكل (Shape_Length)": "7502.1617550000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "قريم",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        14.00711,
+        32.729372
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-10",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-10",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "8",
+          "X (خط الطول - Longitude)": "14.007110000000001",
+          "Y (خط العرض - Latitude)": "32.729371999999998",
+          "الاسم": "قريم",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "28.87",
+          "المساحة المحسوبة (كم2)": "0.28999999999999998",
+          "الوصف": "قريم | | FID 8 | إسم_ا قريم | AREA 28.87 | المسا المساحة=28.87هكتار | Shape_Leng 2357.918746",
+          "عدد نقاط الحدود": "864",
+          "محيط الشكل (Shape_Length)": "2357.9187459999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الطويبية",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        14.438333,
+        32.544139
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-11",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-11",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "9",
+          "X (خط الطول - Longitude)": "14.438333",
+          "Y (خط العرض - Latitude)": "32.544139000000001",
+          "الاسم": "الطويبية",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "39.94",
+          "المساحة المحسوبة (كم2)": "0.40100000000000002",
+          "الوصف": "الطويبية | | FID 9 | إسم_ا الطويبية | AREA 39.94 | المسا المساحة=39.94هكتار | Shape_Leng 4104.753019",
+          "عدد نقاط الحدود": "107",
+          "محيط الشكل (Shape_Length)": "4104.7530189999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "هانيبال",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        14.280521,
+        32.643746
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-12",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-12",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "10",
+          "X (خط الطول - Longitude)": "14.280521",
+          "Y (خط العرض - Latitude)": "32.643746",
+          "الاسم": "هانيبال",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "6.73",
+          "المساحة المحسوبة (كم2)": "6.8000000000000005E-2",
+          "الوصف": "هانيبال | | FID 10 | إسم_ا هانيبال | AREA 6.73 | المسا المساحة=6.73هكتار | Shape_Leng 1101.353556",
+          "عدد نقاط الحدود": "27",
+          "محيط الشكل (Shape_Length)": "1101.353556"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "ماتشوك",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        12.029083,
+        32.970431
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-13",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-13",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "11",
+          "X (خط الطول - Longitude)": "12.029083",
+          "Y (خط العرض - Latitude)": "32.970430999999998",
+          "الاسم": "ماتشوك",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "118.8",
+          "المساحة المحسوبة (كم2)": "1.1910000000000001",
+          "الوصف": "ماتشوك | | FID 11 | إسم_ا ماتشوك | AREA 118.8 | المسا المساحة=118.8هكتار | Shape_Leng 5261.575198",
+          "عدد نقاط الحدود": "136",
+          "محيط الشكل (Shape_Length)": "5261.5751980000005"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "ملليتة-2",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        12.345144,
+        32.821984
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-14",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-14",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "12",
+          "X (خط الطول - Longitude)": "12.345143999999999",
+          "Y (خط العرض - Latitude)": "32.821984",
+          "الاسم": "ملليتة-2",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "79.91",
+          "المساحة المحسوبة (كم2)": "0.80100000000000005",
+          "الوصف": "ملليتة-2 | | FID 12 | إسم_ا ملليتة-2 | AREA 79.91 | المسا المساحة=79.90هكتار | Shape_Leng 4085.559689",
+          "عدد نقاط الحدود": "868",
+          "محيط الشكل (Shape_Length)": "4085.5596890000002"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "ملليتة-1",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        12.332265,
+        32.812647
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-15",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-15",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "13",
+          "X (خط الطول - Longitude)": "12.332265",
+          "Y (خط العرض - Latitude)": "32.812646999999998",
+          "الاسم": "ملليتة-1",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "357.61",
+          "المساحة المحسوبة (كم2)": "3.5870000000000002",
+          "الوصف": "ملليتة-1 | | FID 13 | إسم_ا ملليتة-1 | AREA 357.61 | المسا المساحة=357.6هكتار | Shape_Leng 9055.205506",
+          "عدد نقاط الحدود": "92",
+          "محيط الشكل (Shape_Length)": "9055.2055060000002"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "تلليل-غرب",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        12.361076,
+        32.819238
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-16",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-16",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "14",
+          "X (خط الطول - Longitude)": "12.361076000000001",
+          "Y (خط العرض - Latitude)": "32.819237999999999",
+          "الاسم": "تلليل-غرب",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "65.34",
+          "المساحة المحسوبة (كم2)": "0.65500000000000003",
+          "الوصف": "تلليل-غرب | | FID 14 | إسم_ا تلليل-غرب | AREA 65.34 | المسا المساحة=65.34هكتار | Shape_Leng 3921.274559",
+          "عدد نقاط الحدود": "389",
+          "محيط الشكل (Shape_Length)": "3921.274559"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "تلليل-شرق",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        12.393534,
+        32.81071
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-17",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-17",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "15",
+          "X (خط الطول - Longitude)": "12.393534000000001",
+          "Y (خط العرض - Latitude)": "32.81071",
+          "الاسم": "تلليل-شرق",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "130.06",
+          "المساحة المحسوبة (كم2)": "1.304",
+          "الوصف": "تلليل-شرق | | FID 15 | إسم_ا تلليل-شرق | AREA 130.06 | المسا المساحة=130.0هكتار | Shape_Leng 4835.562064",
+          "عدد نقاط الحدود": "249",
+          "محيط الشكل (Shape_Length)": "4835.5620639999997"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الجرف",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        12.40899,
+        32.814164
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-18",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-18",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "16",
+          "X (خط الطول - Longitude)": "12.408989999999999",
+          "Y (خط العرض - Latitude)": "32.814163999999998",
+          "الاسم": "الجرف",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "82.2",
+          "المساحة المحسوبة (كم2)": "0.82399999999999995",
+          "الوصف": "الجرف | | FID 16 | إسم_ا الجرف | AREA 82.2 | المسا المساحة=82.19هكتار | Shape_Leng 7737.261985",
+          "عدد نقاط الحدود": "820",
+          "محيط الشكل (Shape_Length)": "7737.2619850000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "صرمان",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        12.566598,
+        32.793975
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-19",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-19",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "17",
+          "X (خط الطول - Longitude)": "12.566598000000001",
+          "Y (خط العرض - Latitude)": "32.793975000000003",
+          "الاسم": "صرمان",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "52.5",
+          "المساحة المحسوبة (كم2)": "0.52700000000000002",
+          "الوصف": "صرمان | | FID 17 | إسم_ا صرمان | AREA 52.5 | المسا المساحة=52.50هكتار | Shape_Leng 4507.037602",
+          "عدد نقاط الحدود": "513",
+          "محيط الشكل (Shape_Length)": "4507.0376020000003"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "المطرد",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        12.620939,
+        32.792477
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-20",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-20",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "18",
+          "X (خط الطول - Longitude)": "12.620939",
+          "Y (خط العرض - Latitude)": "32.792476999999998",
+          "الاسم": "المطرد",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "89.26",
+          "المساحة المحسوبة (كم2)": "0.89500000000000002",
+          "الوصف": "المطرد | | FID 18 | إسم_ا المطرد | AREA 89.26 | المسا المساحة=89.25هكتار | Shape_Leng 8645.026018",
+          "عدد نقاط الحدود": "300",
+          "محيط الشكل (Shape_Length)": "8645.0260180000005"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "أوياء",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.017107,
+        32.839481
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-22",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-22",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "20",
+          "X (خط الطول - Longitude)": "13.017106999999999",
+          "Y (خط العرض - Latitude)": "32.839480999999999",
+          "الاسم": "أوياء",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "19.09",
+          "المساحة المحسوبة (كم2)": "0.191",
+          "الوصف": "أوياء | | FID 20 | إسم_ا أوياء | AREA 19.09 | المسا المساحة=19.08هكتار | Shape_Leng 2331.684032",
+          "عدد نقاط الحدود": "488",
+          "محيط الشكل (Shape_Length)": "2331.6840320000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "شاطيء النخيل",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.24294,
+        32.909641
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-41",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-41",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "39",
+          "X (خط الطول - Longitude)": "13.242940000000001",
+          "Y (خط العرض - Latitude)": "32.909641000000001",
+          "الاسم": "شاطيء النخيل",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "5.42",
+          "المساحة المحسوبة (كم2)": "5.3999999999999999E-2",
+          "الوصف": "شاطيء النخيل | | FID 39 | إسم_ا شاطيء النخيل | AREA 5.42 | المسا المساحة=5.418هكتار | Shape_Leng 1270.4074",
+          "عدد نقاط الحدود": "67",
+          "محيط الشكل (Shape_Length)": "1270.4074000000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الفوار",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.313186,
+        32.898976
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-44",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-44",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "42",
+          "X (خط الطول - Longitude)": "13.313186",
+          "Y (خط العرض - Latitude)": "32.898975999999998",
+          "الاسم": "الفوار",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "51.08",
+          "المساحة المحسوبة (كم2)": "0.51200000000000001",
+          "الوصف": "الفوار | | FID 42 | إسم_ا الفوار | AREA 51.08 | المسا المساحة=51.08هكتار | Shape_Leng 3946.826293",
+          "عدد نقاط الحدود": "703",
+          "محيط الشكل (Shape_Length)": "3946.8262930000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "السليسلة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.572903,
+        32.800818
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-54",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-54",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "52",
+          "X (خط الطول - Longitude)": "13.572903",
+          "Y (خط العرض - Latitude)": "32.800818",
+          "الاسم": "السليسلة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "42.3",
+          "المساحة المحسوبة (كم2)": "0.42399999999999999",
+          "الوصف": "السليسلة | | FID 52 | إسم_ا السليسلة | AREA 42.3 | المسا المساحة=42.30هكتار | Shape_Leng 4858.532938",
+          "عدد نقاط الحدود": "683",
+          "محيط الشكل (Shape_Length)": "4858.5329380000003"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "العطايا",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.699979,
+        32.789735
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-55",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-55",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "53",
+          "X (خط الطول - Longitude)": "13.699979000000001",
+          "Y (خط العرض - Latitude)": "32.789735",
+          "الاسم": "العطايا",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "30.66",
+          "المساحة المحسوبة (كم2)": "0.307",
+          "الوصف": "العطايا | | FID 53 | إسم_ا العطايا | AREA 30.66 | المسا المساحة=30.66هكتار | Shape_Leng 2393.021684",
+          "عدد نقاط الحدود": "352",
+          "محيط الشكل (Shape_Length)": "2393.0216839999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الكراوة-3",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.72103,
+        32.79113
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-56",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-56",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "54",
+          "X (خط الطول - Longitude)": "13.721030000000001",
+          "Y (خط العرض - Latitude)": "32.791130000000003",
+          "الاسم": "الكراوة-3",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "153.41999999999999",
+          "المساحة المحسوبة (كم2)": "1.5389999999999999",
+          "الوصف": "الكراوة-3 | | FID 54 | إسم_ا الكراوة-3 | AREA 153.42 | المسا المساحة=153.4هكتار | Shape_Leng 6295.912044",
+          "عدد نقاط الحدود": "2681",
+          "محيط الشكل (Shape_Length)": "6295.9120439999997"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الكراوة-1",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.807036,
+        32.783993
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-57",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-57",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "55",
+          "X (خط الطول - Longitude)": "13.807036",
+          "Y (خط العرض - Latitude)": "32.783993000000002",
+          "الاسم": "الكراوة-1",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "635.91999999999996",
+          "المساحة المحسوبة (كم2)": "6.3769999999999998",
+          "الوصف": "الكراوة-1 | | FID 55 | إسم_ا الكراوة-1 | AREA 635.92 | المسا المساحة=635.9هكتار | Shape_Leng 11821.129637",
+          "عدد نقاط الحدود": "695",
+          "محيط الشكل (Shape_Length)": "11821.129637"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الكراوة-2",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.77886,
+        32.78708
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-58",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-58",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "56",
+          "X (خط الطول - Longitude)": "13.77886",
+          "Y (خط العرض - Latitude)": "32.787080000000003",
+          "الاسم": "الكراوة-2",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "1017.95",
+          "المساحة المحسوبة (كم2)": "10.209",
+          "الوصف": "الكراوة-2 | | FID 56 | إسم_ا الكراوة-2 | AREA 1017.95 | المسا المساحة=1017.هكتار | Shape_Leng 15031.240267",
+          "عدد نقاط الحدود": "4107",
+          "محيط الشكل (Shape_Length)": "15031.240266999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "سيدي عمير-1",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.83543,
+        32.784327
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-59",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-59",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "57",
+          "X (خط الطول - Longitude)": "13.835430000000001",
+          "Y (خط العرض - Latitude)": "32.784326999999998",
+          "الاسم": "سيدي عمير-1",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "248.07",
+          "المساحة المحسوبة (كم2)": "2.488",
+          "الوصف": "سيدي عمير-1 | | FID 57 | إسم_ا سيدي عمير-1 | AREA 248.07 | المسا المساحة=248.0هكتار | Shape_Leng 8081.896403",
+          "عدد نقاط الحدود": "101",
+          "محيط الشكل (Shape_Length)": "8081.8964029999997"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "سيدي عمير-2",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.892323,
+        32.777303
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-60",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-60",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "58",
+          "X (خط الطول - Longitude)": "13.892322999999999",
+          "Y (خط العرض - Latitude)": "32.777303000000003",
+          "الاسم": "سيدي عمير-2",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "548.12",
+          "المساحة المحسوبة (كم2)": "5.4969999999999999",
+          "الوصف": "سيدي عمير-2 | | FID 58 | إسم_ا سيدي عمير-2 | AREA 548.12 | المسا المساحة=548.1هكتار | Shape_Leng 17490.809536",
+          "عدد نقاط الحدود": "5001",
+          "محيط الشكل (Shape_Length)": "17490.809536000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "المثلث الرملي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.74331,
+        32.785818
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-61",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-61",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "59",
+          "X (خط الطول - Longitude)": "13.743309999999999",
+          "Y (خط العرض - Latitude)": "32.785817999999999",
+          "الاسم": "المثلث الرملي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "335.9",
+          "المساحة المحسوبة (كم2)": "3.3690000000000002",
+          "الوصف": "المثلث الرملي | | FID 59 | إسم_ا المثلث الرملي | AREA 335.9 | المسا المساحة=335.9هكتار | Shape_Leng 9433.839464",
+          "عدد نقاط الحدود": "126",
+          "محيط الشكل (Shape_Length)": "9433.8394640000006"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الشعاب",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        13.212295,
+        32.89987
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-62",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-62",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "60",
+          "X (خط الطول - Longitude)": "13.212294999999999",
+          "Y (خط العرض - Latitude)": "32.89987",
+          "الاسم": "الشعاب",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "7.43",
+          "المساحة المحسوبة (كم2)": "7.4999999999999997E-2",
+          "الوصف": "الشعاب | | FID 60 | إسم_ا الشعاب | AREA 7.43 | المسا المساحة=7.433هكتار | Shape_Leng 1453.530821",
+          "عدد نقاط الحدود": "140",
+          "محيط الشكل (Shape_Length)": "1453.5308210000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "ملليتة 3",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        12.31818,
+        32.828955
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-64",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-64",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "62",
+          "X (خط الطول - Longitude)": "12.31818",
+          "Y (خط العرض - Latitude)": "32.828955000000001",
+          "الاسم": "ملليتة 3",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "88.58",
+          "المساحة المحسوبة (كم2)": "0.88800000000000001",
+          "الوصف": "ملليتة 3 | | FID 62 | إسم_ا ملليتة 3 | AREA 88.58 | المسا المساحة=88.58هكتار | Shape_Leng 4468.34321",
+          "عدد نقاط الحدود": "5",
+          "محيط الشكل (Shape_Length)": "4468.34321"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "البريقاء",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        11.629658,
+        33.107751
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-65",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-65",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "63",
+          "X (خط الطول - Longitude)": "11.629657999999999",
+          "Y (خط العرض - Latitude)": "33.107751",
+          "الاسم": "البريقاء",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "135.91999999999999",
+          "المساحة المحسوبة (كم2)": "1.363",
+          "الوصف": "البريقاء | | FID 63 | إسم_ا البريقاء | AREA 135.92 | المسا المساحة=135.9هكتار | Shape_Leng 6817.277228",
+          "عدد نقاط الحدود": "792",
+          "محيط الشكل (Shape_Length)": "6817.2772279999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "أبوكشفة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        11.943873,
+        33.020221
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-66",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-66",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "64",
+          "X (خط الطول - Longitude)": "11.943873",
+          "Y (خط العرض - Latitude)": "33.020220999999999",
+          "الاسم": "أبوكشفة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "58.301000000000002",
+          "المساحة المحسوبة (كم2)": "0.58499999999999996",
+          "الوصف": "أبوكشفة | | FID 64 | إسم_ا أبوكشفة | AREA 58.301 | المسا المساحة=58.30هكتار | Shape_Leng 3800.423151",
+          "عدد نقاط الحدود": "267",
+          "محيط الشكل (Shape_Length)": "3800.423151"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "مصيف بياض",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        24.025137,
+        32.043598
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-67",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-67",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "65",
+          "X (خط الطول - Longitude)": "24.025137000000001",
+          "Y (خط العرض - Latitude)": "32.043598000000003",
+          "الاسم": "مصيف بياض",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "178.26",
+          "المساحة المحسوبة (كم2)": "1.788",
+          "الوصف": "مصيف بياض | | FID 65 | إسم_ا مصيف بياض | AREA 178.26 | المسا المساحة=178.2هكتار | Shape_Leng 10592.452063",
+          "عدد نقاط الحدود": "1738",
+          "محيط الشكل (Shape_Length)": "10592.452063000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "البردي-1",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        25.098963,
+        31.748425
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-68",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-68",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "66",
+          "X (خط الطول - Longitude)": "25.098963000000001",
+          "Y (خط العرض - Latitude)": "31.748425000000001",
+          "الاسم": "البردي-1",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "265.97000000000003",
+          "المساحة المحسوبة (كم2)": "2.6680000000000001",
+          "الوصف": "البردي-1 | | FID 66 | إسم_ا البردي-1 | AREA 265.97 | المسا المساحة=265.9هكتار | Shape_Leng 10124.24682",
+          "عدد نقاط الحدود": "548",
+          "محيط الشكل (Shape_Length)": "10124.24682"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "العزلية",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.236611,
+        32.87365
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-69",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-69",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "67",
+          "X (خط الطول - Longitude)": "22.236611",
+          "Y (خط العرض - Latitude)": "32.873649999999998",
+          "الاسم": "العزلية",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "0",
+          "المساحة المحسوبة (كم2)": "1.3",
+          "الوصف": "العزلية | | FID 67 | إسم_ا العزلية | AREA 0 | المسا | Shape_Leng 16672.322484",
+          "عدد نقاط الحدود": "723",
+          "محيط الشكل (Shape_Length)": "16672.322484"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "دليس",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.516674,
+        32.804374
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-70",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-70",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "68",
+          "X (خط الطول - Longitude)": "22.516673999999998",
+          "Y (خط العرض - Latitude)": "32.804374000000003",
+          "الاسم": "دليس",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "0",
+          "المساحة المحسوبة (كم2)": "1.0489999999999999",
+          "الوصف": "دليس | | FID 68 | إسم_ا دليس | AREA 0 | المسا | Shape_Leng 8532.374824",
+          "عدد نقاط الحدود": "4998",
+          "محيط الشكل (Shape_Length)": "8532.3748240000004"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "راس التين",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        23.093353,
+        32.398395
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-71",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-71",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "69",
+          "X (خط الطول - Longitude)": "23.093353",
+          "Y (خط العرض - Latitude)": "32.398395000000001",
+          "الاسم": "راس التين",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "0",
+          "المساحة المحسوبة (كم2)": "3.2730000000000001",
+          "الوصف": "راس التين | | FID 69 | إسم_ا راس التين | AREA 0 | المسا | Shape_Leng 14384.679466",
+          "عدد نقاط الحدود": "184",
+          "محيط الشكل (Shape_Length)": "14384.679466"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الاترون",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.325595,
+        32.871618
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-72",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-72",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "70",
+          "X (خط الطول - Longitude)": "22.325595",
+          "Y (خط العرض - Latitude)": "32.871617999999998",
+          "الاسم": "الاترون",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "0",
+          "المساحة المحسوبة (كم2)": "1.6519999999999999",
+          "الوصف": "الاترون | | FID 70 | إسم_ا الاترون | AREA 0 | المسا | Shape_Leng 19198.373436",
+          "عدد نقاط الحدود": "1541",
+          "محيط الشكل (Shape_Length)": "19198.373436000002"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "قاريونس",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.043748,
+        32.071336
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-73",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-73",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "71",
+          "X (خط الطول - Longitude)": "20.043748000000001",
+          "Y (خط العرض - Latitude)": "32.071336000000002",
+          "الاسم": "قاريونس",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "95.91",
+          "المساحة المحسوبة (كم2)": "0.96199999999999997",
+          "الوصف": "قاريونس | | FID 71 | إسم_ا قاريونس | AREA 95.91 | المسا المساحة=95.91هكتار | Shape_Leng 4367.804113",
+          "عدد نقاط الحدود": "151",
+          "محيط الشكل (Shape_Length)": "4367.8041130000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "عين زيانة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.156994,
+        32.228546
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-74",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-74",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "72",
+          "X (خط الطول - Longitude)": "20.156994000000001",
+          "Y (خط العرض - Latitude)": "32.228546000000001",
+          "الاسم": "عين زيانة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "83.99",
+          "المساحة المحسوبة (كم2)": "0.84199999999999997",
+          "الوصف": "عين زيانة | | FID 72 | إسم_ا عين زيانة | AREA 83.99 | المسا المساحة=83.99هكتار | Shape_Leng 7469.733585",
+          "عدد نقاط الحدود": "173",
+          "محيط الشكل (Shape_Length)": "7469.7335849999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "سيدي خليفة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.200601,
+        32.270868
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-75",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-75",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "73",
+          "X (خط الطول - Longitude)": "20.200600999999999",
+          "Y (خط العرض - Latitude)": "32.270868",
+          "الاسم": "سيدي خليفة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "364.32",
+          "المساحة المحسوبة (كم2)": "3.6549999999999998",
+          "الوصف": "سيدي خليفة | | FID 73 | إسم_ا سيدي خليفة | AREA 364.32 | المسا المساحة=364.3هكتار | Shape_Leng 20993.233975",
+          "عدد نقاط الحدود": "385",
+          "محيط الشكل (Shape_Length)": "20993.233974999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "أبوترابة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.764773,
+        32.620128
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-76",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-76",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "74",
+          "X (خط الطول - Longitude)": "20.764773000000002",
+          "Y (خط العرض - Latitude)": "32.620128000000001",
+          "الاسم": "أبوترابة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "39.549999999999997",
+          "المساحة المحسوبة (كم2)": "0.39700000000000002",
+          "الوصف": "أبوترابة | | FID 74 | إسم_ا أبوترابة | AREA 39.55 | المسا المساحة=39.54هكتار | Shape_Leng 3426.839354",
+          "عدد نقاط الحدود": "718",
+          "محيط الشكل (Shape_Length)": "3426.8393540000002"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "مصيف طلميثة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.953452,
+        32.715029
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-77",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-77",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "75",
+          "X (خط الطول - Longitude)": "20.953451999999999",
+          "Y (خط العرض - Latitude)": "32.715029000000001",
+          "الاسم": "مصيف طلميثة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "8.94",
+          "المساحة المحسوبة (كم2)": "0.09",
+          "الوصف": "مصيف طلميثة | | FID 75 | إسم_ا مصيف طلميثة | AREA 8.94 | المسا المساحة=8.936هكتار | Shape_Leng 1355.837151",
+          "عدد نقاط الحدود": "84",
+          "محيط الشكل (Shape_Length)": "1355.8371509999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "طلميثة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.918224,
+        32.692483
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-78",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-78",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "76",
+          "X (خط الطول - Longitude)": "20.918223999999999",
+          "Y (خط العرض - Latitude)": "32.692483000000003",
+          "الاسم": "طلميثة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "5.27",
+          "المساحة المحسوبة (كم2)": "5.2999999999999999E-2",
+          "الوصف": "طلميثة | | FID 76 | إسم_ا طلميثة | AREA 5.27 | المسا المساحة=5.270هكتار | Shape_Leng 1190.140813",
+          "عدد نقاط الحدود": "29",
+          "محيط الشكل (Shape_Length)": "1190.140813"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "جرجارامه",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        21.442553,
+        32.799602
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-79",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-79",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "77",
+          "X (خط الطول - Longitude)": "21.442553",
+          "Y (خط العرض - Latitude)": "32.799602",
+          "الاسم": "جرجارامه",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "371.88",
+          "المساحة المحسوبة (كم2)": "3.7309999999999999",
+          "الوصف": "جرجارامه | | FID 77 | إسم_ا جرجارامه | AREA 371.88 | المسا المساحة=371.8هكتار | Shape_Leng 19000.927832",
+          "عدد نقاط الحدود": "5000",
+          "محيط الشكل (Shape_Length)": "19000.927832000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "مويلح",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        21.535437,
+        32.855457
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-80",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-80",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "78",
+          "X (خط الطول - Longitude)": "21.535437000000002",
+          "Y (خط العرض - Latitude)": "32.855457000000001",
+          "الاسم": "مويلح",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "78.3",
+          "المساحة المحسوبة (كم2)": "0.78500000000000003",
+          "الوصف": "مويلح | | FID 78 | إسم_ا مويلح | AREA 78.3 | المسا المساحة=78.30هكتار | Shape_Leng 6976.550598",
+          "عدد نقاط الحدود": "1196",
+          "محيط الشكل (Shape_Length)": "6976.5505979999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الحمامة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        21.630709,
+        32.92457
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-81",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-81",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "79",
+          "X (خط الطول - Longitude)": "21.630709",
+          "Y (خط العرض - Latitude)": "32.924570000000003",
+          "الاسم": "الحمامة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "13.24",
+          "المساحة المحسوبة (كم2)": "0.13300000000000001",
+          "الوصف": "الحمامة | | FID 79 | إسم_ا الحمامة | AREA 13.24 | المسا المساحة=13.23هكتار | Shape_Leng 2549.421025",
+          "عدد نقاط الحدود": "1173",
+          "محيط الشكل (Shape_Length)": "2549.4210250000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "أبوشيبة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.951056,
+        31.974647
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-82",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-82",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "80",
+          "X (خط الطول - Longitude)": "19.951056000000001",
+          "Y (خط العرض - Latitude)": "31.974647000000001",
+          "الاسم": "أبوشيبة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "19.82",
+          "المساحة المحسوبة (كم2)": "0.19900000000000001",
+          "الوصف": "أبوشيبة | | FID 80 | إسم_ا أبوشيبة | AREA 19.82 | المسا المساحة=19.81هكتار | Shape_Leng 1801.759935",
+          "عدد نقاط الحدود": "27",
+          "محيط الشكل (Shape_Length)": "1801.759935"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "المريسة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.945928,
+        31.95551
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-83",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-83",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "81",
+          "X (خط الطول - Longitude)": "19.945927999999999",
+          "Y (خط العرض - Latitude)": "31.95551",
+          "الاسم": "المريسة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "52.83",
+          "المساحة المحسوبة (كم2)": "0.53",
+          "الوصف": "المريسة | | FID 81 | إسم_ا المريسة | AREA 52.83 | المسا المساحة=52.83هكتار | Shape_Leng 2962.214458",
+          "عدد نقاط الحدود": "65",
+          "محيط الشكل (Shape_Length)": "2962.2144579999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "ترية",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.935201,
+        31.845706
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-84",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-84",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "82",
+          "X (خط الطول - Longitude)": "19.935200999999999",
+          "Y (خط العرض - Latitude)": "31.845706",
+          "الاسم": "ترية",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "79.23",
+          "المساحة المحسوبة (كم2)": "0.79500000000000004",
+          "الوصف": "ترية | | FID 82 | إسم_ا ترية | AREA 79.23 | المسا المساحة=79.23هكتار | Shape_Leng 5263.720939",
+          "عدد نقاط الحدود": "472",
+          "محيط الشكل (Shape_Length)": "5263.7209389999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "قمينس",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.955248,
+        31.670132
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-85",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-85",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "83",
+          "X (خط الطول - Longitude)": "19.955248000000001",
+          "Y (خط العرض - Latitude)": "31.670131999999999",
+          "الاسم": "قمينس",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "297.51",
+          "المساحة المحسوبة (كم2)": "2.984",
+          "الوصف": "قمينس | | FID 83 | إسم_ا قمينس | AREA 297.51 | المسا المساحة=297.5هكتار | Shape_Leng 15353.740191",
+          "عدد نقاط الحدود": "709",
+          "محيط الشكل (Shape_Length)": "15353.740191000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "جاروتة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.932287,
+        31.812666
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-86",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-86",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "84",
+          "X (خط الطول - Longitude)": "19.932286999999999",
+          "Y (خط العرض - Latitude)": "31.812666",
+          "الاسم": "جاروتة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "45.41",
+          "المساحة المحسوبة (كم2)": "0.45500000000000002",
+          "الوصف": "جاروتة | | FID 84 | إسم_ا جاروتة | AREA 45.41 | المسا المساحة=45.40هكتار | Shape_Leng 2811.159596",
+          "عدد نقاط الحدود": "146",
+          "محيط الشكل (Shape_Length)": "2811.159596"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الساحل الغربي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.137538,
+        31.258641
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-87",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-87",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "85",
+          "X (خط الطول - Longitude)": "20.137537999999999",
+          "Y (خط العرض - Latitude)": "31.258641000000001",
+          "الاسم": "الساحل الغربي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "945.8",
+          "المساحة المحسوبة (كم2)": "9.5259999999999998",
+          "الوصف": "الساحل الغربي | | FID 85 | إسم_ا الساحل الغربي | AREA 945.8 | المسا المساحة=945.8هكتار | Shape_Leng 32412.285151",
+          "عدد نقاط الحدود": "64",
+          "محيط الشكل (Shape_Length)": "32412.285151"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "حبيب",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.02073,
+        31.454218
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-88",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-88",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "86",
+          "X (خط الطول - Longitude)": "20.02073",
+          "Y (خط العرض - Latitude)": "31.454218000000001",
+          "الاسم": "حبيب",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "4157.6000000000004",
+          "المساحة المحسوبة (كم2)": "41.817999999999998",
+          "الوصف": "حبيب | | FID 86 | إسم_ا حبيب | AREA 4157.6 | المسا المساحة=4157.6هكتار | Shape_Leng 58842.589046",
+          "عدد نقاط الحدود": "126",
+          "محيط الشكل (Shape_Length)": "58842.589046000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "كركورة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.965136,
+        31.61397
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-89",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-89",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "87",
+          "X (خط الطول - Longitude)": "19.965136000000001",
+          "Y (خط العرض - Latitude)": "31.613969999999998",
+          "الاسم": "كركورة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "152.30000000000001",
+          "المساحة المحسوبة (كم2)": "1.5349999999999999",
+          "الوصف": "كركورة | | FID 87 | إسم_ا كركورة | AREA 152.3 | المسا المساحة=152.3هكتار | Shape_Leng 10191.429036",
+          "عدد نقاط الحدود": "17",
+          "محيط الشكل (Shape_Length)": "10191.429036"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الحليسي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.95392,
+        31.923746
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-90",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-90",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "88",
+          "X (خط الطول - Longitude)": "19.95392",
+          "Y (خط العرض - Latitude)": "31.923746000000001",
+          "الاسم": "الحليسي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "117.6",
+          "المساحة المحسوبة (كم2)": "1.1850000000000001",
+          "الوصف": "الحليسي | | FID 88 | إسم_ا الحليسي | AREA 117.6 | المسا المساحة=117.6هكتار | Shape_Leng 6248.23917",
+          "عدد نقاط الحدود": "11",
+          "محيط الشكل (Shape_Length)": "6248.2391699999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "سيدي علي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.258453,
+        32.318727
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-91",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-91",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "89",
+          "X (خط الطول - Longitude)": "20.258452999999999",
+          "Y (خط العرض - Latitude)": "32.318727000000003",
+          "الاسم": "سيدي علي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "194.3",
+          "المساحة المحسوبة (كم2)": "1.9590000000000001",
+          "الوصف": "سيدي علي | | FID 89 | إسم_ا سيدي علي | AREA 194.3 | المسا المساحة=194.3هكتار | Shape_Leng 10428.787496",
+          "عدد نقاط الحدود": "9",
+          "محيط الشكل (Shape_Length)": "10428.787496000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "دريانة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.320037,
+        32.366999
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-92",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-92",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "90",
+          "X (خط الطول - Longitude)": "20.320036999999999",
+          "Y (خط العرض - Latitude)": "32.366999",
+          "الاسم": "دريانة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "288.5",
+          "المساحة المحسوبة (كم2)": "2.91",
+          "الوصف": "دريانة | | FID 90 | إسم_ا دريانة | AREA 288.5 | المسا المساحة=288.5هكتار | Shape_Leng 22386.813602",
+          "عدد نقاط الحدود": "17",
+          "محيط الشكل (Shape_Length)": "22386.813601999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "مبنى",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.405195,
+        32.433125
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-93",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-93",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "91",
+          "X (خط الطول - Longitude)": "20.405194999999999",
+          "Y (خط العرض - Latitude)": "32.433124999999997",
+          "الاسم": "مبنى",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "479.3",
+          "المساحة المحسوبة (كم2)": "4.8410000000000002",
+          "الوصف": "مبنى | | FID 91 | إسم_ا مبنى | AREA 479.3 | المسا المساحة=479.3هكتار | Shape_Leng 22702.800709",
+          "عدد نقاط الحدود": "16",
+          "محيط الشكل (Shape_Length)": "22702.800708999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "البرسس",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.468685,
+        32.475222
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-94",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-94",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "92",
+          "X (خط الطول - Longitude)": "20.468685000000001",
+          "Y (خط العرض - Latitude)": "32.475222000000002",
+          "الاسم": "البرسس",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "151.30000000000001",
+          "المساحة المحسوبة (كم2)": "1.5249999999999999",
+          "الوصف": "البرسس | | FID 92 | إسم_ا البرسس | AREA 151.3 | المسا المساحة=151.3هكتار | Shape_Leng 9678.305182",
+          "عدد نقاط الحدود": "10",
+          "محيط الشكل (Shape_Length)": "9678.3051820000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "العقورية",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.576157,
+        32.539022
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-95",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-95",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "93",
+          "X (خط الطول - Longitude)": "20.576156999999998",
+          "Y (خط العرض - Latitude)": "32.539022000000003",
+          "الاسم": "العقورية",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "1303.9000000000001",
+          "المساحة المحسوبة (كم2)": "13.21",
+          "الوصف": "العقورية | | FID 93 | إسم_ا العقورية | AREA 1303.9 | المسا المساحة=1303.9هكتار | Shape_Leng 41540.520934",
+          "عدد نقاط الحدود": "76",
+          "محيط الشكل (Shape_Length)": "41540.520934"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "بابا طلميثة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.937473,
+        32.707218
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-96",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-96",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "94",
+          "X (خط الطول - Longitude)": "20.937473000000001",
+          "Y (خط العرض - Latitude)": "32.707217999999997",
+          "الاسم": "بابا طلميثة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "31.9",
+          "المساحة المحسوبة (كم2)": "0.32100000000000001",
+          "الوصف": "بابا طلميثة | | FID 94 | إسم_ا بابا طلميثة | AREA 31.9 | المسا المساحة=31.9هكتار | Shape_Leng 4457.113188",
+          "عدد نقاط الحدود": "21",
+          "محيط الشكل (Shape_Length)": "4457.1131880000003"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "عقلة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        21.345011,
+        32.773607
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-97",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-97",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "95",
+          "X (خط الطول - Longitude)": "21.345011",
+          "Y (خط العرض - Latitude)": "32.773606999999998",
+          "الاسم": "عقلة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "42.1",
+          "المساحة المحسوبة (كم2)": "0.42399999999999999",
+          "الوصف": "عقلة | | FID 95 | إسم_ا عقلة | AREA 42.1 | المسا المساحة=42.1هكتار | Shape_Leng 4397.027026",
+          "عدد نقاط الحدود": "12",
+          "محيط الشكل (Shape_Length)": "4397.0270259999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "نوطة سوسة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        21.819191,
+        32.909991
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-98",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-98",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "96",
+          "X (خط الطول - Longitude)": "21.819191",
+          "Y (خط العرض - Latitude)": "32.909990999999998",
+          "الاسم": "نوطة سوسة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "112.6",
+          "المساحة المحسوبة (كم2)": "1.1319999999999999",
+          "الوصف": "نوطة سوسة | | FID 96 | إسم_ا نوطة سوسة | AREA 112.6 | المسا المساحة=112.6هكتار | Shape_Leng 11083.594498",
+          "عدد نقاط الحدود": "25",
+          "محيط الشكل (Shape_Length)": "11083.594498"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "مهبول",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.144328,
+        32.926154
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-99",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-99",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "97",
+          "X (خط الطول - Longitude)": "22.144328000000002",
+          "Y (خط العرض - Latitude)": "32.926153999999997",
+          "الاسم": "مهبول",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "953.6",
+          "المساحة المحسوبة (كم2)": "9.5749999999999993",
+          "الوصف": "مهبول | | FID 97 | إسم_ا مهبول | AREA 953.6 | المسا المساحة=953.6هكتار | Shape_Leng 21097.521231",
+          "عدد نقاط الحدود": "73",
+          "محيط الشكل (Shape_Length)": "21097.521230999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "بركة ناصر",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.173802,
+        32.893832
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-100",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-100",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "98",
+          "X (خط الطول - Longitude)": "22.173801999999998",
+          "Y (خط العرض - Latitude)": "32.893832000000003",
+          "الاسم": "بركة ناصر",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "23.4",
+          "المساحة المحسوبة (كم2)": "0.23499999999999999",
+          "الوصف": "بركة ناصر | | FID 98 | إسم_ا بركة ناصر | AREA 23.4 | المسا المساحة=23.4هكتار | Shape_Leng 2121.160553",
+          "عدد نقاط الحدود": "6",
+          "محيط الشكل (Shape_Length)": "2121.1605530000002"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "كرسة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.423613,
+        32.848881
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-101",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-101",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "99",
+          "X (خط الطول - Longitude)": "22.423613",
+          "Y (خط العرض - Latitude)": "32.848880999999999",
+          "الاسم": "كرسة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "349.8",
+          "المساحة المحسوبة (كم2)": "3.51",
+          "الوصف": "كرسة | | FID 99 | إسم_ا كرسة | AREA 349.8 | المسا المساحة=349.8هكتار | Shape_Leng 28581.978623",
+          "عدد نقاط الحدود": "90",
+          "محيط الشكل (Shape_Length)": "28581.978622999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الناقة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.558491,
+        32.800559
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-102",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-102",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "100",
+          "X (خط الطول - Longitude)": "22.558491",
+          "Y (خط العرض - Latitude)": "32.800559",
+          "الاسم": "الناقة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "12.7",
+          "المساحة المحسوبة (كم2)": "0.127",
+          "الوصف": "الناقة | | FID 100 | إسم_ا الناقة | AREA 12.7 | المسا المساحة=12.7هكتار | Shape_Leng 2312.0695",
+          "عدد نقاط الحدود": "13",
+          "محيط الشكل (Shape_Length)": "2312.0695000000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "بومسافر",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.567702,
+        32.787615
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-103",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-103",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "101",
+          "X (خط الطول - Longitude)": "22.567702000000001",
+          "Y (خط العرض - Latitude)": "32.787615000000002",
+          "الاسم": "بومسافر",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "14.2",
+          "المساحة المحسوبة (كم2)": "0.14199999999999999",
+          "الوصف": "بومسافر | | FID 101 | إسم_ا بومسافر | AREA 14.2 | المسا المساحة=14.2هكتار | Shape_Leng 1602.304278",
+          "عدد نقاط الحدود": "6",
+          "محيط الشكل (Shape_Length)": "1602.3042780000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الشاطيء",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.613842,
+        32.773055
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-104",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-104",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "102",
+          "X (خط الطول - Longitude)": "22.613842000000002",
+          "Y (خط العرض - Latitude)": "32.773054999999999",
+          "الاسم": "الشاطيء",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "18.7",
+          "المساحة المحسوبة (كم2)": "0.187",
+          "الوصف": "الشاطيء | | FID 102 | إسم_ا الشاطيء | AREA 18.7 | المسا المساحة=18.7هكتار | Shape_Leng 4334.945943",
+          "عدد نقاط الحدود": "9",
+          "محيط الشكل (Shape_Length)": "4334.9459429999997"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": null,
+      "blocked_reason": "MISSING_IDENTITY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        22.924983,
+        32.666034
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "MISSING_IDENTITY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-105",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-105",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "103",
+          "X (خط الطول - Longitude)": "22.924983000000001",
+          "Y (خط العرض - Latitude)": "32.666034000000003",
+          "الاسم": null,
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "11",
+          "المساحة المحسوبة (كم2)": "0.11",
+          "الوصف": "FID 103 | إسم_ا | AREA 11 | المسا المساحة=11هكتار | Shape_Leng 2908.914625",
+          "عدد نقاط الحدود": "13",
+          "محيط الشكل (Shape_Length)": "2908.9146249999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "المقرون",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.082091,
+        31.345656
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-106",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-106",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "104",
+          "X (خط الطول - Longitude)": "20.082090999999998",
+          "Y (خط العرض - Latitude)": "31.345656000000002",
+          "الاسم": "المقرون",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "313.89999999999998",
+          "المساحة المحسوبة (كم2)": "3.1640000000000001",
+          "الوصف": "المقرون | | FID 104 | إسم_ا المقرون | AREA 313.9 | المسا المساحة=313.9هكتار | Shape_Leng 14624.969342",
+          "عدد نقاط الحدود": "48",
+          "محيط الشكل (Shape_Length)": "14624.969342"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "البردي-3",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        25.116401,
+        31.716436
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-107",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-107",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "105",
+          "X (خط الطول - Longitude)": "25.116401",
+          "Y (خط العرض - Latitude)": "31.716436000000002",
+          "الاسم": "البردي-3",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "1276",
+          "المساحة المحسوبة (كم2)": "12.702999999999999",
+          "الوصف": "البردي-3 | | FID 105 | إسم_ا البردي-3 | AREA 1276 | المسا المساحة=1276هكتار | Shape_Leng 24447.144251",
+          "عدد نقاط الحدود": "64",
+          "محيط الشكل (Shape_Length)": "24447.144251000002"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "البردي-2",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        25.041811,
+        31.856827
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-108",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-108",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "106",
+          "X (خط الطول - Longitude)": "25.041810999999999",
+          "Y (خط العرض - Latitude)": "31.856826999999999",
+          "الاسم": "البردي-2",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "2031.8",
+          "المساحة المحسوبة (كم2)": "20.239000000000001",
+          "الوصف": "البردي-2 | | FID 106 | إسم_ا البردي-2 | AREA 2031.8 | المسا المساحة=2031.8هكتار | Shape_Leng 51045.017055",
+          "عدد نقاط الحدود": "191",
+          "محيط الشكل (Shape_Length)": "51045.017054999997"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "عزاز",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        24.994701,
+        31.953789
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-109",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-109",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "107",
+          "X (خط الطول - Longitude)": "24.994700999999999",
+          "Y (خط العرض - Latitude)": "31.953789",
+          "الاسم": "عزاز",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "584.4",
+          "المساحة المحسوبة (كم2)": "5.8220000000000001",
+          "الوصف": "عزاز | | FID 107 | إسم_ا عزاز | AREA 584.4 | المسا المساحة=584.4هكتار | Shape_Leng 15359.912676",
+          "عدد نقاط الحدود": "42",
+          "محيط الشكل (Shape_Length)": "15359.912676"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الجدي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        24.932314,
+        31.969713
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-110",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-110",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "108",
+          "X (خط الطول - Longitude)": "24.932314000000002",
+          "Y (خط العرض - Latitude)": "31.969712999999999",
+          "الاسم": "الجدي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "518.4",
+          "المساحة المحسوبة (كم2)": "5.1669999999999998",
+          "الوصف": "الجدي | | FID 108 | إسم_ا الجدي | AREA 518.4 | المسا المساحة=518.4هكتار | Shape_Leng 16830.367153",
+          "عدد نقاط الحدود": "65",
+          "محيط الشكل (Shape_Length)": "16830.367152999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "شويمر",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        24.853361,
+        31.983817
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-111",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-111",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "109",
+          "X (خط الطول - Longitude)": "24.853361",
+          "Y (خط العرض - Latitude)": "31.983816999999998",
+          "الاسم": "شويمر",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "529.1",
+          "المساحة المحسوبة (كم2)": "5.2789999999999999",
+          "الوصف": "شويمر | | FID 109 | إسم_ا شويمر | AREA 529.1 | المسا المساحة=529.1هكتار | Shape_Leng 21579.055967",
+          "عدد نقاط الحدود": "74",
+          "محيط الشكل (Shape_Length)": "21579.055967"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "مرسة دفنة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        24.769971,
+        32.007771
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-112",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-112",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "110",
+          "X (خط الطول - Longitude)": "24.769971000000002",
+          "Y (خط العرض - Latitude)": "32.007770999999998",
+          "الاسم": "مرسة دفنة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "313.60000000000002",
+          "المساحة المحسوبة (كم2)": "3.1269999999999998",
+          "الوصف": "مرسة دفنة | | FID 110 | إسم_ا مرسة دفنة | AREA 313.6 | المسا المساحة=313.6هكتار | Shape_Leng 13083.922958",
+          "عدد نقاط الحدود": "54",
+          "محيط الشكل (Shape_Length)": "13083.922957999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "بئرالأشهب",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        24.612591,
+        31.999305
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-113",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-113",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "111",
+          "X (خط الطول - Longitude)": "24.612590999999998",
+          "Y (خط العرض - Latitude)": "31.999305",
+          "الاسم": "بئرالأشهب",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "64.3",
+          "المساحة المحسوبة (كم2)": "0.64100000000000001",
+          "الوصف": "بئرالأشهب | | FID 111 | إسم_ا بئرالأشهب | AREA 64.3 | المسا المساحة=64.3هكتار | Shape_Leng 3706.108809",
+          "عدد نقاط الحدود": "14",
+          "محيط الشكل (Shape_Length)": "3706.1088089999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "قابس",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        24.574523,
+        31.9877
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-114",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-114",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "112",
+          "X (خط الطول - Longitude)": "24.574522999999999",
+          "Y (خط العرض - Latitude)": "31.9877",
+          "الاسم": "قابس",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "309",
+          "المساحة المحسوبة (كم2)": "3.0830000000000002",
+          "الوصف": "قابس | | FID 112 | إسم_ا قابس | AREA 309 | المسا المساحة=309هكتار | Shape_Leng 13137.44947",
+          "عدد نقاط الحدود": "49",
+          "محيط الشكل (Shape_Length)": "13137.44947"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "كمبوت",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        24.532444,
+        31.976517
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-115",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-115",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "113",
+          "X (خط الطول - Longitude)": "24.532444000000002",
+          "Y (خط العرض - Latitude)": "31.976517000000001",
+          "الاسم": "كمبوت",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "339.5",
+          "المساحة المحسوبة (كم2)": "3.3860000000000001",
+          "الوصف": "كمبوت | | FID 113 | إسم_ا كمبوت | AREA 339.5 | المسا المساحة=339.5هكتار | Shape_Leng 10129.056374",
+          "عدد نقاط الحدود": "41",
+          "محيط الشكل (Shape_Length)": "10129.056374"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "العقلة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        24.261454,
+        32.002232
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-116",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-116",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "114",
+          "X (خط الطول - Longitude)": "24.261454000000001",
+          "Y (خط العرض - Latitude)": "32.002231999999999",
+          "الاسم": "العقلة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "200.9",
+          "المساحة المحسوبة (كم2)": "2.0059999999999998",
+          "الوصف": "العقلة | | FID 114 | إسم_ا العقلة | AREA 200.9 | المسا المساحة=200.9هكتار | Shape_Leng 9571.510793",
+          "عدد نقاط الحدود": "53",
+          "محيط الشكل (Shape_Length)": "9571.5107929999995"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "العودا",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        23.880382,
+        32.119584
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-117",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-117",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "115",
+          "X (خط الطول - Longitude)": "23.880382000000001",
+          "Y (خط العرض - Latitude)": "32.119584000000003",
+          "الاسم": "العودا",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "827",
+          "المساحة المحسوبة (كم2)": "8.2669999999999995",
+          "الوصف": "العودا | | FID 115 | إسم_ا العودا | AREA 827 | المسا المساحة=827هكتار | Shape_Leng 32334.287069",
+          "عدد نقاط الحدود": "140",
+          "محيط الشكل (Shape_Length)": "32334.287069000002"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "المرصص",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        23.706914,
+        32.161449
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-118",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-118",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "116",
+          "X (خط الطول - Longitude)": "23.706914000000001",
+          "Y (خط العرض - Latitude)": "32.161448999999998",
+          "الاسم": "المرصص",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "4952.8999999999996",
+          "المساحة المحسوبة (كم2)": "49.658000000000001",
+          "الوصف": "المرصص | | FID 116 | إسم_ا المرصص | AREA 4952.9 | المسا المساحة=4952.9هكتار | Shape_Leng 54697.190425",
+          "عدد نقاط الحدود": "128",
+          "محيط الشكل (Shape_Length)": "54697.190425000001"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "بلخاتر",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        23.530626,
+        32.169754
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-119",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-119",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "117",
+          "X (خط الطول - Longitude)": "23.530626000000002",
+          "Y (خط العرض - Latitude)": "32.169753999999998",
+          "الاسم": "بلخاتر",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "213.5",
+          "المساحة المحسوبة (كم2)": "2.137",
+          "الوصف": "بلخاتر | | FID 117 | إسم_ا بلخاتر | AREA 213.5 | المسا المساحة=213.5هكتار | Shape_Leng 9542.366553",
+          "عدد نقاط الحدود": "17",
+          "محيط الشكل (Shape_Length)": "9542.3665529999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "عين الغزال",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        23.272275,
+        32.197508
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-120",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-120",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "118",
+          "X (خط الطول - Longitude)": "23.272275",
+          "Y (خط العرض - Latitude)": "32.197507999999999",
+          "الاسم": "عين الغزال",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "72",
+          "المساحة المحسوبة (كم2)": "0.72099999999999997",
+          "الوصف": "عين الغزال | | FID 118 | إسم_ا عين الغزال | AREA 72 | المسا المساحة=72هكتار | Shape_Leng 7440.588523",
+          "عدد نقاط الحدود": "9",
+          "محيط الشكل (Shape_Length)": "7440.5885230000004"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "التميمي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        23.227629,
+        32.24076
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-121",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-121",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "119",
+          "X (خط الطول - Longitude)": "23.227629",
+          "Y (خط العرض - Latitude)": "32.240760000000002",
+          "الاسم": "التميمي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "133",
+          "المساحة المحسوبة (كم2)": "1.3320000000000001",
+          "الوصف": "التميمي | | FID 119 | إسم_ا التميمي | AREA 133 | المسا المساحة=133هكتار | Shape_Leng 10062.80359",
+          "عدد نقاط الحدود": "33",
+          "محيط الشكل (Shape_Length)": "10062.80359"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "بالقردان",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        23.145583,
+        32.304895
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-122",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-122",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "120",
+          "X (خط الطول - Longitude)": "23.145582999999998",
+          "Y (خط العرض - Latitude)": "32.304895000000002",
+          "الاسم": "بالقردان",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "1973.4",
+          "المساحة المحسوبة (كم2)": "19.771000000000001",
+          "الوصف": "بالقردان | | FID 120 | إسم_ا بالقردان | AREA 1973.4 | المسا المساحة=1973.4هكتار | Shape_Leng 49499.08754",
+          "عدد نقاط الحدود": "107",
+          "محيط الشكل (Shape_Length)": "49499.08754"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "راس التين-2",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        23.112896,
+        32.511195
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-123",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-123",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "121",
+          "X (خط الطول - Longitude)": "23.112895999999999",
+          "Y (خط العرض - Latitude)": "32.511195000000001",
+          "الاسم": "راس التين-2",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "3916.4",
+          "المساحة المحسوبة (كم2)": "39.234000000000002",
+          "الوصف": "راس التين-2 | | FID 121 | إسم_ا راس التين-2 | AREA 3916.4 | المسا المساحة=3916.4هكتار | Shape_Leng 79716.391787",
+          "عدد نقاط الحدود": "230",
+          "محيط الشكل (Shape_Length)": "79716.391787"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "خبطة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        23.036497,
+        32.638648
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-124",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-124",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "122",
+          "X (خط الطول - Longitude)": "23.036497000000001",
+          "Y (خط العرض - Latitude)": "32.638648000000003",
+          "الاسم": "خبطة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "413.3",
+          "المساحة المحسوبة (كم2)": "4.141",
+          "الوصف": "خبطة | | FID 122 | إسم_ا خبطة | AREA 413.3 | المسا المساحة=413.3هكتار | Shape_Leng 9121.406215",
+          "عدد نقاط الحدود": "14",
+          "محيط الشكل (Shape_Length)": "9121.4062150000009"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "بوهريشيمة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.171544,
+        31.112802
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-125",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-125",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "123",
+          "X (خط الطول - Longitude)": "20.171544000000001",
+          "Y (خط العرض - Latitude)": "31.112801999999999",
+          "الاسم": "بوهريشيمة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "996.3",
+          "المساحة المحسوبة (كم2)": "10.044",
+          "الوصف": "بوهريشيمة | | FID 123 | إسم_ا بوهريشيمة | AREA 996.3 | المسا المساحة=996.3هكتار | Shape_Leng 39425.763426",
+          "عدد نقاط الحدود": "40",
+          "محيط الشكل (Shape_Length)": "39425.763425999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الزويتينة الشمالي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.137567,
+        30.99746
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-126",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-126",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "124",
+          "X (خط الطول - Longitude)": "20.137567000000001",
+          "Y (خط العرض - Latitude)": "30.99746",
+          "الاسم": "الزويتينة الشمالي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "260.7",
+          "المساحة المحسوبة (كم2)": "2.63",
+          "الوصف": "الزويتينة الشمالي | | FID 124 | إسم_ا الزويتينة الشمالي | AREA 260.7 | المسا المساحة=260.7هكتار | Shape_Leng 16154.549479",
+          "عدد نقاط الحدود": "12",
+          "محيط الشكل (Shape_Length)": "16154.549478999999"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الزويتينة الجنوبي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        20.10164,
+        30.93416
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-127",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-127",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "125",
+          "X (خط الطول - Longitude)": "20.10164",
+          "Y (خط العرض - Latitude)": "30.934159999999999",
+          "الاسم": "الزويتينة الجنوبي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "84.6",
+          "المساحة المحسوبة (كم2)": "0.85299999999999998",
+          "الوصف": "الزويتينة الجنوبي | | FID 125 | إسم_ا الزويتينة الجنوبي | AREA 84.6 | المسا المساحة=84.6هكتار | Shape_Leng 4258.397803",
+          "عدد نقاط الحدود": "7",
+          "محيط الشكل (Shape_Length)": "4258.3978029999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "مرير قابس",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.914163,
+        30.667001
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-128",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-128",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "126",
+          "X (خط الطول - Longitude)": "19.914162999999999",
+          "Y (خط العرض - Latitude)": "30.667000999999999",
+          "الاسم": "مرير قابس",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "126",
+          "المساحة المحسوبة (كم2)": "1.2709999999999999",
+          "الوصف": "مرير قابس | | FID 126 | إسم_ا مرير قابس | AREA 126 | المسا المساحة=126هكتار | Shape_Leng 6202.021297",
+          "عدد نقاط الحدود": "7",
+          "محيط الشكل (Shape_Length)": "6202.0212970000002"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "بشر",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.393654,
+        30.32453
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-129",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-129",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "127",
+          "X (خط الطول - Longitude)": "19.393654000000002",
+          "Y (خط العرض - Latitude)": "30.324529999999999",
+          "الاسم": "بشر",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "967.2",
+          "المساحة المحسوبة (كم2)": "9.77",
+          "الوصف": "بشر | | FID 127 | إسم_ا بشر | AREA 967.2 | المسا المساحة=967.2هكتار | Shape_Leng 43368.054921",
+          "عدد نقاط الحدود": "27",
+          "محيط الشكل (Shape_Length)": "43368.054921000003"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "العقيلة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        19.16117,
+        30.268153
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-130",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-130",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "128",
+          "X (خط الطول - Longitude)": "19.161169999999998",
+          "Y (خط العرض - Latitude)": "30.268153000000002",
+          "الاسم": "العقيلة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "1615.7",
+          "المساحة المحسوبة (كم2)": "16.338999999999999",
+          "الوصف": "العقيلة | | FID 128 | إسم_ا العقيلة | AREA 1615.7 | المسا المساحة=1615.7هكتار | Shape_Leng 47908.227835",
+          "عدد نقاط الحدود": "31",
+          "محيط الشكل (Shape_Length)": "47908.227834999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "راس لانوف",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        18.495838,
+        30.545546
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-131",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-131",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "129",
+          "X (خط الطول - Longitude)": "18.495837999999999",
+          "Y (خط العرض - Latitude)": "30.545546000000002",
+          "الاسم": "راس لانوف",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "27.7",
+          "المساحة المحسوبة (كم2)": "0",
+          "الوصف": "راس لانوف | | FID 129 | إسم_ا راس لانوف | AREA 27.7 | المسا المساحة=27.7هكتار | Shape_Leng 5261.414921",
+          "عدد نقاط الحدود": "4",
+          "محيط الشكل (Shape_Length)": "5261.4149209999996"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "السدرة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        18.437855,
+        30.580976
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-132",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-132",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "130",
+          "X (خط الطول - Longitude)": "18.437854999999999",
+          "Y (خط العرض - Latitude)": "30.580976",
+          "الاسم": "السدرة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "19.600000000000001",
+          "المساحة المحسوبة (كم2)": "0.19800000000000001",
+          "الوصف": "السدرة | | FID 130 | إسم_ا السدرة | AREA 19.6 | المسا المساحة=19.6هكتار | Shape_Leng 3640.165194",
+          "عدد نقاط الحدود": "15",
+          "محيط الشكل (Shape_Length)": "3640.1651940000002"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "بن جواد",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        18.19787,
+        30.773122
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-133",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-133",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "131",
+          "X (خط الطول - Longitude)": "18.197870000000002",
+          "Y (خط العرض - Latitude)": "30.773122000000001",
+          "الاسم": "بن جواد",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "58.1",
+          "المساحة المحسوبة (كم2)": "0.58699999999999997",
+          "الوصف": "بن جواد | | FID 131 | إسم_ا بن جواد | AREA 58.1 | المسا المساحة=58.1هكتار | Shape_Leng 6775.9772",
+          "عدد نقاط الحدود": "16",
+          "محيط الشكل (Shape_Length)": "6775.9772000000003"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "عسيلة الغربي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        17.442653,
+        31.041371
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-134",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-134",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "132",
+          "X (خط الطول - Longitude)": "17.442653",
+          "Y (خط العرض - Latitude)": "31.041371000000002",
+          "الاسم": "عسيلة الغربي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "30.1",
+          "المساحة المحسوبة (كم2)": "0.30399999999999999",
+          "الوصف": "عسيلة الغربي | | FID 132 | إسم_ا عسيلة الغربي | AREA 30.1 | المسا المساحة=30.1هكتار | Shape_Leng 4891.175847",
+          "عدد نقاط الحدود": "24",
+          "محيط الشكل (Shape_Length)": "4891.1758470000004"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "هراوة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        17.292271,
+        31.086428
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-135",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-135",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "133",
+          "X (خط الطول - Longitude)": "17.292271",
+          "Y (خط العرض - Latitude)": "31.086428000000002",
+          "الاسم": "هراوة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "46.5",
+          "المساحة المحسوبة (كم2)": "0.46899999999999997",
+          "الوصف": "هراوة | | FID 133 | إسم_ا هراوة | AREA 46.5 | المسا المساحة=46.5هكتار | Shape_Leng 3136.985541",
+          "عدد نقاط الحدود": "11",
+          "محيط الشكل (Shape_Length)": "3136.985541"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "السميدة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        15.350278,
+        32.04111
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-136",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-136",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "134",
+          "X (خط الطول - Longitude)": "15.350277999999999",
+          "Y (خط العرض - Latitude)": "32.041110000000003",
+          "الاسم": "السميدة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "160",
+          "المساحة المحسوبة (كم2)": "1.615",
+          "الوصف": "السميدة | | FID 134 | إسم_ا السميدة | AREA 160 | المسا المساحة=160هكتار | Shape_Leng 7104.015813",
+          "عدد نقاط الحدود": "10",
+          "محيط الشكل (Shape_Length)": "7104.015813"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "قصر أحمد",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        15.334328,
+        32.189878
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-137",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-137",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "135",
+          "X (خط الطول - Longitude)": "15.334327999999999",
+          "Y (خط العرض - Latitude)": "32.189878",
+          "الاسم": "قصر أحمد",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "358.7",
+          "المساحة المحسوبة (كم2)": "3.6230000000000002",
+          "الوصف": "قصر أحمد | | FID 135 | إسم_ا قصر أحمد | AREA 358.7 | المسا المساحة=358.7هكتار | Shape_Leng 13129.474069",
+          "عدد نقاط الحدود": "17",
+          "محيط الشكل (Shape_Length)": "13129.474069"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الدافنية",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        14.970994,
+        32.417743
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-138",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-138",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "136",
+          "X (خط الطول - Longitude)": "14.970993999999999",
+          "Y (خط العرض - Latitude)": "32.417743000000002",
+          "الاسم": "الدافنية",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "105.3",
+          "المساحة المحسوبة (كم2)": "1.0620000000000001",
+          "الوصف": "الدافنية | | FID 136 | إسم_ا الدافنية | AREA 105.3 | المسا المساحة=105.3هكتار | Shape_Leng 6754.344085",
+          "عدد نقاط الحدود": "19",
+          "محيط الشكل (Shape_Length)": "6754.3440849999997"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "العويجة",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        17.863476,
+        30.910906
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-139",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-139",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "137",
+          "X (خط الطول - Longitude)": "17.863475999999999",
+          "Y (خط العرض - Latitude)": "30.910906000000001",
+          "الاسم": "العويجة",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "186.6",
+          "المساحة المحسوبة (كم2)": "1.8839999999999999",
+          "الوصف": "العويجة | | FID 137 | إسم_ا العويجة | AREA 186.6 | المسا المساحة=186.6هكتار | Shape_Leng 11031.25873",
+          "عدد نقاط الحدود": "24",
+          "محيط الشكل (Shape_Length)": "11031.25873"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "أم الخنفس",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        17.742907,
+        30.937303
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-140",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-140",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "138",
+          "X (خط الطول - Longitude)": "17.742906999999999",
+          "Y (خط العرض - Latitude)": "30.937303",
+          "الاسم": "أم الخنفس",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "96.9",
+          "المساحة المحسوبة (كم2)": "0.97899999999999998",
+          "الوصف": "أم الخنفس | | FID 138 | إسم_ا أم الخنفس | AREA 96.9 | المسا المساحة=96.9هكتار | Shape_Leng 6960.899144",
+          "عدد نقاط الحدود": "13",
+          "محيط الشكل (Shape_Length)": "6960.899144"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "عسيلة الشرقي",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        17.50987,
+        31.008659
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-141",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-141",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "139",
+          "X (خط الطول - Longitude)": "17.509869999999999",
+          "Y (خط العرض - Latitude)": "31.008659000000002",
+          "الاسم": "عسيلة الشرقي",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "20",
+          "المساحة المحسوبة (كم2)": "0.20200000000000001",
+          "الوصف": "عسيلة الشرقي | | FID 139 | إسم_ا عسيلة الشرقي | AREA 20 | المسا المساحة=20هكتار | Shape_Leng 3267.088418",
+          "عدد نقاط الحدود": "7",
+          "محيط الشكل (Shape_Length)": "3267.0884179999998"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "القرضابية",
+      "blocked_reason": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "geometry": null,
+      "representative_coordinate": [
+        16.850778,
+        31.187342
+      ],
+      "representative_coordinate_boundary_claimed": false,
+      "review_classification": "EXCEL_ONLY_NO_AUTHORITATIVE_GDB_GEOMETRY_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "excel_source": {
+          "source_composite_id": "مناطق تنمية والاستثمار.xlsx:Sheet1:row-142",
+          "source_database": "مناطق تنمية والاستثمار.xlsx",
+          "source_feature_id": "Sheet1:row-142",
+          "source_id": "INSTITUTIONAL_INVESTMENT_AREAS_XLSX_2026",
+          "source_layer": "Sheet1"
+        },
+        "excel_source_attributes": {
+          "FID": "140",
+          "X (خط الطول - Longitude)": "16.850777999999998",
+          "Y (خط العرض - Latitude)": "31.187342000000001",
+          "الاسم": "القرضابية",
+          "المجلد": "مناطق_التنمية_والاستثمار_السياحي",
+          "المساحة (هكتار)": "115.6",
+          "المساحة المحسوبة (كم2)": "1.167",
+          "الوصف": "القرضابية | | FID 140 | إسم_ا القرضابية | AREA 115.6 | المسا المساحة=115.6هكتار | Shape_Leng 11639.017689",
+          "عدد نقاط الحدود": "20",
+          "محيط الشكل (Shape_Length)": "11639.017689"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "مشروع السليسلة",
+      "blocked_reason": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.572968314000036,
+          32.80070580000006
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "السليسلة",
+        "distance_km": 0.013905,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-54"
+      },
+      "review_classification": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "gdb_source": {
+          "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:1",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "1",
+          "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+          "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+        },
+        "gdb_source_attributes": {
+          "X": 366388.0,
+          "Y": 3630095.0,
+          "الاس_1": "غير متوفر حسب المراجع",
+          "الاسم": "مشروع السليسلة",
+          "البري": "غير متوفر",
+          "المحا": "طرابلس",
+          "المحل": "الوادي الشرقي",
+          "المدي": "طرابلس",
+          "حالة_": "2104",
+          "ملاحظ": "موقع تم تخريطه واستهدافه"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "الفوارتاجوراء",
+      "blocked_reason": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.313755461000028,
+          32.899325350000026
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "الفوار",
+        "distance_km": 0.06592,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-44"
+      },
+      "review_classification": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "gdb_source": {
+          "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:14",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "14",
+          "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+          "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+        },
+        "gdb_source_attributes": {
+          "X": 342290.0,
+          "Y": 3641387.0,
+          "الاس_1": "غير متوفر حسب المراجع",
+          "الاسم": "الفوارتاجوراء",
+          "البري": "غير متوفر",
+          "المحا": "طرابلس",
+          "المحل": "أبي الأشهر",
+          "المدي": "طرابلس",
+          "حالة_": "2104",
+          "ملاحظ": "موقع تم تخريطه واستهدافه"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "شاطئ النخيل",
+      "blocked_reason": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.243072492000067,
+          32.90995000300006
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "شاطيء النخيل",
+        "distance_km": 0.036559,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-41"
+      },
+      "review_classification": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "gdb_source": {
+          "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:16",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "16",
+          "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+          "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+        },
+        "gdb_source_attributes": {
+          "X": 335698.0,
+          "Y": 3642673.0,
+          "الاس_1": "غير متوفر حسب المراجع",
+          "الاسم": "شاطئ النخيل",
+          "البري": "غير متوفر",
+          "المحا": "طرابلس",
+          "المحل": "الساحل",
+          "المدي": "طرابلس",
+          "حالة_": "2104",
+          "ملاحظ": "موقع تم تخريطه واستهدافه"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "ميناء الشعاب",
+      "blocked_reason": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.212170126000046,
+          32.89998802100007
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "الشعاب",
+        "distance_km": 0.017574,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-62"
+      },
+      "review_classification": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "gdb_source": {
+          "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:18",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "18",
+          "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+          "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+        },
+        "gdb_source_attributes": {
+          "X": 332789.0,
+          "Y": 3641617.0,
+          "الاس_1": "غير متوفر حسب المراجع",
+          "الاسم": "ميناء الشعاب",
+          "البري": "غير متوفر",
+          "المحا": "طرابلس",
+          "المحل": "ميناء الشعاب",
+          "المدي": "طرابلس",
+          "حالة_": "2104",
+          "ملاحظ": "موقع تم تخريطه واستهدافه"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    },
+    {
+      "area_name": "اويا",
+      "blocked_reason": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "geometry": {
+        "coordinates": [
+          13.017079696000053,
+          32.839589559000046
+        ],
+        "type": "Point"
+      },
+      "nearest_excel_coordinate_candidate": {
+        "area_name": "أوياء",
+        "distance_km": 0.012352,
+        "match_created": false,
+        "source_feature_id": "Sheet1:row-22"
+      },
+      "review_classification": "GDB_ONLY_IDENTITY_RECONCILIATION_REVIEW",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "gdb_source": {
+          "source_composite_id": "مناطق_التنمية_والاستثمار_السياحي_1:30",
+          "source_database": "Libya ATLAS Project.gdb",
+          "source_feature_id": "30",
+          "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+          "source_layer": "مناطق_التنمية_والاستثمار_السياحي_1"
+        },
+        "gdb_source_attributes": {
+          "X": 314414.0,
+          "Y": 3635246.0,
+          "الاس_1": "غير متوفر حسب المراجع",
+          "الاسم": "اويا",
+          "البري": "غير متوفر",
+          "المحا": "طرابلس",
+          "المحل": "السوق",
+          "المدي": "طرابلس",
+          "حالة_": "2104",
+          "ملاحظ": "موقع تم تخريطه واستهدافه"
+        },
+        "publication_approved": false,
+        "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
+      }
+    }
+  ],
+  "safe_ingestible_feature_count": 29,
+  "schema_version": 1,
+  "semantic_layer_code": "TOURISM_DEVELOPMENT_INVESTMENT_AREAS",
+  "semantic_name_ar": "مناطق التنمية والاستثمار السياحي",
+  "semantic_name_en": "Tourism Development and Investment Areas"
+}
