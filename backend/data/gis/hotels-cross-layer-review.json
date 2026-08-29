@@ -1,0 +1,15 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "comparison_layers": [
+    "TOURISM_INVESTMENT",
+    "TOURISM_RESORTS"
+  ],
+  "cross_layer_reference_count": 0,
+  "inventory_id": "hotels-cross-layer-review-v1",
+  "layer_code": "HOTELS",
+  "publication_approved": false,
+  "records": [],
+  "schema_version": 1
+}
