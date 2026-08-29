@@ -1,0 +1,51 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "comparison_layers": [
+    "HOTELS",
+    "PARKS",
+    "TOURISM_INVESTMENT_GDB_ONLY"
+  ],
+  "cross_layer_reference_count": 2,
+  "inventory_id": "tourism-resorts-cross-layer-review-v1",
+  "layer_code": "TOURISM_RESORTS",
+  "publication_approved": false,
+  "records": [
+    {
+      "coordinate": [
+        12.3875354,
+        32.8150919
+      ],
+      "matches": [
+        {
+          "layer_code": "HOTELS",
+          "name_ar": "Lancaster Al Salam Resort - منتجع لانكستر السلام",
+          "source_feature_id": "Placemark-542"
+        }
+      ],
+      "publication_approved": false,
+      "relationship": "CROSS_LAYER_REFERENCE",
+      "resort_institutional_id": "atlas-resort-a90015c91376cff2de80",
+      "resort_name_ar": "Lancaster Al Salam Resort - منتجع لانكستر السلام"
+    },
+    {
+      "coordinate": [
+        12.4890506,
+        32.8001823
+      ],
+      "matches": [
+        {
+          "layer_code": "HOTELS",
+          "name_ar": "Sabratha youth hostel _بيت شباب صبراتة",
+          "source_feature_id": "Placemark-541"
+        }
+      ],
+      "publication_approved": false,
+      "relationship": "CROSS_LAYER_REFERENCE",
+      "resort_institutional_id": "atlas-resort-10395e3b8b7d398b3f9b",
+      "resort_name_ar": "Sabratha youth hostel _بيت شباب صبراتة"
+    }
+  ],
+  "schema_version": 1
+}
