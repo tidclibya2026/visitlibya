@@ -26,7 +26,7 @@ KML = ATLAS / "مناطق_التنمية_والاستثمار_السياحي-م�
 SOURCE = GIS / "tourism-investment-areas-authoritative-source.review.geojson"
 RECONCILIATION = GIS / "tourism-investment-areas-authoritative-reconciliation.json"
 IMPORT = GIS / "tourism-investment-areas-governed-import.geojson"
-CROSS = GIS / "tourism-investment-areas-cross-layer-review.json"
+CROSS = GIS / "tourism-investment-areas-authoritative-cross-layer-review.json"
 
 LAYER_CODE = "TOURISM_INVESTMENT"
 SEMANTIC_LAYER_CODE = "TOURISM_DEVELOPMENT_INVESTMENT_AREAS"
