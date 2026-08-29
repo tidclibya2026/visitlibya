@@ -1,0 +1,584 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "blocked_feature_count": 12,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "CROSS_LAYER_REFERENCE": 2,
+    "SAFE_CAFE_POINT": 404,
+    "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW": 10
+  },
+  "inventory_id": "cafes-governed-blocked-v1",
+  "layer_code": "CAFES",
+  "publication_approved": false,
+  "records": [
+    {
+      "blocked_reason": "CROSS_LAYER_REFERENCE",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.193842,
+          32.887823
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-944cc6646d09c9ccb3d5",
+      "name_ar": "إيّلا كافي",
+      "review_classification": "CROSS_LAYER_REFERENCE",
+      "source_feature_id": "Placemark-3",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "CROSS_LAYER_REFERENCE",
+        "source_attributes": {
+          "Name": "إيّلا كافي",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: المدي طرابلس                                                                      ELLA Café - إيْلاّ كَافِي <br> العنو خالد بن الوليد                                                                 https://www.facebook.com/ellacafes.fb/?locale=ar_AR                                                 <br> البري info@ellacafes.com <br> رقم_ا 918890888 <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "المدي طرابلس                                                                      ELLA Café - إيْلاّ كَافِي \n العنو خالد بن الوليد                                                                 https://www.facebook.com/ellacafes.fb/?locale=ar_AR                                                 \n البري info@ellacafes.com \n رقم_ا 918890888",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-3",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-3",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.191318,
+          32.887188
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-40f6ec473f099591a872",
+      "name_ar": "مقهي عين زاره",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-54",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "مقهي عين زاره",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 Ain Zara Café <br> المدي طرابلس <br> العنو V5PR+VGG، طرابلس <br> البري <br> رقم_ا <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 Ain Zara Café \n المدي طرابلس \n العنو V5PR+VGG، طرابلس \n البري \n رقم_ا",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-54",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-54",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.191318,
+          32.887188
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-ec50d10e58fac579ed81",
+      "name_ar": "الحاج فتحي",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-70",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "الحاج فتحي",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 Haj Fatehi <br> المدي طرابلس <br> العنو شارع الجمهورية <br> البري https://www.facebook.com/Brioche.Haj.Fathi/?locale=ar_AR <br> رقم_ا 021-4440001 <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 Haj Fatehi \n المدي طرابلس \n العنو شارع الجمهورية \n البري https://www.facebook.com/Brioche.Haj.Fathi/?locale=ar_AR \n رقم_ا 021-4440001",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-70",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-70",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.191318,
+          32.887188
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-59ff53c1f6390c380dba",
+      "name_ar": "AVERO",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-87",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "AVERO",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 AVERO <br> المدي طرابلس <br> العنو طرابلس <br> البري https://www.facebook.com/p/AVERO-100065049790669/ <br> رقم_ا 091-4211100 <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 AVERO \n المدي طرابلس \n العنو طرابلس \n البري https://www.facebook.com/p/AVERO-100065049790669/ \n رقم_ا 091-4211100",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-87",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-87",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.187186,
+          32.887711
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-084e16e18af170cfedf1",
+      "name_ar": "حلويات شهرزاد",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-90",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "حلويات شهرزاد",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 Scheherazade sweets <br> المدي طرابلس <br> العنو القبة الفلكية ابو سته <br> البري <br> رقم_ا <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 Scheherazade sweets \n المدي طرابلس \n العنو القبة الفلكية ابو سته \n البري \n رقم_ا",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-90",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-90",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.191318,
+          32.887188
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-c28767be0a2e11010ca7",
+      "name_ar": "Cafe Adam",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-92",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "Cafe Adam",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 Cafe Adam <br> المدي طرابلس <br> العنو حي الاندلس <br> البري https://www.facebook.com/p/Adam-cafe-%D9%85%D9%82%D9%87%D9%8A-%D8%A3%D8%AF%D9%85-100057660510783/?locale=fr_CA <br> رقم_ا 092-0000000 <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 Cafe Adam \n المدي طرابلس \n العنو حي الاندلس \n البري https://www.facebook.com/p/Adam-cafe-%D9%85%D9%82%D9%87%D9%8A-%D8%A3%D8%AF%D9%85-100057660510783/?locale=fr_CA \n رقم_ا 092-0000000",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-92",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-92",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.191318,
+          32.887188
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-587ea72bd240137fa333",
+      "name_ar": "كيمو كافي السياحيه",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-104",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "كيمو كافي السياحيه",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 Kimo Cafe tourist <br> المدي طرابلس <br> العنو طرابلس <br> البري https://www.facebook.com/61556239916420/about/?_rdr <br> رقم_ا 093-1775694 <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 Kimo Cafe tourist \n المدي طرابلس \n العنو طرابلس \n البري https://www.facebook.com/61556239916420/about/?_rdr \n رقم_ا 093-1775694",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-104",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-104",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.191318,
+          32.887188
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-d764555b2d810a239978",
+      "name_ar": "قهوة 11 11",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-105",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "قهوة 11 11",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 Coffee 11 11 <br> المدي طرابلس <br> العنو ا?بوسلـيم <br> البري https://www.facebook.com/people/11-11-%D9%83%D8%A7%D9%81%D9%8A/100068047412927/ <br> رقم_ا 094-0000169 <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 Coffee 11 11 \n المدي طرابلس \n العنو ا?بوسلـيم \n البري https://www.facebook.com/people/11-11-%D9%83%D8%A7%D9%81%D9%8A/100068047412927/ \n رقم_ا 094-0000169",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-105",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-105",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.191318,
+          32.887188
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-23a028c9c1f57bd039cf",
+      "name_ar": "مقهى لاكارايا",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-106",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "مقهى لاكارايا",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 La carrai - Tripoli <br> المدي طرابلس <br> العنو السياحيه شارع تقسيم <br> البري https://www.facebook.com/LaCarraiaTripoli <br> رقم_ا 091-3013191 <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 La carrai - Tripoli \n المدي طرابلس \n العنو السياحيه شارع تقسيم \n البري https://www.facebook.com/LaCarraiaTripoli \n رقم_ا 091-3013191",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-106",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-106",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.187186,
+          32.887711
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-08460bdc504a20ad2c5a",
+      "name_ar": "كافي716",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-108",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "كافي716",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 Cafe716 <br> المدي طرابلس <br> العنو سوق الجمعة <br> البري https://www.facebook.com/p/%D9%83%D8%A7%D9%81%D9%8A-716-Cafe-100067024277423/?locale=ar_AR <br> رقم_ا 092-4093668 <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 Cafe716 \n المدي طرابلس \n العنو سوق الجمعة \n البري https://www.facebook.com/p/%D9%83%D8%A7%D9%81%D9%8A-716-Cafe-100067024277423/?locale=ar_AR \n رقم_ا 092-4093668",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-108",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-108",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.187186,
+          32.887711
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-c4c3127275f51708fb11",
+      "name_ar": "البيك للحلويات والعصائر",
+      "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+      "source_feature_id": "Placemark-109",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "SAME_GEOMETRY_DIFFERENT_IDENTITY_REVIEW",
+        "source_attributes": {
+          "Name": "البيك للحلويات والعصائر",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: الاس_1 Al Baik Sweets and Juices <br> المدي طرابلس <br> العنو سوق الجمعة <br> البري https://www.facebook.com/people/%D8%A7%D9%84%D8%A8%D9%8A%D9%83-%D9%84%D9%84%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%B9%D8%B5%D8%A7%D8%A6%D8%B1/61556230843267/# <br> رقم_ا <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": "الاس_1 Al Baik Sweets and Juices \n المدي طرابلس \n العنو سوق الجمعة \n البري https://www.facebook.com/people/%D8%A7%D9%84%D8%A8%D9%8A%D9%83-%D9%84%D9%84%D8%AD%D9%84%D9%88%D9%8A%D8%A7%D8%AA-%D9%88%D8%A7%D9%84%D8%B9%D8%B5%D8%A7%D8%A6%D8%B1/61556230843267/# \n رقم_ا",
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-109",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-109",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    },
+    {
+      "blocked_reason": "CROSS_LAYER_REFERENCE",
+      "cafe_subtype": "cafe_kml",
+      "geometry": {
+        "coordinates": [
+          13.2032859,
+          32.8758394
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-cafe-7403c39562d3d11cb925",
+      "name_ar": "THE MEATHOUSE",
+      "review_classification": "CROSS_LAYER_REFERENCE",
+      "source_feature_id": "Placemark-259",
+      "source_layer": "المقاهي_طرابلس(1)",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "CROSS_LAYER_REFERENCE",
+        "source_attributes": {
+          "Name": "THE MEATHOUSE",
+          "description": "المدينة: <br>الاسم باللغة الانجليزية: <br>الوصف: <br>العنوان: <br>وسائل الاتصال: <br>رقم الهاتف:",
+          "extended_data": {
+            "الاسم باللغة الانجليزية": null,
+            "العنوان": null,
+            "المدينة": null,
+            "الوصف": null,
+            "رقم الهاتف": null,
+            "وسائل الاتصال": null
+          },
+          "kml_context_path": [
+            "المقاهي_طرابلس",
+            "المقاهي"
+          ]
+        },
+        "source_composite_id": "KML_280D1EFE0E:Placemark-259",
+        "source_database": "المقاهي_طرابلس.kml",
+        "source_feature_id": "Placemark-259",
+        "source_id": "KML_280D1EFE0E",
+        "source_layer": "المقاهي_طرابلس(1)",
+        "source_subtype": "cafe_kml"
+      }
+    }
+  ],
+  "safe_ingestible_feature_count": 404,
+  "schema_version": 1,
+  "source_feature_count": 416,
+  "source_kml_sha256": "e1d862175e6d8e05e7ef19404caf6ea1c3098b466ddcedf55a4cd233205a45e9"
+}
