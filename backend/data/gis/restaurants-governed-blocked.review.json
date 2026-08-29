@@ -1,0 +1,315 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "blocked_feature_count": 8,
+  "canonical_identity_approved": false,
+  "category_counts": {
+    "GENERIC_NAME_IDENTITY_REVIEW": 8,
+    "SAFE_RESTAURANT_POINT": 102
+  },
+  "inventory_id": "restaurants-governed-blocked-v1",
+  "layer_code": "RESTAURANTS",
+  "publication_approved": false,
+  "records": [
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.869446400000072,
+          32.809488900000076
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-restaurant-ac91d83b8bf15bc5be4d",
+      "name_ar": "مطعم",
+      "restaurant_subtype": "restaurant",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "1",
+      "source_layer": "مطاعم",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "amenity": "restaurant",
+          "ar_name": "مطعم",
+          "x": 21.8694464,
+          "y": 32.8094889
+        },
+        "source_composite_id": "مطاعم:1",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "1",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مطاعم",
+        "source_subtype": "restaurant"
+      }
+    },
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.869062300000053,
+          32.82218690000008
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-restaurant-4baf123cf70ed08adb9b",
+      "name_ar": "مطعم",
+      "restaurant_subtype": "restaurant",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "2",
+      "source_layer": "مطاعم",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "amenity": "restaurant",
+          "ar_name": "مطعم",
+          "x": 21.8690623,
+          "y": 32.8221869
+        },
+        "source_composite_id": "مطاعم:2",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "2",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مطاعم",
+        "source_subtype": "restaurant"
+      }
+    },
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.869916200000034,
+          32.82796500000006
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-restaurant-cb2b66493849a74763f4",
+      "name_ar": "مطعم",
+      "restaurant_subtype": "restaurant",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "3",
+      "source_layer": "مطاعم",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "amenity": "restaurant",
+          "ar_name": "مطعم",
+          "x": 21.8699162,
+          "y": 32.827965
+        },
+        "source_composite_id": "مطاعم:3",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "3",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مطاعم",
+        "source_subtype": "restaurant"
+      }
+    },
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.86586120000004,
+          32.81719360000005
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-restaurant-b8e16bc4fa422c9fdf20",
+      "name_ar": "مطعم",
+      "restaurant_subtype": "restaurant",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "4",
+      "source_layer": "مطاعم",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "amenity": "restaurant",
+          "ar_name": "مطعم",
+          "x": 21.8658612,
+          "y": 32.8171936
+        },
+        "source_composite_id": "مطاعم:4",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "4",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مطاعم",
+        "source_subtype": "restaurant"
+      }
+    },
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.87685790000006,
+          32.79611500000004
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-restaurant-bffff03976a13a7c5c08",
+      "name_ar": "مطعم",
+      "restaurant_subtype": "restaurant",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "9",
+      "source_layer": "مطاعم",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "amenity": "restaurant",
+          "ar_name": "مطعم",
+          "x": 21.8768579,
+          "y": 32.796115
+        },
+        "source_composite_id": "مطاعم:9",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "9",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مطاعم",
+        "source_subtype": "restaurant"
+      }
+    },
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.86806690000003,
+          32.79444670000004
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-restaurant-b9d034e41227185f3e4a",
+      "name_ar": "مطعم",
+      "restaurant_subtype": "restaurant",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "11",
+      "source_layer": "مطاعم",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "amenity": "restaurant",
+          "ar_name": "مطعم",
+          "x": 21.8680669,
+          "y": 32.7944467
+        },
+        "source_composite_id": "مطاعم:11",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "11",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مطاعم",
+        "source_subtype": "restaurant"
+      }
+    },
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.86226890000006,
+          32.81309720000007
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-restaurant-c10a29d7edb03684f025",
+      "name_ar": "مطعم",
+      "restaurant_subtype": "restaurant",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "13",
+      "source_layer": "مطاعم",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "amenity": "restaurant",
+          "ar_name": "مطعم",
+          "x": 21.8622689,
+          "y": 32.8130972
+        },
+        "source_composite_id": "مطاعم:13",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "13",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مطاعم",
+        "source_subtype": "restaurant"
+      }
+    },
+    {
+      "blocked_reason": "GENERIC_NAME_IDENTITY_REVIEW",
+      "geometry": {
+        "coordinates": [
+          21.799159400000065,
+          32.77929590000008
+        ],
+        "type": "Point"
+      },
+      "geometry_type": "Point",
+      "institutional_id": "atlas-restaurant-4a00f711c64637af292f",
+      "name_ar": "مطعم",
+      "restaurant_subtype": "restaurant",
+      "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+      "source_feature_id": "14",
+      "source_layer": "مطاعم",
+      "source_metadata": {
+        "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+        "authoritative_boundary_claimed": false,
+        "canonical_identity_approved": false,
+        "cross_layer_authority_created": false,
+        "publication_approved": false,
+        "review_classification": "GENERIC_NAME_IDENTITY_REVIEW",
+        "source_attributes": {
+          "amenity": "restaurant",
+          "ar_name": "مطعم",
+          "x": 21.7991594,
+          "y": 32.7792959
+        },
+        "source_composite_id": "مطاعم:14",
+        "source_database": "Libya ATLAS Project.gdb",
+        "source_feature_id": "14",
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB",
+        "source_layer": "مطاعم",
+        "source_subtype": "restaurant"
+      }
+    }
+  ],
+  "safe_ingestible_feature_count": 102,
+  "schema_version": 1,
+  "source_feature_count": 110,
+  "source_kml_sha256": "9b7b9b1d5c2247528985b28eadf47ccdd6e5492038f7500af273204a1fd9764c"
+}
