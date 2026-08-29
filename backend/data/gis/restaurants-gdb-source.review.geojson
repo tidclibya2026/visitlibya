@@ -1,0 +1,1390 @@
+{
+  "artifact_status": "SOURCE_REVIEW_ONLY_NOT_PUBLICATION_APPROVAL", 
+  "authoritative_boundary_claimed": false, 
+  "canonical_identity_approved": false, 
+  "extracted_feature_count": 35, 
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          13.202963875000023, 
+          32.894793692000064
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "المطعم التركى", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "طرابلس", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ", 
+          "نوع_المأكولات": "وجبات تركية متنوعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:1", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "1", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.244454167000072, 
+          32.90766061900007
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "سلسلة مطاعم اسماك- سوق الجمعة", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "طرابلس", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم سياحي", 
+          "نوع_المأكولات": "مأكولات بحرية"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:2", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "2", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.375821521000034, 
+          32.89432991600006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "سلسلة مطاعم اسماك -تاجوراء", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "طرابلس", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم سياحي", 
+          "نوع_المأكولات": "مأكولات بحرية"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:3", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "3", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.18103018100004, 
+          32.894308383000066
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "مطعم سليم", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع امحمد المقريف", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ومقهى", 
+          "نوع_المأكولات": "مأكولات شرقية"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:4", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "4", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.181214176000026, 
+          32.89436348500004
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants  Fast food", 
+          "الاسم_العربي_للمرفق": "المقهى التجاري الكبير", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع امحمد المقريف", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ومقهى", 
+          "نوع_المأكولات": "تأسس منذ 1923، وجبات سريعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:5", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "5", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.182920248000073, 
+          32.892059173000064
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "مطعم جالكسي", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع الاستقلال", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ومقهى", 
+          "نوع_المأكولات": "وجبات متنوعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:6", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "6", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.182581628000037, 
+          32.89247136400007
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants  Fast food", 
+          "الاسم_العربي_للمرفق": "بيتسا لمياء", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع الاستقلال", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ", 
+          "نوع_المأكولات": "البيتسا"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:7", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "7", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.182834076000063, 
+          32.891420854000046
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "الفرات", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع الاستقلال", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ", 
+          "نوع_المأكولات": "مأكولات شرقية"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:8", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "8", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.181871494000063, 
+          32.89104635500007
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants  Fast food", 
+          "الاسم_العربي_للمرفق": "المهلهل", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع ميزران", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ومقهى", 
+          "نوع_المأكولات": "حلويات ووجبات متنوعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:9", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "9", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.179968011000028, 
+          32.89051210800005
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "أبو العز", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع الوادي", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ", 
+          "نوع_المأكولات": "وجبات متنوعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:10", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "10", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.164399143000026, 
+          32.88574040700007
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "مطعم الفيروز", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع عمر المختار", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم سياحي", 
+          "نوع_المأكولات": "وجبات لبنانية متنوعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:11", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "11", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.166335257000071, 
+          32.88679810200006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "البرمة", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع عمر المختار", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم سياحي", 
+          "نوع_المأكولات": "وجبات شعبية متنوعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:12", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "12", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.166188030000058, 
+          32.886723833000076
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "فيلادلفيا", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع عمر المختار", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ", 
+          "نوع_المأكولات": "وجبات متنوعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:13", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "13", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.193666483000072, 
+          32.89001670500005
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "مطعم بونا", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "الظهرة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ومقهى", 
+          "نوع_المأكولات": "وجبات تركية وبيتسا"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:14", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "14", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.193623304000027, 
+          32.887329848000036
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "مطعم فيراندا", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "الظهرة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ومقهى", 
+          "نوع_المأكولات": "الوجبات المتنوعة والمشاوي"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:15", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "15", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.19706184100005, 
+          32.88742710400004
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants", 
+          "الاسم_العربي_للمرفق": "مطعم أيوان أكسبرس", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع الجمهورية", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ومقهى", 
+          "نوع_المأكولات": "وجبات شرقية ومشروبات ساخنة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:16", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "16", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.196898438000062, 
+          32.887728078000066
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Philadelphia Fast food", 
+          "الاسم_العربي_للمرفق": "مطعم فيلادلفيا", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع الجمهورية", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم ومقهى", 
+          "نوع_المأكولات": "الوجبات السريعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:17", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "17", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.17757451600005, 
+          32.898671309000065
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Tripolis Restaurant Sea Food", 
+          "الاسم_العربي_للمرفق": "مطعم تريبولس", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم سياحي", 
+          "نوع_المأكولات": "المأكولات البحرية"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:18", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "18", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.175735300000042, 
+          32.899947206000036
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Abiya Restaurant Sea Food", 
+          "الاسم_العربي_للمرفق": "مطعم عبية", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "002189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "المدينة القديمة", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "925010736", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم سياحي", 
+          "نوع_المأكولات": "المأكولات البحرية والشعبية"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:19", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "19", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.184182020000037, 
+          32.89291729200005
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Restaurants  Fast food", 
+          "الاسم_العربي_للمرفق": "مطعم مأكولات بحرية", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "21891", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع امحمد المقريف", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "2189", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم سياحي", 
+          "نوع_المأكولات": "المأكولات البحرية والشعبية"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:20", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "20", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          13.181272446000037, 
+          32.894326136000075
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "الاسم_الانجليزي_للمرفق": "Commercial Chicken", 
+          "الاسم_العربي_للمرفق": "كوميرشل كنتاكي", 
+          "البريد_الالكتروني": "غير متوفر", 
+          "البريد_المصور": "2189", 
+          "المحافظة": "طرابلس", 
+          "المحلة": "شارع امحمد المقريف", 
+          "المدينة": "طرابلس", 
+          "الملحقات": "غير متوفر", 
+          "الهواتف": "218", 
+          "عدد_الطاولات": 1, 
+          "عدد_الكراسي": 1, 
+          "فئة_التصنيف": 1106, 
+          "ملاحظات": "مطعم سياحي", 
+          "نوع_المأكولات": "وجبات سريعة"
+        }, 
+        "source_composite_id": "المطاعم_السياحية:21", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "21", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "المطاعم_السياحية", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.869446400000072, 
+          32.809488900000076
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "restaurant", 
+          "ar_name": "مطعم", 
+          "x": 21.8694464, 
+          "y": 32.8094889
+        }, 
+        "source_composite_id": "مطاعم:1", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "1", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.869062300000053, 
+          32.82218690000008
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "restaurant", 
+          "ar_name": "مطعم", 
+          "x": 21.8690623, 
+          "y": 32.8221869
+        }, 
+        "source_composite_id": "مطاعم:2", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "2", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.869916200000034, 
+          32.82796500000006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "restaurant", 
+          "ar_name": "مطعم", 
+          "x": 21.8699162, 
+          "y": 32.827965
+        }, 
+        "source_composite_id": "مطاعم:3", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "3", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.86586120000004, 
+          32.81719360000005
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "restaurant", 
+          "ar_name": "مطعم", 
+          "x": 21.8658612, 
+          "y": 32.8171936
+        }, 
+        "source_composite_id": "مطاعم:4", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "4", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.89458730000007, 
+          32.80186370000007
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "rest_area", 
+          "ar_name": "استراحة", 
+          "x": 21.8945873, 
+          "y": 32.8018637
+        }, 
+        "source_composite_id": "مطاعم:5", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "5", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.78581820100004, 
+          32.775495000000035
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "cafe", 
+          "ar_name": "مقهى", 
+          "x": 21.7858182, 
+          "y": 32.775495
+        }, 
+        "source_composite_id": "مطاعم:6", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "6", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.86802300000005, 
+          32.80981260000004
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "drinking_water", 
+          "ar_name": "مشروبات", 
+          "x": 21.868023, 
+          "y": 32.8098126
+        }, 
+        "source_composite_id": "مطاعم:7", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "7", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.864719500000035, 
+          32.81431820000006
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "cafe", 
+          "ar_name": "مقهى", 
+          "x": 21.8647195, 
+          "y": 32.8143182
+        }, 
+        "source_composite_id": "مطاعم:8", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "8", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.87685790000006, 
+          32.79611500000004
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "restaurant", 
+          "ar_name": "مطعم", 
+          "x": 21.8768579, 
+          "y": 32.796115
+        }, 
+        "source_composite_id": "مطاعم:9", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "9", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.795402500000023, 
+          32.77682420000008
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "fast_food", 
+          "ar_name": "وجبات سريعة", 
+          "x": 21.7954025, 
+          "y": 32.7768242
+        }, 
+        "source_composite_id": "مطاعم:10", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "10", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.86806690000003, 
+          32.79444670000004
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "restaurant", 
+          "ar_name": "مطعم", 
+          "x": 21.8680669, 
+          "y": 32.7944467
+        }, 
+        "source_composite_id": "مطاعم:11", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "11", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.872047399000053, 
+          32.80601560000002
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "fast_food", 
+          "ar_name": "وجبات سريعة", 
+          "x": 21.8720474, 
+          "y": 32.8060156
+        }, 
+        "source_composite_id": "مطاعم:12", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "12", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.86226890000006, 
+          32.81309720000007
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "restaurant", 
+          "ar_name": "مطعم", 
+          "x": 21.8622689, 
+          "y": 32.8130972
+        }, 
+        "source_composite_id": "مطاعم:13", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "13", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }, 
+    {
+      "geometry": {
+        "coordinates": [
+          21.799159400000065, 
+          32.77929590000008
+        ], 
+        "type": "Point"
+      }, 
+      "properties": {
+        "authoritative_boundary_claimed": false, 
+        "authority_status": "UNAPPROVED", 
+        "canonical_identity_approved": false, 
+        "governance_role": "NET_NEW_REVIEW_CANDIDATE", 
+        "is_published": false, 
+        "is_validated": false, 
+        "publication_approved": false, 
+        "review_status": "REVIEW_REQUIRED", 
+        "source_attributes": {
+          "amenity": "restaurant", 
+          "ar_name": "مطعم", 
+          "x": 21.7991594, 
+          "y": 32.7792959
+        }, 
+        "source_composite_id": "مطاعم:14", 
+        "source_database": "Libya ATLAS Project.gdb", 
+        "source_feature_id": "14", 
+        "source_id": "LIBYA_ATLAS_PROJECT_GDB", 
+        "source_layer": "مطاعم", 
+        "target_layer": "RESTAURANTS", 
+        "validation_status": "SOURCE_EXTRACTED"
+      }, 
+      "type": "Feature"
+    }
+  ], 
+  "layer_code": "RESTAURANTS", 
+  "master_registry_version": "v2", 
+  "publication_approved": false, 
+  "schema_version": 1, 
+  "source_database": "Libya ATLAS Project.gdb", 
+  "source_feature_count": 35, 
+  "source_summary": {
+    "المطاعم_السياحية": {
+      "feature_count": 21, 
+      "geometry_type": "Point"
+    }, 
+    "مطاعم": {
+      "feature_count": 14, 
+      "geometry_type": "Point"
+    }
+  }, 
+  "type": "FeatureCollection"
+}

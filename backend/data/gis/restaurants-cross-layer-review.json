@@ -1,0 +1,16 @@
+{
+  "artifact_status": "GOVERNED_REVIEW_IMPORT_ONLY_NOT_PUBLICATION_APPROVAL",
+  "authoritative_boundary_claimed": false,
+  "canonical_identity_approved": false,
+  "comparison_layers": [
+    "HOTELS",
+    "TOURISM_RESORTS",
+    "CAFES_SOURCE"
+  ],
+  "cross_layer_reference_count": 0,
+  "inventory_id": "restaurants-cross-layer-review-v1",
+  "layer_code": "RESTAURANTS",
+  "publication_approved": false,
+  "records": [],
+  "schema_version": 1
+}
