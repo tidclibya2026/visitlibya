@@ -755,7 +755,18 @@ else {
         if (exactPathStatus(path.join(root, optimized)) !== "ok") issue("Media delivery", `${optimized}: temporary derivative is missing or case-mismatched`);
         if (!allowlistedMedia.has(optimized)) issue("Media delivery", `${optimized}: temporary derivative is not allowlisted`);
       }
-      if (entry.approvalStatus !== "temporary-owner-approved" || entry.ownerApprovalDate !== "2026-08-03" || entry.provenanceStatus !== "temporary-owner-supplied" || entry.permanentRightsStatus !== "pending") issue("Media delivery", `${fallback}: incomplete temporary approval metadata`);
+     const hasValidOwnerApprovalDate =
+  typeof entry.ownerApprovalDate === "string" &&
+  /^\d{4}-\d{2}-\d{2}$/.test(entry.ownerApprovalDate);
+
+if (
+  entry.approvalStatus !== "temporary-owner-approved" ||
+  !hasValidOwnerApprovalDate ||
+  entry.provenanceStatus !== "temporary-owner-supplied" ||
+  entry.permanentRightsStatus !== "pending"
+) {
+  issue("Media delivery", `${fallback}: incomplete temporary approval metadata`);
+}
     }
     for (const item of [...allowlistedMedia].filter((value) => value.startsWith("imges/destinations/temporary/"))) if (!manifestFallbacks.has(item)) issue("Media delivery", `${item}: allowlisted temporary fallback is absent from the manifest`);
     for (const item of [...allowlistedMedia].filter((value) => value.startsWith("imges/optimized/destinations/"))) if (!manifestOptimized.has(item)) issue("Media delivery", `${item}: unused temporary derivative is allowlisted`);

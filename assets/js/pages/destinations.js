@@ -1,6 +1,11 @@
 import { apiClient } from "../app/api/client.js";
 import { loadRuntimeConfig } from "../app/config/runtime-config.js";
 import { curatedDestinations } from "../data/curated-destinations.js";
+import {
+  editorialDestinationAdditions,
+  editorialExcludedDestinationSlugs,
+  mergeEditorialDestinationCatalogue,
+} from "../data/editorial-destination-overrides.js";
 import { resolveResponsiveImage } from "../data/responsive-images.js";
 
 const isArabic = document.documentElement.lang === "ar";
@@ -8,6 +13,10 @@ const locale = isArabic ? "ar-LY" : "en";
 const pathPrefix = isArabic ? "../" : "";
 const runtimeConfig = loadRuntimeConfig();
 const DESTINATION_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const editorialDestinations = Object.freeze([
+  ...curatedDestinations,
+  ...editorialDestinationAdditions,
+]);
 
 const copy = Object.freeze({
   allCategories: isArabic ? "كل الوجهات" : "All destinations",
@@ -113,7 +122,7 @@ function normalizeApiItem(item) {
   const id = Number(item.id);
   const slug = safeText(item.slug, "").toLowerCase();
   if (!Number.isSafeInteger(id) || id < 1 || !DESTINATION_SLUG_PATTERN.test(slug)) return null;
-  const curated = curatedDestinations.find((entry) => entry.slug === slug);
+  const curated = editorialDestinations.find((entry) => entry.slug === slug);
   const curatedName = safeText(isArabic ? curated?.name_ar : curated?.name_en, "");
   const curatedDescription = safeText(isArabic ? curated?.description_ar : curated?.description_en, "");
   const curatedRegion = safeText(isArabic ? curated?.region_ar : curated?.region_en, "");
@@ -322,6 +331,15 @@ function collectApiFacets(items) {
     const region = safeText(item?.region, "");
     if (region) state.regions.add(region);
   });
+  editorialDestinations
+    .filter((item) => !editorialExcludedDestinationSlugs.has(item.slug))
+    .forEach((item) => {
+    state.categories.set(
+      `curated:${item.category_key}`,
+      isArabic ? item.category_ar : item.category_en,
+    );
+    state.regions.add(isArabic ? item.region_ar : item.region_en);
+    });
   renderCategoryControls(
     [...state.categories].map(([id, name]) => ({ id, name })),
   );
@@ -345,7 +363,8 @@ function fallbackItems() {
     ? state.category.slice("curated:".length)
     : "";
   const selectedRegion = state.region;
-  const items = curatedDestinations
+  const items = editorialDestinations
+    .filter((item) => !editorialExcludedDestinationSlugs.has(item.slug))
     .filter((item) => !selectedCategory || item.category_key === selectedCategory)
     .filter((item) => {
       const region = isArabic ? item.region_ar : item.region_en;
@@ -381,16 +400,34 @@ function fallbackItems() {
   return items.sort((a, b) => direction * a.name.localeCompare(b.name, locale));
 }
 
+function composeEditorialCatalogue(apiItems) {
+  const includeApiItems = !state.category.startsWith("curated:");
+  const includeCuratedItems = !/^[1-9]\d*$/.test(state.category);
+  const catalogue = mergeEditorialDestinationCatalogue(
+    includeApiItems ? apiItems : [],
+    includeCuratedItems ? fallbackItems() : [],
+  );
+
+  if (state.sort === "name:asc" || state.sort === "name:desc") {
+    const direction = state.sort === "name:desc" ? -1 : 1;
+    catalogue.sort((a, b) => direction * a.name.localeCompare(b.name, locale));
+  }
+
+  return catalogue;
+}
+
 function configureFallbackFacets() {
   const categoryMap = new Map();
   const regions = new Set();
-  curatedDestinations.forEach((item) => {
+  editorialDestinations
+    .filter((item) => !editorialExcludedDestinationSlugs.has(item.slug))
+    .forEach((item) => {
     categoryMap.set(
       `curated:${item.category_key}`,
       isArabic ? item.category_ar : item.category_en,
     );
     regions.add(isArabic ? item.region_ar : item.region_en);
-  });
+    });
   if (state.category && !state.category.startsWith("curated:")) state.category = "";
   renderCategoryControls(
     [...categoryMap].map(([id, name]) => ({ id, name })),
@@ -456,8 +493,13 @@ async function loadDestinations({ force = false } = {}) {
     });
     if (!payload || !Array.isArray(payload.items)) throw new TypeError("Invalid destination response");
     state.source = "api";
-    collectApiFacets(payload.items);
-    const items = payload.items.map(normalizeApiItem).filter(Boolean);
+    const editorialApiItems = payload.items.filter((item) => {
+      const slug = safeText(item?.slug, "").toLowerCase();
+      return !editorialExcludedDestinationSlugs.has(slug);
+    });
+    collectApiFacets(editorialApiItems);
+    const apiItems = editorialApiItems.map(normalizeApiItem).filter(Boolean);
+    const items = composeEditorialCatalogue(apiItems);
     if (!items.length) {
       showFallback({ showError: false });
     } else {
@@ -524,7 +566,9 @@ elements.retry.addEventListener("click", () => {
     state.category = "";
   }
   const curatedRegions = new Set(
-    curatedDestinations.map((item) => (isArabic ? item.region_ar : item.region_en)),
+    editorialDestinations
+      .filter((item) => !editorialExcludedDestinationSlugs.has(item.slug))
+      .map((item) => (isArabic ? item.region_ar : item.region_en)),
   );
   if (curatedRegions.has(state.region)) {
     state.region = "";
