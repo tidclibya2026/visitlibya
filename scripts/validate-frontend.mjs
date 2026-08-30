@@ -295,12 +295,20 @@ for (const assignment of configAssignments) {
 }
 
 const { curatedDestinations } = await import(pathToFileURL(curatedFile));
+const editorialFile = path.join(root, "assets/js/data/editorial-destination-overrides.js");
+const editorialSource = fs.readFileSync(editorialFile, "utf8");
+const {
+  editorialDestinationAdditions,
+  editorialExcludedDestinationSlugs,
+  mergeEditorialDestinationCatalogue,
+} = await import(pathToFileURL(editorialFile));
 const responsiveManifestFile = path.join(root, "assets/js/data/responsive-images.js");
 const responsiveImages = fs.existsSync(responsiveManifestFile)
   ? (await import(pathToFileURL(responsiveManifestFile))).responsiveImages
   : {};
 const requiredCuratedFields = ["name_en", "name_ar", "description_en", "description_ar", "region_en", "region_ar", "category_en", "category_ar", "slug", "image"];
 const slugs = new Set();
+if (sha256(curatedFile) !== "ebd5025e153e5761c5752b4b235feb06fd1c9aad24fcb3003f9428fc43298e7f") issue("Curated destinations", "curated-destinations.js differs from the frozen Phase-1 baseline");
 for (const destination of curatedDestinations) {
   for (const field of requiredCuratedFields) if (typeof destination[field] !== "string" || !destination[field].trim()) issue("Curated destinations", `${destination.slug ?? "unknown"}: missing bilingual field ${field}`);
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(destination.slug)) issue("Curated destinations", `${destination.slug}: invalid slug pattern`);
@@ -309,9 +317,26 @@ for (const destination of curatedDestinations) {
   validateLocalReference("Curated destinations", curatedFile, curatedSource, `../../../${destination.image}`, curatedSource.indexOf(`slug: "${destination.slug}"`), { fragment: false });
 }
 if (!slugs.has("leptis-magna")) issue("Curated destinations", "leptis-magna is missing from curated data");
+if (!slugs.has("bomba-bay") || slugs.has("ras-al-hilal")) issue("Curated destinations", "frozen curated baseline has been editorially rewritten");
+for (const destination of editorialDestinationAdditions) {
+  for (const field of requiredCuratedFields) if (typeof destination[field] !== "string" || !destination[field].trim()) issue("Curated destinations", `${destination.slug ?? "unknown"}: missing editorial field ${field}`);
+  validateLocalReference("Curated destinations", editorialFile, editorialSource, `../../../${destination.image}`, editorialSource.indexOf(`slug: "${destination.slug}"`), { fragment: false });
+  slugs.add(destination.slug);
+}
+const rasAlHilalEditorial = editorialDestinationAdditions.find((item) => item.slug === "ras-al-hilal");
+if (!rasAlHilalEditorial) issue("Curated destinations", "editorial additions omit Ras Al Hilal");
+if (!editorialExcludedDestinationSlugs.has("bomba-bay")) issue("Curated destinations", "editorial exclusions omit Bomba Bay");
+const apiRasAlHilal = { slug: "ras-al-hilal", source: "api" };
+const apiSuccessCatalogue = mergeEditorialDestinationCatalogue(
+  [{ slug: "tripoli", source: "api" }, { slug: "bomba-bay", source: "api" }, apiRasAlHilal],
+  [...curatedDestinations, ...editorialDestinationAdditions],
+);
+const fallbackCatalogue = mergeEditorialDestinationCatalogue([], [...curatedDestinations, ...editorialDestinationAdditions]);
+if (apiSuccessCatalogue.find((item) => item.slug === "ras-al-hilal") !== apiRasAlHilal || apiSuccessCatalogue.filter((item) => item.slug === "ras-al-hilal").length !== 1) issue("Curated destinations", "API-success merge does not preserve authoritative Ras Al Hilal precedence");
+if (!fallbackCatalogue.some((item) => item.slug === "ras-al-hilal")) issue("Curated destinations", "fallback catalogue omits Ras Al Hilal");
+if ([...apiSuccessCatalogue, ...fallbackCatalogue].some((item) => item.slug === "bomba-bay")) issue("Curated destinations", "Bomba Bay remains in a public editorial catalogue");
 const destinationListingController = fs.readFileSync(path.join(root, "assets/js/pages/destinations.js"), "utf8");
-if (!/editorialExcludedDestinationSlugs\s*=\s*new Set\(\[[\s\S]*?["']bomba-bay["']/.test(destinationListingController)) issue("Curated destinations", "destinations.js: Bomba Bay lacks an explicit public-catalogue editorial exclusion");
-if (!/composeEditorialCatalogue\(apiItems\)/.test(destinationListingController) || !/fallbackItems\(\)\.forEach\(append\)/.test(destinationListingController)) issue("Curated destinations", "destinations.js: API success does not merge missing curated editorial destinations");
+if (!/editorial-destination-overrides\.js/.test(destinationListingController) || !/mergeEditorialDestinationCatalogue\(/.test(destinationListingController)) issue("Curated destinations", "destinations.js does not use the explicit editorial catalogue policy");
 
 const destinationController = fs.readFileSync(path.join(root, "assets/js/pages/destination-details.js"), "utf8");
 if (!/destination\.html\?slug=\$\{encodeURIComponent\(slug\)\}/.test(destinationController)) issue("Navigation", "destination-details.js: language switching does not preserve the destination slug");
@@ -703,6 +728,7 @@ function recordResponsiveDelivery(source, label) {
   recordImage(path.join(root, delivery?.webp ?? source), label);
 }
 for (const destination of curatedDestinations) recordResponsiveDelivery(destination.image, `curated destination: ${destination.slug}`);
+for (const destination of editorialDestinationAdditions) recordResponsiveDelivery(destination.image, `editorial destination: ${destination.slug}`);
 for (const match of destinationController.matchAll(/["'](imges\/[^"']+)["']/gi)) recordResponsiveDelivery(match[1], "destination gallery data");
 const responsiveOptimizedReferences = new Set();
 for (const [fallback, delivery] of Object.entries(responsiveImages)) {
@@ -766,11 +792,11 @@ else {
     const destinations = temporaryManifest.destinations ?? {};
     const awjila = curatedDestinations.find((item) => item.slug === "awjila");
     const nafusa = curatedDestinations.find((item) => item.slug === "nafusa");
-    const rasAlHilal = curatedDestinations.find((item) => item.slug === "ras-al-hilal");
+    const rasAlHilal = editorialDestinationAdditions.find((item) => item.slug === "ras-al-hilal");
     const villa = curatedDestinations.find((item) => item.slug === "villa-sileen");
     if (awjila?.image !== destinations.awjila?.hero || destinations.awjila?.card !== destinations.awjila?.hero) issue("Media delivery", "Awjila hero/card does not use the approved master");
     if (nafusa?.image !== destinations.nafusa?.hero || destinations.nafusa?.card !== destinations.nafusa?.hero) issue("Media delivery", "Nafusa hero/card does not use the approved landscape");
-    if (curatedDestinations.some((item) => item.slug === "bomba-bay")) issue("Media delivery", "Bomba Bay remains in the curated destination collection");
+    if (!editorialExcludedDestinationSlugs.has("bomba-bay")) issue("Media delivery", "Bomba Bay lacks a public editorial exclusion");
     if (rasAlHilal?.image !== "imges/destinations/temporary/ras-al-hilal.jpeg") issue("Media delivery", "Ras Al Hilal does not use the required approved-image path");
     if (villa?.image === destinations["villa-sileen"]?.gallery?.[0]) issue("Media delivery", "Villa Sileen columns must not be used as hero/card");
     if (new Set(destinations.awjila?.gallery ?? []).size !== (destinations.awjila?.gallery ?? []).length) issue("Media delivery", "Awjila gallery contains duplicate entries");
