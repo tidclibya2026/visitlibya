@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="assets/css/layout.css?v=frontend-2-01">
   <link rel="stylesheet" href="assets/css/components.css?v=frontend-2-01">
   <link rel="stylesheet" href="assets/css/home.css?v=frontend-2-home-01">
+  <link rel="stylesheet" href="assets/css/cinematic-experience.css?v=cinematic-01">
   <meta name="theme-color" content="#0B3A67">
   <meta name="robots" content="index,follow">
 
@@ -58,7 +59,7 @@
 </header>
 
 <main id="mainContent">
-  <section class="home-hero" aria-labelledby="homeHeroTitle">
+  <section class="home-hero" data-cinematic-hero data-cinematic-images="imges/optimized/desert.webp|imges/oldtripoli.jpg|imges/optimized/cyrene2.webp|imges/optimized/natural-lakes2.webp" aria-labelledby="homeHeroTitle">
     <picture class="responsive-picture"><source type="image/webp" srcset="imges/optimized/desert-768.webp 768w, imges/optimized/desert-1280.webp 1280w, imges/optimized/desert.webp 1920w" sizes="100vw"><img class="home-hero__image" src="panel/desert.jpg" width="3872" height="2592" alt="A camel caravan crossing the golden dunes of the Libyan Sahara" fetchpriority="high" decoding="async"></picture>
     <div class="home-hero__overlay" aria-hidden="true"></div>
     <div class="home-hero__content">
@@ -258,5 +259,6 @@
 <script src="main.js?v=hero-panel-slideshow-01"></script>
 <script type="module" src="assets/js/app/ui/site-shell.js?v=atlas-integration-01"></script>
 <script type="module" src="assets/js/pages/home.js?v=frontend-2-home-01"></script>
+<script type="module" src="assets/js/app/ui/cinematic-experience.js?v=cinematic-01"></script>
 </body>
 </html>
