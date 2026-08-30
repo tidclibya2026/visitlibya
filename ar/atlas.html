@@ -6,6 +6,8 @@
   <title>الأطلس السياحي الوطني | Visit Libya</title>
   <meta name="description" content="استخدم بوابة الأطلس السياحي لاستكشاف الوجهات والتراث والطبيعة والخدمات والمسارات عبر واجهة الخريطة.">
   <link rel="stylesheet" href="../style.css?v=stabilization-sprint-01">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+  <link rel="stylesheet" href="../assets/css/atlas-experience.css?v=leaflet-atlas-ai-01">
   <meta name="theme-color" content="#0B3A67">
   <meta name="robots" content="index,follow">
 
@@ -52,7 +54,8 @@
   <a class="vl-language" href="../atlas.html" aria-label="English language"><span>◉</span> English</a>
 </header>
 <main id="mainContent">
-<section class="sub-hero page-hero-with-image"><span class="page-hero-bg"><picture class="responsive-picture"><source type="image/webp" srcset="../imges/optimized/natural-lakes2-768.webp 768w, ../imges/optimized/natural-lakes2-1280.webp 1280w, ../imges/optimized/natural-lakes2.webp 1920w" sizes="100vw"><img src="../imges/optimized/natural-lakes2.webp" alt="مشهد طبيعي معروض في صفحة الأطلس السياحي" loading="eager" decoding="async" fetchpriority="high" width="5472" height="3648"></picture></span><span class="page-hero-overlay"></span><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">الأطلس</span><h1>الأطلس السياحي الوطني</h1><p>منصة خرائط تفاعلية تساعد الزائر والباحث وصانع القرار على استكشاف الوجهات والمواقع التراثية والطبيعية والخدمية في ليبيا.</p></div></section><section class="section pale-section"><div class="map-panel"><div><span class="kicker">الأطلس السياحي</span><h2>ما هو الأطلس؟</h2><p>الأطلس السياحي الوطني واجهة خرائط تفاعلية تربط الوجهات والمواقع التراثية والطبيعية والخدمية في ليبيا.</p><div class="layer-chips"><span>مواقع أثرية</span><span>مواقع طبيعية</span><span>مدن قديمة</span><span>ساحل</span><span>إقامة</span><span>طعام</span><span>مسارات</span></div><a class="btn btn-red" data-atlas-external href="#">افتح الخريطة</a></div><div class="map-placeholder atlas-governed-map" data-governed-gis-map data-map-state="loading">
+<section class="sub-hero page-hero-with-image"><span class="page-hero-bg"><picture class="responsive-picture"><source type="image/webp" srcset="../imges/optimized/natural-lakes2-768.webp 768w, ../imges/optimized/natural-lakes2-1280.webp 1280w, ../imges/optimized/natural-lakes2.webp 1920w" sizes="100vw"><img src="../imges/optimized/natural-lakes2.webp" alt="مشهد طبيعي معروض في صفحة الأطلس السياحي" loading="eager" decoding="async" fetchpriority="high" width="5472" height="3648"></picture></span><span class="page-hero-overlay"></span><div class="hero-shade"></div><div class="sub-hero-content"><span class="kicker">الأطلس</span><h1>الأطلس السياحي الوطني</h1><p>منصة خرائط تفاعلية تساعد الزائر والباحث وصانع القرار على استكشاف الوجهات والمواقع التراثية والطبيعية والخدمية في ليبيا.</p></div></section><section class="section pale-section atlas-experience-section"><div class="map-panel atlas-experience-layout"><div class="atlas-experience-copy"><span class="kicker">الأطلس السياحي</span><h2>ما هو الأطلس؟</h2><p>الأطلس السياحي الوطني واجهة خرائط تفاعلية تربط الوجهات والمواقع التراثية والطبيعية والخدمية في ليبيا.</p><div class="layer-chips"><span>مواقع أثرية</span><span>مواقع طبيعية</span><span>مدن قديمة</span><span>ساحل</span><span>إقامة</span><span>طعام</span><span>مسارات</span></div><a class="btn btn-red" data-atlas-external href="#">افتح الخريطة</a><p class="atlas-governance-note">تعرض الخريطة البيانات المصرح بنشرها فقط، بينما تبقى الطبقات قيد المراجعة خارج العرض العام.</p></div><div class="map-placeholder atlas-governed-map atlas-map-shell" data-governed-gis-map data-map-state="loading">
+  <div class="atlas-map-toolbar"></div>
   <div class="atlas-gis-status" data-gis-map-status>جارٍ تحميل الوجهات الجغرافية المنشورة…</div>
   <div class="atlas-gis-plot" data-gis-map-plot aria-label="الوجهات السياحية المنشورة"></div>
   <div class="atlas-gis-context" data-gis-map-context hidden></div>
@@ -68,6 +71,8 @@
 </footer>
 <script src="../main.js?v=stabilization-sprint-01"></script>
 <script type="module" src="../assets/js/app/ui/site-shell.js?v=atlas-integration-01"></script>
-<script type="module" src="../assets/js/pages/atlas.js?v=postgis-atlas-01"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script type="module" src="../assets/js/pages/atlas-assistant.js?v=leaflet-atlas-ai-01"></script>
+<script type="module" src="../assets/js/pages/atlas.js?v=leaflet-atlas-ai-01"></script>
 </body>
 </html>
