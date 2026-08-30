@@ -8,6 +8,9 @@ const locale = isArabic ? "ar-LY" : "en";
 const pathPrefix = isArabic ? "../" : "";
 const runtimeConfig = loadRuntimeConfig();
 const DESTINATION_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const editorialExcludedDestinationSlugs = new Set([
+  "bomba-bay",
+]);
 
 const copy = Object.freeze({
   allCategories: isArabic ? "كل الوجهات" : "All destinations",
@@ -322,6 +325,13 @@ function collectApiFacets(items) {
     const region = safeText(item?.region, "");
     if (region) state.regions.add(region);
   });
+  curatedDestinations.forEach((item) => {
+    state.categories.set(
+      `curated:${item.category_key}`,
+      isArabic ? item.category_ar : item.category_en,
+    );
+    state.regions.add(isArabic ? item.region_ar : item.region_en);
+  });
   renderCategoryControls(
     [...state.categories].map(([id, name]) => ({ id, name })),
   );
@@ -379,6 +389,35 @@ function fallbackItems() {
 
   const direction = state.sort === "name:desc" ? -1 : 1;
   return items.sort((a, b) => direction * a.name.localeCompare(b.name, locale));
+}
+
+function composeEditorialCatalogue(apiItems) {
+  const includeApiItems = !state.category.startsWith("curated:");
+  const includeCuratedItems = !/^[1-9]\d*$/.test(state.category);
+  const catalogue = [];
+  const includedSlugs = new Set();
+
+  const append = (item) => {
+    if (
+      !item ||
+      editorialExcludedDestinationSlugs.has(item.slug) ||
+      includedSlugs.has(item.slug)
+    ) {
+      return;
+    }
+    includedSlugs.add(item.slug);
+    catalogue.push(item);
+  };
+
+  if (includeApiItems) apiItems.forEach(append);
+  if (includeCuratedItems) fallbackItems().forEach(append);
+
+  if (state.sort === "name:asc" || state.sort === "name:desc") {
+    const direction = state.sort === "name:desc" ? -1 : 1;
+    catalogue.sort((a, b) => direction * a.name.localeCompare(b.name, locale));
+  }
+
+  return catalogue;
 }
 
 function configureFallbackFacets() {
@@ -456,8 +495,13 @@ async function loadDestinations({ force = false } = {}) {
     });
     if (!payload || !Array.isArray(payload.items)) throw new TypeError("Invalid destination response");
     state.source = "api";
-    collectApiFacets(payload.items);
-    const items = payload.items.map(normalizeApiItem).filter(Boolean);
+    const editorialApiItems = payload.items.filter((item) => {
+      const slug = safeText(item?.slug, "").toLowerCase();
+      return !editorialExcludedDestinationSlugs.has(slug);
+    });
+    collectApiFacets(editorialApiItems);
+    const apiItems = editorialApiItems.map(normalizeApiItem).filter(Boolean);
+    const items = composeEditorialCatalogue(apiItems);
     if (!items.length) {
       showFallback({ showError: false });
     } else {

@@ -309,6 +309,9 @@ for (const destination of curatedDestinations) {
   validateLocalReference("Curated destinations", curatedFile, curatedSource, `../../../${destination.image}`, curatedSource.indexOf(`slug: "${destination.slug}"`), { fragment: false });
 }
 if (!slugs.has("leptis-magna")) issue("Curated destinations", "leptis-magna is missing from curated data");
+const destinationListingController = fs.readFileSync(path.join(root, "assets/js/pages/destinations.js"), "utf8");
+if (!/editorialExcludedDestinationSlugs\s*=\s*new Set\(\[[\s\S]*?["']bomba-bay["']/.test(destinationListingController)) issue("Curated destinations", "destinations.js: Bomba Bay lacks an explicit public-catalogue editorial exclusion");
+if (!/composeEditorialCatalogue\(apiItems\)/.test(destinationListingController) || !/fallbackItems\(\)\.forEach\(append\)/.test(destinationListingController)) issue("Curated destinations", "destinations.js: API success does not merge missing curated editorial destinations");
 
 const destinationController = fs.readFileSync(path.join(root, "assets/js/pages/destination-details.js"), "utf8");
 if (!/destination\.html\?slug=\$\{encodeURIComponent\(slug\)\}/.test(destinationController)) issue("Navigation", "destination-details.js: language switching does not preserve the destination slug");
@@ -755,18 +758,20 @@ else {
         if (exactPathStatus(path.join(root, optimized)) !== "ok") issue("Media delivery", `${optimized}: temporary derivative is missing or case-mismatched`);
         if (!allowlistedMedia.has(optimized)) issue("Media delivery", `${optimized}: temporary derivative is not allowlisted`);
       }
-      if (entry.approvalStatus !== "temporary-owner-approved" || entry.ownerApprovalDate !== "2026-08-03" || entry.provenanceStatus !== "temporary-owner-supplied" || entry.permanentRightsStatus !== "pending") issue("Media delivery", `${fallback}: incomplete temporary approval metadata`);
+      const approvedOwnerDates = new Set(["2026-08-03", "2026-08-30"]);
+      if (entry.approvalStatus !== "temporary-owner-approved" || !approvedOwnerDates.has(entry.ownerApprovalDate) || entry.provenanceStatus !== "temporary-owner-supplied" || entry.permanentRightsStatus !== "pending") issue("Media delivery", `${fallback}: incomplete temporary approval metadata`);
     }
     for (const item of [...allowlistedMedia].filter((value) => value.startsWith("imges/destinations/temporary/"))) if (!manifestFallbacks.has(item)) issue("Media delivery", `${item}: allowlisted temporary fallback is absent from the manifest`);
     for (const item of [...allowlistedMedia].filter((value) => value.startsWith("imges/optimized/destinations/"))) if (!manifestOptimized.has(item)) issue("Media delivery", `${item}: unused temporary derivative is allowlisted`);
     const destinations = temporaryManifest.destinations ?? {};
     const awjila = curatedDestinations.find((item) => item.slug === "awjila");
     const nafusa = curatedDestinations.find((item) => item.slug === "nafusa");
-    const bomba = curatedDestinations.find((item) => item.slug === "bomba-bay");
+    const rasAlHilal = curatedDestinations.find((item) => item.slug === "ras-al-hilal");
     const villa = curatedDestinations.find((item) => item.slug === "villa-sileen");
     if (awjila?.image !== destinations.awjila?.hero || destinations.awjila?.card !== destinations.awjila?.hero) issue("Media delivery", "Awjila hero/card does not use the approved master");
     if (nafusa?.image !== destinations.nafusa?.hero || destinations.nafusa?.card !== destinations.nafusa?.hero) issue("Media delivery", "Nafusa hero/card does not use the approved landscape");
-    if (bomba?.image !== destinations["bomba-bay"]?.hero || destinations["bomba-bay"]?.card !== destinations["bomba-bay"]?.hero) issue("Media delivery", "Bomba Bay hero/card does not use the approved coast image");
+    if (curatedDestinations.some((item) => item.slug === "bomba-bay")) issue("Media delivery", "Bomba Bay remains in the curated destination collection");
+    if (rasAlHilal?.image !== "imges/destinations/temporary/ras-al-hilal.jpeg") issue("Media delivery", "Ras Al Hilal does not use the required approved-image path");
     if (villa?.image === destinations["villa-sileen"]?.gallery?.[0]) issue("Media delivery", "Villa Sileen columns must not be used as hero/card");
     if (new Set(destinations.awjila?.gallery ?? []).size !== (destinations.awjila?.gallery ?? []).length) issue("Media delivery", "Awjila gallery contains duplicate entries");
     const forbiddenRelationships = [
