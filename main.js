@@ -189,6 +189,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-console.log("Visit Libya English proofreading v1 loaded");
-console.log("Visit Libya Arabic version with tourism content v1 loaded");
-console.log("Visit Libya services visa currency FAQ gallery v1 loaded");

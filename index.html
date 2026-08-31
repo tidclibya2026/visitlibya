@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visit Libya | Mediterranean Heritage and Sahara Journeys</title>
   <meta name="description" content="Explore the Mediterranean coast, Sahara landscapes, ancient cities, living culture, and journeys through Visit Libya.">
-  <link rel="stylesheet" href="style.css?v=hero-panel-slideshow-01">
   <link rel="stylesheet" href="assets/css/design-system.css?v=frontend-2-01">
   <link rel="stylesheet" href="assets/css/base.css?v=frontend-2-01">
   <link rel="stylesheet" href="assets/css/layout.css?v=frontend-2-01">
   <link rel="stylesheet" href="assets/css/components.css?v=frontend-2-01">
-  <link rel="stylesheet" href="assets/css/home.css?v=frontend-2-home-01">
+  <link rel="stylesheet" href="assets/css/home.css?v=phase-2a-01">
   <meta name="theme-color" content="#0B3A67">
   <meta name="robots" content="index,follow">
 
@@ -24,6 +23,8 @@
   <link rel="alternate" hreflang="ar" href="ar/index.html">
   <link rel="alternate" hreflang="x-default" href="index.html">
   <link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+  <link rel="stylesheet" href="assets/css/hero-rotation-final.css?v=2.0">
+  <link rel="stylesheet" href="assets/css/footer-final.css?v=3.0">
 </head>
 <body class="home-page">
 <a class="site-skip-link" href="#mainContent">Skip to content</a>
@@ -58,7 +59,7 @@
 </header>
 
 <main id="mainContent">
-  <section class="home-hero" aria-labelledby="homeHeroTitle">
+  <section class="home-hero" aria-labelledby="homeHeroTitle" data-hero-rotation-images="imges/hero-rotation/02-tripoli.jpg|imges/hero-rotation/03-natural-lakes.jpg|imges/hero-rotation/04-cyrene.jpg|imges/hero-rotation/05-benghazi.jpg|imges/hero-rotation/06-stone-inscriptions.jpg|imges/hero-rotation/07-leptis-magna.jpeg|imges/hero-rotation/08-sabratha.jpeg|imges/hero-rotation/09-ghadames.jpg" data-hero-dot-label="Image {index}">
     <picture class="responsive-picture"><source type="image/webp" srcset="imges/optimized/desert-768.webp 768w, imges/optimized/desert-1280.webp 1280w, imges/optimized/desert.webp 1920w" sizes="100vw"><img class="home-hero__image" src="panel/desert.jpg" width="3872" height="2592" alt="A camel caravan crossing the golden dunes of the Libyan Sahara" fetchpriority="high" decoding="async"></picture>
     <div class="home-hero__overlay" aria-hidden="true"></div>
     <div class="home-hero__content">
@@ -156,31 +157,31 @@
     </div>
     <div class="home-destination-grid" data-home-search-group>
       <article class="home-destination-card home-destination-card--wide" data-home-search-item data-home-kind="destination" data-home-keywords="tripoli historic cities city coast culture old city mediterranean">
-        <img src="imges/oldtripoli.jpg" width="1280" height="707" alt="Clock tower and historic buildings in the Old City of Tripoli" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="imges/oldtripoli.jpg" width="1280" height="707" alt="Clock tower and historic buildings in the Old City of Tripoli" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>Historic city · Mediterranean</p><h3>Tripoli</h3><span>Old-city lanes, markets, architecture, and a living connection to the sea.</span><a href="destination.html?slug=tripoli" aria-label="Explore Tripoli">Explore destination <span aria-hidden="true">→</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="leptis magna ancient civilizations archaeology roman heritage unesco coast">
-        <img src="imges/Leptis Magna3.jpeg" width="1080" height="887" alt="Ancient stone arches and columns at Leptis Magna" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="imges/Leptis Magna3.jpeg" width="1080" height="887" alt="Ancient stone arches and columns at Leptis Magna" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>Archaeology · World Heritage</p><h3>Leptis Magna</h3><span>A major Roman-era city beside the Libyan Mediterranean.</span><a href="destination.html?slug=leptis-magna" aria-label="Explore Leptis Magna">Explore destination <span aria-hidden="true">→</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="sabratha ancient civilizations archaeology roman theatre heritage unesco coast">
-        <img src="imges/Sabratha.jpg" width="1280" height="707" alt="Roman theatre and archaeological remains at Sabratha" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="imges/Sabratha.jpg" width="1280" height="707" alt="Roman theatre and archaeological remains at Sabratha" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>Coastal heritage · Archaeology</p><h3>Sabratha</h3><span>An ancient city and monumental theatre facing the coast.</span><a href="destination.html?slug=sabratha" aria-label="Explore Sabratha">Explore destination <span aria-hidden="true">→</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="ghadames historic cities oasis desert architecture heritage unesco">
-        <img src="imges/Ghadames2.JPG" width="2880" height="1920" alt="White traditional architecture in the old town of Ghadames" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="imges/Ghadames2.JPG" width="2880" height="1920" alt="White traditional architecture in the old town of Ghadames" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>Oasis city · Architecture</p><h3>Ghadames</h3><span>Shaded passages and distinctive architecture shaped by oasis life.</span><a href="destination.html?slug=ghadames" aria-label="Explore Ghadames">Explore destination <span aria-hidden="true">→</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="cyrene shahat ancient civilizations archaeology greek green mountain nature heritage unesco">
-        <img src="imges/Cyrene.jpg" width="1280" height="707" alt="Ancient columns and landscape at Cyrene in eastern Libya" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="imges/Cyrene.jpg" width="1280" height="707" alt="Ancient columns and landscape at Cyrene in eastern Libya" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>Green Mountain · Archaeology</p><h3>Cyrene</h3><span>Greek and Roman heritage set within eastern Libya’s highlands.</span><a href="destination.html?slug=green-mountain" aria-label="Explore the Green Mountain and Cyrene">Explore destination <span aria-hidden="true">→</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="acacus akakus sahara desert adventure rock art nature heritage unesco">
-        <img src="imges/Acacus.jpg" width="1280" height="707" alt="Sandstone formations in the Acacus mountains of the Libyan Sahara" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="imges/Acacus.jpg" width="1280" height="707" alt="Sandstone formations in the Acacus mountains of the Libyan Sahara" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>Sahara · Rock art</p><h3>Acacus</h3><span>Rock formations and ancient art across a remarkable desert landscape.</span><a href="destination.html?slug=acacus" aria-label="Explore Acacus">Explore destination <span aria-hidden="true">→</span></a></div>
       </article>
       <article class="home-destination-card home-destination-card--wide" data-home-search-item data-home-kind="destination" data-home-keywords="ubari nature oases oasis desert lakes sahara adventure">
-        <img src="imges/natural lakes.jpg" width="1280" height="707" alt="A desert lake surrounded by dunes and palms in southwestern Libya" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="imges/natural lakes.jpg" width="1280" height="707" alt="A desert lake surrounded by dunes and palms in southwestern Libya" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>Desert lakes · Oases</p><h3>Ubari</h3><span>Oasis landscapes where palms and desert lakes meet sweeping dunes.</span><a href="destination.html?slug=desert" aria-label="Explore Ubari and the Libyan Sahara">Explore destination <span aria-hidden="true">→</span></a></div>
       </article>
     </div>
@@ -212,7 +213,7 @@
       <button type="button" class="home-inspiration-card" data-home-filter="coast"><img src="imges/beaches.jpg" width="1280" height="715" alt="" loading="lazy" decoding="async"><span><small>Mediterranean</small><strong>Coastal journeys</strong></span></button>
       <button type="button" class="home-inspiration-card" data-home-filter="ancient"><img src="imges/Leptis Magna.jpeg" width="1366" height="768" alt="" loading="lazy" decoding="async"><span><small>Civilizations</small><strong>Ancient cities</strong></span></button>
       <button type="button" class="home-inspiration-card" data-home-filter="desert"><img src="imges/The Sahara Desert.jpg" width="1280" height="707" alt="" loading="lazy" decoding="async"><span><small>Sahara</small><strong>Desert routes</strong></span></button>
-      <button type="button" class="home-inspiration-card" data-home-filter="culture"><img src="imges/pottery.jpg" width="960" height="1280" alt="" loading="lazy" decoding="async"><span><small>Living heritage</small><strong>Cultural experiences</strong></span></button>
+      <button type="button" class="home-inspiration-card" data-home-filter="culture"><img src="imges/traditional industries9.jpeg" width="960" height="1280" alt="" loading="lazy" decoding="async"><span><small>Living heritage</small><strong>Cultural experiences</strong></span></button>
     </div>
   </section>
 
@@ -234,29 +235,50 @@
   </section>
 </main>
 
-<footer class="vl-footer">
-  <div class="vl-footer-grid">
-    <div>
-      <h2>Visit Libya</h2>
-      <p>Official national tourism platform for discovering Libya through its destinations, heritage, landscapes, and living culture.</p>
+<footer class="vl-footer visitlibya-footer-final">
+  <div class="visitlibya-footer-final__panel">
+    <div class="visitlibya-footer-final__main">
+      <div class="visitlibya-footer-final__brand">
+        <img class="visitlibya-footer-final__brand-logo" src="imges/footer-visitlibya-logo.png" alt="Visit Libya logo">
+        <div><p class="visitlibya-footer-final__brand-name">Visit Libya</p><p class="visitlibya-footer-final__tagline">A journey through time</p></div>
+      </div>
+      <nav class="visitlibya-footer-final__nav" aria-label="Explore">
+        <a href="index.html">Home</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="experiences.html">Things to Do</a>
+        <a href="culture.html">Culture &amp; Cuisine</a>
+        <a href="heritage.html">UNESCO World Heritage</a>
+        <a href="atlas.html">Libya Tourism Atlas</a>
+        <a href="trips.html">My Trips</a>
+      </nav>
+      <div class="visitlibya-footer-final__institutions">
+        <div class="visitlibya-footer-final__identity">
+          <img class="visitlibya-footer-final__identity-logo" src="imges/footer-ministry-logo.png" alt="Ministry of Tourism and Traditional Industries logo">
+          <p class="visitlibya-footer-final__identity-name">Ministry of Tourism and Traditional Industries</p>
+        </div>
+        <div class="visitlibya-footer-final__identity">
+          <img class="visitlibya-footer-final__identity-logo" src="imges/footer-tidc-logo.png" alt="Tourism Information and Documentation Center logo">
+          <p class="visitlibya-footer-final__identity-name">Tourism Information &amp; Documentation Center</p>
+        </div>
+      </div>
     </div>
-    <div>
-      <h3>Explore</h3>
-      <a href="destinations.html">Destinations</a>
-      <a href="experiences.html">Things to Do</a>
-      <a href="culture.html">Culture &amp; Cuisine</a>
-      <a href="heritage.html">UNESCO World Heritage</a>
-      <a href="atlas.html">Libya Tourism Atlas</a>
-      <a href="trips.html">My Trips</a>
-    </div>
-    <div>
-      <h3>Official Attribution</h3>
-      <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
+    <div class="visitlibya-footer-final__bottom">
+      <span>© 2026 Visit Libya — All rights reserved</span>
+      <div class="visitlibya-footer-final__bottom-actions">
+        <div class="visitlibya-footer-final__bottom-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Accessibility</a></div>
+        <div class="visitlibya-footer-final__social">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="is-filled" d="M14 8h3V4h-3c-3 0-5 2-5 5v2H6v4h3v5h4v-5h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="is-filled"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.2a3 3 0 0 0-2.1-2.1C17 5.6 12 5.6 12 5.6s-5 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 2.6 12 31 31 0 0 0 3 15.8a3 3 0 0 0 2.1 2.1c1.9.5 6.9.5 6.9.5s5 0 6.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-3.8 31 31 0 0 0-.4-3.8Z"/><path d="m10 9 5 3-5 3Z" class="is-filled"/></svg></a>
+          <a href="#" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4.2l3.5 5L17 4h2l-5.4 6.6L19.5 20h-4.2l-4-5.7L6.5 20h-2l5.9-7.3L5 4Zm3 2 8.4 12h1.1L9.1 6H8Z" class="is-filled"/></svg></a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
-<script src="main.js?v=hero-panel-slideshow-01"></script>
-<script type="module" src="assets/js/app/ui/site-shell.js?v=atlas-integration-01"></script>
-<script type="module" src="assets/js/pages/home.js?v=frontend-2-home-01"></script>
+<script src="main.js?v=2.0"></script>
+<script type="module" src="assets/js/app/ui/site-shell.js?v=2.0"></script>
+<script type="module" src="assets/js/pages/home.js?v=2.0"></script>
+<script src="assets/js/pages/hero-rotation-final.js?v=2.0" defer></script>
 </body>
 </html>

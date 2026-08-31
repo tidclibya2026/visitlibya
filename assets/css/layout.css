@@ -12,6 +12,110 @@
   backdrop-filter: blur(18px);
 }
 
+/* Panoramas foundation for non-home public pages. The recovered home is isolated. */
+body:not(.home-page) .section {
+  width: 100%;
+  padding-block: clamp(4.5rem, 8vw, 8rem);
+  padding-inline: max(1.25rem, calc((100vw - var(--container-wide)) / 2));
+}
+
+body:not(.home-page) .sub-hero.page-hero-with-image {
+  min-height: clamp(28rem, 68svh, 48rem);
+  padding-block: clamp(8rem, 17vh, 12rem) clamp(4rem, 9vh, 7rem);
+  padding-inline: max(1.25rem, calc((100vw - var(--container-wide)) / 2));
+  isolation: isolate;
+}
+
+body:not(.home-page) .page-hero-bg,
+body:not(.home-page) .page-hero-bg img,
+body:not(.home-page) .page-hero-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+body:not(.home-page) .page-hero-bg { z-index: -3; overflow: hidden; }
+body:not(.home-page) .page-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+body:not(.home-page) .page-hero-overlay {
+  z-index: -2;
+  background: linear-gradient(90deg, rgb(4 20 35 / 82%) 0%, rgb(4 20 35 / 36%) 58%, rgb(4 20 35 / 12%) 100%);
+}
+
+html[dir="rtl"] body:not(.home-page) .page-hero-overlay {
+  background: linear-gradient(270deg, rgb(4 20 35 / 82%) 0%, rgb(4 20 35 / 36%) 58%, rgb(4 20 35 / 12%) 100%);
+}
+
+body:not(.home-page) .sub-hero-content {
+  width: min(48rem, 100%);
+  margin-inline: 0 auto;
+}
+
+html[dir="rtl"] body:not(.home-page) .sub-hero-content { margin-inline: auto 0; text-align: right; }
+
+body:not(.home-page) .sub-hero h1 {
+  max-width: 15ch;
+  font-size: clamp(2.6rem, 5.5vw, 5.6rem);
+  line-height: 1.05;
+}
+
+body:not(.home-page) .sub-hero p { max-width: 58ch; font-size: clamp(1.05rem, 1.5vw, 1.3rem); }
+
+body:not(.home-page) :where(.discover-detail, .culture-preview, .map-panel) {
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+body:not(.home-page) :where(.discover-detail img, .culture-editorial-media) {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+body:not(.home-page) .vl-footer {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+  padding-inline: max(1.25rem, calc((100vw - var(--container-wide)) / 2));
+  background: var(--color-footer);
+}
+
+@media (max-width: 48rem) {
+  body:not(.home-page) .sub-hero.page-hero-with-image { min-height: 34rem; }
+  body:not(.home-page) .sub-hero h1 { font-size: clamp(2.25rem, 11vw, 3.5rem); }
+  body:not(.home-page) :where(.wide-card, .culture-tile) { min-height: 21rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:not(.home-page) :where(.wide-card, .culture-tile, .destination-card):hover { transform: none; }
+}
+
+/* Homepage shell: transparent over the hero, solid after scrolling. */
+.home-page .vl-topbar {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 100;
+  border-bottom-color: rgb(255 255 255 / 12%);
+  background: linear-gradient(180deg, rgb(1 16 27 / 72%), rgb(1 16 27 / 25%) 65%, transparent);
+  color: #fff;
+  transition: background 300ms ease, box-shadow 300ms ease, color 300ms ease;
+}
+
+.home-page .vl-topbar :where(.vl-nav > a, .vl-dropdown > a, .vl-language, .vl-logo strong, .vl-logo span) {
+  color: #fff;
+}
+
+.home-page .vl-topbar.panorama-header--scrolled {
+  position: fixed;
+  background: rgb(255 255 255 / 96%);
+  box-shadow: 0 10px 35px rgb(3 28 45 / 10%);
+  color: var(--color-text);
+  backdrop-filter: blur(16px);
+}
+
+.home-page .vl-topbar.panorama-header--scrolled :where(.vl-nav > a, .vl-dropdown > a, .vl-language, .vl-logo strong) {
+  color: var(--color-brand-primary);
+}
+
+.home-page .vl-topbar.panorama-header--scrolled .vl-logo span {
+  color: var(--color-brand-secondary);
+}
+
 .vl-logo {
   min-width: max-content;
 }
@@ -321,4 +425,460 @@ html[dir="rtl"] .vl-footer .official {
   .vl-footer-grid > :first-child {
     grid-column: auto;
   }
+}
+
+/* =========================================================
+   VISITLIBYA HOME HEADER — FINAL RTL AUTHORITY
+   Scope: homepage only
+   ========================================================= */
+
+.home-page .vl-topbar {
+    position: absolute;
+    inset: 0 0 auto 0;
+    z-index: 1000;
+
+    width: 100%;
+    min-height: 82px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 14px clamp(26px, 4vw, 72px);
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(3, 28, 47, .52),
+            rgba(3, 28, 47, .18),
+            transparent
+        );
+
+    border: 0;
+    box-shadow: none;
+}
+
+/* =========================================================
+   ARABIC / RTL
+   ========================================================= */
+
+html[lang="ar"][dir="rtl"] .home-page .vl-topbar {
+    direction: rtl;
+}
+
+/* ---------- Brand ---------- */
+
+html[lang="ar"][dir="rtl"] .home-page .vl-logo {
+    order: 1;
+
+    display: grid;
+    grid-template-columns: 48px auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+
+    column-gap: 9px;
+
+    flex: 0 0 auto;
+
+    margin: 0 0 0 28px;
+
+    color: #fff;
+    text-decoration: none;
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-logo img,
+html[lang="ar"][dir="rtl"] .home-page .vl-logo .media-logo {
+    grid-row: 1 / span 2;
+
+    display: block;
+
+    width: 48px;
+    height: 42px;
+    max-width: 48px;
+    max-height: 42px;
+
+    object-fit: contain;
+
+    margin: 0;
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-logo strong {
+    margin: 0;
+
+    color: #fff;
+
+    font-size: .94rem;
+    font-weight: 700;
+    line-height: 1.1;
+
+    white-space: nowrap;
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-logo span {
+    margin: 3px 0 0;
+
+    color: rgba(255,255,255,.72);
+
+    font-size: .68rem;
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+/* ---------- Main navigation ---------- */
+
+html[lang="ar"][dir="rtl"] .home-page .vl-nav {
+    order: 2;
+
+    position: static;
+
+    display: flex;
+    flex: 1 1 auto;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: clamp(17px, 1.45vw, 29px);
+
+    width: auto;
+
+    margin: 0;
+    padding: 0;
+
+    direction: rtl;
+
+    background: transparent;
+
+    border: 0;
+    box-shadow: none;
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-nav > a,
+html[lang="ar"][dir="rtl"] .home-page .vl-nav > .vl-dropdown > a,
+html[lang="ar"][dir="rtl"] .home-page .vl-nav > .vl-dropdown > button {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 44px;
+
+    margin: 0;
+    padding: 0;
+
+    color: rgba(255,255,255,.94);
+
+    font-size: clamp(.83rem, .85vw, .96rem);
+    font-weight: 500;
+    line-height: 1.2;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+}
+
+/* active/home underline */
+html[lang="ar"][dir="rtl"] .home-page .vl-nav > a::after,
+html[lang="ar"][dir="rtl"] .home-page .vl-nav > .vl-dropdown > a::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    bottom: 3px;
+
+    width: 0;
+    height: 2px;
+
+    background: rgba(255,255,255,.92);
+
+    transition: width .2s ease;
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-nav > a:hover::after,
+html[lang="ar"][dir="rtl"] .home-page .vl-nav > a[aria-current="page"]::after,
+html[lang="ar"][dir="rtl"] .home-page .vl-nav > .vl-dropdown > a:hover::after {
+    width: 100%;
+}
+
+/* ---------- Dropdown ---------- */
+
+html[lang="ar"][dir="rtl"] .home-page .vl-dropdown {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    flex: 0 0 auto;
+
+    margin: 0;
+    padding: 0;
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 6px);
+    right: 0;
+    left: auto;
+
+    z-index: 1100;
+
+    display: none;
+
+    min-width: 245px;
+
+    padding: 10px;
+
+    background: rgba(7, 45, 72, .94);
+
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 17px;
+
+    box-shadow: 0 18px 42px rgba(0,0,0,.18);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-dropdown:hover .vl-dropdown-menu,
+html[lang="ar"][dir="rtl"] .home-page .vl-dropdown:focus-within .vl-dropdown-menu,
+html[lang="ar"][dir="rtl"] .home-page .vl-dropdown.is-open .vl-dropdown-menu {
+    display: grid;
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-dropdown-menu a {
+    display: flex;
+    align-items: center;
+
+    min-height: 42px;
+
+    padding: 0 13px;
+
+    color: rgba(255,255,255,.92);
+
+    font-size: .86rem;
+    text-decoration: none;
+
+    border-radius: 10px;
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-dropdown-menu a:hover {
+    background: rgba(255,255,255,.08);
+    color: #fff;
+}
+
+/* ---------- Controls: left side ---------- */
+
+html[lang="ar"][dir="rtl"] .home-page .vl-language {
+    order: 4;
+
+    flex: 0 0 auto;
+
+    min-height: 44px;
+
+    margin: 0 10px 0 0;
+    padding: 0 17px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+
+    background: rgba(5, 43, 72, .22);
+
+    border: 1px solid rgba(255,255,255,.56);
+    border-radius: 999px;
+}
+
+html[lang="ar"][dir="rtl"] .home-page .vl-topbar a[href*="login"],
+html[lang="ar"][dir="rtl"] .home-page .vl-topbar a[href*="signin"],
+html[lang="ar"][dir="rtl"] .home-page .vl-login {
+    order: 5;
+
+    flex: 0 0 auto;
+
+    min-height: 44px;
+
+    margin-right: 10px;
+    padding: 0 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+
+    background: rgba(5, 74, 125, .9);
+
+    border: 0;
+    border-radius: 999px;
+}
+
+/* Desktop: no hamburger */
+html[lang="ar"][dir="rtl"] .home-page .vl-nav-toggle {
+    display: none;
+}
+
+/* ---------- Scrolled ---------- */
+
+.home-page .vl-topbar.is-scrolled,
+.home-page .vl-topbar[data-scrolled="true"] {
+    position: fixed;
+
+    background: rgba(4, 29, 48, .93);
+
+    box-shadow: 0 10px 35px rgba(0,0,0,.12);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+}
+
+/* =========================================================
+   LAPTOP
+   ========================================================= */
+
+@media (max-width: 1280px) {
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-topbar {
+        padding-inline: 24px;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-logo {
+        margin-left: 18px;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav {
+        gap: 15px;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav > a,
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav > .vl-dropdown > a,
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav > .vl-dropdown > button {
+        font-size: .79rem;
+    }
+}
+
+/* =========================================================
+   MOBILE / TABLET MENU
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-topbar {
+        justify-content: space-between;
+
+        min-height: 68px;
+
+        padding: 10px 16px;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-logo {
+        margin: 0;
+
+        grid-template-columns: 42px auto;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-logo img,
+    html[lang="ar"][dir="rtl"] .home-page .vl-logo .media-logo {
+        width: 42px;
+        height: 36px;
+        max-width: 42px;
+        max-height: 36px;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav-toggle {
+        order: 5;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        flex: 0 0 44px;
+
+        width: 44px;
+        height: 44px;
+
+        padding: 0;
+
+        background: rgba(255,255,255,.07);
+
+        border: 1px solid rgba(255,255,255,.30);
+        border-radius: 50%;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav {
+        position: absolute;
+
+        top: calc(100% + 8px);
+        right: 16px;
+        left: 16px;
+
+        z-index: 1100;
+
+        display: none;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: 10px;
+
+        background: rgba(5, 29, 48, .97);
+
+        border: 1px solid rgba(255,255,255,.10);
+        border-radius: 18px;
+
+        box-shadow: 0 20px 46px rgba(0,0,0,.22);
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav.is-open,
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav[data-open="true"] {
+        display: flex;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav > a,
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav > .vl-dropdown {
+        width: 100%;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav > a,
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav > .vl-dropdown > a,
+    html[lang="ar"][dir="rtl"] .home-page .vl-nav > .vl-dropdown > button {
+        width: 100%;
+
+        min-height: 44px;
+
+        padding-inline: 13px;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-dropdown {
+        display: block;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-dropdown-menu {
+        position: static;
+
+        min-width: 0;
+
+        margin-top: 5px;
+
+        background: rgba(255,255,255,.04);
+
+        box-shadow: none;
+    }
+
+    html[lang="ar"][dir="rtl"] .home-page .vl-language,
+    html[lang="ar"][dir="rtl"] .home-page .vl-topbar a[href*="login"],
+    html[lang="ar"][dir="rtl"] .home-page .vl-login {
+        display: none;
+    }
 }
