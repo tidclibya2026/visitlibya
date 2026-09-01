@@ -1,0 +1,142 @@
+/* English Culture & Cuisine parity with the approved Arabic editorial page. */
+html[lang="en"][dir="ltr"] body.culture-page--english {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english .culture-anchor {
+  display: block;
+  height: 0;
+  scroll-margin-top: var(--header-height, 4.5rem);
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english main > .ar-detail {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english main > .ar-detail:nth-of-type(odd) {
+  background: var(--color-surface-muted, #f8fafc);
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english .culture-list {
+  columns: 2;
+  gap: 2rem;
+  margin: 1.25rem 0 0;
+  padding-inline-start: 1.25rem;
+  color: var(--color-text-muted, #5e6673);
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english .culture-editorial-media {
+  position: relative;
+  grid-row: 1;
+  align-self: stretch;
+  min-width: 0;
+  min-height: clamp(25rem, 42vw, 42rem);
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg, 1.5rem);
+  background: #082c4c;
+  box-shadow: 0 26px 68px rgb(6 27 46 / 18%);
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english .culture-editorial-media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 45%, transparent 48%, rgb(3 18 30 / 18%) 100%),
+    linear-gradient(180deg, rgb(200 155 60 / 5%), rgb(4 25 40 / 8%));
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english .culture-editorial-media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: var(--culture-object-position, center);
+  filter: saturate(1.06) contrast(1.035) brightness(.98);
+  transition: transform 650ms cubic-bezier(.2, .7, .2, 1), filter 650ms ease;
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english .culture-editorial-media--portrait {
+  --culture-object-position: center 42%;
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english .culture-editorial-media--jewellery {
+  --culture-object-position: center;
+}
+
+html[lang="en"][dir="ltr"] .culture-page--english .culture-editorial-media--cuisine {
+  --culture-object-position: center 48%;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html[lang="en"][dir="ltr"] .culture-page--english .ar-detail:hover .culture-editorial-media > img {
+    transform: scale(1.02);
+    filter: saturate(1.08) contrast(1.04) brightness(1);
+  }
+}
+
+@media (min-width: 48rem) {
+  html[lang="en"][dir="ltr"] .culture-page--english main > section.ar-detail {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    align-items: stretch;
+    gap: clamp(2rem, 5vw, 5.5rem);
+  }
+
+  html[lang="en"][dir="ltr"] .culture-page--english main > section.ar-detail > div {
+    min-width: 0;
+  }
+
+  html[lang="en"][dir="ltr"] .culture-page--english main > section.ar-detail:nth-of-type(even) > div {
+    grid-column: 1;
+  }
+
+  html[lang="en"][dir="ltr"] .culture-page--english main > section.ar-detail:nth-of-type(even) > .culture-editorial-media {
+    grid-column: 2;
+  }
+
+  html[lang="en"][dir="ltr"] .culture-page--english main > section.ar-detail:nth-of-type(odd) > .culture-editorial-media {
+    grid-column: 1;
+  }
+
+  html[lang="en"][dir="ltr"] .culture-page--english main > section.ar-detail:nth-of-type(odd) > div {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 47.99rem) {
+  html[lang="en"][dir="ltr"] .culture-page--english main > section.ar-detail {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 1.75rem;
+  }
+
+  html[lang="en"][dir="ltr"] .culture-page--english main > section.ar-detail > .culture-editorial-media {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: clamp(18rem, 78vw, 27rem);
+  }
+
+  html[lang="en"][dir="ltr"] .culture-page--english main > section.ar-detail > div {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+    padding-block: 0;
+  }
+
+  html[lang="en"][dir="ltr"] .culture-page--english .culture-list {
+    columns: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[lang="en"][dir="ltr"] .culture-page--english .culture-editorial-media > img {
+    transition: none;
+  }
+}
