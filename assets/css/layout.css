@@ -882,3 +882,228 @@ html[lang="ar"][dir="rtl"] .home-page .vl-nav-toggle {
         display: none;
     }
 }
+
+/* =========================================================
+   VISITLIBYA HOME HEADER — ENGLISH / LTR AUTHORITY
+   Mirrors the approved RTL ownership without changing it.
+   ========================================================= */
+
+@media (min-width: 1050px) {
+  html[lang="en"][dir="ltr"] .home-page .vl-topbar {
+    direction: ltr;
+    flex-wrap: nowrap;
+    gap: 0;
+    min-height: 82px;
+    padding: 14px clamp(18px, 2.6vw, 48px);
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-logo {
+    order: 1;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 44px auto;
+    grid-template-rows: auto auto;
+    flex: 0 0 auto;
+    align-items: center;
+    column-gap: 9px;
+    margin: 0 clamp(12px, 1.4vw, 24px) 0 0;
+    color: #fff;
+    line-height: 1;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-logo img,
+  html[lang="en"][dir="ltr"] .home-page .vl-logo .media-logo {
+    grid-row: 1 / span 2;
+    display: block;
+    width: 44px;
+    height: 38px;
+    max-width: 44px;
+    max-height: 38px;
+    margin: 0;
+    object-fit: contain;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-logo strong {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(.82rem, 1vw, .94rem);
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-logo span {
+    margin: 3px 0 0;
+    color: rgb(255 255 255 / 72%);
+    font-size: clamp(.58rem, .65vw, .68rem);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-nav {
+    order: 2;
+    position: static;
+    min-width: 0;
+    width: auto;
+    max-width: none;
+    display: flex;
+    flex: 1 1 auto;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(6px, .72vw, 13px);
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    font-size: clamp(.64rem, .85vw, .78rem);
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-nav > a,
+  html[lang="en"][dir="ltr"] .home-page .vl-nav > .vl-dropdown > a,
+  html[lang="en"][dir="ltr"] .home-page .vl-nav > a[href$="services.html"],
+  html[lang="en"][dir="ltr"] .home-page .vl-nav > a[href$="atlas.html"],
+  html[lang="en"][dir="ltr"] .home-page .vl-nav > a[href$="ai.html"] {
+    min-height: 44px;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    color: rgb(255 255 255 / 94%);
+    font-weight: 600;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-dropdown {
+    position: relative;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: auto;
+    left: 0;
+    z-index: 1100;
+    min-width: 230px;
+    display: none;
+    padding: 10px;
+    transform: none;
+    background: rgb(7 45 72 / 94%);
+    border: 1px solid rgb(255 255 255 / 10%);
+    border-radius: 17px;
+    box-shadow: 0 18px 42px rgb(0 0 0 / 18%);
+    backdrop-filter: blur(16px);
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-dropdown:hover .vl-dropdown-menu,
+  html[lang="en"][dir="ltr"] .home-page .vl-dropdown:focus-within .vl-dropdown-menu,
+  html[lang="en"][dir="ltr"] .home-page .vl-dropdown.is-open .vl-dropdown-menu {
+    display: grid;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-dropdown-menu a {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: rgb(255 255 255 / 92%);
+    font-size: .82rem;
+    border-radius: 10px;
+    white-space: nowrap;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-dropdown-menu a:hover,
+  html[lang="en"][dir="ltr"] .home-page .vl-dropdown-menu a:focus-visible {
+    background: rgb(255 255 255 / 8%);
+    color: #fff;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .site-header-actions {
+    order: 3;
+    min-width: max-content;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 8px;
+    margin-left: clamp(10px, 1vw, 18px);
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-language,
+  html[lang="en"][dir="ltr"] .home-page .site-account-link {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0 clamp(10px, .9vw, 15px);
+    color: #fff;
+    font-size: clamp(.68rem, .72vw, .8rem);
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-language {
+    border-color: rgb(255 255 255 / 56%);
+    background: rgb(5 43 72 / 22%);
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .site-account-link {
+    background: rgb(5 74 125 / 90%);
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-nav-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 1049px) {
+  html[lang="en"][dir="ltr"] .home-page .vl-topbar {
+    justify-content: space-between;
+    min-height: 68px;
+    padding: 10px 16px;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-logo {
+    order: 1;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 42px auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 8px;
+    margin: 0;
+    line-height: 1;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-logo img,
+  html[lang="en"][dir="ltr"] .home-page .vl-logo .media-logo {
+    grid-row: 1 / span 2;
+    width: 42px;
+    height: 36px;
+    max-width: 42px;
+    max-height: 36px;
+    object-fit: contain;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .site-header-actions {
+    order: 2;
+    margin-left: auto;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-nav-toggle {
+    order: 3;
+    display: inline-grid;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-nav {
+    order: 4;
+  }
+}

@@ -1382,6 +1382,26 @@ html[lang="en"] .home-page .home-destination-card__content {
   }
 }
 
+/* Explicit English hero ownership; the approved RTL composition is untouched. */
+html[lang="en"][dir="ltr"] body.home-page {
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+}
+
+@media (min-width: 1050px) {
+  html[lang="en"][dir="ltr"] .home-page .home-hero__content {
+    width: min(92%, var(--container-wide));
+    margin-inline: auto;
+    padding-block: 0;
+    padding-inline-start: 0;
+    padding-inline-end: 55%;
+    text-align: left;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .home-hero__actions {
+    justify-content: flex-start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .home-reveal,
   .home-reveal.is-visible {
