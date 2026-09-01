@@ -150,10 +150,10 @@ html[lang="ar"] .home-page :where(.visitlibya-footer-final__brand,.visitlibya-fo
 
 .home-page .visitlibya-footer-final__bottom-actions { gap: 18px; }
 .home-page .visitlibya-footer-final__bottom-links { gap: 14px; }
-.home-page .visitlibya-footer-final__bottom a { font-size: 12px !important; }
+.home-page .visitlibya-footer-final__bottom :is(a, span) { font-size: 12px !important; }
 .home-page .visitlibya-footer-final__social { gap: 7px; }
 
-.home-page .visitlibya-footer-final__social a {
+.home-page .visitlibya-footer-final__social :is(a, span) {
   display: inline-flex !important;
   width: 32px;
   height: 32px;
