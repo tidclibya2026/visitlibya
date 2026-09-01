@@ -351,7 +351,15 @@ try {
   });
   await test("robots is origin-neutral and leaves public paths crawlable", async () => {
     const content = await (await fetch(`${origin}${basePath}robots.txt`)).text();
-    assert(!/^\s*Sitemap:/im.test(content), "source robots has an unconfirmed sitemap");
+    const sitemapDirectives = [...content.matchAll(/^\s*Sitemap:\s*(\S+)\s*$/gim)].map((match) => match[1]);
+    const sitemapPath = path.join(root, "sitemap.xml");
+    if (fs.existsSync(sitemapPath)) {
+      const sitemap = fs.readFileSync(sitemapPath, "utf8");
+      const firstLocation = sitemap.match(/<loc>([^<]+)<\/loc>/)?.[1];
+      assert(firstLocation, "artifact sitemap has no public location");
+      const expectedSitemap = `${new URL(firstLocation).origin}${basePath}sitemap.xml`;
+      assert(sitemapDirectives.length === 1 && sitemapDirectives[0] === expectedSitemap, `artifact robots sitemap must be ${expectedSitemap}`);
+    } else assert(sitemapDirectives.length === 0, "source robots has an unconfirmed sitemap");
     assert(!/Disallow:\s*\/(?:assets|ar|imges|panel)/i.test(content), "robots blocks public paths");
   });
   await test("sitemap generator requires HTTPS and is deterministic", async () => {
