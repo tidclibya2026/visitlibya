@@ -1,0 +1,125 @@
+/* Homepage hero rotation authority. Real local images only. */
+.home-page .home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #04263e;
+}
+
+.home-page .vl-hero-rotation {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #031824;
+}
+
+.home-page .vl-hero-rotation__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  transform: scale(1);
+  transform-origin: center;
+  filter: saturate(1.065) contrast(1.045) brightness(.985) sepia(.018);
+  transition:
+    opacity 1150ms ease-in-out,
+    transform 7200ms cubic-bezier(.2, .65, .25, 1),
+    filter 1500ms ease;
+  will-change: opacity, transform;
+}
+
+.home-page .vl-hero-rotation__image.is-active {
+  opacity: 1;
+  transform: scale(1.026);
+  filter: saturate(1.075) contrast(1.05) brightness(1) sepia(.022);
+}
+
+.home-page .vl-hero-rotation::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 48%, rgba(2, 15, 25, .07) 68%, rgba(2, 15, 25, .22) 100%),
+    linear-gradient(180deg, rgba(2, 18, 30, .08), transparent 26%, transparent 72%, rgba(2, 18, 30, .16));
+}
+
+.home-page .vl-hero-rotation::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: -35%;
+  left: -20%;
+  width: 70%;
+  height: 130%;
+  pointer-events: none;
+  opacity: .18;
+  background: radial-gradient(ellipse at center, rgba(255, 214, 146, .28), rgba(255, 214, 146, .08) 35%, transparent 70%);
+  transform: rotate(-7deg);
+  mix-blend-mode: screen;
+}
+
+.home-page .home-hero__overlay { z-index: 1; }
+.home-page .home-hero__content { z-index: 3; }
+.home-page .vl-topbar { z-index: 100; }
+
+.home-page .home-hero.is-hero-rotating > :is(picture, .responsive-picture, img.home-hero__image) {
+  visibility: hidden;
+}
+
+.home-page .vl-hero-dots {
+  position: absolute;
+  right: 50%;
+  bottom: 24px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(50%);
+}
+
+.home-page .vl-hero-dot {
+  width: 6px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .5);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .08);
+  cursor: pointer;
+  transition: width .25s ease, background .25s ease;
+}
+
+.home-page .vl-hero-dot.is-active {
+  width: 30px;
+  background: linear-gradient(90deg, #d39a31, #efc96b);
+  box-shadow: 0 0 16px rgba(211, 154, 49, .28);
+}
+
+html[dir="rtl"] .home-page .home-hero__overlay {
+  background: linear-gradient(270deg, rgba(2, 20, 34, .7), rgba(2, 20, 34, .48) 21%, rgba(2, 20, 34, .16) 39%, rgba(2, 20, 34, .025) 57%, transparent 72%);
+}
+
+html[dir="ltr"] .home-page .home-hero__overlay {
+  background: linear-gradient(90deg, rgba(2, 20, 34, .7), rgba(2, 20, 34, .48) 21%, rgba(2, 20, 34, .16) 39%, rgba(2, 20, 34, .025) 57%, transparent 72%);
+}
+
+@media (max-width: 767px) {
+  .home-page .vl-hero-dots { bottom: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .vl-hero-rotation__image,
+  .home-page .vl-hero-rotation__image.is-active {
+    transform: none;
+    transition: opacity 300ms linear;
+  }
+
+  .home-page .vl-hero-rotation::before { display: none; }
+}

@@ -1,0 +1,270 @@
+/* VisitLibya modern institutional homepage footer authority. */
+.home-page .vl-footer.visitlibya-footer-final {
+  width: 100% !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 clamp(20px, 4vw, 64px) !important;
+  background: linear-gradient(135deg, #071e2f 0%, #09283b 100%) !important;
+  color: #f8fafc !important;
+}
+
+.home-page .visitlibya-footer-final__panel {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding: 24px 36px 0;
+}
+
+.home-page .visitlibya-footer-final__main {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr 1.6fr;
+  align-items: center;
+  gap: 28px;
+  min-height: 124px;
+  padding-bottom: 22px;
+}
+
+.home-page .visitlibya-footer-final__brand {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 13px;
+}
+
+.home-page .visitlibya-footer-final__brand-logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 104px;
+  max-height: 54px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.home-page .visitlibya-footer-final__brand-name,
+.home-page .visitlibya-footer-final__tagline,
+.home-page .visitlibya-footer-final__identity-name {
+  margin: 0 !important;
+}
+
+.home-page .visitlibya-footer-final__brand-name {
+  color: #fff !important;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+}
+
+html[lang="ar"] .home-page .visitlibya-footer-final__brand-name {
+  font-family: "Alexandria", "IBM Plex Sans Arabic", "Noto Sans Arabic", Tahoma, Arial, sans-serif !important;
+}
+
+.home-page .visitlibya-footer-final__tagline {
+  margin-top: 3px !important;
+  color: rgba(248, 250, 252, .62) !important;
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+}
+
+.home-page .visitlibya-footer-final__nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  gap: 10px 22px;
+  margin: 0;
+}
+
+.home-page .visitlibya-footer-final__nav a,
+.home-page .visitlibya-footer-final__bottom a {
+  display: inline-flex !important;
+  margin: 0 !important;
+  color: rgba(248, 250, 252, .78) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  text-decoration: none;
+  transition: color .2s ease, opacity .2s ease;
+}
+
+.home-page .visitlibya-footer-final__nav a:hover,
+.home-page .visitlibya-footer-final__bottom a:hover {
+  color: #e0bb68 !important;
+}
+
+.home-page .visitlibya-footer-final__institutions {
+  display: grid;
+  gap: 8px;
+}
+
+.home-page .visitlibya-footer-final__identity {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 11px;
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, .06);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, .03);
+}
+
+.home-page .visitlibya-footer-final__identity-logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 78px;
+  max-height: 38px;
+  flex: 0 0 auto;
+  object-fit: contain;
+}
+
+.home-page .visitlibya-footer-final__identity-name {
+  color: rgba(248, 250, 252, .9) !important;
+  font-size: clamp(14px, .95vw, 15px) !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+  white-space: nowrap;
+}
+
+html[lang="ar"] .home-page :where(.visitlibya-footer-final__brand,.visitlibya-footer-final__nav,.visitlibya-footer-final__institutions,.visitlibya-footer-final__bottom) {
+  font-family: "IBM Plex Sans Arabic", "Noto Sans Arabic", Tahoma, Arial, sans-serif !important;
+}
+
+.home-page .visitlibya-footer-final__bottom {
+  display: flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 24px;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+  color: rgba(248, 250, 252, .56);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.home-page .visitlibya-footer-final__bottom-actions,
+.home-page .visitlibya-footer-final__bottom-links,
+.home-page .visitlibya-footer-final__social {
+  display: flex;
+  align-items: center;
+}
+
+.home-page .visitlibya-footer-final__bottom-actions { gap: 18px; }
+.home-page .visitlibya-footer-final__bottom-links { gap: 14px; }
+.home-page .visitlibya-footer-final__bottom :is(a, span) { font-size: 12px !important; }
+.home-page .visitlibya-footer-final__social { gap: 7px; }
+
+.home-page .visitlibya-footer-final__social :is(a, span) {
+  display: inline-flex !important;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .06);
+  color: rgba(248, 250, 252, .82) !important;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.home-page .visitlibya-footer-final__social a:hover {
+  border-color: rgba(255, 255, 255, .14);
+  background: rgba(255, 255, 255, .12);
+  color: #fff !important;
+}
+
+.home-page .visitlibya-footer-final__social svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.home-page .visitlibya-footer-final__social svg .is-filled {
+  fill: currentColor;
+  stroke: none;
+}
+
+@media (max-width: 1050px) {
+  .home-page .visitlibya-footer-final__main {
+    grid-template-columns: .9fr 1.1fr;
+  }
+
+  .home-page .visitlibya-footer-final__institutions {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-page .visitlibya-footer-final__identity-name { white-space: normal; }
+}
+
+@media (max-width: 767px) {
+  .home-page .vl-footer.visitlibya-footer-final { padding: 0 16px !important; }
+
+  .home-page .visitlibya-footer-final__panel { padding: 18px 0 0; }
+
+  .home-page .visitlibya-footer-final__main {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding-bottom: 14px;
+  }
+
+  .home-page .visitlibya-footer-final__brand { order: 1; }
+  .home-page .visitlibya-footer-final__institutions { order: 2; }
+  .home-page .visitlibya-footer-final__nav { order: 3; }
+
+  .home-page .visitlibya-footer-final__brand-logo {
+    max-width: 90px;
+    max-height: 46px;
+  }
+
+  .home-page .visitlibya-footer-final__institutions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .home-page .visitlibya-footer-final__identity { padding: 6px 9px; }
+
+  .home-page .visitlibya-footer-final__identity-logo {
+    max-width: 68px;
+    max-height: 34px;
+  }
+
+  .home-page .visitlibya-footer-final__identity-name {
+    font-size: 13px !important;
+    white-space: normal;
+  }
+
+  .home-page .visitlibya-footer-final__nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 7px 16px;
+  }
+
+  .home-page .visitlibya-footer-final__bottom {
+    min-height: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 11px 0 13px;
+  }
+
+  .home-page .visitlibya-footer-final__bottom-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 14px;
+  }
+
+  .home-page .visitlibya-footer-final__bottom-links {
+    flex-wrap: wrap;
+    gap: 5px 12px;
+  }
+}

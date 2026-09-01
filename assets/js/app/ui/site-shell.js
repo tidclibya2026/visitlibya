@@ -88,7 +88,10 @@ function preserveLanguageQuery() {
 
 function enhanceFooter() {
   const footer = document.querySelector(".vl-footer");
-  if (!footer || footer.querySelector(".site-footer-meta")) return;
+  if (
+    !footer ||
+    footer.querySelector(".visitlibya-footer-final__bottom, .site-footer-meta")
+  ) return;
   const meta = document.createElement("p");
   meta.className = "site-footer-meta";
   meta.textContent = localizedText(

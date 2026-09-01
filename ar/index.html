@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>زور ليبيا | حضارات المتوسط ورحلات الصحراء</title>
   <meta name="description" content="اكتشف ساحل ليبيا المتوسطي وصحراءها ومدنها الأثرية وثقافتها الحية، واستكشف مسارات الرحلات عبر Visit Libya.">
-  <link rel="stylesheet" href="../style.css?v=hero-panel-slideshow-01">
   <link rel="stylesheet" href="../assets/css/design-system.css?v=frontend-2-01">
   <link rel="stylesheet" href="../assets/css/base.css?v=frontend-2-01">
   <link rel="stylesheet" href="../assets/css/layout.css?v=frontend-2-01">
   <link rel="stylesheet" href="../assets/css/components.css?v=frontend-2-01">
-  <link rel="stylesheet" href="../assets/css/home.css?v=frontend-2-home-01">
+  <link rel="stylesheet" href="../assets/css/home.css?v=phase-2a-01">
   <meta name="theme-color" content="#0B3A67">
   <meta name="robots" content="index,follow">
 
@@ -24,6 +23,11 @@
   <link rel="alternate" hreflang="en" href="../index.html">
   <link rel="alternate" hreflang="x-default" href="../index.html">
   <link rel="icon" href="../favicon.png" type="image/png" sizes="64x64">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600;700&amp;family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="../assets/css/hero-rotation-final.css?v=2.0">
+  <link rel="stylesheet" href="../assets/css/footer-final.css?v=3.0">
 </head>
 <body class="home-page">
 <a class="site-skip-link" href="#mainContent">انتقل إلى المحتوى</a>
@@ -58,7 +62,7 @@
 </header>
 
 <main id="mainContent">
-  <section class="home-hero" aria-labelledby="homeHeroTitle">
+  <section class="home-hero" aria-labelledby="homeHeroTitle" data-hero-rotation-images="../imges/hero-rotation/02-tripoli.jpg|../imges/hero-rotation/03-natural-lakes.jpg|../imges/hero-rotation/04-cyrene.jpg|../imges/hero-rotation/05-benghazi.jpg|../imges/hero-rotation/06-stone-inscriptions.jpg|../imges/hero-rotation/07-leptis-magna.jpeg|../imges/hero-rotation/08-sabratha.jpeg|../imges/hero-rotation/09-ghadames.jpg" data-hero-dot-label="الصورة {index}">
     <picture class="responsive-picture"><source type="image/webp" srcset="../imges/optimized/desert-768.webp 768w, ../imges/optimized/desert-1280.webp 1280w, ../imges/optimized/desert.webp 1920w" sizes="100vw"><img class="home-hero__image" src="../panel/desert.jpg" width="3872" height="2592" alt="قافلة جمال تعبر الكثبان الذهبية في الصحراء الليبية" fetchpriority="high" decoding="async"></picture>
     <div class="home-hero__overlay" aria-hidden="true"></div>
     <div class="home-hero__content">
@@ -76,75 +80,212 @@
     </a>
   </section>
 
-  <section class="home-discovery" id="discover" aria-labelledby="discoverTitle">
-    <div class="home-discovery__panel">
-      <div class="home-discovery__heading">
-        <p class="home-eyebrow">ابدأ طريقك إلى ليبيا</p>
-        <h2 id="discoverTitle">ماذا تود أن تكتشف؟</h2>
-      </div>
-      <form class="home-search" role="search" data-home-search-form>
-        <label for="homeSearch">ابحث في الوجهات والأنماط السياحية</label>
-        <div class="home-search__controls">
-          <div class="home-search__field">
-            <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16.5 16.5 4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            <input id="homeSearch" name="home-search" type="search" placeholder="جرّب «التراث» أو «الساحل» أو «الصحراء»" autocomplete="off" data-home-search-input>
-          </div>
-          <button class="btn btn-red" type="submit">بحث</button>
-          <button class="btn btn-outline home-search__reset" type="reset" data-home-search-reset>مسح</button>
-        </div>
-      </form>
-      <p class="home-search__status" data-home-result-count aria-live="polite">13 نمطًا ووجهة جاهزة للاستكشاف.</p>
-      <p class="home-search__empty" data-home-no-results hidden>لم نعثر على وجهات أو أنماط مطابقة. جرّب عبارة أوسع أو امسح البحث.</p>
-    </div>
-  </section>
+  <section class="home-section home-themes home-themes-final"
+         id="themes"
+         aria-labelledby="themesTitle">
 
-  <section class="home-section home-themes" id="themes" aria-labelledby="themesTitle">
-    <div class="home-section__heading">
-      <div>
-        <p class="home-eyebrow">استكشف حسب الاهتمام</p>
-        <h2 id="themesTitle">اتبع ما يلهمك</h2>
+  <div class="home-themes-final__heading">
+    <div class="home-themes-final__title">
+      <p class="home-eyebrow">استكشف حسب الاهتمام</p>
+      <h2 id="themesTitle">اتبع ما يلهمك</h2>
+    </div>
+
+    <p class="home-themes-final__intro">
+      اختر نمطًا لتظهر الأماكن المرتبطة به، أو تصفّح كل الطرق المؤدية إلى طبيعة ليبيا وتراثها.
+    </p>
+  </div>
+
+  <div class="home-theme-grid home-theme-grid--visual"
+       data-home-search-group>
+
+    <article class="home-theme-card home-theme-card--visual"
+             data-home-search-item
+             data-home-kind="theme"
+             data-home-keywords="الحضارات القديمة الآثار روماني يوناني تراث لبدة ancient archaeology">
+      <button type="button" data-home-filter="الحضارات">
+        <img src="../imges/Leptis Magna.jpeg"
+             alt="الحضارات القديمة في ليبيا"
+             loading="lazy"
+             decoding="async"
+             width="1366"
+             height="768">
+        <span class="home-theme-card__shade"></span>
+        <span class="home-theme-card__content">
+          <span class="home-theme-card__icon">♜</span>
+          <strong>الحضارات القديمة</strong>
+          <small>مدن أثرية وحضارات خالدة</small>
+        </span>
+      </button>
+    </article>
+
+    <article class="home-theme-card home-theme-card--visual"
+             data-home-search-item
+             data-home-kind="theme"
+             data-home-keywords="الساحل البحر المتوسط شواطئ طبيعة coast mediterranean">
+      <button type="button" data-home-filter="الساحل">
+        <img src="../imges/beaches.jpg"
+             alt="الساحل الليبي"
+             loading="lazy"
+             decoding="async"
+             width="1280"
+             height="715">
+        <span class="home-theme-card__shade"></span>
+        <span class="home-theme-card__content">
+          <span class="home-theme-card__icon">≋</span>
+          <strong>الساحل</strong>
+          <small>شواطئ خلابة ومياه فيروزية</small>
+        </span>
+      </button>
+    </article>
+
+    <article class="home-theme-card home-theme-card--visual"
+             data-home-search-item
+             data-home-kind="theme"
+             data-home-keywords="الصحراء أكاكوس كثبان فن صخري desert acacus">
+      <button type="button" data-home-filter="الصحراء">
+        <img src="../imges/Acacus1.jpeg"
+             alt="صحراء أكاكوس"
+             loading="lazy"
+             decoding="async"
+             width="1366"
+             height="768">
+        <span class="home-theme-card__shade"></span>
+        <span class="home-theme-card__content">
+          <span class="home-theme-card__icon">☼</span>
+          <strong>الصحراء</strong>
+          <small>كثبان ذهبية وتضاريس فريدة</small>
+        </span>
+      </button>
+    </article>
+
+    <article class="home-theme-card home-theme-card--visual"
+             data-home-search-item
+             data-home-kind="theme"
+             data-home-keywords="المدن التاريخية غدامس عمارة واحات historic ghadames">
+      <button type="button" data-home-filter="المدن التاريخية">
+        <img src="../imges/ghadames5.JPG"
+             alt="مدينة غدامس التاريخية"
+             loading="lazy"
+             decoding="async"
+             width="1920"
+             height="2880">
+        <span class="home-theme-card__shade"></span>
+        <span class="home-theme-card__content">
+          <span class="home-theme-card__icon">♙</span>
+          <strong>المدن التاريخية</strong>
+          <small>أسواق عريقة وعمارة أصيلة</small>
+        </span>
+      </button>
+    </article>
+
+    <article class="home-theme-card home-theme-card--visual"
+             data-home-search-item
+             data-home-kind="theme"
+             data-home-keywords="الطبيعة الواحات الجبال الساحل nature oasis">
+      <button type="button" data-home-filter="الطبيعة">
+        <img src="../imges/Awjila.jpg"
+             alt="الطبيعة والواحات الليبية"
+             loading="lazy"
+             decoding="async"
+             width="1280"
+             height="715">
+        <span class="home-theme-card__shade"></span>
+        <span class="home-theme-card__content">
+          <span class="home-theme-card__icon">♧</span>
+          <strong>الطبيعة والواحات</strong>
+          <small>واحات خضراء ومناظر آسرة</small>
+        </span>
+      </button>
+    </article>
+
+    <article class="home-theme-card home-theme-card--visual"
+             data-home-search-item
+             data-home-kind="theme"
+             data-home-keywords="الثقافة التقاليد الصناعات التقليدية الحرف heritage crafts culture">
+      <button type="button" data-home-filter="الثقافة">
+        <img src="../imges/traditional industries6.jpeg"
+             alt="الصناعات التقليدية الليبية"
+             loading="lazy"
+             decoding="async"
+             width="1600"
+             height="1066">
+        <span class="home-theme-card__shade"></span>
+        <span class="home-theme-card__content">
+          <span class="home-theme-card__icon">◇</span>
+          <strong>الثقافة والتقاليد</strong>
+          <small>حرف يدوية وتراث حي</small>
+        </span>
+      </button>
+    </article>
+
+  </div>
+</section>
+
+<section class="home-discovery home-discovery-final"
+         id="discover"
+         aria-labelledby="discoverTitle">
+
+  <div class="home-discovery-final__heading">
+    <div>
+      <p class="home-eyebrow">ابدأ رحلتك إلى ليبيا</p>
+      <h2 id="discoverTitle">ماذا تريد أن تكتشف؟</h2>
+    </div>
+  </div>
+
+  <form class="home-search"
+        role="search"
+        data-home-search-form>
+
+    <label for="homeSearch">
+      ابحث في الوجهات والأنشطة السياحية
+    </label>
+
+    <div class="home-search__controls">
+
+      <div class="home-search__field">
+        <svg viewBox="0 0 24 24"
+             width="22"
+             height="22"
+             aria-hidden="true">
+          <circle cx="11" cy="11" r="7"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"/>
+          <path d="m16.5 16.5 4 4"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"/>
+        </svg>
+
+        <input id="homeSearch"
+               name="home-search"
+               type="search"
+               placeholder="جرّب «التراث» أو «الساحل» أو «الصحراء»"
+               autocomplete="off"
+               data-home-search-input>
       </div>
-      <p>اختر نمطًا لتظهر الأماكن المرتبطة به، أو تصفّح كل الطرق المؤدية إلى طبيعة ليبيا وتراثها.</p>
+
+      <button class="btn btn-red" type="submit">
+        بحث
+      </button>
+
+      <button class="btn btn-outline home-search__reset"
+              type="reset"
+              data-home-search-reset>
+        إعادة تعيين
+      </button>
+
     </div>
-    <div class="home-theme-grid" data-home-search-group>
-      <article class="home-theme-card" data-home-search-item data-home-kind="theme" data-home-keywords="الحضارات القديمة الآثار روماني يوناني تراث لبدة صبراتة شحات ancient archaeology">
-        <button type="button" data-home-filter="الحضارات">
-          <span class="home-theme-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M9 39h30M13 35h22M16 31V17m8 14V17m8 14V17M12 14h24L24 7 12 14Z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span><strong>الحضارات القديمة</strong><small>مدن أثرية وتاريخ متوسطي ممتد</small></span>
-        </button>
-      </article>
-      <article class="home-theme-card" data-home-search-item data-home-kind="theme" data-home-keywords="ساحل البحر المتوسط البحر الشواطئ الطبيعة coast mediterranean">
-        <button type="button" data-home-filter="الساحل">
-          <span class="home-theme-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M5 28c5-5 9-5 14 0s9 5 14 0 7-4 10-2M5 36c5-5 9-5 14 0s9 5 14 0 7-4 10-2M24 8v12m-7-6 7-6 7 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span><strong>ساحل البحر المتوسط</strong><small>مشاهد ساحلية تجمع البحر بالجبل</small></span>
-        </button>
-      </article>
-      <article class="home-theme-card" data-home-search-item data-home-kind="theme" data-home-keywords="مغامرات الصحراء أكاكوس الكثبان الفن الصخري sahara desert">
-        <button type="button" data-home-filter="الصحراء">
-          <span class="home-theme-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="35" cy="13" r="5" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M5 38c8-13 16-16 24-8 4 4 8 5 14 1M5 38h38" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></span>
-          <span><strong>مغامرات الصحراء</strong><small>كثبان وفن صخري وواحات وآفاق رحبة</small></span>
-        </button>
-      </article>
-      <article class="home-theme-card" data-home-search-item data-home-kind="theme" data-home-keywords="المدن التاريخية طرابلس غدامس المدينة القديمة العمارة historic cities">
-        <button type="button" data-home-filter="المدن">
-          <span class="home-theme-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 40V20h12v20m0 0V11h13v29m0-13h9v13M11 25h4m-4 6h4m9-14h4m-4 7h4m-4 7h4M5 40h38" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span><strong>المدن التاريخية</strong><small>أحياء قديمة وأسواق وعمارة صحراوية</small></span>
-        </button>
-      </article>
-      <article class="home-theme-card" data-home-search-item data-home-kind="theme" data-home-keywords="الطبيعة الواحات أوباري أوجلة البحيرات الجبل الأخضر nature oasis">
-        <button type="button" data-home-filter="الطبيعة">
-          <span class="home-theme-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M24 41V20m0 10c-7 0-12-4-13-11 7-1 12 3 13 8m0-2c7 0 12-4 13-11-7-1-12 3-13 8M8 41h32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span><strong>الطبيعة والواحات</strong><small>أودية جبلية ونخيل وبحيرات صحراوية</small></span>
-        </button>
-      </article>
-      <article class="home-theme-card" data-home-search-item data-home-kind="theme" data-home-keywords="الثقافة التقاليد الصناعات المطبخ الطعام الزي الفخار الفلكلور culture traditions">
-        <button type="button" data-home-filter="الثقافة">
-          <span class="home-theme-card__icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M13 8h22v32H13zM18 14h12M18 21h12M18 28h8m8 7 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span><strong>الثقافة والتقاليد</strong><small>مطبخ وصناعات وضيافة وذاكرة مشتركة</small></span>
-        </button>
-      </article>
-    </div>
-  </section>
+
+    <p class="home-search__status"
+       data-home-result-count
+       aria-live="polite">
+      13 نتيجة متاحة للاستكشاف.
+    </p>
+
+  </form>
+</section>
 
   <section class="home-section home-destinations" id="featured-destinations" aria-labelledby="destinationsTitle">
     <div class="home-section__heading">
@@ -156,31 +297,31 @@
     </div>
     <div class="home-destination-grid" data-home-search-group>
       <article class="home-destination-card home-destination-card--wide" data-home-search-item data-home-kind="destination" data-home-keywords="طرابلس المدن التاريخية ساحل ثقافة المدينة القديمة المتوسط tripoli">
-        <img src="../imges/oldtripoli.jpg" width="1280" height="707" alt="برج الساعة والمباني التاريخية في مدينة طرابلس القديمة" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="../imges/oldtripoli.jpg" width="1280" height="707" alt="برج الساعة والمباني التاريخية في مدينة طرابلس القديمة" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>مدينة تاريخية · المتوسط</p><h3>طرابلس</h3><span>أزقة وأسواق وعمارة عريقة وذاكرة حية متصلة بالبحر.</span><a href="destination.html?slug=tripoli">اكتشف الوجهة <span aria-hidden="true">←</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="لبدة الكبرى الحضارات الآثار الرومان التراث العالمي الساحل leptis magna">
-        <img src="../imges/Leptis Magna3.jpeg" width="1080" height="887" alt="أقواس وأعمدة حجرية أثرية في مدينة لبدة الكبرى" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="../imges/Leptis Magna3.jpeg" width="1080" height="887" alt="أقواس وأعمدة حجرية أثرية في مدينة لبدة الكبرى" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>آثار · تراث عالمي</p><h3>لبدة الكبرى</h3><span>مدينة رومانية كبرى تمتد معالمها قرب الساحل الليبي.</span><a href="destination.html?slug=leptis-magna">اكتشف الوجهة <span aria-hidden="true">←</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="صبراتة الحضارات الآثار المسرح الروماني التراث العالمي الساحل sabratha">
-        <img src="../imges/Sabratha.jpg" width="1280" height="707" alt="المسرح الروماني والمعالم الأثرية في صبراتة" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="../imges/Sabratha.jpg" width="1280" height="707" alt="المسرح الروماني والمعالم الأثرية في صبراتة" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>تراث ساحلي · آثار</p><h3>صبراتة</h3><span>مدينة أثرية ومسرح بارز في مشهد يطل على الساحل.</span><a href="destination.html?slug=sabratha">اكتشف الوجهة <span aria-hidden="true">←</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="غدامس المدن التاريخية واحة الصحراء العمارة التراث العالمي ghadames">
-        <img src="../imges/Ghadames2.JPG" width="2880" height="1920" alt="العمارة البيضاء التقليدية في مدينة غدامس القديمة" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="../imges/Ghadames2.JPG" width="2880" height="1920" alt="العمارة البيضاء التقليدية في مدينة غدامس القديمة" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>مدينة واحية · عمارة</p><h3>غدامس</h3><span>ممرات مسقوفة وعمارة مميزة صاغتها حياة الواحة.</span><a href="destination.html?slug=ghadames">اكتشف الوجهة <span aria-hidden="true">←</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="شحات قورينا الحضارات الآثار اليونان الجبل الأخضر الطبيعة التراث العالمي cyrene">
-        <img src="../imges/Cyrene.jpg" width="1280" height="707" alt="أعمدة أثرية وطبيعة خضراء في مدينة شحات" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="../imges/Cyrene.jpg" width="1280" height="707" alt="أعمدة أثرية وطبيعة خضراء في مدينة شحات" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>الجبل الأخضر · آثار</p><h3>شحات</h3><span>تراث يوناني وروماني بين مرتفعات شرق ليبيا.</span><a href="destination.html?slug=green-mountain">اكتشف الوجهة <span aria-hidden="true">←</span></a></div>
       </article>
       <article class="home-destination-card" data-home-search-item data-home-kind="destination" data-home-keywords="أكاكوس الصحراء المغامرة الفن الصخري الطبيعة التراث العالمي acacus">
-        <img src="../imges/Acacus.jpg" width="1280" height="707" alt="تشكيلات صخرية في جبال أكاكوس بالصحراء الليبية" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="../imges/Acacus.jpg" width="1280" height="707" alt="تشكيلات صخرية في جبال أكاكوس بالصحراء الليبية" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>الصحراء · الفن الصخري</p><h3>أكاكوس</h3><span>تكوينات صخرية وفنون قديمة في مشهد صحراوي استثنائي.</span><a href="destination.html?slug=acacus">اكتشف الوجهة <span aria-hidden="true">←</span></a></div>
       </article>
       <article class="home-destination-card home-destination-card--wide" data-home-search-item data-home-kind="destination" data-home-keywords="أوباري الطبيعة الواحات الصحراء البحيرات المغامرة ubari">
-        <img src="../imges/natural lakes.jpg" width="1280" height="707" alt="بحيرة صحراوية تحيط بها الكثبان والنخيل في جنوب غرب ليبيا" loading="lazy" decoding="async">
+        <div class="home-destination-card__media"><img src="../imges/natural lakes.jpg" width="1280" height="707" alt="بحيرة صحراوية تحيط بها الكثبان والنخيل في جنوب غرب ليبيا" loading="lazy" decoding="async"></div>
         <div class="home-destination-card__content"><p>بحيرات صحراوية · واحات</p><h3>أوباري</h3><span>مشاهد واحية تلتقي فيها البحيرات والنخيل بالكثبان الممتدة.</span><a href="destination.html?slug=desert">اكتشف الوجهة <span aria-hidden="true">←</span></a></div>
       </article>
     </div>
@@ -203,19 +344,6 @@
     </div>
   </section>
 
-  <section class="home-section home-inspiration" id="inspiration" aria-labelledby="inspirationTitle">
-    <div class="home-section__heading">
-      <div><p class="home-eyebrow">إلهام الرحلة</p><h2 id="inspirationTitle">اختر اتجاهك</h2></div>
-      <p>ابدأ من مشهد أو حكاية، ثم ابنِ رحلة تعبّر عن اهتماماتك.</p>
-    </div>
-    <div class="home-inspiration-grid">
-      <button type="button" class="home-inspiration-card" data-home-filter="الساحل"><img src="../imges/beaches.jpg" width="1280" height="715" alt="" loading="lazy" decoding="async"><span><small>المتوسط</small><strong>رحلات الساحل</strong></span></button>
-      <button type="button" class="home-inspiration-card" data-home-filter="الحضارات"><img src="../imges/Leptis Magna.jpeg" width="1366" height="768" alt="" loading="lazy" decoding="async"><span><small>الحضارات</small><strong>المدن القديمة</strong></span></button>
-      <button type="button" class="home-inspiration-card" data-home-filter="الصحراء"><img src="../imges/The Sahara Desert.jpg" width="1280" height="707" alt="" loading="lazy" decoding="async"><span><small>الصحراء الكبرى</small><strong>المسارات الصحراوية</strong></span></button>
-      <button type="button" class="home-inspiration-card" data-home-filter="الثقافة"><img src="../imges/pottery.jpg" width="960" height="1280" alt="" loading="lazy" decoding="async"><span><small>تراث حي</small><strong>تجارب ثقافية</strong></span></button>
-    </div>
-  </section>
-
   <section class="home-planner" id="plan-your-journey" aria-labelledby="plannerTitle">
     <div class="home-planner__intro">
       <p class="home-eyebrow">رحلتك، مرتبة بعناية</p>
@@ -234,29 +362,49 @@
   </section>
 </main>
 
-<footer class="vl-footer">
-  <div class="vl-footer-grid">
-    <div>
-      <h2>Visit Libya | زور ليبيا</h2>
-      <p>المنصة السياحية الوطنية الرسمية لاكتشاف ليبيا عبر وجهاتها وتراثها وطبيعتها وثقافتها الحية.</p>
+<footer class="vl-footer visitlibya-footer-final">
+  <div class="visitlibya-footer-final__panel">
+    <div class="visitlibya-footer-final__main">
+      <div class="visitlibya-footer-final__brand">
+        <img class="visitlibya-footer-final__brand-logo" src="../imges/footer-visitlibya-logo.png" alt="شعار زور ليبيا" loading="lazy" decoding="async" width="544" height="459">
+        <div><p class="visitlibya-footer-final__brand-name">زور ليبيا</p><p class="visitlibya-footer-final__tagline">رحلة عبر الزمن</p></div>
+      </div>
+      <nav class="visitlibya-footer-final__nav" aria-label="روابط الاستكشاف">
+        <a href="index.html">الرئيسية</a>
+        <a href="destinations.html">الوجهات</a>
+        <a href="heritage.html">الحضارات والتراث</a>
+        <a href="experiences.html">التجارب</a>
+        <a href="culture.html">الثقافة والتقاليد</a>
+        <a href="atlas.html">الأطلس السياحي</a>
+      </nav>
+      <div class="visitlibya-footer-final__institutions">
+        <div class="visitlibya-footer-final__identity">
+          <img class="visitlibya-footer-final__identity-logo" src="../imges/footer-ministry-logo.png" alt="شعار وزارة السياحة والصناعات التقليدية" loading="lazy" decoding="async" width="325" height="282">
+          <p class="visitlibya-footer-final__identity-name">وزارة السياحة والصناعات التقليدية</p>
+        </div>
+        <div class="visitlibya-footer-final__identity">
+          <img class="visitlibya-footer-final__identity-logo" src="../imges/footer-tidc-logo.png" alt="شعار مركز المعلومات والتوثيق السياحي" loading="lazy" decoding="async" width="248" height="170">
+          <p class="visitlibya-footer-final__identity-name">مركز المعلومات والتوثيق السياحي</p>
+        </div>
+      </div>
     </div>
-    <div>
-      <h3>استكشف</h3>
-      <a href="destinations.html">الوجهات</a>
-      <a href="experiences.html">التجارب</a>
-      <a href="culture.html">الثقافة والمطبخ</a>
-      <a href="heritage.html">التراث العالمي</a>
-      <a href="atlas.html">الأطلس السياحي</a>
-      <a href="trips.html">رحلاتي</a>
-    </div>
-    <div>
-      <h3>الجهة الرسمية</h3>
-      <p class="official">وزارة السياحة والصناعات التقليدية<br>مركز المعلومات والتوثيق السياحي</p>
+    <div class="visitlibya-footer-final__bottom">
+      <span>© 2026 زور ليبيا — جميع الحقوق محفوظة</span>
+      <div class="visitlibya-footer-final__bottom-actions">
+        <div class="visitlibya-footer-final__bottom-links"><span>سياسة الخصوصية</span><span>شروط الاستخدام</span><span>إمكانية الوصول</span></div>
+        <div class="visitlibya-footer-final__social">
+          <span role="img" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="is-filled" d="M14 8h3V4h-3c-3 0-5 2-5 5v2H6v4h3v5h4v-5h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg></span>
+          <span role="img" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" class="is-filled"/></svg></span>
+          <span role="img" aria-label="YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 8.2a3 3 0 0 0-2.1-2.1C17 5.6 12 5.6 12 5.6s-5 0-6.9.5A3 3 0 0 0 3 8.2 31 31 0 0 0 2.6 12 31 31 0 0 0 3 15.8a3 3 0 0 0 2.1 2.1c1.9.5 6.9.5 6.9.5s5 0 6.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .4-3.8 31 31 0 0 0-.4-3.8Z"/><path d="m10 9 5 3-5 3Z" class="is-filled"/></svg></span>
+          <span role="img" aria-label="X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4.2l3.5 5L17 4h2l-5.4 6.6L19.5 20h-4.2l-4-5.7L6.5 20h-2l5.9-7.3L5 4Zm3 2 8.4 12h1.1L9.1 6H8Z" class="is-filled"/></svg></span>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
-<script src="../main.js?v=hero-panel-slideshow-01"></script>
-<script type="module" src="../assets/js/app/ui/site-shell.js?v=atlas-integration-01"></script>
-<script type="module" src="../assets/js/pages/home.js?v=frontend-2-home-01"></script>
+<script src="../main.js?v=2.0"></script>
+<script type="module" src="../assets/js/app/ui/site-shell.js?v=2.0"></script>
+<script type="module" src="../assets/js/pages/home.js?v=2.0"></script>
+<script src="../assets/js/pages/hero-rotation-final.js?v=2.0" defer></script>
 </body>
 </html>

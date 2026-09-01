@@ -22,7 +22,7 @@
   --color-overlay: rgb(6 27 46 / 72%);
 
   /* Typography */
-  --font-latin: "Segoe UI", Tahoma, Arial, sans-serif; --font-arabic: Tahoma, "Segoe UI", Arial, sans-serif; --font-body: var(--font-latin); --font-heading: var(--font-latin); --font-family-sans: var(--font-body); --text-xs: 0.75rem; --text-sm: 0.875rem; --text-base: 1rem; --text-lg: 1.125rem; --text-xl: 1.25rem; --text-2xl: 1.5rem; --text-3xl: 1.875rem; --text-4xl: 2.25rem;
+  --font-latin: Inter, "Segoe UI", Tahoma, Arial, sans-serif; --font-arabic: "IBM Plex Sans Arabic", "Noto Sans Arabic", Tahoma, "Segoe UI", Arial, sans-serif; --font-body: var(--font-latin); --font-heading: var(--font-latin); --font-family-sans: var(--font-body); --text-xs: 0.75rem; --text-sm: 0.875rem; --text-base: 1rem; --text-lg: 1.125rem; --text-xl: 1.25rem; --text-2xl: 1.5rem; --text-3xl: 1.875rem; --text-4xl: 2.25rem;
   --font-family-display: var(--font-heading);
   --font-size-display: clamp(3rem, 7vw, 6.5rem);
   --font-size-h1: clamp(2.65rem, 5vw, 5rem);
@@ -90,7 +90,7 @@
 
 html[lang="ar"] {
   --font-body: var(--font-arabic);
-  --font-heading: var(--font-arabic);
+  --font-heading: Alexandria, var(--font-arabic);
 }
 
 @media (prefers-reduced-motion: reduce) {

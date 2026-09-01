@@ -4,12 +4,188 @@
 .trips-danger-button,
 .button {
   min-height: var(--control-height);
-  border-radius: var(--radius-pill);
+  border-radius: var(--radius-sm);
   font-weight: var(--font-weight-bold);
   transition:
     transform var(--duration-fast) var(--easing-standard),
     box-shadow var(--duration-normal) var(--easing-standard),
     background-color var(--duration-normal) var(--easing-standard);
+}
+
+/* Editorial cards shared by the public discovery families. */
+body:not(.home-page) :where(.wide-card, .culture-tile, .destination-card) {
+  border: 1px solid rgb(11 58 103 / 10%);
+  box-shadow: 0 14px 38px rgb(6 27 46 / 10%);
+  transition: transform 260ms var(--easing-standard), box-shadow 260ms var(--easing-standard);
+}
+
+body:not(.home-page) :where(.wide-card, .culture-tile, .destination-card):hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 54px rgb(6 27 46 / 15%);
+}
+
+body:not(.home-page) :where(.filter-bar button, .layer-chips span) {
+  min-height: 2.75rem;
+}
+
+body:not(.home-page) :where(input, select, textarea) {
+  min-height: 3rem;
+}
+
+/* Reusable panoramic story chapter with explicit physical media placement. */
+.editorial-story {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  align-items: stretch;
+  gap: clamp(2.25rem, 6vw, 6.5rem);
+  min-height: clamp(30rem, 52vw, 44rem);
+}
+
+.editorial-story__content {
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 40rem;
+  padding-block: clamp(1rem, 4vw, 4rem);
+}
+
+html[dir="rtl"] .editorial-story__content {
+  align-items: flex-start;
+  text-align: right;
+}
+
+.editorial-story__content h2 {
+  margin: 0 0 var(--space-6);
+  font-size: clamp(2.2rem, 4.2vw, 4.5rem);
+  line-height: 1.1;
+}
+
+.editorial-story__content p { margin-block: 0 var(--space-6); font-size: clamp(1rem, 1.25vw, 1.18rem); }
+
+.editorial-story__media {
+  grid-row: 1;
+  align-self: stretch;
+  width: 100%;
+  min-height: 30rem;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: #dfe7e8;
+  box-shadow: 0 24px 64px rgb(6 27 46 / 14%);
+}
+
+img.editorial-story__media,
+.editorial-story__media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--story-object-position, center);
+  filter: saturate(1.03) contrast(1.025) sepia(.025);
+  transition: transform 700ms var(--easing-standard), filter 700ms var(--easing-standard);
+}
+
+.editorial-story:hover img.editorial-story__media,
+.editorial-story:hover .editorial-story__media > img { transform: scale(1.015); filter: saturate(1.045) contrast(1.035); }
+
+.editorial-story--media-left .editorial-story__media { grid-column: 1; }
+.editorial-story--media-left .editorial-story__content { grid-column: 2; }
+.editorial-story--media-right .editorial-story__content { grid-column: 1; }
+.editorial-story--media-right .editorial-story__media { grid-column: 2; }
+
+.editorial-story:nth-of-type(even) { background: var(--color-surface-muted); }
+
+@media (max-width: 63.99rem) {
+  .editorial-story { grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(1.5rem, 4vw, 3rem); }
+  .editorial-story__media { min-height: 25rem; }
+}
+
+@media (max-width: 47.99rem) {
+  .editorial-story { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: 1.75rem; }
+  .editorial-story__media,
+  .editorial-story--media-left .editorial-story__media,
+  .editorial-story--media-right .editorial-story__media { grid-column: 1; grid-row: 1; min-height: clamp(18rem, 78vw, 27rem); }
+  .editorial-story__content,
+  .editorial-story--media-left .editorial-story__content,
+  .editorial-story--media-right .editorial-story__content { grid-column: 1; grid-row: 2; padding-block: 0; }
+  .editorial-story__content h2 { font-size: clamp(2rem, 10vw, 3rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editorial-story:hover img.editorial-story__media,
+  .editorial-story:hover .editorial-story__media > img { transform: none; }
+}
+
+/* Legacy editorial markup adapter for Arabic long-form pages and culture stories. */
+body:not(.home-page) .ar-detail,
+body:not(.home-page) .discover-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+  align-items: stretch;
+  gap: clamp(2.25rem, 6vw, 6.5rem);
+  min-height: clamp(30rem, 52vw, 44rem);
+}
+
+body:not(.home-page) .ar-detail > div,
+body:not(.home-page) .discover-detail > div {
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 40rem;
+  padding-block: clamp(1rem, 4vw, 4rem);
+}
+
+html[dir="rtl"] body:not(.home-page) .ar-detail > div { text-align: right; }
+
+body:not(.home-page) .ar-detail > :where(img, picture),
+body:not(.home-page) .discover-detail > img {
+  grid-row: 1;
+  align-self: stretch;
+  width: 100%;
+  min-height: 30rem;
+  max-height: none;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 64px rgb(6 27 46 / 14%);
+}
+
+body:not(.home-page) .ar-detail > img,
+body:not(.home-page) .discover-detail > img,
+body:not(.home-page) .ar-detail > picture > img {
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--story-object-position, center);
+  filter: saturate(1.03) contrast(1.025) sepia(.025);
+}
+
+/* First Arabic chapter: physical media left / copy right; alternate thereafter. */
+html[dir="rtl"] body:not(.home-page) main > .ar-detail:nth-of-type(even) > :where(img, picture) { grid-column: 1; }
+html[dir="rtl"] body:not(.home-page) main > .ar-detail:nth-of-type(even) > div { grid-column: 2; }
+html[dir="rtl"] body:not(.home-page) main > .ar-detail:nth-of-type(odd) > div { grid-column: 1; }
+html[dir="rtl"] body:not(.home-page) main > .ar-detail:nth-of-type(odd) > :where(img, picture) { grid-column: 2; }
+
+/* Existing LTR culture modifiers retain their intended physical alternation. */
+html[dir="ltr"] body:not(.home-page) .discover-detail:not(.reverse) > div { grid-column: 1; }
+html[dir="ltr"] body:not(.home-page) .discover-detail:not(.reverse) > img { grid-column: 2; }
+html[dir="ltr"] body:not(.home-page) .discover-detail.reverse > img { grid-column: 1; }
+html[dir="ltr"] body:not(.home-page) .discover-detail.reverse > div { grid-column: 2; order: initial; }
+
+@media (max-width: 63.99rem) {
+  body:not(.home-page) .ar-detail,
+  body:not(.home-page) .discover-detail { grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(1.5rem, 4vw, 3rem); }
+  body:not(.home-page) .ar-detail > :where(img, picture),
+  body:not(.home-page) .discover-detail > img { min-height: 25rem; }
+}
+
+@media (max-width: 47.99rem) {
+  body:not(.home-page) .ar-detail,
+  body:not(.home-page) .discover-detail { grid-template-columns: minmax(0, 1fr); min-height: 0; gap: 1.75rem; }
+  html body:not(.home-page) main > .ar-detail > :where(img, picture),
+  html body:not(.home-page) main > .discover-detail > img { grid-column: 1; grid-row: 1; min-height: clamp(18rem, 78vw, 27rem); }
+  html body:not(.home-page) main > .ar-detail > div,
+  html body:not(.home-page) main > .discover-detail > div { grid-column: 1; grid-row: 2; padding-block: 0; }
 }
 
 .btn:hover,
@@ -288,5 +464,72 @@ html[dir="rtl"] .kicker {
     width: calc(100% - 1rem);
     max-height: calc(100dvh - 1rem);
     border-radius: var(--radius-lg);
+  }
+}
+
+/* Arabic editorial pages: page-scoped cascade authority over legacy style.css. */
+@media (min-width: 48rem) {
+  html[dir="rtl"] body.experiences-page main > section.ar-detail,
+  html[dir="rtl"] body.culture-page main > section.ar-detail {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+    align-items: stretch;
+    gap: clamp(2rem, 5vw, 5.5rem);
+  }
+
+  html[dir="rtl"] body.experiences-page main > section.ar-detail > picture.responsive-picture,
+  html[dir="rtl"] body.culture-page main > section.ar-detail > picture.responsive-picture {
+    display: block;
+  }
+
+  html[dir="rtl"] body.experiences-page main > section.ar-detail > :where(img, picture),
+  html[dir="rtl"] body.culture-page main > section.ar-detail > :where(img, picture) {
+    min-width: 0;
+    min-height: clamp(25rem, 42vw, 42rem);
+  }
+
+  html[dir="rtl"] body.experiences-page main > section.ar-detail > div,
+  html[dir="rtl"] body.culture-page main > section.ar-detail > div {
+    min-width: 0;
+  }
+
+  /* Experiences: physical left/right placement, independent of RTL flow. */
+  html[dir="rtl"] body.experiences-page main > :is(#desert, #camping, #marine, #green-mountain, #wellness) > :where(img, picture) { grid-column: 1; }
+  html[dir="rtl"] body.experiences-page main > :is(#desert, #camping, #marine, #green-mountain, #wellness) > div { grid-column: 2; }
+  html[dir="rtl"] body.experiences-page main > :is(#safari, #coast, #equestrian, #festivals) > div { grid-column: 1; }
+  html[dir="rtl"] body.experiences-page main > :is(#safari, #coast, #equestrian, #festivals) > :where(img, picture) { grid-column: 2; }
+
+  /* Culture: cuisine begins copy-left/media-right; hospitality is media-left. */
+  html[dir="rtl"] body.culture-page main > :is(#sweets, #crafts, #festivals, #hospitality) > :where(img, picture) { grid-column: 1; }
+  html[dir="rtl"] body.culture-page main > :is(#sweets, #crafts, #festivals, #hospitality) > div { grid-column: 2; }
+  html[dir="rtl"] body.culture-page main > :is(#cuisine, #modern-restaurants, #folklore, #markets) > div { grid-column: 1; }
+  html[dir="rtl"] body.culture-page main > :is(#cuisine, #modern-restaurants, #folklore, #markets) > :where(img, picture) { grid-column: 2; }
+}
+
+@media (max-width: 47.99rem) {
+  html[dir="rtl"] body.experiences-page main > section.ar-detail,
+  html[dir="rtl"] body.culture-page main > section.ar-detail {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+
+  html[dir="rtl"] body.experiences-page main > section.ar-detail > picture.responsive-picture,
+  html[dir="rtl"] body.culture-page main > section.ar-detail > picture.responsive-picture { display: block; }
+
+  html[dir="rtl"] body.experiences-page main > section.ar-detail > :where(img, picture),
+  html[dir="rtl"] body.culture-page main > section.ar-detail > :where(img, picture) {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    min-height: clamp(18rem, 78vw, 27rem);
+  }
+
+  html[dir="rtl"] body.experiences-page main > section.ar-detail > div,
+  html[dir="rtl"] body.culture-page main > section.ar-detail > div {
+    grid-column: 1;
+    grid-row: 2;
+    min-width: 0;
+    padding-block: 0;
   }
 }

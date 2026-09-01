@@ -370,57 +370,6 @@ html[lang="ar"] .home-hero h1 {
 
 /* Destinations */
 
-.home-destinations {
-  max-width: none;
-  background: var(--color-surface);
-}
-
-.home-destinations > * {
-  max-width: calc(var(--container-wide) - 7rem);
-  margin-inline: auto;
-}
-
-.home-destination-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--space-5, 1.25rem);
-}
-
-.home-destination-card {
-  display: flex;
-  min-width: 0;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  background: var(--color-surface);
-  box-shadow: 0 10px 30px rgb(17 24 39 / 6%);
-  transition:
-    border-color var(--duration-normal) var(--easing-standard),
-    box-shadow var(--duration-normal) var(--easing-standard),
-    transform var(--duration-normal) var(--easing-standard);
-}
-
-.home-destination-card:hover {
-  border-color: rgb(200 155 60 / 55%);
-  box-shadow: var(--shadow-card-hover);
-  transform: translateY(-4px);
-}
-
-.home-destination-card--wide {
-  grid-column: span 2;
-}
-
-.home-destination-card img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-}
-
-.home-destination-card--wide img {
-  aspect-ratio: 2 / 1;
-}
-
 .home-destination-card__content {
   display: flex;
   flex: 1;
@@ -701,18 +650,6 @@ html[lang="ar"] .home-inspiration-card small {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .home-destination-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .home-destination-card--wide {
-    grid-column: span 1;
-  }
-
-  .home-destination-card--wide img {
-    aspect-ratio: 4 / 3;
-  }
-
   .home-heritage {
     grid-template-columns: 1fr;
   }
@@ -830,7 +767,6 @@ html[lang="ar"] .home-inspiration-card small {
     grid-column: auto;
   }
 
-  .home-destination-grid,
   .home-inspiration-grid {
     grid-template-columns: 1fr;
   }
@@ -848,6 +784,609 @@ html[lang="ar"] .home-inspiration-card small {
   .home-theme-card button,
   .home-destination-card,
   .home-inspiration-card img {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   HOME — HERO SHELL
+   ========================================================= */
+
+.home-page .home-hero {
+  display: flex;
+  width: 100%;
+  min-height: 100svh;
+  align-items: center;
+  margin: 0;
+  background: #04263e;
+}
+
+.home-page .home-hero > :is(picture, .responsive-picture) {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.home-page .home-hero__image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.035) contrast(1.015);
+  transform: none;
+}
+
+.home-page .home-hero__content {
+  position: relative;
+  z-index: 3;
+  width: min(92%, var(--container-wide));
+  margin-inline: auto;
+  padding-block: 0;
+}
+
+html[dir="rtl"] .home-page .home-hero__content {
+  padding-inline-start: 0;
+  padding-inline-end: 55%;
+}
+html[dir="ltr"] .home-page .home-hero__content { padding-inline-end: 55%; padding-inline-start: 0; }
+
+.home-page .home-hero h1 {
+  font-size: clamp(4rem, 7vw, 7.2rem);
+  font-weight: 800;
+  letter-spacing: -.035em;
+  line-height: 1.05;
+  text-shadow: 0 5px 25px rgb(0 0 0 / 18%);
+}
+
+.home-page .home-hero__lead {
+  max-width: 600px;
+  margin-top: 22px;
+  font-size: clamp(1rem, 1.35vw, 1.22rem);
+  line-height: 1.9;
+}
+
+.home-page .home-hero__actions {
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.home-page .home-hero__actions .btn {
+  min-height: 54px;
+  padding-inline: 28px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.home-page .home-hero__actions .btn-red {
+  border-color: var(--color-brand-secondary);
+  background: var(--color-brand-secondary);
+  color: #061b2e;
+}
+
+.home-page .home-hero__cue {
+  z-index: 4;
+  right: auto;
+  bottom: 27px;
+  left: 50%;
+  flex-direction: column;
+  gap: 5px;
+  color: rgb(255 255 255 / 72%);
+  transform: translateX(-50%);
+}
+
+html[lang="ar"] .home-page .home-hero h1 {
+  font-family: "Alexandria", "IBM Plex Sans Arabic", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 1.35;
+}
+
+/* =========================================================
+   HOME — SECTION RHYTHM
+   ========================================================= */
+
+.home-page .home-section {
+  width: min(calc(100% - 48px), var(--container-wide));
+  max-width: var(--container-wide);
+  padding: clamp(70px, 8vw, 120px) 0;
+}
+
+.home-page .home-section__heading {
+  gap: 40px;
+  margin-bottom: 36px;
+}
+
+.home-page .home-section__heading h2 {
+  font-size: clamp(2.5rem, 4vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.home-page .home-section__heading > p {
+  max-width: 560px;
+  line-height: 1.8;
+}
+
+.home-page .home-eyebrow {
+  margin-bottom: 8px;
+  color: var(--color-brand-secondary);
+  font-weight: 700;
+}
+
+html[lang="ar"] .home-page main :where(h2, .home-destination-card h3, .home-theme-card__content > strong) {
+  font-family: "Alexandria", "IBM Plex Sans Arabic", "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   HOME — DISCOVERY
+   ========================================================= */
+
+.home-page .home-discovery {
+  position: relative;
+  inset: auto;
+  z-index: 2;
+  width: min(calc(100% - 64px), 1380px);
+  max-width: none;
+  margin: clamp(18px, 2vw, 30px) auto clamp(72px, 7vw, 104px);
+  padding: 0;
+  transform: none;
+}
+
+.home-page .home-discovery__panel {
+  padding: clamp(28px, 3vw, 44px) clamp(30px, 4vw, 60px);
+  border-radius: 24px;
+  box-shadow: 0 18px 52px rgb(4 39 64 / 7%);
+}
+
+.home-page .home-discovery-final {
+  width: min(calc(100% - 64px), 1380px);
+  margin: clamp(18px, 2vw, 30px) auto clamp(72px, 7vw, 104px);
+  padding: clamp(28px, 3vw, 44px) clamp(30px, 4vw, 60px);
+  border: 1px solid rgb(7 59 98 / 10%);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 52px rgb(4 39 64 / 7%);
+}
+
+.home-page .home-discovery-final__heading { margin-bottom: 20px; }
+.home-page .home-discovery-final__heading h2 {
+  margin: 0;
+  color: var(--color-brand-primary);
+  font-size: clamp(2rem, 3.1vw, 3.35rem);
+}
+
+.home-page .home-search__field input {
+  min-height: 64px;
+  border-radius: 16px;
+}
+
+.home-page .home-search__controls .btn {
+  min-height: 60px;
+  border-radius: 16px;
+}
+
+/* =========================================================
+   HOME — THEMES
+   ========================================================= */
+
+.home-page .home-themes {
+  width: min(calc(100% - 64px), 1500px);
+  margin-inline: auto;
+  padding: 48px 0 38px;
+  background: #fbf8f2;
+}
+
+/* English cards retain their existing local-image presentation. */
+html[lang="en"] .home-page .home-theme-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+html[lang="en"] .home-page .home-theme-card {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  border: 0;
+  border-radius: 18px;
+  background: #062f4c;
+  box-shadow: 0 12px 32px rgb(4 35 57 / 10%);
+}
+
+html[lang="en"] .home-page .home-theme-card > button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 220px;
+  min-height: 220px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  isolation: isolate;
+}
+
+html[lang="en"] .home-page .home-theme-card > button::before,
+html[lang="en"] .home-page .home-theme-card > button::after {
+  position: absolute;
+  inset: 0;
+  display: block;
+  content: "";
+}
+
+html[lang="en"] .home-page .home-theme-card > button::before {
+  z-index: -2;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: saturate(1.04) contrast(1.03) brightness(.94);
+  transition: transform .5s ease;
+}
+
+html[lang="en"] .home-page .home-theme-card > button::after {
+  z-index: -1;
+  background: linear-gradient(0deg, rgb(2 20 34 / 91%), rgb(2 20 34 / 64%) 30%, rgb(2 20 34 / 16%) 65%, rgb(2 20 34 / 4%));
+}
+
+html[lang="en"] .home-page .home-theme-card:nth-child(1) > button::before { background-image: url("../../imges/Leptis Magna.jpeg"); }
+html[lang="en"] .home-page .home-theme-card:nth-child(2) > button::before { background-image: url("../../imges/destinations/temporary/ras-al-hilal.jpeg"); }
+html[lang="en"] .home-page .home-theme-card:nth-child(3) > button::before { background-image: url("../../imges/Acacus.jpg"); }
+html[lang="en"] .home-page .home-theme-card:nth-child(4) > button::before { background-image: url("../../imges/Ghadames.jpg"); }
+html[lang="en"] .home-page .home-theme-card:nth-child(5) > button::before { background-image: url("../../imges/Awjila.jpg"); }
+html[lang="en"] .home-page .home-theme-card:nth-child(6) > button::before { background-image: url("../../imges/traditional industries9.jpeg"); }
+
+html[lang="en"] .home-page .home-theme-card:hover > button::before { transform: scale(1.025); }
+html[lang="en"] .home-page .home-theme-card__icon { display: none; }
+
+html[lang="en"] .home-page .home-theme-card > button > span:last-child {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  display: block;
+  padding: 20px 17px 18px;
+  color: #fff;
+}
+
+html[lang="en"] .home-page .home-theme-card :where(strong, small) {
+  display: block;
+  color: #fff;
+  text-shadow: 0 2px 12px rgb(0 0 0 / 32%);
+}
+
+html[lang="en"] .home-page .home-theme-card small { margin-top: 5px; }
+
+/* Arabic visual cards use the images present in the current DOM. */
+.home-page .home-themes-final__heading {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  align-items: end;
+  gap: 50px;
+  margin-bottom: 26px;
+}
+
+html[dir="rtl"] .home-page .home-themes-final__title { grid-area: 1 / 2; }
+html[dir="rtl"] .home-page .home-themes-final__intro { grid-area: 1 / 1; }
+
+.home-page .home-themes-final__title h2 {
+  margin: 0;
+  color: #073454;
+  font-size: clamp(3rem, 4.2vw, 4.8rem);
+}
+
+.home-page .home-themes-final__intro {
+  max-width: 620px;
+  margin: 0;
+  color: #65788a;
+  font-size: 1.05rem;
+  line-height: 1.9;
+}
+
+.home-page .home-theme-grid--visual {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 15px;
+}
+
+.home-page .home-theme-card--visual,
+.home-page .home-theme-card--visual > button {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 315px;
+  min-height: 315px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 18px;
+  background: #0b3a67;
+}
+
+.home-page .home-theme-card--visual {
+  box-shadow: 0 12px 30px rgb(3 33 54 / 10%);
+}
+
+.home-page .home-theme-card--visual > button > img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.04) contrast(1.025) brightness(.98);
+  transition: transform .5s ease;
+}
+
+.home-page .home-theme-card--visual > button::before,
+.home-page .home-theme-card--visual > button::after { display: none; content: none; }
+
+.home-page .home-theme-card__shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, transparent 36%, rgb(1 19 31 / 8%) 50%, rgb(1 19 31 / 60%) 75%, rgb(1 19 31 / 94%));
+  pointer-events: none;
+}
+
+.home-page .home-theme-card__content {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  left: 18px;
+  z-index: 2;
+  color: #fff;
+  text-align: start;
+}
+
+.home-page .home-theme-card--visual .home-theme-card__icon { display: none; }
+.home-page .home-theme-card__content strong { display: block; color: #fff; font-size: 1.15rem; }
+.home-page .home-theme-card__content small { display: block; margin-top: 4px; color: rgb(255 255 255 / 92%); }
+.home-page .home-theme-card--visual:hover > button > img { transform: scale(1.018); }
+
+/* =========================================================
+   HOME — DESTINATIONS
+   ========================================================= */
+
+.home-page .home-destinations {
+  width: min(calc(100% - 48px), var(--container-wide));
+  max-width: var(--container-wide);
+  padding-inline: 0;
+  background: #fff;
+}
+
+.home-page .home-destinations > * {
+  max-width: none;
+}
+
+.home-page .home-destination-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.home-page .home-destination-card {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 0;
+  flex-direction: row;
+  align-items: stretch;
+  padding: 0;
+  overflow: visible;
+  border: 1px solid rgb(7 59 98 / 12%);
+  background: #fff;
+  direction: ltr;
+  box-shadow: 0 14px 40px rgb(4 39 64 / 6%);
+}
+
+.home-page .home-destination-card:nth-child(even) { flex-direction: row-reverse; }
+.home-page .home-destination-card::before,
+.home-page .home-destination-card::after { display: none; content: none; }
+
+.home-page .home-destination-card__media {
+  display: block;
+  width: 62%;
+  min-width: 0;
+  flex: 0 0 62%;
+  overflow: visible;
+  background: #0a2638;
+}
+
+.home-page .home-destination-card__media > img {
+  position: static;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: none;
+  border: 0;
+  border-radius: 0;
+  object-fit: contain;
+  object-position: center;
+  filter: saturate(1.04) contrast(1.025) brightness(1.01);
+  transform: none;
+  transition: none;
+}
+
+.home-page .home-destination-card:hover,
+.home-page .home-destination-card:hover .home-destination-card__media > img {
+  transform: none;
+}
+
+.home-page .home-destination-card__content {
+  display: flex;
+  width: 38%;
+  min-width: 0;
+  flex: 1 1 38%;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px, 4vw, 60px);
+  direction: rtl;
+  text-align: right;
+}
+
+html[lang="en"] .home-page .home-destination-card__content {
+  direction: ltr;
+  text-align: left;
+}
+
+/* =========================================================
+   HOME — INSPIRATION
+   ========================================================= */
+
+.home-page .home-inspiration { background: #fbf8f2; }
+.home-page .home-inspiration-grid { gap: 22px; }
+
+.home-page .home-inspiration-card {
+  position: relative;
+  display: block;
+  height: 315px;
+  min-height: 315px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgb(7 59 98 / 12%);
+  border-radius: 22px;
+  background: #0b3a67;
+  box-shadow: 0 12px 36px rgb(4 39 64 / 6%);
+}
+
+.home-page .home-inspiration-card > :is(picture, img) {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+}
+
+.home-page .home-inspiration-card > span {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  display: flex;
+  min-height: 0;
+  padding: 24px;
+  background: transparent;
+  color: #fff;
+}
+
+.home-page .home-inspiration-card::after {
+  z-index: 1;
+  background: linear-gradient(0deg, rgb(3 25 40 / 78%), rgb(3 25 40 / 8%) 66%);
+}
+
+.home-page .home-inspiration-card strong { color: #fff; }
+
+/* =========================================================
+   HOME — EDITORIAL / PLANNER
+   ========================================================= */
+
+.home-page .home-heritage,
+.home-page .home-planner { overflow: hidden; }
+
+.home-page .home-planner :where(.btn, button) { border-radius: 16px; }
+
+/* =========================================================
+   HOME — REVEAL UTILITIES
+   ========================================================= */
+
+.home-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms ease;
+  transition-delay: var(--home-reveal-delay, 0ms);
+}
+
+.home-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================================
+   HOME — RESPONSIVE
+   ========================================================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .home-page .home-destination-card__media { width: 55%; flex-basis: 55%; }
+  .home-page .home-destination-card__content { width: 45%; flex-basis: 45%; }
+  .home-page .home-theme-grid--visual { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 767px) {
+  .home-page .home-hero__content,
+  html[dir="rtl"] .home-page .home-hero__content,
+  html[dir="ltr"] .home-page .home-hero__content {
+    padding: 7rem var(--space-5, 1.25rem) 7.5rem;
+  }
+
+  .home-page .home-discovery,
+  .home-page .home-discovery-final { width: calc(100% - 24px); }
+
+  .home-page .home-themes { width: calc(100% - 24px); }
+  .home-page .home-themes-final__heading { display: block; }
+  .home-page .home-themes-final__intro { margin-top: 12px; }
+  .home-page .home-theme-grid--visual { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+
+  .home-page .home-theme-card--visual,
+  .home-page .home-theme-card--visual > button {
+    height: 245px;
+    min-height: 245px;
+    border-radius: 14px;
+  }
+
+  html[lang="en"] .home-page .home-theme-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-page .home-destination-card,
+  .home-page .home-destination-card:nth-child(even) {
+    flex-direction: column;
+  }
+
+  .home-page .home-destination-card__media {
+    order: 1;
+    width: 100%;
+    flex: none;
+  }
+
+  .home-page .home-destination-card__media > img {
+    width: 100%;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    transform: none;
+  }
+
+  .home-page .home-destination-card__content {
+    order: 2;
+    width: 100%;
+    flex: none;
+  }
+
+  .home-page .home-inspiration-card {
+    height: 300px;
+    min-height: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-reveal,
+  .home-reveal.is-visible {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 }
