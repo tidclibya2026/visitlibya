@@ -1382,6 +1382,47 @@ html[lang="en"] .home-page .home-destination-card__content {
   }
 }
 
+/* Explicit English hero ownership; the approved RTL composition is untouched. */
+html[lang="en"][dir="ltr"] body.home-page {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@media (min-width: 1050px) {
+  html[lang="en"][dir="ltr"] .home-page .home-hero__content {
+    width: min(92%, var(--container-wide));
+    margin-inline: auto;
+    padding-block: clamp(7rem, 16vh, 10rem) clamp(5rem, 10vh, 7rem);
+    padding-inline-start: 0;
+    padding-inline-end: 56%;
+    text-align: left;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .home-hero__content > * {
+    max-width: 42rem;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .home-hero__actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 1049px) {
+  html[lang="en"][dir="ltr"] .home-page .home-hero__content {
+    width: min(100%, var(--container-wide));
+    padding-block: clamp(7.5rem, 18vh, 10rem) clamp(5.5rem, 12vh, 7rem);
+    padding-inline: clamp(1.25rem, 6vw, 4rem);
+    text-align: left;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .home-hero__content > * {
+    max-width: min(42rem, 88vw);
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .home-hero__actions {
+    justify-content: flex-start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .home-reveal,
   .home-reveal.is-visible {
