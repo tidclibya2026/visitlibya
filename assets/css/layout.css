@@ -893,51 +893,38 @@ html[lang="ar"][dir="rtl"] .home-page .vl-nav-toggle {
     direction: ltr;
     flex-wrap: nowrap;
     gap: 0;
-    min-height: 82px;
-    padding: 14px clamp(18px, 2.6vw, 48px);
+    min-height: 104px;
+    padding: 8px clamp(16px, 2vw, 36px);
   }
 
   html[lang="en"][dir="ltr"] .home-page .vl-logo {
     order: 1;
     min-width: 0;
-    display: grid;
-    grid-template-columns: 44px auto;
-    grid-template-rows: auto auto;
+    display: flex;
     flex: 0 0 auto;
     align-items: center;
-    column-gap: 9px;
-    margin: 0 clamp(12px, 1.4vw, 24px) 0 0;
+    margin: 0 clamp(10px, 1.2vw, 20px) 0 0;
     color: #fff;
     line-height: 1;
   }
 
   html[lang="en"][dir="ltr"] .home-page .vl-logo img,
   html[lang="en"][dir="ltr"] .home-page .vl-logo .media-logo {
-    grid-row: 1 / span 2;
     display: block;
-    width: 44px;
-    height: 38px;
-    max-width: 44px;
-    max-height: 38px;
+    width: clamp(110px, 8.4vw, 132px);
+    height: auto;
+    max-width: 132px;
+    max-height: none;
     margin: 0;
     object-fit: contain;
   }
 
   html[lang="en"][dir="ltr"] .home-page .vl-logo strong {
-    margin: 0;
-    color: #fff;
-    font-size: clamp(.82rem, 1vw, .94rem);
-    font-weight: 700;
-    line-height: 1.1;
-    white-space: nowrap;
+    display: none;
   }
 
   html[lang="en"][dir="ltr"] .home-page .vl-logo span {
-    margin: 3px 0 0;
-    color: rgb(255 255 255 / 72%);
-    font-size: clamp(.58rem, .65vw, .68rem);
-    line-height: 1;
-    white-space: nowrap;
+    display: none;
   }
 
   html[lang="en"][dir="ltr"] .home-page .vl-nav {
@@ -951,13 +938,13 @@ html[lang="ar"][dir="rtl"] .home-page .vl-nav-toggle {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: center;
-    gap: clamp(6px, .72vw, 13px);
+    gap: clamp(5px, .62vw, 11px);
     margin: 0;
     padding: 0;
     background: transparent;
     border: 0;
     box-shadow: none;
-    font-size: clamp(.64rem, .85vw, .78rem);
+    font-size: clamp(.61rem, .72vw, .76rem);
   }
 
   html[lang="en"][dir="ltr"] .home-page .vl-nav > a,
@@ -972,7 +959,7 @@ html[lang="ar"][dir="rtl"] .home-page .vl-nav-toggle {
     margin: 0;
     padding: 0;
     color: rgb(255 255 255 / 94%);
-    font-weight: 600;
+    font-weight: 650;
     line-height: 1.2;
     white-space: nowrap;
   }
@@ -1033,7 +1020,7 @@ html[lang="ar"][dir="rtl"] .home-page .vl-nav-toggle {
     flex: 0 0 auto;
     align-items: center;
     gap: 8px;
-    margin-left: clamp(10px, 1vw, 18px);
+    margin-left: clamp(8px, .8vw, 14px);
   }
 
   html[lang="en"][dir="ltr"] .home-page .vl-language,
@@ -1043,9 +1030,9 @@ html[lang="ar"][dir="rtl"] .home-page .vl-nav-toggle {
     align-items: center;
     justify-content: center;
     margin: 0;
-    padding: 0 clamp(10px, .9vw, 15px);
+    padding: 0 clamp(9px, .75vw, 13px);
     color: #fff;
-    font-size: clamp(.68rem, .72vw, .8rem);
+    font-size: clamp(.66rem, .68vw, .76rem);
     line-height: 1;
     white-space: nowrap;
   }
@@ -1074,28 +1061,34 @@ html[lang="ar"][dir="rtl"] .home-page .vl-nav-toggle {
   html[lang="en"][dir="ltr"] .home-page .vl-logo {
     order: 1;
     min-width: 0;
-    display: grid;
-    grid-template-columns: 42px auto;
-    grid-template-rows: auto auto;
+    display: flex;
     align-items: center;
-    column-gap: 8px;
     margin: 0;
     line-height: 1;
   }
 
   html[lang="en"][dir="ltr"] .home-page .vl-logo img,
   html[lang="en"][dir="ltr"] .home-page .vl-logo .media-logo {
-    grid-row: 1 / span 2;
-    width: 42px;
-    height: 36px;
-    max-width: 42px;
-    max-height: 36px;
+    display: block;
+    width: clamp(88px, 12vw, 108px);
+    height: auto;
+    max-width: 108px;
+    max-height: none;
     object-fit: contain;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .vl-logo strong,
+  html[lang="en"][dir="ltr"] .home-page .vl-logo span {
+    display: none;
   }
 
   html[lang="en"][dir="ltr"] .home-page .site-header-actions {
     order: 2;
     margin-left: auto;
+  }
+
+  html[lang="en"][dir="ltr"] .home-page .site-header-actions .site-account-link {
+    display: none;
   }
 
   html[lang="en"][dir="ltr"] .home-page .vl-nav-toggle {
