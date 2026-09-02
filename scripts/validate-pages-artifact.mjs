@@ -64,7 +64,14 @@ function walk(current) {
 walk(directory);
 for (const rel of [".nojekyll", "404.html", "robots.txt", ...manifest.pagePairs.flatMap((entry) => [entry.page, `ar/${entry.page}`])]) if (!exactPath(path.join(directory, rel))) errors.push(`missing required file: ${rel}`);
 for (const top of fs.readdirSync(directory)) {
-  const allowed = new Set([...allowlist.rootFiles.map((item) => item.split("/")[0]), ...Object.keys(allowlist.publicTrees).map((item) => item.split("/")[0]), ...allowlist.publicMedia.map((item) => item.split("/")[0]), ...manifest.pagePairs.map((entry) => entry.page), "ar", ...allowlist.generatedFiles]);
+  const allowed = new Set([
+  ...allowlist.rootFiles.map((item) => item.split("/")[0]),
+  ...Object.keys(allowlist.publicTrees).map((item) => item.split("/")[0]),
+  ...allowlist.publicMedia.map((item) => item.split("/")[0]),
+  ...manifest.pagePairs.map((entry) => entry.page.split("/")[0]),
+  "ar",
+  ...allowlist.generatedFiles.map((item) => item.split("/")[0]),
+]);
   if (!allowed.has(top)) errors.push(`not allowlisted at artifact root: ${top}`);
 }
 

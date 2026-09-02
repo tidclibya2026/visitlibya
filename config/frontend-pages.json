@@ -27,6 +27,69 @@
       "alternate": "ar/destination.html"
     },
     {
+      "page": "destinations/leptis-magna.html",
+      "classification": "static-curated-fallback",
+      "controller": "assets/js/pages/destination-detail.js",
+      "runtime": "bilingual-destination-detail",
+      "indexable": true,
+      "sitemap": true,
+      "alternate": "ar/destinations/leptis-magna.html"
+    },
+    {
+      "page": "destinations/tripoli.html",
+      "classification": "static-curated-fallback",
+      "controller": "assets/js/pages/destination-detail.js",
+      "runtime": "bilingual-destination-detail",
+      "indexable": true,
+      "sitemap": true,
+      "alternate": "ar/destinations/tripoli.html"
+    },
+    {
+      "page": "destinations/acacus.html",
+      "classification": "static-curated-fallback",
+      "controller": "assets/js/pages/destination-detail.js",
+      "runtime": "bilingual-destination-detail",
+      "indexable": true,
+      "sitemap": true,
+      "alternate": "ar/destinations/acacus.html"
+    },
+    {
+      "page": "destinations/sabratha.html",
+      "classification": "static-curated-fallback",
+      "controller": "assets/js/pages/destination-detail.js",
+      "runtime": "bilingual-destination-detail",
+      "indexable": true,
+      "sitemap": true,
+      "alternate": "ar/destinations/sabratha.html"
+    },
+    {
+      "page": "destinations/ghadames.html",
+      "classification": "static-curated-fallback",
+      "controller": "assets/js/pages/destination-detail.js",
+      "runtime": "bilingual-destination-detail",
+      "indexable": true,
+      "sitemap": true,
+      "alternate": "ar/destinations/ghadames.html"
+    },
+    {
+      "page": "destinations/awjila.html",
+      "classification": "static-curated-fallback",
+      "controller": "assets/js/pages/destination-detail.js",
+      "runtime": "bilingual-destination-detail",
+      "indexable": true,
+      "sitemap": true,
+      "alternate": "ar/destinations/awjila.html"
+    },
+    {
+      "page": "destinations/ras-al-hilal.html",
+      "classification": "static-curated-fallback",
+      "controller": "assets/js/pages/destination-detail.js",
+      "runtime": "bilingual-destination-detail",
+      "indexable": true,
+      "sitemap": true,
+      "alternate": "ar/destinations/ras-al-hilal.html"
+    },
+    {
       "page": "experiences.html",
       "classification": "fully-static",
       "indexable": true,
