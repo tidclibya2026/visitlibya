@@ -17,6 +17,9 @@ const editorialDestinations = Object.freeze([
   ...curatedDestinations,
   ...editorialDestinationAdditions,
 ]);
+const DESTINATION_DETAIL_ROUTES = Object.freeze(new Set([
+  "leptis-magna", "tripoli", "acacus", "sabratha", "ghadames", "awjila", "ras-al-hilal",
+]));
 
 const copy = Object.freeze({
   allCategories: isArabic ? "كل الوجهات" : "All destinations",
@@ -227,7 +230,9 @@ function createCard(destination) {
 
   const details = document.createElement("a");
   details.className = "destination-explorer-card__link destination-explorer-card__link--primary";
-  details.href = `${pathPrefix}destination.html?slug=${encodeURIComponent(destination.slug)}`;
+  details.href = DESTINATION_DETAIL_ROUTES.has(destination.slug)
+    ? `destinations/${encodeURIComponent(destination.slug)}.html`
+    : `${pathPrefix}destination.html?slug=${encodeURIComponent(destination.slug)}`;
   details.textContent = isArabic ? "عرض التفاصيل" : "View details";
   details.setAttribute(
     "aria-label",

@@ -160,7 +160,9 @@ function validateFragment(section, sourceFile, targetFile, rawFragment, sourceCo
   if (!ids.has(fragment)) issue(section, at(sourceFile, sourceContent, index, `fragment #${fragment} is missing in ${relative(targetFile)}`));
 }
 
-const files = walk(root);
+// Validate the Git publication set, including newly staged files. Untracked
+// local recovery copies are not part of a production checkout or artifact.
+const files = walk(root).filter((file) => tracked.has(relative(file)));
 const htmlFiles = files.filter((file) => path.extname(file).toLowerCase() === ".html" && !relative(file).startsWith("backend/") && relative(file) !== "404.html");
 const cssFiles = files.filter((file) => path.extname(file).toLowerCase() === ".css");
 const jsFiles = files.filter((file) => /\.(?:js|mjs)$/i.test(file) && !relative(file).startsWith("backend/"));
@@ -214,13 +216,67 @@ for (const pair of manifest.pagePairs) {
   const enContent = htmlByRelative.get(pair.page);
   const arContent = htmlByRelative.get(`ar/${pair.page}`);
   if (!enContent || !arContent) continue;
-  const normalizeScripts = (content) => [...content.matchAll(/<script[^>]+src=["']([^"']+)["']/gi)]
-    .map((match) => stripQueryAndFragment(match[1]).replace(/^\.\.\//, "")).sort();
-  if (JSON.stringify(normalizeScripts(enContent)) !== JSON.stringify(normalizeScripts(arContent))) issue("HTML and parity", `${pair.page}: English and Arabic script sets differ`);
-  const expectedEn = `ar/${pair.page}`;
-  const expectedAr = `../${pair.page}`;
-  if (!new RegExp(`class=["'][^"']*(?:vl-language|language)[^"']*["'][^>]*href=["']${expectedEn.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["']`, "i").test(enContent)) issue("Navigation", `${pair.page}: language switch does not resolve to ${expectedEn}`);
-  if (!new RegExp(`class=["'][^"']*(?:vl-language|language)[^"']*["'][^>]*href=["']${expectedAr.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}["']`, "i").test(arContent)) issue("Navigation", `ar/${pair.page}: language switch does not resolve to ${expectedAr}`);
+  const enPage = pair.page;
+  const arPage = `ar/${pair.page}`;
+
+  const normalizeScripts = (page, content) =>
+    [...content.matchAll(/<script[^>]+src=["']([^"']+)["']/gi)]
+      .map((match) => {
+        const reference = stripQueryAndFragment(match[1]);
+
+        // External script URLs are page-depth independent.
+        if (/^(?:https?:)?\/\//i.test(reference)) return reference;
+
+        return path.posix.normalize(
+          path.posix.join(path.posix.dirname(page), reference),
+        );
+      })
+      .sort();
+
+  if (
+    JSON.stringify(normalizeScripts(enPage, enContent)) !==
+    JSON.stringify(normalizeScripts(arPage, arContent))
+  ) {
+    issue(
+      "HTML and parity",
+      `${pair.page}: English and Arabic script sets differ`,
+    );
+  }
+
+  const expectedEn =
+    path.posix.relative(path.posix.dirname(enPage), arPage) ||
+    path.posix.basename(arPage);
+
+  const expectedAr =
+    path.posix.relative(path.posix.dirname(arPage), enPage) ||
+    path.posix.basename(enPage);
+
+  const escapeRegex = (value) =>
+    value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+  if (
+    !new RegExp(
+      `class=["'][^"']*(?:vl-language|language)[^"']*["'][^>]*href=["']${escapeRegex(expectedEn)}["']`,
+      "i",
+    ).test(enContent)
+  ) {
+    issue(
+      "Navigation",
+      `${pair.page}: language switch does not resolve to ${expectedEn}`,
+    );
+  }
+
+  if (
+    !new RegExp(
+      `class=["'][^"']*(?:vl-language|language)[^"']*["'][^>]*href=["']${escapeRegex(expectedAr)}["']`,
+      "i",
+    ).test(arContent)
+  ) {
+    issue(
+      "Navigation",
+      `ar/${pair.page}: language switch does not resolve to ${expectedAr}`,
+    );
+  }
 }
 
 for (const page of manifest.apiDependentPages.flatMap((item) => [item, `ar/${item}`])) {
@@ -523,8 +579,12 @@ for (const [rel, content] of publicHtml) {
     if (resolved.error || exactPathStatus(resolved.target) !== "ok") issue("HTML references", `${rel}: favicon does not resolve: ${favicon}`);
   }
   if (rel !== "404.html") {
-    const logoPath = rel.startsWith("ar/") ? "../visitlibyalogo.png" : "visitlibyalogo.png";
-    if (!new RegExp(`<a\\b[^>]*class=["''][^"'']*vl-logo[^"'']*["''][^>]*href=["'']index\\.html["''][^>]*>[\\s\\S]*?<img\\b[^>]*class=["''][^"'']*media-logo[^"'']*["''][^>]*src=["'']${logoPath.replaceAll(".", "\\.")}["''][^>]*alt=["'']["'']`, "i").test(content)) issue("Visual system", `${rel}: approved decorative header logo or language-local home link is missing`);
+    const directoryDepth = rel.split("/").length - 1;
+    const languageDepth = rel.startsWith("ar/") ? directoryDepth - 1 : directoryDepth;
+    const homeHref = `${"../".repeat(languageDepth)}index.html`;
+    const logoPath = `${"../".repeat(directoryDepth)}visitlibyalogo.png`;
+    const escapePattern = (value) => value.replace(/[.*+?^${}()|[\\]\\]/g, "\\$&");
+    if (!new RegExp(`<a\\b[^>]*class=["''][^"'']*vl-logo[^"'']*["''][^>]*href=["'']${escapePattern(homeHref)}["''][^>]*>[\\s\\S]*?<img\\b[^>]*class=["''][^"'']*media-logo[^"'']*["''][^>]*src=["'']${escapePattern(logoPath)}["''][^>]*alt=["'']["'']`, "i").test(content)) issue("Visual system", `${rel}: approved decorative header logo or language-local home link is missing`);
   }  for (const property of ["og:title", "og:description", "og:type"]) if (!new RegExp(`<meta[^>]+property=["']${property}["']`, "i").test(content)) issue("Release readiness", `${rel}: ${property} missing`);
   for (const name of ["twitter:card", "twitter:title", "twitter:description"]) if (!new RegExp(`<meta[^>]+name=["']${name}["']`, "i").test(content)) issue("Release readiness", `${rel}: ${name} missing`);
   for (const hero of content.matchAll(/<span[^>]+class=["'][^"']*page-hero-bg[^"']*["'][^>]*>[\s\S]*?<img\b[^>]*\balt=["']([^"']*)["'][^>]*>/gi)) {
@@ -581,11 +641,14 @@ for (const [rel, content] of publicHtml) {
   }
 }
 for (const pair of manifest.pagePairs) {
-  const enContent = htmlByRelative.get(pair.page) ?? "";
-  const arContent = htmlByRelative.get(`ar/${pair.page}`) ?? "";
+  const enPage = pair.page;
+  const arPage = `ar/${pair.page}`;
+  const relativeHref = (from, to) => path.posix.relative(path.posix.dirname(from), to) || path.posix.basename(to);
+  const enContent = htmlByRelative.get(enPage) ?? "";
+  const arContent = htmlByRelative.get(arPage) ?? "";
   for (const [rel, content, expected] of [
-    [pair.page, enContent, { en: pair.page, ar: `ar/${pair.page}`, "x-default": pair.page }],
-    [`ar/${pair.page}`, arContent, { ar: pair.page, en: `../${pair.page}`, "x-default": `../${pair.page}` }],
+    [enPage, enContent, { en: relativeHref(enPage, enPage), ar: relativeHref(enPage, arPage), "x-default": relativeHref(enPage, enPage) }],
+    [arPage, arContent, { ar: relativeHref(arPage, arPage), en: relativeHref(arPage, enPage), "x-default": relativeHref(arPage, enPage) }],
   ]) for (const [language, href] of Object.entries(expected)) {
     const escaped = href.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     if (!new RegExp(`<link[^>]+rel=["']alternate["'][^>]+hreflang=["']${language}["'][^>]+href=["']${escaped}["']`, "i").test(content)) issue("HTML and parity", `${rel}: missing origin-neutral hreflang=${language} for ${href}`);

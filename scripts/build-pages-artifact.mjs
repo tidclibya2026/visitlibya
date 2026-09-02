@@ -79,7 +79,11 @@ function payloadFiles() {
     }
   };
   visit(output);
-  return files;
+  return files.sort((a, b) =>
+
+    relative(a, output).localeCompare(relative(b, output), "en")
+
+  );
 }
 
 const normalizedOrigin = suppliedOrigin ? origin(suppliedOrigin) : null;
