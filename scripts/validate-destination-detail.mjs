@@ -4,7 +4,7 @@ import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const slugs = ["leptis-magna", "tripoli", "acacus", "sabratha", "ghadames", "awjila", "ras-al-hilal"];
+const slugs = ["leptis-magna", "tripoli", "acacus", "sabratha", "ghadames", "awjila", "ras-al-hilal", "ubari-lakes", "cyrene"];
 const context = { window: {} };
 vm.createContext(context);
 vm.runInContext(fs.readFileSync(path.join(root, "assets/js/data/destination-details.js"), "utf8"), context);
@@ -53,5 +53,5 @@ if (errors.length) {
   console.error(errors.map((error) => `FAIL ${error}`).join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`PASS 14 destination shells, ${slugs.length} shared records, ${imagePaths.size} exact image references`);
+  console.log(`PASS ${slugs.length * 2} destination shells, ${slugs.length} shared records, ${imagePaths.size} exact image references`);
 }

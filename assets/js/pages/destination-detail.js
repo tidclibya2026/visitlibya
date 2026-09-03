@@ -7,9 +7,9 @@
   const lang = document.documentElement.lang?.toLowerCase().startsWith("ar") ? "ar" : "en";
   const t = (value) => value?.[lang] || value?.en || "";
   const ui = lang === "ar" ? {
-    explore:"استكشف الوجهة", atlas:"الأطلس السياحي", intro:"اكتشف", highlights:"أبرز المعالم", highlightsTitle:"لماذا تزور هذه الوجهة؟", experiences:"تجارب المكان", experiencesTitle:"ما يمكن رؤيته وفعله", gallery:"معرض الوجهة", practical:"قبل أن تذهب", continue:"واصل استكشاف ليبيا", details:"استكشف الوجهة", missing:"تعذر تحميل تفاصيل هذه الوجهة.", back:"العودة إلى الوجهات"
+    explore:"استكشف الوجهة", atlas:"الأطلس السياحي", intro:"اكتشف", highlights:"أبرز المعالم", highlightsTitle:"لماذا تزور هذه الوجهة؟", experiences:"تجارب المكان", experiencesTitle:"ما يمكن رؤيته وفعله", gallery:"معرض الصور", galleryIntro:"اكتشف الوجهة من خلال مجموعة مختارة من الصور.", galleryMore:"عرض المزيد من الصور", galleryLess:"عرض صور أقل", practical:"قبل أن تذهب", continue:"واصل استكشاف ليبيا", details:"استكشف الوجهة", missing:"تعذر تحميل تفاصيل هذه الوجهة.", back:"العودة إلى الوجهات"
   } : {
-    explore:"Explore destination", atlas:"Tourist Atlas", intro:"Discover", highlights:"Signature highlights", highlightsTitle:"Why visit", experiences:"Experience the place", experiencesTitle:"Things to see & do", gallery:"Destination gallery", practical:"Know before you go", continue:"Continue exploring Libya", details:"Explore destination", missing:"This destination could not be loaded.", back:"Back to destinations"
+    explore:"Explore destination", atlas:"Tourist Atlas", intro:"Discover", highlights:"Signature highlights", highlightsTitle:"Why visit", experiences:"Experience the place", experiencesTitle:"Things to see & do", gallery:"Photo gallery", galleryIntro:"Discover the destination through a curated collection of images.", galleryMore:"Show more photos", galleryLess:"Show fewer photos", practical:"Know before you go", continue:"Continue exploring Libya", details:"Explore destination", missing:"This destination could not be loaded.", back:"Back to destinations"
   };
   const el = (tag, cls, text) => { const n=document.createElement(tag); if(cls)n.className=cls; if(text)n.textContent=text; return n; };
   const image = (data, className, eager=false) => { const n=el("img",className); n.src=`${assetPrefix}${data.src}`; n.alt=t(data.alt); n.width=data.width||1600; n.height=data.height||1000; n.decoding="async"; n.loading=eager?"eager":"lazy"; if(eager)n.fetchPriority="high"; return n; };
@@ -38,7 +38,37 @@
 
   const context=el("section","destination-context destination-shell"); const contextCopy=el("div","destination-context__copy"); contextCopy.append(el("p","destination-eyebrow",t(record.type)),el("h2","",t(record.context.title)),el("p","destination-lede",t(record.context.body))); const contextMedia=el("div","destination-context__media"); contextMedia.append(image(record.context.image,"destination-editorial-image")); context.append(contextCopy,contextMedia); app.append(context);
 
-  const gallery=el("section","destination-gallery destination-shell"); gallery.append(heading(ui.gallery,t(record.name))); const mosaic=el("div","destination-gallery__mosaic"); record.gallery.forEach((g,i)=>{const figure=el("figure",`destination-gallery__item destination-gallery__item--${(i%5)+1}`); figure.append(image(g,"")); mosaic.append(figure);}); gallery.append(mosaic); app.append(gallery);
+  const gallery=el("section","destination-gallery destination-shell");
+  const galleryHead=heading(ui.gallery,t(record.name));
+  gallery.append(galleryHead,el("p","destination-gallery__intro",ui.galleryIntro));
+  const mosaic=el("div","destination-gallery__mosaic");
+
+  record.gallery.forEach((g,i)=>{
+    const figure=el("figure","destination-gallery__item");
+    if(i>=8) figure.classList.add("destination-gallery__item--extra");
+    figure.append(image(g,""),el("figcaption","destination-gallery__caption",t(g.alt)));
+    mosaic.append(figure);
+  });
+
+  gallery.append(mosaic);
+
+  if(record.gallery.length>8){
+    const controls=el("div","destination-gallery__controls");
+    const more=el("button","destination-gallery__more",ui.galleryMore);
+    more.type="button";
+    more.setAttribute("aria-expanded","false");
+
+    more.addEventListener("click",()=>{
+      const expanded=gallery.classList.toggle("destination-gallery--expanded");
+      more.setAttribute("aria-expanded",String(expanded));
+      more.textContent=expanded?ui.galleryLess:ui.galleryMore;
+    });
+
+    controls.append(more);
+    gallery.append(controls);
+  }
+
+  app.append(gallery);
 
   const practical=el("section","destination-practical destination-shell"); practical.append(heading("Visit well",ui.practical)); const pgrid=el("dl","destination-practical__grid"); record.practical.forEach(x=>{const item=el("div","destination-practical__item"); item.append(el("dt","",t(x.label)),el("dd","",t(x.value))); pgrid.append(item);}); practical.append(pgrid); app.append(practical);
 

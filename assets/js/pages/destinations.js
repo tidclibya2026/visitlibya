@@ -18,7 +18,7 @@ const editorialDestinations = Object.freeze([
   ...editorialDestinationAdditions,
 ]);
 const DESTINATION_DETAIL_ROUTES = Object.freeze(new Set([
-  "leptis-magna", "tripoli", "acacus", "sabratha", "ghadames", "awjila", "ras-al-hilal",
+  "leptis-magna", "tripoli", "acacus", "sabratha", "ghadames", "awjila", "ras-al-hilal", "ubari-lakes", "cyrene",
 ]));
 
 const copy = Object.freeze({
