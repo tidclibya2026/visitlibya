@@ -167,6 +167,43 @@ const htmlFiles = files.filter((file) => path.extname(file).toLowerCase() === ".
 const cssFiles = files.filter((file) => path.extname(file).toLowerCase() === ".css");
 const jsFiles = files.filter((file) => /\.(?:js|mjs)$/i.test(file) && !relative(file).startsWith("backend/"));
 const textFiles = files.filter((file) => /\.(?:html|css|js|mjs|md|yml|yaml|example|py)$/i.test(file));
+
+const apiApplicationFiles = jsFiles.filter((file) =>
+  relative(file).startsWith("assets/js/") &&
+  relative(file) !== "assets/js/app/api/client.js"
+);
+for (const file of apiApplicationFiles) {
+  const content = fs.readFileSync(file, "utf8");
+  for (const match of content.matchAll(/["'`]\/api\/v1(?:\/|[?"'`])/g)) {
+    issue("API contract", at(file, content, match.index, "API resource paths must not repeat the runtime-owned /api/v1 prefix"));
+  }
+}
+
+const apiClientModule = await import(pathToFileURL(path.join(root, "assets/js/app/api/client.js")));
+const contractBase = "https://api.example.gov.ly/api/v1/";
+if (apiClientModule.buildApiUrl(contractBase, "/destinations") !== "https://api.example.gov.ly/api/v1/destinations") {
+  issue("API contract", "shared client does not compose an /api/v1 base with /destinations exactly once");
+}
+try {
+  apiClientModule.buildApiUrl(contractBase, "/api/v1/destinations");
+  issue("API contract", "shared client accepts a path that repeats the runtime-owned /api/v1 prefix");
+} catch (error) {
+  if (!(error instanceof TypeError)) issue("API contract", "shared client reports an unexpected error for a duplicated API prefix");
+}
+const requiredResourcePaths = new Map([
+  ["assets/js/app/api/auth-api.js", ["/auth/register", "/auth/login", "/auth/me"]],
+  ["assets/js/app/api/gis-api.js", ["/destinations/spatial/bbox", "/destinations/spatial/nearby"]],
+  ["assets/js/app/api/planner-api.js", ["/planner-runs", "/trips/"]],
+  ["assets/js/app/api/trips-api.js", ["/trips", "/search/destinations"]],
+  ["assets/js/pages/destinations.js", ["/search/destinations"]],
+  ["assets/js/pages/destination-details.js", ["/destinations/"]],
+]);
+for (const [rel, expectedPaths] of requiredResourcePaths) {
+  const content = fs.readFileSync(path.join(root, rel), "utf8");
+  for (const expectedPath of expectedPaths) {
+    if (!content.includes(expectedPath)) issue("API contract", `${rel}: missing expected resource-relative path ${expectedPath}`);
+  }
+}
 const expectedPages = manifest.pagePairs.flatMap(({ page }) => [page, `ar/${page}`]).sort();
 const actualPages = htmlFiles.map(relative).sort();
 
@@ -886,7 +923,7 @@ if (fs.existsSync(allowlistPath)) {
   const iconAllowlist = JSON.parse(fs.readFileSync(allowlistPath, "utf8")).rootFiles ?? [];
   for (const asset of ["visitlibyalogo.png", "favicon.png"]) if (!iconAllowlist.includes(asset)) issue("Visual system", `artifact allowlist omits ${asset}`);
 }const failures = [...sections.values()].reduce((count, items) => count + items.length, 0);
-const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "Curated destinations", "Trip map", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Media delivery", "Visual system", "Image size audit"];
+const orderedSections = ["HTML and parity", "HTML references", "Navigation", "CSS references", "JavaScript modules", "Git tracking", "Runtime configuration", "API contract", "Curated destinations", "Trip map", "Static unavailable states", "Deployment safety", "Release readiness", "Editorial layout", "Media delivery", "Visual system", "Image size audit"];
 
 const extraSections = [...sections.keys()]
   .filter((name) => !orderedSections.includes(name))

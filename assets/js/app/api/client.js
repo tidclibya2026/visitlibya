@@ -128,6 +128,17 @@ function buildBody(body, headers) {
   return JSON.stringify(body);
 }
 
+export function buildApiUrl(apiBaseUrl, path) {
+  const normalizedBase = String(apiBaseUrl ?? "").replace(/\/+$/, "");
+  if (!normalizedBase || typeof path !== "string" || !path.startsWith("/") || path.startsWith("//")) {
+    throw new TypeError("A valid API base URL and resource-relative path are required");
+  }
+  if (path === "/api/v1" || path.startsWith("/api/v1/")) {
+    throw new TypeError("API paths must not repeat the runtime-owned API prefix");
+  }
+  return `${normalizedBase}${path}`;
+}
+
 export function createApiClient(config = loadRuntimeConfig()) {
   async function request(path, options = {}) {
     if (!config.apiEnabled || !config.apiBaseUrl) {
@@ -158,7 +169,7 @@ export function createApiClient(config = loadRuntimeConfig()) {
       if (token) headers.set("Authorization", `Bearer ${token}`);
 
       try {
-        const response = await fetch(`${config.apiBaseUrl}${path}`, {
+        const response = await fetch(buildApiUrl(config.apiBaseUrl, path), {
           method,
           headers,
           body: ["GET", "HEAD"].includes(method)
