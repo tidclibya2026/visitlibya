@@ -90,6 +90,24 @@
       "alternate": "ar/destinations/ras-al-hilal.html"
     },
     {
+      "page": "destinations/cyrene.html",
+      "classification": "static-curated-fallback",
+      "controller": "assets/js/pages/destination-detail.js",
+      "runtime": "bilingual-destination-detail",
+      "indexable": true,
+      "sitemap": true,
+      "alternate": "ar/destinations/cyrene.html"
+    },
+    {
+      "page": "destinations/ubari-lakes.html",
+      "classification": "static-curated-fallback",
+      "controller": "assets/js/pages/destination-detail.js",
+      "runtime": "bilingual-destination-detail",
+      "indexable": true,
+      "sitemap": true,
+      "alternate": "ar/destinations/ubari-lakes.html"
+    },
+    {
       "page": "experiences.html",
       "classification": "fully-static",
       "indexable": true,
