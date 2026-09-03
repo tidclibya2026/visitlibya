@@ -42,7 +42,7 @@ export async function getDestinationBBox({
   });
 
   const payload = await apiClient.get(
-    `/api/v1/destinations/spatial/bbox?${query}`,
+    `/destinations/spatial/bbox?${query}`,
     {
       signal,
       retries: 1,
@@ -67,7 +67,7 @@ export async function getNearbyDestinations({
   });
 
   const payload = await apiClient.get(
-    `/api/v1/destinations/spatial/nearby?${query}`,
+    `/destinations/spatial/nearby?${query}`,
     {
       signal,
       retries: 1,
