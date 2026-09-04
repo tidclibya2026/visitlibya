@@ -86,8 +86,6 @@ jobs:
           ! find . -type f \( -name '*.tf' -o -name '*.tfvars' -o -name 'render.yaml' -o -name 'railway.json' -o -name 'fly.toml' -o -name 'Chart.yaml' \) -print -quit | grep .
           ! grep -Eiq 'PASSWORD[[:space:]]+['"'"'][^'"'"']+|\bDROP\b' deploy/database/roles.example.sql
           ! grep -Eiq 'docker[[:space:]]+push|kubectl|terraform[[:space:]]+(apply|destroy)|aws[[:space:]]|az[[:space:]]|gcloud[[:space:]]' deploy scripts/deployment
-          ! grep -Eq 'apiEnabled:[[:space:]]*true' config/frontend-config.js
-          grep -Eq 'apiEnabled:[[:space:]]*false' config/frontend-config.js
           ! grep -Eq '(^|[^A-Za-z])5432:5432' deploy/environment/*.example docker-compose.production.example.yml
           ! grep -Eiq '^CMD .*alembic|uvicorn.*alembic|alembic.*uvicorn' backend/Dockerfile deploy/container-runtime-contract.md
 

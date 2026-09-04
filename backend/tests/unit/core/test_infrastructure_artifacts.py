@@ -49,11 +49,13 @@ def test_templates_contain_no_active_production_credentials_or_hostname() -> Non
     assert not re.search(r"TRUSTED_HOSTS=(?!<)[^\r\n]+", production + staging)
 
 
-def test_frontend_stays_disabled() -> None:
+def test_frontend_stays_disabled_except_on_loopback() -> None:
     frontend = read("config/frontend-config.js")
-    assert 'apiBaseUrl: ""' in frontend
-    assert "apiEnabled: false" in frontend
-    assert 'deploymentEnvironment: "static"' in frontend
+    assert 'hostname === "localhost"' in frontend
+    assert 'hostname === "127.0.0.1"' in frontend
+    assert 'isLocal ? "http://127.0.0.1:8001/api/v1" : ""' in frontend
+    assert "apiEnabled: isLocal" in frontend
+    assert 'deploymentEnvironment: isLocal ? "local" : "static"' in frontend
 
 
 def test_cors_documentation_uses_exact_confirmed_origin() -> None:

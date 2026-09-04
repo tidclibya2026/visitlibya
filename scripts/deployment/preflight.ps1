@@ -27,8 +27,8 @@ $requiredFiles = @(
   'backend/scripts/check_migrations.py'
 )
 foreach ($file in $requiredFiles) { if (-not (Test-Path (Join-Path $root $file))) { Fail "Required artifact is missing: $file" } }
-$frontend = Get-Content (Join-Path $root 'config/frontend-config.js') -Raw
-if ($frontend -notmatch 'apiEnabled:\s*false' -or $frontend -notmatch 'apiBaseUrl:\s*""' -or $frontend -notmatch 'deploymentEnvironment:\s*"static"') { Fail 'Frontend runtime is not API-disabled.' }
+& node (Join-Path $root 'scripts/validate-frontend.mjs')
+if ($LASTEXITCODE -ne 0) { Fail 'Frontend runtime configuration policy is invalid.' }
 
 if ($errors.Count) { foreach ($message in $errors) { Write-Error $message }; Write-Output 'Preflight failed; no deployment was performed.'; exit 1 }
 Write-Output 'Preflight passed; no deployment, database connection, image push, or cloud action was performed.'

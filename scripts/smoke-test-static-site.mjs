@@ -285,15 +285,25 @@ try {
     } finally { globalThis.fetch = originalFetch; }
   });
 
-  await test("committed runtime config is static-safe and hostname-free", () => {
+  await test("committed runtime config enables only local loopback hosts", () => {
     const source = fs.readFileSync(path.join(root, "config/frontend-config.js"), "utf8");
-    const sandbox = { window: {} };
-    vm.runInNewContext(source, sandbox, { filename: "config/frontend-config.js" });
-    const config = sandbox.window.VISIT_LIBYA_CONFIG;
-    assert(config.apiEnabled === false, "apiEnabled is not false");
-    assert(config.apiBaseUrl === "", "apiBaseUrl is not empty");
-    assert(config.deploymentEnvironment === "static", "deploymentEnvironment is not static");
-    assert(!/https?:\/\/[^\s"']+/.test(source), "a production/API hostname is committed");
+    const evaluate = (hostname) => {
+      const sandbox = { window: { location: { hostname } } };
+      vm.runInNewContext(source, sandbox, { filename: "config/frontend-config.js" });
+      return sandbox.window.VISIT_LIBYA_CONFIG;
+    };
+    for (const hostname of ["localhost", "127.0.0.1"]) {
+      const config = evaluate(hostname);
+      assert(config.apiEnabled === true, `${hostname} does not enable the API`);
+      assert(config.apiBaseUrl === "http://127.0.0.1:8001/api/v1", `${hostname} has the wrong API URL`);
+      assert(config.deploymentEnvironment === "local", `${hostname} is not local`);
+    }
+    for (const hostname of ["tidclibya2026.github.io", "visitlibya.example", ""]) {
+      const config = evaluate(hostname);
+      assert(config.apiEnabled === false, `${hostname || "empty host"} enables the API`);
+      assert(config.apiBaseUrl === "", `${hostname || "empty host"} exposes an API URL`);
+      assert(config.deploymentEnvironment === "static", `${hostname || "empty host"} is not static`);
+    }
   });
 
   const curatedPath = path.join(root, "assets/js/data/curated-destinations.js");

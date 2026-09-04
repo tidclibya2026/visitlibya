@@ -22,11 +22,13 @@ def test_production_dockerfile_is_hardened() -> None:
     assert "gcc" not in content and "libpq-dev" not in content
 
 
-def test_frontend_runtime_remains_inactive() -> None:
+def test_frontend_runtime_is_local_only() -> None:
     content = (ROOT / "config/frontend-config.js").read_text(encoding="utf-8")
-    assert "apiEnabled: false" in content
-    assert 'apiBaseUrl: ""' in content
-    assert 'deploymentEnvironment: "static"' in content
+    assert 'hostname === "localhost"' in content
+    assert 'hostname === "127.0.0.1"' in content
+    assert 'isLocal ? "http://127.0.0.1:8001/api/v1" : ""' in content
+    assert "apiEnabled: isLocal" in content
+    assert 'deploymentEnvironment: isLocal ? "local" : "static"' in content
 
 
 def test_sensitive_operator_file_is_ignored() -> None:
