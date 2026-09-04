@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import process from "node:process";
 import { spawnSync } from "node:child_process";
+import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 import { inject } from "./inject-release-metadata.mjs";
 import { render, origin } from "./generate-sitemap.mjs";
@@ -35,9 +36,44 @@ function rejectUnsafeText(file, content) {
   const rel = relative(file, output);
   if (/^(?:<{7}|={7}|>{7})/m.test(content)) throw new Error(`Unresolved merge marker in ${rel}`);
   if (rel === "config/frontend-config.js") {
-    if (/https?:\/\/(?:localhost|127\.0\.0\.1|10(?:\.\d{1,3}){3}|192\.168(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2})(?:[:/]|$)/i.test(content)) throw new Error("Unsafe public runtime URL");
-    if (!/apiEnabled:\s*false/.test(content) || !/apiBaseUrl:\s*["']{2}/.test(content) || !/deploymentEnvironment:\s*["']static["']/.test(content)) throw new Error("Public runtime configuration is not static-safe");
-    if (/\b(?:apiKey|api_key|password|secret|token)\s*:\s*["'][^"']+["']/i.test(content)) throw new Error("Populated secret-like public runtime value");
+    const approvedLoopbackUrl = "http://127.0.0.1:8001/api/v1";
+    const publicContent = content.replaceAll(approvedLoopbackUrl, "");
+
+    if (/https?:\/\/(?:localhost|127\.0\.0\.1|10(?:\.\d{1,3}){3}|192\.168(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2})(?:[:/]|$)/i.test(publicContent)) {
+      throw new Error("Unsafe public runtime URL");
+    }
+
+    const evaluate = (hostname) => {
+      const sandbox = { window: { location: { hostname } } };
+      vm.runInNewContext(content, sandbox, { filename: rel });
+      return sandbox.window.VISIT_LIBYA_CONFIG;
+    };
+
+    for (const hostname of ["localhost", "127.0.0.1", "[::1]"]) {
+      const config = evaluate(hostname);
+      if (
+        config?.apiEnabled !== true ||
+        config?.apiBaseUrl !== approvedLoopbackUrl ||
+        config?.deploymentEnvironment !== "local"
+      ) {
+        throw new Error(`Invalid local runtime configuration for ${hostname}`);
+      }
+    }
+
+    for (const hostname of ["tidclibya2026.github.io", "visitlibya.example", ""]) {
+      const config = evaluate(hostname);
+      if (
+        config?.apiEnabled !== false ||
+        config?.apiBaseUrl !== "" ||
+        config?.deploymentEnvironment !== "static"
+      ) {
+        throw new Error(`Public runtime configuration is not static-safe for ${hostname || "(empty)"}`);
+      }
+    }
+
+    if (/\b(?:apiKey|api_key|password|secret|token)\s*:\s*["'][^"']+["']/i.test(content)) {
+      throw new Error("Populated secret-like public runtime value");
+    }
   }
 }
 

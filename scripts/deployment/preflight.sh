@@ -20,9 +20,40 @@ for file in \
   backend/scripts/check_migrations.py; do
   [[ -f "$root/$file" ]] || fail "Required artifact is missing: $file"
 done
-grep -Eq 'apiEnabled:[[:space:]]*false' "$root/config/frontend-config.js" || fail 'Frontend apiEnabled is not false.'
-grep -Eq 'apiBaseUrl:[[:space:]]*""' "$root/config/frontend-config.js" || fail 'Frontend apiBaseUrl is not empty.'
-grep -Eq 'deploymentEnvironment:[[:space:]]*"static"' "$root/config/frontend-config.js" || fail 'Frontend environment is not static.'
+node --input-type=module <<'NODE' || fail 'Frontend runtime configuration is not deployment-safe.'
+import fs from "node:fs";
+import vm from "node:vm";
+
+const source = fs.readFileSync("config/frontend-config.js", "utf8");
+
+function evaluate(hostname) {
+  const sandbox = { window: { location: { hostname } } };
+  vm.runInNewContext(source, sandbox, { filename: "config/frontend-config.js" });
+  return sandbox.window.VISIT_LIBYA_CONFIG;
+}
+
+for (const hostname of ["localhost", "127.0.0.1", "[::1]"]) {
+  const config = evaluate(hostname);
+  if (
+    config?.apiEnabled !== true ||
+    config?.apiBaseUrl !== "http://127.0.0.1:8001/api/v1" ||
+    config?.deploymentEnvironment !== "local"
+  ) {
+    throw new Error(`Invalid local runtime contract for ${hostname}`);
+  }
+}
+
+for (const hostname of ["tidclibya2026.github.io", "visitlibya.example", ""]) {
+  const config = evaluate(hostname);
+  if (
+    config?.apiEnabled !== false ||
+    config?.apiBaseUrl !== "" ||
+    config?.deploymentEnvironment !== "static"
+  ) {
+    throw new Error(`Remote runtime is not static-safe for ${hostname || "(empty)"}`);
+  }
+}
+NODE
 
 if (( errors > 0 )); then printf '%s\n' 'Preflight failed; no deployment was performed.'; exit 1; fi
 printf '%s\n' 'Preflight passed; no deployment, database connection, image push, or cloud action was performed.'

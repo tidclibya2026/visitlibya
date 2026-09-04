@@ -2,6 +2,7 @@ import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
+import vm from "node:vm";
 import { fileURLToPath } from "node:url";
 
 const sourceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -90,8 +91,40 @@ for (const file of files) {
 }
 
 const config = fs.readFileSync(path.join(directory, "config/frontend-config.js"), "utf8");
-if (!/apiEnabled:\s*false/.test(config) || !/apiBaseUrl:\s*["']{2}/.test(config) || !/deploymentEnvironment:\s*["']static["']/.test(config)) errors.push("public runtime configuration is not static-safe");
-if (/https?:\/\/(?:localhost|127\.0\.0\.1|10\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)/i.test(config)) errors.push("private runtime URL");
+const approvedLoopbackUrl = "http://127.0.0.1:8001/api/v1";
+const publicConfigText = config.replaceAll(approvedLoopbackUrl, "");
+
+if (/https?:\/\/(?:localhost|127\.0\.0\.1|10\.|192\.168\.|172\.(?:1[6-9]|2\d|3[01])\.)/i.test(publicConfigText)) {
+  errors.push("private runtime URL");
+}
+
+function evaluateRuntimeConfig(hostname) {
+  const sandbox = { window: { location: { hostname } } };
+  vm.runInNewContext(config, sandbox, { filename: "config/frontend-config.js" });
+  return sandbox.window.VISIT_LIBYA_CONFIG;
+}
+
+for (const hostname of ["localhost", "127.0.0.1", "[::1]"]) {
+  const runtime = evaluateRuntimeConfig(hostname);
+  if (
+    runtime?.apiEnabled !== true ||
+    runtime?.apiBaseUrl !== approvedLoopbackUrl ||
+    runtime?.deploymentEnvironment !== "local"
+  ) {
+    errors.push(`local runtime configuration invalid for ${hostname}`);
+  }
+}
+
+for (const hostname of ["tidclibya2026.github.io", "visitlibya.example", ""]) {
+  const runtime = evaluateRuntimeConfig(hostname);
+  if (
+    runtime?.apiEnabled !== false ||
+    runtime?.apiBaseUrl !== "" ||
+    runtime?.deploymentEnvironment !== "static"
+  ) {
+    errors.push(`public runtime configuration is not static-safe for ${hostname || "(empty)"}`);
+  }
+}
 const hasSitemap = fs.existsSync(path.join(directory, "sitemap.xml"));
 for (const entry of manifest.pagePairs) for (const rel of [entry.page, `ar/${entry.page}`]) {
   const html = fs.readFileSync(path.join(directory, rel), "utf8");
