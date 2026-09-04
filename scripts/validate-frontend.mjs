@@ -3,6 +3,7 @@ import path from "node:path";
 import process from "node:process";
 import { createHash } from "node:crypto";
 import { spawnSync } from "node:child_process";
+import vm from "node:vm";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -11,6 +12,7 @@ const manifest = JSON.parse(fs.readFileSync(manifestPath, "utf8"));
 const sections = new Map();
 const warnings = [];
 const approvedLocalReferences = new Set([
+  "config/frontend-config.js",
   "config/frontend-config.example.js",
   "assets/js/app/config/runtime-config.js",
   "docs/frontend-architecture.md",
@@ -375,12 +377,24 @@ for (const file of files) {
 }
 const publicConfigFile = path.join(root, "config/frontend-config.js");
 const publicConfig = fs.readFileSync(publicConfigFile, "utf8");
-if (!/apiEnabled:\s*false\b/.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: committed apiEnabled must be false");
-if (!/apiBaseUrl:\s*["']\s*["']/.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: committed apiBaseUrl must be empty");
-if (!/deploymentEnvironment:\s*["']static["']/.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: committed environment must be static");
-if (/apiEnabled:\s*true\b/.test(publicConfig) && !/apiBaseUrl:\s*["']https:\/\//.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: enabled non-local configuration must use HTTPS");
+const evaluatePublicConfig = (hostname) => {
+  const sandbox = { window: { location: { hostname } } };
+  try {
+    vm.runInNewContext(publicConfig, sandbox, { filename: "config/frontend-config.js" });
+    return sandbox.window.VISIT_LIBYA_CONFIG;
+  } catch {
+    return null;
+  }
+};
+for (const hostname of ["localhost", "127.0.0.1"]) {
+  const config = evaluatePublicConfig(hostname);
+  if (config?.apiEnabled !== true || config?.apiBaseUrl !== "http://127.0.0.1:8001/api/v1" || config?.deploymentEnvironment !== "local") issue("Runtime configuration", `config/frontend-config.js: ${hostname} must enable the local API contract`);
+}
+for (const hostname of ["tidclibya2026.github.io", "visitlibya.example", ""]) {
+  const config = evaluatePublicConfig(hostname);
+  if (config?.apiEnabled !== false || config?.apiBaseUrl !== "" || config?.deploymentEnvironment !== "static") issue("Runtime configuration", `config/frontend-config.js: remote/static host ${hostname || "(empty)"} must remain API-disabled`);
+}
 if (/\b(?:token|secret|password|apiKey|authorization)\s*:/i.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: token-like or secret-like configuration field is forbidden");
-if (/https?:\/\/[^\s"']+/i.test(publicConfig)) issue("Runtime configuration", "config/frontend-config.js: production/API hostname must not be committed in static mode");
 
 const configAssignments = jsFiles.filter((file) => /VISIT_LIBYA_CONFIG\s*=/.test(fs.readFileSync(file, "utf8"))).map(relative);
 for (const assignment of configAssignments) {
@@ -575,7 +589,8 @@ try { if (validateReleaseOrigin("https://example.com/") !== "https://example.com
 const publicConfigPath = path.join(root, "config/frontend-config.js");
 if (fs.existsSync(publicConfigPath)) {
   const publicConfig = fs.readFileSync(publicConfigPath, "utf8");
-  if (/https?:\/\/(?:localhost|127\.0\.0\.1|10(?:\.\d{1,3}){3}|192\.168(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2}|[^/]*\.(?:test|invalid))(?:[:/]|$)/i.test(publicConfig)) issue("Deployment safety", "config/frontend-config.js: localhost, private, or test URL in public runtime configuration");
+  const configWithoutApprovedLoopback = publicConfig.replaceAll("http://127.0.0.1:8001/api/v1", "");
+  if (/https?:\/\/(?:localhost|127\.0\.0\.1|10(?:\.\d{1,3}){3}|192\.168(?:\.\d{1,3}){2}|172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2}|[^/]*\.(?:test|invalid))(?:[:/]|$)/i.test(configWithoutApprovedLoopback)) issue("Deployment safety", "config/frontend-config.js: unexpected localhost, private, or test URL in public runtime configuration");
   if (/\b(?:apiKey|api_key|password|secret|token)\s*[:=]\s*["''][^"'']+["'']/i.test(publicConfig)) issue("Deployment safety", "config/frontend-config.js: possible public secret value");
 }
 const publicHtml = new Map(htmlByRelative);
